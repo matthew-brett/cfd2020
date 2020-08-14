@@ -1,0 +1,181 @@
+---
+jupyter:
+  jupytext:
+    split_at_heading: true
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.1'
+      jupytext_version: 1.2.4
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+## Making and filling arrays.
+
+```{python}
+import numpy as np
+```
+
+You have seen how to create arrays from a sequence of values:
+
+```{python}
+np.array([1, 2, 3])
+```
+
+You have also seen how to create arrays that are sequential integers, using `np.arange`:
+
+```{python}
+np.arange(5)
+```
+
+We often find that we want to create an empty or default array, that we will fill later.
+
+Numpy has routines for that.  The main ones we will use are `np.zeros` and `np.ones`.
+
+You can guess what they do:
+
+```{python}
+np.zeros(5)
+```
+
+```{python}
+np.ones(5)
+```
+
+These arrays aren't very useful at the moment; usually, we will want to fill in the elements of these arrays with other values.
+
+We can do that using *assignment*.
+
+Remember the basic assignment statement.  We have so far learned that the assignment statement is a *name* followed by `=` followed by an expression (a recipe that returns a value).
+
+```{python}
+# An assignment statement
+a = 1
+a
+```
+
+Here the left hand side (LHS) is `a`.
+
+The right hand side (RHS) is an expression: `1`.
+
+We can read `a = 1` as "a gets the value 1."  We can also read it as: "Make the location called 'a' point to the value 1."
+
+
+So far, the left hand side (LHS) has always been a *name*.
+
+In fact, the LHS can be anything we can *assign* to.
+
+Remember too that we can retrieve values from an array by *indexing*.
+
+Here is an example array:
+
+```{python}
+my_array = np.arange(1, 11)
+my_array
+```
+
+We can retrieve one or more values by indexing:
+
+```{python}
+my_array[1]
+```
+
+```{python}
+my_array[5:]
+```
+
+In fact we can use these exact same specifications on the LHS of an assignment statement:
+
+```{python}
+my_array[1] = 99
+my_array
+```
+
+```{python}
+my_array[5:] = 100
+my_array
+```
+
+When you use array indexing on the LHS, it means *specify the elements to assign*.  So:
+
+* `my_array[5]` on the RHS means - get the value at offset 5 in `my_array`
+* `my_array[5]` on the LHS means - use this location to store the data returned from the RHS.
+
+So we can read `my_array[1] = 99` as "Make the location 'my_array[5]' point to the value 99.".
+
+
+Remember too that we can get array values using Boolean arrays:
+
+```{python}
+# Create the Boolean array
+another_array = np.array([2, 3, 4, 2, 1, 5, 1, 0, 3])
+are_gt_2 = another_array > 2
+are_gt_2
+```
+
+```{python}
+# Get the values by indexing with the Boolean array.
+# Return only the values of 'another_array' where the Boolean array has True.
+another_array[are_gt_2]
+```
+
+Given what you know, what do you think would happen with:
+
+```
+another_array[are_gt_2] = 10
+another_array
+```
+
+Try it.
+
+## Using array assignment for simulations
+
+
+So far this is a bit abstract, but we will often use this kind of assignment when we create arrays, and then fill them in.
+
+For example, remember the solution to the three girls problem.  Our first approach to this, in [leaping ahead](leaping_ahead) was to use `np.append` to append values to the end of an array, as we run through the loop:
+
+```{python}
+# Reset the counts array to empty.
+counts = np.array([])
+
+# Repeat the indented stuff 10000 times.
+for i in np.arange(10000):
+    # The procedure for one family.
+    family = np.random.randint(0, 2, size=4)
+    count = np.sum(family)
+    # Store the count in the counts array.
+    counts = np.append(counts, count)
+
+# Proportion
+np.count_nonzero(counts == 3) / 10000
+```
+
+This works fine for relatively small numbers of iterations, such as 10000 (yes, that is small for the computer!).  Try changing the 10000 above to 1000000 and you will find it becomes very slow.  This is because it is inefficient to make a new array each time we go through the loop, which is what we have to do using `np.append`.   Each new array is one element longer than the last, so by the end of the one million iterations we will be making a new array of nearly one million values for each time through the loop.
+
+
+It is much more efficient to:
+
+* Create an empty array to store the results
+* Fill in each element for each time we go through the loop.
+
+```{python}
+# Reset the counts array to empty (all zeros)
+counts = np.zeros(10000)
+
+# Repeat the indented stuff 10000 times.
+for i in np.arange(10000):
+    # The procedure for one family.
+    family = np.random.randint(0, 2, size=4)
+    count = np.sum(family)
+    # Fill in the corresponding value in the counts array.
+    counts[i] = count
+
+# Proportion
+np.count_nonzero(counts == 3) / 10000
+```
+
+We will use loops like these many times to solve problems in statistics.

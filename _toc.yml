@@ -1,5 +1,8 @@
-file: markdown
-sections:
-- file: content
 - file: intro
-- file: notebooks
+- part: Coding for data
+  chapters:
+  - file: intro/what-is-data-science
+  - file: intro/why-data-science
+  - file: intro/tools_techniques
+  - sections:
+    - file: intro/computational-tools

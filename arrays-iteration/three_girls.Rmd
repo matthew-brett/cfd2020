@@ -1,0 +1,231 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.0'
+      jupytext_version: 0.8.5
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  language_info:
+    codemirror_mode:
+      name: ipython
+      version: 3
+    file_extension: .py
+    mimetype: text/x-python
+    name: python
+    nbconvert_exporter: python
+    pygments_lexer: ipython3
+    version: 3.7.1
+---
+
+# Three girls
+
+In which we solve the three-girls-in-family problem.
+
+
+## The problem
+
+If there is a family of four children, what is the chance that
+family will consist of exactly three girls and one boy?
+
+We decided we could simulate this situation, by taking four
+random numbers, between 0 and 1.  For each number, if it is less
+than 0.5, we label this as a girl, otherwise we label it as
+a boy.  Then we could count how many girls we got.  That is one
+family.  We repeat the procedure many times, and count how many
+families have three girls (three of four random numbers less
+than 0.5).
+
+
+## A simulation
+
+```{python}
+import numpy as np
+np.set_printoptions(precision=2)
+```
+
+First we do a simulation of a single family.
+
+Start with 4 random numbers, between 0 and 1.
+
+We could do these one at a time:
+
+```{python}
+first_child = np.random.uniform()
+first_child
+```
+
+```{python}
+second_child = np.random.uniform()
+second_child
+```
+
+```{python}
+third_child = np.random.uniform()
+third_child
+```
+
+```{python}
+fourth_child = np.random.uniform()
+fourth_child
+```
+
+That gets boring.  It is neater to make an array of 4 numbers in one shot, like this:
+
+```{python}
+one_family = np.random.uniform(size=4)
+one_family
+```
+
+Arrays allow us to do the same operation on all the elements.
+
+For example, we can ask whether each random number is less than
+0\.5.
+
+```{python}
+girls = one_family < 0.5
+girls
+```
+
+Notice that the new array, `girls`, has four elements, like the
+original array `one_family`.  At each position in the `girls`
+array, there is a `True` if the corresponding element in
+`one_family` was less than 0.5, and `False` otherwise.
+
+We consider `True` to mean "girl" and `False` to mean "boy".  To count the number of girls in this family, we need to count the number of `True` values in the array.
+
+```{python}
+n_girls = np.count_nonzero(girls)
+n_girls
+```
+
+That is the result of our simulation, for one family.
+
+We want to do this many times.  How would we do that?
+
+One way is to make a two-dimensional array of random numbers.
+
+A two-dimensional array has rows and columns.
+
+In our case, the row will be a single family.  There are four columns, so each row has four elements, corresponding to the four children in the family.
+
+Here we get ready to simulate 10 families, with one 2D array.
+
+```{python}
+ten_families = np.random.uniform(size=(10, 4))
+ten_families
+```
+
+Notice the `size=` argument to `np.random.uniform`.  When we
+wanted an array of 4 values the size was `4`.  Now we want a 2D
+array, the size is two values, between parentheses, the first
+value is the number of rows, and the second is the number of
+columns.
+
+We can apply our test `< 0.5` to all the 10 * 4 elements at the
+same time.
+
+```{python}
+are_girls = ten_families < 0.5
+are_girls
+```
+
+Remember, each row represents a family, and each `True` value
+represents a girl.  We want to count how many `True` values
+there are in each row.  We can try `np.count_nonzero` on this
+array, but:
+
+```{python}
+np.count_nonzero(are_girls)
+```
+
+By default, `np.count_nonzero` counts the number of True values in the entire 2D array.
+
+We want it to count the number of `True` value in each *row*.
+
+We can do that, by using the `axis` argument to
+`np.count_nonzero`.  See [Arrays and axes](arrays_and_axes) for
+a more detailed explanation.
+
+```{python}
+n_girls = np.count_nonzero(are_girls, axis=1)
+n_girls
+```
+
+`n_girls` has one element per *row* in the `are_girls` array.  The element corresponding to the first row, has the count of `True` values in the first row, and so on.
+
+Now we need to ask the question, how many of the counts in `n_girls` are equal to 3?
+
+To do this, we can use another comparison operator, like `<` in
+as in `< 0.5`.  The operator is `==`.   Notice the double `=`
+sign, together.   It is a test, that returns `True` or `False`.
+For example:
+
+```{python}
+4 == 3
+```
+
+```{python}
+4 == 4
+```
+
+These are expressions, because they return values.
+
+Compare to the single equals, which is the assignment operator, in an assignment expression.
+
+```{python}
+a = 4
+```
+
+Notice this does not return anything, because it is not an expression, it is an assignment statement.  `a` now has the value 4.
+
+```{python}
+a
+```
+
+We can test whether the value of `a` is 4 like this:
+
+```{python}
+a == 4
+```
+
+This is an equality test expression, so it does return a value.
+
+How does this operate on arrays?   It operates the same way as the other comparison operators - element by element:
+
+```{python}
+my_array = np.array([2, 3, 4, 2])
+my_array
+```
+
+```{python}
+my_array == 2
+```
+
+We can use this trick on the `n_girl` array, to find counts that are equal to 3.
+
+```{python}
+n_girls == 3
+```
+
+To find the number of 3s in `n_girls`:
+
+```{python}
+np.count_nonzero(n_girls == 3)
+```
+
+Now the proportion of the counts, that are equal to 3:
+
+```{python}
+prop_3 = np.count_nonzero(n_girls == 3) / 10
+prop_3
+```
+
+## Exercises
+
+See [three girl simulation exercises](../exercises/three_girl_simulations) for
+some exercises to extend the simulation on this page.

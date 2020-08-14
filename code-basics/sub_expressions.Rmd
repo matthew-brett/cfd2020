@@ -1,0 +1,157 @@
+---
+jupyter:
+  anaconda-cloud: {}
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.0'
+      jupytext_version: 0.8.1
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  language_info:
+    codemirror_mode:
+      name: ipython
+      version: 3
+    file_extension: .py
+    mimetype: text/x-python
+    name: python
+    nbconvert_exporter: python
+    pygments_lexer: ipython3
+    version: 3.5.2
+---
+
+The [expressions](Expressions) page introduced the idea of expressions as:
+
+> a recipe that returns a value.
+
+When Python *evaluates* an expression, it follows the recipe to return the
+value.
+
+In this page we go into a little more detail on expressions, and we consider sub-expressions.
+
+We do this to get used to the more general idea in programming, of building
+complex things from simple building blocks, according to simple rules.
+
+A large part of learning how to program is understanding what the computer is doing as a result of the code you type.  You can do this by breaking down code into simpler building blocks, and understanding how the parts are combined.
+
+Consider this expression:
+
+```{python}
+(10.50 + 9.25) * 0.15
+```
+
+Here is the full process that Python goes through, when evaluating `(10.50 + 9.25) * 0.15`. Python will:
+
+* evaluate the expression `10.50` to give the computer representation (CR) of 10.50;
+* evaluate the expression `9.25` to give the CR of 10.50;
+* evaluate the expression 10.50 `+` 9.25 to give the CR of 19.75;
+* evaluate the expression 19.75 `*` 0.15 to give the CR of 2.9625.
+
+## Sub-expressions
+
+A *compound* expression is an expression made up of smaller *sub-expressions*.
+
+A *sub-expression* is a smaller part of the compound expression, that Python will evaluate as part of evaluating the compound expression.
+
+For example: here is a compound expression, made up of two sub-expressions:
+
+```{python}
+10.50 + 9.25
+```
+
+The two sub-expressions are:
+
+* `10.50`: an expression that returns the CR of the number 10.50;
+* `9.25`: an expression that returns the CR of the number 9.25.
+
+When Python evaluates `10.50 + 9.25`, it first evaluates these two sub-expressions, then evaluates the final result by adding the results of these two sub-expressions.
+
+Reconsider:
+
+```{python}
+(10.50 + 9.25) * 0.15
+```
+
+There are four sub-expressions here:
+
+* `10.50` as above;
+* `9.25` as above;
+* `0.15` returns the CR of the number 0.15;
+* `(10.50 + 9.25)` is a compound expression that is itself a sub-expression of
+  the full expression above.  It returns the CR of the
+  number 19.75.
+
+Each of these sub-expressions will be evaluated in the process of evaluating `(10.50 + 9.25) * 0.15`.
+
+Now consider:
+
+```{python}
+10.50 + 9.25 * 0.15
+```
+
+Be careful - remember the rules of [operator precedence](https://en.wikipedia.org/wiki/Order_of_operations).
+
+Let's think again what Python will do here.  It will:
+
+* evaluate the expression `10.50` to gives the CR of 10.50;
+* evaluate the expression `9.25` to gives the CR of 10.50;
+* (because of the precedence rules) evaluate  9.25 `*` 1.15 to give the
+  CR of 1.3875;
+* evaluate 10.50 `*` 1.3875 to give the CR of 11.8875.
+
+So, these are the sub-expressions:
+
+* `10.50`;
+* `9.25`;
+* `0.15`;
+* `9.25 * 0.15`.
+
+Note that `10.50 + 9.25` is *not* a sub-expression, because this does not return a value, in the process of evaluating the whole expression.  The value that `9.25` is involved in is 9.25 * 1.3875, where 1.3875 is the value that comes back from `9.25 * 0.15` above.
+
+Let's say I have imported my `cos` function (see the [functions](functions) page):
+
+```{python}
+# Get the cos function from the numpy library.
+from numpy import cos
+```
+
+Now consider:
+
+```{python}
+cos(0)
+```
+
+`cos(0)` is an expression, because it is a recipe that returns a value.   In fact, it is a [call expression](Calls).
+
+There is one sub-expression to this expression, which is:
+
+* `0` returns the CR of 0;
+
+```{python}
+cos(0) + 2
+```
+
+has three sub-expressions:
+
+* `0` returns the CR of 0;
+* `cos( )` with argument 0, from above, returns the CR of the number 1;
+* `2` returns the CR of 2.
+
+
+Finally, let's say I have defined this variable:
+
+```{python}
+a = 10.50
+```
+
+Here is an expression:
+
+```{python}
+a
+```
+
+It is an expression because it is a recipe that returns a value - in this
+case, the CR of the number 10.50.
