@@ -50,7 +50,7 @@ There's some code below, that will error, because the assignment
 statement does not set `func` to have the value we need. Set `func`
 correctly so the result equals 2:
 
-```{python}
+```{python tags=c("raises-exception")}
 func = add
 func(10, 8)
 ```
@@ -58,7 +58,7 @@ func(10, 8)
 Set `my_func1` and `my_func2` in the code fragment below, so that the
 result is 12:
 
-```{python}
+```{python tags=c("raises-exception")}
 my_func1 = # Your code here
 my_func2 = # Your code here
 my_func1(8, 2) + my_func2(3, 3)
@@ -75,7 +75,7 @@ def do_it(f, x, y):
 
 Set `another_func` so the result returned is 4:
 
-```{python}
+```{python tags=c("raises-exception")}
 another_func = # Your code here
 do_it(another_func, 1, 3)
 ```

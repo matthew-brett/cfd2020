@@ -43,7 +43,7 @@ def add(first_value, second_value)
     return first_value + second_value
 ```
 
-```{python}
+```{python tags=c("raises-exception")}
 add(2, 3)
 ```
 
@@ -54,7 +54,7 @@ def cube(a_variable):
 return a_variable ** 2
 ```
 
-```{python}
+```{python tags=c("raises-exception")}
 cube(3)
 ```
 
