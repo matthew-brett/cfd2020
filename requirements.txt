@@ -4,3 +4,4 @@ pandas
 xlrd
 scipy
 ipython
+jupytext[myst]
