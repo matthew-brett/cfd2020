@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Introduction to variables
+
 Remember the problem in [the first notebook](../01/using_jupyter).
 
 Alex and Billie are at a restaurant, getting ready to order. They don't have much money, so they are calculating their expected bill before they order.
@@ -57,16 +59,16 @@ Remember when we calculated the total bill before tip:
 To recap, when you run this code (by typing Shift-Enter) Python makes its own
 representation of `10.50`:
 
-![](../../images/value_10_50.svg)
+![](../images/value_10_50.svg)
 
 It also makes its own representation of `9.25`:
 
-![](../../images/value_9_25.svg)
+![](../images/value_9_25.svg)
 
 Python then runs the *addition* operation on these two, which results in
 Python's representation of `19.75`.
 
-![](../../images/value_19_75.svg)
+![](../images/value_19_75.svg)
 
 Finally, Python sends back the `19.75`.  The notebook detects that Python sent
 back a value, and shows it to us.
@@ -108,7 +110,7 @@ also call it an *object*, but don't worry about that for now).
 
 Next it looks at the LHS, and sees `a`.  It realizes that this is a *name* that we want to give the new *value*.  Then it stores the new value 10.50 with the label `a`, in its *workspace*. Next time we use the label `a` Python will look in its workspace for the label `a`, it will find 10.50, and return it to us.
 
-![](../../images/a_equal_10_50.svg)
+![](../images/a_equal_10_50.svg)
 
 You can read `a = 10.50` as:
 
@@ -150,7 +152,7 @@ We read the first two lines as:
 
 The second line tells Python that is should give the label `b` to the value 9.25.
 
-![](../../images/b_equal_9_25.svg)
+![](../images/b_equal_9_25.svg)
 
 What is happening in the third line `a + b`?
 
@@ -183,7 +185,7 @@ alpha + beta
 
 All this does exactly the same as the cell with the names `a` and `b`, except now the label we use for 10.50 is `alpha` and the label for 9.25 is `beta`.  For example, now the label `alpha` points to the value 10.50:
 
-![](../../images/alpha_equal_10_50.svg)
+![](../images/alpha_equal_10_50.svg)
 
 You will find it very useful to use good variable names.  A good variable name is a name that reminds you what the value represents.  For example, we could write this:
 

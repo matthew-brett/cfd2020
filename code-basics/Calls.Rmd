@@ -23,9 +23,11 @@ jupyter:
     version: 3.5.2
 ---
 
-*Call expressions* invoke [functions](functions), which are named operations.
-The name of the function appears first, followed by expressions in
-parentheses.
+# Call expressions
+
+*Call expressions* invoke [functions](functions), which are *named
+operations*. The name of the function appears first, followed by expressions
+in parentheses.
 
 For example, `abs` is a function that returns the absolute value of the input
 argument:

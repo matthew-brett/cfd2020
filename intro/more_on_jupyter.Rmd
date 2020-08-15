@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# More on the Jupyter notebook
+
 As you heard in [about the software](the_software), Jupyter is an *interface* that allows you to run Python code and see the results.
 
 It consists of two parts:
@@ -56,7 +58,7 @@ Then, when you run the cell, the prompt changes to something like `In [1]:` wher
 
 If there is any output, you will now see the *output* from that cell, with a prefix `Out [1]:` where 1 is the same number as the number for the input cell.  This is output from the first piece of code that the kernel ran.
 
-# Interrupting, restarting
+## Interrupting, restarting
 
 
 Sometimes you will find that the kernel gets stuck.  That may be because the kernel is running code that takes a long time, but sometimes, it is because the kernel has crashed.
