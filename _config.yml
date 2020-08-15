@@ -22,7 +22,6 @@ html:
 repository:
   url: https://github.com/matthew-brett/cfd2020
   branch: master
-  path_to_book: docs
 
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
