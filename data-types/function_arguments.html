@@ -38,7 +38,7 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/permutation/brexit_ages.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/data-types/function_arguments.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,7 +48,7 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/permutation/brexit_ages.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data-types/function_arguments.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="&lt;no title&gt;" />
 <meta property="og:description" content="" />
@@ -264,7 +264,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/permutation/brexit_ages.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/data-types/function_arguments.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -284,10 +284,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fpermutation/brexit_ages.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fdata-types/function_arguments.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/permutation/brexit_ages.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/data-types/function_arguments.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -306,7 +306,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/permutation/brexit_ages.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/data-types/function_arguments.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -338,167 +338,129 @@
         
               <div>
                 
-  <p>Now we have [for loops]({{ site.baseurl }}/chapters/03/iteration) and
-[ranges]({{ site.baseurl }}/chapters/03/Ranges), we can solve the problem in
-[population, permutation]({{ site.baseurl
-}}/chapters/05/population_permutation).</p>
+  <p>So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array library.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Data frame library.</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Plotting</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="c1"># Fancy plots</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We load the Brexit survey data again:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data frame, and put it in the variable &quot;audit_data&quot;</span>
-<span class="n">audit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;audit_of_political_engagement_14_2017.tab&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, we get the ages for the Leavers and the Remainers:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows where age is 0</span>
-<span class="n">age_not_0</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
-<span class="n">good_data</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="n">age_not_0</span><span class="p">]</span>
-<span class="c1"># Get data frames for leavers and remainers</span>
-<span class="n">is_remain</span> <span class="o">=</span> <span class="n">good_data</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="n">remain_ages</span> <span class="o">=</span> <span class="n">good_data</span><span class="p">[</span><span class="n">is_remain</span><span class="p">][</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span>
-<span class="n">is_leave</span> <span class="o">=</span> <span class="n">good_data</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="n">leave_ages</span> <span class="o">=</span> <span class="n">good_data</span><span class="p">[</span><span class="n">is_leave</span><span class="p">][</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remain_ages</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Here is another Numpy function, from the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package of the Numpy library.  We get to the sub-packages with the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> - so to get to the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package, we use <code class="docutils literal notranslate"><span class="pre">np.random</span></code>.  Then, to get to the functions in this sub-package, we use the dot again, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">leave_ages</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is the number of Remain voters:</p>
+<p>Remember, this is a random integer from 0 up to, but <em>not including</em> 2, so it is a random integer that can either be 0 or 1.</p>
+<p>Now let us look at the help for the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function.  As usual, we do this by appending <code class="docutils literal notranslate"><span class="pre">?</span></code> to the function name, and pressing Enter in the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_remain</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">remain_ages</span><span class="p">)</span>
-<span class="n">n_remain</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># To see the help for np.random.randint, remove the # at the beginning
+# of the next line, and execute this cell.
+np.random.randint?
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here was the actual difference between the means of the two groups:</p>
+<p>We find that the function can accept up to four arguments.  We have passed two.
+The first sets the argument called <code class="docutils literal notranslate"><span class="pre">low</span></code> to be 0, and the second sets the
+argument called <code class="docutils literal notranslate"><span class="pre">high</span></code> to be 2.</p>
+<p>To take another example, in this case we are asking for a random number
+starting at 1 up to, but not including 11. This gives us a random integer from
+1 through 10. <code class="docutils literal notranslate"><span class="pre">low</span></code> is 1 and <code class="docutils literal notranslate"><span class="pre">high</span></code> is 11.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">leave_ages</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">remain_ages</span><span class="p">)</span>
-<span class="n">actual_diff</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random integer from 1 through 10.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We want to know if we have a reasonable chance of seeing a difference of this magnitude, if the two groups are samples from the same underlying population.  We don’t have the actual population to take samples from, so we need to wing it, by using the data we have.</p>
-<p>We asserted we could use permutation to take random samples from the data that we already have:</p>
+<p>If we pass three arguments, we also set the <code class="docutils literal notranslate"><span class="pre">size</span></code> argument.  This tells the function how many random numbers to return.  The following asks for an array of four random integers from 1 through 20:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">remain_ages</span><span class="p">,</span> <span class="n">leave_ages</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-<span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
-<span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Those are our samples.  Now we get the difference in mean ages, as one example of a difference we might see, if the samples are from the same population:</p>
+<p>Notice that this is an <em>array</em>.</p>
+<p>Now look again at the help.  Notice that the help gives each argument a <em>name</em>
+— <code class="docutils literal notranslate"><span class="pre">low</span></code>, <code class="docutils literal notranslate"><span class="pre">high</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>.  We can also use these names when we set these
+arguments.  For example, the cell below does exactly the same thing as the cell
+above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">example_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_leavers</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_remainers</span><span class="p">)</span>
-<span class="n">example_diff</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20, using keyword arguments.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we know how do to this once, we can use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to do the
-shuffle operation many times.  We collect the results in an array.
-You will recognize the code in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop from the code in the
-cells above.</p>
+<p>When we call the function using the arguments with their names like this, the named arguments are called <em>keyword</em> arguments.</p>
+<p>Passing the arguments like this, using keywords, can be very useful, to make it
+clearer what each argument means.   For example, it’s a common pattern to call a function with one or a few keyword arguments, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># An array of zeros to store the fake differences</span>
-<span class="n">example_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
-<span class="c1"># Do the shuffle / difference steps 10000 times</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-    <span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
-    <span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
-    <span class="n">eg_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_leavers</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_remainers</span><span class="p">)</span>
-    <span class="c1"># Collect the results in the results array</span>
-    <span class="n">example_diffs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eg_diff</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Our results array now has 10000 fake mean differences:</p>
-<p>What distribution do these differences have?</p>
+<p>Writing the call like the cell gives exactly the same result as the cell below,
+but the cell above can be easier to follow, because the person reading the code
+does not have to guess what the 4 means — they can see that it means the size
+of the output array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">example_diffs</span><span class="p">);</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20 - but no keyword argument.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This is called the <em>sampling distribution</em>.  In our case, this is the
-sampling distribution of the difference in means.  It is the
-<em>sampling</em> distribution, because it is the distribution we expect to
-see, when taking random <em>samples</em> from the same underlying population.</p>
-<p>Our question now is, is the difference we actually saw, a likely value, given the sampling distribution.</p>
-<p>Looking at the distribution above - what do you think?</p>
-<p>As a first pass, let us check how many of the values from the sampling
-distribution are as large, or larger than the value we actually saw.</p>
+<p>To take another example, we have already seen the function <code class="docutils literal notranslate"><span class="pre">round</span></code>.  Inspect
+the help for <code class="docutils literal notranslate"><span class="pre">round</span></code> with <code class="docutils literal notranslate"><span class="pre">round?</span></code> and Enter in a notebook cell.</p>
+<p><code class="docutils literal notranslate"><span class="pre">round</span></code> takes up to two arguments.  If we pass one argument, it is just the value that <code class="docutils literal notranslate"><span class="pre">round</span></code> will round to the nearest integer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">are_as_high</span> <span class="o">=</span> <span class="n">example_diffs</span>  <span class="o">&gt;=</span> <span class="n">actual_diff</span>
-<span class="n">n_as_high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">are_as_high</span><span class="p">)</span>
-<span class="n">n_as_high</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The number above is the number of values in the sampling distribution
-that are as high as, or higher than, the value we actually saw.  If we
-divide by 10000, we get the proportion of the sampling distribution
-that is as high, or higher.</p>
+<p>If we pass two arguments, the first argument is the value we will round, and the second is the number of digits to round to, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proportion</span> <span class="o">=</span> <span class="n">n_as_high</span> <span class="o">/</span> <span class="mi">10000</span>
-<span class="n">proportion</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We think of this proportion as an estimate of the <em>probability</em> that
-we would see a value this high, or higher, <em>if these were random
-samples from the same underlying population</em>.  We call this a <em>p
-value</em>.</p>
+<p>As you saw in the help, the second argument has the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code>, so we can also write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, this makes the code a little bit easier to read and understand,
+because it is immediately clear from the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> that the 2 means the
+number of digits to round to.</p>
 
     <script type="text/x-thebe-config">
     {
@@ -513,7 +475,7 @@ value</em>.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./permutation"
+            path: "./data-types"
         },
         predefinedOutput: true
     }
