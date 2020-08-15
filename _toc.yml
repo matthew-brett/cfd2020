@@ -1,9 +1,16 @@
 - file: intro
-
 - part: Coding for data
   chapters:
   - file: intro/what-is-data-science
   - file: intro/why-data-science
   - file: intro/tools_techniques
+    # Tools and techniques
     sections:
     - file: intro/computational-tools
+    - file: intro/statistical-techniques
+
+- part: On code
+  chapters:
+  - file: code-basics/to_code
+  - file: code-basics/sampling_problem
+  - file: code-basics/three_girls
