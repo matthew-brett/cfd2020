@@ -26,7 +26,7 @@ statements](../07/conditional_statements) introduction.
 
 This *if statement* is not properly defined, and will give a `SyntaxError`.  Fix it, then run to confirm it prints `'x greater than 4'`:
 
-```{python}
+```{python tags=c("raises-exception")}
 x = 10
 x > 4:
     print('x greater than 4')
@@ -35,7 +35,7 @@ x > 4:
 This if statement also gives a `SyntaxError`. Fix and run. It should
 print `-8`;
 
-```{python}
+```{python tags=c("raises-exception")}
 p = -2
 if p < 0
     p = p * 4
@@ -45,7 +45,7 @@ print(p)
 Another `SyntaxError`; fix and run.  It should print `a divided by 6
 is 4`
 
-```{python}
+```{python tags=c("raises-exception")}
 a = 24
 if a / 6 == 4:
 print('a divided by 6 is 4')
@@ -59,7 +59,7 @@ Write a cell that prints `Times` if `voter` has the value `Soft Brexit`,
 otherwise prints `Telegraph` if `voter` has the value `Hard Brexit` otherwise
 prints `Guardian` if `voter` has value `remain`, otherwise prints `No idea`.
 
-```{python}
+```{python tags=c("raises-exception")}
 # Try for different values of voter
 voter = 'Hard Brexit'
 # Your code here

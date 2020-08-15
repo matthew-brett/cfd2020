@@ -26,19 +26,19 @@ For background, please read the [functions](../07/functions) introduction.
 
 This function is not properly defined, and will give a `SyntaxError`.  Fix it, then run the call below to confirm it is working.
 
-```{python}
+```{python tags=c("raises-exception")}
 function subtract(p, q):
     r = p - q
     return r
 ```
 
-```{python}
+```{python tags=c("raises-exception")}
 subtract(5, 10)
 ```
 
 This function also gives a `SyntaxError`. Fix and run.
 
-```{python}
+```{python tags=c("raises-exception")}
 def add(first_value, second_value)
     return first_value + second_value
 ```
@@ -49,7 +49,7 @@ add(2, 3)
 
 Here is another error.  Fix and run.
 
-```{python}
+```{python tags=c("raises-exception")}
 def cube(a_variable):
 return a_variable ** 2
 ```
@@ -66,7 +66,7 @@ def add_then_multiply(a, b):
     return added * b
 ```
 
-```{python}
+```{python tags=c("raises-exception")}
 result = add_then_multiply(10, 4)
 result + added
 ```
@@ -82,7 +82,7 @@ If your function is right, the cell below should return 13.
 # Your function here
 ```
 
-```{python}
+```{python tags=c("raises-exception")}
 increase(2, 3)
 ```
 
