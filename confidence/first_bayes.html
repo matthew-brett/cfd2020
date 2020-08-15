@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>A reverse probability game &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/confidence/first_bayes.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/first_bayes.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="A reverse probability game" />
+<meta property="og:description" content="A reverse probability game  Imagine I offer you one of two boxes.  One box has four red balls and one green ball.  Call this BOX4.  The other box has two red ba" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/confidence/first_bayes.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fconfidence/first_bayes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/confidence/first_bayes.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/confidence/first_bayes.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>In the [problem for the education minister]({{ site.baseurl
+}}/chapters/10/havana_math) we had a sample of fast-track-marked exams from
+2019, and we found that the mean mark was about 65.25.  We wondered what we
+could say about the eventual  when we have the marks for all 8000 or so
+students.</p>
+<p>For example, we might wonder how likely it is that the eventual mean will be
+near 65.25, as it was in 2018.  Or we might wonder whether we could be say that
+the eventual mean for all the papers will around the sample mean — 54.51 —
+plus or minus a bit.   If so, what value should we give to “a bit”?</p>
+<p>This kind of problem can be called a problem of <em>reverse probability</em>.</p>
+<p>We start with simple probabilities, where we ask questions like this: what is
+the probability of seeing a mean around 54.51 if the population mean is
+actually 65.25?  Then we go in <em>reverse</em> to ask questions like: what is the
+probability that the population mean is around 65.25 given the sample mean of
+54.51?</p>
+<div class="section" id="a-reverse-probability-game">
+<h1>A reverse probability game<a class="headerlink" href="#a-reverse-probability-game" title="Permalink to this headline">¶</a></h1>
+<p>Imagine I offer you one of two boxes.</p>
+<p>One box has four red balls and one green ball.  Call this <em>BOX4</em>.</p>
+<p>The other box has two red balls and three green balls.  Call this <em>BOX2</em>.</p>
+<p>I haven’t told you which box I gave you, but I do tell you that there is a 30%
+chance that I gave you BOX4, and a 70% chance I gave you BOX2.</p>
+<p>Now let’s say that you shake the box I gave you, to shuffle the balls, then
+close your eyes, and take out one ball.  You open your eyes to find you have a
+red ball.</p>
+<p>What is the chance that I gave you BOX4?</p>
+<p>This is an example of a <em>reverse probability</em> problem.  You are working <em>back</em>
+from what you see (the red ball) to what I gave you (the box).</p>
+<p>In our exam mark problem, we are working back from what we saw (the sample mean
+of 54.51) to the eventual mean for all the exams.</p>
+<p>How are we going to start on our solution to the BOX4, BOX2 reverse probability
+problem? Simulation!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a box with 4 red balls and 1 green ball</span>
+<span class="n">box4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">box4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a box with 2 red balls and 3 green balls</span>
+<span class="n">box2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">box2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we make 10000 trials, where we:</p>
+<ul class="simple">
+<li><p>Choose BOX4 or BOX2, with a 30% chance of BOX4.</p></li>
+<li><p>Choose a ball at random from the resulting box.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_iters</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="c1"># The box for this trial.</span>
+<span class="n">box_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">)</span>
+<span class="c1"># The color of the ball we chose.</span>
+<span class="n">ball_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_iters</span><span class="p">):</span>
+    <span class="c1"># Choose a box number with a 30% chance of BOX4</span>
+    <span class="n">box_no</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+    <span class="c1"># Choose a ball at random from the box.</span>
+    <span class="k">if</span> <span class="n">box_no</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="c1"># Choose a ball at random from BOX4.</span>
+        <span class="n">ball_color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">box4</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># box 4</span>
+        <span class="c1"># Choose a ball at random from BOX2.</span>
+        <span class="n">ball_color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">box2</span><span class="p">)</span>
+    <span class="c1"># Store the results.</span>
+    <span class="n">box_nos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">box_no</span>
+    <span class="n">ball_colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ball_color</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Last we put the results into a data frame for convenience:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make these into a data frame.</span>
+<span class="n">trial_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">box_nos</span>
+<span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ball_colors</span>
+<span class="n">trial_results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see the proportion of trials on which we drew a red ball, where the
+box we got was BOX4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Of the trials giving a red ball, what proportion came from box 4?</span>
+<span class="n">red_ball_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+<span class="n">p_box4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">)</span>
+<span class="n">p_box4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of the trials giving a red ball about 66% came from BOX4.   If we see a red ball, there is a 66% chance we have sampled from BOX4.</p>
+<p>You have just solved your first problem in reverse probability.  The problem
+will soon reveal a simple calculation in probability called <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes
+theorem</a>.</p>
+<p>This is a fundamental building block, so let’s go back over the simulation, to think about why we got this number.</p>
+<p>We can think of all these trials as coming about from a branching tree.</p>
+<p>At the first branching point, we split into two branches, one for BOX4 and one
+for BOX2.  The BOX4 branch is width 0.3 and the BOX2 branch is width 0.7,
+because the probability of BOX4 is 0.3 (30%).</p>
+<p>The simulation is very unlikely to give these numbers exactly, because it took
+a random sample.  So, the simulation proportions will be close to the
+probabilities we calculated above, but not exactly the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box4_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">box2_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trial_results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Box4 proportion&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">box4_trials</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_trials</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Box2 proportion&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">box2_trials</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_trials</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the second branching point, each branch splits into two.</p>
+<ul class="simple">
+<li><p>The BOX4 branch splits into a “red” branch, which carries 4/5 (0.8, 80%) of
+the BOX4 trials, and a “green” branch, that carries 1/5 (0.2, 20%) of the
+BOX4 trials, because the probability of getting a red ball from BOX4 is 4 in
+5.</p></li>
+<li><p>The BOX2 branch splits into a “red” branch, which carries 2/5 (0.4, 40%) of
+the BOX2 trials, and a “green” branch, which carries 3/5 (0.6, 60%) of the
+BOX2 trials, because the probability of getting a red ball from BOX2 is 2 in
+5.</p></li>
+</ul>
+<p>Thus the proportion of trials that are <em>both</em> from BOX4 <em>and</em> give a red ball
+is 0.3 (the width of the BOX4 branch) * 0.8 (the proportion of BOX4 trials
+that give red) = 0.24.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box4_and_red</span> <span class="o">=</span> <span class="n">box4_trials</span><span class="p">[</span><span class="n">box4_trials</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+<span class="n">prop_box4_and_red</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">box4_and_red</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_trials</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Box4 and red proportion&#39;</span><span class="p">,</span> <span class="n">prop_box4_and_red</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The proportion of trials that are <em>both</em> from BOX2 <em>and</em> give a red ball
+is 0.7 (the width of the BOX2 branch) * 0.4 (the proportion of BOX2 trials
+that give red) = 0.28.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box2_and_red</span> <span class="o">=</span> <span class="n">box2_trials</span><span class="p">[</span><span class="n">box2_trials</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+<span class="n">prop_box2_and_red</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">box2_and_red</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_trials</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Box2 and red proportion&#39;</span><span class="p">,</span> <span class="n">prop_box2_and_red</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We get the overall proportion of red by adding the proportion that is BOX4
+<em>and</em> red to the proportion that is BOX2 <em>and</em> red, because these are all the
+red trials.  This is 0.24 + 0.28 = 0.52.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_red</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">box4_and_red</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">box2_and_red</span><span class="p">)</span>
+<span class="n">prop_red</span> <span class="o">=</span> <span class="n">n_red</span> <span class="o">/</span> <span class="n">n_trials</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Overall proportion of red&#39;</span><span class="p">,</span> <span class="n">prop_red</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve already discovered about that 0.24 (24%) of all trials are BOX4 <em>and</em>
+red.  So the proportion of <em>all</em> red trials, that are BOX4 <em>and</em> red, is 0.24 /
+0.52 = 0.4615385.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Proportion of all red trials that are box4&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">prop_box4_and_red</span> <span class="o">/</span> <span class="n">prop_red</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To go over the logic again:</p>
+<ul class="simple">
+<li><p>We want the proportion of “red” trials that came from BOX4.</p></li>
+<li><p>To do this, we calculate the proportion of trials that are <em>both</em> BOX4 and
+red, and divide by the overall proportion of red trials.</p></li>
+<li><p>The proportion of red trials that are <em>both</em> BOX4 <em>and</em> red is (the
+proportion of BOX4 trials) multiplied by (the proportion of BOX4 trials that
+are red).</p></li>
+</ul>
+<p>We have just [discovered Bayes theorem]({{ site.baseurl
+}}/chapters/10/bayes_theorem).</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./confidence"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

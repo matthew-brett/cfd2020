@@ -1,0 +1,185 @@
+---
+jupyter:
+  jupytext:
+    metadata_filter:
+      notebook:
+        additional: all
+        excluded:
+        - language_info
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.0'
+      jupytext_version: 0.8.6
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+We sometimes want to know where a value is in an array.
+
+```{python}
+import numpy as np
+```
+
+By "where" we mean, which element contains a particular value.
+
+Here is an array.
+
+```{python}
+arr = np.array([2, 99, -1, 4, 99])
+arr
+```
+
+As you know, we can get element using their *index* in the array.  In
+Python, array indices start at zero.
+
+Here's the value at index (position) 0:
+
+```{python}
+arr[0]
+```
+
+We might also be interested to find which positions hold particular values.
+
+In our array above, by reading, and counting positions, we can see
+that the values of 99 are in positions 1 and 4.  We can ask for these
+elements by passing a list or an array between the square brackets, to
+index the array:
+
+```{python}
+positions_with_99 = np.array([1, 4])
+arr[positions_with_99]
+```
+
+Of course, we are already used to finding and then selecting elements according to various conditions, using *Boolean vectors*.
+
+Here we identify the elements that contain 99.  There is a `True` at the position where the array contains 99, and `False` otherwise.
+
+```{python}
+contains_99 = arr == 99
+contains_99
+```
+
+We can then get the 99 values with:
+
+```{python}
+arr[contains_99]
+```
+
+## Enter "where"
+
+Sometimes we really do need to know the index of the values that meet a certain condition.
+
+In that case, you can use the Numpy [where
+function](https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html).
+`where` finds the index positions of the `True` values in Boolean
+vectors.
+
+```{python}
+indices = np.where(arr == 99)
+indices
+```
+
+We can use the returned `indices` to index into the array, using square brackets.
+
+```{python}
+arr[indices]
+```
+
+This also works in two or more dimensions.  Here is a two-dimensional array, with some values of 99.
+
+```{python}
+arr2d = np.array([[4, 99, 3], [8, 8, 99]])
+arr2d
+```
+
+`where` now returns two index arrays, one for the rows, and one for the columns.
+
+```{python}
+indices2d = np.where(arr2d == 99)
+indices2d
+```
+
+Just as for the one-dimensional case, we can use the returned indices to index into the array, and get the elements.
+
+```{python}
+arr2d[indices2d]
+```
+
+## Where summary
+
+Numpy `where` returns the indices of `True` values in a Boolean array/
+
+You can use these indices to index into an array, and get the matching elements.
+
+## Argmin
+
+Numpy has various *argmin* functions that are a shortcut for using `where`, for particular cases.
+
+A typical case is where you want to know the index (position) of the minimum value in an array.
+
+Here is our array:
+
+```{python}
+arr
+```
+
+We can get the minimum value with Numpy `min`:
+
+```{python}
+np.min(arr)
+```
+
+Sometimes we want to know the *index position* of the minimum value.  Numpy `argmin` returns the index of the minimum value:
+
+```{python}
+min_pos = np.argmin(arr)
+min_pos
+```
+
+Therefore, we can get the minimum value again with:
+
+```{python}
+arr[min_pos]
+```
+
+There is a matching `argmax` function that returns the position of the maximum value:
+
+```{python}
+np.max(arr)
+```
+
+```{python}
+max_pos = np.argmax(arr)
+max_pos
+```
+
+```{python}
+arr[max_pos]
+```
+
+We could also have found the position of the minimum value above, using `np.min` and `where`:
+
+```{python}
+min_value = np.min(arr)
+min_indices = np.where(arr == min_value)
+arr[min_indices]
+```
+
+The `argmin` and `argmax` functions are not quite the same, in that they only return the *first* position of the minimum or maximum, if there are multiple values with the same value.
+
+Compare:
+
+```{python}
+np.argmax(arr)
+```
+
+to
+
+
+```{python}
+max_value = np.max(arr)
+np.where(arr == max_value)
+```

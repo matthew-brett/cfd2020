@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>For loop exercises &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/exercises/for_loops.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/exercises/for_loops.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="For loop exercises" />
+<meta property="og:description" content="For loop exercises  import numpy as np  You may remember you can print a number (or anything else) with the print function, like this:  print(5)  Use a for loop" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/exercises/for_loops.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fexercises/for_loops.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/exercises/for_loops.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/exercises/for_loops.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="for-loop-exercises">
+<h1>For loop exercises<a class="headerlink" href="#for-loop-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may remember you can print a number (or anything else) with the <code class="docutils literal notranslate"><span class="pre">print</span></code> function, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to print out all the numbers from 3 through 7, one number on each line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make an empty array called <code class="docutils literal notranslate"><span class="pre">my_array</span></code>.  Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to append all the numbers between 0 and 10 (inclusive) to <code class="docutils literal notranslate"><span class="pre">my_array</span></code>.  Show the array at the end of the loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+<span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a new variable <code class="docutils literal notranslate"><span class="pre">total</span></code> equal to 0. Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to add all the
+numbers from 15 through 32 to <code class="docutils literal notranslate"><span class="pre">total</span></code>.  Print the value at the end of the loop.</p>
+<p>Hint - here is a statement where I add 10 to the variable
+<code class="docutils literal notranslate"><span class="pre">my_variable</span></code>: <code class="docutils literal notranslate"><span class="pre">my_variable</span> <span class="pre">=</span> <span class="pre">my_variable</span> <span class="pre">+</span> <span class="pre">10</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to add up all the even numbers from -102 through 98.
+Hint: you may like to use the <code class="docutils literal notranslate"><span class="pre">step</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum of all even numbers from -102 through 98.</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Have a look at the definition of the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Factorial">factorial</a>.</p>
+<p>For example, the factorial of 5, written <span class="math notranslate nohighlight">\(5!\)</span> is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span> <span class="pre">*</span> <span class="pre">5</span></code>.</p>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to calculate <span class="math notranslate nohighlight">\(15!\)</span>.  Print out the result.</p>
+<p>Note: those of you on Windows will have to start with a floating point
+value - as in <code class="docutils literal notranslate"><span class="pre">factorial</span> <span class="pre">=</span> <span class="pre">1.0</span></code> - in order to avoid a nasty
+interaction between Numpy, Windows, and integers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate 15!</span>
+<span class="c1"># Note the floating point number to start.</span>
+<span class="n">factorial</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are getting a bit harder.</p>
+<p>You can break out of a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop using the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.  Here
+I break out of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, when I get to 6.  Notice I never get to
+7 or any number higher than 6.  The <code class="docutils literal notranslate"><span class="pre">break</span></code> statement says, “stop the
+<code class="docutils literal notranslate"><span class="pre">for</span></code> loop now, and go directly to the first statement after the <code class="docutils literal notranslate"><span class="pre">for</span></code>
+loop”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping here, where i == 6&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have finished the for loop now.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make sure you understand what is going on in the cell above.  When you
+do, try using this technique to find the largest integer <span class="math notranslate nohighlight">\(n\)</span> where <span class="math notranslate nohighlight">\(n!
+&lt; 10^6\)</span>.  Print out <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(n!\)</span>.  Hint for your <code class="docutils literal notranslate"><span class="pre">for</span></code> loop: <span class="math notranslate nohighlight">\(n\)</span> is
+less than 100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">last_factorial</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">1000000</span>
+<span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an array of 50 numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to define the &quot;values&quot; array</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">32</span><span class="p">,</span>  <span class="mi">39</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">34</span><span class="p">,</span>  <span class="mi">28</span><span class="p">,</span>   <span class="mi">9</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span>
+         <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>  <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">13</span><span class="p">,</span>  <span class="mi">32</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span>  <span class="mi">14</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span>
+         <span class="mi">12</span><span class="p">,</span>  <span class="mi">13</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>   <span class="mi">2</span><span class="p">,</span>  <span class="mi">17</span><span class="p">,</span>  <span class="mi">39</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span>   <span class="mi">4</span><span class="p">,</span>  <span class="mi">26</span><span class="p">,</span>   <span class="mi">7</span><span class="p">,</span>
+          <span class="mi">1</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span>  <span class="mi">31</span><span class="p">,</span>  <span class="mi">15</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>  <span class="mi">19</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span>  <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">24</span><span class="p">,</span>   <span class="mi">7</span><span class="p">,</span>
+         <span class="mi">14</span><span class="p">,</span>  <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">35</span><span class="p">,</span>  <span class="mi">18</span><span class="p">,</span>  <span class="mi">23</span><span class="p">,</span>  <span class="mi">34</span><span class="p">,</span>  <span class="mi">14</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span>  <span class="mi">25</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Add up all the numbers in this array, until you get to the first value
+of 999.  Print the sum of all the values up to, but not including, the
+first 999. For example, if the array was <code class="docutils literal notranslate"><span class="pre">np.array([2,</span> <span class="pre">6,</span> <span class="pre">4,</span> <span class="pre">999,</span> <span class="pre">11])</span></code>, then the result would be: <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">6</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">12</span></code>.
+What is the equivalent result for the <code class="docutils literal notranslate"><span class="pre">values</span></code> array above?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The next cell is a slight variation.  Add all the numbers in this
+array, up to, but not including, the first value of 999.  This time,
+discard any negative values you find.  For example, if the array was
+<code class="docutils literal notranslate"><span class="pre">np.array([1,</span> <span class="pre">7,</span> <span class="pre">-3,</span> <span class="pre">4,</span> <span class="pre">999,</span> <span class="pre">13])</span></code>, then the result would be:
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">7</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">12</span></code>.
+What is the equivalent result for the <code class="docutils literal notranslate"><span class="pre">values</span></code> array above?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

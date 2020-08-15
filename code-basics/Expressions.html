@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Walking a mile in Python’s shoes &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/code-basics/Expressions.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/code-basics/Expressions.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Walking a mile in Python’s shoes" />
+<meta property="og:description" content="Walking a mile in Python’s shoes  To think about expressions, we often need to remind ourselves what Python does when it sees the code for an expression.  We lo" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/code-basics/Expressions.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fcode-basics/Expressions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/code-basics/Expressions.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/code-basics/Expressions.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Programming languages are much simpler than human languages. Nonetheless,
+there are some rules of grammar to learn in any language, and that is where we
+will begin. In this text, we are using the <a class="reference external" href="https://www.python.org/">Python</a>
+programming language. Learning the grammar rules is essential, and the same
+rules used in the most basic programs are also central to more sophisticated
+programs.</p>
+<p>Programs contain <em>expressions</em>.</p>
+<p>You can think of an expression as a <em>recipe that returns a value</em>.  For
+example, this is an expression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the Notebook displays the value.  This the <em>value</em> that the
+expression returns.</p>
+<p>An expression can describe to the computer how to combine pieces of data. In
+our example, we have a multiplication expression that consists of a <code class="docutils literal notranslate"><span class="pre">*</span></code> symbol
+between two numerical expressions. Expressions, such as <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span></code>, are
+<em>evaluated</em> by the computer. The value (the result of <em>evaluation</em>) of the
+last expression in each cell, <code class="docutils literal notranslate"><span class="pre">12</span></code> in this case, is displayed below the cell.</p>
+<p>The grammar rules of a programming language are rigid. In Python, the <code class="docutils literal notranslate"><span class="pre">*</span></code>
+symbol cannot appear twice in a row. The computer will not try to interpret an
+expression that differs from its prescribed expression structures. Instead, it
+will show a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> error. The <em>Syntax</em> of a language is its set of
+grammar rules, and a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> indicates that an expression structure
+doesn’t match any of the rules of the language.</p>
+<p>For example, consider this code, and the resulting error:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Small changes to an expression can change its meaning entirely. Below, we
+removed the space between the <code class="docutils literal notranslate"><span class="pre">*</span></code>’s. Because <code class="docutils literal notranslate"><span class="pre">**</span></code> appears between two
+numerical expressions, the expression is a well-formed <em>exponentiation</em>
+expression (the first number raised to the power of the second: 3 times
+3 times 3 times 3). The symbols <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">**</span></code> are called <em>operators</em>, and the
+values they combine are called <em>operands</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">**</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="walking-a-mile-in-python-s-shoes">
+<h1>Walking a mile in Python’s shoes<a class="headerlink" href="#walking-a-mile-in-python-s-shoes" title="Permalink to this headline">¶</a></h1>
+<p>To think about expressions, we often need to remind ourselves what Python does when it sees the code for an expression.</p>
+<p>We look again at:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is an expression because it is a recipe that returns a value.  We see the
+notebook display the value.</p>
+<p>Now consider this expression:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s an expression because it returns a value.  We see the notebook display the value.</p>
+<p>More specifically, when Python sees the code <code class="docutils literal notranslate"><span class="pre">3</span></code>, it generates a computer representation of the number 3.</p>
+<p>We will use <em>CR</em> as a shorthand for <em>computer representation</em>.  To repeat then,
+the expression <code class="docutils literal notranslate"><span class="pre">3</span></code> causes Python to make and return a CR of the number 3.</p>
+<p>The Notebook then makes a human-readable display for the computer representation, and shows it to us.</p>
+<p>We will uses <em>HR</em> as a shorthand for <em>human readable</em>.  You can also read HR as <em>human representation</em>.</p>
+<p>In this case the HR <code class="docutils literal notranslate"><span class="pre">3</span></code> is the same as the code we typed, but this isn’t always
+so.  Consider the expression we saw above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python does the following:</p>
+<ul class="simple">
+<li><p>makes a CR of the number 3;</p></li>
+<li><p>makes a CR of the number 4;</p></li>
+<li><p>adds the CR of 3 and the CR of 4 to get a CR of 7.</p></li>
+</ul>
+<p>The CR of 7 is the value returned from the expression.  The notebook turns that
+into something that humans can read easily - the HR of 7 - which is <code class="docutils literal notranslate"><span class="pre">7</span></code>.</p>
+</div>
+<div class="section" id="common-operators">
+<h1>Common Operators<a class="headerlink" href="#common-operators" title="Permalink to this headline">¶</a></h1>
+<p>We often want to combine numerical values, and the set of operators in
+a programming language are designed to so that expressions can be used to
+express any sort of arithmetic. In Python, the following operators are
+essential.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression Type</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Subtraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">-</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">/</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2.66667</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Remainder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7</span> <span class="pre">%</span> <span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Exponentiation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">0.5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.41421</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="operator-precedence">
+<h1>Operator precedence<a class="headerlink" href="#operator-precedence" title="Permalink to this headline">¶</a></h1>
+<p>Python expressions obey the same familiar rules of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Order_of_operations">precedence</a> as in algebra:
+multiplication and division occur before addition and subtraction. Parentheses
+can be used to group together smaller expressions within a larger expression.</p>
+<p>Multiplication has precedence (we do <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code> before adding to 1).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use parentheses to group expressions that should be evaluated first.
+Here we force <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code> <em>before</em> the multiplication by 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the expression above, the <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code> is a <em>sub-expression</em> within the whole
+expression <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">*</span> <span class="pre">3</span></code>.  When Python sees this line, it finds the expression
+<code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">2)</span></code> and evaluates that to get <code class="docutils literal notranslate"><span class="pre">3</span></code>.  Then it evaluates <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">*</span> <span class="pre">3</span></code> to get <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p>
+<p>As you learn to program, you will learn to think about what Python is doing,
+and the logical steps it follows.  Over time, you will find it easier to
+predict what it will do, and understand why.</p>
+</div>
+<div class="section" id="example">
+<h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<p>Here, from the Washington Post in the early 1980s, is a graph that attempts to
+compare the earnings of doctors with the earnings of other professionals over
+a few decades. Do we really need to see two heads (one with a stethoscope) on
+each bar? <a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>,
+Professor at Yale and one of the world’s experts on visualizing quantitative
+information, coined the term “chartjunk” for such unnecessary embellishments.
+This graph is also an example of the “low data-to-ink ratio” that Tufte
+deplores.</p>
+<p>![Washington Post graph]({{ site.baseurl }}/images/bad_post_graph.png)</p>
+<p>Most importantly, the horizontal axis of the graph is is not drawn to scale.
+This has a significant effect on the shape of the bar graphs. When drawn to
+scale and shorn of decoration, the graphs reveal trends that are quite
+different from the apparently linear growth in the original. The elegant graph
+below is due to Ross Ihaka, one of the originators of the statistical system
+R.</p>
+<p>![Ross Ihaka’s version of Post graph]({{ site.baseurl }}/images/ihaka_fixed_post_graph.png)</p>
+<p>In the period 1939 to 1963, the doctors’ incomes went up from $3,262 to
+$25,050. So during that period the average increase in income per year was
+about $900.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">25050</span> <span class="o">-</span> <span class="mi">3262</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1963</span> <span class="o">-</span> <span class="mi">1939</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Ross Ihaka’s graph you can see that in this period, the doctors’ incomes
+rise roughly linearly at a fairly steady rate. That rate is about $900, as we
+have just calculated.</p>
+<p>But in the period 1963 to 1976, the rate is more than three times as high:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">62799</span> <span class="o">-</span> <span class="mi">25050</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1976</span> <span class="o">-</span> <span class="mi">1963</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is why the graph rises much more steeply after 1963.</p>
+<p>This chapter introduces many types of expressions. Learning to program
+involves trying out everything you learn in combination, investigating the
+behavior of the computer. What happens if you divide by zero? What happens if
+you divide twice in a row? You don’t always need to ask an expert (or the
+Internet); many of these details can be discovered by trying them out
+yourself.</p>
+<p>{% data8page Expressions %}</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./code-basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

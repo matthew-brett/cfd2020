@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Brexit - the data analysis &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/exercises/brexit_analysis.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/exercises/brexit_analysis.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Brexit - the data analysis" />
+<meta property="og:description" content="Brexit - the data analysis  We start, as usual, by importing all the libraries we need.  import numpy as np import matplotlib.pyplot as plt %matplotlib inline  " />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/exercises/brexit_analysis.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fexercises/brexit_analysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/exercises/brexit_analysis.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/exercises/brexit_analysis.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="brexit-the-data-analysis">
+<h1>Brexit - the data analysis<a class="headerlink" href="#brexit-the-data-analysis" title="Permalink to this headline">¶</a></h1>
+<p>We start, as usual, by importing all the libraries we need.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="c1"># Fancy plots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+
+<span class="c1"># Data frame library</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See the [Brexit survey]({{ site.baseurl }}/data/brexit_survey) for details on the survey data.</p>
+<p>If you are running on your laptop, first [download the data file]({{
+site.baseurl }}/data/audit_of_political_engagement_14_2017.tab) to the same
+directory as this notebook.</p>
+<p>In the moment, we are going to try and analyze these data.  We will focus on
+two questions labeled <code class="docutils literal notranslate"><span class="pre">cut15</span></code> and <code class="docutils literal notranslate"><span class="pre">numage</span></code>.  <code class="docutils literal notranslate"><span class="pre">cut15</span></code> is the question about
+Brexit. The data dictionary has the <em>variable label</em> “CUT15 - How did you vote
+on the question ‘Should the United Kingdom remain a member of the European
+Union or leave the European Union’?”.  The recorded values run from 1 through
+6 and have the following labels:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Value</span> <span class="n">label</span> <span class="n">information</span> <span class="k">for</span> <span class="n">cut15</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">1.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Remain</span> <span class="n">a</span> <span class="n">member</span> <span class="n">of</span> <span class="n">the</span> <span class="n">European</span> <span class="n">Union</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">2.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Leave</span> <span class="n">the</span> <span class="n">European</span> <span class="n">Union</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">3.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Did</span> <span class="ow">not</span> <span class="n">vote</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">4.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Too</span> <span class="n">young</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">5.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Can</span><span class="s1">&#39;t remember</span>
+<span class="n">Value</span> <span class="o">=</span> <span class="mf">6.0</span>    <span class="n">Label</span> <span class="o">=</span> <span class="n">Refused</span>
+</pre></div>
+</div>
+<p>We also want the variable <code class="docutils literal notranslate"><span class="pre">numage</span></code>; this is the age of the respondent in years.</p>
+<p>The data file that you just downloaded should be called
+<code class="docutils literal notranslate"><span class="pre">audit_of_political_engagement_14_2017.tab</span></code>.  The cell below loads the data
+file into memory with Pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data frame, and put it in the variable &quot;audit_data&quot;</span>
+<span class="n">audit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;audit_of_political_engagement_14_2017.tab&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you know, we now have a <em>data frame</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data frame has one row per person surveyed, and one column for each
+question in the survey.  The columns have kind-of helpful names that you can
+read about in the data dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The data frame has columns for all the questions listed in the data
+dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To reduce clutter, we first make a new data frame that just has the two
+questions we are interested in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the age and Brexit vote questions only</span>
+<span class="n">mini_brexit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">mini_brexit</span><span class="p">[</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span>
+<span class="n">mini_brexit</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span>
+<span class="n">mini_brexit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To get started on exploring, we make a new variable <code class="docutils literal notranslate"><span class="pre">ages</span></code> that refers
+to the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column in the <code class="docutils literal notranslate"><span class="pre">mini_brexit</span></code> data frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;ages&quot; that refers to the &quot;numage&quot; column in &quot;mini_brexit&quot;</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">mini_brexit</span><span class="p">[</span><span class="s2">&quot;numage&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Confirm that <code class="docutils literal notranslate"><span class="pre">ages</span></code> has a value of type <code class="docutils literal notranslate"><span class="pre">Series</span></code>, the Pandas type for a column of a data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the numbers of rows, columns in the original data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the cell below to confirm that <code class="docutils literal notranslate"><span class="pre">ages</span></code> has the same number of values, as
+<code class="docutils literal notranslate"><span class="pre">audit_data</span></code> has rows.  To do this, we can use the <code class="docutils literal notranslate"><span class="pre">len</span></code> function, as applied
+to the <code class="docutils literal notranslate"><span class="pre">ages</span></code> Series.  It returns the number of values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In fact, <code class="docutils literal notranslate"><span class="pre">len</span></code>, as applied to the <em>data frame</em>, returns the number of rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Start by doing a histogram of the values in <code class="docutils literal notranslate"><span class="pre">ages</span></code> (which are also the values
+in the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column of <code class="docutils literal notranslate"><span class="pre">mini_brexit</span></code>).  If you can’t remember how to do
+histograms, have a look at the <span class="xref myst">introduction to data
+frames</span> notebook.   Hint: consider using the <code class="docutils literal notranslate"><span class="pre">hist</span></code>
+method of the <code class="docutils literal notranslate"><span class="pre">ages</span></code> variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a histogram of the values in the &quot;numage&quot; column.</span>
+<span class="c1"># Your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You will see that a few subjects have an age of 0.</p>
+<p>It looks as if the survey coders are using the value 0 to mean that the person
+did not state their age.  We will have to clean that up.  We do that by
+selecting the cases that have ages not equal to 0.</p>
+<p>Hint:  You have seen the operator to say whether two values are equal or no:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The operator for <em>not equal</em> is <code class="docutils literal notranslate"><span class="pre">!=</span></code>, as in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prepare for brain-bending double negative…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To identify the values in <code class="docutils literal notranslate"><span class="pre">ages</span></code> that are <em>not equal</em> to 0, use the comparison
+I’ve hinted at above, to make a new variable, <code class="docutils literal notranslate"><span class="pre">age_not_0</span></code>, that has the same
+number of values as <code class="docutils literal notranslate"><span class="pre">ages</span></code>, and has <code class="docutils literal notranslate"><span class="pre">True</span></code> at positions where <code class="docutils literal notranslate"><span class="pre">ages</span></code> is <em>not
+equal</em> to 0, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.   We will refer to these sequences of True
+and False values, as <em>Boolean vectors</em>.</p>
+<p>Check back to the <span class="xref myst">introduction to data frames</span>
+notebook for a reminder of making and using Boolean vectors to select rows from
+data frames.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new variable &quot;age_not_0&quot;, with True at positions where &quot;ages&quot; is not</span>
+<span class="c1"># equal to 0, and False otherwise.</span>
+<span class="c1"># age_not_0 = ?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">age_not_0</span></code> to select rows in the <code class="docutils literal notranslate"><span class="pre">mini_brexit</span></code> data frame where the value
+is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and throw away the rows where the value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  To do this, index into the data frame with the Boolean Series you created above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows in the data frame where the age is not equal to 0.</span>
+<span class="c1"># Make a new data # frame called &quot;good_brexit&quot; that only contains these rows. </span>
+<span class="c1"># good_brexit = ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we want to ask what proportion of the respondents said that they voted
+Remain or Leave.</p>
+<p>First we make a new data frame that contains only the rows for people who said
+they voted No in the referendum (remain).  Remember, from the data dictionary,
+that 1 is the code for a No vote.</p>
+<p>First, make a new variable <code class="docutils literal notranslate"><span class="pre">votes</span></code> that has the values of <code class="docutils literal notranslate"><span class="pre">cut15</span></code> column of the
+<code class="docutils literal notranslate"><span class="pre">good_brexit</span></code> data frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;votes&quot; that refers to the &quot;cut15&quot; column in &quot;good_brexit&quot;.</span>
+<span class="c1"># Your code will start with</span>
+<span class="c1"># votes = ?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now make a new Boolean vector, that has True at the positions where <code class="docutils literal notranslate"><span class="pre">votes</span></code> is
+equal to 1, and False otherwise.  Call this variable <code class="docutils literal notranslate"><span class="pre">is_remain</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_remain&quot;, that True for Remain row, False</span>
+<span class="c1"># otherwise.</span>
+<span class="c1"># is_remain = ?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, use <code class="docutils literal notranslate"><span class="pre">is_remain</span></code> to select the rows in <code class="docutils literal notranslate"><span class="pre">good_brexit</span></code> that correspond to
+confessed “Remain” voters.  Call the new data frame <code class="docutils literal notranslate"><span class="pre">remainers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Remain voters</span>
+<span class="c1"># remainers = good_brexit?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do a histogram of the values in the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column of <code class="docutils literal notranslate"><span class="pre">remainers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histogram of the `numage` column from `remainers`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, go through the same steps, to make a new data frame for those who claimed
+to vote Yes (leave) (code 2):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_leave&quot;, that True for Leave row, False</span>
+<span class="c1"># otherwise.</span>
+<span class="c1"># is_leave = ?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, use <code class="docutils literal notranslate"><span class="pre">is_leave</span></code> to select the rows in <code class="docutils literal notranslate"><span class="pre">good_brexit</span></code> that correspond to confessed “Leave” voters.  Call the new data frame <code class="docutils literal notranslate"><span class="pre">leavers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Leave voters</span>
+<span class="c1"># leavers = good_brexit?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do a histogram of the values in the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column of <code class="docutils literal notranslate"><span class="pre">leavers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histgram of the `numage` column from `remainers`</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uncomment the lines in the cell below to get the total number of Remain voters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_remain = len(remainers)</span>
+<span class="c1"># n_remain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the total number of Leave voters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_leave = len(leavers)</span>
+<span class="c1"># n_leave</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the total number of voters who confessed to a specific Leave or Remain vote:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_total = n_leave + n_remain</span>
+<span class="c1"># n_total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the proportion of Leave voters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># leave_proportion = n_leave / n_total</span>
+<span class="c1"># leave_proportion</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you remember, the proportion of Leave voters in the referendum was 51.9%.
+<code class="docutils literal notranslate"><span class="pre">leave_proportion</span></code> from the survey seems a way off.  Is it too far off?</p>
+<p>You go back to the survey company and tell them that the proportion of Leave voters seems too low.</p>
+<p>They say the following:</p>
+<blockquote>
+<div><p>We took a random sample of the population.  You are a data scientist, you
+know well that the proportion from this random sample is very unlikely to be
+exactly the same as the proportion in the whole population.  The proportion
+we get is compatible with the variation we expect from taking a random sample.</p>
+<p>In other words - the difference in the proportions, between the referendum
+and the survey, is due to sampling error.</p>
+</div></blockquote>
+<p>Time for a simulation.</p>
+<p>The null hypothesis offered by the survey company is that the proportion we saw
+above is a plausible value if we took a random sample of <code class="docutils literal notranslate"><span class="pre">n_total</span></code> voters.</p>
+<p>We can simulate a new survey, with <code class="docutils literal notranslate"><span class="pre">n_total</span></code> voters, by taking <code class="docutils literal notranslate"><span class="pre">n_total</span></code> random
+numbers between 0 and 1.  We consider the values less than 0.52 as
+corresponding to a Leave vote, and the rest are Remain votes.  We then
+calculate the proportion of Leave votes (proportion of values where value &lt;
+0.519 == True).</p>
+<p>We do this 10000 times, to get 10000 simulated surveys.  We calculate the
+proportions for each simulated survey, and do a histogram of the proportions.
+Is <code class="docutils literal notranslate"><span class="pre">leave_proportion</span></code> a plausible value on this histogram?</p>
+<p>See:</p>
+<ul class="simple">
+<li><p>[Reply to the Supreme Court]({{ site.baseurl }}/chapters/03/reply_supreme)</p></li>
+<li><p>[Final three girls simulation]({{ site.baseurl }}/chapters/03/filling_arrays)</p></li>
+</ul>
+<p>to remind yourself about simulations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your simulation here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

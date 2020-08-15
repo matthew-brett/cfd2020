@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Monty Hall problem &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/more-simulation/monty_hall.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/more-simulation/monty_hall.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="The Monty Hall problem" />
+<meta property="og:description" content="The Monty Hall problem  The Monty Hall problem is a problem in probability, originally posed by Steve Selvin, a professor of Biostatistics at Berkeley.  The set" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/more-simulation/monty_hall.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fmore-simulation/monty_hall.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/more-simulation/monty_hall.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/more-simulation/monty_hall.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-simulation">
+   The simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn-try-many-trials">
+   Your turn - try many trials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#another-way-of-doing-the-simulation">
+   Another way of doing the simulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-monty-hall-problem">
+<h1>The Monty Hall problem<a class="headerlink" href="#the-monty-hall-problem" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Monty Hall problem</a> is
+a problem in probability, originally posed by <a class="reference external" href="https://en.wikipedia.org/wiki/Steve_Selvin">Steve
+Selvin</a>, a professor of
+Biostatistics at Berkeley.</p>
+<p>The setup is the following:</p>
+<ul class="simple">
+<li><p>You are a contestant on a game show.</p></li>
+<li><p>The host, <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Hall">Monty Hall</a>, shows you
+three closed and identical doors.</p></li>
+<li><p>Behind one of the doors, is a car.  Behind the other two doors, there is
+a goat.</p></li>
+</ul>
+<p>![Monty Hall illustration]({{ site.baseurl }}/images/monty_hall_goat.png)</p>
+<ul class="simple">
+<li><p>Assume for a moment you’d rather have a car than a goat.</p></li>
+<li><p>Monty offers you the choice of any of the three doors.  You chose a door, but
+Monty leaves the door closed for now.</p></li>
+<li><p>Monty tells you he is going to open one of the other doors that has a goat
+behind it.  He does, there is a goat behind it.  Call this “the goat reveal”.</p></li>
+<li><p>Now he asks you the following question:  Do you want to stick with your
+original choice of door, do you want to change your choice to the remaining
+door, or does it make no difference which you chose?</p></li>
+</ul>
+<p>It turns out this is a trickier problem than it might first appear.  Among many
+others, a very famous mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Paul_Erd%C5%91s">Paul
+Erdős</a>, got the answer wrong. He
+had to be convinced with a computer simulation.  That’s what we will do now.</p>
+<p>For the simulation, we will need:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> - see <span class="xref myst">the iteration page</span> for an
+introduction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">np.sort</span></code> - see <a class="reference internal" href="sorting_arrays.html"><span class="doc std std-doc">sorting arrays</span></a>.</p></li>
+</ul>
+<div class="section" id="the-simulation">
+<h2>The simulation<a class="headerlink" href="#the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>As ever, we start with the simplest thing we can think of, which is to simulate
+one trial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First we make an array of the things that can be behind the doors.  There are two goats and one car.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">])</span>
+<span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we shuffle, to simulate the fact that the object behind each door is random, on each trial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">doors</span><span class="p">)</span>
+<span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we use <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> to choose randomly between the three doors.  We
+choose one of 0, 1, or 2 for the first, second and third door, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_door_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">my_door_index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We peek behind our selected door to see what we would have got, if we stayed with our selected door.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stay_result</span> <span class="o">=</span> <span class="n">doors</span><span class="p">[</span><span class="n">my_door_index</span><span class="p">]</span>
+<span class="n">stay_result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we replace whatever was behind our chosen door, with the string “mine”, to indicate this was the one we chose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span><span class="p">[</span><span class="n">my_door_index</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mine&#39;</span>
+<span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have two possibilities.  The two remaining doors could have:</p>
+<ol class="simple">
+<li><p>“car” and “goat” (in either order) or</p></li>
+<li><p>“goat” and “goat”.</p></li>
+</ol>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">np.sort</span></code> to make it more obvious which situation we are in.  It
+will put “car” in the first position, if it’s present, then “goat”. Last will
+be the string “mine” that we put in when we chose our door.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">doors</span><span class="p">)</span>
+<span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When Monty does his goat reveal, our two options above drop to one.</p>
+<ul class="simple">
+<li><p>“car” and “goat” become “car”</p></li>
+<li><p>“goat” and “goat” become “goat”</p></li>
+</ul>
+<p>All we need to do then, is to take the first element in the sorted array.  It
+will be “car” if the car was present, otherwise it will be “goat”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch_result</span> <span class="o">=</span> <span class="n">doors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">switch_result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn-try-many-trials">
+<h2>Your turn - try many trials<a class="headerlink" href="#your-turn-try-many-trials" title="Permalink to this headline">¶</a></h2>
+<p>That’s one trial.   Now let’s do that 10000 times.  Fill in the code you need from the statements above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 10000 trials.</span>
+<span class="n">n_tries</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="c1"># Array of 10000 length 4 (or less) strings, to store results of stay strategy</span>
+<span class="n">stay_results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_tries</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;U4&#39;</span><span class="p">)</span>
+<span class="c1"># 10000 length 4 (or less) strings, to store results of switch strategy</span>
+<span class="n">switch_results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_tries</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;U4&#39;</span><span class="p">)</span>
+<span class="c1"># Use a &quot;for&quot; loop to repeat the indented block 10000 times.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tries</span><span class="p">):</span>
+    <span class="c1"># Same code as above, for one trial</span>
+    <span class="c1"># Make the doors array</span>
+    <span class="n">doors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">])</span>
+    <span class="c1"># Shuffle</span>
+
+    <span class="c1"># Choose your door at random</span>
+
+    <span class="c1"># Get the result from your chosen door</span>
+
+    <span class="c1"># Fill your chosen door with &#39;mine&#39;</span>
+
+    <span class="c1"># Sort the doors.  The car will be first if present.</span>
+
+    <span class="c1"># Get the result for switch</span>
+
+    <span class="c1"># Store the results for stay and switch in their arrays</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the proportion of the Stay choices that resulted in a “car”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">stay_results</span> <span class="o">==</span> <span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check the proportion of the Switch choices that resulted in a “car”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">switch_results</span> <span class="o">==</span> <span class="s1">&#39;goat&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Would you chose Stay or Switch?</p>
+<p>Can you explain why your choice worked better, now you’ve done the simulation?</p>
+</div>
+<div class="section" id="another-way-of-doing-the-simulation">
+<h2>Another way of doing the simulation<a class="headerlink" href="#another-way-of-doing-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference internal" href="../extra/monty_hall_lists.html"><span class="doc std std-doc">Monty Hall with lists</span></a> for another way of doing
+this simulation, using <span class="xref myst">lists</span> instead of arrays.</p>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Now try the <a class="reference internal" href="../exercises/simulation.html"><span class="doc std std-doc">simulation exercises</span></a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./more-simulation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

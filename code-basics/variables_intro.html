@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>An interlude - thinking like the computer. &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/code-basics/variables_intro.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/code-basics/variables_intro.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="An interlude - thinking like the computer." />
+<meta property="og:description" content="An interlude - thinking like the computer.  Remember when we calculated the total bill before tip:  # Total bill, before tip. 10.50 + 9.25  To recap, when you r" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/computational-tools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/statistical-techniques.html">
+   Statistical Techniques
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="to_code.html">
+   An ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/code-basics/variables_intro.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fcode-basics/variables_intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/docs/code-basics/variables_intro.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/docs/code-basics/variables_intro.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>Remember the problem in <span class="xref myst">the first notebook</span>.</p>
+<p>Alex and Billie are at a restaurant, getting ready to order. They don’t have much money, so they are calculating their expected bill before they order.</p>
+<p>Alex is thinking of having the fish for £10.50, and Billie is leaning towards the chicken, at £9.25.  They also want to add a tip of 15%.</p>
+<p>Here’s the calculation for the tip.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip - mistake fixed.</span>
+<span class="p">(</span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then had to add this to the total before tip, to get the grand total:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip</span>
+<span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span> <span class="o">+</span> <span class="p">(</span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But - what if Alex changes her mind, and wants to have the aubergine gratin, for £8.95?  We have to type the whole calculation out again, but change the previous £10.50 (the fish) to the current £8.95 (the aubergine), like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip, with Alex having aubergine.</span>
+<span class="mf">8.95</span> <span class="o">+</span> <span class="mf">9.25</span> <span class="o">+</span> <span class="p">(</span><span class="mf">8.95</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We would like a way to give labels to these numbers, to make our calculations easier to read, and easier to repeat.</p>
+<p>We need <em>variables</em>.</p>
+<div class="section" id="an-interlude-thinking-like-the-computer">
+<h1>An interlude - thinking like the computer.<a class="headerlink" href="#an-interlude-thinking-like-the-computer" title="Permalink to this headline">¶</a></h1>
+<p>Remember when we calculated the total bill before tip:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total bill, before tip.</span>
+<span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To recap, when you run this code (by typing Shift-Enter) Python makes its own
+representation of <code class="docutils literal notranslate"><span class="pre">10.50</span></code>:</p>
+<p><img alt="" src="code-basics/../../images/value_10_50.svg" /></p>
+<p>It also makes its own representation of <code class="docutils literal notranslate"><span class="pre">9.25</span></code>:</p>
+<p><img alt="" src="code-basics/../../images/value_9_25.svg" /></p>
+<p>Python then runs the <em>addition</em> operation on these two, which results in
+Python’s representation of <code class="docutils literal notranslate"><span class="pre">19.75</span></code>.</p>
+<p><img alt="" src="code-basics/../../images/value_19_75.svg" /></p>
+<p>Finally, Python sends back the <code class="docutils literal notranslate"><span class="pre">19.75</span></code>.  The notebook detects that Python sent
+back a value, and shows it to us.</p>
+</div>
+<div class="section" id="variables">
+<h1>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h1>
+<p>Now consider this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first two lines in the cell above are <em>assignment statements</em>.</p>
+<p>Let’s consider the first line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like all assignment statements, this assignment statement has two parts, and
+these are (wait for it):</p>
+<ul class="simple">
+<li><p>The left hand side (to the left of the equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>).</p></li>
+<li><p>The right hand side (to the right of the equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>).</p></li>
+</ul>
+<p>In our case:</p>
+<ul class="simple">
+<li><p>The Left Hand Side (LHS) is <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p>The Right Hand Side (RHS) is <code class="docutils literal notranslate"><span class="pre">10.50</span></code>.</p></li>
+</ul>
+<p>What will Python do with this line?</p>
+<p>First it works on the RHS, and does what it did before; it makes its own
+representation of <code class="docutils literal notranslate"><span class="pre">10.50</span></code>.  This thing that it made is a <em>value</em>.  (We could
+also call it an <em>object</em>, but don’t worry about that for now).</p>
+<p>Next it looks at the LHS, and sees <code class="docutils literal notranslate"><span class="pre">a</span></code>.  It realizes that this is a <em>name</em> that we want to give the new <em>value</em>.  Then it stores the new value 10.50 with the label <code class="docutils literal notranslate"><span class="pre">a</span></code>, in its <em>workspace</em>. Next time we use the label <code class="docutils literal notranslate"><span class="pre">a</span></code> Python will look in its workspace for the label <code class="docutils literal notranslate"><span class="pre">a</span></code>, it will find 10.50, and return it to us.</p>
+<p><img alt="" src="code-basics/../../images/a_equal_10_50.svg" /></p>
+<p>You can read <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">10.50</span></code> as:</p>
+<blockquote>
+<div><p>‘a’ gets the value 10.50</p>
+</div></blockquote>
+<p>Here we just run the same line again, but with a comment to remind us what is
+happening:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;a&#39; gets the value 10.50</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use the new label <code class="docutils literal notranslate"><span class="pre">a</span></code> by putting it on a line on its own, in a code cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the value of &quot;a&quot;</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happened here?</p>
+<p>Remember that, when Python sees the label <code class="docutils literal notranslate"><span class="pre">a</span></code> it will look in its workspace for <code class="docutils literal notranslate"><span class="pre">a</span></code>.  If it finds <code class="docutils literal notranslate"><span class="pre">a</span></code>, it will return the value for <code class="docutils literal notranslate"><span class="pre">a</span></code>.  This is 10.50.  Finally, Jupyter makes the value 10.50 into something it can print to show us, and we see <code class="docutils literal notranslate"><span class="pre">10.50</span></code>.</p>
+<p>Now we go back to the original three lines.  Run this cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set &#39;a&#39; and &#39;b&#39;, then show the result of adding &#39;a&#39; and &#39;b&#39;.</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We read the first two lines as:</p>
+<ul class="simple">
+<li><p>‘a’ gets the value 10.50.</p></li>
+<li><p>‘b’ gets the value 9.25.</p></li>
+<li><p>Calculate ‘a + b’ and show the result.</p></li>
+</ul>
+<p>The second line tells Python that is should give the label <code class="docutils literal notranslate"><span class="pre">b</span></code> to the value 9.25.</p>
+<p><img alt="" src="code-basics/../../images/b_equal_9_25.svg" /></p>
+<p>What is happening in the third line <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>?</p>
+<p>Python sees <code class="docutils literal notranslate"><span class="pre">a</span></code>, and replaces it with the value for <code class="docutils literal notranslate"><span class="pre">a</span></code>: its own representation of the number 10.50.</p>
+<p>Then it sees <code class="docutils literal notranslate"><span class="pre">b</span></code> and replaces it with the value for <code class="docutils literal notranslate"><span class="pre">b</span></code>: its own representation of the number 9.25.</p>
+<p>Noting the <code class="docutils literal notranslate"><span class="pre">+</span></code> it then calculates the result of adding the value 10.50 to the value 9.25, and this generates a new value, 19.75.</p>
+<p>Finally, it makes something we can show on the screen for this value, 19.75, and shows it to us: <code class="docutils literal notranslate"><span class="pre">19.75</span></code>.</p>
+<p>So <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> ends up with exactly the same calculation, and result, as <code class="docutils literal notranslate"><span class="pre">10.50</span> <span class="pre">+</span> <span class="pre">9.25</span></code>.</p>
+</div>
+<div class="section" id="id1">
+<h1>Variables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> above are <em>variables</em>.  Variables are labels attached to values.</p>
+<p>Here we have used single-letter names for the variables, but we can use
+multiple letters in the names.  We can even use the <em>underscore</em> character <code class="docutils literal notranslate"><span class="pre">_</span></code>
+in the name. Python doesn’t care whether the names are single letters, or
+multiple letters, it just uses the name as a label to refer to the value.  So
+we could write the same calculations like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different, longer names.</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All this does exactly the same as the cell with the names <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, except now the label we use for 10.50 is <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and the label for 9.25 is <code class="docutils literal notranslate"><span class="pre">beta</span></code>.  For example, now the label <code class="docutils literal notranslate"><span class="pre">alpha</span></code> points to the value 10.50:</p>
+<p><img alt="" src="code-basics/../../images/alpha_equal_10_50.svg" /></p>
+<p>You will find it very useful to use good variable names.  A good variable name is a name that reminds you what the value represents.  For example, we could write this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Better variable names</span>
+<span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here the names remind us what the values mean.  Python doesn’t care though - it just sees a label, it doesn’t try and work out what the label means.  We choose good variable names for us, the people reading the program.  Python doesn’t care either way.</p>
+<p>Finally, we might also put the total into its own variable, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total gets its own variable.</span>
+<span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
+<span class="c1"># Show the value attached to the &#39;total&#39; variable.</span>
+<span class="n">total</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, the name <code class="docutils literal notranslate"><span class="pre">total</span></code> is a good one, because it reminds us what the value means, but it is nothing special to Python - we could have called it <code class="docutils literal notranslate"><span class="pre">bandersnatch</span></code> and we would get the same result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total variable, with funny name.</span>
+<span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
+<span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
+<span class="n">bandersnatch</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
+<span class="c1"># Show the value attached to the &#39;bandersnatch&#39; variable.</span>
+<span class="n">bandersnatch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Putting the total in its own variable allows us to do our original calculation
+of the bill plus tip in a rather simple and readable way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip, again.</span>
+<span class="n">total</span> <span class="o">+</span> <span class="n">total</span> <span class="o">*</span> <span class="mf">0.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It also means that we can change our minds about the individual amounts, but still keep the same bit of code.  Here’s the calculation of the total and tip, again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total and total plus tip, again.</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
+<span class="c1"># Calculate and show the result.</span>
+<span class="n">total</span> <span class="o">+</span> <span class="n">total</span> <span class="o">*</span> <span class="mf">0.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now Alex has changed her mind, all we need to do is change her variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alex wants the aubergine gratin.</span>
+<span class="n">alex_main</span> <span class="o">=</span> <span class="mf">8.95</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now re-run the cell above - what do you see?</p>
+</div>
+<div class="section" id="end-note">
+<h1>End note<a class="headerlink" href="#end-note" title="Permalink to this headline">¶</a></h1>
+<p>Variables are the heart of coding.  By using good variable names, we can write down our calculations in a way that is easy to understand.  We can make calculations more general, and therefore more useful, but using variables instead of values like <code class="docutils literal notranslate"><span class="pre">10.50</span></code>, so that the calculation works for any valid number, that we put into the variable.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./code-basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
