@@ -18,6 +18,8 @@ jupyter:
     version: 3.6.5
 ---
 
+# Literary characters
+
 ```{python}
 # HIDDEN
 # The standard set of libraries we need

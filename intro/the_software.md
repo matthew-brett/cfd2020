@@ -1,7 +1,7 @@
-# The parts
+# Our tools
 
-You have already jumped into the technology, but now we step back and [name the
-parts](https://en.wikipedia.org/wiki/Naming_of_Parts).
+You have already jumped into the technology, but now we step back and [name
+the parts](https://en.wikipedia.org/wiki/Naming_of_Parts).
 
 You have been working in the [Jupyter Notebook](https://jupyter.org).  This is an *interface* that allows us to interact with the [Python](https://www.python.org) programming language.
 
