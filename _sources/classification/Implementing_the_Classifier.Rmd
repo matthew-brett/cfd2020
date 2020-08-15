@@ -18,6 +18,8 @@ jupyter:
     name: python3
 ---
 
+# Implementing the classifier
+
 ```{python}
 # HIDDEN
 import numpy as np
@@ -27,12 +29,10 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-### Implementing the Classifier ###
-
 We are now ready to implement a $k$-nearest neighbor classifier based on multiple attributes. We have used only two attributes so far, for ease of visualization. But usually predictions will be based on many attributes. Here is an example that shows how multiple attributes can be better than pairs.
 
 
-### Banknote authentication
+## Banknote authentication
 
 This time we'll look at predicting whether a banknote (e.g., a \$20 bill) is counterfeit or legitimate.  Researchers have put together a data set for us, based on photographs of many individual banknotes: some counterfeit, some legitimate.  They computed a few numbers from each image, using techniques that we won't worry about for this course.  So, for each banknote, we know a few numbers that were computed from a photograph of it as well as its class (whether it is counterfeit or not).  Let's load it into a table and take a look.
 
@@ -72,7 +72,7 @@ banknotes.plot.scatter('WaveletSkew', 'Entropy',
 There does seem to be a pattern, but it's a pretty complex one.  Nonetheless, the $k$-nearest neighbors classifier can still be used and will effectively "discover" patterns out of this.  This illustrates how powerful machine learning can be: it can effectively take advantage of even patterns that we would not have anticipated, or that we would have thought to "program into" the computer.
 
 
-### Multiple attributes
+## Multiple attributes
 
 So far I've been assuming that we have exactly 2 attributes that we can use to help us make our prediction.  What if we have more than 2?  For instance, what if we have 3 attributes?
 
@@ -102,7 +102,7 @@ To sum up: you now know how to use $k$-nearest neighbor classification to predic
 3. To make predictions in the future, measure the value of the attributes and then use $k$-nearest neighbor classification to predict the answer to the question.
 
 
-### Distance in Multiple Dimensions ###
+## Distance in Multiple Dimensions
 
 We know how to compute distance in 2-dimensional space. If we have a point at coordinates $(x_0,y_0)$ and another at $(x_1,y_1)$, the distance between them is
 
@@ -199,7 +199,7 @@ wine_with_colors.plot.scatter('Magnesium', 'Total Phenols',
 Let's see if we can implement a classifier based on all of the attributes. After that, we'll see how accurate it is.
 
 
-### A Plan for the Implementation ###
+## A Plan for the Implementation
 
 It's time to write some code to implement the classifier.  The input is a `point` that we want to classify.  The classifier works by finding the $k$ nearest neighbors of `point` from the training set.  So, our approach will go like this:
 
@@ -222,7 +222,7 @@ def classify(training, p, k):
     return majority(kclosest)
 ```
 
-### Implementation Step 1 ###
+## Implementation Step 1
 
 To implement the first step for the kidney disease data, we had to compute the distance from each patient in the training set to `point`, sort them by distance, and take the $k$ closest patients in the training set.
 
@@ -277,7 +277,7 @@ closest(wine, special_wine, 5)
 Bingo! The first row is the nearest neighbor, which is itself – there's a 0 in the `Distance` column as expected. All five nearest neighbors are of Class 1, which is consistent with our earlier observation that Class 1 wines appear to be clumped together in some dimensions.
 
 
-### Implementation Steps 2 and 3 ###
+## Implementation Steps 2 and 3
 
 Next we need to take a "majority vote" of the nearest neighbors and assign our point the same class as the majority.
 

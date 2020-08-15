@@ -17,6 +17,8 @@ jupyter:
     name: python3
 ---
 
+# A first pass at the simple problem
+
 Remember the [three girls in a family problem](three_girls)?
 
 

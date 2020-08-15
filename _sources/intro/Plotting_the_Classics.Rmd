@@ -23,6 +23,8 @@ jupyter:
     version: 3.6.5
 ---
 
+# Plotting the classics
+
 ```{python}
 # HIDDEN
 # The standard set of libraries we need

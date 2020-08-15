@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>The Accuracy of the Classifier &#8212; Coding for Data - 2020 edition</title>
+    <title>Accuracy of the classifier &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -42,6 +42,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="../end/end_of_beginning.html" />
+    <link rel="prev" title="Implementing the classifier" href="Implementing_the_Classifier.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -50,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/classification/Accuracy_of_the_Classifier.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="The Accuracy of the Classifier" />
-<meta property="og:description" content="The Accuracy of the Classifier  To see how well our classifier does, we might put 50% of the data into the training set and the other 50% into the test set.  Ba" />
+<meta property="og:title"       content="Accuracy of the classifier" />
+<meta property="og:description" content="Accuracy of the classifier  # HIDDEN import numpy as np %matplotlib inline import matplotlib.pyplot as plt plt.style.use(&#39;fivethirtyeight&#39;) import pandas as pd " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -100,33 +102,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/computational-tools.html">
-   Computational Tools
+  <a class="reference internal" href="../intro/tools_techniques.html">
+   Tools and techniques
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/statistical-techniques.html">
-   Statistical Techniques
+  <a class="reference internal" href="../intro/text-is-data.html">
+   Text is data
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/surviving_computers.html">
-   Have a piece of paper and a pen next to you
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/surviving_computers.html#work-in-pairs">
-   Work in pairs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/surviving_computers.html#references">
-   References
+   Surviving the computer
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/the_software.html">
-   The parts
+   Our tools
   </a>
  </li>
  <li class="toctree-l1">
@@ -136,12 +128,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/more_on_jupyter.html">
-   The prompts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro/more_on_jupyter.html#interrupting-restarting">
-   Interrupting, restarting
+   More on the Jupyter notebook
   </a>
  </li>
 </ul>
@@ -153,7 +140,7 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/to_code.html">
-   An ode to code
+   Ode to code
   </a>
  </li>
  <li class="toctree-l1">
@@ -168,62 +155,343 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/variables_intro.html">
-   An interlude - thinking like the computer.
+   Introduction to variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/variables_intro.html#variables">
-   Variables
+  <a class="reference internal" href="../code-basics/functions.html">
+   Introduction to functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/variables_intro.html#id1">
-   Variables
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/variables_intro.html#end-note">
-   End note
+  <a class="reference internal" href="../code-basics/first_pass_three_girls.html">
+   A first pass at the simple problem
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/Expressions.html">
-   Walking a mile in Python’s shoes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Expressions.html#common-operators">
-   Common Operators
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Expressions.html#operator-precedence">
-   Operator precedence
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Expressions.html#example">
-   Example
+   Expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/Calls.html">
-   Example
+   Call expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/sub_expressions.html">
-   Sub-expressions
+   Expressions and sub-expressions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/Names.html">
-   Reassigning variables
+   Names and variables
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/data_types.html">
+   Types of things
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Names.html#rules-for-variable-names">
-   Rules for variable names
+  <a class="reference internal" href="../data-types/Numbers.html">
+   Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Strings.html">
+   Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/String_Methods.html">
+   String methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Comparison.html">
+   Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/lists.html">
+   Making a list
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
+   Functions and lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Arrays.html">
+   Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/leaping_ahead.html">
+   Leaping ahead
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Iteration and arrays
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
+   The idea behind a for loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
+   Unrolling the loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/indentation.html">
+   Indentation, indentation, indentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
+   More on Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/array_indexing.html">
+   Selecting values from an array
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
+   Making and filling arrays.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
+   Using array assignment for simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data frames
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frame_intro.html">
+   Introduction to data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/df_series_arrays.html">
+   Data frames, Series and arrays
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Population and permutation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/population_permutation.html">
+   A problem of populations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
+   Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation_idea.html">
+   The idea of permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation_and_t_test.html">
+   Permutation and the t-test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/testing_t.html">
+   Testing the t test
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  More building blocks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
+   Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
+   A variable can point to a function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/conditional_statements.html">
+   Conditional Statements
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pandas, indices and labels
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wild-pandas/pandas_indexing.html">
+   Indexing in Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wild-pandas/noble_politics.html">
+   Noble politics and comparing counts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wild-pandas/safe_pandas.html">
+   Handling Pandas safely
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wild-pandas/text_encoding.html">
+   Storing and loading text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../wild-pandas/numbers_and_strings.html">
+   Numbers and strings
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The mean and straight lines
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean.html">
+   The mean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean_meaning.html">
+   The meaning of the mean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/where_and_argmin.html">
+   Where and argmin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean_and_slopes.html">
+   The mean and slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/optimization.html">
+   Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/finding_lines.html">
+   Finding lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/using_minimize.html">
+   Using minimize
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/inference_on_slopes.html">
+   Inference on slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/combining_boolean_arrays.html">
+   Combining boolean arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/standard_scores.html">
+   Standard scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/Correlation.html">
+   Correlation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Classification
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Nearest_Neighbors.html">
+   Nearest neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Training_and_Testing.html">
+   Training and testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Rows_of_Tables.html">
+   Rows of tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Implementing_the_Classifier.html">
+   Implementing the classifier
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Accuracy of the classifier
   </a>
  </li>
 </ul>
@@ -329,7 +597,24 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-idea-of-accuracy">
+   The idea of accuracy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-the-accuracy-of-our-wine-classifier">
+   Measuring the Accuracy of Our Wine Classifier
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breast-cancer-diagnosis">
+   Breast Cancer Diagnosis
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -338,7 +623,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="accuracy-of-the-classifier">
+<h1>Accuracy of the classifier<a class="headerlink" href="#accuracy-of-the-classifier" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -411,13 +698,13 @@
 </div>
 </div>
 </div>
-<div class="section" id="the-accuracy-of-the-classifier">
-<h1>The Accuracy of the Classifier<a class="headerlink" href="#the-accuracy-of-the-classifier" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-idea-of-accuracy">
+<h2>The idea of accuracy<a class="headerlink" href="#the-idea-of-accuracy" title="Permalink to this headline">¶</a></h2>
 <p>To see how well our classifier does, we might put 50% of the data into the training set and the other 50% into the test set.  Basically, we are setting aside some data for later use, so we can use it to measure the accuracy of our classifier.  We’ve been calling that the <em>test set</em>. Sometimes people will call the data that you set aside for testing a <em>hold-out set</em>, and they’ll call this strategy for estimating accuracy the <em>hold-out method</em>.</p>
 <p>Note that this approach requires great discipline.  Before you start applying machine learning methods, you have to take some of your data and set it aside for testing.  You must avoid using the test set for developing your classifier: you shouldn’t use it to help train your classifier or tweak its settings or for brainstorming ways to improve your classifier.  Instead, you should use it only once, at the very end, after you’ve finalized your classifier, when you want an unbiased estimate of its accuracy.</p>
 </div>
 <div class="section" id="measuring-the-accuracy-of-our-wine-classifier">
-<h1>Measuring the Accuracy of Our Wine Classifier<a class="headerlink" href="#measuring-the-accuracy-of-our-wine-classifier" title="Permalink to this headline">¶</a></h1>
+<h2>Measuring the Accuracy of Our Wine Classifier<a class="headerlink" href="#measuring-the-accuracy-of-our-wine-classifier" title="Permalink to this headline">¶</a></h2>
 <p>OK, so let’s apply the hold-out method to evaluate the effectiveness of the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor classifier for identifying wines.  The data set has 178 wines, so we’ll randomly permute the data set and put 89 of them in the training set and the remaining 89 in the test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,7 +749,7 @@
 <p>The accuracy rate isn’t bad at all for a simple classifier.</p>
 </div>
 <div class="section" id="breast-cancer-diagnosis">
-<h1>Breast Cancer Diagnosis<a class="headerlink" href="#breast-cancer-diagnosis" title="Permalink to this headline">¶</a></h1>
+<h2>Breast Cancer Diagnosis<a class="headerlink" href="#breast-cancer-diagnosis" title="Permalink to this headline">¶</a></h2>
 <p>Now I want to do an example based on diagnosing breast cancer.  I was inspired by Brittany Wenger, who won the Google national science fair in 2012 a 17-year old high school student.  Here’s Brittany:</p>
 <p><img alt="Brittany Wenger" src="http://i.huffpost.com/gen/701499/thumbs/o-GSF83-570.jpg?3" /></p>
 <p>Brittany’s science fair project was to build a classification algorithm to diagnose breast cancer.  She won grand prize for building an algorithm whose accuracy was almost 99%.</p>
@@ -547,6 +834,7 @@
 <p>As a footnote, you might have noticed that Brittany Wenger did even better.  What techniques did she use? One key innovation is that she incorporated a confidence score into her results: her algorithm had a way to determine when it was not able to make a confident prediction, and for those patients, it didn’t even try to predict their diagnosis.  Her algorithm was 99% accurate on the patients where it made a prediction – so that extension seemed to help quite a bit.</p>
 <p>{% data8page Accuracy_of_the_Classifier %}</p>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -576,6 +864,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="Implementing_the_Classifier.html" title="previous page">Implementing the classifier</a>
+    <a class='right-next' id="next-link" href="../end/end_of_beginning.html" title="next page">&lt;no title&gt;</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

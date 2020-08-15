@@ -1,4 +1,4 @@
-# An ode to code
+# Ode to code
 
 Computer languages like [Python](https://python.org) and
 [R](https://r-project.org) are \- languages.

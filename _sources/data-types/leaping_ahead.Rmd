@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Leaping ahead
+
 We are still building up to a solution for the [three girls
 problem](../02/three_girls).
 

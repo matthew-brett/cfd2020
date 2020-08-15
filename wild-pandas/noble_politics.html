@@ -1,0 +1,1096 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Noble politics and comparing counts &#8212; Coding for Data - 2020 edition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/wild-pandas/noble_politics.html" />
+    <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Handling Pandas safely" href="safe_pandas.html" />
+    <link rel="prev" title="Indexing in Pandas" href="pandas_indexing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/noble_politics.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Noble politics and comparing counts" />
+<meta property="og:description" content="Noble politics and comparing counts  This page has two aims:  to practice and extend [Pandas indexing]({{ site.baseurl }}/chapters/07/pandas_indexing);  to exte" />
+<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Coding for data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/what-is-data-science.html">
+   What is data science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/why-data-science.html">
+   Why Data Science?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/tools_techniques.html">
+   Tools and techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/text-is-data.html">
+   Text is data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/surviving_computers.html">
+   Surviving the computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/the_software.html">
+   Our tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/using_jupyter.html">
+   Using Jupyter notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/more_on_jupyter.html">
+   More on the Jupyter notebook
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  On code
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/to_code.html">
+   Ode to code
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sampling_problem.html">
+   A sampling problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/three_girls.html">
+   A simpler problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/variables_intro.html">
+   Introduction to variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/functions.html">
+   Introduction to functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/first_pass_three_girls.html">
+   A first pass at the simple problem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/Expressions.html">
+   Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/Calls.html">
+   Call expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/sub_expressions.html">
+   Expressions and sub-expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../code-basics/Names.html">
+   Names and variables
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data types
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/data_types.html">
+   Types of things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Numbers.html">
+   Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Strings.html">
+   Strings
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/String_Methods.html">
+   String methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Comparison.html">
+   Comparisons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/lists.html">
+   Making a list
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
+   Functions and lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Arrays.html">
+   Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/leaping_ahead.html">
+   Leaping ahead
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Iteration and arrays
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
+   The idea behind a for loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
+   Unrolling the loop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/indentation.html">
+   Indentation, indentation, indentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
+   More on Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/array_indexing.html">
+   Selecting values from an array
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
+   Making and filling arrays.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
+   Using array assignment for simulations
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Data frames
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frame_intro.html">
+   Introduction to data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/df_series_arrays.html">
+   Data frames, Series and arrays
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Population and permutation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/population_permutation.html">
+   A problem of populations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
+   Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation_idea.html">
+   The idea of permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation_and_t_test.html">
+   Permutation and the t-test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/testing_t.html">
+   Testing the t test
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  More building blocks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
+   Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
+   A variable can point to a function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/conditional_statements.html">
+   Conditional Statements
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pandas, indices and labels
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_indexing.html">
+   Indexing in Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Noble politics and comparing counts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="safe_pandas.html">
+   Handling Pandas safely
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="text_encoding.html">
+   Storing and loading text
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numbers_and_strings.html">
+   Numbers and strings
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The mean and straight lines
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean.html">
+   The mean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean_meaning.html">
+   The meaning of the mean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/where_and_argmin.html">
+   Where and argmin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/mean_and_slopes.html">
+   The mean and slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/optimization.html">
+   Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/finding_lines.html">
+   Finding lines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/using_minimize.html">
+   Using minimize
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/inference_on_slopes.html">
+   Inference on slopes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/combining_boolean_arrays.html">
+   Combining boolean arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/standard_scores.html">
+   Standard scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/Correlation.html">
+   Correlation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Classification
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/classification.html">
+   Classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Nearest_Neighbors.html">
+   Nearest neighbors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Training_and_Testing.html">
+   Training and testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Rows_of_Tables.html">
+   Rows of tables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Implementing_the_Classifier.html">
+   Implementing the classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
+   Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/wild-pandas/noble_politics.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.Rmd</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/matthew-brett/cfd2020"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fwild-pandas/noble_politics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/wild-pandas/noble_politics.Rmd"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/wild-pandas/noble_politics.Rmd"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-the-index">
+   Setting the index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-question">
+   The question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-up-the-table">
+   Cleaning up the table
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recreating-the-original-data">
+   Recreating the original data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-question">
+   A question
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="noble-politics-and-comparing-counts">
+<h1>Noble politics and comparing counts<a class="headerlink" href="#noble-politics-and-comparing-counts" title="Permalink to this headline">¶</a></h1>
+<p>This page has two aims:</p>
+<ul class="simple">
+<li><p>to practice and extend [Pandas indexing]({{ site.baseurl
+}}/chapters/07/pandas_indexing);</p></li>
+<li><p>to extend the idea of permutation to data in categories;</p></li>
+</ul>
+<p>We also ask the question - is politics noble?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our data is from this book:</p>
+<blockquote>
+<div><p>Samuel P. Oliner and Pearl M. Oliner (1992) “The Altruistic Personality:
+Rescuers of Jews in Nazi Europe”. Free Press, New York. ISBN 0-02923829-3.</p>
+</div></blockquote>
+<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/oliner1988">the dataset page</a>
+for some more details.</p>
+<p>Oliner and Oliner were interested to see if they could identify distinctive
+traits of people who rescued Jews in Nazi Europe.  In order to do that, they
+collected structured interviews with 231 people for whom there was strong
+documentary evidence that they had sheltered Jews, despite considerable risk to
+themselves. These are the “rescuer” group in the table below.  They also found
+126 controls with roughly similar background, nationality, age and education.
+Of these, 53 claimed to have either sheltered Jews, or to have been active in
+the resistance.  These are the “actives” group in the table.  This leaves 73
+controls who were not active, and the authors termed these “bystanders”.</p>
+<p>The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question “Did you belong to a political party before the war?”.</p>
+<p>As usual, if you are running on your own computers, download the file
+[oliner_tab6_8a_1.csv]({{ site.baseurl }}/data/oliner_tab6_8a_1.csv) to the same directory as this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the table</span>
+<span class="n">party_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;oliner_tab6_8a_1.csv&#39;</span><span class="p">)</span>
+<span class="n">party_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-the-index">
+<h2>Setting the index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen [Pandas indexing]({{ site.baseurl
+}}/chapters/07/pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">party_tab</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Row labels need not be numbers.  They can also be strings.  Strings are often more useful in identifying the data in the rows.</p>
+<p>We might prefer to use the values in the first column - <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> as the labels for the rows.</p>
+<p>We can do this with the data frame <code class="docutils literal notranslate"><span class="pre">set_index</span></code> method.  It replaces the current index (the sequential numbers) with the data from a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace the numerical index with the party_yn labels.</span>
+<span class="n">party_tab</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;party_yn&#39;</span><span class="p">)</span>
+<span class="n">party_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that Pandas took the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> column out of the data frame and used it to replace the index.</p>
+<p>This makes it easier to use the <code class="docutils literal notranslate"><span class="pre">.loc</span></code> attribute to select data, using row labels.  For example, we can select individual elements like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many rescuers were there, in total?</span>
+<span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-question">
+<h2>The question<a class="headerlink" href="#the-question" title="Permalink to this headline">¶</a></h2>
+<p>Looking at the data in the table, it seems as if the Rescuers had a stronger
+tendency to belong to a political party than, say, the Bystanders.</p>
+<p>To get more specific, we look at the proportion of rescuers and bystanders that answered Yes (to being a member of a political party before the war).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">out</span> <span class="pre">of</span></code> row has the total number of people in each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of Yes for Rescuers.</span>
+<span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of Yes for Bystanders.</span>
+<span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks like a substantial difference - but could it have come about by chance?</p>
+<p>What do we mean by chance here?</p>
+<p>We imagine an ideal world where rescuers and bystanders have exactly the same tendency to belong to a political party.</p>
+<p>We will take random samples from this world, to see if the random samples look anything like the numbers we see in the actual data.  If they do, then we might not be very interested in the difference in proportion, in the actual data, because it could plausibly have come about from a world where there was no difference in tendency to belong to political parties.</p>
+<p>So, how do we take samples from this ideal world?</p>
+<p>We will take the same number of fake rescuers as there are real rescuers, and the same number of fake bystanders as there are real bystanders.</p>
+<p>We will assume that the same number of people overall are members of a political party:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of people who belonged to a political party.</span>
+<span class="n">n_yes</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+<span class="n">n_yes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This leaves the rest, who were not a member of a political party:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of people who did not belong to a political party.</span>
+<span class="n">n_no</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+<span class="n">n_no</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a total of:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_yes</span> <span class="o">+</span> <span class="n">n_no</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We therefore have 280 labels (51 Yes labels and 229 No labels) to assign to our
+280 people (209 rescuers and 71 bystanders).</p>
+<p>In our ideal world, this assignment is random.   We can shuffle up the labels
+(Yes, No), and assign each person (rescuer, bystander) a shuffled (therefore,
+random) label.  We take this fake pairing, and calculate the numbers in each of
+the four categories, to create a fake table, that is a random version of the
+actual table.  If we do that many times, we can get an idea of how the numbers
+vary in the fake tables, and therefore, what randomness looks like, in this
+ideal world, of no association between rescuer / bystander and Yes / No.</p>
+</div>
+<div class="section" id="cleaning-up-the-table">
+<h2>Cleaning up the table<a class="headerlink" href="#cleaning-up-the-table" title="Permalink to this headline">¶</a></h2>
+<p>We start by selecting the data we need from the original table.</p>
+<p>First we use <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexing to specify that we want:</p>
+<ul class="simple">
+<li><p>The rows labeled “Yes” and “No”;</p></li>
+<li><p>The columns labeled “rescuers” and “bystanders”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;rescuers&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]]</span>
+<span class="n">bystander_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the <em>lists</em> <code class="docutils literal notranslate"><span class="pre">['Yes',</span> <span class="pre">'No']</span></code> and <code class="docutils literal notranslate"><span class="pre">['rescuers',</span> <span class="pre">'bystanders']</span></code> specifying
+the row labels and columns labels that we want.</p>
+</div>
+<div class="section" id="recreating-the-original-data">
+<h2>Recreating the original data<a class="headerlink" href="#recreating-the-original-data" title="Permalink to this headline">¶</a></h2>
+<p>The table gives the counts of people in each of the four categories.</p>
+<p>We need to reconstruct the 280 people from these counts, so we can do our shuffling of ‘Yes’, ‘No’ labels, in order to make random assignments.</p>
+<p>First we create a list of 280 <em>respondent</em> labels, of which the first 209 are
+‘rescuer’ and the final 71 are ‘bystander’.  These identify the type of respondent.</p>
+<p>To do this, we use <code class="docutils literal notranslate"><span class="pre">np.repeat</span></code>.  Check the function signature with <code class="docutils literal notranslate"><span class="pre">np.repeat?</span></code> and Enter in a new cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the 280 respondent labels.</span>
+<span class="n">respondent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;rescuer&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">209</span><span class="p">,</span> <span class="mi">71</span><span class="p">])</span>
+<span class="c1"># Show the first 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First 10:&#39;</span><span class="p">,</span> <span class="n">respondent</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Show the last 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last 10:&#39;</span><span class="p">,</span> <span class="n">respondent</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we typed (“hard-coded”) the numbers 209, 71.  We can also get these numbers using the sum of the values in the columns of our table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our code above is a little clearer as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the 280 respondent labels.</span>
+<span class="n">respondent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;rescuer&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">],</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="c1"># Show the first 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First 10:&#39;</span><span class="p">,</span> <span class="n">respondent</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Show the last 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last 10:&#39;</span><span class="p">,</span> <span class="n">respondent</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now to create the ‘Yes’, ‘No’ labels.   Again, we could do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the 280 Yes No labels.</span>
+<span class="n">party_yn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">229</span><span class="p">])</span>
+<span class="c1"># Show the first 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First 10:&#39;</span><span class="p">,</span> <span class="n">party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Show the last 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last 10:&#39;</span><span class="p">,</span> <span class="n">party_yn</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We would like to use <code class="docutils literal notranslate"><span class="pre">sum</span></code> again to get those totals automatically, but we have already seen that <code class="docutils literal notranslate"><span class="pre">sum</span></code>, by default, works down the columns.</p>
+<p>Luckily Pandas has a method called <code class="docutils literal notranslate"><span class="pre">transpose</span></code> that flips the rows and columns of a data frame, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flipped_tab</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">flipped_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can get the sum of Yes and No with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flipped_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, all in one go:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This allows us to do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the 280 Yes No labels.</span>
+<span class="n">party_yn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">],</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="c1"># Show the first 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First 10:&#39;</span><span class="p">,</span> <span class="n">party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Show the last 10.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Last 10:&#39;</span><span class="p">,</span> <span class="n">party_yn</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we shuffle the Yes, No labels randomly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+<span class="n">party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can look at the new random pairing by putting the rows into a table, with 280 rows, one for each person:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">party_yn</span>
+<span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">respondent</span>
+<span class="n">fake_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now need the counts of people in each category.  That is we need counts for:</p>
+<ul class="simple">
+<li><p>‘No’ paired with ‘bystander’</p></li>
+<li><p>‘Yes’ paired with ‘bystander’</p></li>
+<li><p>‘No’ paired with ‘rescuer’</p></li>
+<li><p>‘Yes’ paired with ‘rescuer’</p></li>
+</ul>
+<p>We could do this this the long way round, with cells like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Just the Nos.</span>
+<span class="n">fake_nos</span> <span class="o">=</span> <span class="n">fake_data</span><span class="p">[</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;No&#39;</span><span class="p">]</span>
+<span class="c1"># From the Nos, just the Bystanders.</span>
+<span class="n">fake_nos_bystanders</span> <span class="o">=</span> <span class="n">fake_nos</span><span class="p">[</span><span class="n">fake_nos</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
+<span class="c1"># How many rows?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">fake_nos_bystanders</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Luckily, Pandas has a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> function that does this work for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+<span class="n">fake_tab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We saw in the original data that the Bystanders seemed to have a lesser tendency to belong to a political party.  Let us restrict our attention to the count of “Yes” and “bystander” for now.</p>
+<p>That count, in our original data, was:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_y_by</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+<span class="n">actual_y_by</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The equivalent count in our new fake table is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_y_by</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
+<span class="n">fake_y_by</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need more random samples to see if the fake value is often as small as the real value.  If so, then the ideal world, where the association between rescuer / bystander and Yes / No is random, is a reasonable explanation of what we see, and we might not want to investigate these data much further.</p>
+<p>Unfortunately, <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> is horribly slow, so we need to drop our usual number of iterations to 1000 to keep the run-time down.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
+<span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is our <em>sampling distribution</em> from sampling in the ideal world:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">counts</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How unusual is the actual value, in this ideal world?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times we see ideal world sample &gt;= actual value.</span>
+<span class="n">p_lte</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts</span> <span class="o">&lt;=</span> <span class="n">actual_y_by</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">p_lte</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-question">
+<h2>A question<a class="headerlink" href="#a-question" title="Permalink to this headline">¶</a></h2>
+<p>Now look at this.  Here I do the same test, but I am looking at the both of these counts:</p>
+<ul class="simple">
+<li><p>“No”, “bystander”.</p></li>
+<li><p>“Yes”, “rescuer”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Yes, bystander</span>
+<span class="n">counts_y_by</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># No, rescuer</span>
+<span class="n">counts_n_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+    <span class="n">counts_y_by</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
+    <span class="n">counts_n_r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The test for “Yes”, “bystander”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times we see ideal world sample &gt;= actual value.</span>
+<span class="n">actual_y_by</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+<span class="n">p_lte_y_by</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts_y_by</span> <span class="o">&lt;=</span> <span class="n">actual_y_by</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">p_lte_y_by</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The test for “No”, “rescuer”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times we see ideal world sample &gt;= actual value.</span>
+<span class="n">actual_n_r</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
+<span class="n">p_lte_n_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts_n_r</span> <span class="o">&lt;=</span> <span class="n">actual_n_r</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">p_lte_n_r</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See if you can work out why these two answers are <em>exactly</em> the same.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "matthew-brett/cfd2020",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./wild-pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="pandas_indexing.html" title="previous page">Indexing in Pandas</a>
+    <a class='right-next' id="next-link" href="safe_pandas.html" title="next page">Handling Pandas safely</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

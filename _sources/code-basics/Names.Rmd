@@ -23,6 +23,8 @@ jupyter:
     version: 3.6.5
 ---
 
+# Names and variables
+
 As you've already seen in the [introduction to variables](variables_intro),
 Python gives names to values using an *assignment* statement. In an
 assignment, a *name* is followed by `=`, which is followed by any

@@ -18,6 +18,8 @@ jupyter:
     name: python3
 ---
 
+# Rows of tables
+
 ```{python}
 # HIDDEN
 import numpy as np
@@ -33,8 +35,6 @@ import pandas as pd
 def standard_units(x):
     return (x - np.mean(x))/np.std(x)
 ```
-
-### Rows of Tables ###
 
 Now that we have a qualitative understanding of nearest neighbor classification, it's time to implement our classifier.
 
@@ -86,7 +86,7 @@ For example, to access the Albumin level of Patient 0, we can look at the labels
 first_row.iloc[3]
 ```
 
-### Converting Rows to Numpy arrays  ###
+## Converting Rows to Numpy arrays
 
 Rows whose elements are all numerical can be converted to numerical Numpy arrays.  Converting a row to a numerical array gives us access to arithmetic operations and other nice NumPy functions, so it is often useful.
 
@@ -138,7 +138,7 @@ np.array(ckd_attributes.iloc[3])
 This is very handy because we can now use array operations on the data in each row.
 
 
-### Distance Between Points When There are Two Attributes ###
+## Distance Between Points When There are Two Attributes
 
 The main calculation we need to do is to find the distance between Alice's point and any other point. For this, the first thing we need is a way to compute the distance between any pair of points.
 
@@ -180,7 +180,7 @@ distance(alice, patient3)
 We have begun to build our classifier: the `distance` function is the first building block. Now let's work on the next piece.
 
 
-### Using `apply` on an Entire Row ###
+## Using `apply` on an Entire Row
 
 Sometimes we want to be able to *apply* some function to a whole row of a data frame.
 
@@ -215,7 +215,7 @@ t.apply(max_abs, axis=1)
 This way of using `apply` will help us create the next building block of our classifier.
 
 
-### Alice's $k$ Nearest Neighbors ###
+## Alice's $k$ Nearest Neighbors
 
 If we want to classify Alice using a k-nearest neighbor classifier, we have to identify her $k$ nearest neighbors. What are the steps in this process? Suppose $k = 5$. Then the steps are:
 

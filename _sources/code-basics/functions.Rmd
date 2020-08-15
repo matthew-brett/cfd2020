@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Introduction to functions
+
 This is a very short introduction to functions.
 
 We will soon go into more detail on functions, in the page on [call expressions](Calls).
