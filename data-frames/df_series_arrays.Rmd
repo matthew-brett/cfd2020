@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Data frames, Series and arrays
+
 We have now come across three important structures that Python uses to store and access data:
 
 * arrays

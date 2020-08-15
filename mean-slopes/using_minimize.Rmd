@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Using minimize
+
 We have already used the `minimize` function a few times:
 
 ```{python}

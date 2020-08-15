@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Storing and loading text
+
 Various things can go wrong when you import your data into Pandas.  Some of these are immediately obvious; others only appear later, in confusing forms.
 
 This page covers one common problem when loading data into Pandas --- text encoding.

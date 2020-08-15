@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# Optimization
+
 In [The Mean and Slopes](mean_and_slopes), we used a simple but slow way to
 find the slope that best predicted one vector of values from another vector of
 values.

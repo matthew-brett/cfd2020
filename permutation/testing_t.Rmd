@@ -16,6 +16,8 @@ jupyter:
     name: python3
 ---
 
+# Testing the t test
+
 One of the great advantages of using simulation is that you can test the
 assertions your teachers make.
 

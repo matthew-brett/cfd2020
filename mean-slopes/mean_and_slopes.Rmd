@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# The mean and slopes
+
 In [The Mean as Predictor](mean_meaning), we found that the mean had some good
 properties as a single best predictor for a whole distribution.
 

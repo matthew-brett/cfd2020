@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# Combining boolean arrays
+
 Sometimes we want to be able to combine several different criteria to select
 elements from arrays or tables.
 

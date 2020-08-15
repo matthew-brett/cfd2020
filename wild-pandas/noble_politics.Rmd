@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Noble politics and comparing counts
+
 This page has two aims:
 
 * to practice and extend [Pandas indexing]({{ site.baseurl

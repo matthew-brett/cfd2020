@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# Inference on slopes
+
 In [finding slopes](finding_slopes), we found the line the did the best job of predicting one vector of values from another vector of values.
 
 Our line was a slope and an intercept.  We used it to predict the Overall

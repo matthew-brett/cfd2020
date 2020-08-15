@@ -12,7 +12,7 @@ jupyter:
     name: python3
 ---
 
-## Conditional Statements
+# Conditional Statements
 
 In many situations, actions and results depends on a specific set of
 conditions being satisfied. For example, individuals in randomized
@@ -106,7 +106,7 @@ Imagine we evaluate `classify(-3)` again.  Python enters function world, and set
 Notice that the `if` statement now deals with all possible values of `x`.  Whatever the value of `x` we with either execute `result = 'Positive'` or we will execute `result = 'Not positive'`.  We can now get rid of the first line in the function `result = 'Not sure yet'` because we will always change `result` from that value, in the `if` statement:
 
 ```{python}
-# Classify without the unneccessary first assignment.
+# Classify without the unnecessary first assignment.
 def classify(x):
     if x > 0:
         result = 'Positive'
@@ -233,7 +233,7 @@ print(classify_returning_early(0))
 This is a common pattern, where we break out of function world as soon as we
 have the answer we need.
 
-## The General Form ##
+## The General Form
 
 A conditional statement can also have multiple clauses with multiple bodies, and only one of those bodies can ever be executed. The general format of a multi-clause conditional statement appears below.
 

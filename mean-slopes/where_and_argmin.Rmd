@@ -17,6 +17,8 @@ jupyter:
     name: python3
 ---
 
+# Where and argmin
+
 We sometimes want to know where a value is in an array.
 
 ```{python}

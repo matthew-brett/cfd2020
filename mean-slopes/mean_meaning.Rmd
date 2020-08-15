@@ -17,6 +17,8 @@ jupyter:
     name: python3
 ---
 
+# The meaning of the mean
+
 The mean is an interesting value.
 
 In this notebook, we fetch an example sequence of numbers, with a distribution that is far from the standard bell-curve distribution.  We look at the properties of the mean as a predictor of the whole distribution.

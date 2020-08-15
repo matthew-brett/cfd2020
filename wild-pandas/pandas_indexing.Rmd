@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Indexing in Pandas
+
 Way back in the [introduction to data frames]({{ site.baseurl
 }}/chapters/03/data_frame_intro), we covered indexing into data frames with
 *Boolean vectors*, such as Pandas Series or Numpy arrays, and indexing into data frames with column names.

@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Numbers and strings
+
 This page covers a common problem when loading data into Pandas --- when Pandas gets confused about whether values in a column are text or numbers.
 
 ## An example

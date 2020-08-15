@@ -1,3 +1,5 @@
+# The mean
+
 The mean is an important value to summarize and predict a distribution.
 
 It has two interesting properties:
