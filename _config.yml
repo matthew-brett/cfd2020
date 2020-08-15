@@ -1,8 +1,55 @@
 # Book settings
-title: My sample book
-author: The Jupyter Book Community
-logo: logo.png
+title : "Coding for Data - 2020 edition"
+author: Matthew Brett, Ani Adhikari, John Denero, David Wagner
+logo: images/dsfe_logo.png
+email: matthew.brett@gmail.com
+# >- starts a multiline string, where newlines replaced by spaces, and final
+# newlines are stripped.
+description: >-
+  Textbook for University of Birmingham Data Science modules.
+
+execute:
+  execute_notebooks: cache
+
+html:
+  favicon: images/dsfe_favicon.ico
+  home_page_in_navbar: false
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  baseurl: https://matthew-brett.github.io/cfd2020
+
+repository:
+  url: https://github.com/matthew-brett/cfd2020
+  branch: master
+  path_to_book: docs
+
+launch_buttons:
+  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+
+sphinx:
+  config:
+    mathjax_config:
+      TeX:
+        Macros:
+          "N": "\\mathbb{N}"
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "bmat": ["\\left[\\begin{array}"]
+          "emat": ["\\end{array}\\right]"]
+
+  extra_extensions:
+    # For documenting 'click' Python CLIs
+    # - sphinx_click.ext
+    # Directive for creating tab panels in pages.
+    # https://github.com/djungelorm/sphinx-tabs
+    # - sphinx_tabs.tabs
+    # A sphinx extension for creating panels in a grid layout or as
+    # drop-downs.
+    # - sphinx_panels
 
 latex:
   latex_documents:
-    targetname: book.tex
+    targetname: cfd2020.tex
