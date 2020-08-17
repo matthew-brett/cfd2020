@@ -33,31 +33,3 @@ I've indicated every page derived from the Berkeley course, at the
 bottom of the page.  These pages follow the same CC-BY-NC license as
 the original - see [the README for commit
 64b20f0](https://github.com/data-8/textbook/blob/64b20f0452a31545d9fbc8f34a9e86035cd56e45/README.md).
-
-## Website machinery
-
-The overall machinery to build the website comes from
-<https://github.com/choldgraf/textbooks-with-jupyter>. The license below covers
-the files used to build the site, but not the content.
-
-MIT License
-
-Copyright (c) 2018 Chris Holdgraf
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
