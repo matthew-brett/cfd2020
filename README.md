@@ -28,11 +28,6 @@ Go to the repository page that houses this README - for example <https://github.
 Click on "Fork" button near top right, to make your own fork of the
 repository, that will now be at `https://github.com/my-gh-user/<repo-name>` where `<repo-name>` is the name of the repository housing this README.
 
-**Before you clone the repository**, make sure you are working in
-a case-sensitive filesystem.  The default macOS filesystem is not
-case-sensitive, see the section "Case-sensitive files on the Mac" near
-the end, before you continue, and clone into this new filesystem.
-
 The following assumes that the README is in
 <https://github.com/matthew-brett/cfd2020>.  The name of the repository is
 therefore `cfd2020`.  Substitute URL and repository name throughout.
@@ -194,50 +189,3 @@ You might want to check the instructions for configuring the build at
 
 * Final check
 * Ship with `make github`
-
-## Case-sensitive filesystem on the Mac
-
-The default file-systems for current Macs are Journalled HFS+, or
-APFS, neither of which are case-sensitive by default.  This causes
-problems with file-names for the built files - see
-<https://github.com/choldgraf/jupyter-book/pull/27>.
-
-You can check if you are on a case-sensitive file-system with:
-
-```
-mkdir tmp
-touch tmp/abcd.txt
-touch tmp/abcD.txt
-ls tmp/ab*.txt
-```
-
-If you see only one file listed, you're on a case-insensitive
-file-system, and this will cause problems for editing and uploading
-the files in this repo.
-
-### The easy way, with modern macOS
-
-The easiest way to solve this, on a modern Mac, is to make a new
-case-sensitive APFS volume.  Go to Disk Utility, click on a hard
-drive, click on the `+` icon at the top left, under "Volume", and you
-should get a GUI for "Add APFS volume to a container?".  Choose "APFS
-(Case-sensitive)".  With all done, you should have a new volume, into which you can clone the repository.
-
-### The hard way, with older macOS
-
-If you do not have the option above, you can also make a new disk image file, and mount that.  In my hands, this started to get very slow, as the disk image got close to full.  Here are the instructions in case you want to give it a go:
-
-* Make a *disk image* with a case-sensitive file-system on it.
-* Mount the disk image
-* Work inside the mounted disk image.
-
-Clone this Gist:
-
-```
-git clone https://gist.github.com/faa9ccc0d7cb2936263f16192106a98a
-```
-
-Have a look at the `.plist` file inside, and follow the instructions
-in the comments, to set this up.  When you have followed the
-instructions, you should find that the system mounts the image
-automatically when you log in.
