@@ -1,6 +1,6 @@
-# Data science for everyone
+# Coding for data courses
 
-Course materials and notes for data science course at the University of
+Course materials and notes for data science courses at the University of
 Birmingham.
 
 This textbook is based on the Berkeley Foundations of Data Science
@@ -16,15 +16,14 @@ with a CC-BY-NC-ND license, forbidding derivative works.
 
 ## Machinery
 
-The template for this website comes from
-<https://github.com/executablebooks/jupyter-book> - many thanks to
-the authors.
+The template for this website comes from <https://jupyterbook.org> - many
+thanks to the authors.
 
 ## Getting started for working on the repository
 
 Say your Github username is `my-gh-user`.
 
-Go to the repository page that houses this README - for example <https://github.co/matthew-brett/dsfe>.
+Go to the repository page that houses this README - for example <https://github.co/matthew-brett/cfd2020>.
 
 Click on "Fork" button near top right, to make your own fork of the
 repository, that will now be at `https://github.com/my-gh-user/<repo-name>` where `<repo-name>` is the name of the repository housing this README.
@@ -35,20 +34,20 @@ case-sensitive, see the section "Case-sensitive files on the Mac" near
 the end, before you continue, and clone into this new filesystem.
 
 The following assumes that the README is in
-<https://github.com/matthew-brett/dsfe>.  The name of the repository is
-therefore `dsfe`.  Substitute URL and repository name throughout.
+<https://github.com/matthew-brett/cfd2020>.  The name of the repository is
+therefore `cfd2020`.  Substitute URL and repository name throughout.
 
 Clone the main repo:
 
 ```
-git clone https://github.com/matthew-brett/dsfe
+git clone https://github.com/matthew-brett/cfd2020
 ```
 
 Add a remote for your fork:
 
 ```
-cd dsfe
-git remote add my-gh-user https://github.com/my-gh-user/dsfe.git
+cd cfd2020
+git remote add my-gh-user https://github.com/my-gh-user/cfd2020.git
 git fetch my-gh-user
 ```
 
@@ -106,27 +105,14 @@ workon my-venv
 Install the Python packages you need for building the site:
 
 ```
-pip install -r build-requirements.txt
+pip install -r build_requirements.txt
 ```
 
-Install the site build / serve engine, [Jekyll](https://jekyllrb.com),
-by following the [Jekyll install
-instructions](https://jekyllrb.com/docs/installation).
-
-Finish up with a final:
+Finally, check that you can build the pages locally with:
 
 ```
-bundle install
+make html
 ```
-
-Finally, check that you can run the local website server with:
-
-```
-make serve
-```
-
-Copy the URL that comes up, and paste into your browser's URL bar, to
-check you get can load the local website copy.
 
 ## Configuring Jupyter to save / load in R Markdown
 
@@ -171,7 +157,7 @@ Jupyter.notebook.set_autosave_interval(0); // disable autosave
 Finally, you may want to clone the original Berkeley textbook:
 
 ```
-# Get out of dsfe tree
+# Get out of cfd2020 tree
 cd ..
 git clone https://github.com/data-8/textbook
 ```
@@ -193,17 +179,14 @@ interactions with Github easier, from the command line.
 ## Configuring build etc
 
 You might want to check the instructions for configuring the build at
-<https://github.com/choldgraf/textbooks-with-jupyter>.
+<https://jupyterbook.org>.
 
 ## Workflow
 
 ### Developing
 
-* `make serve` to run the local server serving `_site` directory.
-* Attach browser to <http://localhost:4000/dsfe/> as suggested in
-  output of `make serve`.
 * Edit `.Rmd` and / or `.ipynb` files
-* `make rebuild-notebooks` to rebuild `.ipynb` from more recent `.Rmd`
+* `make html` to rebuild `.ipynb` from more recent `.Rmd`
   files, and rebuild `.md` files from more recent `.ipynb` files.
 * Review in browser
 
