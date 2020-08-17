@@ -65,7 +65,4 @@ details.
 
 You can download copies of the data from the following links:
 
-* [Chronic kidney disease full data file]({{ site.baseurl
-  }}/data/ckd_full.csv).
-* [Chronic kidney disease clean data file]({{ site.baseurl
-  }}/data/ckd_clean.csv).
+* [Chronic kidney disease full data file](../data/ckd_clean.csv).

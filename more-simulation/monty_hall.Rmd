@@ -27,7 +27,7 @@ The setup is the following:
 * Behind one of the doors, is a car.  Behind the other two doors, there is
   a goat.
 
-![Monty Hall illustration]({{ site.baseurl }}/images/monty_hall_goat.png)
+![Monty Hall illustration](../images/monty_hall_goat.png)
 
 * Assume for a moment you'd rather have a car than a goat.
 * Monty offers you the choice of any of the three doors.  You chose a door, but

@@ -41,10 +41,9 @@ We need Pandas to load the gender data that we first saw in the [data frame intr
 import pandas as pd
 ```
 
-The dataset is [gender_stats.csv]({{ site.baseurl }}/data/gender_stats.csv).
+The dataset is [gender_stats.csv](../data/gender_stats.csv).
 This contains some World Bank statistics for each country on health and
-economic factors related to gender equality. See [the data file page]({{
-site.baseurl }}/data/gender_stats) for more detail.
+economic factors related to gender equality. See [the data file page](../data/gender_stats) for more detail.
 
 ```{python}
 # Load the data file

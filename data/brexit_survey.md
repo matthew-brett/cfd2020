@@ -40,7 +40,4 @@ identical to the file you will find at the UK Data Service.
 
 You can download these copies from the following links:
 
-* [Brexit survey tab-delimited data file]({{ site.baseurl
-  }}/data/audit_of_political_engagement_14_2017.tab);
-* [Brexit survey data dictionary PDF file]({{ site.baseurl
-  }}/data/audit_of_political_engagement_14_2017_ukda_data_dictionary.pdf).
+* [Brexit survey tab-delimited data file](../data/audit_of_political_engagement_14_2017_ukda_data_dictionary.pdf).

@@ -45,7 +45,7 @@ school-leaver mathematics examination results from 2018.
 
 
 You can download the file from
-[havana_math_2018.csv]({{ site.baseurl }}/data/havana_math_2018.csv).
+[havana_math_2018.csv](../data/havana_math_2018.csv).
 
 ```{python}
 havana_2018 = pd.read_csv('havana_math_2018.csv')
@@ -84,7 +84,7 @@ math_med_2018
 Now we look at the sample of 50 exams from 2019 that you marked quickly.
 
 You can download the sample file from
-[havana_math_2019_sample.csv]({{ site.baseurl }}/data/havana_math_2019_sample.csv).
+[havana_math_2019_sample.csv](../data/havana_math_2019_sample.csv).
 
 ```{python}
 havana_2019_sample = pd.read_csv('havana_math_2019_sample.csv')
