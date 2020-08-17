@@ -1,9 +1,3 @@
----
-layout: single
-title: Chronic Kidney Disease
-permalink: /data/chronic_kidney_disease
----
-
 # Chronic kidney disease dataset
 
 The chronic kidney disease (CKD) dataset is a processed version of the original

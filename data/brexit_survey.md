@@ -1,9 +1,3 @@
----
-layout: single
-title: Brexit Survey
-permalink: /data/brexit_survey
----
-
 # The Brexit survey
 
 Several pages in this course use the data from the 2016 Hansard Survey.  The
