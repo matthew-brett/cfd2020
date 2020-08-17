@@ -223,4 +223,4 @@ Each of these functions takes both an array of strings and a *search string*; ea
 | `np.char.rfind`      | The position within each element that a search string is found last              |
 | `np.char.startswith` | Whether each element starts with the search string  
 
-{% data8page Arrays %}
+{ucb-page}`Arrays`

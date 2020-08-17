@@ -50,4 +50,4 @@ s
 
 This is the first time we've seen methods, but methods are not unique to strings.  As we will see shortly, other types of objects can have them.
 
-{% data8page String_Methods %}
+{ucb-page}`String_Methods`

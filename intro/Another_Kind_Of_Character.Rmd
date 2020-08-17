@@ -109,4 +109,4 @@ somewhere between 100 and 150 characters between periods, as a very rough
 estimate. Perhaps Jane Austen was announcing something familiar to us now: the
 original 140-character limit of Twitter.
 
-{% data8page Another_Kind_Of_Character %}
+{ucb-page}`Another_Kind_Of_Character`

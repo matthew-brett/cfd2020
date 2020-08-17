@@ -111,4 +111,4 @@ string is less than a longer string that begins with the shorter string.
 "Catastrophe" > "Cat"
 ```
 
-{% data8page Comparison %}
+{ucb-page}`Comparison`

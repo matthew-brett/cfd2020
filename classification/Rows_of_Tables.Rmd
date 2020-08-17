@@ -287,4 +287,4 @@ plt.ylim(-2, 2.5);
 
 We are well on our way to implementing our k-nearest neighbor classifier. In the next two sections we will put it together and assess its accuracy.
 
-{% data8page Rows_of_Tables %}
+{ucb-page}`Rows_of_Tables`

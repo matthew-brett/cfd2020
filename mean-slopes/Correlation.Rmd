@@ -15,7 +15,7 @@ jupyter:
 
 # Correlation
 
-{% data8page Correlation %}
+{ucb-page}`Correlation`
 
 ```{python}
 # HIDDEN
@@ -521,4 +521,4 @@ take a look.
 
 ![]({{ site.baseurl }}/images/chocoNobel.png)
 
-{% data8page Correlation %}
+{ucb-page}`Correlation`

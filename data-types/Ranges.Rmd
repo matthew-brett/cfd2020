@@ -88,4 +88,4 @@ or negative and may be whole numbers or fractions.
 np.arange(1.5, -2, -0.5)
 ```
 
-{% data8page Ranges %}
+{ucb-page}`Ranges`

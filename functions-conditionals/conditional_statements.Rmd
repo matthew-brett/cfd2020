@@ -257,4 +257,4 @@ clause must always come at the end (or not at all).
 
 Now try the [exercises](../exercises/conditional_statements_exercises).
 
-{% data8page Conditional_Statements %}
+{ucb-page}`Conditional_Statements`

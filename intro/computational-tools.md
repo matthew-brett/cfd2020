@@ -37,4 +37,4 @@ This text includes a complete introduction to all of these computational
 tools.  You will learn to write programs, generate images from data, and work
 with real-world data sets that are published online.
 
-{% data8page Computational_Tools %}
+{ucb-page}`Computational_Tools`
