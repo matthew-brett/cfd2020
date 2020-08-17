@@ -1,7 +1,7 @@
 """ Support code for textbook
 """
 
-from . import data8page
+from . import ucb_page
 
 def setup(app):
-    data8page.setup(app)
+    ucb_page.setup(app)
