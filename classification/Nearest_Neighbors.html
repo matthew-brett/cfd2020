@@ -915,7 +915,11 @@ directory as this notebook.</p>
 <p>Its predictions will be pretty similar to our intuitive strategy, but occasionally it will make a different prediction.  In particular, if Alice’s blood test results happen to put her right near one of the blue dots in the lower-left, the intuitive strategy would predict ‘not CKD’, whereas the nearest neighbor classifier will predict ‘CKD’.</p>
 <p>There is a simple generalization of the nearest neighbor classifier that fixes this anomaly.  It is called the <em>k-nearest neighbor classifier</em>.  To predict Alice’s diagnosis, rather than looking at just the one neighbor closest to her, we can look at the 3 points that are closest to her, and use the diagnosis for each of those 3 points to predict Alice’s diagnosis.  In particular, we’ll use the majority value among those 3 diagnoses as our prediction for Alice’s diagnosis.  Of course, there’s nothing special about the number 3: we could use 4, or 5, or more.  (It’s often convenient to pick an odd number, so that we don’t have to deal with ties.)  In general, we pick a number <span class="math notranslate nohighlight">\(k\)</span>, and our predicted diagnosis for Alice is based on the <span class="math notranslate nohighlight">\(k\)</span> patients in the training set who are closest to Alice.  Intuitively, these are the <span class="math notranslate nohighlight">\(k\)</span> patients whose blood test results were most similar to Alice, so it seems reasonable to use their diagnoses to predict Alice’s diagnosis.</p>
 <p>The <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor classifier will now behave just like our intuitive strategy above.</p>
-<p>{% data8page Nearest_Neighbors %}</p>
+<p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Nearest_Neighbors.ipynb">Nearest_Neighbors</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
+</div>
+</p>
 </div>
 </div>
 

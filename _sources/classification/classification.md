@@ -25,4 +25,4 @@ Classification requires data.  It involves looking for patterns, and to find pat
 
 Classifiers do not need to be perfect to be useful.  They can be useful even if their accuracy is less than 100%.  For instance, if the online dating site occasionally makes a bad recommendation, that's OK; their customers already expect to have to meet many people before they'll find someone they hit it off with.  Of course, you don't want the classifier to make too many errors &mdash; but it doesn't have to get the right answer every single time.
 
-{% data8page Classification %}
+{ucb-page}`Classification`

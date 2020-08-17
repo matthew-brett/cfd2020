@@ -57,4 +57,4 @@ adults can build the capacity to reason about data. The tools, techniques, and
 data sets are all readily available; this text aims to make them accessible to
 everyone.
 
-{% data8page Why_Data_Science %}
+{ucb-page}`Why_Data_Science`

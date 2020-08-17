@@ -286,4 +286,4 @@ There is a simple generalization of the nearest neighbor classifier that fixes t
 
 The $k$-nearest neighbor classifier will now behave just like our intuitive strategy above.
 
-{% data8page Nearest_Neighbors %}
+{ucb-page}`Nearest_Neighbors`

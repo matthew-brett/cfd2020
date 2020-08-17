@@ -311,4 +311,4 @@ Yes! The classifier gets this one right too.
 But we don't yet know how it does with all the other wines, and in any case we know that testing on wines that are already part of the training set might be over-optimistic. In the final section of this chapter, we will separate the wines into a training and test set and then measure the accuracy of our classifier on the test set.
 
 
-{% data8page Implementing_the_Classifier %}
+{ucb-page}`Implementing_the_Classifier`

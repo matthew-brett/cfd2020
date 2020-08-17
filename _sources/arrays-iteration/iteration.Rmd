@@ -344,4 +344,4 @@ in coin tossing, as we will see later in the course.
 
 Now see the [for loop exercises](../exercises/for_loops).
 
-{% data8page Iteration %}
+{ucb-page}`Iteration`

@@ -220,4 +220,4 @@ Over 96% accuracy.  Not bad!  Once again, pretty darn good for such a simple tec
 As a footnote, you might have noticed that Brittany Wenger did even better.  What techniques did she use? One key innovation is that she incorporated a confidence score into her results: her algorithm had a way to determine when it was not able to make a confident prediction, and for those patients, it didn't even try to predict their diagnosis.  Her algorithm was 99% accurate on the patients where it made a prediction -- so that extension seemed to help quite a bit.
 
 
-{% data8page Accuracy_of_the_Classifier %}
+{ucb-page}`Accuracy_of_the_Classifier`

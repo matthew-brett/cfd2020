@@ -157,4 +157,4 @@ meal_price_total
 
 See [the Names exercises](../../exercises/names) to practice the material in this section.
 
-{% data8page Names %}
+{ucb-page}`Names`

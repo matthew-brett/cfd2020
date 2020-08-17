@@ -238,4 +238,4 @@ plt.ylim(-2, 6);
 Some errors notwithstanding, it looks like the classifier does fairly well on the test set. Assuming that the original sample was drawn randomly from the underlying population, the hope is that the classifier will perform with similar accuracy on the overall population, since the test set was chosen randomly from the original sample.
 
 
-{% data8page Training_and_Testing %}
+{ucb-page}`Training_and_Testing`

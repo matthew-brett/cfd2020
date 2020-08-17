@@ -247,4 +247,4 @@ abs(orscha - smolensk_R)
 abs(orscha - smolensk_R)/smolensk_R
 ```
 
-{% data8page Calls %}
+{ucb-page}`Calls`

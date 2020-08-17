@@ -96,4 +96,4 @@ of Darcy flatten off, when he goes to look for them.   Around chapter 50 we see
 Jane and Bingley being mentioned at a very similar rate, as Bingley proposes,
 and Jane accepts.
 
-{% data8page Literary_Characters %}
+{ucb-page}`Literary_Characters`
