@@ -4,9 +4,9 @@ This is the end of the course.
 
 The course is an introduction to data science.  Along the way, we hope you learned:
 
-* Some of the [computational tools](../01/computational-tools) including the
+* Some of the [computational tools](../intro/computational-tools) including the
   Python language, Jupyter notebooks, Numpy arrays, and Pandas data frames.
-* Some of the [statistical techniques](../01/statistical-techniques), including
+* Some of the [statistical techniques](../intro/statistical-techniques), including
   simulation, testing for differences between groups with permutation, testing
   for straight-line relationships, and predicting categories of data from measurements.
 

@@ -164,7 +164,7 @@ For example, here we *call* the function we just created:
 double(4)
 ```
 
-Notice that `double(4)` is a [call expression](../02/Calls).
+Notice that `double(4)` is a [call expression](../code-basics/Calls).
 
 So, what just happened?
 

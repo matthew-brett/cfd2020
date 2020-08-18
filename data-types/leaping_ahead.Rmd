@@ -16,7 +16,7 @@ jupyter:
 # Leaping ahead
 
 We are still building up to a solution for the [three girls
-problem](../02/three_girls).
+problem](../code-basics/three_girls).
 
 We have more of the building blocks we need.
 

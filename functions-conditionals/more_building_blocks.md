@@ -1,7 +1,7 @@
 # More building blocks
 
 We have already covered some important parts of programming for data science,
-such as [expressions](../02/Expressions), [variables](../02/Variables), [data
+such as [expressions](../code-basics/Expressions), [variables](../code-basics/Variables), [data
 types](../03/data_types), [arrays](../03/Arrays) and [data
 frames](../04/data_frams_intro).
 
