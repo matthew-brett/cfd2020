@@ -13,6 +13,7 @@ jupyter:
     name: python3
 ---
 
+# Numpy append
 
 We have already seen how to build a Numpy array from a sequence of values.
 

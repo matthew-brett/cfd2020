@@ -1,7 +1,13 @@
 ---
 jupyter:
-  jupytext_format_version: '1.0'
-  jupytext_formats: Rmd:rmarkdown,ipynb
+  jupytext:
+    formats: Rmd,ipynb
+    notebook_metadata_filter: jupytext_format_version,jupytext_formats,language_info
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -20,7 +26,7 @@ jupyter:
 
 # Another kind of character
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 # The standard set of libraries we need
 import numpy as np
@@ -43,7 +49,7 @@ def read_url(url):
 This page is largely derived from `Another_Kind_Of_Character` of the UC
 Berkeley course \- see the license file on the main website.
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 # Read the text of Pride and Prejudice, split into chapters.
 book_url = 'http://www.gutenberg.org/cache/epub/42671/pg42671.txt'

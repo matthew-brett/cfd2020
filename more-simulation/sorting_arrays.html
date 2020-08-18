@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -621,12 +673,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([9, 1, 3, 0])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Say we wanted to sort this array, from smallest to largest.  To do this, we use <code class="docutils literal notranslate"><span class="pre">np.sort</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
 <span class="n">sorted_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 1, 3, 9])
 </pre></div>
 </div>
 </div>
@@ -637,6 +699,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">another_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Matthew&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Peter&#39;</span><span class="p">])</span>
 <span class="n">another_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;Matthew&#39;, &#39;John&#39;, &#39;Peter&#39;], dtype=&#39;&lt;U7&#39;)
 </pre></div>
 </div>
 </div>
@@ -653,6 +720,11 @@ a way that the computer can store characters in strings.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;John&#39;, &#39;Matthew&#39;, &#39;Peter&#39;], dtype=&#39;&lt;U7&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Remember how an alphabetical sort works.  The string “a” comes before the
 string “aa”.  “aa” comes before “ab”.</p>
@@ -660,6 +732,11 @@ string “aa”.  “aa” comes before “ab”.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">short_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">])</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">short_strings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;a&#39;, &#39;aa&#39;, &#39;ab&#39;], dtype=&#39;&lt;U2&#39;)
 </pre></div>
 </div>
 </div>

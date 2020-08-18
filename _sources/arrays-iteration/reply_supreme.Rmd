@@ -22,7 +22,9 @@ jupyter:
     version: 3.6.5
 ---
 
-[Our task](../02/sampling_problem) has been to reply to the Supreme Court on
+# Reply to the Supreme Court
+
+[Our task](../code-basics/sampling_problem) has been to reply to the Supreme Court on
 their judgment in the appeal of Robert Swain.
 
 

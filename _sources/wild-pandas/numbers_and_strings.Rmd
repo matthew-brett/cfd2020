@@ -25,7 +25,7 @@ import pandas as pd
 pd.set_option('mode.chained_assignment','raise')
 ```
 
-We return to the example data file that you may have seen in the [text encoding](../chapters/07/text_encoding) page.
+We return to the example data file that you may have seen in the [text encoding](text_encoding) page.
 
 You can download the data file from [imdblet_latin.csv](../data/imdblet_latin.csv).
 

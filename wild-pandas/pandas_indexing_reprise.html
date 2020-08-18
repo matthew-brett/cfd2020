@@ -51,7 +51,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/pandas_indexing_reprise.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Pandas indexing reprise" />
-<meta property="og:description" content="Pandas indexing reprise  This page is a reminder on indexing for Pandas data frames and Series.  You have already seen the basics of Pandas indexing for more de" />
+<meta property="og:description" content="Pandas indexing reprise  This page is a reminder on indexing for Pandas data frames and Series.  You have already seen the basics of Pandas indexing; this page " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -595,7 +647,34 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#direct-indexing">
+   Direct indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indirect-indexing-by-position-with-iloc">
+   Indirect indexing by position with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     iloc
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indirect-indexing-by-label-with-loc">
+   Indirect indexing by label with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .loc
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -607,7 +686,639 @@
   <div class="section" id="pandas-indexing-reprise">
 <h1>Pandas indexing reprise<a class="headerlink" href="#pandas-indexing-reprise" title="Permalink to this headline">¶</a></h1>
 <p>This page is a reminder on indexing for Pandas data frames and Series.</p>
-<p>You have already seen the <span class="xref myst">basics of Pandas indexing</span> for more detail.</p>
+<p>You have already seen the <a class="reference internal" href="pandas_indexing.html"><span class="doc std std-doc">basics of Pandas indexing</span></a>; this page is just a reminder of the later
+parts of the basic indexing page.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use the familiar dataset on student ratings of professors.  It is a table
+where the rows are course subjects and the columns include average ratings for
+all University professors / lecturers teaching that subject. See <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">the dataset
+page</span></a> for more detail.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataset as a data frame</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Reorder by Easiness</span>
+<span class="n">ratings_by_easy</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Easiness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Make a smaller data frame with the first six rows</span>
+<span class="n">top_by_easy</span> <span class="o">=</span> <span class="n">ratings_by_easy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># Show the smaller data frame.</span>
+<span class="n">top_by_easy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+      <td>4.188919</td>
+      <td>4.177500</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Physical Education</td>
+      <td>991</td>
+      <td>4.078698</td>
+      <td>4.030797</td>
+      <td>4.057719</td>
+      <td>3.832250</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+      <td>4.101197</td>
+      <td>4.119345</td>
+      <td>3.674701</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Child Development</td>
+      <td>171</td>
+      <td>3.950585</td>
+      <td>4.008070</td>
+      <td>3.979766</td>
+      <td>3.606082</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Theater</td>
+      <td>1078</td>
+      <td>3.876633</td>
+      <td>3.821503</td>
+      <td>3.851837</td>
+      <td>3.584508</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Music</td>
+      <td>2455</td>
+      <td>3.844509</td>
+      <td>3.787804</td>
+      <td>3.818114</td>
+      <td>3.542273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here is an example <em>Boolean Series</em> that has True for rows where the “Clarity”
+rating was greater than 4.1, and False otherwise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_clear</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">4.1</span>
+<span class="n">is_clear</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>64     True
+36    False
+49     True
+61    False
+31    False
+19    False
+Name: Clarity, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use that in the examples below.</p>
+<div class="section" id="direct-indexing">
+<h2>Direct indexing<a class="headerlink" href="#direct-indexing" title="Permalink to this headline">¶</a></h2>
+<p>Direct indexing is where the indexing bracket <code class="docutils literal notranslate"><span class="pre">[</span></code> goes right after the data
+frame.  Examples are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with a column name.</span>
+<span class="n">top_by_easy</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>64               Reading
+36    Physical Education
+49                Speech
+61     Child Development
+31               Theater
+19                 Music
+Name: Discipline, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with a Boolean sequence.</span>
+<span class="n">top_by_easy</span><span class="p">[</span><span class="n">is_clear</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+      <td>4.188919</td>
+      <td>4.177500</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+      <td>4.101197</td>
+      <td>4.119345</td>
+      <td>3.674701</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As you have seen in the <a class="reference internal" href="pandas_indexing.html"><span class="doc std std-doc">Pandas indexing page</span></a>, the examples above are the two types of safe
+direct indexing into Pandas data frames:</p>
+<ol class="simple">
+<li><p>Direct indexing with a column name.</p></li>
+<li><p>Direct indexing with a Boolean sequence.</p></li>
+</ol>
+</div>
+<div class="section" id="indirect-indexing-by-position-with-iloc">
+<h2>Indirect indexing by position with <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#indirect-indexing-by-position-with-iloc" title="Permalink to this headline">¶</a></h2>
+<p>Indirect indexing is where we use the special <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> and <code class="docutils literal notranslate"><span class="pre">.loc</span></code> attributes of data frames and Series.  The data frame or series goes first, followed by <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> or <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, followed by the opening square bracket <code class="docutils literal notranslate"><span class="pre">[</span></code>, the specifiers for the values we want, and the closing square bracket <code class="docutils literal notranslate"><span class="pre">]</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">.iloc</span></code> selects rows and columns by <em>position</em>.  For example, here we ask for
+the first three rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+      <td>4.188919</td>
+      <td>4.177500</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Physical Education</td>
+      <td>991</td>
+      <td>4.078698</td>
+      <td>4.030797</td>
+      <td>4.057719</td>
+      <td>3.832250</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+      <td>4.101197</td>
+      <td>4.119345</td>
+      <td>3.674701</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we send <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> two arguments, separated by commas, then the first argument
+refers to the rows, and the second to the columns.  Here we ask for the first three rows and the first three columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Physical Education</td>
+      <td>991</td>
+      <td>4.078698</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">:</span></code> to select everything.  For example, this selects all rows, and
+the last column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity_with_iloc</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">clarity_with_iloc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>64    3.882635
+36    3.832250
+49    3.674701
+61    3.606082
+31    3.584508
+19    3.542273
+Name: Easiness, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indirect-indexing-by-label-with-loc">
+<h2>Indirect indexing by label with <code class="docutils literal notranslate"><span class="pre">.loc</span></code><a class="headerlink" href="#indirect-indexing-by-label-with-loc" title="Permalink to this headline">¶</a></h2>
+<p>We can also select items by their row and column <em>labels</em>.  In this case, the row labels are also counting numbers (integers), so they are easily mistaken for positions if you are not careful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">row_labeled_64</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
+<span class="n">row_labeled_64</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Discipline              Reading
+Number of Professors        148
+Clarity                 4.15939
+Helpfulness             4.18892
+Overall Quality          4.1775
+Easiness                3.88264
+Name: 64, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a different result than the one we get from <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, which does look at position rather than label:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">row_position_0</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">row_position_0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Discipline              Reading
+Number of Professors        148
+Clarity                 4.15939
+Helpfulness             4.18892
+Overall Quality          4.1775
+Easiness                3.88264
+Name: 64, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can ask for multiple rows by label:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">]]</span>
+<span class="n">ratings_by_label</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+      <td>4.188919</td>
+      <td>4.177500</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+      <td>4.101197</td>
+      <td>4.119345</td>
+      <td>3.674701</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Theater</td>
+      <td>1078</td>
+      <td>3.876633</td>
+      <td>3.821503</td>
+      <td>3.851837</td>
+      <td>3.584508</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If we send <code class="docutils literal notranslate"><span class="pre">.loc</span></code> two arguments, separated by commas, then the first argument
+refers to the rows, and the second to the columns.  The column labels are the
+column names.  Here we ask for the rows labeled 64, 49, 31, and the column labeled “Discipline”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_row_col_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
+<span class="n">ratings_by_row_col_label</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>64    Reading
+49     Speech
+31    Theater
+Name: Discipline, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we want multiple columns we can pass a list of column names:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_row_col_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">,</span> <span class="s1">&#39;Clarity&#39;</span><span class="p">]]</span>
+<span class="n">ratings_by_row_col_label</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Clarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>4.159392</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>4.133191</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Theater</td>
+      <td>3.876633</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This is a good way of selecting a subset of the columns from the data frame,
+using <code class="docutils literal notranslate"><span class="pre">:</span></code> to select all the rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">some_columns</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">,</span> <span class="s1">&#39;Easiness&#39;</span><span class="p">]]</span>
+<span class="n">some_columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Physical Education</td>
+      <td>3.832250</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>3.674701</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Child Development</td>
+      <td>3.606082</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Theater</td>
+      <td>3.584508</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Music</td>
+      <td>3.542273</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can use Boolean sequences to select rows with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clear_clarity</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_clear</span><span class="p">,</span> <span class="s1">&#39;Clarity&#39;</span><span class="p">]</span>
+<span class="n">clear_clarity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>64    4.159392
+49    4.133191
+Name: Clarity, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use some Boolean sequences for <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>, but it’s a bit more
+complicated.  See <a class="reference internal" href="../functions-conditionals/booleans_and_labels.html"><span class="doc std std-doc">Booleans and labels</span></a> for more detail.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

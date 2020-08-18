@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Numpy append &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -42,8 +42,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="function_arguments.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="Ranges.html" />
+    <link rel="next" title="Function arguments" href="function_arguments.html" />
+    <link rel="prev" title="Ranges" href="Ranges.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -52,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data-types/numpy_append.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Numpy append" />
+<meta property="og:description" content="Numpy append  We have already seen how to build a Numpy array from a sequence of values.  # Load the Numpy package, and rename to &#34;np&#34; import numpy as np  One w" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -194,7 +194,7 @@
   Data types
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="data_types.html">
    Types of things
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,7 +658,9 @@
         
               <div>
                 
-  <p>We have already seen how to build a Numpy array from a sequence of values.</p>
+  <div class="section" id="numpy-append">
+<h1>Numpy append<a class="headerlink" href="#numpy-append" title="Permalink to this headline">¶</a></h1>
+<p>We have already seen how to build a Numpy array from a sequence of values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
@@ -624,6 +678,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.1, 2.2, 3.2, 2.1])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here we create the full 4 value array in one call to <code class="docutils literal notranslate"><span class="pre">np.array</span></code>.</p>
 <p>Another way make an array is to build it up one value at a time.</p>
@@ -633,6 +692,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">an_empty_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">an_empty_list</span><span class="p">)</span>
 <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([], dtype=float64)
 </pre></div>
 </div>
 </div>
@@ -652,11 +716,21 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.1])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">)</span>
 <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.1, 2.2])
 </pre></div>
 </div>
 </div>
@@ -668,6 +742,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.1, 2.2, 3.2])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,8 +755,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1.1, 2.2, 3.2, 2.1])
+</pre></div>
+</div>
+</div>
 </div>
 <p>This seems slow and laborious, but we will soon see this can be useful when we want to calculate and store a sequence of values.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -707,8 +792,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Ranges.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="function_arguments.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="Ranges.html" title="previous page">Ranges</a>
+    <a class='right-next' id="next-link" href="function_arguments.html" title="next page">Function arguments</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

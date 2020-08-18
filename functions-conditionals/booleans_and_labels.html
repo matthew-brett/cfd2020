@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -612,7 +664,9 @@ some subtleties in results.</p>
 <p>Download that file to the same directory as this notebook, if you are running
 on your own computer.</p>
 <p>Here we pull out the rows for the countries with the highest Gross Domestic
-Product. This may be familiar from the <span class="xref myst">data frame intro</span>.</p>
+Product. This may be familiar from the <a class="reference internal" href="../data-frames/data_frame_intro.html"><span class="doc std std-doc">data frame
+intro</span></a> and the <a class="reference internal" href="../wild-pandas/pandas_indexing.html"><span class="doc std std-doc">Pandas indexing
+page</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -634,11 +688,110 @@ Product. This may be familiar from the <span class="xref myst">data frame intro<
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>202</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>1.860875</td>
+      <td>17369.124600</td>
+      <td>9060.068657</td>
+      <td>8.121961</td>
+      <td>48.758830</td>
+      <td>14.00</td>
+      <td>318.558175</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1.558750</td>
+      <td>10182.790479</td>
+      <td>657.748859</td>
+      <td>3.015530</td>
+      <td>46.297964</td>
+      <td>28.75</td>
+      <td>1364.446000</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Japan</td>
+      <td>JPN</td>
+      <td>1.430000</td>
+      <td>5106.024760</td>
+      <td>3687.126279</td>
+      <td>8.496074</td>
+      <td>48.744199</td>
+      <td>5.75</td>
+      <td>127.297102</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Germany</td>
+      <td>DEU</td>
+      <td>1.450000</td>
+      <td>3601.226158</td>
+      <td>4909.659884</td>
+      <td>8.542615</td>
+      <td>48.568695</td>
+      <td>6.25</td>
+      <td>81.281645</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>United Kingdom</td>
+      <td>GBR</td>
+      <td>1.842500</td>
+      <td>2768.864417</td>
+      <td>3357.983675</td>
+      <td>7.720655</td>
+      <td>48.791809</td>
+      <td>9.25</td>
+      <td>64.641557</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Consider the index (row labels) of this 5-row data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -654,6 +807,16 @@ than 3500 dollars, False otherwise.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     True
+35     False
+97      True
+49      True
+67     False
+Name: health_exp_per_cap, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that this Series, like all Series, has an index, which is the same as
 the index from the Series we used to make it
@@ -662,6 +825,11 @@ the data frame (<code class="docutils literal notranslate"><span class="pre">ric
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -675,6 +843,14 @@ than 3500 dollars per capita on health care.  We can do this with, for example,
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    United States
+97             Japan
+49           Germany
+Name: country_name, dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">loc</span></code> gives us the rows for which <em>corresponding</em> elements in  <code class="docutils literal notranslate"><span class="pre">is_big_spender</span></code>
 are True.</p>
@@ -684,6 +860,16 @@ position?   Or in terms of index (row / element labels)?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     True
+35     False
+97      True
+49      True
+67     False
+Name: health_exp_per_cap, dtype: bool
 </pre></div>
 </div>
 </div>
@@ -708,12 +894,27 @@ series and the data frame.  For example, we can sort the series, like this:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>35     False
+67     False
+202     True
+97      True
+49      True
+Name: health_exp_per_cap, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now the order of the row labels is different in the series (above) and the data
 frame (below):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -731,12 +932,20 @@ see those rows in the result.  So (drum roll):</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    United States
+97             Japan
+49           Germany
+Name: country_name, dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <p>The result is the same as for the not-sorted series - and we have found that
 <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexing uses the <em>labels</em> rather than the <em>positions</em> when indexing with
 a Boolean series.</p>
-<p>On reflection, maybe that is not surprising - after all, <span class="xref myst">we already
-know</span> that <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexing does indexing by <em>label</em>.</p>
+<p>On reflection, maybe that is not surprising - after all, <a class="reference internal" href="../wild-pandas/pandas_indexing.html"><span class="doc std std-doc">we already
+know</span></a> that <code class="docutils literal notranslate"><span class="pre">loc</span></code> indexing does indexing by <em>label</em>.</p>
 <p>We usually will not have to worry about the difference between labels and
 positions in Boolean Series, because, usually, the row labels and positions are
 the same in the thing we index (data frame, or Series) and the Boolean series
@@ -758,6 +967,46 @@ True and False values?  Or something else?</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">8</span><span class="n">f5ae3f2285e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># The &#39;country_name&#39; column is the first column,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># so it is at offset 0 in the columns.</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sorted_is_big_spender</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1760</span>                 <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1761</span>                     <span class="k">pass</span>
+<span class="ne">-&gt; </span><span class="mi">1762</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1763</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1764</span>             <span class="c1"># we by definition only have the 0th axis</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_getitem_tuple</span><span class="nt">(self, tup)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2065</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2066</span> 
+<span class="ne">-&gt; </span><span class="mi">2067</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2068</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2069</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>                 <span class="k">raise</span> <span class="n">IndexingError</span><span class="p">(</span><span class="s2">&quot;Too many indexers&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">703</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_validate_key</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1978</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1979</span>                 <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_type</span> <span class="o">==</span> <span class="s2">&quot;integer&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1980</span>                     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1981</span>                         <span class="s2">&quot;iLocation based boolean &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1982</span>                         <span class="s2">&quot;indexing on an integer type &quot;</span>
+
+<span class="ne">NotImplementedError</span>: iLocation based boolean indexing on an integer type is not available
+</pre></div>
+</div>
+</div>
 </div>
 <p>It does something else - it gives an error, telling us that it will not use the
 index.   This is so whatever the index order - even if the index and the
@@ -767,6 +1016,46 @@ positions give the same answer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iloc with the original Boolean series, where positions</span>
 <span class="c1"># and labels match.</span>
 <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">2</span><span class="n">f61cb9f0042</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># iloc with the original Boolean series, where positions</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># and labels match.</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1760</span>                 <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1761</span>                     <span class="k">pass</span>
+<span class="ne">-&gt; </span><span class="mi">1762</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1763</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1764</span>             <span class="c1"># we by definition only have the 0th axis</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_getitem_tuple</span><span class="nt">(self, tup)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2065</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2066</span> 
+<span class="ne">-&gt; </span><span class="mi">2067</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2068</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2069</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>                 <span class="k">raise</span> <span class="n">IndexingError</span><span class="p">(</span><span class="s2">&quot;Too many indexers&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">703</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_validate_key</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1978</span>             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1979</span>                 <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_type</span> <span class="o">==</span> <span class="s2">&quot;integer&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1980</span>                     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1981</span>                         <span class="s2">&quot;iLocation based boolean &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1982</span>                         <span class="s2">&quot;indexing on an integer type &quot;</span>
+
+<span class="ne">NotImplementedError</span>: iLocation based boolean indexing on an integer type is not available
 </pre></div>
 </div>
 </div>
@@ -782,6 +1071,11 @@ the index (element labels):</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True,  True])
+</pre></div>
+</div>
+</div>
 </div>
 <p>This Boolean sequence will work with <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, because it has no index (element
 labels) to trip it up:</p>
@@ -789,6 +1083,14 @@ labels) to trip it up:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can use a Boolean array to index rows, with &quot;iloc&quot;.</span>
 <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sorted_is_big_spender_arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>97             Japan
+49           Germany
+67    United Kingdom
+Name: country_name, dtype: object
 </pre></div>
 </div>
 </div>

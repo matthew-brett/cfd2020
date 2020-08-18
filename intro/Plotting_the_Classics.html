@@ -253,6 +253,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -285,6 +300,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -312,6 +332,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -329,6 +354,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -336,6 +366,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -361,8 +396,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -512,6 +557,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -647,8 +699,11 @@
 </div>
 </div>
 </div>
-<p>This page is largely derived from <code class="docutils literal notranslate"><span class="pre">Plotting_the_Classics</span></code> of the UC Berkeley
-course - see the license file on the main website.</p>
+<p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Plotting_the_Classics.ipynb">Plotting_the_Classics</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
+</div>
+</p>
 <p>In this example, we will explore statistics for: <em>Pride and Prejudice</em>
 by Jane Austen.  The text of any book can be read by a computer at great
 speed.  Books published before 1923 are currently in the <em>public domain</em>,
@@ -687,6 +742,31 @@ show us how the text starts:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Project Gutenberg eBook, Pride and Prejudice, by Jane Austen, Edited
+by R. W. (Robert William) Chapman
+
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+
+
+
+Title: Pride and Prejudice
+
+
+Author: Jane Austen
+
+Editor: R. W. (Robert William) Chapman
+
+Release Date: May 9, 2013 
+</pre></div>
+</div>
+</div>
 </div>
 <p>You might want to check this is the same as the text you see by opening the
 URL in your browser: <a class="reference external" href="http://www.gutenberg.org/ebooks/42671.txt.utf-8">http://www.gutenberg.org/ebooks/42671.txt.utf-8</a></p>
@@ -713,6 +793,77 @@ times during this course.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Chapters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>I.\r\n\r\n\r\nIt is a truth universally acknow...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>II.\r\n\r\n\r\nMr. Bennet was among the earlie...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>III.\r\n\r\n\r\nNot all that Mrs. Bennet, howe...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>IV.\r\n\r\n\r\nWhen Jane and Elizabeth were al...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V.\r\n\r\n\r\nWithin a short walk of Longbourn...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>XV.\r\n\r\n\r\nThe discomposure of spirits, wh...</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>XVI.\r\n\r\n\r\nInstead of receiving any such ...</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>XVII.\r\n\r\n\r\n"My dear Lizzy, where can you...</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>XVIII.\r\n\r\n\r\nElizabeth's spirits soon ris...</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>XIX.\r\n\r\n\r\nHappy for all her maternal fee...</td>
+    </tr>
+  </tbody>
+</table>
+<p>61 rows × 1 columns</p>
+</div></div></div>
 </div>
 <p>This is your first view of a data frame.  Ignore the first column for now - it
 is just a row number.  The second column shows the first few characters of the

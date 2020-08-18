@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -646,7 +698,8 @@ a useful measure of the center of a distribution.</p>
 </div>
 <div class="section" id="back-to-chronic-kidney-disease">
 <h2>Back to chronic kidney disease<a class="headerlink" href="#back-to-chronic-kidney-disease" title="Permalink to this headline">¶</a></h2>
-<p>We return to the <span class="xref myst">data on chronic kidney disease</span>.</p>
+<p>We return to the <a class="reference internal" href="../data/chronic_kidney_disease.html"><span class="doc std std-doc">data on chronic kidney disease</span></a>.</p>
+<p>Download the data to your computer via this link: <span class="xref myst">ckd_clean.csv</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ckd_clean.csv&#39;</span><span class="p">)</span>
@@ -654,6 +707,173 @@ a useful measure of the center of a distribution.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Blood Pressure</th>
+      <th>Specific Gravity</th>
+      <th>Albumin</th>
+      <th>Sugar</th>
+      <th>Red Blood Cells</th>
+      <th>Pus Cell</th>
+      <th>Pus Cell clumps</th>
+      <th>Bacteria</th>
+      <th>Blood Glucose Random</th>
+      <th>...</th>
+      <th>Packed Cell Volume</th>
+      <th>White Blood Cell Count</th>
+      <th>Red Blood Cell Count</th>
+      <th>Hypertension</th>
+      <th>Diabetes Mellitus</th>
+      <th>Coronary Artery Disease</th>
+      <th>Appetite</th>
+      <th>Pedal Edema</th>
+      <th>Anemia</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>48.0</td>
+      <td>70.0</td>
+      <td>1.005</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>117.0</td>
+      <td>...</td>
+      <td>32.0</td>
+      <td>6700.0</td>
+      <td>3.9</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>53.0</td>
+      <td>90.0</td>
+      <td>1.020</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>70.0</td>
+      <td>...</td>
+      <td>29.0</td>
+      <td>12100.0</td>
+      <td>3.7</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63.0</td>
+      <td>70.0</td>
+      <td>1.010</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>380.0</td>
+      <td>...</td>
+      <td>32.0</td>
+      <td>4500.0</td>
+      <td>3.8</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>68.0</td>
+      <td>80.0</td>
+      <td>1.010</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>present</td>
+      <td>157.0</td>
+      <td>...</td>
+      <td>16.0</td>
+      <td>11000.0</td>
+      <td>2.6</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>61.0</td>
+      <td>80.0</td>
+      <td>1.015</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>notpresent</td>
+      <td>notpresent</td>
+      <td>173.0</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>9200.0</td>
+      <td>3.2</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
 </div>
 <p>We will use this dataset to get a couple of variables (columns) and
 therefore a couple of distributions.</p>
@@ -666,10 +886,26 @@ therefore a couple of distributions.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_6_0.png" src="../_images/standard_scores_6_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wbc</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>count      158.000000
+mean      8475.949367
+std       3126.880181
+min       3800.000000
+25%       6525.000000
+50%       7800.000000
+75%       9775.000000
+max      26400.000000
+Name: White Blood Cell Count, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -683,10 +919,26 @@ therefore a couple of distributions.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_9_0.png" src="../_images/standard_scores_9_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hgb</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>count    158.000000
+mean      13.687342
+std        2.882204
+min        3.100000
+25%       12.600000
+50%       14.250000
+75%       15.775000
+max       17.800000
+Name: Hemoglobin, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -705,6 +957,9 @@ their units are so different.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_13_0.png" src="../_images/standard_scores_13_0.png" />
+</div>
 </div>
 <p>We could try and fix this by subtracting the mean, as a center value, so
 the values are now <em>deviations</em> from the mean.</p>
@@ -716,6 +971,9 @@ the values are now <em>deviations</em> from the mean.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_15_0.png" src="../_images/standard_scores_15_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,12 +983,20 @@ the values are now <em>deviations</em> from the mean.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_16_0.png" src="../_images/standard_scores_16_0.png" />
+</div>
 </div>
 <p>The deviations each have a mean very very close to zero, and therefore,
 they have the same center:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">wbc_deviations</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">hgb_deviations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(-1.8420145858692217e-13, 7.195369476051647e-16)
 </pre></div>
 </div>
 </div>
@@ -747,6 +1013,9 @@ Hemoglobin deviations, because they have such different <em>units</em>.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/standard_scores_20_0.png" src="../_images/standard_scores_20_0.png" />
 </div>
 </div>
 <p>We would like a measure of the spread of the distribution, so we can set
@@ -765,11 +1034,41 @@ a measure of spread?</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0   -2.487342
+1   -4.187342
+2   -2.887342
+3   -8.087342
+4   -5.987342
+5   -3.887342
+6   -1.187342
+7   -3.687342
+8   -3.187342
+9   -3.887342
+Name: Hemoglobin, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hgb_dev_sq</span> <span class="o">=</span> <span class="n">hgb_deviations</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="n">hgb_dev_sq</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     6.186869
+1    17.533831
+2     8.336743
+3    65.405097
+4    35.848261
+5    15.111426
+6     1.409780
+7    13.596489
+8    10.159148
+9    15.111426
+Name: Hemoglobin, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -781,12 +1080,23 @@ a measure of spread?</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;HGB squared deviations&#39;)
+</pre></div>
+</div>
+<img alt="../_images/standard_scores_26_1.png" src="../_images/standard_scores_26_1.png" />
+</div>
 </div>
 <p>The center, or typical value, of this distribution, could be the <em>mean</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hgb_dev_sq_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">hgb_dev_sq</span><span class="p">)</span>
 <span class="n">hgb_dev_sq_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>8.254523313571543
 </pre></div>
 </div>
 </div>
@@ -797,6 +1107,11 @@ a measure of spread?</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The mean squared deviation is the variance</span>
 <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">hgb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>8.254523313571543
 </pre></div>
 </div>
 </div>
@@ -811,6 +1126,11 @@ deviation?</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.873068623192203
+</pre></div>
+</div>
+</div>
 </div>
 <p>This is a measure of the spread of the distribution.  It is a measure of
 the typical or average deviation.</p>
@@ -818,6 +1138,11 @@ the typical or average deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">hgb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.873068623192203
 </pre></div>
 </div>
 </div>
@@ -835,6 +1160,12 @@ close to 1.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Standardized Hemoglobin&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Standardized Hemoglobin&#39;)
+</pre></div>
+</div>
+<img alt="../_images/standard_scores_36_1.png" src="../_images/standard_scores_36_1.png" />
 </div>
 </div>
 <p>We can make a function to do this:</p>
@@ -854,6 +1185,12 @@ close to 1.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Standardized Hemoglobin, again&#39;)
+</pre></div>
+</div>
+<img alt="../_images/standard_scores_39_1.png" src="../_images/standard_scores_39_1.png" />
+</div>
 </div>
 <p>If we do the same to the WBC, we can compare values of the
 distributions:</p>
@@ -865,6 +1202,12 @@ distributions:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Standardized White Blood Cell Count&#39;)
+</pre></div>
+</div>
+<img alt="../_images/standard_scores_41_1.png" src="../_images/standard_scores_41_1.png" />
+</div>
 </div>
 <p>Now we can put both these distributions on the same graph, to compare them directly.</p>
 <div class="cell docutils container">
@@ -875,6 +1218,12 @@ distributions:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11a38f130&gt;
+</pre></div>
+</div>
+<img alt="../_images/standard_scores_43_1.png" src="../_images/standard_scores_43_1.png" />
 </div>
 </div>
 <p>Every value in standardized units gives the deviation of the original

@@ -2,16 +2,12 @@
 jupyter:
   anaconda-cloud: {}
   jupytext:
-    metadata_filter:
-      notebook:
-        additional: all
-        excluded:
-        - language_info
+    notebook_metadata_filter: all,-language_info
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.6
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -20,8 +16,7 @@ jupyter:
 
 # Accuracy of the classifier
 
-```{python}
-# HIDDEN
+```{python tags=c("hide-cell")}
 import numpy as np
 # %matplotlib inline
 import matplotlib.pyplot as plt
@@ -29,9 +24,7 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-```{python}
-# HIDDEN
-
+```{python tags=c("hide-cell")}
 def distance(point1, point2):
     """Returns the distance between point1 and point2
     where each argument is an array
@@ -75,12 +68,10 @@ def classify(training, new_point, k):
     return majority(closestk['Class'])
 ```
 
-You can download the file from
+You can download the data file for this page from
 [wine.csv](../data/wine.csv).
 
-```{python}
-# HIDDEN
-
+```{python tags=c("hide-cell")}
 wine = pd.read_csv('wine.csv')
 wine.loc[wine['Class'] != 1, 'Class'] = 0
 ```
@@ -179,7 +170,7 @@ patients_with_colors.plot.scatter(
 
 Oops.  That plot is utterly misleading, because there are a bunch of points that have identical values for both the x- and y-coordinates.  To make it easier to see all the data points, I'm going to add a little bit of random jitter to the x- and y-values.  Here's how that looks:
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 
 def randomize_column(a):

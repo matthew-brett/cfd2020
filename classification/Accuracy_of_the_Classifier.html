@@ -42,7 +42,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../end/end_of_beginning.html" />
+    <link rel="next" title="The end of the beginning" href="../end/end_of_beginning.html" />
     <link rel="prev" title="Implementing the classifier" href="Implementing_the_Classifier.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,7 +53,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/classification/Accuracy_of_the_Classifier.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Accuracy of the classifier" />
-<meta property="og:description" content="Accuracy of the classifier  # HIDDEN import numpy as np %matplotlib inline import matplotlib.pyplot as plt plt.style.use(&#39;fivethirtyeight&#39;) import pandas as pd " />
+<meta property="og:description" content="Accuracy of the classifier  import numpy as np %matplotlib inline import matplotlib.pyplot as plt plt.style.use(&#39;fivethirtyeight&#39;) import pandas as pd  def dist" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -625,10 +677,9 @@
                 
   <div class="section" id="accuracy-of-the-classifier">
 <h1>Accuracy of the classifier<a class="headerlink" href="#accuracy-of-the-classifier" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
@@ -637,11 +688,9 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
-
-<span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns the distance between point1 and point2</span>
 <span class="sd">    where each argument is an array</span>
 <span class="sd">    consisting of the coordinates of the point&quot;&quot;&quot;</span>
@@ -686,13 +735,11 @@
 </div>
 </div>
 </div>
-<p>You can download the file from
+<p>You can download the data file for this page from
 <span class="xref myst">wine.csv</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
-
-<span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;wine.csv&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;wine.csv&#39;</span><span class="p">)</span>
 <span class="n">wine</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">wine</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -745,6 +792,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.8651685393258427
+</pre></div>
+</div>
+</div>
 </div>
 <p>The accuracy rate isn’t bad at all for a simple classifier.</p>
 </div>
@@ -768,6 +820,106 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Clump Thickness</th>
+      <th>Uniformity of Cell Size</th>
+      <th>Uniformity of Cell Shape</th>
+      <th>Marginal Adhesion</th>
+      <th>Single Epithelial Cell Size</th>
+      <th>Bare Nuclei</th>
+      <th>Bland Chromatin</th>
+      <th>Normal Nucleoli</th>
+      <th>Mitoses</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>5</td>
+      <td>7</td>
+      <td>10</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>8</td>
+      <td>8</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>So we have 9 different attributes.  I don’t know how to make a 9-dimensional scatterplot of all of them, so I’m going to pick two and plot them:</p>
 <div class="cell docutils container">
@@ -788,25 +940,14 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Accuracy_of_the_Classifier_19_0.png" src="../_images/Accuracy_of_the_Classifier_19_0.png" />
+</div>
 </div>
 <p>Oops.  That plot is utterly misleading, because there are a bunch of points that have identical values for both the x- and y-coordinates.  To make it easier to see all the data points, I’m going to add a little bit of random jitter to the x- and y-values.  Here’s how that looks:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
-
-<span class="k">def</span> <span class="nf">randomize_column</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Add some random jitter to vector &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">jittered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Bland Chromatin (jittered)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">randomize_column</span><span class="p">(</span><span class="n">patients</span><span class="p">[</span><span class="s1">&#39;Bland Chromatin&#39;</span><span class="p">])</span>
-<span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Single Epithelial Cell Size (jittered)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">randomize_column</span><span class="p">(</span><span class="n">patients</span><span class="p">[</span><span class="s1">&#39;Single Epithelial Cell Size&#39;</span><span class="p">])</span>
-<span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">patients</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span>
-<span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span>
-<span class="n">jittered</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gold&#39;</span>
-<span class="n">jittered</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">jittered</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]);</span>
-</pre></div>
-</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Accuracy_of_the_Classifier_21_0.png" src="../_images/Accuracy_of_the_Classifier_21_0.png" />
 </div>
 </div>
 <p>For instance, you can see there are lots of samples with chromatin = 2 and epithelial cell size = 2; all non-cancerous.</p>
@@ -826,6 +967,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evaluate_accuracy</span><span class="p">(</span><span class="n">training_set</span><span class="p">,</span> <span class="n">test_set</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9765395894428153
 </pre></div>
 </div>
 </div>
@@ -869,7 +1015,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Implementing_the_Classifier.html" title="previous page">Implementing the classifier</a>
-    <a class='right-next' id="next-link" href="../end/end_of_beginning.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="../end/end_of_beginning.html" title="next page">The end of the beginning</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

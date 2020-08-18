@@ -2,16 +2,12 @@
 jupyter:
   anaconda-cloud: {}
   jupytext:
-    metadata_filter:
-      notebook:
-        additional: all
-        excluded:
-        - language_info
+    notebook_metadata_filter: all,-language_info
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.6
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -20,7 +16,7 @@ jupyter:
 
 # Training and testing
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 import numpy as np
 # %matplotlib inline
@@ -29,13 +25,13 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def standard_units(x):
     return (x - np.mean(x))/np.std(x)
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def distance(point1, point2):
     """The distance between two arrays of numbers."""
@@ -76,7 +72,7 @@ def classify(training, p, k):
     return majority(closestk['Class'])
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def classify_grid(training, test, k):
     n_test = len(test)
@@ -91,7 +87,7 @@ Again - if you are running on your laptop, you should download
 the [ckd.csv](../data/ckd.csv) file to the same
 directory as this notebook.
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 ckd_full = pd.read_csv('ckd.csv')
 ckd = pd.DataFrame()
@@ -178,7 +174,7 @@ plt.ylim(-2, 6);
 
 We get the following classification regions and decision boundary:
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 x_vals = np.arange(-2, 6.1, 0.25)
 n_x = len(x_vals)
@@ -198,14 +194,14 @@ test_grid['WBC'] = x_coords
 test_grid['Glucose'] = y_coords
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 c = classify_grid(training[['WBC', 'Glucose', 'Class']],
                   test_grid,
                   1)
 ```
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 test_grid['Class'] = c
 test_grid['Color'] = 'darkblue'
@@ -220,7 +216,7 @@ plt.ylim(-2, 6);
 
 Place the *test* data on this graph and you can see at once that while the classifier got almost all the points right, there are some mistakes.  For example, some blue points of the test set fall in the gold region of the classifier.
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 test_grid.plot.scatter('WBC', 'Glucose',
                         c=test_grid['Color'],

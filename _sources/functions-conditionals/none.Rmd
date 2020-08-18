@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# On None
+
 Python has a special value, called `None`, that it often uses to tell
 you that it cannot give you a valid value.  Unlike any other common
 value in Python, if an expression evaluates to `None`, Python shows

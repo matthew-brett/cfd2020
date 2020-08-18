@@ -22,7 +22,7 @@ jupyter:
     version: 3.7.1
 ---
 
-These exercises follow on from the [array indexing page](../03/array_indexing).
+These exercises follow on from the [array indexing page](../arrays-iteration/array_indexing).
 
 Run this cell to start:
 

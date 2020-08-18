@@ -27,7 +27,9 @@ Download that file to the same directory as this notebook, if you are running
 on your own computer.
 
 Here we pull out the rows for the countries with the highest Gross Domestic
-Product. This may be familiar from the [data frame intro](..chapters/07/pandas_indexing).
+Product. This may be familiar from the [data frame
+intro](../data-frames/data_frame_intro) and the [Pandas indexing
+page](../wild-pandas/pandas_indexing).
 
 
 ```{python}
@@ -140,7 +142,7 @@ The result is the same as for the not-sorted series - and we have found that
 a Boolean series.
 
 On reflection, maybe that is not surprising - after all, [we already
-know](pandas_indexing) that `loc` indexing does indexing by *label*.
+know](../wild-pandas/pandas_indexing) that `loc` indexing does indexing by *label*.
 
 
 We usually will not have to worry about the difference between labels and

@@ -42,8 +42,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="brexit_ages.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="permutation.html" />
+    <link rel="next" title="Brexit and ages" href="brexit_ages.html" />
+    <link rel="prev" title="Populations and permutations" href="permutation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -311,6 +336,11 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="permutation.html">
+   Populations and permutations
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    A problem of populations
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -666,6 +718,12 @@ referendum.  Another, <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>774
+</pre></div>
+</div>
+<img alt="../_images/population_permutation_7_1.png" src="../_images/population_permutation_7_1.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -673,6 +731,12 @@ referendum.  Another, <code class="docutils literal notranslate"><span class="pr
 <span class="nb">len</span><span class="p">(</span><span class="n">leave_ages</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>541
+</pre></div>
+</div>
+<img alt="../_images/population_permutation_8_1.png" src="../_images/population_permutation_8_1.png" />
 </div>
 </div>
 <p>These certainly look like different distributions.</p>
@@ -684,6 +748,11 @@ referendum.  Another, <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>51.715341959334566
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -692,11 +761,21 @@ referendum.  Another, <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>48.01550387596899
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">difference</span> <span class="o">=</span> <span class="n">leave_mean</span> <span class="o">-</span> <span class="n">remain_mean</span>
 <span class="n">difference</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.6998380833655773
 </pre></div>
 </div>
 </div>
@@ -737,10 +816,20 @@ calculate the difference in means between these two new, fake groups.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([37, 55, 37, ..., 20, 40, 31])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1315
 </pre></div>
 </div>
 </div>
@@ -754,11 +843,8 @@ this:</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
-<span class="n">pets</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;cat&#39;, &#39;dog&#39;, &#39;rabbit&#39;], dtype=&#39;&lt;U6&#39;)
 </pre></div>
 </div>
 </div>
@@ -767,6 +853,24 @@ this:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
 <span class="n">pets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;cat&#39;, &#39;rabbit&#39;, &#39;dog&#39;], dtype=&#39;&lt;U6&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
+<span class="n">pets</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;dog&#39;, &#39;cat&#39;, &#39;rabbit&#39;], dtype=&#39;&lt;U6&#39;)
 </pre></div>
 </div>
 </div>
@@ -776,6 +880,11 @@ this:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 <span class="n">pooled</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([35, 55, 23, ..., 71, 30, 36])
 </pre></div>
 </div>
 </div>
@@ -793,12 +902,22 @@ and Remain ages.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>541
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we can calculate the mean difference.  This is our first simulation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_leavers</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_remainers</span><span class="p">)</span>
 <span class="n">fake_difference</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-0.8160837190197157
 </pre></div>
 </div>
 </div>
@@ -811,6 +930,11 @@ us new random samples of fake Remainers and fake Leavers.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 <span class="n">fake_difference_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pooled</span><span class="p">[:</span><span class="mi">774</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pooled</span><span class="p">[</span><span class="mi">774</span><span class="p">:])</span>
 <span class="n">fake_difference_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.17857876360649527
 </pre></div>
 </div>
 </div>
@@ -846,8 +970,8 @@ us new random samples of fake Remainers and fake Leavers.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="permutation.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="brexit_ages.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="permutation.html" title="previous page">Populations and permutations</a>
+    <a class='right-next' id="next-link" href="brexit_ages.html" title="next page">Brexit and ages</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

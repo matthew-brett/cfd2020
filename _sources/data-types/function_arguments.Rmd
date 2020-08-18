@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Function arguments
+
 So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:
 
 ```{python}

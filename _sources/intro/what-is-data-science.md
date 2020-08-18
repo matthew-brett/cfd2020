@@ -7,7 +7,7 @@ has proved difficult to define.
 
 We can make the definition very broad.  For example, the UC Berkeley data
 science textbook has [this
-definition](https://www.inferentialthinking.com/chapters/01/what-is-data-science)
+definition](https://www.inferentialthinking.com/chapters/intro/what-is-data-science)
 
 > Data Science is about drawing useful conclusions from large and diverse data
 > sets through exploration, prediction, and inference.

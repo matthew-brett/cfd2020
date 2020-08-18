@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -689,6 +741,173 @@ have chronic kidney disease.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Blood Pressure</th>
+      <th>Specific Gravity</th>
+      <th>Albumin</th>
+      <th>Sugar</th>
+      <th>Red Blood Cells</th>
+      <th>Pus Cell</th>
+      <th>Pus Cell clumps</th>
+      <th>Bacteria</th>
+      <th>Blood Glucose Random</th>
+      <th>...</th>
+      <th>Packed Cell Volume</th>
+      <th>White Blood Cell Count</th>
+      <th>Red Blood Cell Count</th>
+      <th>Hypertension</th>
+      <th>Diabetes Mellitus</th>
+      <th>Coronary Artery Disease</th>
+      <th>Appetite</th>
+      <th>Pedal Edema</th>
+      <th>Anemia</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>48.0</td>
+      <td>70.0</td>
+      <td>1.005</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>117.0</td>
+      <td>...</td>
+      <td>32.0</td>
+      <td>6700.0</td>
+      <td>3.9</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>53.0</td>
+      <td>90.0</td>
+      <td>1.020</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>70.0</td>
+      <td>...</td>
+      <td>29.0</td>
+      <td>12100.0</td>
+      <td>3.7</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63.0</td>
+      <td>70.0</td>
+      <td>1.010</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>380.0</td>
+      <td>...</td>
+      <td>32.0</td>
+      <td>4500.0</td>
+      <td>3.8</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>68.0</td>
+      <td>80.0</td>
+      <td>1.010</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>present</td>
+      <td>157.0</td>
+      <td>...</td>
+      <td>16.0</td>
+      <td>11000.0</td>
+      <td>2.6</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>61.0</td>
+      <td>80.0</td>
+      <td>1.015</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>notpresent</td>
+      <td>notpresent</td>
+      <td>173.0</td>
+      <td>...</td>
+      <td>24.0</td>
+      <td>9200.0</td>
+      <td>3.2</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
 </div>
 <p>We are interested in two columns from this data frame, “Packed Cell Volume” and “Hemoglobin”.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Hematocrit">Packed Cell Volume</a> (PCV) is a
@@ -704,6 +923,12 @@ kidney disease.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112d031f0&gt;
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_5_1.png" src="../_images/mean_and_slopes_5_1.png" />
+</div>
 </div>
 <p>“Hemoglobin” (HGB) is the concentration of the
 <a class="reference external" href="https://en.wikipedia.org/wiki/Hemoglobin">hemoglobin</a> molecule in blood, in
@@ -717,6 +942,12 @@ cells that carries oxygen to the tissues.</p>
 <span class="n">hgb_series</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x112e2c7f0&gt;
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_7_1.png" src="../_images/mean_and_slopes_7_1.png" />
 </div>
 </div>
 <p>We convert these Series into arrays, to make them simpler to work with.  We do
@@ -755,6 +986,12 @@ straight line going through 0, 0, and with a slope of about 3.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Packed cell volume&#39;)
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_11_1.png" src="../_images/mean_and_slopes_11_1.png" />
+</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">'o'</span></code> argument to the plot function above is a “plot marker”.  It tells
 Matplotlib to plot the points as points, rather than joining them with lines.
@@ -779,6 +1016,12 @@ x=0, y=0.  In order to this, we can add a <code class="docutils literal notransl
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(0.0, 18.0, 0.0, 55.0)
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_14_1.png" src="../_images/mean_and_slopes_14_1.png" />
+</div>
 </div>
 <p>It does look plausible that this line goes through the origin, and that makes
 sense.  All hemoglobin is in red blood cells; we might expect the volume of red
@@ -800,6 +1043,12 @@ the second.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x112f8cfd0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_17_1.png" src="../_images/mean_and_slopes_17_1.png" />
+</div>
 </div>
 <p>To plot more than one point, pass multiple x and y coordinate values:</p>
 <div class="cell docutils container">
@@ -809,6 +1058,12 @@ the second.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x112fbae80&gt;]
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_19_1.png" src="../_images/mean_and_slopes_19_1.png" />
 </div>
 </div>
 </div>
@@ -830,12 +1085,22 @@ and 8, 8 and 9, and so on.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 7.5,  8.5,  9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The number of bins</span>
 <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">)</span>
 <span class="n">n_bins</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 </div>
@@ -847,6 +1112,12 @@ and 8, 8 and 9, and so on.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_bins</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x112f6ae50&gt;]
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_24_1.png" src="../_images/mean_and_slopes_24_1.png" />
 </div>
 </div>
 <p>Take the mean of the PCV values for each bin.</p>
@@ -863,6 +1134,12 @@ and 8, 8 and 9, and so on.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([23.4   , 23.7143, 29.5556, 32.5556, 33.    , 37.5   , 46.2069,
+       45.2083, 46.7586, 47.4286])
+</pre></div>
+</div>
+</div>
 </div>
 <p>These means should be good predictors for PCV values, given an HGB value.  We
 check the bin of the HGB value and take the corresponding PCV mean as the
@@ -874,6 +1151,12 @@ prediction.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">,</span> <span class="n">pcv_means</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x113037be0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_28_1.png" src="../_images/mean_and_slopes_28_1.png" />
 </div>
 </div>
 </div>
@@ -924,6 +1207,12 @@ y = c + x * s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1130906a0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_34_1.png" src="../_images/mean_and_slopes_34_1.png" />
+</div>
 </div>
 <p>The red are the predictions, the blue are the original data.  At each PCV value
 we have a prediction, and therefore, an error in our prediction; the difference
@@ -932,6 +1221,11 @@ between the predicted value and the actual values.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">pcv_predicted</span>
 <span class="n">error</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-1.6,  0.5, -0.4, -0.8,  0.9,  2.6, -0.5, -1. ,  1.5, -1.4])
 </pre></div>
 </div>
 </div>
@@ -950,6 +1244,9 @@ of PCV for each point, and its actual value.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mean_and_slopes_38_0.png" src="../_images/mean_and_slopes_38_0.png" />
 </div>
 </div>
 </div>
@@ -987,10 +1284,15 @@ let’s do it again, and then calculate the <em>sum of squares</em> of the error
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3689.340000000001
+</pre></div>
+</div>
+</div>
 </div>
 <p>We are about to do this calculation many times, for many different slopes.  We
 need a <em>function</em>.</p>
-<p>In the function below, we are using <span class="xref myst">function world</span>
+<p>In the function below, we are using <a class="reference internal" href="../functions-conditionals/functions.html"><span class="doc std std-doc">function world</span></a>
 to get the values of <code class="docutils literal notranslate"><span class="pre">hgb</span></code> and <code class="docutils literal notranslate"><span class="pre">pcv</span></code> defined here at the top level,
 outside <em>function world</em>. The function can see these values, from
 function world.</p>
@@ -1011,11 +1313,21 @@ function world.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3689.340000000001
+</pre></div>
+</div>
+</div>
 </div>
 <p>Does 3.5 give a higher or lower sum of squared error?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9947.535
 </pre></div>
 </div>
 </div>
@@ -1038,6 +1350,12 @@ squared error.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([37529.64  , 36885.2828, 36247.1066, 35615.1112, 34989.2967,
+       34369.6632, 33756.2105, 33148.9387, 32547.8477, 31952.9377])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We plot the slopes we have tried, on the x axis, against the sum of squared
 error, on the y-axis.</p>
@@ -1049,11 +1367,22 @@ error, on the y-axis.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Sum of squared error&#39;)
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_51_1.png" src="../_images/mean_and_slopes_51_1.png" />
+</div>
 </div>
 <p>The minimum of the sum of squared error is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3619.8091499999964
 </pre></div>
 </div>
 </div>
@@ -1068,6 +1397,11 @@ error, on the y-axis.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>105
+</pre></div>
+</div>
+</div>
 </div>
 <p>This is the index position of the minimum.  We will therefore get the minimum
 (again) if we index into the original array with the index we just found:</p>
@@ -1078,6 +1412,11 @@ error, on the y-axis.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3619.8091499999964
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we can get and show the slope value that corresponds the minimum sum of
 squared error:</p>
@@ -1085,6 +1424,11 @@ squared error:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_slope</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i_of_min</span><span class="p">]</span>
 <span class="n">best_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.0499999999999776
 </pre></div>
 </div>
 </div>
@@ -1105,6 +1449,12 @@ squared error:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;The best-fit line using least-squared error&#39;)
+</pre></div>
+</div>
+<img alt="../_images/mean_and_slopes_61_1.png" src="../_images/mean_and_slopes_61_1.png" />
+</div>
 </div>
 <p>The algorithm we have used so far, is rather slow and clunky, because we had to
 make an array with lots of slopes to try, and then go through each one to find
@@ -1124,11 +1474,30 @@ best slope:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 3619.6157878183294
+ hess_inv: array([[0.]])
+      jac: array([0.])
+  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
+     nfev: 10
+      nit: 2
+     njev: 5
+   status: 2
+  success: False
+        x: array([3.0475])
+</pre></div>
+</div>
+</div>
 </div>
 <p>The slope is in the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute of the return value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3.0475])
 </pre></div>
 </div>
 </div>
@@ -1144,6 +1513,11 @@ algebra</span></a>.  It turns out like this:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maths_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">*</span> <span class="n">pcv</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">maths_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.047498645826524
 </pre></div>
 </div>
 </div>

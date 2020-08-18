@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -630,11 +682,21 @@ columns are the two <em>axes</em> of the array.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.24677743, 0.90338796, 0.38740304])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Remember, this is a value of type <code class="docutils literal notranslate"><span class="pre">array</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">three_randoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
 </pre></div>
 </div>
 </div>
@@ -647,11 +709,21 @@ columns are the two <em>axes</em> of the array.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We also found that we can apply functions to these arrays.  For example, we found that <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> returns the number of elements that are not 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">randoms_compared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -663,10 +735,20 @@ columns are the two <em>axes</em> of the array.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -683,6 +765,20 @@ columns are the two <em>axes</em> of the array.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.77243744, 0.66595277, 0.44263588],
+       [0.28317358, 0.74773412, 0.01988758],
+       [0.87949556, 0.50673272, 0.89073965],
+       [0.65869399, 0.00928294, 0.03350986],
+       [0.06132137, 0.57173185, 0.84626804],
+       [0.13205619, 0.06076685, 0.5179884 ],
+       [0.71609464, 0.46644711, 0.86957892],
+       [0.358003  , 0.69017841, 0.13800083],
+       [0.34216464, 0.72001782, 0.2140976 ],
+       [0.61913124, 0.70637705, 0.84409601]])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that we made the one-dimensional array with <code class="docutils literal notranslate"><span class="pre">size=3</span></code>.  We make the two-dimensional array by passing two numbers to <code class="docutils literal notranslate"><span class="pre">size</span></code>.  We pass two numbers with something like <code class="docutils literal notranslate"><span class="pre">size=(10,</span> <span class="pre">3)</span></code>, as we did above.  We haven’t covered this way of specifying a pair of numbers yet.  For the moment, we hope you will take our word for it.</p>
 <p>You can probably predict what will happen when we compare this two-dimensional array to 0.5.</p>
@@ -693,12 +789,31 @@ columns are the two <em>axes</em> of the array.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True],
+       [ True, False,  True],
+       [False, False, False],
+       [False,  True,  True],
+       [ True, False, False],
+       [ True,  True, False],
+       [False,  True, False],
+       [ True, False,  True],
+       [ True, False,  True],
+       [False, False, False]])
+</pre></div>
+</div>
+</div>
 </div>
 <p>As before, there is now a True at each position where there number was less than 0.5, with False everywhere else.</p>
 <p>Can you predict what will happen with <code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bigger_compared</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>13
 </pre></div>
 </div>
 </div>
@@ -712,6 +827,11 @@ columns are the two <em>axes</em> of the array.</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bigger_compared</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([5, 3, 5])
 </pre></div>
 </div>
 </div>
@@ -743,12 +863,22 @@ row.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([5, 3, 5])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Because of the reasoning above, these the counts for each column (there are 3 columns).</p>
 <p>What if we want the counts for each row?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">bigger_compared</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 2, 0, 2, 1, 2, 1, 2, 2, 0])
 </pre></div>
 </div>
 </div>

@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -640,7 +692,7 @@
                 
   <div class="section" id="implementing-the-classifier">
 <h1>Implementing the classifier<a class="headerlink" href="#implementing-the-classifier" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -666,6 +718,76 @@ same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WaveletVar</th>
+      <th>WaveletSkew</th>
+      <th>WaveletCurt</th>
+      <th>Entropy</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.62160</td>
+      <td>8.6661</td>
+      <td>-2.8073</td>
+      <td>-0.44699</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.54590</td>
+      <td>8.1674</td>
+      <td>-2.4586</td>
+      <td>-1.46210</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.86600</td>
+      <td>-2.6383</td>
+      <td>1.9242</td>
+      <td>0.10645</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.45660</td>
+      <td>9.5228</td>
+      <td>-4.0112</td>
+      <td>-3.59440</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.32924</td>
+      <td>-4.4552</td>
+      <td>4.5718</td>
+      <td>-0.98880</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Let’s look at whether the first two numbers tell us anything about whether the banknote is counterfeit or not.  Here’s a scatterplot:</p>
 <div class="cell docutils container">
@@ -684,6 +806,9 @@ same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_7_0.png" src="../_images/Implementing_the_Classifier_7_0.png" />
+</div>
 </div>
 <p>Pretty interesting!  Those two measurements do seem helpful for predicting whether the banknote is counterfeit or not.  However, in this example you can now see that there is some overlap between the blue cluster and the gold cluster.  This indicates that there will be some images where it’s hard to tell whether the banknote is legitimate based on just these two numbers.  Still, you could use a <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbor classifier to predict the legitimacy of a banknote.</p>
 <p>Take a minute and think it through: Suppose we used <span class="math notranslate nohighlight">\(k=11\)</span> (say).  What parts of the plot would the classifier get right, and what parts would it make errors on?  What would the decision boundary look like?</p>
@@ -694,6 +819,9 @@ same directory as this notebook.</p>
                        <span class="n">c</span><span class="o">=</span><span class="n">banknotes</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_9_0.png" src="../_images/Implementing_the_Classifier_9_0.png" />
 </div>
 </div>
 <p>There does seem to be a pattern, but it’s a pretty complex one.  Nonetheless, the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors classifier can still be used and will effectively “discover” patterns out of this.  This illustrates how powerful machine learning can be: it can effectively take advantage of even patterns that we would not have anticipated, or that we would have thought to “program into” the computer.</p>
@@ -714,6 +842,9 @@ same directory as this notebook.</p>
            <span class="n">c</span><span class="o">=</span><span class="n">banknotes</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_12_0.png" src="../_images/Implementing_the_Classifier_12_0.png" />
 </div>
 </div>
 <p>Awesome!  With just 2 attributes, there was some overlap between the two clusters (which means that the classifier was bound to make some mistakes for pointers in the overlap).  But when we use these 3 attributes, the two clusters have almost no overlap.  In other words, a classifier that uses these 3 attributes will be more accurate than one that only uses the 2 attributes.</p>
@@ -758,11 +889,143 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>Alcohol</th>
+      <th>Malic Acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of Ash</th>
+      <th>Magnesium</th>
+      <th>Total Phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color Intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diulted wines</th>
+      <th>Proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The dataset classifies the wine into three classes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2    71
+1    59
+3    48
+Name: Class, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -775,6 +1038,130 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>Alcohol</th>
+      <th>Malic Acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of Ash</th>
+      <th>Magnesium</th>
+      <th>Total Phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color Intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diulted wines</th>
+      <th>Proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The first two wines are both in Class 1. To find the distance between them, we first need a table of just the attributes:</p>
 <div class="cell docutils container">
@@ -784,11 +1171,134 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Alcohol</th>
+      <th>Malic Acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of Ash</th>
+      <th>Magnesium</th>
+      <th>Total Phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color Intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diulted wines</th>
+      <th>Proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wine_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
          <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wine_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>31.265012394048398
 </pre></div>
 </div>
 </div>
@@ -798,6 +1308,11 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wine_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
          <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">wine_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">177</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>506.05936766351834
 </pre></div>
 </div>
 </div>
@@ -819,6 +1334,9 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_30_0.png" src="../_images/Implementing_the_Classifier_30_0.png" />
+</div>
 </div>
 <p>The blue points (Class 1) are almost entirely separate from the gold ones. That is one indication of why the distance between two Class 1 wines would be smaller than the distance between wines of two different classes. We can see a similar phenomenon with a different pair of attributes too:</p>
 <div class="cell docutils container">
@@ -828,6 +1346,9 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_32_0.png" src="../_images/Implementing_the_Classifier_32_0.png" />
+</div>
 </div>
 <p>But for some pairs the picture is more murky.</p>
 <div class="cell docutils container">
@@ -836,6 +1357,9 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
                               <span class="n">c</span><span class="o">=</span><span class="n">wine_with_colors</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Implementing_the_Classifier_34_0.png" src="../_images/Implementing_the_Classifier_34_0.png" />
 </div>
 </div>
 <p>Let’s see if we can implement a classifier based on all of the attributes. After that, we’ll see how accurate it is.</p>
@@ -920,6 +1444,136 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>Alcohol</th>
+      <th>Malic Acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of Ash</th>
+      <th>Magnesium</th>
+      <th>Total Phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color Intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diulted wines</th>
+      <th>Proline</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>1</td>
+      <td>13.74</td>
+      <td>1.67</td>
+      <td>2.25</td>
+      <td>16.4</td>
+      <td>118</td>
+      <td>2.60</td>
+      <td>2.90</td>
+      <td>0.21</td>
+      <td>1.62</td>
+      <td>5.85</td>
+      <td>0.92</td>
+      <td>3.20</td>
+      <td>1060</td>
+      <td>10.392805</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>1</td>
+      <td>14.21</td>
+      <td>4.04</td>
+      <td>2.44</td>
+      <td>18.9</td>
+      <td>111</td>
+      <td>2.85</td>
+      <td>2.65</td>
+      <td>0.30</td>
+      <td>1.25</td>
+      <td>5.24</td>
+      <td>0.87</td>
+      <td>3.33</td>
+      <td>1080</td>
+      <td>22.340748</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>1</td>
+      <td>14.10</td>
+      <td>2.02</td>
+      <td>2.40</td>
+      <td>18.8</td>
+      <td>103</td>
+      <td>2.75</td>
+      <td>2.92</td>
+      <td>0.32</td>
+      <td>2.38</td>
+      <td>6.20</td>
+      <td>1.07</td>
+      <td>2.75</td>
+      <td>1060</td>
+      <td>24.760232</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>1</td>
+      <td>14.38</td>
+      <td>3.59</td>
+      <td>2.28</td>
+      <td>16.0</td>
+      <td>102</td>
+      <td>3.25</td>
+      <td>3.17</td>
+      <td>0.27</td>
+      <td>2.19</td>
+      <td>4.90</td>
+      <td>1.04</td>
+      <td>3.44</td>
+      <td>1065</td>
+      <td>25.094663</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Bingo! The first row is the nearest neighbor, which is itself – there’s a 0 in the <code class="docutils literal notranslate"><span class="pre">Distance</span></code> column as expected. All five nearest neighbors are of Class 1, which is consistent with our earlier observation that Class 1 wines appear to be clumped together in some dimensions.</p>
 </div>
@@ -949,12 +1603,22 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we change <code class="docutils literal notranslate"><span class="pre">special_wine</span></code> to be the last one in the dataset, is our classifier able to tell that it’s in Class 0?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">special_wine</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">177</span><span class="p">]</span>
 <span class="n">classify</span><span class="p">(</span><span class="n">wine</span><span class="p">,</span> <span class="n">special_wine</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>

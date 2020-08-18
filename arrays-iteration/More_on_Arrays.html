@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Selecting values from an array" href="array_indexing.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="reply_supreme.html" />
+    <link rel="prev" title="Reply to the Supreme Court" href="reply_supreme.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -267,6 +282,11 @@
    Indentation, indentation, indentation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    More on Arrays
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -644,6 +696,11 @@ temperatures for the decades surrounding 1850, 1900, 1950, and 2000.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([13.6  , 14.387, 14.585, 15.164])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,6 +708,11 @@ temperatures for the decades surrounding 1850, 1900, 1950, and 2000.</p>
 <span class="n">lows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.872</span><span class="p">,</span> <span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.629</span><span class="p">,</span>
                  <span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.126</span><span class="p">,</span> <span class="n">baseline_low</span> <span class="o">+</span> <span class="mf">0.728</span><span class="p">])</span>
 <span class="n">lows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2.128, 2.371, 2.874, 3.728])
 </pre></div>
 </div>
 </div>
@@ -670,12 +732,22 @@ from the average daily low in the 1850s, and the same for each other decade.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([11.472, 12.016, 11.711, 11.436])
+</pre></div>
+</div>
+</div>
 </div>
 <p>As when we converted an array of temperatures from Celsius to Fahrenheit,
 Python provides a much cleaner way to write this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">highs</span> <span class="o">-</span> <span class="n">lows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([11.472, 12.016, 11.711, 11.436])
 </pre></div>
 </div>
 </div>
@@ -727,7 +799,7 @@ on.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="reply_supreme.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="reply_supreme.html" title="previous page">Reply to the Supreme Court</a>
     <a class='right-next' id="next-link" href="array_indexing.html" title="next page">Selecting values from an array</a>
 
     </div>

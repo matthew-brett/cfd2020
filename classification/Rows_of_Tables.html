@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -640,7 +692,7 @@
                 
   <div class="section" id="rows-of-tables">
 <h1>Rows of tables<a class="headerlink" href="#rows-of-tables" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -652,7 +704,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 
@@ -674,6 +726,173 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Blood Pressure</th>
+      <th>Specific Gravity</th>
+      <th>Albumin</th>
+      <th>Sugar</th>
+      <th>Red Blood Cells</th>
+      <th>Pus Cell</th>
+      <th>Pus Cell clumps</th>
+      <th>Bacteria</th>
+      <th>Blood Glucose Random</th>
+      <th>...</th>
+      <th>Packed Cell Volume</th>
+      <th>White Blood Cell Count</th>
+      <th>Red Blood Cell Count</th>
+      <th>Hypertension</th>
+      <th>Diabetes Mellitus</th>
+      <th>Coronary Artery Disease</th>
+      <th>Appetite</th>
+      <th>Pedal Edema</th>
+      <th>Anemia</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>48</td>
+      <td>70</td>
+      <td>1.005</td>
+      <td>4</td>
+      <td>0</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>117</td>
+      <td>...</td>
+      <td>32</td>
+      <td>6700</td>
+      <td>3.9</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>53</td>
+      <td>90</td>
+      <td>1.020</td>
+      <td>2</td>
+      <td>0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>70</td>
+      <td>...</td>
+      <td>29</td>
+      <td>12100</td>
+      <td>3.7</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63</td>
+      <td>70</td>
+      <td>1.010</td>
+      <td>3</td>
+      <td>0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>notpresent</td>
+      <td>380</td>
+      <td>...</td>
+      <td>32</td>
+      <td>4500</td>
+      <td>3.8</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>68</td>
+      <td>80</td>
+      <td>1.010</td>
+      <td>3</td>
+      <td>2</td>
+      <td>normal</td>
+      <td>abnormal</td>
+      <td>present</td>
+      <td>present</td>
+      <td>157</td>
+      <td>...</td>
+      <td>16</td>
+      <td>11000</td>
+      <td>2.6</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>61</td>
+      <td>80</td>
+      <td>1.015</td>
+      <td>2</td>
+      <td>0</td>
+      <td>abnormal</td>
+      <td>abnormal</td>
+      <td>notpresent</td>
+      <td>notpresent</td>
+      <td>173</td>
+      <td>...</td>
+      <td>24</td>
+      <td>9200</td>
+      <td>3.2</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>poor</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
 </div>
 <p>The data corresponding to the first patient is in row 0 of the table, consistent with Python’s indexing system.</p>
 <p>We want to fetch the data for this row.</p>
@@ -687,11 +906,46 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Age                                48
+Blood Pressure                     70
+Specific Gravity                1.005
+Albumin                             4
+Sugar                               0
+Red Blood Cells                normal
+Pus Cell                     abnormal
+Pus Cell clumps               present
+Bacteria                   notpresent
+Blood Glucose Random              117
+Blood Urea                         56
+Serum Creatinine                  3.8
+Sodium                            111
+Potassium                         2.5
+Hemoglobin                       11.2
+Packed Cell Volume                 32
+White Blood Cell Count           6700
+Red Blood Cell Count              3.9
+Hypertension                      yes
+Diabetes Mellitus                  no
+Coronary Artery Disease            no
+Appetite                         poor
+Pedal Edema                       yes
+Anemia                            yes
+Class                               1
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <p>If the display for this row looks suspiciously like the display you see when fetching a single column from a data frame, this is not a co-incidence.  The row is also a Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -710,6 +964,11 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="converting-rows-to-numpy-arrays">
 <h2>Converting Rows to Numpy arrays<a class="headerlink" href="#converting-rows-to-numpy-arrays" title="Permalink to this headline">¶</a></h2>
@@ -725,6 +984,64 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.865744</td>
+      <td>-0.221549</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.457446</td>
+      <td>-0.947597</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.004968</td>
+      <td>3.841231</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.814879</td>
+      <td>0.396364</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.083954</td>
+      <td>0.643529</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We add the colors for each point, to reflect the Class (with kidney disease or without).</p>
 <div class="cell docutils container">
@@ -735,6 +1052,70 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+      <th>Class</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.865744</td>
+      <td>-0.221549</td>
+      <td>1</td>
+      <td>darkblue</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.457446</td>
+      <td>-0.947597</td>
+      <td>1</td>
+      <td>darkblue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.004968</td>
+      <td>3.841231</td>
+      <td>1</td>
+      <td>darkblue</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.814879</td>
+      <td>0.396364</td>
+      <td>1</td>
+      <td>darkblue</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.083954</td>
+      <td>0.643529</td>
+      <td>1</td>
+      <td>darkblue</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Here is a scatter plot of the two attributes, along with a red point corresponding to Alice, a new patient. Her value of hemoglobin is 0 (that is, at the average) and glucose 1.1 (that is, 1.1 SDs above average).</p>
 <div class="cell docutils container">
@@ -746,6 +1127,9 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Rows_of_Tables_16_0.png" src="../_images/Rows_of_Tables_16_0.png" />
+</div>
 </div>
 <p>To find the distance between Alice’s point and any of the other points, we only need the values of the attributes:</p>
 <div class="cell docutils container">
@@ -756,6 +1140,58 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.865744</td>
+      <td>-0.221549</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.457446</td>
+      <td>-0.947597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.004968</td>
+      <td>3.841231</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.814879</td>
+      <td>0.396364</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.083954</td>
+      <td>0.643529</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Each row consists of the coordinates of one point in our training sample. <strong>Because the rows now consist only of numerical values</strong>, it is possible to convert them to numerical arrays.  For this, we use the function <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, which converts any kind of sequential object, like a row, to an array.</p>
 <div class="cell docutils container">
@@ -764,10 +1200,22 @@ row can’t be converted into floating point values or integers.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Hemoglobin   -2.814879
+Glucose       0.396364
+Name: 3, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-2.81487943,  0.39636401])
 </pre></div>
 </div>
 </div>
@@ -791,11 +1239,21 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(array([0. , 1.1]), array([-2.81487943,  0.39636401]))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">alice</span> <span class="o">-</span> <span class="n">patient3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
 </pre></div>
 </div>
 </div>
@@ -818,6 +1276,11 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
+</pre></div>
+</div>
+</div>
 </div>
 <p>We have begun to build our classifier: the <code class="docutils literal notranslate"><span class="pre">distance</span></code> function is the first building block. Now let’s work on the next piece.</p>
 </div>
@@ -833,6 +1296,58 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.865744</td>
+      <td>-0.221549</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.457446</td>
+      <td>-0.947597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.004968</td>
+      <td>3.841231</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.814879</td>
+      <td>0.396364</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.083954</td>
+      <td>0.643529</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Just as an example, suppose that for each patient we want to know how unusual their most unusual attribute is.  Concretely, if a patient’s hemoglobin level is further from the average than her glucose level, we want to know how far it is from the average.  If her glucose level is further from the average than her hemoglobin level, we want to know how far that is from the average instead.</p>
 <p>That’s the same as taking the maximum of the absolute values of the two quantities. To do this for a particular row, we can convert the row to an array and use array operations.</p>
@@ -850,11 +1365,26 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.0839536249919064
+</pre></div>
+</div>
+</div>
 </div>
 <p>And now we can apply <code class="docutils literal notranslate"><span class="pre">max_abs</span></code> to each row of the table <code class="docutils literal notranslate"><span class="pre">t</span></code>. We pass the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument to tell Pandas to apply the function along the <em>rows</em> (and therefore along the second axis).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    0.865744
+1    1.457446
+2    3.841231
+3    2.814879
+4    2.083954
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -877,6 +1407,11 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0. , 1.1])
+</pre></div>
+</div>
+</div>
 </div>
 <p>What we need is a function that finds the distance between Alice and another point whose coordinates are contained in a row. The function <code class="docutils literal notranslate"><span class="pre">distance</span></code> returns the distance between any two points whose coordinates are in arrays. We can use that to define <code class="docutils literal notranslate"><span class="pre">distance_from_alice</span></code>, which takes a row as its argument and returns the distance between that row and Alice.</p>
 <div class="cell docutils container">
@@ -894,6 +1429,11 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we can <code class="docutils literal notranslate"><span class="pre">apply</span></code> the function <code class="docutils literal notranslate"><span class="pre">distance_from_alice</span></code> to each row of <code class="docutils literal notranslate"><span class="pre">ckd_attributes</span></code>, and augment the table <code class="docutils literal notranslate"><span class="pre">ckd</span></code> with the distances. Step 1 is complete!</p>
 <div class="cell docutils container">
@@ -905,6 +1445,76 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+      <th>Class</th>
+      <th>Color</th>
+      <th>Distance from Alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.865744</td>
+      <td>-0.221549</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>1.579875</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.457446</td>
+      <td>-0.947597</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>2.513325</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.004968</td>
+      <td>3.841231</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>2.919641</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.814879</td>
+      <td>0.396364</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>2.901491</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-2.083954</td>
+      <td>0.643529</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>2.133361</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>For Step 2, let’s sort the table in increasing order of distance:</p>
 <div class="cell docutils container">
@@ -914,6 +1524,76 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+      <th>Class</th>
+      <th>Color</th>
+      <th>Distance from Alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>0.839750</td>
+      <td>1.215099</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>0.847601</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>-0.970162</td>
+      <td>1.276890</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>0.986156</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>-0.030400</td>
+      <td>0.087407</td>
+      <td>0</td>
+      <td>gold</td>
+      <td>1.013049</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>0.143630</td>
+      <td>0.087407</td>
+      <td>0</td>
+      <td>gold</td>
+      <td>1.022728</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-0.413266</td>
+      <td>2.049282</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>1.035338</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Step 3: The top 5 rows correspond to Alice’s 5 nearest neighbors; you can replace 5 by any other positive integer.</p>
 <div class="cell docutils container">
@@ -923,25 +1603,82 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hemoglobin</th>
+      <th>Glucose</th>
+      <th>Class</th>
+      <th>Color</th>
+      <th>Distance from Alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>0.839750</td>
+      <td>1.215099</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>0.847601</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>-0.970162</td>
+      <td>1.276890</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>0.986156</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>-0.030400</td>
+      <td>0.087407</td>
+      <td>0</td>
+      <td>gold</td>
+      <td>1.013049</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>0.143630</td>
+      <td>0.087407</td>
+      <td>0</td>
+      <td>gold</td>
+      <td>1.022728</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-0.413266</td>
+      <td>2.049282</td>
+      <td>1</td>
+      <td>darkblue</td>
+      <td>1.035338</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Three of Alice’s five nearest neighbors are blue points and two are gold. So a 5-nearest neighbor classifier would classify Alice as blue: it would predict that Alice has chronic kidney disease.</p>
 <p>The graph below zooms in on Alice and her five nearest neighbors. The two gold ones just inside the circle directly below the red point. The classifier says Alice is more like the three blue ones around her.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">],</span> <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Glucose&#39;</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="n">sorted_by_distance</span><span class="p">[</span><span class="s1">&#39;Distance from Alice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">+</span><span class="mf">0.014</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-         <span class="n">radius</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">);</span>
-</pre></div>
-</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Rows_of_Tables_51_0.png" src="../_images/Rows_of_Tables_51_0.png" />
 </div>
 </div>
 <p>We are well on our way to implementing our k-nearest neighbor classifier. In the next two sections we will put it together and assess its accuracy.</p>

@@ -42,7 +42,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="Ranges.html" />
+    <link rel="next" title="Ranges" href="Ranges.html" />
     <link rel="prev" title="Making a list" href="lists.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -654,12 +706,22 @@ with convenient and powerful functions for creating and manipulating arrays.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">array</span></code> function from Numpy can make an array from this list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
 <span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
 </pre></div>
 </div>
 </div>
@@ -671,12 +733,22 @@ with convenient and powerful functions for creating and manipulating arrays.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can also create the list and then the array in one call, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
 </pre></div>
 </div>
 </div>
@@ -691,6 +763,12 @@ anyway.)</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">english_parts_of_speech</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;noun&quot;</span><span class="p">,</span> <span class="s2">&quot;pronoun&quot;</span><span class="p">,</span> <span class="s2">&quot;verb&quot;</span><span class="p">,</span> <span class="s2">&quot;adverb&quot;</span><span class="p">,</span> <span class="s2">&quot;adjective&quot;</span><span class="p">,</span> <span class="s2">&quot;conjunction&quot;</span><span class="p">,</span> <span class="s2">&quot;preposition&quot;</span><span class="p">,</span> <span class="s2">&quot;interjection&quot;</span><span class="p">])</span>
 <span class="n">english_parts_of_speech</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;noun&#39;, &#39;pronoun&#39;, &#39;verb&#39;, &#39;adverb&#39;, &#39;adjective&#39;, &#39;conjunction&#39;,
+       &#39;preposition&#39;, &#39;interjection&#39;], dtype=&#39;&lt;U12&#39;)
 </pre></div>
 </div>
 </div>
@@ -715,6 +793,12 @@ not finished yet because it is waiting for the closing bracket.  For example, th
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;noun&#39;, &#39;pronoun&#39;, &#39;verb&#39;, &#39;adverb&#39;, &#39;adjective&#39;, &#39;conjunction&#39;,
+       &#39;preposition&#39;, &#39;interjection&#39;], dtype=&#39;&lt;U12&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Below, we collect four different temperatures into a list called <code class="docutils literal notranslate"><span class="pre">temps</span></code>.
 These are the <a class="reference external" href="http://berkeleyearth.lbl.gov/regions/global-land">estimated average daily high
@@ -735,6 +819,11 @@ temperatures</a>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([13.6  , 14.387, 14.585, 15.164])
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="calculations-with-arrays">
@@ -746,6 +835,11 @@ to Fahrenheit by writing the familiar conversion formula.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">highs</span> <span class="o">+</span> <span class="mi">32</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([56.48  , 57.8966, 58.253 , 59.2952])
 </pre></div>
 </div>
 </div>
@@ -762,6 +856,11 @@ arguments to perform a computation on the array called <code class="docutils lit
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -769,10 +868,20 @@ arguments to perform a computation on the array called <code class="docutils lit
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>57.736000000000004
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">highs</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>14.434000000000001
 </pre></div>
 </div>
 </div>
@@ -787,6 +896,11 @@ element minus the first.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">highs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.787, 0.198, 0.579])
 </pre></div>
 </div>
 </div>
@@ -942,7 +1056,7 @@ value.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="lists.html" title="previous page">Making a list</a>
-    <a class='right-next' id="next-link" href="Ranges.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="Ranges.html" title="next page">Ranges</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

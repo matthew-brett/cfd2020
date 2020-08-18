@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Variables in expressions &#8212; Coding for Data - 2020 edition</title>
+    <title>On variables &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -50,8 +50,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/code-basics/variables.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Variables in expressions" />
-<meta property="og:description" content="Variables in expressions  This is an expression.  You have seen expressions with numbers, but here we have an expression with numbers and a variable.  When Pyth" />
+<meta property="og:title"       content="On variables" />
+<meta property="og:description" content="On variables  Variables are - things that vary.  You remember variables like x and y from mathematics.  In mathematics, we can use names, such as x and y, to re" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -595,7 +647,14 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-in-expressions">
+   Variables in expressions
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -604,7 +663,9 @@
         
               <div>
                 
-  <p>Variables are - things that vary.</p>
+  <div class="section" id="on-variables">
+<h1>On variables<a class="headerlink" href="#on-variables" title="Permalink to this headline">¶</a></h1>
+<p>Variables are - things that vary.</p>
 <p>You remember variables like <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> from mathematics.</p>
 <p>In mathematics, we can use names, such as <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, to represent any value.</p>
 <p>In the piece of mathematics below, we define <span class="math notranslate nohighlight">\(y\)</span> given any value for <span class="math notranslate nohighlight">\(x\)</span>:</p>
@@ -646,9 +707,14 @@ value in calculations.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="variables-in-expressions">
-<h1>Variables in expressions<a class="headerlink" href="#variables-in-expressions" title="Permalink to this headline">¶</a></h1>
+<h2>Variables in expressions<a class="headerlink" href="#variables-in-expressions" title="Permalink to this headline">¶</a></h2>
 <p>This is an <em>expression</em>.  You have seen expressions with numbers, but here we
 have an expression with numbers and a variable.  When Python sees the variable
 name <code class="docutils literal notranslate"><span class="pre">x</span></code> in this expression, it <em>evaluates</em> <code class="docutils literal notranslate"><span class="pre">x</span></code>, and gets the value that it
@@ -656,6 +722,11 @@ refers to.  After Python has evaluated <code class="docutils literal notranslate
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>14
 </pre></div>
 </div>
 </div>
@@ -674,6 +745,11 @@ refers to.  After Python has evaluated <code class="docutils literal notranslate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
 </div>
 <p>If I change <code class="docutils literal notranslate"><span class="pre">x</span></code>, I change the result:</p>
 <div class="cell docutils container">
@@ -681,6 +757,11 @@ refers to.  After Python has evaluated <code class="docutils literal notranslate
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>17
 </pre></div>
 </div>
 </div>
@@ -693,6 +774,7 @@ or <span class="math notranslate nohighlight">\(p\)</span>.  This makes them eas
 names, and we usually do, because we use so many variables.  Giving them
 longer names helps us remember what the variables are for.</p>
 <p><a class="reference internal" href="Names.html"><span class="doc std std-doc">Next</span></a> we go into more detail about names and expressions.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

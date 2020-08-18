@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -604,10 +656,10 @@
         
               <div>
                 
-  <p>In the <span class="xref myst">reverse probability page</span>
+  <p>In the <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a>
 we played a game with two boxes, with different proportions of red and green
 balls.</p>
-<p>The <span class="xref myst">Bayes bars page</span> has a way of
+<p>The <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes bars page</span></a> has a way of
 thinking of our calculations for this game, using the height of bars to
 express our probabilities.</p>
 <p>Now we extend the game to more options.</p>
@@ -661,6 +713,58 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>box no</th>
+      <th>ball color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>green</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>red</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>red</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>green</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Calculate the proportion of “red” trials that came from BOX4:</p>
 <div class="cell docutils container">
@@ -669,6 +773,11 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
 <span class="n">red_ball_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
 <span class="n">p_box4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">)</span>
 <span class="n">p_box4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.27669498584041313
 </pre></div>
 </div>
 </div>
@@ -686,6 +795,9 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/second_bayes_7_0.png" src="../_images/second_bayes_7_0.png" />
+</div>
 </div>
 <p>We display the probabilities of getting a red ball from boxes 1 through 5:</p>
 <div class="cell docutils container">
@@ -697,6 +809,9 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red for each box&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/second_bayes_9_0.png" src="../_images/second_bayes_9_0.png" />
 </div>
 </div>
 <p>Next we combine the two steps, of getting a box, and then drawing a ball.</p>
@@ -711,6 +826,9 @@ first bar graph, by the values expressed by heights in the second bar graph.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red and each box&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/second_bayes_11_0.png" src="../_images/second_bayes_11_0.png" />
 </div>
 </div>
 <p>In this case, as before, where all the initial probabilities of the boxes are
@@ -730,6 +848,11 @@ sum of the heights, so the heights of the bars now sum to 1.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.6000000000000001
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here are the bars divided by this sum:</p>
 <div class="cell docutils container">
@@ -742,11 +865,19 @@ sum of the heights, so the heights of the bars now sum to 1.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/second_bayes_16_0.png" src="../_images/second_bayes_16_0.png" />
+</div>
 </div>
 <p>The probability we want is the height of the fourth bar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.26666666666666666
 </pre></div>
 </div>
 </div>
@@ -756,6 +887,11 @@ of the fifth bar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.3333333333333333
 </pre></div>
 </div>
 </div>
@@ -770,8 +906,13 @@ of the fifth bar:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.32250541395968685
+</pre></div>
 </div>
-<p>As we saw the <span class="xref myst">Bayes bars</span> page,
+</div>
+</div>
+<p>As we saw the <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes bars</span></a> page,
 because all the boxes have equal probability, we can skip the calculation step
 that scales by the box probability, and take the following shortcut:</p>
 <div class="cell docutils container">
@@ -780,6 +921,11 @@ that scales by the box probability, and take the following shortcut:</p>
 <span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">red_probabilities</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">red_probabilities</span><span class="p">)</span>
 <span class="c1"># We get the same result as before.</span>
 <span class="n">box_given_red_probs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.06666667, 0.13333333, 0.2       , 0.26666667, 0.33333333])
 </pre></div>
 </div>
 </div>
@@ -797,12 +943,22 @@ that scales by the box probability, and take the following shortcut:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probability that red ball came from any of boxes 2 through 5.</span>
 <span class="n">red_from_box_2_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 <span class="n">red_from_box_2_5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
 </pre></div>
 </div>
 </div>

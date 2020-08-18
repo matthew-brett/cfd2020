@@ -17,7 +17,53 @@ jupyter:
 
 This page has two aims:
 
-* to practice and extend [Pandas indexing](../chapters/07/pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.
+* to practice and extend [Pandas indexing](pandas_indexing);
+* to extend the idea of permutation to data in categories;
+
+We also ask the question - is politics noble?
+
+
+```{python}
+# Our usual imports
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+# %matplotlib inline
+plt.style.use('fivethirtyeight')
+```
+
+Our data is from this book:
+
+> Samuel P. Oliner and Pearl M. Oliner (1992) "The Altruistic Personality:
+> Rescuers of Jews in Nazi Europe". Free Press, New York. ISBN 0-02923829-3.
+
+See [the dataset page](https://github.com/matthew-brett/datasets/oliner1988)
+for some more details.
+
+Oliner and Oliner were interested to see if they could identify distinctive
+traits of people who rescued Jews in Nazi Europe.  In order to do that, they
+collected structured interviews with 231 people for whom there was strong
+documentary evidence that they had sheltered Jews, despite considerable risk to
+themselves. These are the "rescuer" group in the table below.  They also found
+126 controls with roughly similar background, nationality, age and education.
+Of these, 53 claimed to have either sheltered Jews, or to have been active in
+the resistance.  These are the "actives" group in the table.  This leaves 73
+controls who were not active, and the authors termed these "bystanders".
+
+The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question "Did you belong to a political party before the war?".
+
+As usual, if you are running on your own computers, download the file
+[oliner_tab6_8a_1.csv](../data/oliner_tab6_8a_1.csv) to the same directory as this notebook.
+
+```{python}
+# Load the table
+party_tab = pd.read_csv('oliner_tab6_8a_1.csv')
+party_tab
+```
+
+## Setting the index
+
+We have already seen [Pandas indexing](pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.
 
 ```{python}
 party_tab.index

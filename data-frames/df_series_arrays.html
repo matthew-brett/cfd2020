@@ -42,7 +42,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../permutation/permutation.html" />
+    <link rel="next" title="Populations and permutations" href="../permutation/permutation.html" />
     <link rel="prev" title="Introduction to data frames" href="data_frame_intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -641,7 +693,8 @@ file).</p>
 <p>The data file we will load is a table with average
 <a class="reference external" href="https://ratemyprofessors.com">https://ratemyprofessors.com</a> scores across all professors teaching
 a particular academic discipline.</p>
-<p>See the <span class="xref myst">array indexing page</span> for more detail.</p>
+<p>See the <a class="reference internal" href="../arrays-iteration/array_indexing.html"><span class="doc std std-doc">array indexing page</span></a> for more
+detail.</p>
 <p>Each row in this table corresponds to one <em>discipline</em>.  Each column corresponds to a different <em>rating</em>.</p>
 <p>If you are running on your laptop, you should download
 the <span class="xref myst">rate_my_course.csv</span>
@@ -672,11 +725,92 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>11774</td>
+      <td>3.608331</td>
+      <td>3.701530</td>
+      <td>3.657641</td>
+      <td>2.710459</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> function returned this table in a structure called a <em>data frame</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -688,6 +822,11 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(75, 6)
+</pre></div>
+</div>
+</div>
 </div>
 <p>This means there are 75 rows.  In this case, each row corresponds to one discpline.</p>
 <p>There are 6 columns.  In this case, each column corresponds to a different student rating.</p>
@@ -695,6 +834,11 @@ file to the same directory as this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>75
 </pre></div>
 </div>
 </div>
@@ -724,11 +868,32 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
 </div>
 <p>The Series is a structure that holds the data for a single column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     3.162754
+1     3.063322
+2     2.710459
+3     3.316210
+4     3.053803
+        ...   
+70    2.863504
+71    3.106727
+72    3.309636
+73    2.799135
+74    3.109118
+Name: Easiness, Length: 75, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -739,6 +904,57 @@ file to the same directory as this notebook.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The exact column name starts with capital E</span>
 <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;easiness&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2645</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;easiness&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">cd3826a0b407</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># The exact column name starts with capital E</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;easiness&#39;</span><span class="p">]</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/frame.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2798</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2799</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2800</span>             <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2801</span>             <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2802</span>                 <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexes/base.py</span> in <span class="ni">get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2646</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2647</span>             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2648</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_maybe_cast_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">2649</span>         <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="n">key</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2650</span>         <span class="k">if</span> <span class="n">indexer</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">indexer</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/index.pyx</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/hashtable_class_helper.pxi</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;easiness&#39;
 </pre></div>
 </div>
 </div>
@@ -762,10 +978,31 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     False
+1     False
+2     False
+3      True
+4     False
+      ...  
+70    False
+71    False
+72     True
+73    False
+74    False
+Name: Easiness, Length: 75, dtype: bool
 </pre></div>
 </div>
 </div>
@@ -787,6 +1024,11 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
 </div>
 <p>The data frame contains only the rows where the “Easiness” score is greater than 3.25:</p>
 <div class="cell docutils container">
@@ -795,6 +1037,316 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Sociology</td>
+      <td>4839</td>
+      <td>3.740980</td>
+      <td>3.748169</td>
+      <td>3.746962</td>
+      <td>3.395819</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Languages</td>
+      <td>3867</td>
+      <td>3.772780</td>
+      <td>3.917949</td>
+      <td>3.846951</td>
+      <td>3.277406</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Education</td>
+      <td>2544</td>
+      <td>3.707429</td>
+      <td>3.806128</td>
+      <td>3.758211</td>
+      <td>3.430916</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Music</td>
+      <td>2455</td>
+      <td>3.844509</td>
+      <td>3.787804</td>
+      <td>3.818114</td>
+      <td>3.542273</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Health</td>
+      <td>1937</td>
+      <td>3.891177</td>
+      <td>3.884729</td>
+      <td>3.891213</td>
+      <td>3.468012</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Humanities</td>
+      <td>1897</td>
+      <td>3.806969</td>
+      <td>3.816299</td>
+      <td>3.813569</td>
+      <td>3.344138</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Criminal Justice</td>
+      <td>1786</td>
+      <td>4.056685</td>
+      <td>4.033779</td>
+      <td>4.046702</td>
+      <td>3.469440</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Social Science</td>
+      <td>1412</td>
+      <td>3.683555</td>
+      <td>3.691133</td>
+      <td>3.690262</td>
+      <td>3.338846</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Theater</td>
+      <td>1078</td>
+      <td>3.876633</td>
+      <td>3.821503</td>
+      <td>3.851837</td>
+      <td>3.584508</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Physical Education</td>
+      <td>991</td>
+      <td>4.078698</td>
+      <td>4.030797</td>
+      <td>4.057719</td>
+      <td>3.832250</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Spanish</td>
+      <td>584</td>
+      <td>3.854932</td>
+      <td>3.993716</td>
+      <td>3.928750</td>
+      <td>3.349743</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Art</td>
+      <td>574</td>
+      <td>3.797073</td>
+      <td>3.799216</td>
+      <td>3.800157</td>
+      <td>3.268293</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Ethnic Studies</td>
+      <td>481</td>
+      <td>3.533597</td>
+      <td>3.578337</td>
+      <td>3.556923</td>
+      <td>3.387630</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Film</td>
+      <td>450</td>
+      <td>3.788933</td>
+      <td>3.764689</td>
+      <td>3.778689</td>
+      <td>3.324156</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Women's Studies</td>
+      <td>393</td>
+      <td>3.639949</td>
+      <td>3.652087</td>
+      <td>3.646743</td>
+      <td>3.276412</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Government</td>
+      <td>374</td>
+      <td>3.957540</td>
+      <td>3.916070</td>
+      <td>3.938663</td>
+      <td>3.423021</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Speech</td>
+      <td>351</td>
+      <td>4.133191</td>
+      <td>4.101197</td>
+      <td>4.119345</td>
+      <td>3.674701</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Social Work</td>
+      <td>317</td>
+      <td>3.770726</td>
+      <td>3.834700</td>
+      <td>3.806246</td>
+      <td>3.314322</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Hospitality</td>
+      <td>267</td>
+      <td>3.697228</td>
+      <td>3.744607</td>
+      <td>3.719476</td>
+      <td>3.471498</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Foreign Language</td>
+      <td>209</td>
+      <td>3.914641</td>
+      <td>4.057751</td>
+      <td>3.991675</td>
+      <td>3.323158</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Religious Studies</td>
+      <td>193</td>
+      <td>3.932746</td>
+      <td>3.985751</td>
+      <td>3.962280</td>
+      <td>3.365544</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Child Development</td>
+      <td>171</td>
+      <td>3.950585</td>
+      <td>4.008070</td>
+      <td>3.979766</td>
+      <td>3.606082</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>French</td>
+      <td>162</td>
+      <td>3.775370</td>
+      <td>3.943086</td>
+      <td>3.860679</td>
+      <td>3.267099</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Reading</td>
+      <td>148</td>
+      <td>4.159392</td>
+      <td>4.188919</td>
+      <td>4.177500</td>
+      <td>3.882635</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Modern Languages</td>
+      <td>147</td>
+      <td>3.858503</td>
+      <td>3.971293</td>
+      <td>3.916259</td>
+      <td>3.275238</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Agriculture</td>
+      <td>146</td>
+      <td>3.767466</td>
+      <td>3.863219</td>
+      <td>3.820068</td>
+      <td>3.402397</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Kinesiology</td>
+      <td>132</td>
+      <td>3.995000</td>
+      <td>3.972879</td>
+      <td>3.988712</td>
+      <td>3.541439</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Nutrition</td>
+      <td>120</td>
+      <td>3.815167</td>
+      <td>3.844333</td>
+      <td>3.831500</td>
+      <td>3.468333</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Linguistics</td>
+      <td>110</td>
+      <td>3.749000</td>
+      <td>3.834545</td>
+      <td>3.798182</td>
+      <td>3.309636</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The way this works can be easier to see when we use a smaller data frame.</p>
 <p>Here we take the first eight rows from the data frame, by using the <code class="docutils literal notranslate"><span class="pre">head</span></code> method.</p>
@@ -813,6 +1365,11 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -820,12 +1377,128 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>11774</td>
+      <td>3.608331</td>
+      <td>3.701530</td>
+      <td>3.657641</td>
+      <td>2.710459</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chemistry</td>
+      <td>7346</td>
+      <td>3.387174</td>
+      <td>3.538980</td>
+      <td>3.465485</td>
+      <td>2.652054</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Business</td>
+      <td>6120</td>
+      <td>3.640327</td>
+      <td>3.680503</td>
+      <td>3.663332</td>
+      <td>3.172033</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We index into the new data frame with a string, to get the “Easiness” column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
 <span class="n">easiness_first_8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.162754
+1    3.063322
+2    2.710459
+3    3.316210
+4    3.053803
+5    2.652054
+6    3.379829
+7    3.172033
+Name: Easiness, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -838,6 +1511,19 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3     True
+4    False
+5    False
+6     True
+7    False
+Name: Easiness, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <p>We index into the <code class="docutils literal notranslate"><span class="pre">first_8</span></code> data frame with this Boolean series, to select the rows where <code class="docutils literal notranslate"><span class="pre">is_easy_first_8</span></code> has True, and throw away the rows where it has False.</p>
 <div class="cell docutils container">
@@ -847,6 +1533,55 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Oh dear, Psychology looks pretty easy.</p>
 </div>
@@ -860,11 +1595,127 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>11774</td>
+      <td>3.608331</td>
+      <td>3.701530</td>
+      <td>3.657641</td>
+      <td>2.710459</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chemistry</td>
+      <td>7346</td>
+      <td>3.387174</td>
+      <td>3.538980</td>
+      <td>3.465485</td>
+      <td>2.652054</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Business</td>
+      <td>6120</td>
+      <td>3.640327</td>
+      <td>3.680503</td>
+      <td>3.663332</td>
+      <td>3.172033</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
 <span class="n">easiness_first_8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.162754
+1    3.063322
+2    2.710459
+3    3.316210
+4    3.053803
+5    2.652054
+6    3.379829
+7    3.172033
+Name: Easiness, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -878,12 +1729,23 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ,
+       2.65205418, 3.37982853, 3.17203268])
+</pre></div>
 </div>
-<p>Then you can use the usual <span class="xref myst">array indexing</span> to get the values you want:</p>
+</div>
+</div>
+<p>Then you can use the usual <a class="reference internal" href="../arrays-iteration/array_indexing.html"><span class="doc std std-doc">array indexing</span></a> to get the values you want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first value</span>
 <span class="n">easi_8</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.1627541447114904
 </pre></div>
 </div>
 </div>
@@ -892,6 +1754,11 @@ file to the same directory as this notebook.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first five values</span>
 <span class="n">easi_8</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ])
 </pre></div>
 </div>
 </div>
@@ -905,11 +1772,37 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0           English
+1       Mathematics
+2           Biology
+3        Psychology
+4           History
+5         Chemistry
+6    Communications
+7          Business
+Name: Discipline, dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span>
 <span class="n">clarity</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.756147
+1    3.487379
+2    3.608331
+3    3.909520
+4    3.788818
+5    3.387174
+6    3.867349
+7    3.640327
+Name: Clarity, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -925,6 +1818,73 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Clarity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>3.756147</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>3.487379</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>3.608331</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>3.909520</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>3.788818</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chemistry</td>
+      <td>3.387174</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>3.867349</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Business</td>
+      <td>3.640327</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
@@ -958,7 +1918,7 @@ file to the same directory as this notebook.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="data_frame_intro.html" title="previous page">Introduction to data frames</a>
-    <a class='right-next' id="next-link" href="../permutation/permutation.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="../permutation/permutation.html" title="next page">Populations and permutations</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -53,7 +53,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/noble_politics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Noble politics and comparing counts" />
-<meta property="og:description" content="Noble politics and comparing counts  This page has two aims:  to practice and extend Pandas indexing.   We are going to be selecting data out of this table with" />
+<meta property="og:description" content="Noble politics and comparing counts  This page has two aims:  to practice and extend Pandas indexing;  to extend the idea of permutation to data in categories; " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -599,6 +651,11 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-the-index">
+   Setting the index
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-question">
    The question
   </a>
@@ -632,11 +689,111 @@
 <h1>Noble politics and comparing counts<a class="headerlink" href="#noble-politics-and-comparing-counts" title="Permalink to this headline">¶</a></h1>
 <p>This page has two aims:</p>
 <ul class="simple">
-<li><p>to practice and extend <span class="xref myst">Pandas indexing</span>.   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.</p></li>
+<li><p>to practice and extend <a class="reference internal" href="pandas_indexing.html"><span class="doc std std-doc">Pandas indexing</span></a>;</p></li>
+<li><p>to extend the idea of permutation to data in categories;</p></li>
 </ul>
+<p>We also ask the question - is politics noble?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our data is from this book:</p>
+<blockquote>
+<div><p>Samuel P. Oliner and Pearl M. Oliner (1992) “The Altruistic Personality:
+Rescuers of Jews in Nazi Europe”. Free Press, New York. ISBN 0-02923829-3.</p>
+</div></blockquote>
+<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/oliner1988">the dataset page</a>
+for some more details.</p>
+<p>Oliner and Oliner were interested to see if they could identify distinctive
+traits of people who rescued Jews in Nazi Europe.  In order to do that, they
+collected structured interviews with 231 people for whom there was strong
+documentary evidence that they had sheltered Jews, despite considerable risk to
+themselves. These are the “rescuer” group in the table below.  They also found
+126 controls with roughly similar background, nationality, age and education.
+Of these, 53 claimed to have either sheltered Jews, or to have been active in
+the resistance.  These are the “actives” group in the table.  This leaves 73
+controls who were not active, and the authors termed these “bystanders”.</p>
+<p>The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question “Did you belong to a political party before the war?”.</p>
+<p>As usual, if you are running on your own computers, download the file
+<span class="xref myst">oliner_tab6_8a_1.csv</span> to the same directory as this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the table</span>
+<span class="n">party_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;oliner_tab6_8a_1.csv&#39;</span><span class="p">)</span>
+<span class="n">party_tab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>party_yn</th>
+      <th>rescuers</th>
+      <th>actives</th>
+      <th>bystanders</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Yes</td>
+      <td>44</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>165</td>
+      <td>44</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>out of</td>
+      <td>209</td>
+      <td>50</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="setting-the-index">
+<h2>Setting the index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen <a class="reference internal" href="pandas_indexing.html"><span class="doc std std-doc">Pandas indexing</span></a>.   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">party_tab</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=3, step=1)
 </pre></div>
 </div>
 </div>
@@ -652,6 +809,58 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rescuers</th>
+      <th>actives</th>
+      <th>bystanders</th>
+    </tr>
+    <tr>
+      <th>party_yn</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Yes</th>
+      <td>44</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>No</th>
+      <td>165</td>
+      <td>44</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>out of</th>
+      <td>209</td>
+      <td>50</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Notice that Pandas took the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> column out of the data frame and used it to replace the index.</p>
 <p>This makes it easier to use the <code class="docutils literal notranslate"><span class="pre">.loc</span></code> attribute to select data, using row labels.  For example, we can select individual elements like this:</p>
@@ -660,6 +869,12 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many rescuers were there, in total?</span>
 <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>209
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -676,11 +891,21 @@ tendency to belong to a political party than, say, the Bystanders.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.21052631578947367
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of Yes for Bystanders.</span>
 <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;bystanders&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.09859154929577464
 </pre></div>
 </div>
 </div>
@@ -700,6 +925,11 @@ tendency to belong to a political party than, say, the Bystanders.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>51
+</pre></div>
+</div>
+</div>
 </div>
 <p>This leaves the rest, who were not a member of a political party:</p>
 <div class="cell docutils container">
@@ -710,11 +940,21 @@ tendency to belong to a political party than, say, the Bystanders.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>229
+</pre></div>
+</div>
+</div>
 </div>
 <p>This is a total of:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_yes</span> <span class="o">+</span> <span class="n">n_no</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>280
 </pre></div>
 </div>
 </div>
@@ -744,6 +984,48 @@ ideal world, of no association between rescuer / bystander and Yes / No.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rescuers</th>
+      <th>bystanders</th>
+    </tr>
+    <tr>
+      <th>party_yn</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Yes</th>
+      <td>44</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>No</th>
+      <td>165</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Notice the <em>lists</em> <code class="docutils literal notranslate"><span class="pre">['Yes',</span> <span class="pre">'No']</span></code> and <code class="docutils literal notranslate"><span class="pre">['rescuers',</span> <span class="pre">'bystanders']</span></code> specifying
 the row labels and columns labels that we want.</p>
@@ -766,11 +1048,26 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 10: [&#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39;
+ &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39;]
+Last 10: [&#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39;
+ &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here we typed (“hard-coded”) the numbers 209, 71.  We can also get these numbers using the sum of the values in the columns of our table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>rescuers      209
+bystanders     71
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -787,6 +1084,14 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 10: [&#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39;
+ &#39;rescuer&#39; &#39;rescuer&#39; &#39;rescuer&#39;]
+Last 10: [&#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39;
+ &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39; &#39;bystander&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now to create the ‘Yes’, ‘No’ labels.   Again, we could do this:</p>
 <div class="cell docutils container">
@@ -800,6 +1105,12 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 10: [&#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39;]
+Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>We would like to use <code class="docutils literal notranslate"><span class="pre">sum</span></code> again to get those totals automatically, but we have already seen that <code class="docutils literal notranslate"><span class="pre">sum</span></code>, by default, works down the columns.</p>
 <p>Luckily Pandas has a method called <code class="docutils literal notranslate"><span class="pre">transpose</span></code> that flips the rows and columns of a data frame, like this:</p>
@@ -810,6 +1121,43 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>party_yn</th>
+      <th>Yes</th>
+      <th>No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rescuers</th>
+      <td>44</td>
+      <td>165</td>
+    </tr>
+    <tr>
+      <th>bystanders</th>
+      <td>7</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can get the sum of Yes and No with:</p>
 <div class="cell docutils container">
@@ -818,11 +1166,27 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>party_yn
+Yes     51
+No     229
+dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Or, all in one go:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>party_yn
+Yes     51
+No     229
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -839,12 +1203,24 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First 10: [&#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39; &#39;Yes&#39;]
+Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next we shuffle the Yes, No labels randomly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
 <span class="n">party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;],
+      dtype=&#39;&lt;U3&#39;)
 </pre></div>
 </div>
 </div>
@@ -859,6 +1235,58 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>party_yn</th>
+      <th>respondent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>No</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>No</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>No</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We now need the counts of people in each category.  That is we need counts for:</p>
 <ul class="simple">
@@ -879,6 +1307,11 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
 </div>
 <p>Luckily, Pandas has a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> function that does this work for us:</p>
 <div class="cell docutils container">
@@ -888,6 +1321,48 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>col_0</th>
+      <th>bystander</th>
+      <th>rescuer</th>
+    </tr>
+    <tr>
+      <th>row_0</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>No</th>
+      <td>55</td>
+      <td>174</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>16</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We saw in the original data that the Bystanders seemed to have a lesser tendency to belong to a political party.  Let us restrict our attention to the count of “Yes” and “bystander” for now.</p>
 <p>That count, in our original data, was:</p>
@@ -898,12 +1373,22 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
 </div>
 <p>The equivalent count in our new fake table is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_y_by</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
 <span class="n">fake_y_by</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -921,6 +1406,11 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 7., 12., 16., 14., 10., 11.,  9., 11., 13., 11.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here is our <em>sampling distribution</em> from sampling in the ideal world:</p>
 <div class="cell docutils container">
@@ -929,6 +1419,9 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/noble_politics_57_0.png" src="../_images/noble_politics_57_0.png" />
+</div>
 </div>
 <p>How unusual is the actual value, in this ideal world?</p>
 <div class="cell docutils container">
@@ -936,6 +1429,11 @@ the row labels and columns labels that we want.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times we see ideal world sample &gt;= actual value.</span>
 <span class="n">p_lte</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts</span> <span class="o">&lt;=</span> <span class="n">actual_y_by</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
 <span class="n">p_lte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.024
 </pre></div>
 </div>
 </div>
@@ -973,6 +1471,11 @@ the row labels and columns labels that we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.026
+</pre></div>
+</div>
+</div>
 </div>
 <p>The test for “No”, “rescuer”:</p>
 <div class="cell docutils container">
@@ -981,6 +1484,11 @@ the row labels and columns labels that we want.</p>
 <span class="n">actual_n_r</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
 <span class="n">p_lte_n_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts_n_r</span> <span class="o">&lt;=</span> <span class="n">actual_n_r</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
 <span class="n">p_lte_n_r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.026
 </pre></div>
 </div>
 </div>

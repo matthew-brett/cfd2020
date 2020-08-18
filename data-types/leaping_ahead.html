@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Iteration" href="../arrays-iteration/iteration.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="function_arguments.html" />
+    <link rel="prev" title="Function arguments" href="function_arguments.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -235,6 +235,21 @@
    Arrays
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_arguments.html">
+   Function arguments
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Leaping ahead
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -620,8 +672,8 @@
                 
   <div class="section" id="leaping-ahead">
 <h1>Leaping ahead<a class="headerlink" href="#leaping-ahead" title="Permalink to this headline">¶</a></h1>
-<p>We are still building up to a solution for the <span class="xref myst">three girls
-problem</span>.</p>
+<p>We are still building up to a solution for the <a class="reference internal" href="../code-basics/three_girls.html"><span class="doc std std-doc">three girls
+problem</span></a>.</p>
 <p>We have more of the building blocks we need.</p>
 <p>First we load the Numpy library.</p>
 <div class="cell docutils container">
@@ -642,6 +694,11 @@ problem</span>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([], dtype=float64)
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">counts</span></code> will eventually have 10000 elements where each will be the number of girls in one simulated family.</p>
 <p>Remembering <a class="reference internal" href="function_arguments.html"><span class="doc std std-doc">function arguments</span></a>, here is how we make
@@ -655,12 +712,22 @@ an array that simulates a family of four children:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 1])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We represented girls with a value of one. We can count the number of girls by using the <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> function on the <code class="docutils literal notranslate"><span class="pre">family</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
 <span class="n">count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -671,6 +738,11 @@ an array that simulates a family of four children:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the count in the counts array.</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 <span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2.])
 </pre></div>
 </div>
 </div>
@@ -688,6 +760,11 @@ an array that simulates a family of four children:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2., 2.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>To add another family, we just repeat the same:</p>
 <div class="cell docutils container">
@@ -702,10 +779,15 @@ an array that simulates a family of four children:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2., 2., 2.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Obviously this is getting a bit boring and repetitive. Surely we can do better.</p>
-<p>Yes indeed, we can use a <em>for loop</em>.  We will see much more of for loops <span class="xref myst">very
-soon</span>.  Here’s a preview:</p>
+<p>Yes indeed, we can use a <em>for loop</em>.  We will see much more of for loops <a class="reference internal" href="../arrays-iteration/iteration.html"><span class="doc std std-doc">very
+soon</span></a>.  Here’s a preview:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty.</span>
@@ -722,11 +804,21 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1., 3., 2., ..., 3., 3., 2.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we have a count of the number of girls, from 10000 simulated families:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10000
 </pre></div>
 </div>
 </div>
@@ -741,6 +833,11 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
 </div>
 <p>I can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> comparison to test if <code class="docutils literal notranslate"><span class="pre">count</span></code> is equal to 3:</p>
 <div class="cell docutils container">
@@ -750,11 +847,21 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <p>What do you think we will get if do the same test on all 10000 values in <code class="docutils literal notranslate"><span class="pre">counts</span></code>?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, ...,  True,  True, False])
 </pre></div>
 </div>
 </div>
@@ -767,10 +874,20 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -779,6 +896,11 @@ soon</span>.  Here’s a preview:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_booleans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">my_booleans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -795,12 +917,22 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2499
+</pre></div>
+</div>
+</div>
 </div>
 <p>Finally we estimate the probability by dividing the number of times we saw 3 by the number of trials:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estimate probability of 3 girls.</span>
 <span class="n">n_3_girls</span> <span class="o">/</span> <span class="mi">10000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.2499
 </pre></div>
 </div>
 </div>
@@ -833,12 +965,17 @@ soon</span>.  Here’s a preview:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.2443
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="for-loops">
 <h2>For loops.<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h2>
-<p>The new part of this story is the <em>for loop</em>.  On to <span class="xref myst">iteration with for
-loops</span>.</p>
+<p>The new part of this story is the <em>for loop</em>.  On to <a class="reference internal" href="../arrays-iteration/iteration.html"><span class="doc std std-doc">iteration with for
+loops</span></a>.</p>
 </div>
 </div>
 
@@ -870,7 +1007,7 @@ loops</span>.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="function_arguments.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="function_arguments.html" title="previous page">Function arguments</a>
     <a class='right-next' id="next-link" href="../arrays-iteration/iteration.html" title="next page">Iteration</a>
 
     </div>

@@ -26,7 +26,7 @@ This page has some rules we suggest you follow to stay out of trouble when using
 As your understanding increases, you may find that you can relax some of these
 rules, but the problems in this page can trip up experts, so please, be very
 careful, and only relax these rules when you are very confident you understand
-the underlying problems.  See [Gory Pandas](../chapters/07/gory_pandas) for a short walk through some of the complexities.
+the underlying problems.  See [Gory Pandas](gory_pandas) for a short walk through some of the complexities.
 
 ## Copies and views
 

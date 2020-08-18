@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Brexit and ages &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -52,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/permutation/brexit_ages.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Brexit and ages" />
+<meta property="og:description" content="Brexit and ages  Now we have for loops and ranges, we can solve the problem in population, permutation.  # Array library. import numpy as np  # Data frame libra" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,7 +335,12 @@
   Population and permutation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="permutation.html">
+   Populations and permutations
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html">
    A problem of populations
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,9 +658,11 @@
         
               <div>
                 
-  <p>Now we have <span class="xref myst">for loops</span> and
-<span class="xref myst">ranges</span>, we can solve the problem in
-<span class="xref myst">population, permutation</span>.</p>
+  <div class="section" id="brexit-and-ages">
+<h1>Brexit and ages<a class="headerlink" href="#brexit-and-ages" title="Permalink to this headline">¶</a></h1>
+<p>Now we have <a class="reference internal" href="../arrays-iteration/iteration.html"><span class="doc std std-doc">for loops</span></a> and
+<a class="reference internal" href="../data-types/Ranges.html"><span class="doc std std-doc">ranges</span></a>, we can solve the problem in
+<a class="reference internal" href="population_permutation.html"><span class="doc std std-doc">population, permutation</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array library.</span>
@@ -657,12 +711,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/brexit_ages_6_0.png" src="../_images/brexit_ages_6_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">leave_ages</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/brexit_ages_7_0.png" src="../_images/brexit_ages_7_0.png" />
 </div>
 </div>
 <p>Here is the number of Remain voters:</p>
@@ -673,12 +733,22 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>774
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here was the actual difference between the means of the two groups:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">leave_ages</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">remain_ages</span><span class="p">)</span>
 <span class="n">actual_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.6998380833655773
 </pre></div>
 </div>
 </div>
@@ -700,6 +770,11 @@
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">example_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_leavers</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_remainers</span><span class="p">)</span>
 <span class="n">example_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.9299889667426129
 </pre></div>
 </div>
 </div>
@@ -732,6 +807,9 @@ cells above.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/brexit_ages_19_0.png" src="../_images/brexit_ages_19_0.png" />
+</div>
 </div>
 <p>This is called the <em>sampling distribution</em>.  In our case, this is the
 sampling distribution of the difference in means.  It is the
@@ -749,6 +827,11 @@ distribution are as large, or larger than the value we actually saw.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
 </div>
 <p>The number above is the number of values in the sampling distribution
 that are as high as, or higher than, the value we actually saw.  If we
@@ -761,11 +844,17 @@ that is as high, or higher.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>We think of this proportion as an estimate of the <em>probability</em> that
 we would see a value this high, or higher, <em>if these were random
 samples from the same underlying population</em>.  We call this a <em>p
 value</em>.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {

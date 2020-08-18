@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Function arguments &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Leaping ahead" href="leaping_ahead.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="numpy_append.html" />
+    <link rel="prev" title="Numpy append" href="numpy_append.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -52,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data-types/function_arguments.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Function arguments" />
+<meta property="og:description" content="Function arguments  So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:  # Load the Numpy package, and ren" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -194,7 +194,7 @@
   Data types
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="data_types.html">
    Types of things
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,7 +658,9 @@
         
               <div>
                 
-  <p>So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:</p>
+  <div class="section" id="function-arguments">
+<h1>Function arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">¶</a></h1>
+<p>So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
@@ -621,11 +675,21 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here is another Numpy function, from the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package of the Numpy library.  We get to the sub-packages with the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> - so to get to the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package, we use <code class="docutils literal notranslate"><span class="pre">np.random</span></code>.  Then, to get to the functions in this sub-package, we use the dot again, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -654,12 +718,22 @@ starting at 1 up to, but not including 11. This gives us a random integer from
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
 </div>
 <p>If we pass three arguments, we also set the <code class="docutils literal notranslate"><span class="pre">size</span></code> argument.  This tells the function how many random numbers to return.  The following asks for an array of four random integers from 1 through 20:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([19,  4,  6,  4])
 </pre></div>
 </div>
 </div>
@@ -676,6 +750,11 @@ above.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 6, 11, 18, 20])
+</pre></div>
+</div>
+</div>
 </div>
 <p>When we call the function using the arguments with their names like this, the named arguments are called <em>keyword</em> arguments.</p>
 <p>Passing the arguments like this, using keywords, can be very useful, to make it
@@ -684,6 +763,11 @@ clearer what each argument means.   For example, it’s a common pattern to call
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 2,  1,  8, 11])
 </pre></div>
 </div>
 </div>
@@ -699,6 +783,11 @@ of the output array.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([11,  7,  4,  1])
+</pre></div>
+</div>
+</div>
 </div>
 <p>To take another example, we have already seen the function <code class="docutils literal notranslate"><span class="pre">round</span></code>.  Inspect
 the help for <code class="docutils literal notranslate"><span class="pre">round</span></code> with <code class="docutils literal notranslate"><span class="pre">round?</span></code> and Enter in a notebook cell.</p>
@@ -706,6 +795,11 @@ the help for <code class="docutils literal notranslate"><span class="pre">round<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -717,6 +811,11 @@ the help for <code class="docutils literal notranslate"><span class="pre">round<
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.14
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you saw in the help, the second argument has the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code>, so we can also write:</p>
 <div class="cell docutils container">
@@ -725,10 +824,16 @@ the help for <code class="docutils literal notranslate"><span class="pre">round<
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.14
+</pre></div>
+</div>
+</div>
 </div>
 <p>As before, this makes the code a little bit easier to read and understand,
 because it is immediately clear from the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> that the 2 means the
 number of digits to round to.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -758,7 +863,7 @@ number of digits to round to.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="numpy_append.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="numpy_append.html" title="previous page">Numpy append</a>
     <a class='right-next' id="next-link" href="leaping_ahead.html" title="next page">Leaping ahead</a>
 
     </div>

@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -629,12 +681,332 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Region</th>
+      <th>Gender</th>
+      <th>Race</th>
+      <th>Education</th>
+      <th>Marital</th>
+      <th>Religion</th>
+      <th>Happy</th>
+      <th>Income</th>
+      <th>PolParty</th>
+      <th>...</th>
+      <th>Marijuana</th>
+      <th>DeathPenalty</th>
+      <th>OwnGun</th>
+      <th>GunLaw</th>
+      <th>SpendMilitary</th>
+      <th>SpendEduc</th>
+      <th>SpendEnv</th>
+      <th>SpendSci</th>
+      <th>Pres00</th>
+      <th>Postlife</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>South Central</td>
+      <td>Female</td>
+      <td>White</td>
+      <td>HS</td>
+      <td>Divorced</td>
+      <td>Inter-nondenominational</td>
+      <td>Pretty happy</td>
+      <td>30000-34999</td>
+      <td>Strong Rep</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Favor</td>
+      <td>No</td>
+      <td>Favor</td>
+      <td>Too little</td>
+      <td>Too little</td>
+      <td>About right</td>
+      <td>About right</td>
+      <td>Bush</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>South Central</td>
+      <td>Male</td>
+      <td>White</td>
+      <td>Bachelors</td>
+      <td>Married</td>
+      <td>Protestant</td>
+      <td>Pretty happy</td>
+      <td>75000-89999</td>
+      <td>Not Str Rep</td>
+      <td>...</td>
+      <td>Not legal</td>
+      <td>Favor</td>
+      <td>Yes</td>
+      <td>Oppose</td>
+      <td>About right</td>
+      <td>Too little</td>
+      <td>About right</td>
+      <td>About right</td>
+      <td>Bush</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>South Central</td>
+      <td>Female</td>
+      <td>White</td>
+      <td>HS</td>
+      <td>Separated</td>
+      <td>Protestant</td>
+      <td>NaN</td>
+      <td>35000-39999</td>
+      <td>Strong Rep</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bush</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>South Central</td>
+      <td>Female</td>
+      <td>White</td>
+      <td>Left HS</td>
+      <td>Divorced</td>
+      <td>Protestant</td>
+      <td>NaN</td>
+      <td>50000-59999</td>
+      <td>Ind, Near Dem</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>About right</td>
+      <td>Too little</td>
+      <td>Too little</td>
+      <td>Too little</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>South Central</td>
+      <td>Male</td>
+      <td>White</td>
+      <td>Left HS</td>
+      <td>Divorced</td>
+      <td>Protestant</td>
+      <td>NaN</td>
+      <td>40000-49999</td>
+      <td>Ind</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2760</th>
+      <td>2761</td>
+      <td>New Engl</td>
+      <td>Male</td>
+      <td>White</td>
+      <td>Left HS</td>
+      <td>Never Married</td>
+      <td>None</td>
+      <td>Pretty happy</td>
+      <td>22500-24999</td>
+      <td>Ind, Near Dem</td>
+      <td>...</td>
+      <td>Legal</td>
+      <td>Favor</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>2761</th>
+      <td>2762</td>
+      <td>New Engl</td>
+      <td>Male</td>
+      <td>White</td>
+      <td>Bachelors</td>
+      <td>Married</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ind, Near Dem</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Nader</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2762</th>
+      <td>2763</td>
+      <td>New Engl</td>
+      <td>Female</td>
+      <td>White</td>
+      <td>HS</td>
+      <td>Married</td>
+      <td>Catholic</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Not Str Rep</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Too little</td>
+      <td>Too much</td>
+      <td>Too much</td>
+      <td>About right</td>
+      <td>Bush</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2763</th>
+      <td>2764</td>
+      <td>South Atlantic</td>
+      <td>Male</td>
+      <td>Black</td>
+      <td>HS</td>
+      <td>Never Married</td>
+      <td>Protestant</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ind</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>About right</td>
+      <td>Too little</td>
+      <td>Too little</td>
+      <td>Too much</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2764</th>
+      <td>2765</td>
+      <td>South Atlantic</td>
+      <td>Male</td>
+      <td>White</td>
+      <td>HS</td>
+      <td>Married</td>
+      <td>Protestant</td>
+      <td>Very happy</td>
+      <td>60000-74999</td>
+      <td>Not Str Rep</td>
+      <td>...</td>
+      <td>Legal</td>
+      <td>Oppose</td>
+      <td>Yes</td>
+      <td>Favor</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Bush</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+<p>2765 rows × 21 columns</p>
+</div></div></div>
 </div>
 <p>Each row corresponds to a single respondent.</p>
 <p>Show the column names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gss</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;ID&#39;, &#39;Region&#39;, &#39;Gender&#39;, &#39;Race&#39;, &#39;Education&#39;, &#39;Marital&#39;, &#39;Religion&#39;,
+       &#39;Happy&#39;, &#39;Income&#39;, &#39;PolParty&#39;, &#39;Politics&#39;, &#39;Marijuana&#39;, &#39;DeathPenalty&#39;,
+       &#39;OwnGun&#39;, &#39;GunLaw&#39;, &#39;SpendMilitary&#39;, &#39;SpendEduc&#39;, &#39;SpendEnv&#39;,
+       &#39;SpendSci&#39;, &#39;Pres00&#39;, &#39;Postlife&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -649,6 +1021,11 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Income&#39;, &#39;DeathPenalty&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next make a new data frame by indexing the data frame with this list.</p>
 <p>The new data frame has only the columns we selected.</p>
@@ -659,6 +1036,89 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Income</th>
+      <th>DeathPenalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30000-34999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>75000-89999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>35000-39999</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>50000-59999</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40000-49999</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2760</th>
+      <td>22500-24999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2761</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2762</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2763</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2764</th>
+      <td>60000-74999</td>
+      <td>Oppose</td>
+    </tr>
+  </tbody>
+</table>
+<p>2765 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>There are many missing question responses, indicated by <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.  To
 make our life easier, we drop the respondents who didn’t specify an
@@ -672,6 +1132,89 @@ that have any missing values in the row.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Income</th>
+      <th>DeathPenalty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30000-34999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>75000-89999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>40000-49999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>60000-74999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>10000-124999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2747</th>
+      <td>8000-9999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2753</th>
+      <td>35000-39999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2756</th>
+      <td>30000-34999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2760</th>
+      <td>22500-24999</td>
+      <td>Favor</td>
+    </tr>
+    <tr>
+      <th>2764</th>
+      <td>60000-74999</td>
+      <td>Oppose</td>
+    </tr>
+  </tbody>
+</table>
+<p>904 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>Get the income column.</p>
 <div class="cell docutils container">
@@ -685,6 +1228,35 @@ that have any missing values in the row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">income</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>40000-49999      88
+30000-34999      78
+50000-59999      72
+25000-29999      60
+35000-39999      54
+60000-74999      51
+12500-14999      44
+20000-22499      44
+130000-149999    43
+22500-24999      40
+110000-129999    38
+17500-19999      37
+15000-17499      36
+10000-124999     36
+1000-2999        32
+8000-9999        32
+75000-89999      26
+3000-3999        19
+under 1000       17
+5000-5999        16
+4000-4999        13
+90000-109999     11
+7000-7999         9
+6000-6999         8
+Name: Income, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -712,11 +1284,21 @@ bracket, with the average of the minimum and maximum in the range.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>500
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here is the return from a higher bracket:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recode_income</span><span class="p">(</span><span class="s1">&#39;90000-109999&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>99999.5
 </pre></div>
 </div>
 </div>
@@ -729,6 +1311,22 @@ bracket, with the average of the minimum and maximum in the range.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       32499.5
+1       82499.5
+5       44999.5
+8       67499.5
+13      67499.5
+         ...   
+2747     8999.5
+2753    37499.5
+2756    32499.5
+2760    23749.5
+2764    67499.5
+Name: Income, Length: 904, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now get the results of the answer to the death penalty question.</p>
 <div class="cell docutils container">
@@ -738,11 +1336,34 @@ bracket, with the average of the minimum and maximum in the range.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Favor     622
+Oppose    282
+Name: DeathPenalty, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <p>We will identify the rows for respondents who are in favor of the death penalty.  To do this, we make a Boolean vector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Favor&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        True
+1        True
+5        True
+8        True
+13       True
+        ...  
+2747     True
+2753     True
+2756     True
+2760     True
+2764    False
+Name: DeathPenalty, Length: 904, dtype: bool
 </pre></div>
 </div>
 </div>
@@ -755,6 +1376,9 @@ bracket, with the average of the minimum and maximum in the range.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/money_and_death_29_0.png" src="../_images/money_and_death_29_0.png" />
+</div>
 </div>
 <p>Likewise select incomes for those opposed.   Show the distribution.</p>
 <div class="cell docutils container">
@@ -764,12 +1388,20 @@ bracket, with the average of the minimum and maximum in the range.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/money_and_death_31_0.png" src="../_images/money_and_death_31_0.png" />
+</div>
 </div>
 <p>Calculate the difference in mean income between the groups.  This is the difference we observe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">oppose_income</span><span class="p">)</span>
 <span class="n">actual_diff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4535.163012246019
 </pre></div>
 </div>
 </div>
@@ -783,6 +1415,11 @@ two groups, and the permuting them.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_favor</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span>
 <span class="n">n_favor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>622
 </pre></div>
 </div>
 </div>
@@ -823,9 +1460,14 @@ group.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>597.6499110624645
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now it is your turn.   Do this simulation 10000 times, to build up the distribution of differences compatible with random sampling.</p>
-<p>Use the <span class="xref myst">Brexit ages</span> notebook for inspiration.</p>
+<p>Use the <a class="reference internal" href="../permutation/brexit_ages.html"><span class="doc std std-doc">Brexit ages</span></a> notebook for inspiration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>

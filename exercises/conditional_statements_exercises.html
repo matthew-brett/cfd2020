@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,14 +658,22 @@
                 
   <div class="section" id="exercises-on-conditional-statements">
 <h1>Exercises on conditional statements<a class="headerlink" href="#exercises-on-conditional-statements" title="Permalink to this headline">¶</a></h1>
-<p>For background, please read the <span class="xref myst">conditional
-statements</span> introduction.</p>
+<p>For background, please read the <a class="reference internal" href="../functions-conditionals/conditional_statements.html"><span class="doc std std-doc">conditional
+statements</span></a> introduction.</p>
 <p>This <em>if statement</em> is not properly defined, and will give a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.  Fix it, then run to confirm it prints <code class="docutils literal notranslate"><span class="pre">'x</span> <span class="pre">greater</span> <span class="pre">than</span> <span class="pre">4'</span></code>:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x greater than 4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-d4c543ec60cc&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -629,6 +689,14 @@ print <code class="docutils literal notranslate"><span class="pre">-8</span></co
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-be1f00523226&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">0</span>
+            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
 </div>
 <p>Another <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>; fix and run.  It should print <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">divided</span> <span class="pre">by</span> <span class="pre">6</span> <span class="pre">is</span> <span class="pre">4</span></code></p>
 <div class="cell tag_raises-exception docutils container">
@@ -636,6 +704,14 @@ print <code class="docutils literal notranslate"><span class="pre">-8</span></co
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">24</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a divided by 6 is 4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-3-60e8e4db26cc&gt;&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a divided by 6 is 4&#39;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block
 </pre></div>
 </div>
 </div>
@@ -652,6 +728,14 @@ prints <code class="docutils literal notranslate"><span class="pre">Guardian</sp
 <span class="n">voter</span> <span class="o">=</span> <span class="s1">&#39;Hard Brexit&#39;</span>
 <span class="c1"># Your code here</span>
 <span class="k">if</span> <span class="n">voter</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-4-282ab6852901&gt;&quot;</span><span class="gt">, line </span><span class="mi">4</span>
+    <span class="k">if</span> <span class="n">voter</span> <span class="o">...</span>
+             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>

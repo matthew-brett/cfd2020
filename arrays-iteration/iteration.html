@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -628,6 +680,11 @@ between the integers in the range we specify.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
 </div>
 <p>We might want to check this really does in fact pick 0 or 1 with
 about the same probability.  To do that, we could start by running
@@ -636,6 +693,11 @@ the following cell many times to see if we get roughly equal numbers of
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -654,6 +716,13 @@ once <em>for each item in that sequence</em>.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
 </pre></div>
 </div>
 </div>
@@ -727,6 +796,13 @@ Put clicker back in cuboard
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can read that as:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>For each value in the sequence &quot;np.arange(3)&quot;:
@@ -755,6 +831,13 @@ example, here is an unrolled version of the loop above:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that the name <code class="docutils literal notranslate"><span class="pre">v</span></code> is arbitrary, just like any name we assign with <code class="docutils literal notranslate"><span class="pre">=</span></code>.
 For example, the following <code class="docutils literal notranslate"><span class="pre">for</span></code> loop works in just the same way as the <code class="docutils literal notranslate"><span class="pre">for</span></code>
@@ -763,6 +846,13 @@ loop above:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">my_variable</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">my_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
 </pre></div>
 </div>
 </div>
@@ -780,6 +870,13 @@ loop above:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Hello
+Hello
+Hello
+</pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> is the <em>loop variable</em>;</p></li>
@@ -793,6 +890,15 @@ print the results of five random integers:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+1
+1
+1
+1
 </pre></div>
 </div>
 </div>
@@ -814,6 +920,11 @@ the result of each toss.</p>
     <span class="n">tosses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tosses</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
 <span class="n">tosses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0., 0., 1., 1., 1.])
 </pre></div>
 </div>
 </div>
@@ -839,12 +950,22 @@ the result of each toss.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([1., 0., 1., 1., 1.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now we have an array, we can use <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> to count the
 number of heads in the five tosses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tosses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4.0
 </pre></div>
 </div>
 </div>
@@ -861,6 +982,69 @@ heads in 1000 tosses.</p>
     <span class="n">tosses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tosses</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
 <span class="n">tosses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0., 1., 0., 1., 1., 1., 0., 0., 0., 1., 1., 0., 0., 0., 1., 0., 1.,
+       1., 0., 1., 1., 0., 0., 1., 0., 0., 0., 1., 1., 0., 0., 0., 1., 0.,
+       0., 1., 0., 0., 0., 0., 0., 0., 1., 0., 1., 0., 1., 0., 0., 1., 1.,
+       1., 1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 1., 0., 0., 0., 0.,
+       1., 1., 0., 0., 1., 0., 1., 1., 0., 0., 1., 1., 1., 1., 1., 0., 1.,
+       1., 1., 1., 0., 1., 1., 0., 0., 0., 0., 1., 1., 1., 0., 1., 0., 1.,
+       0., 1., 0., 0., 0., 0., 0., 1., 1., 1., 0., 1., 1., 0., 1., 0., 1.,
+       1., 1., 0., 0., 1., 0., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 0.,
+       0., 0., 0., 0., 1., 0., 1., 1., 1., 1., 1., 1., 0., 1., 0., 0., 1.,
+       0., 0., 0., 1., 1., 1., 0., 1., 0., 0., 0., 1., 0., 1., 1., 1., 0.,
+       1., 0., 0., 1., 1., 1., 1., 1., 1., 0., 1., 1., 0., 0., 0., 0., 0.,
+       0., 1., 0., 0., 0., 1., 0., 0., 1., 1., 0., 0., 1., 0., 1., 1., 0.,
+       1., 1., 0., 1., 1., 1., 1., 0., 0., 0., 1., 0., 0., 0., 1., 0., 0.,
+       0., 0., 0., 1., 1., 0., 1., 0., 1., 0., 1., 0., 1., 1., 1., 1., 1.,
+       0., 1., 1., 0., 0., 1., 0., 0., 0., 0., 0., 0., 0., 1., 0., 1., 0.,
+       1., 1., 0., 0., 1., 1., 0., 0., 0., 0., 0., 0., 0., 1., 1., 1., 1.,
+       1., 0., 1., 1., 1., 1., 1., 0., 1., 1., 1., 1., 1., 0., 1., 0., 1.,
+       0., 0., 0., 0., 1., 1., 1., 1., 1., 0., 0., 1., 1., 0., 1., 1., 0.,
+       1., 0., 0., 1., 1., 1., 1., 1., 0., 0., 1., 1., 1., 1., 1., 0., 1.,
+       0., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 1., 1., 1., 1., 1., 1.,
+       1., 1., 0., 1., 0., 0., 1., 1., 0., 1., 0., 1., 0., 1., 0., 1., 1.,
+       1., 0., 0., 1., 1., 0., 1., 0., 1., 1., 1., 0., 0., 1., 0., 0., 1.,
+       1., 1., 1., 1., 0., 0., 1., 1., 1., 0., 0., 0., 0., 1., 0., 1., 1.,
+       1., 0., 0., 0., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       0., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 0., 1., 0., 1., 1., 0.,
+       1., 0., 1., 1., 0., 0., 1., 1., 1., 0., 0., 0., 0., 1., 1., 1., 0.,
+       1., 0., 0., 0., 1., 1., 0., 1., 0., 0., 1., 1., 1., 0., 0., 0., 1.,
+       0., 0., 1., 0., 0., 0., 1., 1., 0., 0., 1., 1., 0., 1., 1., 0., 0.,
+       1., 0., 1., 1., 1., 0., 1., 0., 0., 0., 1., 0., 0., 0., 1., 1., 0.,
+       1., 0., 1., 1., 1., 1., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0.,
+       1., 1., 0., 1., 0., 1., 0., 1., 1., 0., 0., 0., 0., 1., 1., 1., 1.,
+       1., 0., 1., 1., 0., 0., 0., 1., 1., 1., 0., 0., 1., 0., 0., 0., 0.,
+       0., 0., 1., 1., 1., 1., 0., 0., 1., 1., 0., 0., 1., 0., 1., 1., 1.,
+       0., 1., 0., 1., 1., 1., 1., 1., 0., 1., 0., 0., 1., 1., 1., 0., 0.,
+       0., 0., 0., 0., 0., 1., 0., 0., 0., 1., 0., 0., 0., 0., 0., 0., 1.,
+       1., 1., 1., 0., 1., 0., 0., 0., 0., 0., 1., 1., 1., 0., 1., 1., 0.,
+       1., 1., 1., 1., 0., 1., 0., 0., 0., 1., 0., 0., 1., 0., 0., 1., 1.,
+       1., 1., 1., 0., 0., 0., 1., 0., 1., 0., 0., 1., 1., 1., 1., 0., 0.,
+       1., 1., 0., 1., 0., 1., 0., 0., 1., 1., 0., 1., 1., 0., 0., 1., 0.,
+       0., 1., 1., 0., 0., 1., 1., 1., 0., 1., 1., 0., 1., 0., 1., 1., 1.,
+       1., 0., 0., 1., 0., 0., 1., 0., 1., 0., 0., 1., 1., 1., 0., 0., 1.,
+       0., 0., 1., 0., 1., 0., 0., 1., 1., 1., 0., 1., 1., 1., 1., 0., 0.,
+       0., 1., 1., 0., 1., 1., 1., 0., 0., 0., 1., 1., 1., 0., 1., 0., 1.,
+       0., 0., 0., 1., 1., 0., 1., 0., 0., 0., 1., 0., 0., 1., 0., 0., 0.,
+       0., 1., 0., 0., 1., 1., 1., 0., 0., 0., 1., 1., 1., 0., 0., 1., 0.,
+       0., 1., 1., 1., 0., 0., 0., 0., 0., 1., 1., 0., 1., 0., 0., 1., 1.,
+       1., 1., 0., 0., 1., 1., 0., 0., 1., 0., 0., 1., 0., 1., 1., 1., 1.,
+       0., 1., 1., 0., 0., 0., 0., 1., 0., 1., 1., 0., 1., 0., 0., 0., 1.,
+       0., 1., 0., 0., 1., 0., 0., 0., 0., 1., 0., 1., 1., 0., 0., 1., 1.,
+       1., 1., 0., 1., 1., 0., 1., 0., 1., 0., 0., 1., 0., 0., 0., 1., 1.,
+       0., 1., 1., 1., 0., 0., 0., 0., 1., 1., 0., 0., 1., 0., 1., 1., 0.,
+       1., 1., 1., 1., 0., 0., 0., 1., 0., 1., 1., 0., 1., 1., 1., 0., 1.,
+       1., 0., 1., 1., 0., 0., 1., 0., 0., 0., 1., 1., 0., 1., 0., 1., 1.,
+       0., 0., 1., 0., 0., 1., 0., 1., 0., 0., 0., 1., 1., 1., 1., 1., 1.,
+       0., 0., 1., 0., 0., 1., 1., 1., 0., 1., 1., 1., 0., 0., 0., 0., 0.,
+       0., 0., 0., 1., 1., 0., 0., 1., 1., 0., 1., 1., 0., 0., 0., 1., 0.,
+       0., 1., 1., 0., 0., 1., 0., 0., 1., 1., 1., 0., 1., 1., 0., 0., 0.,
+       1., 0., 0., 0., 1., 1., 1., 1., 0., 0., 0., 1., 0., 1., 1., 1., 1.,
+       1., 1., 1., 1., 0., 1., 1., 0., 0., 1., 0., 0., 1., 0.])
 </pre></div>
 </div>
 </div>
@@ -891,6 +1075,11 @@ returns an array length 10 of random integers from 0 up to, but not including
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 1, 1, 0, 0, 1, 0, 0, 1, 0])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now let’s study 100 tosses. We will start by creating an empty array
 called <code class="docutils literal notranslate"><span class="pre">heads</span></code>. Then, in each of the 10,000 repetitions, we will toss
@@ -907,6 +1096,11 @@ a coin 100 times, count the number of heads, and append it to <code class="docut
     <span class="n">head_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">head_counts</span><span class="p">,</span> <span class="n">n_heads</span><span class="p">)</span>
 
 <span class="n">head_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([60., 45., 48., ..., 51., 46., 43.])
 </pre></div>
 </div>
 </div>
@@ -933,6 +1127,9 @@ of the number of heads.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">head_counts</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">30.5</span><span class="p">,</span> <span class="mf">69.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/iteration_33_0.png" src="../_images/iteration_33_0.png" />
 </div>
 </div>
 <p>Not surprisingly, the histogram looks roughly symmetric around 50

@@ -45,7 +45,7 @@ had to be convinced with a computer simulation.  That's what we will do now.
 
 For the simulation, we will need:
 
-* `np.random.choice` \- see [the iteration page](../05/iteration) for an
+* `np.random.choice` \- see [the iteration page](../arrays-iteration/iteration) for an
   introduction.
 * `np.sort` \- see [sorting arrays](sorting_arrays).
 
@@ -172,7 +172,7 @@ Can you explain why your choice worked better, now you've done the simulation?
 ## Another way of doing the simulation
 
 See [Monty Hall with lists](../extra/monty_hall_lists) for another way of doing
-this simulation, using [lists](../05/lists) instead of arrays.
+this simulation, using [lists](../data-types/lists) instead of arrays.
 
 ## Exercises
 

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Ranges &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -42,7 +42,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="numpy_append.html" />
+    <link rel="next" title="Numpy append" href="numpy_append.html" />
     <link rel="prev" title="Arrays" href="Arrays.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data-types/Ranges.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Ranges" />
+<meta property="og:description" content="Ranges  A range is an array of numbers in increasing or decreasing order, each separated by a regular interval.  Ranges are useful in a surprisingly large numbe" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -194,7 +194,7 @@
   Data types
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="data_types.html">
    Types of things
@@ -235,6 +235,21 @@
    Arrays
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="function_arguments.html">
+   Function arguments
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="leaping_ahead.html">
    Leaping ahead
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,7 +658,9 @@
         
               <div>
                 
-  <p>A <em>range</em> is an array of numbers in increasing or decreasing order,
+  <div class="section" id="ranges">
+<h1>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h1>
+<p>A <em>range</em> is an array of numbers in increasing or decreasing order,
 each separated by a regular interval.  Ranges are useful in
 a surprisingly large number of situations, so it is worthwhile to
 learn about them.</p>
@@ -639,6 +693,11 @@ the <code class="docutils literal notranslate"><span class="pre">end</span></cod
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice how the array starts at 0 and goes only up to 4, not to the end value
 of 5.</p>
@@ -654,6 +713,11 @@ integers starting at 0 up to <em>but not including</em> the <code class="docutil
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5, 6, 7, 8])
+</pre></div>
+</div>
+</div>
 </div>
 <p>If you pass three arguments:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>np.arange(start, end, step): A range with a difference of step between each pair of consecutive values, starting from start and stopping before end.
@@ -662,6 +726,11 @@ integers starting at 0 up to <em>but not including</em> the <code class="docutil
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 3,  8, 13, 18, 23, 28])
 </pre></div>
 </div>
 </div>
@@ -676,12 +745,18 @@ or negative and may be whole numbers or fractions.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 1.5,  1. ,  0.5,  0. , -0.5, -1. , -1.5])
+</pre></div>
+</div>
+</div>
 </div>
 <p><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Ranges.ipynb">Ranges</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
 </div>
 </p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -712,7 +787,7 @@ or negative and may be whole numbers or fractions.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Arrays.html" title="previous page">Arrays</a>
-    <a class='right-next' id="next-link" href="numpy_append.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="numpy_append.html" title="next page">Numpy append</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

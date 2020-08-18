@@ -42,7 +42,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../functions-conditionals/more_building_blocks.html" />
+    <link rel="next" title="More building blocks" href="../functions-conditionals/more_building_blocks.html" />
     <link rel="prev" title="Permutation and the t-test" href="permutation_and_t_test.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -610,12 +662,114 @@
 <h1>Testing the t test<a class="headerlink" href="#testing-the-t-test" title="Permalink to this headline">¶</a></h1>
 <p>One of the great advantages of using simulation is that you can test the
 assertions your teachers make.</p>
-<p>For example, in the <span class="xref myst">permutation and t-test page</span>.</p>
+<p>For example, in the <a class="reference internal" href="permutation_and_t_test.html"><span class="doc std std-doc">permutation and t-test page</span></a>, we asserted that the t-test is not
+valid when the underlying distribution of the numbers is not close to the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>.</p>
+<p>We can investigate this claim by simulating numbers from the null (ideal)
+world, and seeing what results we get from the t-test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The particular variant of the t-test that we were looking at in the page above
+was the <em>independent sample</em> t test for groups with similar variance.  Similar
+variance means that the distribution of the values in the first group is
+roughly equal to the distribution in the second group.</p>
+<p>For example, soon we will be testing again for a mean difference between the
+numbers of mosquitoes attracted to each of the 25 volunteers who drank beer,
+and the equivalent numbers for each of the 18 volunteers who drank water.</p>
+<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/mosquito_beer">the data
+page</a> for
+more details on the dataset, and <a class="reference internal" href="../data/LICENSE.html"><span class="doc std std-doc">the data license page</span></a>.</p>
+<p>For an equal variance test, we assume that the spread of the beer values is
+roughly equal to the spread of the water values, as measured by the <em>standard
+deviation</em>, or, equivalently, the <em>variance</em>.  Remember the variance is the
+squared standard deviation.</p>
+<p>We can pull together the code in <a class="reference internal" href="permutation_and_t_test.html"><span class="doc std std-doc">permutation and t-test
+page</span></a> to implement our own t-test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Scipy statistics routines.</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Independent sample t value and one-tail upper-tail p value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">g1_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
+    <span class="n">g2_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
+    <span class="n">omd</span> <span class="o">=</span> <span class="n">g1_mean</span> <span class="o">-</span> <span class="n">g2_mean</span>  <span class="c1"># The observed mean difference.</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group1</span> <span class="o">-</span> <span class="n">g1_mean</span><span class="p">,</span> <span class="n">group2</span> <span class="o">-</span> <span class="n">g2_mean</span><span class="p">)</span>
+    <span class="n">g1_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>  <span class="c1"># Number of observations in group1</span>
+    <span class="n">g2_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>  <span class="c1"># Number of observations in group2</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">g1_n</span> <span class="o">+</span> <span class="n">g2_n</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># The &quot;degrees of freedom&quot;.</span>
+    <span class="n">estimated_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">df</span><span class="p">)</span>
+    <span class="n">t_stat</span> <span class="o">=</span> <span class="n">omd</span> <span class="o">/</span> <span class="p">(</span><span class="n">estimated_sd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">g1_n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">g2_n</span><span class="p">))</span>
+    <span class="n">upper_tail_p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sps</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">upper_tail_p</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The only new thing in the implementation above is the second-to-last line,
+where we are using a routine in Scipy to calculate the probability value from
+the t statistic; the details of this are not important for our purpose.</p>
+<p>First we go back to the logic of this p value, which is very similar to the
+logic for permutation test p values:</p>
+<ul class="simple">
+<li><p>Notice that the function calculates <code class="docutils literal notranslate"><span class="pre">omd</span> <span class="pre">=</span> <span class="pre">np.mean(group1)</span> <span class="pre">-</span> <span class="pre">np.mean(group2)</span></code>. Call <code class="docutils literal notranslate"><span class="pre">omd</span></code> the <em>observed mean difference</em>.</p></li>
+<li><p>Assume that we are in the null (ideal) world where the numbers from <code class="docutils literal notranslate"><span class="pre">group1</span></code>
+and the numbers from <code class="docutils literal notranslate"><span class="pre">group2</span></code> have been drawn at random from the <em>same</em>
+distribution.</p></li>
+<li><p>The p value is the probability, in this null world, of seeing a mean
+difference that is equal to or greater than the observed mean difference
+<code class="docutils literal notranslate"><span class="pre">omd</span></code>.</p></li>
+</ul>
+<p>You can also think of a p value as an <em>index of surprise</em>.  The p value tells
+you how often you would expect to see an observed mean different this large, or
+larger, in the null (ideal) world.  If the p value is small, then the observed
+mean difference is surprising.  For example, if the p value is 0.05, it means
+that such difference only occurs 5% of the time by chance in the null world, or
+1 in 20 times.  You could say it was surprising at a 5% level.  Similarly a p
+value of 0.01 means the result would only occur 1% of the time in the null
+world, and it is surprising at a 1% level.</p>
+<p>Here we recreate the mosquito, beer, water data from the <a class="reference internal" href="permutation_and_t_test.html"><span class="doc std std-doc">permutation and
+t-test page</span></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beer_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span>
+                           <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>
+                           <span class="mi">23</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>
+                           <span class="mi">22</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
+<span class="n">water_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">33</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>
+                            <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span>
+                            <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We run our t-test over these data to get the same result you saw in the
+<a class="reference internal" href="permutation_and_t_test.html"><span class="doc std std-doc">permtuation and t-test page</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">t_test</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t statistic:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Upper-tail p value:&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>t statistic: 1.640250605001883
+Upper-tail p value: 0.054302080886695414
 </pre></div>
 </div>
 </div>
@@ -631,12 +785,23 @@ for independent t-tests:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Scipy t statistic: 1.6402506050018828
+Scipy upper-tail p value: 0.054302080886695414
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here is the observed difference in means:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Observed mean difference</span>
 <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4.433333333333334
 </pre></div>
 </div>
 </div>
@@ -671,6 +836,11 @@ surprising at the 5% level — about 5% of the time.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.13733528, 0.12629696, 0.38798467, 0.031142  , 0.92473672])
+</pre></div>
+</div>
+</div>
 </div>
 <p>If the t-test calculation is correct, then we should only see a p value of 0.05
 or smaller about 5% of the time.</p>
@@ -678,6 +848,11 @@ or smaller about 5% of the time.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times the t-test said: surprising at 5% level.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">p_values</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_iters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0536
 </pre></div>
 </div>
 </div>
@@ -703,6 +878,11 @@ group of 3 and another of 37:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.80224495, 0.61819183, 0.2254559 , 0.41448113, 0.57015471])
+</pre></div>
+</div>
+</div>
 </div>
 <p>How good a job is it doing now, with unequal group sizes?</p>
 <div class="cell docutils container">
@@ -710,6 +890,11 @@ group of 3 and another of 37:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times the t-test said: surprising at 5% level.</span>
 <span class="c1"># This time wih unequal group sizes.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">p_values</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_iters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0509
 </pre></div>
 </div>
 </div>
@@ -726,6 +911,9 @@ distribution looks like this, with a <span class="math notranslate nohighlight">
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;1000 random samples from chi-squared distribution, k=2&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/testing_t_22_0.png" src="../_images/testing_t_22_0.png" />
 </div>
 </div>
 <p>We use this highly not-normal distribution to provide numbers to our t-test:</p>
@@ -745,6 +933,11 @@ distribution looks like this, with a <span class="math notranslate nohighlight">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.03662243, 0.7945997 , 0.09302795, 0.49569902, 0.21843391])
+</pre></div>
+</div>
+</div>
 </div>
 <p>In this situation the t-test starts to be less accurate - labeling too many
 random differences as being surprising at the 5% level:</p>
@@ -753,6 +946,11 @@ random differences as being surprising at the 5% level:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times the t-test said: surprising at 5% level.</span>
 <span class="c1"># This time wih unequal group sizes.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">p_values</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_iters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0748
 </pre></div>
 </div>
 </div>
@@ -782,12 +980,22 @@ random differences as being surprising at the 5% level:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.06
+</pre></div>
+</div>
+</div>
 </div>
 <p>This is very similar to the t-statistic p value — <em>for these data</em> that have
 fairly equal group size, and a distribution not far from normal:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_test</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1.640250605001883, 0.054302080886695414]
 </pre></div>
 </div>
 </div>
@@ -816,6 +1024,11 @@ loop.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.67 , 0.952, 0.524, 0.083, 0.35 ])
+</pre></div>
+</div>
+</div>
 </div>
 <p>How does the permutation test do?</p>
 <div class="cell docutils container">
@@ -823,6 +1036,11 @@ loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times the permutation test said: surprising at 5% level.</span>
 <span class="c1"># With unequal group sizes, not-normal distribution.</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">p_values</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_iters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.06
 </pre></div>
 </div>
 </div>
@@ -861,7 +1079,7 @@ for normal distributions.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="permutation_and_t_test.html" title="previous page">Permutation and the t-test</a>
-    <a class='right-next' id="next-link" href="../functions-conditionals/more_building_blocks.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="../functions-conditionals/more_building_blocks.html" title="next page">More building blocks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,5 +1,5 @@
 ---
-redirect_from: 'chapters/01/1/2/statistical-techniques'
+redirect_from: 'chapters/intro/1/2/statistical-techniques'
 ---
 
 Statistical Techniques
@@ -36,5 +36,5 @@ mathematics, and that gives us time to explain the ideas in another way, and
 in more depth.
 
 See the [Statistical
-techniques](https://www.inferentialthinking.com/chapters/01/1/2/statistical-techniques)
+techniques](https://www.inferentialthinking.com/chapters/intro/1/2/statistical-techniques)
 page from the UC Berkeley course, for more discussion.

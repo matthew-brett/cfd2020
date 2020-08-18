@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -686,6 +738,12 @@ Overall Quality ratings.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Overall quality&#39;)
+</pre></div>
+</div>
+<img alt="../_images/using_minimize_5_1.png" src="../_images/using_minimize_5_1.png" />
+</div>
 </div>
 <p>Here is the function we used to calculate sum of squared error, adapted for <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.</p>
 <div class="cell docutils container">
@@ -709,6 +767,21 @@ Overall Quality ratings.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="the-result-of-minimize">
 <h2>The result of <code class="docutils literal notranslate"><span class="pre">minimize</span></code><a class="headerlink" href="#the-result-of-minimize" title="Permalink to this headline">¶</a></h2>
@@ -718,6 +791,11 @@ information about the result:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value that comes back is a special thing to contain minimize results:</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">min_res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>scipy.optimize.optimize.OptimizeResult
 </pre></div>
 </div>
 </div>
@@ -732,6 +810,11 @@ This value is the final minimal value of the function we are trying to minimize
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0674471058041965
+</pre></div>
+</div>
+</div>
 </div>
 <p>We also have an array with the values for the intercept and slope that give the minimal value:</p>
 <div class="cell docutils container">
@@ -740,11 +823,21 @@ This value is the final minimal value of the function we are trying to minimize
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([2.11480098, 0.50886336])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We confirm that <code class="docutils literal notranslate"><span class="pre">min_res.fun</span></code> is indeed the value we get from our function given the intercept, slope array in <code class="docutils literal notranslate"><span class="pre">min_res.x</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error_for_minimize</span><span class="p">(</span><span class="n">min_res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0674471058041965
 </pre></div>
 </div>
 </div>
@@ -759,11 +852,16 @@ This value is the final minimal value of the function we are trying to minimize
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>function
+</pre></div>
+</div>
+</div>
 </div>
 <p>We pass the function to <code class="docutils literal notranslate"><span class="pre">minimize</span></code> as an argument for it to use.  Try the <span class="xref myst">functions as values exercise</span> for more practice on the idea of using functions as values like this.</p>
 <p>We can call the function we pass to <code class="docutils literal notranslate"><span class="pre">minimize</span></code> – the <em>objective function</em> – in the sense that our objective is to minimize this function.</p>
 <p>How is <code class="docutils literal notranslate"><span class="pre">minimize</span></code> using our objective function?   Clearly <code class="docutils literal notranslate"><span class="pre">minimize</span></code> is
-<span class="xref myst">calling</span> the function, but what arguments is it
+<a class="reference internal" href="../code-basics/Calls.html"><span class="doc std std-doc">calling</span></a> the function, but what arguments is it
 sending?  How many times does it call the function?</p>
 <p>To find out, we can stick something inside the objective function to tell us
 each time it is called:</p>
@@ -788,6 +886,38 @@ each time it is called:</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_func_for_info</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
 <span class="n">min_res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Called with [2.25 0.47] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.25000001 0.47      ] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.25       0.47000001] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579402 -0.48655135] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579404 -0.48655135] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579402 -0.48655136] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898338 0.46700051] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898339 0.46700051] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898338 0.46700052] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510782 0.50564778] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510784 0.50564778] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510782 0.5056478 ] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480098 0.50886336] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480099 0.50886336] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480098 0.50886338] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -844,6 +974,12 @@ two variable names, separated by a comma.  Python take the two values from the r
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>c is 2
+s_is 1
+</pre></div>
+</div>
+</div>
 </div>
 <p>The thing on the right hand side can be anything that is a sequence of two things.  For example, it can also be a list:</p>
 <div class="cell docutils container">
@@ -852,6 +988,12 @@ two variable names, separated by a comma.  Python take the two values from the r
 <span class="n">my_var1</span><span class="p">,</span> <span class="n">my_var2</span> <span class="o">=</span> <span class="n">my_list</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my_var1 is&#39;</span><span class="p">,</span> <span class="n">my_var1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my_var2 is&#39;</span><span class="p">,</span> <span class="n">my_var2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>my_var1 is 6
+my_var2 is 7
 </pre></div>
 </div>
 </div>
@@ -867,12 +1009,30 @@ two variable names, separated by a comma.  Python take the two values from the r
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>w is 10
+x is 100
+y is 10000
+</pre></div>
+</div>
+</div>
 </div>
 <p>The number of elements must match the number of variables:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error - three variables on the left, two elements on the right.</span>
 <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mf">5e8</span><span class="n">ef03e134f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Error - three variables on the left, two elements on the right.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 3, got 2)
 </pre></div>
 </div>
 </div>
@@ -902,6 +1062,21 @@ two variable names, separated by a comma.  Python take the two values from the r
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can get the best-fit intercept and slope values by unpacking:</p>
 <div class="cell docutils container">
@@ -912,6 +1087,12 @@ two variable names, separated by a comma.  Python take the two values from the r
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2.1148009756319426
+0.5088633634080739
+</pre></div>
+</div>
+</div>
 </div>
 <p>We often end up doing this all in one shot:</p>
 <div class="cell docutils container">
@@ -919,6 +1100,12 @@ two variable names, separated by a comma.  Python take the two values from the r
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_unpacking</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span><span class="o">.</span><span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2.1148009756319426
+0.5088633634080739
 </pre></div>
 </div>
 </div>
@@ -950,6 +1137,38 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>c_s [2.25 0.47] p 99 q 101
+c_s [2.25000001 0.47      ] p 99 q 101
+c_s [2.25       0.47000001] p 99 q 101
+c_s [ 1.92579402 -0.48655135] p 99 q 101
+c_s [ 1.92579404 -0.48655135] p 99 q 101
+c_s [ 1.92579402 -0.48655136] p 99 q 101
+c_s [2.24898338 0.46700051] p 99 q 101
+c_s [2.24898339 0.46700051] p 99 q 101
+c_s [2.24898338 0.46700052] p 99 q 101
+c_s [2.12510782 0.50564778] p 99 q 101
+c_s [2.12510784 0.50564778] p 99 q 101
+c_s [2.12510782 0.5056478 ] p 99 q 101
+c_s [2.11480098 0.50886336] p 99 q 101
+c_s [2.11480099 0.50886336] p 99 q 101
+c_s [2.11480098 0.50886338] p 99 q 101
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that, each time <code class="docutils literal notranslate"><span class="pre">minimize</span></code> calls <code class="docutils literal notranslate"><span class="pre">ss_with_extra_numbers</span></code> it passes the first value of <code class="docutils literal notranslate"><span class="pre">args</span></code> as the second argument to the function (<code class="docutils literal notranslate"><span class="pre">p</span></code>) and the second value of <code class="docutils literal notranslate"><span class="pre">args</span></code> as the third argument to the function (<code class="docutils literal notranslate"><span class="pre">q</span></code>).</p>
 <p>This isn’t very exciting so far, but now we can solve a problem that may not have been obvious — our objective function has been using <code class="docutils literal notranslate"><span class="pre">easiness</span></code> and <code class="docutils literal notranslate"><span class="pre">quality</span></code> from the global namespace.   This means that each time we want to find a least-squares intercept and slope for a pair of arrays, we have to write a new objective function, using different values from the global namespace.</p>
@@ -978,6 +1197,21 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.1958591481237595
+ hess_inv: array([[ 0.98777016, -0.30796917],
+       [-0.30796917,  0.09667177]])
+      jac: array([0.0000000e+00, 7.4505806e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([1.94388533, 0.55407123])
+</pre></div>
+</div>
+</div>
 </div>
 <p>That is annoying, because we’re doing exactly the same work in our objective function, just with different variables.</p>
 <p>Aha - we can use <code class="docutils literal notranslate"><span class="pre">args</span></code> to pass the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values for our function to work on:</p>
@@ -999,10 +1233,40 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">clarity</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 1.1958591481237595
+ hess_inv: array([[ 0.98777016, -0.30796917],
+       [-0.30796917,  0.09667177]])
+      jac: array([0.0000000e+00, 7.4505806e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([1.94388533, 0.55407123])
 </pre></div>
 </div>
 </div>

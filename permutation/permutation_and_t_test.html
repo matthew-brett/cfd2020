@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -608,7 +660,7 @@
                 
   <div class="section" id="permutation-and-the-t-test">
 <h1>Permutation and the t-test<a class="headerlink" href="#permutation-and-the-t-test" title="Permalink to this headline">¶</a></h1>
-<p>In <span class="xref myst">the idea of permutation</span>,
+<p>In <a class="reference internal" href="permutation_idea.html"><span class="doc std std-doc">the idea of permutation</span></a>,
 we use permutation to compare a difference between two groups of numbers.</p>
 <p>In our case, each number corresponded to one person in the study.  The number
 for each subject was the number of mosquitoes flying towards them. The subjects
@@ -617,7 +669,30 @@ drunk water.   There were 25 subjects who had drunk beer, and therefore, 25
 numbers of mosquitoes corresponding to the “beer” group.  There were 18
 subjects who had drunk water, and 18 numbers corresponding to the “water” group.</p>
 <p>Here we repeat the permutation test, as a reminder.</p>
-<p>As before, you can download the data from <span class="xref myst">mosquito_beer.csv</span>,</p>
+<p>As before, you can download the data from
+<span class="xref myst">mosquito_beer.csv</span>.</p>
+<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/mosquito_beer">this
+page</a>
+for more details on the dataset, and <a class="reference internal" href="../data/LICENSE.html"><span class="doc std std-doc">the data license
+page</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Numpy library, rename as &quot;np&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Import Pandas library, rename as &quot;pd&quot;</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Set up plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read in the data, get the numbers of mosquitoes flying towards the beer
+drinkers, and towards the water drinkers, after they had drunk their beer or
+water.  See the <a class="reference internal" href="permutation_idea.html"><span class="doc std std-doc">the idea of permutation</span></a> page.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the data, select beer and water values.</span>
@@ -639,12 +714,23 @@ subjects who had drunk water, and 18 numbers corresponding to the “water” gr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Number in beer group: 25
+Number in water group: 18
+</pre></div>
+</div>
+</div>
 </div>
 <p>We are interested in the difference between the means of these numbers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">observed_difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
 <span class="n">observed_difference</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4.433333333333334
 </pre></div>
 </div>
 </div>
@@ -675,6 +761,9 @@ distribution</em> of the mean difference:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/permutation_and_t_test_10_0.png" src="../_images/permutation_and_t_test_10_0.png" />
+</div>
 </div>
 <p>We can work out the proportion of the sampling distribution that is greater
 than or equal to the observed value, to get an estimate of the probability of
@@ -684,6 +773,11 @@ the observed value, if we are in fact in the null (ideal) world:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">permutation_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
     <span class="n">fake_differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span><span class="o">/</span> <span class="n">n_iters</span>
 <span class="n">permutation_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0589
 </pre></div>
 </div>
 </div>
@@ -697,6 +791,11 @@ a distribution.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.756158861973805
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can use the standard deviation as unit of distance in the distribution.</p>
 <p>A way of getting an idea of how extreme the observed value is, is to ask how
@@ -706,6 +805,11 @@ distribution, which is zero.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">like_t</span> <span class="o">=</span> <span class="n">observed_difference</span> <span class="o">/</span> <span class="n">sampling_sd</span>
 <span class="n">like_t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.60851879566856
 </pre></div>
 </div>
 </div>
@@ -743,12 +847,22 @@ class.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.7028390172904366
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that this is rather similar to the estimate we got directly from the
 permutation distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_sd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.756158861973805
 </pre></div>
 </div>
 </div>
@@ -762,6 +876,11 @@ standard deviation of the sampling distribution.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.640250605001883
+</pre></div>
+</div>
+</div>
 </div>
 <p>This is the same t statistic value calculated by the <em>independent sample t
 test</em> routine from Scipy:</p>
@@ -770,6 +889,11 @@ test</em> routine from Scipy:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
 <span class="n">t_result</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
 <span class="n">t_result</span><span class="o">.</span><span class="n">statistic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.6402506050018828
 </pre></div>
 </div>
 </div>
@@ -785,11 +909,21 @@ permutation test.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.054302080886695414
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The permutation p value is very similar.</span>
 <span class="n">permutation_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0589
 </pre></div>
 </div>
 </div>

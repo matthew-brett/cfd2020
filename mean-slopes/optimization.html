@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -669,6 +721,11 @@ that we tried, that gave us the lowest sum of squared error.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.0499999999999776
+</pre></div>
+</div>
+</div>
 </div>
 <p>At the end, of <a class="reference internal" href="mean_and_slopes.html"><span class="doc std std-doc">the mean and slopes</span></a> notebook, we saw that
 a function in Scipy called <code class="docutils literal notranslate"><span class="pre">minimize</span></code> can do this work for us, relatively
@@ -677,6 +734,20 @@ quickly.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 <span class="n">minimize</span><span class="p">(</span><span class="n">sos_error</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>      fun: 3619.6157878183294
+ hess_inv: array([[0.]])
+      jac: array([0.])
+  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
+     nfev: 10
+      nit: 2
+     njev: 5
+   status: 2
+  success: False
+        x: array([3.05])
 </pre></div>
 </div>
 </div>
@@ -709,6 +780,12 @@ squared error:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;SSE as a function of slope&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;SSE as a function of slope&#39;)
+</pre></div>
+</div>
+<img alt="../_images/optimization_11_1.png" src="../_images/optimization_11_1.png" />
 </div>
 </div>
 <p>This is the <em>function</em> we are trying minimize.  Specifically, we are trying to
@@ -744,11 +821,21 @@ change in x, to get the gradient:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>31657.96
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The gradient of the function at this point.</span>
 <span class="n">sos_error_gradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>58876.17044587387
 </pre></div>
 </div>
 </div>
@@ -765,11 +852,21 @@ a large <em>step size</em>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>37529.64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The gradient of the function at this point.</span>
 <span class="n">sos_error_gradient</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-64741.669554132386
 </pre></div>
 </div>
 </div>
@@ -815,6 +912,24 @@ small jumps when the gradient is shallow.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>x: 4.00000; step -0.58876; gradient 58876.17
+x: 3.41124; step -0.22485; gradient 22485.45
+x: 3.18638; step -0.08587; gradient 8587.43
+x: 3.10051; step -0.03280; gradient 3279.63
+x: 3.06771; step -0.01253; gradient 1252.53
+x: 3.05519; step -0.00478; gradient 478.35
+x: 3.05040; step -0.00183; gradient 182.69
+x: 3.04858; step -0.00070; gradient 69.77
+x: 3.04788; step -0.00027; gradient 26.65
+x: 3.04761; step -0.00010; gradient 10.18
+x: 3.04751; step -0.00004; gradient 3.89
+x: 3.04747; step -0.00001; gradient 1.48
+x: 3.04746; step -0.00001; gradient 0.57
+Minimum at 3.0474521484512476
+</pre></div>
+</div>
+</div>
 </div>
 <p>As you can see, by doing this, we save ourselves from trying a very large
 number of other potential x values (slopes), and we focus in on the minimum
@@ -827,6 +942,11 @@ a function.  Now you know what kind of thing it is doing, we will just let
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use float to show us the final result in higher precision</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">sos_error</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.0474986373317794
 </pre></div>
 </div>
 </div>

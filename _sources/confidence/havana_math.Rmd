@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# A problem for the education minister
+
 Imagine for a moment that you are the minister of education in Cuba.
 
 It is 2019.   The final school exams have just finished, but the results are not

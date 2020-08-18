@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -620,7 +672,7 @@
                 
   <div class="section" id="training-and-testing">
 <h1>Training and testing<a class="headerlink" href="#training-and-testing" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -632,7 +684,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="k">def</span> <span class="nf">standard_units</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -641,7 +693,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
@@ -685,7 +737,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="k">def</span> <span class="nf">classify_grid</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -702,7 +754,7 @@
 <p>Again - if you are running on your laptop, you should download
 the <span class="xref myst">ckd.csv</span> file to the same
 directory as this notebook.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="n">ckd_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ckd.csv&#39;</span><span class="p">)</span>
@@ -732,6 +784,9 @@ directory as this notebook.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;WBC&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Training_and_Testing_10_0.png" src="../_images/Training_and_Testing_10_0.png" />
 </div>
 </div>
 <p>Earlier, we said that we expect to get some classifications wrong, because there’s some intermingling of blue and gold points in the lower-left.</p>
@@ -774,9 +829,12 @@ directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Training_and_Testing_17_0.png" src="../_images/Training_and_Testing_17_0.png" />
+</div>
 </div>
 <p>We get the following classification regions and decision boundary:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
@@ -799,7 +857,7 @@ directory as this notebook.</p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">classify_grid</span><span class="p">(</span><span class="n">training</span><span class="p">[[</span><span class="s1">&#39;WBC&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">,</span> <span class="s1">&#39;Class&#39;</span><span class="p">]],</span>
@@ -809,39 +867,15 @@ directory as this notebook.</p>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
-<span class="n">test_grid</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
-<span class="n">test_grid</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span>
-<span class="n">test_grid</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">c</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gold&#39;</span>
-<span class="n">test_grid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;WBC&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">,</span>
-                        <span class="n">c</span><span class="o">=</span><span class="n">test_grid</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">],</span>
-                        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-</pre></div>
-</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Training_and_Testing_21_0.png" src="../_images/Training_and_Testing_21_0.png" />
 </div>
 </div>
 <p>Place the <em>test</em> data on this graph and you can see at once that while the classifier got almost all the points right, there are some mistakes.  For example, some blue points of the test set fall in the gold region of the classifier.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># NO CODE</span>
-<span class="n">test_grid</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;WBC&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">,</span>
-                        <span class="n">c</span><span class="o">=</span><span class="n">test_grid</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">],</span>
-                        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">testing</span><span class="p">[</span><span class="s1">&#39;WBC&#39;</span><span class="p">],</span>
-            <span class="n">testing</span><span class="p">[</span><span class="s1">&#39;Glucose&#39;</span><span class="p">],</span>
-            <span class="n">c</span><span class="o">=</span><span class="n">testing</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">],</span>
-            <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-</pre></div>
-</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/Training_and_Testing_23_0.png" src="../_images/Training_and_Testing_23_0.png" />
 </div>
 </div>
 <p>Some errors notwithstanding, it looks like the classifier does fairly well on the test set. Assuming that the original sample was drawn randomly from the underlying population, the hope is that the classifier will perform with similar accuracy on the overall population, since the test set was chosen randomly from the original sample.</p>

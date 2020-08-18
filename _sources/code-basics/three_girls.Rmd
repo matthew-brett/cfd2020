@@ -1,12 +1,13 @@
 ---
 jupyter:
   jupytext:
-    formats: Rmd:rmarkdown,ipynb
+    formats: Rmd,ipynb
+    notebook_metadata_filter: language_info
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.4
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -23,7 +24,7 @@ jupyter:
     version: 3.7.0
 ---
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 # The standard set of libraries we need
 import numpy as np

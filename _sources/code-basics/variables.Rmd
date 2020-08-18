@@ -22,6 +22,8 @@ jupyter:
     version: 3.6.5
 ---
 
+# On variables
+
 Variables are - things that vary.
 
 You remember variables like $x$ and $y$ from mathematics.

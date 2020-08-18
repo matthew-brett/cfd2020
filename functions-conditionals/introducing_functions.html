@@ -42,8 +42,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="none.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="more_building_blocks.html" />
+    <link rel="next" title="On None" href="none.html" />
+    <link rel="prev" title="More building blocks" href="more_building_blocks.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -343,9 +378,19 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -663,7 +715,7 @@ license</a>.</p>
 </div>
 </div>
 <p>We would call the function like this:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="c1"># Just to define some values</span>
@@ -731,6 +783,19 @@ they can be actual values such as “eric” and 5.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>You are doing good work, Adriana!
+Thank you very much for your efforts on this project.
+
+You are doing good work, Billy!
+Thank you very much for your efforts on this project.
+
+You are doing good work, Caroline!
+Thank you very much for your efforts on this project.
+
+</pre></div>
+</div>
+</div>
 </div>
 <p>Functions take repeated code, put it in one place, and then you call that code when you want to use it. Here’s what the same program looks like with a function.</p>
 <div class="cell docutils container">
@@ -744,6 +809,19 @@ they can be actual values such as “eric” and 5.</p></li>
 <span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">)</span>
 <span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">)</span>
 <span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>You are doing good work, Adriana!
+Thank you very much for your efforts on this project.
+
+You are doing good work, Billy!
+Thank you very much for your efforts on this project.
+
+You are doing good work, Caroline!
+Thank you very much for your efforts on this project.
+
 </pre></div>
 </div>
 </div>
@@ -767,6 +845,20 @@ not work.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing EXCELLENT work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very very much for your efforts on this project.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>  <span class="c1"># Print a blank line.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">dccaaffa26c9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">thank_you_effusively</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+
+<span class="ne">NameError</span>: name &#39;thank_you_effusively&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -826,8 +918,8 @@ Python to do this with any name we choose, whenever we want to.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="more_building_blocks.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="none.html" title="next page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="more_building_blocks.html" title="previous page">More building blocks</a>
+    <a class='right-next' id="next-link" href="none.html" title="next page">On None</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

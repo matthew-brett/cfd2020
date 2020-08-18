@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -490,6 +535,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -657,7 +709,7 @@ Erdős</a>, got the answer wrong. He
 had to be convinced with a computer simulation.  That’s what we will do now.</p>
 <p>For the simulation, we will need:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> - see <span class="xref myst">the iteration page</span> for an
+<li><p><code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> - see <a class="reference internal" href="../arrays-iteration/iteration.html"><span class="doc std std-doc">the iteration page</span></a> for an
 introduction.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">np.sort</span></code> - see <a class="reference internal" href="sorting_arrays.html"><span class="doc std std-doc">sorting arrays</span></a>.</p></li>
 </ul>
@@ -680,12 +732,22 @@ one trial.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;car&#39;, &#39;goat&#39;, &#39;goat&#39;], dtype=&#39;&lt;U4&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next we shuffle, to simulate the fact that the object behind each door is random, on each trial.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">doors</span><span class="p">)</span>
 <span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;goat&#39;, &#39;car&#39;, &#39;goat&#39;], dtype=&#39;&lt;U4&#39;)
 </pre></div>
 </div>
 </div>
@@ -699,6 +761,11 @@ choose one of 0, 1, or 2 for the first, second and third door, respectively.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
 </div>
 <p>We peek behind our selected door to see what we would have got, if we stayed with our selected door.</p>
 <div class="cell docutils container">
@@ -708,12 +775,22 @@ choose one of 0, 1, or 2 for the first, second and third door, respectively.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;goat&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next we replace whatever was behind our chosen door, with the string “mine”, to indicate this was the one we chose.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span><span class="p">[</span><span class="n">my_door_index</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mine&#39;</span>
 <span class="n">doors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;goat&#39;, &#39;car&#39;, &#39;mine&#39;], dtype=&#39;&lt;U4&#39;)
 </pre></div>
 </div>
 </div>
@@ -733,6 +810,11 @@ be the string “mine” that we put in when we chose our door.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([&#39;car&#39;, &#39;goat&#39;, &#39;mine&#39;], dtype=&#39;&lt;U4&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>When Monty does his goat reveal, our two options above drop to one.</p>
 <ul class="simple">
@@ -745,6 +827,11 @@ will be “car” if the car was present, otherwise it will be “goat”.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch_result</span> <span class="o">=</span> <span class="n">doors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">switch_result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;car&#39;
 </pre></div>
 </div>
 </div>
@@ -790,11 +877,21 @@ will be “car” if the car was present, otherwise it will be “goat”.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Check the proportion of the Switch choices that resulted in a “car”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">switch_results</span> <span class="o">==</span> <span class="s1">&#39;goat&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
 </pre></div>
 </div>
 </div>
@@ -805,7 +902,7 @@ will be “car” if the car was present, otherwise it will be “goat”.</p>
 <div class="section" id="another-way-of-doing-the-simulation">
 <h2>Another way of doing the simulation<a class="headerlink" href="#another-way-of-doing-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>See <a class="reference internal" href="../extra/monty_hall_lists.html"><span class="doc std std-doc">Monty Hall with lists</span></a> for another way of doing
-this simulation, using <span class="xref myst">lists</span> instead of arrays.</p>
+this simulation, using <a class="reference internal" href="../data-types/lists.html"><span class="doc std std-doc">lists</span></a> instead of arrays.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>

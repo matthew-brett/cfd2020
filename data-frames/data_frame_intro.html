@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data frames, Series and arrays" href="df_series_arrays.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="data_frames.html" />
+    <link rel="prev" title="Data frames" href="data_frames.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -268,6 +283,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -294,6 +314,11 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data_frames.html">
+   Data frames
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introduction to data frames
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -492,6 +537,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../classification/Accuracy_of_the_Classifier.html">
    Accuracy of the classifier
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
   </a>
  </li>
 </ul>
@@ -699,6 +751,11 @@ file to the same directory as this notebook.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
 </div>
 <p>Pandas integrates with the Notebook, so, if you display a data
 frame in the notebook, it does a nice display of rows and
@@ -709,12 +766,184 @@ columns.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aruba</td>
+      <td>ABW</td>
+      <td>1.66325</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>48.721939</td>
+      <td>NaN</td>
+      <td>0.103744</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>4.95450</td>
+      <td>19.961015</td>
+      <td>161.138034</td>
+      <td>2.834598</td>
+      <td>40.109708</td>
+      <td>444.00</td>
+      <td>32.715838</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Angola</td>
+      <td>AGO</td>
+      <td>6.12300</td>
+      <td>111.936542</td>
+      <td>254.747970</td>
+      <td>2.447546</td>
+      <td>NaN</td>
+      <td>501.25</td>
+      <td>26.937545</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>1.76925</td>
+      <td>12.327586</td>
+      <td>574.202694</td>
+      <td>2.836021</td>
+      <td>47.201082</td>
+      <td>29.25</td>
+      <td>2.888280</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andorra</td>
+      <td>AND</td>
+      <td>NaN</td>
+      <td>3.197538</td>
+      <td>4421.224933</td>
+      <td>7.260281</td>
+      <td>47.123345</td>
+      <td>NaN</td>
+      <td>0.079547</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>Kosovo</td>
+      <td>XKX</td>
+      <td>2.14250</td>
+      <td>6.804620</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.813820</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>Yemen, Rep.</td>
+      <td>YEM</td>
+      <td>4.22575</td>
+      <td>36.819337</td>
+      <td>207.949700</td>
+      <td>1.417836</td>
+      <td>44.470076</td>
+      <td>399.75</td>
+      <td>26.246608</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2.37525</td>
+      <td>345.209888</td>
+      <td>1123.142656</td>
+      <td>4.241441</td>
+      <td>48.516298</td>
+      <td>143.75</td>
+      <td>54.177209</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>Zambia</td>
+      <td>ZMB</td>
+      <td>5.39425</td>
+      <td>24.280990</td>
+      <td>185.556359</td>
+      <td>2.687290</td>
+      <td>49.934484</td>
+      <td>233.75</td>
+      <td>15.633220</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Zimbabwe</td>
+      <td>ZWE</td>
+      <td>3.94300</td>
+      <td>15.495514</td>
+      <td>115.519881</td>
+      <td>2.695188</td>
+      <td>49.529875</td>
+      <td>398.00</td>
+      <td>15.420964</td>
+    </tr>
+  </tbody>
+</table>
+<p>216 rows × 9 columns</p>
+</div></div></div>
 </div>
 <p>The data frame has rows and columns.  Like other Python objects, it has <em>attributes</em>.  These are pieces of data associated with the data frame.  You have already seen <em>methods</em>, which are functions associated with the data frame.  You can access attributes in the same way as you access methods, by typing the variable name, followed by a dot <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the attribute name.</p>
 <p>For example, one attribute of the data frame, is the <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(216, 9)
 </pre></div>
 </div>
 </div>
@@ -725,6 +954,14 @@ for a data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
+       &#39;health_exp_per_cap&#39;, &#39;health_exp_pub&#39;, &#39;prim_ed_girls&#39;,
+       &#39;mat_mort_ratio&#39;, &#39;population&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -739,8 +976,8 @@ for a data frame:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code>: Maternal mortality ratio (modeled estimate, per 100,000 live births).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">population</span></code>: Population, total.</p></li>
 </ul>
-<p>You have just seen array slicing (in <span class="xref myst">Selecting with
-arrays</span>.  You remember that array slicing
+<p>You have just seen array slicing (in <a class="reference internal" href="../arrays-iteration/array_indexing.html"><span class="doc std std-doc">Selecting with
+arrays</span></a>.  You remember that array slicing
 uses square brackets.   Data frames also allow slicing.  For
 example, we often want to get all the data for a single column
 of the data frame.  To do this, we use the same square bracket
@@ -760,6 +997,11 @@ column inside the square brackets.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
 </div>
 <p>Here are the values for <code class="docutils literal notranslate"><span class="pre">gdp</span></code>.  You will notice that these are the
 same values you saw in the “gdp_us_billion” column when you displayed the whole
@@ -767,6 +1009,22 @@ data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0             NaN
+1       19.961015
+2      111.936542
+3       12.327586
+4        3.197538
+          ...    
+211      6.804620
+212     36.819337
+213    345.209888
+214     24.280990
+215     15.495514
+Name: gdp_us_billion, Length: 216, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -786,6 +1044,11 @@ calculate the median of the <code class="docutils literal notranslate"><span cla
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice the warning about an invalid value.</p>
 <p>Numpy recognizes that one or more values are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and refuses to guess what to do, when calculating the median.</p>
@@ -797,12 +1060,22 @@ general Python <code class="docutils literal notranslate"><span class="pre">len<
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>216
+</pre></div>
+</div>
+</div>
 </div>
 <p>As expected, it has the same number of elements as there are rows in <code class="docutils literal notranslate"><span class="pre">gender_data</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> method of the series gives the number of values that are not missing - that is - not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>200
 </pre></div>
 </div>
 </div>
@@ -831,6 +1104,9 @@ values, as we have done histograms on arrays.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_32_0.png" src="../_images/data_frame_intro_32_0.png" />
+</div>
 </div>
 <p>Notice the multiple warnings as Matplotlib tried to calculate the bin widths for the histogram.  These warnings result from Matplotlib struggline with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
 <p>Another way to do the histogram, is to use the <code class="docutils literal notranslate"><span class="pre">hist</span></code> <em>method</em> of the series.</p>
@@ -841,6 +1117,9 @@ values, as we have done histograms on arrays.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_35_0.png" src="../_images/data_frame_intro_35_0.png" />
 </div>
 </div>
 <p>Now we have had a look at the GDP values, we will look at the
@@ -853,12 +1132,31 @@ of women who die in childbirth for every 100,000 births.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0         NaN
+1      444.00
+2      501.25
+3       29.25
+4         NaN
+        ...  
+211       NaN
+212    399.75
+213    143.75
+214    233.75
+215    398.00
+Name: mat_mort_ratio, Length: 216, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mmr</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_38_0.png" src="../_images/data_frame_intro_38_0.png" />
 </div>
 </div>
 <p>We are interested in the relationship of <code class="docutils literal notranslate"><span class="pre">gpp</span></code> and <code class="docutils literal notranslate"><span class="pre">mmr</span></code>.  Maybe richer countries have better health care, and fewer maternal deaths.</p>
@@ -870,6 +1168,9 @@ function.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_40_0.png" src="../_images/data_frame_intro_40_0.png" />
+</div>
 </div>
 <p>We can do the same plot using the <code class="docutils literal notranslate"><span class="pre">plot.scatter</span></code> method on the data frame.  In that case, we specify the column names that should go on the x and the y axes.</p>
 <div class="cell docutils container">
@@ -877,6 +1178,9 @@ function.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">,</span> <span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_42_0.png" src="../_images/data_frame_intro_42_0.png" />
 </div>
 </div>
 <p>An advantage of doing it this way is that we get the column names on the x and y axes by default.</p>
@@ -890,6 +1194,173 @@ function.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aruba</td>
+      <td>ABW</td>
+      <td>1.66325</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>48.721939</td>
+      <td>NaN</td>
+      <td>0.103744</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>4.95450</td>
+      <td>19.961015</td>
+      <td>161.138034</td>
+      <td>2.834598</td>
+      <td>40.109708</td>
+      <td>444.00</td>
+      <td>32.715838</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Angola</td>
+      <td>AGO</td>
+      <td>6.12300</td>
+      <td>111.936542</td>
+      <td>254.747970</td>
+      <td>2.447546</td>
+      <td>NaN</td>
+      <td>501.25</td>
+      <td>26.937545</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>1.76925</td>
+      <td>12.327586</td>
+      <td>574.202694</td>
+      <td>2.836021</td>
+      <td>47.201082</td>
+      <td>29.25</td>
+      <td>2.888280</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andorra</td>
+      <td>AND</td>
+      <td>NaN</td>
+      <td>3.197538</td>
+      <td>4421.224933</td>
+      <td>7.260281</td>
+      <td>47.123345</td>
+      <td>NaN</td>
+      <td>0.079547</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>Kosovo</td>
+      <td>XKX</td>
+      <td>2.14250</td>
+      <td>6.804620</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.813820</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>Yemen, Rep.</td>
+      <td>YEM</td>
+      <td>4.22575</td>
+      <td>36.819337</td>
+      <td>207.949700</td>
+      <td>1.417836</td>
+      <td>44.470076</td>
+      <td>399.75</td>
+      <td>26.246608</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2.37525</td>
+      <td>345.209888</td>
+      <td>1123.142656</td>
+      <td>4.241441</td>
+      <td>48.516298</td>
+      <td>143.75</td>
+      <td>54.177209</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>Zambia</td>
+      <td>ZMB</td>
+      <td>5.39425</td>
+      <td>24.280990</td>
+      <td>185.556359</td>
+      <td>2.687290</td>
+      <td>49.934484</td>
+      <td>233.75</td>
+      <td>15.633220</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Zimbabwe</td>
+      <td>ZWE</td>
+      <td>3.94300</td>
+      <td>15.495514</td>
+      <td>115.519881</td>
+      <td>2.695188</td>
+      <td>49.529875</td>
+      <td>398.00</td>
+      <td>15.420964</td>
+    </tr>
+  </tbody>
+</table>
+<p>216 rows × 9 columns</p>
+</div></div></div>
 </div>
 <p>Notice the <code class="docutils literal notranslate"><span class="pre">...</span></code> in the center of this listing, to show that it has not printed some rows.</p>
 <p>Sometimes we do not want to see all these rows, but only - say - the top five rows.   The <code class="docutils literal notranslate"><span class="pre">head</span></code> method of the data frame is a useful way to do this:</p>
@@ -899,11 +1370,115 @@ function.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Aruba</td>
+      <td>ABW</td>
+      <td>1.66325</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>48.721939</td>
+      <td>NaN</td>
+      <td>0.103744</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>4.95450</td>
+      <td>19.961015</td>
+      <td>161.138034</td>
+      <td>2.834598</td>
+      <td>40.109708</td>
+      <td>444.00</td>
+      <td>32.715838</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Angola</td>
+      <td>AGO</td>
+      <td>6.12300</td>
+      <td>111.936542</td>
+      <td>254.747970</td>
+      <td>2.447546</td>
+      <td>NaN</td>
+      <td>501.25</td>
+      <td>26.937545</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>1.76925</td>
+      <td>12.327586</td>
+      <td>574.202694</td>
+      <td>2.836021</td>
+      <td>47.201082</td>
+      <td>29.25</td>
+      <td>2.888280</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andorra</td>
+      <td>AND</td>
+      <td>NaN</td>
+      <td>3.197538</td>
+      <td>4421.224933</td>
+      <td>7.260281</td>
+      <td>47.123345</td>
+      <td>NaN</td>
+      <td>0.079547</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Series</span></code> also has a <code class="docutils literal notranslate"><span class="pre">head</span></code> method, that does the same thing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0           NaN
+1     19.961015
+2    111.936542
+3     12.327586
+4      3.197538
+Name: gdp_us_billion, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -922,10 +1497,25 @@ identify high GDP countries.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3    False
+4    False
+Name: gdp_us_billion, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">high_gdp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -946,10 +1536,229 @@ what we want.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>1.861500</td>
+      <td>1422.994116</td>
+      <td>4256.058988</td>
+      <td>6.292381</td>
+      <td>48.576707</td>
+      <td>6.00</td>
+      <td>23.444560</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Brazil</td>
+      <td>BRA</td>
+      <td>1.795250</td>
+      <td>2198.765606</td>
+      <td>1303.199104</td>
+      <td>3.773473</td>
+      <td>47.784577</td>
+      <td>49.50</td>
+      <td>204.159544</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Canada</td>
+      <td>CAN</td>
+      <td>1.600300</td>
+      <td>1708.473627</td>
+      <td>4616.539134</td>
+      <td>7.546247</td>
+      <td>48.808926</td>
+      <td>7.25</td>
+      <td>35.517119</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1.558750</td>
+      <td>10182.790479</td>
+      <td>657.748859</td>
+      <td>3.015530</td>
+      <td>46.297964</td>
+      <td>28.75</td>
+      <td>1364.446000</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Germany</td>
+      <td>DEU</td>
+      <td>1.450000</td>
+      <td>3601.226158</td>
+      <td>4909.659884</td>
+      <td>8.542615</td>
+      <td>48.568695</td>
+      <td>6.25</td>
+      <td>81.281645</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Spain</td>
+      <td>ESP</td>
+      <td>1.307500</td>
+      <td>1299.724261</td>
+      <td>2963.832825</td>
+      <td>6.545739</td>
+      <td>48.722231</td>
+      <td>5.00</td>
+      <td>46.553128</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>France</td>
+      <td>FRA</td>
+      <td>2.005000</td>
+      <td>2647.649725</td>
+      <td>4387.835406</td>
+      <td>8.920420</td>
+      <td>48.772050</td>
+      <td>8.75</td>
+      <td>66.302099</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>United Kingdom</td>
+      <td>GBR</td>
+      <td>1.842500</td>
+      <td>2768.864417</td>
+      <td>3357.983675</td>
+      <td>7.720655</td>
+      <td>48.791809</td>
+      <td>9.25</td>
+      <td>64.641557</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2.449250</td>
+      <td>2019.005411</td>
+      <td>241.572477</td>
+      <td>1.292666</td>
+      <td>49.497234</td>
+      <td>185.25</td>
+      <td>1293.742537</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Italy</td>
+      <td>ITA</td>
+      <td>1.390000</td>
+      <td>2005.983980</td>
+      <td>3266.984094</td>
+      <td>6.984374</td>
+      <td>48.407573</td>
+      <td>4.00</td>
+      <td>60.378795</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Japan</td>
+      <td>JPN</td>
+      <td>1.430000</td>
+      <td>5106.024760</td>
+      <td>3687.126279</td>
+      <td>8.496074</td>
+      <td>48.744199</td>
+      <td>5.75</td>
+      <td>127.297102</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Korea, Rep.</td>
+      <td>KOR</td>
+      <td>1.232000</td>
+      <td>1346.751162</td>
+      <td>2385.447251</td>
+      <td>3.915606</td>
+      <td>48.023388</td>
+      <td>12.00</td>
+      <td>50.727212</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>2.257000</td>
+      <td>1188.802780</td>
+      <td>1081.208948</td>
+      <td>3.225839</td>
+      <td>48.906296</td>
+      <td>40.00</td>
+      <td>124.203450</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>Russian Federation</td>
+      <td>RUS</td>
+      <td>1.724500</td>
+      <td>1822.691700</td>
+      <td>1755.506635</td>
+      <td>3.731354</td>
+      <td>48.968070</td>
+      <td>25.25</td>
+      <td>143.793504</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>1.860875</td>
+      <td>17369.124600</td>
+      <td>9060.068657</td>
+      <td>8.121961</td>
+      <td>48.758830</td>
+      <td>14.00</td>
+      <td>318.558175</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">rich_gender_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -968,6 +1777,12 @@ there is little relationship between GDP and maternal mortality.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ffa5cd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/data_frame_intro_60_1.png" src="../_images/data_frame_intro_60_1.png" />
+</div>
 </div>
 <p>One thing that stands out is the very high value at around 180.   Which country does this refer to?  We can use sorting to find out.</p>
 </div>
@@ -982,6 +1797,100 @@ rows sorted by the values in the column we specify.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>1.86150</td>
+      <td>1422.994116</td>
+      <td>4256.058988</td>
+      <td>6.292381</td>
+      <td>48.576707</td>
+      <td>6.00</td>
+      <td>23.444560</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Brazil</td>
+      <td>BRA</td>
+      <td>1.79525</td>
+      <td>2198.765606</td>
+      <td>1303.199104</td>
+      <td>3.773473</td>
+      <td>47.784577</td>
+      <td>49.50</td>
+      <td>204.159544</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Canada</td>
+      <td>CAN</td>
+      <td>1.60030</td>
+      <td>1708.473627</td>
+      <td>4616.539134</td>
+      <td>7.546247</td>
+      <td>48.808926</td>
+      <td>7.25</td>
+      <td>35.517119</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1.55875</td>
+      <td>10182.790479</td>
+      <td>657.748859</td>
+      <td>3.015530</td>
+      <td>46.297964</td>
+      <td>28.75</td>
+      <td>1364.446000</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Germany</td>
+      <td>DEU</td>
+      <td>1.45000</td>
+      <td>3601.226158</td>
+      <td>4909.659884</td>
+      <td>8.542615</td>
+      <td>48.568695</td>
+      <td>6.25</td>
+      <td>81.281645</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We are interested to find which of these richer countries has a high maternal mortality ratio.  To do this, we can make a new data frame where the rows are sorted by the values in the
 <code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code> column:</p>
@@ -992,6 +1901,100 @@ rows sorted by the values in the column we specify.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>94</th>
+      <td>Italy</td>
+      <td>ITA</td>
+      <td>1.3900</td>
+      <td>2005.983980</td>
+      <td>3266.984094</td>
+      <td>6.984374</td>
+      <td>48.407573</td>
+      <td>4.00</td>
+      <td>60.378795</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Spain</td>
+      <td>ESP</td>
+      <td>1.3075</td>
+      <td>1299.724261</td>
+      <td>2963.832825</td>
+      <td>6.545739</td>
+      <td>48.722231</td>
+      <td>5.00</td>
+      <td>46.553128</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Japan</td>
+      <td>JPN</td>
+      <td>1.4300</td>
+      <td>5106.024760</td>
+      <td>3687.126279</td>
+      <td>8.496074</td>
+      <td>48.744199</td>
+      <td>5.75</td>
+      <td>127.297102</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>1.8615</td>
+      <td>1422.994116</td>
+      <td>4256.058988</td>
+      <td>6.292381</td>
+      <td>48.576707</td>
+      <td>6.00</td>
+      <td>23.444560</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Germany</td>
+      <td>DEU</td>
+      <td>1.4500</td>
+      <td>3601.226158</td>
+      <td>4909.659884</td>
+      <td>8.542615</td>
+      <td>48.568695</td>
+      <td>6.25</td>
+      <td>81.281645</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Notice that the rows are in <em>ascending</em> order of <code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code>.  To find the countries with high maternal mortality, we might prefer to sort in <em>descending</em> order.  As usual you can explore how
 you might do this by looking at the help for the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> method with:</p>
@@ -1007,6 +2010,100 @@ you can use like this:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>88</th>
+      <td>India</td>
+      <td>IND</td>
+      <td>2.44925</td>
+      <td>2019.005411</td>
+      <td>241.572477</td>
+      <td>1.292666</td>
+      <td>49.497234</td>
+      <td>185.25</td>
+      <td>1293.742537</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Brazil</td>
+      <td>BRA</td>
+      <td>1.79525</td>
+      <td>2198.765606</td>
+      <td>1303.199104</td>
+      <td>3.773473</td>
+      <td>47.784577</td>
+      <td>49.50</td>
+      <td>204.159544</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>2.25700</td>
+      <td>1188.802780</td>
+      <td>1081.208948</td>
+      <td>3.225839</td>
+      <td>48.906296</td>
+      <td>40.00</td>
+      <td>124.203450</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1.55875</td>
+      <td>10182.790479</td>
+      <td>657.748859</td>
+      <td>3.015530</td>
+      <td>46.297964</td>
+      <td>28.75</td>
+      <td>1364.446000</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>Russian Federation</td>
+      <td>RUS</td>
+      <td>1.72450</td>
+      <td>1822.691700</td>
+      <td>1755.506635</td>
+      <td>3.731354</td>
+      <td>48.968070</td>
+      <td>25.25</td>
+      <td>143.793504</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>As you might have guessed by now, <code class="docutils literal notranslate"><span class="pre">Series</span></code> also have a <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> method.
 For a Series, you don’t have to specify the column to sort from, because you
@@ -1018,10 +2115,35 @@ are using the Series values.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rich_mmr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>88     185.25
+26      49.50
+124     40.00
+35      28.75
+164     25.25
+202     14.00
+104     12.00
+67       9.25
+63       8.75
+32       7.25
+49       6.25
+10       6.00
+97       5.75
+58       5.00
+94       4.00
+Name: mat_mort_ratio, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1039,6 +2161,26 @@ are using the Series values.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>88     1293.742537
+26      204.159544
+124     124.203450
+35     1364.446000
+164     143.793504
+202     318.558175
+104      50.727212
+67       64.641557
+63       66.302099
+32       35.517119
+49       81.281645
+10       23.444560
+97      127.297102
+58       46.553128
+94       60.378795
+Name: population, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can divide the GDP by the population in millions to get US billion dollars per million population.</p>
 <p>This works exactly as it does for arrays:</p>
@@ -1049,11 +2191,51 @@ are using the Series values.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>88      2019.005411
+26      2198.765606
+124     1188.802780
+35     10182.790479
+164     1822.691700
+202    17369.124600
+104     1346.751162
+67      2768.864417
+63      2647.649725
+32      1708.473627
+49      3601.226158
+10      1422.994116
+97      5106.024760
+58      1299.724261
+94      2005.983980
+Name: gdp_us_billion, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gdp_per_million</span> <span class="o">=</span> <span class="n">rich_gdp</span> <span class="o">/</span> <span class="n">rich_population</span>
 <span class="n">gdp_per_million</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>88      1.560593
+26     10.769840
+124     9.571415
+35      7.462949
+164    12.675758
+202    54.524184
+104    26.548890
+67     42.834123
+63     39.933121
+32     48.102821
+49     44.305528
+10     60.696133
+97     40.111084
+58     27.919161
+94     33.223319
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1070,6 +2252,12 @@ any of this selection of rich countries.   Here’s a plot of
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gdp_per_million</span><span class="p">,</span> <span class="n">rich_by_descending_mmr</span><span class="p">[</span><span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11fead4f0&gt;
+</pre></div>
+</div>
+<img alt="../_images/data_frame_intro_80_1.png" src="../_images/data_frame_intro_80_1.png" />
 </div>
 </div>
 <p>It does look as if low income per person predisposes to high maternal mortality.</p>
@@ -1104,7 +2292,7 @@ any of this selection of rich countries.   Here’s a plot of
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="data_frames.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="data_frames.html" title="previous page">Data frames</a>
     <a class='right-next' id="next-link" href="df_series_arrays.html" title="next page">Data frames, Series and arrays</a>
 
     </div>

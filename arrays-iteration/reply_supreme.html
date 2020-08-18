@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Reply to the Supreme Court &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -52,8 +52,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/arrays-iteration/reply_supreme.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Reply to the Supreme Court" />
+<meta property="og:description" content="Reply to the Supreme Court  Our task has been to reply to the Supreme Court on their judgment in the appeal of Robert Swain.  Remember, Robert Swain appealed hi" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -236,6 +236,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -246,7 +261,7 @@
   Iteration and arrays
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="iteration.html">
    Iteration
@@ -265,6 +280,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="indentation.html">
    Indentation, indentation, indentation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reply to the Supreme Court
   </a>
  </li>
  <li class="toctree-l1">
@@ -295,6 +315,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -312,6 +337,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -319,6 +349,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -344,8 +379,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -495,6 +540,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -606,7 +658,9 @@
         
               <div>
                 
-  <p><span class="xref myst">Our task</span> has been to reply to the Supreme Court on
+  <div class="section" id="reply-to-the-supreme-court">
+<h1>Reply to the Supreme Court<a class="headerlink" href="#reply-to-the-supreme-court" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../code-basics/sampling_problem.html"><span class="doc std std-doc">Our task</span></a> has been to reply to the Supreme Court on
 their judgment in the appeal of Robert Swain.</p>
 <p>Remember, Robert Swain appealed his death sentence, for rape, on the
 basis that the jury selection was biased against black people.</p>
@@ -646,6 +700,11 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
 </div>
 <p>That is one estimate, for the number of black people we can expect, if our
 model is correct.  Call this one <em>trial</em>. We can run that a few times to get a
@@ -672,6 +731,11 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([24.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Run the cell above a few times, perhaps with Control-Enter, to see the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array extending, for each time we run the cell.</p>
 <p>Now we collect the result of many trials, by using a for loop.</p>
@@ -689,6 +753,18 @@ a much higher number.</p>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 <span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([28., 21., 25., 29., 30., 25., 25., 32., 23., 26., 25., 26., 27.,
+       27., 30., 33., 31., 19., 29., 18., 28., 15., 25., 25., 28., 28.,
+       28., 21., 32., 31., 25., 29., 17., 31., 34., 27., 28., 27., 24.,
+       27., 26., 27., 23., 28., 22., 20., 16., 23., 27., 31., 27., 23.,
+       24., 25., 24., 21., 28., 31., 25., 32., 24., 18., 27., 29., 28.,
+       20., 25., 21., 23., 30., 32., 20., 26., 28., 26., 23., 36., 29.,
+       29., 27., 24., 20., 31., 32., 23., 29., 23., 20., 19., 28., 26.,
+       21., 24., 29., 20., 28., 31., 31., 28., 22.])
 </pre></div>
 </div>
 </div>
@@ -713,6 +789,11 @@ and therefore, 10000 estimates.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([22., 25., 34., ..., 15., 27., 28.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>If you ran this cell yourself, you will notice that it runs very fast, in much
 less than a second, on a reasonable laptop.</p>
@@ -723,6 +804,11 @@ the number of values in this one-dimensional array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10000
 </pre></div>
 </div>
 </div>
@@ -749,6 +835,15 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(array([1.600e+01, 1.140e+02, 8.710e+02, 1.925e+03, 3.547e+03, 2.057e+03,
+        1.180e+03, 2.270e+02, 6.100e+01, 2.000e+00]),
+ array([10. , 13.5, 17. , 20.5, 24. , 27.5, 31. , 34.5, 38. , 41.5, 45. ]),
+ &lt;a list of 10 Patch objects&gt;)
+</pre></div>
+</div>
+<img alt="../_images/reply_supreme_24_1.png" src="../_images/reply_supreme_24_1.png" />
+</div>
 </div>
 <p>It looks as if 8 is nowhere on the spread of our estimates.  How many times did
 we get a value less than or equal to 8, in all our 10000 estimates?</p>
@@ -759,12 +854,22 @@ we get a value less than or equal to 8, in all our 10000 estimates?</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
 </div>
 <p>In 10000 random jury pools, we never see a value as low as 8.  We can ask Numpy
 to show us the minimum value that we do see, by using the <code class="docutils literal notranslate"><span class="pre">np.min</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10.0
 </pre></div>
 </div>
 </div>
@@ -778,6 +883,12 @@ makes us think that the probability of getting 8 black people in a jury pool of
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">10000</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0001
+</pre></div>
+</div>
 </div>
 </div>
 </div>

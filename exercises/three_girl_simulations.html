@@ -234,6 +234,21 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/Ranges.html">
+   Ranges
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-types/function_arguments.html">
+   Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-types/leaping_ahead.html">
    Leaping ahead
   </a>
@@ -266,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+   Reply to the Supreme Court
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
    More on Arrays
   </a>
@@ -293,6 +313,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/data_frames.html">
+   Data frames
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frame_intro.html">
    Introduction to data frames
   </a>
@@ -310,6 +335,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation.html">
+   Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    A problem of populations
   </a>
@@ -317,6 +347,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
    Population by permutation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
+   Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
@@ -342,8 +377,18 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
+   More building blocks
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/introducing_functions.html">
    Introducing Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../functions-conditionals/none.html">
+   On None
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,6 +538,13 @@
   </a>
  </li>
 </ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../end/end_of_beginning.html">
+   The end of the beginning
+  </a>
+ </li>
+</ul>
 
 </nav>
 
@@ -633,8 +685,8 @@
                 
   <div class="section" id="exercises-on-the-three-girl-simulation-problem">
 <h1>Exercises on the three-girl simulation problem<a class="headerlink" href="#exercises-on-the-three-girl-simulation-problem" title="Permalink to this headline">¶</a></h1>
-<p>These exercises follow on from the three girls solution in <span class="xref myst">filling arrays</span>, and the <span class="xref myst">reply to the Supreme
-Court</span>.</p>
+<p>These exercises follow on from the three girls solution in <a class="reference internal" href="../arrays-iteration/filling_arrays.html"><span class="doc std std-doc">filling arrays</span></a>, and the <a class="reference internal" href="../arrays-iteration/reply_supreme.html"><span class="doc std std-doc">reply to the Supreme
+Court</span></a>.</p>
 <p>You may want to refer back to those pages for inspiration.</p>
 <p>Run this cell first:</p>
 <div class="cell docutils container">
@@ -647,7 +699,7 @@ Court</span>.</p>
 </div>
 <div class="section" id="three-girls-in-a-family-of-four">
 <h2>Three girls in a family of four<a class="headerlink" href="#three-girls-in-a-family-of-four" title="Permalink to this headline">¶</a></h2>
-<p>Remember the solution to this problem, from <span class="xref myst">filling arrays</span>:</p>
+<p>Remember the solution to this problem, from <a class="reference internal" href="../arrays-iteration/filling_arrays.html"><span class="doc std std-doc">filling arrays</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty (all zeros)</span>
@@ -664,6 +716,11 @@ Court</span>.</p>
 <span class="c1"># Proportion</span>
 <span class="n">prop_3_girls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>
 <span class="n">prop_3_girls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.2481
 </pre></div>
 </div>
 </div>
@@ -702,12 +759,17 @@ exactly 3 girls.</p>
 <h2>Three or fewer girls in a family of five<a class="headerlink" href="#three-or-fewer-girls-in-a-family-of-five" title="Permalink to this headline">¶</a></h2>
 <p>Simulate the chances that a family with 5 children will have 3 or
 fewer girls.</p>
-<p>Hint: you may remember from the <span class="xref myst">Comparison page</span> that <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>
+<p>Hint: you may remember from the <a class="reference internal" href="../data-types/Comparison.html"><span class="doc std std-doc">Comparison page</span></a> that <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>
 tests whether the thing on the left is <em>less than or equal to</em> the thing on
 the right.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -718,10 +780,20 @@ the right.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -730,6 +802,11 @@ the right.</p>
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">my_array</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False])
 </pre></div>
 </div>
 </div>
@@ -762,12 +839,22 @@ is 0.513.  Hence the proportion of girls is 1-0.513 = 0.487.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.99996706, 0.0266681 , 0.11869298, 0.09730074])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hint 2: Let’s say I have a random number <code class="docutils literal notranslate"><span class="pre">x</span></code> between 0 and 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.39622365302039275
 </pre></div>
 </div>
 </div>
