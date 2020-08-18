@@ -9,7 +9,7 @@ description: >-
   Textbook for University of Birmingham Data Science modules.
 
 execute:
-  execute_notebooks: cache
+  execute_notebooks: auto
 
 html:
   favicon: images/dsfe_favicon.ico
