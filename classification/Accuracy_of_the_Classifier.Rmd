@@ -72,7 +72,7 @@ def classify(training, new_point, k):
     return majority(closestk['Class'])
 ```
 
-You can download the file from
+You can download the data file for this page from
 [wine.csv](../data/wine.csv).
 
 ```{python tags=c("hide-cell")}
