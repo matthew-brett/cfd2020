@@ -2,16 +2,12 @@
 jupyter:
   anaconda-cloud: {}
   jupytext:
-    metadata_filter:
-      notebook:
-        additional: all
-        excluded:
-        - language_info
+    notebook_metadata_filter: all,-language_info
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.6
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -20,7 +16,7 @@ jupyter:
 
 # Rows of tables
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 import numpy as np
 # %matplotlib inline
@@ -29,7 +25,7 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 
 def standard_units(x):
@@ -270,7 +266,7 @@ Three of Alice's five nearest neighbors are blue points and two are gold. So a 5
 
 The graph below zooms in on Alice and her five nearest neighbors. The two gold ones just inside the circle directly below the red point. The classifier says Alice is more like the three blue ones around her.
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 plt.figure(figsize=(8,8))
 plt.scatter(ckd['Hemoglobin'], ckd['Glucose'],

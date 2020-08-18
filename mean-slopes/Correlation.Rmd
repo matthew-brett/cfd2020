@@ -5,8 +5,8 @@ jupyter:
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -17,7 +17,7 @@ jupyter:
 
 {ucb-page}`Correlation`
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 import numpy as np
 import pandas as pd
@@ -27,7 +27,7 @@ plt.style.use('fivethirtyeight')
 from scipy import stats
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def r_scatter(r):
     plt.figure(figsize=(5,5))
