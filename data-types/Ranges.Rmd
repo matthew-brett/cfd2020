@@ -23,6 +23,8 @@ jupyter:
     version: 3.5.2
 ---
 
+# Ranges
+
 A *range* is an array of numbers in increasing or decreasing order,
 each separated by a regular interval.  Ranges are useful in
 a surprisingly large number of situations, so it is worthwhile to

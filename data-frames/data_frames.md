@@ -1,3 +1,5 @@
+# Data frames
+
 Many forms of data can be organized into *data tables*.  Data tables are often called *data frames*.
 
 A *data table* or *data frame* has rows and columns.

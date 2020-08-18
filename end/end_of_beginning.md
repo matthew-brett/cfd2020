@@ -1,3 +1,5 @@
+# The end of the beginning
+
 This is the end of the course.
 
 The course is an introduction to data science.  Along the way, we hope you learned:
