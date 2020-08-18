@@ -20,8 +20,7 @@ jupyter:
 
 # Accuracy of the classifier
 
-```{python}
-# HIDDEN
+```{python tags=c("hide-cell")}
 import numpy as np
 # %matplotlib inline
 import matplotlib.pyplot as plt
@@ -29,9 +28,7 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-```{python}
-# HIDDEN
-
+```{python tags=c("hide-cell")}
 def distance(point1, point2):
     """Returns the distance between point1 and point2
     where each argument is an array
@@ -78,9 +75,7 @@ def classify(training, new_point, k):
 You can download the file from
 [wine.csv](../data/wine.csv).
 
-```{python}
-# HIDDEN
-
+```{python tags=c("hide-cell")}
 wine = pd.read_csv('wine.csv')
 wine.loc[wine['Class'] != 1, 'Class'] = 0
 ```
