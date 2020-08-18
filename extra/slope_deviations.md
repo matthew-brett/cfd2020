@@ -37,7 +37,7 @@ $$
 The $\triangleq$ symbol means *is defined as*.
 
 This is the general formula for the specific plot we saw at the end of [mean
-and slope page](../mean-slopes/mean_and_slope), where the value for $s$ is on
+and slope page](../mean-slopes/mean_and_slopes), where the value for $s$ is on
 the horizontal axis, and the value for $SSE_s$ is on the vertical axis.
 
 We want to find the value of $s$ that gives the smallest value for $SSE_s$.

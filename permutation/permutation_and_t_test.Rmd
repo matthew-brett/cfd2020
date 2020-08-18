@@ -34,7 +34,7 @@ As before, you can download the data from
 See [this
 page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer)
 for more details on the dataset, and [the data license
-page](../data/license).
+page](../data/LICENSE).
 
 
 ```{python}

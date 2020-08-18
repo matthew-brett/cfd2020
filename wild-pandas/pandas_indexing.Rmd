@@ -409,4 +409,4 @@ big_spender_names
 ```
 
 In fact you can use some Boolean sequences with `iloc` as well, but that needs
-[a little more explanation](booleans_and_labels).
+[a little more explanation](../functions-conditionals/booleans_and_labels).

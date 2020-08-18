@@ -80,7 +80,7 @@ exactly 3 girls.
 Simulate the chances that a family with 5 children will have 3 or
 fewer girls.
 
-Hint: you may remember from the [Comparison page](../code-basics/Comparison) that `<=`
+Hint: you may remember from the [Comparison page](../data-types/Comparison) that `<=`
 tests whether the thing on the left is *less than or equal to* the thing on
 the right.
 

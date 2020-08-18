@@ -142,7 +142,7 @@ The result is the same as for the not-sorted series - and we have found that
 a Boolean series.
 
 On reflection, maybe that is not surprising - after all, [we already
-know](pandas_indexing) that `loc` indexing does indexing by *label*.
+know](../wild-pandas/pandas_indexing) that `loc` indexing does indexing by *label*.
 
 
 We usually will not have to worry about the difference between labels and

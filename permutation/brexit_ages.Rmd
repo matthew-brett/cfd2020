@@ -25,7 +25,7 @@ jupyter:
 # Brexit and ages
 
 Now we have [for loops](../arrays-iteration/iteration) and
-[ranges](../arrays-iteration/Ranges), we can solve the problem in
+[ranges](../data-types/Ranges), we can solve the problem in
 [population, permutation](population_permutation).
 
 ```{python}

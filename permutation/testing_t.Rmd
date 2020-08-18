@@ -45,7 +45,7 @@ and the equivalent numbers for each of the 18 volunteers who drank water.
 
 See [the data
 page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer) for
-more details on the dataset, and [the data license page](../data/license).
+more details on the dataset, and [the data license page](../data/LICENSE).
 
 For an equal variance test, we assume that the spread of the beer values is
 roughly equal to the spread of the water values, as measured by the *standard

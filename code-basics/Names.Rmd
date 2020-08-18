@@ -155,6 +155,6 @@ meal_price_total = meal_price_with_vat + tip
 meal_price_total
 ```
 
-See [the Names exercises](../../exercises/names) to practice the material in this section.
+See [the Names exercises](../exercises/names) to practice the material in this section.
 
 {ucb-page}`Names`
