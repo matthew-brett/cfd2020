@@ -1,8 +1,5 @@
 # Coding for data
 
-{abbr}`LIFO (last-in, first-out)`
-
-{data8page}`foo`
 
 This is the textbook for a course teaching *data science* - coding for data.
 
