@@ -18,7 +18,10 @@ Released by Matthew Brett into the public domain:
 * fake_beer_mean1.png
 * fake_water_mean0.png
 * fake_water_mean1.png
-* anaconda_platforms.png : various screenshots
+* anaconda_menu_prompt.png : various screenshots
+* anaconda_menu_top.png
+* anaconda_terminal.png
+* anaconda_platforms.png
 * anaconda_python37.png
 * cmd_dir.png
 * desktop_zipped_archive.png
@@ -77,10 +80,14 @@ From <https://www.nejm.org/doi/full/10.1056/NEJMon1211064>, copy at
 low-resolution version of book cover, presumed to by copyright the publisher
 (Crown Books); this image believed to be fair use.
 
-## To check
+## Pending
 
-* [benign](../images/benign.png)
-* [cancer](../images/malignant.png)
+These not in the repository (rights probably not given), so they are currently fetched via URL.
+
+* benign.png
+* malignant.png
+
+I've emailed the [first author of the source paper](https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/1475-925X-11-83) via ResearchGate to ask for rights to re-use.
 
 ## minard.png
 
