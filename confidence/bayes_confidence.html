@@ -538,6 +538,11 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  The end of the beginning
+ </span>
+</p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../end/end_of_beginning.html">
@@ -735,7 +740,7 @@ by taking many thousands of samples.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([67.44, 66.12, 67.86, 64.36, 63.28])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([60.26, 65.36, 61.88, 66.6 , 69.52])
 </pre></div>
 </div>
 </div>
@@ -771,12 +776,12 @@ were between 50 and 50.5 (excluding 50.5), the second bin covers 50.5 up to
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  1.,   0.,   0.,   0.,   1.,   3.,   0.,   5.,   9.,  11.,  20.,
-        24.,  38.,  49.,  61.,  77.,  98., 121., 133., 194., 224., 231.,
-       293., 350., 375., 410., 471., 462., 498., 547., 551., 541., 530.,
-       545., 451., 433., 371., 326., 298., 253., 207., 180., 151., 120.,
-        92.,  75.,  46.,  36.,  35.,  20.,  12.,  12.,   2.,   3.,   0.,
-         2.,   0.,   1.,   1.])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  0.,   1.,   0.,   2.,   3.,   2.,   4.,   4.,   4.,  10.,  26.,
+        14.,  32.,  46.,  58.,  66., 115., 122., 134., 202., 223., 252.,
+       341., 339., 386., 435., 466., 483., 451., 511., 529., 508., 497.,
+       473., 459., 420., 418., 372., 294., 265., 224., 195., 141., 123.,
+        85.,  80.,  51.,  49.,  27.,  15.,  15.,   7.,   9.,   5.,   5.,
+         1.,   0.,   1.,   0.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_9_1.png" src="../_images/bayes_confidence_9_1.png" />
@@ -795,12 +800,12 @@ neatly by <em>unpacking</em> the return values from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  1.,   0.,   0.,   0.,   1.,   3.,   0.,   5.,   9.,  11.,  20.,
-        24.,  38.,  49.,  61.,  77.,  98., 121., 133., 194., 224., 231.,
-       293., 350., 375., 410., 471., 462., 498., 547., 551., 541., 530.,
-       545., 451., 433., 371., 326., 298., 253., 207., 180., 151., 120.,
-        92.,  75.,  46.,  36.,  35.,  20.,  12.,  12.,   2.,   3.,   0.,
-         2.,   0.,   1.,   1.])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  0.,   1.,   0.,   2.,   3.,   2.,   4.,   4.,   4.,  10.,  26.,
+        14.,  32.,  46.,  58.,  66., 115., 122., 134., 202., 223., 252.,
+       341., 339., 386., 435., 466., 483., 451., 511., 529., 508., 497.,
+       473., 459., 420., 418., 372., 294., 265., 224., 195., 141., 123.,
+        85.,  80.,  51.,  49.,  27.,  15.,  15.,   7.,   9.,   5.,   5.,
+         1.,   0.,   1.,   0.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_11_1.png" src="../_images/bayes_confidence_11_1.png" />
@@ -830,7 +835,7 @@ counts in that that bin are:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>224.0
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>223.0
 </pre></div>
 </div>
 </div>
@@ -847,14 +852,14 @@ samples that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.    , 0.    , 0.    , 0.0001, 0.0003, 0.    , 0.0005,
-       0.0009, 0.0011, 0.002 , 0.0024, 0.0038, 0.0049, 0.0061, 0.0077,
-       0.0098, 0.0121, 0.0133, 0.0194, 0.0224, 0.0231, 0.0293, 0.035 ,
-       0.0375, 0.041 , 0.0471, 0.0462, 0.0498, 0.0547, 0.0551, 0.0541,
-       0.053 , 0.0545, 0.0451, 0.0433, 0.0371, 0.0326, 0.0298, 0.0253,
-       0.0207, 0.018 , 0.0151, 0.012 , 0.0092, 0.0075, 0.0046, 0.0036,
-       0.0035, 0.002 , 0.0012, 0.0012, 0.0002, 0.0003, 0.    , 0.0002,
-       0.    , 0.0001, 0.0001])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0001, 0.    , 0.0002, 0.0003, 0.0002, 0.0004, 0.0004,
+       0.0004, 0.001 , 0.0026, 0.0014, 0.0032, 0.0046, 0.0058, 0.0066,
+       0.0115, 0.0122, 0.0134, 0.0202, 0.0223, 0.0252, 0.0341, 0.0339,
+       0.0386, 0.0435, 0.0466, 0.0483, 0.0451, 0.0511, 0.0529, 0.0508,
+       0.0497, 0.0473, 0.0459, 0.042 , 0.0418, 0.0372, 0.0294, 0.0265,
+       0.0224, 0.0195, 0.0141, 0.0123, 0.0085, 0.008 , 0.0051, 0.0049,
+       0.0027, 0.0015, 0.0015, 0.0007, 0.0009, 0.0005, 0.0005, 0.0001,
+       0.    , 0.0001, 0.    ])
 </pre></div>
 </div>
 </div>
@@ -867,7 +872,7 @@ samples that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0224
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0223
 </pre></div>
 </div>
 </div>
@@ -882,7 +887,7 @@ a mean of 62.25, the probability of any one sample mean being between 60 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0224
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0223
 </pre></div>
 </div>
 </div>
@@ -922,7 +927,7 @@ sample mean between 54.5 and 55:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.0011])
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.001])
 </pre></div>
 </div>
 </div>
