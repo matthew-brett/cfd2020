@@ -326,7 +326,7 @@ first_row.iloc[0]
 ## You can index without loc and iloc, but please don't, except ...
 
 
-In the [data frame introduction](../04/data_frame_intro), you saw that we can
+In the [data frame introduction](../data-frames/data_frame_intro), you saw that we can
 index into data frame directly, using `[ something ]` after the data frame
 value, without using `loc` or `iloc`.  Call this *direct indexing*.  This is
 a very reasonable thing to do if:

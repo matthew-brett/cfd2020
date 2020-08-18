@@ -199,7 +199,7 @@ fake_diff
 
 Now it is your turn.   Do this simulation 10000 times, to build up the distribution of differences compatible with random sampling.
 
-Use the [Brexit ages](../05/brexit_ages) notebook for inspiration.
+Use the [Brexit ages](../permutation/brexit_ages) notebook for inspiration.
 
 ```{python}
 differences = np.zeros(10000)

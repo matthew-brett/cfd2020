@@ -15,8 +15,8 @@ jupyter:
 
 ## Exercises on the three-girl simulation problem
 
-These exercises follow on from the three girls solution in [filling arrays](../03/filling_arrays), and the [reply to the Supreme
-Court](../03/reply_supreme).
+These exercises follow on from the three girls solution in [filling arrays](../arrays-iteration/filling_arrays), and the [reply to the Supreme
+Court](../arrays-iteration/reply_supreme).
 
 You may want to refer back to those pages for inspiration.
 
@@ -29,7 +29,7 @@ import numpy as np
 
 ### Three girls in a family of four
 
-Remember the solution to this problem, from [filling arrays](../03/filling_arrays):
+Remember the solution to this problem, from [filling arrays](../arrays-iteration/filling_arrays):
 
 ```{python}
 # Reset the counts array to empty (all zeros)
@@ -80,7 +80,7 @@ exactly 3 girls.
 Simulate the chances that a family with 5 children will have 3 or
 fewer girls.
 
-Hint: you may remember from the [Comparison page](../03/Comparison) that `<=`
+Hint: you may remember from the [Comparison page](../code-basics/Comparison) that `<=`
 tests whether the thing on the left is *less than or equal to* the thing on
 the right.
 

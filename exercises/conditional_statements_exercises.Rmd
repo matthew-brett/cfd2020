@@ -22,7 +22,7 @@ jupyter:
 # Exercises on conditional statements
 
 For background, please read the [conditional
-statements](../07/conditional_statements) introduction.
+statements](../functions-conditionals/conditional_statements) introduction.
 
 This *if statement* is not properly defined, and will give a `SyntaxError`.  Fix it, then run to confirm it prints `'x greater than 4'`:
 

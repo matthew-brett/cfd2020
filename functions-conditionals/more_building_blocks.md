@@ -2,8 +2,8 @@
 
 We have already covered some important parts of programming for data science,
 such as [expressions](../code-basics/Expressions), [variables](../code-basics/Variables), [data
-types](../03/data_types), [arrays](../03/Arrays) and [data
-frames](../04/data_frams_intro).
+types](../data-types/data_types), [arrays](../arrays-iteration/Arrays) and [data
+frames](../data-frames/data_frame_intro).
 
 In this section, you cover the last two building blocks you will need as
 a foundation for your future analyses.

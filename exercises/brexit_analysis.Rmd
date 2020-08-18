@@ -142,7 +142,7 @@ len(audit_data)
 Start by doing a histogram of the values in `ages` (which are also the values
 in the `numage` column of `mini_brexit`).  If you can't remember how to do
 histograms, have a look at the [introduction to data
-frames](../04/data_frame_intro) notebook.   Hint: consider using the `hist`
+frames](../data-frames/data_frame_intro) notebook.   Hint: consider using the `hist`
 method of the `ages` variable.
 
 ```{python}
@@ -185,7 +185,7 @@ number of values as `ages`, and has `True` at positions where `ages` is *not
 equal* to 0, and `False` otherwise.   We will refer to these sequences of True
 and False values, as *Boolean vectors*.
 
-Check back to the [introduction to data frames](../04/data_frame_intro)
+Check back to the [introduction to data frames](../data-frames/data_frame_intro)
 notebook for a reminder of making and using Boolean vectors to select rows from
 data frames.
 

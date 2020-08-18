@@ -33,7 +33,8 @@ The data file we will load is a table with average
 <https://ratemyprofessors.com> scores across all professors teaching
 a particular academic discipline.
 
-See the [array indexing page](../03/array_indexing) for more detail.
+See the [array indexing page](../arrays-iteration/array_indexing) for more
+detail.
 
 Each row in this table corresponds to one *discipline*.  Each column corresponds to a different *rating*.
 
@@ -238,7 +239,7 @@ easi_8 = np.array(easiness_first_8)
 easi_8
 ```
 
-Then you can use the usual [array indexing](../03/array_indexing) to get the values you want:
+Then you can use the usual [array indexing](../arrays-iteration/array_indexing) to get the values you want:
 
 ```{python}
 # The first value
