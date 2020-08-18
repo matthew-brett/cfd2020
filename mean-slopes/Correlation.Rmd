@@ -519,6 +519,6 @@ were more relaxed. You are welcome to make your own decision! The
 following graph, provided in the paper, should motivate you to go and
 take a look.
 
-![]({{ site.baseurl }}/images/chocoNobel.png)
+![](../images/chocoNobel.png)
 
 {ucb-page}`Correlation`

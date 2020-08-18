@@ -39,11 +39,10 @@ import numpy as np
 
 We start by loading data from a Comma Separated Value file (CSV
 file).  If you are running on your laptop, you should download
-the [gender_stats.csv]({{ site.baseurl }}/data/gender_stats.csv)
+the [gender_stats.csv](../data/gender_stats.csv)
 file to the same directory as this notebook.
 
-See the [gender statistics description page]({{ site.baseurl
-}}/data/gender_stats) for more detail on the dataset.
+See the [gender statistics description page](../data/gender_stats) for more detail on the dataset.
 
 ```{python}
 # Load the data file

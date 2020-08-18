@@ -15,8 +15,7 @@ jupyter:
 
 # Indexing in Pandas
 
-Way back in the [introduction to data frames]({{ site.baseurl
-}}/chapters/03/data_frame_intro), we covered indexing into data frames with
+Way back in the [introduction to data frames](../chapters/03/data_frame_intro), we covered indexing into data frames with
 *Boolean vectors*, such as Pandas Series or Numpy arrays, and indexing into data frames with column names.
 
 This page covers more sophisticated indexing in Pandas.
@@ -39,7 +38,7 @@ import pandas as pd
 We return to our first data frame, containing statistics on development and
 gender from the World Bank.
 
-This is the [gender_stats.csv]({{ site.baseurl }}/data/gender_stats.csv) file.
+This is the [gender_stats.csv](../data/gender_stats.csv) file.
 See [the gender stats data
 page](https://github.com/matthew-brett/datasets/tree/master/gender_stats) for
 some more detail.

@@ -44,7 +44,7 @@ import pandas as pd
 ```
 
 If you are running on your laptop, you will need to download the
-[disciplines_SI.xlsx]({{ site.baseurl }}/data/disciplines_SI.xlsx) file to the
+[disciplines_SI.xlsx](../data/disciplines_SI.xlsx) file to the
 same directory as this notebook.
 
 We read the data and get the columns:

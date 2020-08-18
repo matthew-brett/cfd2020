@@ -38,7 +38,7 @@ See the [array indexing page](../03/array_indexing) for more detail.
 Each row in this table corresponds to one *discipline*.  Each column corresponds to a different *rating*.
 
 If you are running on your laptop, you should download
-the [rate_my_course.csv]({{ site.baseurl }}/data/rate_my_course.csv)
+the [rate_my_course.csv](../data/rate_my_course.csv)
 file to the same directory as this notebook.
 
 ```{python}

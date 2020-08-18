@@ -35,9 +35,8 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-We used the [students ratings dataset]({{ site.baseurl
-}}/data/rate_my_professors) dataset.  Download the data file via
-[disciplines_SI.xlsx]({{ site.baseurl }}/data/disciplines_SI.xlsx).
+We used the [students ratings dataset](../data/rate_my_professors) dataset.  Download the data file via
+[disciplines_SI.xlsx](../data/disciplines_SI.xlsx).
 
 We were looking for the best slope to relate the Easiness ratings to the
 Overall Quality ratings.
@@ -110,12 +109,12 @@ sos_error_for_minimize(min_res.x)
 type(sos_error_for_minimize)
 ```
 
-We pass the function to `minimize` as an argument for it to use.  Try the [functions as values exercise]({{ site.baseurl }}/exercises/function_vals.zip) for more practice on the idea of using functions as values like this.
+We pass the function to `minimize` as an argument for it to use.  Try the [functions as values exercise](../exercises/function_vals.zip) for more practice on the idea of using functions as values like this.
 
 We can call the function we pass to `minimize` -- the *objective function* -- in the sense that our objective is to minimize this function.
 
 How is `minimize` using our objective function?   Clearly `minimize` is
-[calling]({{ site.baseurl }}/02/Calls) the function, but what arguments is it
+[calling](../02/Calls) the function, but what arguments is it
 sending?  How many times does it call the function?
 
 To find out, we can stick something inside the objective function to tell us

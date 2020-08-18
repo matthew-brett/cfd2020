@@ -27,7 +27,7 @@ import pandas as pd
 pd.set_option('mode.chained_assignment','raise')
 ```
 
-Consider the following annoying situation.  You can download the data file from [imdblet_latin.csv]({{ site.baseurl }}/data/imdblet_latin.csv).
+Consider the following annoying situation.  You can download the data file from [imdblet_latin.csv](../data/imdblet_latin.csv).
 
 ```{python tags=c("raises-exception")}
 films = pd.read_csv('imdblet_latin.csv')

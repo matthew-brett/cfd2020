@@ -44,7 +44,7 @@ So let's start by taking a closer look at rows.
 
 Here is the original table `ckd` containing data on patients who were tested for chronic kidney disease.
 
-The data file is [ckd.csv]({{ site.baseurl }}/data/ckd.csv).
+The data file is [ckd.csv](../data/ckd.csv).
 
 ```{python}
 ckd_full = pd.read_csv('ckd.csv')

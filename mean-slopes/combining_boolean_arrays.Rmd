@@ -19,9 +19,8 @@ elements from arrays or tables.
 
 So far we have used *boolean* Series and arrays to select rows.  This works fine when we have some simple criterion, such as whether the value in the column or array is greater than 10.
 
-For example, consider the [students ratings dataset]({{ site.baseurl
-}}/data/rate_my_professors) dataset. Download the data file via
-[disciplines_SI.xlsx]({{ site.baseurl }}/data/disciplines_SI.xlsx).
+For example, consider the [students ratings dataset](../data/rate_my_professors) dataset. Download the data file via
+[disciplines_SI.xlsx](../data/disciplines_SI.xlsx).
 
 ```{python}
 import numpy as np

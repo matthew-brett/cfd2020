@@ -46,7 +46,7 @@ def double(x):
 We start any function definition by writing `def`.  Here is a breakdown of the
 other parts (the *syntax*) of this small function:
 
-![function definition]({{ site.baseurl }}/images/function_definition.jpg)
+![function definition](../images/function_definition.jpg)
 
 When we run the cell above, no particular number is doubled, and the code
 inside the body of `double` is not yet evaluated.  In this respect, our
@@ -187,7 +187,7 @@ print("The biggest difference is", big_diff)
 
 Here is what happens when we run that cell:
 
-![function execution]({{ site.baseurl }}/images/function_execution.jpg)
+![function execution](../images/function_execution.jpg)
 
 ## Multiple Arguments
 

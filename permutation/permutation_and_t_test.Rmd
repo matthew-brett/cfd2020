@@ -16,7 +16,7 @@ jupyter:
 
 # Permutation and the t-test
 
-In [the idea of permutation]({{ site.baseurl }}/chapters/05/permutation_idea),
+In [the idea of permutation](../chapters/05/permutation_idea),
 we use permutation to compare a difference between two groups of numbers.
 
 In our case, each number corresponded to one person in the study.  The number

@@ -39,7 +39,7 @@ plt.style.use('fivethirtyeight')
 ```
 
 Now we are going to need some data. Go ahead and download
-[iris.csv]({{ site.baseurl }}/data/iris.csv) and import it as
+[iris.csv](../data/iris.csv) and import it as
 a dataframe (save the file to the same directory from which you
 are running this notebook to make your life easier).
 
