@@ -129,7 +129,7 @@ The accuracy rate isn't bad at all for a simple classifier.
 
 Now I want to do an example based on diagnosing breast cancer.  I was inspired by Brittany Wenger, who won the Google national science fair in 2012 as a 17-year old high school student.  Here's Brittany:
 
-![Brittany Wenger](http://i.huffpost.com/gen/701499/thumbs/o-GSF83-570.jpg?3)
+![Brittany Wenger](https://i.huffpost.com/gen/701499/thumbs/o-GSF83-570.jpg?3)
 
 [Brittany's science fair
 project](https://sites.google.com/a/googlesciencefair.com/science-fair-2012-project-64a91af142a459cfb486ed5cb05f803b2eb41354-1333130785-87)
