@@ -14,11 +14,12 @@ jupyter:
     name: python3
 ---
 
-In the [problem for the education minister]({{ site.baseurl
-}}/chapters/10/havana_math) we had a sample of fast-track-marked exams from
-2019, and we found that the mean mark was about 65.25.  We wondered what we
-could say about the eventual  when we have the marks for all 8000 or so
-students.
+# First Bayes
+
+In the [problem for the education minister](havana_math) we had a sample of
+fast-track-marked exams from 2019, and we found that the mean mark was about
+65.25.  We wondered what we could say about the eventual  when we have the
+marks for all 8000 or so students.
 
 For example, we might wonder how likely it is that the eventual mean will be
 near 65.25, as it was in 2018.  Or we might wonder whether we could be say that
@@ -211,5 +212,4 @@ To go over the logic again:
   proportion of BOX4 trials) multiplied by (the proportion of BOX4 trials that
   are red).
 
-We have just [discovered Bayes theorem]({{ site.baseurl
-}}/chapters/10/bayes_theorem).
+We have just [discovered Bayes theorem](bayes_theorem).

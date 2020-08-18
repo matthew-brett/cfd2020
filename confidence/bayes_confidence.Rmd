@@ -14,16 +14,16 @@ jupyter:
     name: python3
 ---
 
-In the [problem for the education minister]({{ site.baseurl
-}}/chapters/10/havana_math) we had a sample of fast-track-marked exams from
-2019, and we found that the mean mark was 54.51.  We wondered what we could say
-about the eventual mean of the marks for all 8000 or so students.
+In the [problem for the education minister](havana_math) we had a sample of
+fast-track-marked exams from 2019, and we found that the mean mark was 54.51.
+We wondered what we could say about the eventual mean of the marks for all
+8000 or so students.
 
-After a bit of development, we found, in the [reverse probability with bars]({{
-site.baseurl }}/chapters/10/bayes_bars) page, that we could use some
-probability calculations to draw conclusions about the state of the world, from
-some result.  In that page, we calculated the probability of the state of the
-world (a box we have been given) from a result (drawing a red ball).
+After a bit of development, we found, in the [reverse probability with
+bars](bayes_bars) page, that we could use some probability calculations to
+draw conclusions about the state of the world, from some result.  In that
+page, we calculated the probability of the state of the world (a box we have
+been given) from a result (drawing a red ball).
 
 Now we want to draw a conclusion about the state of the world (the eventual
 mean of all the 2019 exams) from a result (the mean of the fast-marked sample
@@ -113,8 +113,7 @@ counts = hist_vals[0]
 counts
 ```
 
-As we saw in the page on [using minimize]({{ site.baseurl
-}}/chapters/08/using_minimize#unpacking), we can get this value a little more
+As we saw in the page on [using minimize](../mean-slopes/using_minimize#unpacking), we can get this value a little more
 neatly by *unpacking* the return values from `plt.hist`, like this:
 
 ```{python}
@@ -184,9 +183,8 @@ bin_54p5 = np.where(bin_edges == 54.5)
 bin_54p5
 ```
 
-Look back at [where and argmin]({{ site.baseurl
-}}/chapters/08/where_and_argmin) for this trick of using `np.where` to find the
-index.
+Look back at [where and argmin](../mean-slopes/where_and_argmin) for this
+trick of using `np.where` to find the index.
 
 We get the proportion at that index, to give the probability that we will see a
 sample mean between 54.5 and 55:

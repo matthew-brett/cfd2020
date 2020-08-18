@@ -22,21 +22,19 @@ bucket.
 ## A mosquito problem
 
 
-![]({{ site.baseurl }}/images/mosquito_banner.png)
+![](../images/mosquito_banner.png)
 
 With thanks to John Rauser: [Statistics Without the Agonizing Pain](https://www.youtube.com/watch?v=5Dnw46eC-0o)
 
 
 ## The data
 
-Download the data from [mosquito_beer.csv]({{ site.baseurl
-}}/data/mosquito_beer.csv).
+Download the data from [mosquito_beer.csv](../data/mosquito_beer.csv).
 
 
 See [this
 page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer) for
-more details on the dataset, and [the data license page]({{ site.baseurl
-}}/data/license).
+more details on the dataset, and [the data license page](../data/license).
 
 
 ```{python}

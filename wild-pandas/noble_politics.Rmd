@@ -17,8 +17,7 @@ jupyter:
 
 This page has two aims:
 
-* to practice and extend [Pandas indexing]({{ site.baseurl
-  }}/chapters/07/pandas_indexing);
+* to practice and extend [Pandas indexing](pandas_indexing);
 * to extend the idea of permutation to data in categories;
 
 We also ask the question - is politics noble?
@@ -54,7 +53,7 @@ controls who were not active, and the authors termed these "bystanders".
 The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question "Did you belong to a political party before the war?".
 
 As usual, if you are running on your own computers, download the file
-[oliner_tab6_8a_1.csv]({{ site.baseurl }}/data/oliner_tab6_8a_1.csv) to the same directory as this notebook.
+[oliner_tab6_8a_1.csv](../data/oliner_tab6_8a_1.csv) to the same directory as this notebook.
 
 ```{python}
 # Load the table
@@ -64,8 +63,7 @@ party_tab
 
 ## Setting the index
 
-We have already seen [Pandas indexing]({{ site.baseurl
-}}/chapters/07/pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.
+We have already seen [Pandas indexing](pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.
 
 ```{python}
 party_tab.index

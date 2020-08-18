@@ -332,8 +332,8 @@ Is `leave_proportion` a plausible value on this histogram?
 
 See:
 
-* [Reply to the Supreme Court](../chapters/03/reply_supreme)
-* [Final three girls simulation](../chapters/03/filling_arrays)
+* [Reply to the Supreme Court](../arrays-iteration/reply_supreme)
+* [Final three girls simulation](../arrays-iteration/filling_arrays)
 
 to remind yourself about simulations.
 

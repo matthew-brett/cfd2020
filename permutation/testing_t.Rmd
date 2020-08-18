@@ -21,8 +21,7 @@ jupyter:
 One of the great advantages of using simulation is that you can test the
 assertions your teachers make.
 
-For example, in the [permutation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test), we asserted that the t-test is not
+For example, in the [permutation and t-test page](permutation_and_t_test), we asserted that the t-test is not
 valid when the underlying distribution of the numbers is not close to the
 [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
 
@@ -46,16 +45,15 @@ and the equivalent numbers for each of the 18 volunteers who drank water.
 
 See [the data
 page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer) for
-more details on the dataset, and [the data license page]({{ site.baseurl
-}}/data/license).
+more details on the dataset, and [the data license page](../data/license).
 
 For an equal variance test, we assume that the spread of the beer values is
 roughly equal to the spread of the water values, as measured by the *standard
 deviation*, or, equivalently, the *variance*.  Remember the variance is the
 squared standard deviation.
 
-We can pull together the code in [permutation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test) to implement our own t-test.
+We can pull together the code in [permutation and t-test
+page](permutation_and_t_test) to implement our own t-test.
 
 ```{python}
 # Import the Scipy statistics routines.
@@ -105,7 +103,7 @@ value of 0.01 means the result would only occur 1% of the time in the null
 world, and it is surprising at a 1% level.
 
 Here we recreate the mosquito, beer, water data from the [permutation and
-t-test page]({{ site.baseurl }}/chapters/05/permutation_and_t_test):
+t-test page](permutation_and_t_test):
 
 ```{python}
 beer_activated = np.array([14, 33, 27, 11, 12, 27, 26,
@@ -118,8 +116,7 @@ water_activated = np.array([33, 23, 23, 13, 24,  8,  4,
 ```
 
 We run our t-test over these data to get the same result you saw in the
-[permtuation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test).
+[permtuation and t-test page](permutation_and_t_test).
 
 ```{python}
 t, p = t_test(beer_activated, water_activated)

@@ -17,8 +17,7 @@ jupyter:
 
 This page is a reminder on indexing for Pandas data frames and Series.
 
-You have already seen the [basics of Pandas indexing]({{ site.baseurl
-}}/chapters/07/pandas_indexing); this page is just a reminder of the later
+You have already seen the [basics of Pandas indexing](pandas_indexing); this page is just a reminder of the later
 parts of the basic indexing page.
 
 ```{python}
@@ -28,7 +27,7 @@ import pandas as pd
 We use the familiar dataset on student ratings of professors.  It is a table
 where the rows are course subjects and the columns include average ratings for
 all University professors / lecturers teaching that subject. See [the dataset
-page]({{ site.baseurl }}/data/rate_my_professors) for more detail.
+page](../data/rate_my_professors) for more detail.
 
 ```{python}
 # Load the dataset as a data frame
@@ -66,8 +65,7 @@ top_by_easy['Discipline']
 top_by_easy[is_clear]
 ```
 
-As you have seen in the [Pandas indexing page]({{ site.baseurl
-}}/chapters/07/pandas_indexing), the examples above are the two types of safe
+As you have seen in the [Pandas indexing page](pandas_indexing), the examples above are the two types of safe
 direct indexing into Pandas data frames:
 
 1. Direct indexing with a column name.
@@ -154,5 +152,4 @@ clear_clarity
 ```
 
 You can also use some Boolean sequences for `.iloc`, but it's a bit more
-complicated.  See [Booleans and labels]({{ site.baseurl
-}}/chapters/07/booleans_and_labels) for more detail.
+complicated.  See [Booleans and labels](../functions-conditionals/booleans_and_labels) for more detail.
