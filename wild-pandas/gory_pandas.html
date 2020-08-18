@@ -610,8 +610,8 @@
 views and copies when using Pandas.</p>
 <p>You don’t need to fully understand the results on this page to use Pandas
 effectively.  This page is only to point out that you have to use the results
-of Pandas indexing with care.  In particular, we suggest you follow the [Pandas
-safe handling guide]({{ site.baseurl }}/chapters/07/safe_pandas).</p>
+of Pandas indexing with care.  In particular, we suggest you follow the <span class="xref myst">Pandas
+safe handling guide</span>.</p>
 <p>The official discussion for these topics are in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy">Pandas indexing
 documentation</a>.
 If you really want to go deep into the Pandas bowels, you could even try <a class="reference external" href="https://stackoverflow.com/a/23296545">this
@@ -627,40 +627,7 @@ it’s dark down there.</p>
 </div>
 <p>This is the course ratings dataset, where the rows are course subjects and the
 columns include average ratings for all University professors / lecturers
-teaching that subject. See [the dataset page]({{ site.baseurl
-}}/data/rate_my_professors) for more detail.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
-<span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We make a smaller data frame to play with, using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First three rows, first three columns</span>
-<span class="n">first_33</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">first_33</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>First consider the following.  <code class="docutils literal notranslate"><span class="pre">discipline</span></code> is a Series that is a <em>view</em> of the
-values in <code class="docutils literal notranslate"><span class="pre">first_33</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span> <span class="o">=</span> <span class="n">first_33</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
-<span class="n">discipline</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can’t tell it’s a view yet, but this becomes clear when we change the values
-in <code class="docutils literal notranslate"><span class="pre">discipline</span></code>.  First we change the first value in the Series, and we get
-a big warning.  See the [Pandas safe handling guide]({{ site.baseurl
-}}/chapters/07/safe_pandas) for more on this warning.</p>
+teaching that subject. See <span class="xref myst">the dataset page</span> for more on this warning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spanglish&#39;</span>
@@ -839,8 +806,8 @@ a view or a copy, and it can depend what data you have in your date frame.</p>
 <p>For example, above, we found that if all the data in the data frame are floats,
 then I get a view, but in our previous data frame – <code class="docutils literal notranslate"><span class="pre">first_33</span></code> — that has
 a mixture of column types, including strings and numbers, I got a copy.</p>
-<p>The way out of this steaming set of tubes into hell, is to use [safe handling
-of Pandas]({{ site.baseurl }}/chapters/07/safe_pandas).</p>
+<p>The way out of this steaming set of tubes into hell, is to use <span class="xref myst">safe handling
+of Pandas</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">

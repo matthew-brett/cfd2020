@@ -53,7 +53,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/permutation/testing_t.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Testing the t test" />
-<meta property="og:description" content="Testing the t test  One of the great advantages of using simulation is that you can test the assertions your teachers make.  For example, in the [permutation an" />
+<meta property="og:description" content="Testing the t test  One of the great advantages of using simulation is that you can test the assertions your teachers make.  For example, in the permutation and" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -610,106 +610,7 @@
 <h1>Testing the t test<a class="headerlink" href="#testing-the-t-test" title="Permalink to this headline">¶</a></h1>
 <p>One of the great advantages of using simulation is that you can test the
 assertions your teachers make.</p>
-<p>For example, in the [permutation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test), we asserted that the t-test is not
-valid when the underlying distribution of the numbers is not close to the
-<a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>.</p>
-<p>We can investigate this claim by simulating numbers from the null (ideal)
-world, and seeing what results we get from the t-test.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The particular variant of the t-test that we were looking at in the page above
-was the <em>independent sample</em> t test for groups with similar variance.  Similar
-variance means that the distribution of the values in the first group is
-roughly equal to the distribution in the second group.</p>
-<p>For example, soon we will be testing again for a mean difference between the
-numbers of mosquitoes attracted to each of the 25 volunteers who drank beer,
-and the equivalent numbers for each of the 18 volunteers who drank water.</p>
-<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/mosquito_beer">the data
-page</a> for
-more details on the dataset, and [the data license page]({{ site.baseurl
-}}/data/license).</p>
-<p>For an equal variance test, we assume that the spread of the beer values is
-roughly equal to the spread of the water values, as measured by the <em>standard
-deviation</em>, or, equivalently, the <em>variance</em>.  Remember the variance is the
-squared standard deviation.</p>
-<p>We can pull together the code in [permutation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test) to implement our own t-test.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Scipy statistics routines.</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sps</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_test</span><span class="p">(</span><span class="n">group1</span><span class="p">,</span> <span class="n">group2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Independent sample t value and one-tail upper-tail p value.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">g1_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>
-    <span class="n">g2_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>
-    <span class="n">omd</span> <span class="o">=</span> <span class="n">g1_mean</span> <span class="o">-</span> <span class="n">g2_mean</span>  <span class="c1"># The observed mean difference.</span>
-    <span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group1</span> <span class="o">-</span> <span class="n">g1_mean</span><span class="p">,</span> <span class="n">group2</span> <span class="o">-</span> <span class="n">g2_mean</span><span class="p">)</span>
-    <span class="n">g1_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group1</span><span class="p">)</span>  <span class="c1"># Number of observations in group1</span>
-    <span class="n">g2_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">group2</span><span class="p">)</span>  <span class="c1"># Number of observations in group2</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">g1_n</span> <span class="o">+</span> <span class="n">g2_n</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># The &quot;degrees of freedom&quot;.</span>
-    <span class="n">estimated_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">df</span><span class="p">)</span>
-    <span class="n">t_stat</span> <span class="o">=</span> <span class="n">omd</span> <span class="o">/</span> <span class="p">(</span><span class="n">estimated_sd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">g1_n</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">g2_n</span><span class="p">))</span>
-    <span class="n">upper_tail_p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sps</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">t_stat</span><span class="p">,</span> <span class="n">upper_tail_p</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The only new thing in the implementation above is the second-to-last line,
-where we are using a routine in Scipy to calculate the probability value from
-the t statistic; the details of this are not important for our purpose.</p>
-<p>First we go back to the logic of this p value, which is very similar to the
-logic for permutation test p values:</p>
-<ul class="simple">
-<li><p>Notice that the function calculates <code class="docutils literal notranslate"><span class="pre">omd</span> <span class="pre">=</span> <span class="pre">np.mean(group1)</span> <span class="pre">-</span> <span class="pre">np.mean(group2)</span></code>. Call <code class="docutils literal notranslate"><span class="pre">omd</span></code> the <em>observed mean difference</em>.</p></li>
-<li><p>Assume that we are in the null (ideal) world where the numbers from <code class="docutils literal notranslate"><span class="pre">group1</span></code>
-and the numbers from <code class="docutils literal notranslate"><span class="pre">group2</span></code> have been drawn at random from the <em>same</em>
-distribution.</p></li>
-<li><p>The p value is the probability, in this null world, of seeing a mean
-difference that is equal to or greater than the observed mean difference
-<code class="docutils literal notranslate"><span class="pre">omd</span></code>.</p></li>
-</ul>
-<p>You can also think of a p value as an <em>index of surprise</em>.  The p value tells
-you how often you would expect to see an observed mean different this large, or
-larger, in the null (ideal) world.  If the p value is small, then the observed
-mean difference is surprising.  For example, if the p value is 0.05, it means
-that such difference only occurs 5% of the time by chance in the null world, or
-1 in 20 times.  You could say it was surprising at a 5% level.  Similarly a p
-value of 0.01 means the result would only occur 1% of the time in the null
-world, and it is surprising at a 1% level.</p>
-<p>Here we recreate the mosquito, beer, water data from the [permutation and
-t-test page]({{ site.baseurl }}/chapters/05/permutation_and_t_test):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beer_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span>
-                           <span class="mi">25</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>
-                           <span class="mi">23</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>
-                           <span class="mi">22</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
-<span class="n">water_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">33</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>
-                            <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span>
-                            <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We run our t-test over these data to get the same result you saw in the
-[permtuation and t-test page]({{ site.baseurl
-}}/chapters/05/permutation_and_t_test).</p>
+<p>For example, in the <span class="xref myst">permutation and t-test page</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">t_test</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>

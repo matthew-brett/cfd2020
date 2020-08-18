@@ -657,7 +657,7 @@
 <h2>Banknote authentication<a class="headerlink" href="#banknote-authentication" title="Permalink to this headline">¶</a></h2>
 <p>This time we’ll look at predicting whether a banknote (e.g., a $20 bill) is counterfeit or legitimate.  Researchers have put together a data set for us, based on photographs of many individual banknotes: some counterfeit, some legitimate.  They computed a few numbers from each image, using techniques that we won’t worry about for this course.  So, for each banknote, we know a few numbers that were computed from a photograph of it as well as its class (whether it is counterfeit or not).  Let’s load it into a table and take a look.</p>
 <p>If you are running on your laptop, you should download the
-[banknote]({{ site.baseurl }}/data/banknote.csv) file to the
+<span class="xref myst">banknote</span> file to the
 same directory as this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,7 +750,7 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2 + (z_0-z_1)^2}
 </div>
 <p>Let’s use this on a <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Wine">new dataset</a>. The table <code class="docutils literal notranslate"><span class="pre">wine</span></code> contains the chemical composition of 178 different Italian wines. The classes are the grape species, called cultivars. There are three classes but let’s just see whether we can tell Class 1 apart from the other two.</p>
 <p>You can download the file from
-[wine.csv]({{ site.baseurl }}/data/wine.csv).</p>
+<span class="xref myst">wine.csv</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;wine.csv&#39;</span><span class="p">)</span>

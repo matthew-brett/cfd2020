@@ -53,7 +53,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/permutation/permutation_and_t_test.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Permutation and the t-test" />
-<meta property="og:description" content="Permutation and the t-test  In [the idea of permutation]({{ site.baseurl }}/chapters/05/permutation_idea), we use permutation to compare a difference between tw" />
+<meta property="og:description" content="Permutation and the t-test  In the idea of permutation, we use permutation to compare a difference between two groups of numbers.  In our case, each number corr" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -608,7 +608,7 @@
                 
   <div class="section" id="permutation-and-the-t-test">
 <h1>Permutation and the t-test<a class="headerlink" href="#permutation-and-the-t-test" title="Permalink to this headline">¶</a></h1>
-<p>In [the idea of permutation]({{ site.baseurl }}/chapters/05/permutation_idea),
+<p>In <span class="xref myst">the idea of permutation</span>,
 we use permutation to compare a difference between two groups of numbers.</p>
 <p>In our case, each number corresponded to one person in the study.  The number
 for each subject was the number of mosquitoes flying towards them. The subjects
@@ -617,31 +617,7 @@ drunk water.   There were 25 subjects who had drunk beer, and therefore, 25
 numbers of mosquitoes corresponding to the “beer” group.  There were 18
 subjects who had drunk water, and 18 numbers corresponding to the “water” group.</p>
 <p>Here we repeat the permutation test, as a reminder.</p>
-<p>As before, you can download the data from [mosquito_beer.csv]({{ site.baseurl
-}}/data/mosquito_beer.csv).</p>
-<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/mosquito_beer">this
-page</a> for
-more details on the dataset, and [the data license page]({{ site.baseurl
-}}/data/license).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Numpy library, rename as &quot;np&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># Import Pandas library, rename as &quot;pd&quot;</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Set up plotting</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Read in the data, get the numbers of mosquitoes flying towards the beer
-drinkers, and towards the water drinkers, after they had drunk their beer or
-water.  See the [the idea of permutation]({{ site.baseurl
-}}/chapters/05/permutation_idea),</p>
+<p>As before, you can download the data from <span class="xref myst">mosquito_beer.csv</span>,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the data, select beer and water values.</span>

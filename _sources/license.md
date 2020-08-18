@@ -1,9 +1,3 @@
----
-layout: single
-title: License
-permalink: /license
----
-
 # License
 
 ## Not-otherwise-specified license

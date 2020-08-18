@@ -40,10 +40,9 @@ import pandas as pd
 ```
 
 We start with some [data on chronic kidney
-disease]({{ site.baseurl }}/data/chronic_kidney_disease).
+disease](../data/chronic_kidney_disease).
 
-Download the data to your computer via this link: [ckd_clean.csv]({{
-site.baseurl }}/data/ckd_clean.csv).
+Download the data to your computer via this link: [ckd_clean.csv](../data/ckd_clean.csv).
 
 This is a data table with one row per patient and one column per test on that
 patient.  Many of columns are values from blood tests.  Most of the patients

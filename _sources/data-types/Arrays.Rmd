@@ -136,7 +136,7 @@ to Fahrenheit by writing the familiar conversion formula.
 (9/5) * highs + 32
 ```
 
-<img src="{{ site.baseurl }}/images/array_arithmetic.png">
+<img src="../images/array_arithmetic.png">
 
 
 As we saw for strings, arrays have *methods*, which are functions that

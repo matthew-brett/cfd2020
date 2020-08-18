@@ -25,10 +25,9 @@ In summary, I've rearranged the data, calculated averaged data from 2012 to
 to actual countries, rather than summary groups like "Arab World" and "Lower
 middle income".
 
-The data file is [gender_stats.csv]({{ site.baseurl }}/data/gender_stats.csv).
+The data file is [gender_stats.csv](../data/gender_stats.csv).
 
-See [gender stats data dictionary]({{ site.baseurl
-}}/data/gender_stats_data_dict) for a list of the column names and their
+See [gender stats data dictionary](../data/gender_stats_data_dict) for a list of the column names and their
 meaning.
 
 The data is licensed under

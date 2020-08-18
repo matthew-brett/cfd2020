@@ -623,23 +623,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#case-sensitive-filesystem-on-the-mac">
-   Case-sensitive filesystem on the Mac
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-easy-way-with-modern-macos">
-     The easy way, with modern macOS
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-hard-way-with-older-macos">
-     The hard way, with older macOS
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
         </nav>
@@ -676,10 +659,6 @@ thanks to the authors.</p>
 <p>Go to the repository page that houses this README - for example <a class="reference external" href="https://github.co/matthew-brett/cfd2020">https://github.co/matthew-brett/cfd2020</a>.</p>
 <p>Click on “Fork” button near top right, to make your own fork of the
 repository, that will now be at <code class="docutils literal notranslate"><span class="pre">https://github.com/my-gh-user/&lt;repo-name&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;repo-name&gt;</span></code> is the name of the repository housing this README.</p>
-<p><strong>Before you clone the repository</strong>, make sure you are working in
-a case-sensitive filesystem.  The default macOS filesystem is not
-case-sensitive, see the section “Case-sensitive files on the Mac” near
-the end, before you continue, and clone into this new filesystem.</p>
 <p>The following assumes that the README is in
 <a class="reference external" href="https://github.com/matthew-brett/cfd2020">https://github.com/matthew-brett/cfd2020</a>.  The name of the repository is
 therefore <code class="docutils literal notranslate"><span class="pre">cfd2020</span></code>.  Substitute URL and repository name throughout.</p>
@@ -812,48 +791,6 @@ files, and rebuild <code class="docutils literal notranslate"><span class="pre">
 <li><p>Final check</p></li>
 <li><p>Ship with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">github</span></code></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="case-sensitive-filesystem-on-the-mac">
-<h2>Case-sensitive filesystem on the Mac<a class="headerlink" href="#case-sensitive-filesystem-on-the-mac" title="Permalink to this headline">¶</a></h2>
-<p>The default file-systems for current Macs are Journalled HFS+, or
-APFS, neither of which are case-sensitive by default.  This causes
-problems with file-names for the built files - see
-<a class="reference external" href="https://github.com/choldgraf/jupyter-book/pull/27">https://github.com/choldgraf/jupyter-book/pull/27</a>.</p>
-<p>You can check if you are on a case-sensitive file-system with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">tmp</span>
-<span class="n">touch</span> <span class="n">tmp</span><span class="o">/</span><span class="n">abcd</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">touch</span> <span class="n">tmp</span><span class="o">/</span><span class="n">abcD</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">ls</span> <span class="n">tmp</span><span class="o">/</span><span class="n">ab</span><span class="o">*.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>If you see only one file listed, you’re on a case-insensitive
-file-system, and this will cause problems for editing and uploading
-the files in this repo.</p>
-<div class="section" id="the-easy-way-with-modern-macos">
-<h3>The easy way, with modern macOS<a class="headerlink" href="#the-easy-way-with-modern-macos" title="Permalink to this headline">¶</a></h3>
-<p>The easiest way to solve this, on a modern Mac, is to make a new
-case-sensitive APFS volume.  Go to Disk Utility, click on a hard
-drive, click on the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon at the top left, under “Volume”, and you
-should get a GUI for “Add APFS volume to a container?”.  Choose “APFS
-(Case-sensitive)”.  With all done, you should have a new volume, into which you can clone the repository.</p>
-</div>
-<div class="section" id="the-hard-way-with-older-macos">
-<h3>The hard way, with older macOS<a class="headerlink" href="#the-hard-way-with-older-macos" title="Permalink to this headline">¶</a></h3>
-<p>If you do not have the option above, you can also make a new disk image file, and mount that.  In my hands, this started to get very slow, as the disk image got close to full.  Here are the instructions in case you want to give it a go:</p>
-<ul class="simple">
-<li><p>Make a <em>disk image</em> with a case-sensitive file-system on it.</p></li>
-<li><p>Mount the disk image</p></li>
-<li><p>Work inside the mounted disk image.</p></li>
-</ul>
-<p>Clone this Gist:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gist</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">faa9ccc0d7cb2936263f16192106a98a</span>
-</pre></div>
-</div>
-<p>Have a look at the <code class="docutils literal notranslate"><span class="pre">.plist</span></code> file inside, and follow the instructions
-in the comments, to set this up.  When you have followed the
-instructions, you should find that the system mounts the image
-automatically when you log in.</p>
 </div>
 </div>
 </div>

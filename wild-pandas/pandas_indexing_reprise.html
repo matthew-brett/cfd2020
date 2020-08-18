@@ -51,7 +51,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/pandas_indexing_reprise.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Pandas indexing reprise" />
-<meta property="og:description" content="Pandas indexing reprise  This page is a reminder on indexing for Pandas data frames and Series.  You have already seen the [basics of Pandas indexing]({{ site.b" />
+<meta property="og:description" content="Pandas indexing reprise  This page is a reminder on indexing for Pandas data frames and Series.  You have already seen the basics of Pandas indexing for more de" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -595,34 +595,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#direct-indexing">
-   Direct indexing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indirect-indexing-by-position-with-iloc">
-   Indirect indexing by position with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     iloc
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indirect-indexing-by-label-with-loc">
-   Indirect indexing by label with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     .loc
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -634,177 +607,7 @@
   <div class="section" id="pandas-indexing-reprise">
 <h1>Pandas indexing reprise<a class="headerlink" href="#pandas-indexing-reprise" title="Permalink to this headline">¶</a></h1>
 <p>This page is a reminder on indexing for Pandas data frames and Series.</p>
-<p>You have already seen the [basics of Pandas indexing]({{ site.baseurl
-}}/chapters/07/pandas_indexing); this page is just a reminder of the later
-parts of the basic indexing page.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We use the familiar dataset on student ratings of professors.  It is a table
-where the rows are course subjects and the columns include average ratings for
-all University professors / lecturers teaching that subject. See [the dataset
-page]({{ site.baseurl }}/data/rate_my_professors) for more detail.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataset as a data frame</span>
-<span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
-<span class="c1"># Reorder by Easiness</span>
-<span class="n">ratings_by_easy</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Easiness&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># Make a smaller data frame with the first six rows</span>
-<span class="n">top_by_easy</span> <span class="o">=</span> <span class="n">ratings_by_easy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="c1"># Show the smaller data frame.</span>
-<span class="n">top_by_easy</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here is an example <em>Boolean Series</em> that has True for rows where the “Clarity”
-rating was greater than 4.1, and False otherwise.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_clear</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">4.1</span>
-<span class="n">is_clear</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We will use that in the examples below.</p>
-<div class="section" id="direct-indexing">
-<h2>Direct indexing<a class="headerlink" href="#direct-indexing" title="Permalink to this headline">¶</a></h2>
-<p>Direct indexing is where the indexing bracket <code class="docutils literal notranslate"><span class="pre">[</span></code> goes right after the data
-frame.  Examples are:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with a column name.</span>
-<span class="n">top_by_easy</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with a Boolean sequence.</span>
-<span class="n">top_by_easy</span><span class="p">[</span><span class="n">is_clear</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you have seen in the [Pandas indexing page]({{ site.baseurl
-}}/chapters/07/pandas_indexing), the examples above are the two types of safe
-direct indexing into Pandas data frames:</p>
-<ol class="simple">
-<li><p>Direct indexing with a column name.</p></li>
-<li><p>Direct indexing with a Boolean sequence.</p></li>
-</ol>
-</div>
-<div class="section" id="indirect-indexing-by-position-with-iloc">
-<h2>Indirect indexing by position with <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#indirect-indexing-by-position-with-iloc" title="Permalink to this headline">¶</a></h2>
-<p>Indirect indexing is where we use the special <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> and <code class="docutils literal notranslate"><span class="pre">.loc</span></code> attributes of data frames and Series.  The data frame or series goes first, followed by <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> or <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, followed by the opening square bracket <code class="docutils literal notranslate"><span class="pre">[</span></code>, the specifiers for the values we want, and the closing square bracket <code class="docutils literal notranslate"><span class="pre">]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">.iloc</span></code> selects rows and columns by <em>position</em>.  For example, here we ask for
-the first three rows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we send <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> two arguments, separated by commas, then the first argument
-refers to the rows, and the second to the columns.  Here we ask for the first three rows and the first three columns:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">:</span></code> to select everything.  For example, this selects all rows, and
-the last column:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity_with_iloc</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">clarity_with_iloc</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="indirect-indexing-by-label-with-loc">
-<h2>Indirect indexing by label with <code class="docutils literal notranslate"><span class="pre">.loc</span></code><a class="headerlink" href="#indirect-indexing-by-label-with-loc" title="Permalink to this headline">¶</a></h2>
-<p>We can also select items by their row and column <em>labels</em>.  In this case, the row labels are also counting numbers (integers), so they are easily mistaken for positions if you are not careful.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">row_labeled_64</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span>
-<span class="n">row_labeled_64</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a different result than the one we get from <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, which does look at position rather than label:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">row_position_0</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">row_position_0</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can ask for multiple rows by label:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">]]</span>
-<span class="n">ratings_by_label</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we send <code class="docutils literal notranslate"><span class="pre">.loc</span></code> two arguments, separated by commas, then the first argument
-refers to the rows, and the second to the columns.  The column labels are the
-column names.  Here we ask for the rows labeled 64, 49, 31, and the column labeled “Discipline”:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_row_col_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
-<span class="n">ratings_by_row_col_label</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>If we want multiple columns we can pass a list of column names:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_by_row_col_label</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">,</span> <span class="s1">&#39;Clarity&#39;</span><span class="p">]]</span>
-<span class="n">ratings_by_row_col_label</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a good way of selecting a subset of the columns from the data frame,
-using <code class="docutils literal notranslate"><span class="pre">:</span></code> to select all the rows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">some_columns</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">,</span> <span class="s1">&#39;Easiness&#39;</span><span class="p">]]</span>
-<span class="n">some_columns</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can use Boolean sequences to select rows with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clear_clarity</span> <span class="o">=</span> <span class="n">top_by_easy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_clear</span><span class="p">,</span> <span class="s1">&#39;Clarity&#39;</span><span class="p">]</span>
-<span class="n">clear_clarity</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can also use some Boolean sequences for <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>, but it’s a bit more
-complicated.  See [Booleans and labels]({{ site.baseurl
-}}/chapters/07/booleans_and_labels) for more detail.</p>
-</div>
+<p>You have already seen the <span class="xref myst">basics of Pandas indexing</span> for more detail.</p>
 </div>
 
     <script type="text/x-thebe-config">

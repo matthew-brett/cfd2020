@@ -20,7 +20,7 @@ jupyter:
 ---
 
 For background, please read the [functions as
-values]({{ site.baseurl }}/chapters/07/functions_as_values) page.
+values](../chapters/07/functions_as_values) page.
 
 Consider these two functions:
 

@@ -1,9 +1,3 @@
----
-layout: single
-title: Data licenses
-permalink: /data/license
----
-
 # Licenses for data not otherwise specified
 
 * `gender_data.csv` - see

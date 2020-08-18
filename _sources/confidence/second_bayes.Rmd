@@ -14,11 +14,11 @@ jupyter:
     name: python3
 ---
 
-In the [reverse probability page]({{ site.baseurl }}/chapters/10/first_bayes)
+In the [reverse probability page](../chapters/10/first_bayes)
 we played a game with two boxes, with different proportions of red and green
 balls.
 
-The [Bayes bars page]({{ site.baseurl }}/chapters/10/bayes_bars) has a way of
+The [Bayes bars page](../chapters/10/bayes_bars) has a way of
 thinking of our calculations for this game, using the height of bars to
 express our probabilities.
 
@@ -168,7 +168,7 @@ p_box4 = np.count_nonzero(red_ball_trials['box no'] == 5) / len(red_ball_trials)
 p_box4
 ```
 
-As we saw the [Bayes bars]({{ site.baseurl }}/chapters/10/bayes_bars) page,
+As we saw the [Bayes bars](../chapters/10/bayes_bars) page,
 because all the boxes have equal probability, we can skip the calculation step
 that scales by the box probability, and take the following shortcut:
 

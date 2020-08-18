@@ -22,10 +22,9 @@ jupyter:
     version: 3.4.5
 ---
 
-Now we have [for loops]({{ site.baseurl }}/chapters/03/iteration) and
-[ranges]({{ site.baseurl }}/chapters/03/Ranges), we can solve the problem in
-[population, permutation]({{ site.baseurl
-}}/chapters/05/population_permutation).
+Now we have [for loops](../chapters/03/iteration) and
+[ranges](../chapters/03/Ranges), we can solve the problem in
+[population, permutation](../chapters/05/population_permutation).
 
 ```{python}
 # Array library.

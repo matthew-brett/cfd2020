@@ -1,9 +1,3 @@
----
-layout: single
-title: Chronic Kidney Disease
-permalink: /data/chronic_kidney_disease
----
-
 # Chronic kidney disease dataset
 
 The chronic kidney disease (CKD) dataset is a processed version of the original
@@ -65,7 +59,4 @@ details.
 
 You can download copies of the data from the following links:
 
-* [Chronic kidney disease full data file]({{ site.baseurl
-  }}/data/ckd_full.csv).
-* [Chronic kidney disease clean data file]({{ site.baseurl
-  }}/data/ckd_clean.csv).
+* [Chronic kidney disease full data file](../data/ckd_clean.csv).

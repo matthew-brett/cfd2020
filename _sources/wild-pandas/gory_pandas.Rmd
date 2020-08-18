@@ -21,7 +21,7 @@ views and copies when using Pandas.
 You don't need to fully understand the results on this page to use Pandas
 effectively.  This page is only to point out that you have to use the results
 of Pandas indexing with care.  In particular, we suggest you follow the [Pandas
-safe handling guide]({{ site.baseurl }}/chapters/07/safe_pandas).
+safe handling guide](../chapters/07/safe_pandas).
 
 The official discussion for these topics are in the [Pandas indexing
 documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy).
@@ -36,34 +36,7 @@ import pandas as pd
 
 This is the course ratings dataset, where the rows are course subjects and the
 columns include average ratings for all University professors / lecturers
-teaching that subject. See [the dataset page]({{ site.baseurl
-}}/data/rate_my_professors) for more detail.
-
-```{python}
-ratings = pd.read_csv('rate_my_course.csv')
-ratings.head()
-```
-
-We make a smaller data frame to play with, using `.iloc`.
-
-```{python}
-# First three rows, first three columns
-first_33 = ratings.iloc[:3, :3]
-first_33
-```
-
-First consider the following.  `discipline` is a Series that is a *view* of the
-values in `first_33`.
-
-```{python}
-discipline = first_33['Discipline']
-discipline
-```
-
-We can't tell it's a view yet, but this becomes clear when we change the values
-in `discipline`.  First we change the first value in the Series, and we get
-a big warning.  See the [Pandas safe handling guide]({{ site.baseurl
-}}/chapters/07/safe_pandas) for more on this warning.
+teaching that subject. See [the dataset page](../chapters/07/safe_pandas) for more on this warning.
 
 ```{python}
 discipline.iloc[0] = 'Spanglish'
@@ -221,4 +194,4 @@ then I get a view, but in our previous data frame -- `first_33` --- that has
 a mixture of column types, including strings and numbers, I got a copy.
 
 The way out of this steaming set of tubes into hell, is to use [safe handling
-of Pandas]({{ site.baseurl }}/chapters/07/safe_pandas).
+of Pandas](../chapters/07/safe_pandas).

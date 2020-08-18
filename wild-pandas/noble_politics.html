@@ -53,7 +53,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/noble_politics.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Noble politics and comparing counts" />
-<meta property="og:description" content="Noble politics and comparing counts  This page has two aims:  to practice and extend [Pandas indexing]({{ site.baseurl }}/chapters/07/pandas_indexing);  to exte" />
+<meta property="og:description" content="Noble politics and comparing counts  This page has two aims:  to practice and extend Pandas indexing.   We are going to be selecting data out of this table with" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -599,11 +599,6 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-the-index">
-   Setting the index
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-question">
    The question
   </a>
@@ -637,55 +632,8 @@
 <h1>Noble politics and comparing counts<a class="headerlink" href="#noble-politics-and-comparing-counts" title="Permalink to this headline">¶</a></h1>
 <p>This page has two aims:</p>
 <ul class="simple">
-<li><p>to practice and extend [Pandas indexing]({{ site.baseurl
-}}/chapters/07/pandas_indexing);</p></li>
-<li><p>to extend the idea of permutation to data in categories;</p></li>
+<li><p>to practice and extend <span class="xref myst">Pandas indexing</span>.   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.</p></li>
 </ul>
-<p>We also ask the question - is politics noble?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Our data is from this book:</p>
-<blockquote>
-<div><p>Samuel P. Oliner and Pearl M. Oliner (1992) “The Altruistic Personality:
-Rescuers of Jews in Nazi Europe”. Free Press, New York. ISBN 0-02923829-3.</p>
-</div></blockquote>
-<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/oliner1988">the dataset page</a>
-for some more details.</p>
-<p>Oliner and Oliner were interested to see if they could identify distinctive
-traits of people who rescued Jews in Nazi Europe.  In order to do that, they
-collected structured interviews with 231 people for whom there was strong
-documentary evidence that they had sheltered Jews, despite considerable risk to
-themselves. These are the “rescuer” group in the table below.  They also found
-126 controls with roughly similar background, nationality, age and education.
-Of these, 53 claimed to have either sheltered Jews, or to have been active in
-the resistance.  These are the “actives” group in the table.  This leaves 73
-controls who were not active, and the authors termed these “bystanders”.</p>
-<p>The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question “Did you belong to a political party before the war?”.</p>
-<p>As usual, if you are running on your own computers, download the file
-[oliner_tab6_8a_1.csv]({{ site.baseurl }}/data/oliner_tab6_8a_1.csv) to the same directory as this notebook.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the table</span>
-<span class="n">party_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;oliner_tab6_8a_1.csv&#39;</span><span class="p">)</span>
-<span class="n">party_tab</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="setting-the-index">
-<h2>Setting the index<a class="headerlink" href="#setting-the-index" title="Permalink to this headline">¶</a></h2>
-<p>We have already seen [Pandas indexing]({{ site.baseurl
-}}/chapters/07/pandas_indexing).   We are going to be selecting data out of this table with indexing, and we would like to make the index (row labels) be as informative as possible.  The current index, which Pandas created automatically, is sequential numbers, which are not memorable or informative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">party_tab</span><span class="o">.</span><span class="n">index</span>
@@ -712,7 +660,6 @@ controls who were not active, and the authors termed these “bystanders”.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many rescuers were there, in total?</span>
 <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;out of&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuers&#39;</span><span class="p">]</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>

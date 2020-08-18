@@ -38,7 +38,7 @@ explanations using mathematics
 
 Algorithms on data already have great impact on us and our society.  Some of this impact is harmful or frightening.  Melissa O'Neil's book "Weapons of Math Destruction" gives a readable and alarming overview of misuse of code and algorithms that can have serious consequences for individuals and society {% cite oneil2016weapons %}:
 
-![]({{ site.baseurl }}/images/Weapons_of_Math_Destruction.jpg)
+![](../images/Weapons_of_Math_Destruction.jpg)
 
 Among many examples of misuse, prison services in the USA have started to use
 code and algorithms to inform criminal sentencing, but the apparently objective

@@ -39,10 +39,7 @@ Given that background, the column names are self-explanatory:
 
 There are two data files containing the same data:
 
-* Original [average ratings per course in Excel]({{ site.baseurl
-  }}/data/disciplines_SI.xlsx)
-* [Average ratings per course in CSV format]({{ site.baseurl
-  }}/data/rate_my_course.csv).  This is the Excel file above saved in CSV
+* Original [average ratings per course in Excel](../data/rate_my_course.csv).  This is the Excel file above saved in CSV
   format; see the [Github dataset
   page](https://github.com/matthew-brett/datasets/tree/master/good_and_easy)
   for more detail.

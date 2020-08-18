@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Sources for data &#8212; Coding for Data - 2020 edition</title>
+    <title>Tools &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -38,7 +38,7 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/data/data_sources.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/mechanics/tools.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,10 +48,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data/data_sources.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/mechanics/tools.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Sources for data" />
-<meta property="og:description" content="Sources for data  mimic.physionet.orgmimic.physionet.org MIMIC Critical Care Database Freely available critical care data for researchers.  College Scorecard: s" />
+<meta property="og:title"       content="Tools" />
+<meta property="og:description" content="Tools  There are two main sets of tools in data science:  The Python programming language, and its libraries, including Pandas for handling data in tables, and " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -530,7 +530,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/data/data_sources.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/mechanics/tools.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -550,10 +550,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fdata/data_sources.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fmechanics/tools.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/data/data_sources.md"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/mechanics/tools.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -584,31 +584,24 @@
         
               <div>
                 
-  <div class="section" id="sources-for-data">
-<h1>Sources for data<a class="headerlink" href="#sources-for-data" title="Permalink to this headline">¶</a></h1>
-<p>mimic.physionet.orgmimic.physionet.org
-MIMIC Critical Care Database
-Freely available critical care data for researchers.</p>
-<p>College Scorecard: something like 20 years of data from 7,000 institutions with approximately 2,000 variables.  Professionally curated, but not trivial for students to wrangle.  https://collegescorecard.ed.gov/data/</p>
-<p>https://www.healthdata.gov/</p>
-<p>From the “big data” side, this 280-million Twitter dataset from the 2016 elections: https://doi.org/10.7910/DVN/PDI7IN
-It’s a great way to introduce senior students to text processing with MapReduce-like frameworks. Students with a Social Science Analytics specialization seem to particularly enjoy this assignment.</p>
-<p>DHS Surveys (significant source of international mortality estimates) https://www.dhsprogram.com/data/available-datasets.cfm</p>
-<p>Health &amp; Retirement Surveys: https://hrs.isr.umich.edu/data-products</p>
-<p>CDC Surveys: https://www.cdc.gov/nceh/data.htm</p>
-<p>Census, etc. from many countries: https://www.ipums.org/
-World Bank World Development Indicators: http://databank.worldbank.org/data/reports.aspx?source=world-development-indicators</p>
-<p>UN World Population Prospects https://esa.un.org/unpd/wpp/</p>
-<p>WHO Data http://www.who.int/gho/database/en/</p>
-<p>UNDP Data http://hdr.undp.org/en/data</p>
-<p>IHME http://www.healthdata.org/gbd</p>
-<p>USG partial list of health data https://www.healthdata.gov/</p>
-<p>HCUP https://www.hcup-us.ahrq.gov/tools_software.jsp</p>
-<p>APCD Data (not freely accessible) https://www.apcdcouncil.org/state-data-access</p>
-<p>NLM Data Sharing Repo https://www.nlm.nih.gov/NIHbmic/nih_data_sharing_repositories.html</p>
-<p>https://azure.microsoft.com/en-us/services/open-datasets/catalog/</p>
-<p>Oakland license plates: End of page https://www.eff.org/deeplinks/2015/01/what-we-learned-oakland-raw-alpr-data</p>
-<p>Here’s the notebook for that lecture, from an earlier semester: http://data8.org/fa15/text/examples/Privacy.ipynb.  Here’s the raw data: https://www.inferentialthinking.com/data/all-lprs.csv.gz (warning: 30MB).  Here’s a web page that shows that notebook, from an earlier semester: http://data8.org/fa15/text/2_visual.html#explorations-privacy.</p>
+  <div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<p>There are two main sets of tools in data science:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://python.org">Python</a> programming language, and its libraries,
+including <a class="reference external" href="https://pandas.pydata.org">Pandas</a> for handling data in tables,
+and <a class="reference external" href="https://matplotlib.org">Matplotlib</a> for plotting.  Python is a general
+programming language that is excellent for teaching, but also for serious
+coding in business and academia.</p></li>
+<li><p>The <a class="reference external" href="https://www.r-project.org">R language</a>. The main page for R describes
+it as a “a free software environment for statistical computing and
+graphics”.  R is a favorite for people who already know they need to do
+“statistics”, and want the largest range of statistical routines.  R is the
+standard language used by statisticians.</p></li>
+</ul>
+<p>Both languages have <em>Notebook environments</em>.</p>
+<p>We will be using the <a class="reference external" href="https://jupyter.org">Jupyter Notebook</a> with Python.</p>
+<p>To get set up for the class, see <a class="reference internal" href="setup.html"><span class="doc std std-doc">the setup instructions</span></a></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -624,7 +617,7 @@ World Bank World Development Indicators: http://databank.worldbank.org/data/repo
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./data"
+            path: "./mechanics"
         },
         predefinedOutput: true
     }
