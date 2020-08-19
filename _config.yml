@@ -11,6 +11,8 @@ description: >-
 execute:
   execute_notebooks: auto
 
+exclude_patterns: [README.md, todo.md]
+
 html:
   favicon: images/dsfe_favicon.ico
   home_page_in_navbar: false
@@ -24,7 +26,8 @@ repository:
   branch: master
 
 launch_buttons:
-  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  # The interface interactive links will activate ["classic", "jupyterlab"]
+  notebook_interface: "classic"
   binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
   thebe: true
