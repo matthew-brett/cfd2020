@@ -33,6 +33,7 @@ Released by Matthew Brett into the public domain:
 * desktop_zipped_extracted_folder_mac.png
 * desktop_zipped_extracted_mac.png
 * install_okpy.png
+* python38_install_screen.png
 * save_as.png
 * save_as_desktop.png
 * save_as_desktop_mac.png

@@ -1,9 +1,5 @@
 # Todo
 
-## Fix slim_setup
-
-WARNING: image file not readable: mechanics/images/python36_install_screen.png
-
 ## Orphan pages
 
 ```
