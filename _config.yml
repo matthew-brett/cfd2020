@@ -49,7 +49,7 @@ sphinx:
 
   extra_extensions:
     # For noting license and linking to data8 version of page.
-    - cfdcode.data8page
+    - cfdcode.ucb_page
     # For documenting 'click' Python CLIs
     # - sphinx_click.ext
     # Directive for creating tab panels in pages.
