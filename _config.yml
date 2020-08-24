@@ -42,6 +42,11 @@ sphinx:
           "bmat": ["\\left[\\begin{array}"]
           "emat": ["\\end{array}\\right]"]
 
+    nb_custom_formats:
+      .Rmd:
+        - jupytext.reads
+        - fmt: Rmd
+
   extra_extensions:
     # For noting license and linking to data8 version of page.
     - cfdcode.data8page
