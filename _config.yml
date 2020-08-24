@@ -9,7 +9,7 @@ description: >-
   Textbook for University of Birmingham Data Science modules.
 
 execute:
-  execute_notebooks: auto
+  execute_notebooks: cache
 
 exclude_patterns: [README.md, todo.md]
 
