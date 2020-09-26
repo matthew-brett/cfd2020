@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/exercises/brexit_analysis.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -666,9 +671,9 @@
 <p>We start, as usual, by importing all the libraries we need.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Fancy plots</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
@@ -703,7 +708,7 @@ Union or leave the European Union’?”.  The recorded values run from 1 throug
 file into memory with Pandas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data frame, and put it in the variable &quot;audit_data&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data frame, and put it in the variable &quot;audit_data&quot;</span>
 <span class="n">audit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;audit_of_political_engagement_14_2017.tab&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -712,12 +717,12 @@ file into memory with Pandas:</p>
 <p>As you know, we now have a <em>data frame</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -727,7 +732,7 @@ question in the survey.  The columns have kind-of helpful names that you can
 read about in the data dictionary:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span>
 </pre></div>
 </div>
 </div>
@@ -1047,12 +1052,12 @@ read about in the data dictionary:</p>
 dictionary:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;cu041&#39;, &#39;cu042&#39;, &#39;cu043&#39;, &#39;cu044&#39;, &#39;cu045&#39;, &#39;cu046&#39;, &#39;cu047&#39;, &#39;cu048&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;cu041&#39;, &#39;cu042&#39;, &#39;cu043&#39;, &#39;cu044&#39;, &#39;cu045&#39;, &#39;cu046&#39;, &#39;cu047&#39;, &#39;cu048&#39;,
        &#39;cu049&#39;, &#39;cu0410&#39;,
        ...
        &#39;intten&#39;, &#39;cx_971_980&#39;, &#39;serial&#39;, &#39;week&#39;, &#39;wts&#39;, &#39;numage&#39;, &#39;weight0&#39;,
@@ -1066,7 +1071,7 @@ dictionary:</p>
 questions we are interested in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the age and Brexit vote questions only</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the age and Brexit vote questions only</span>
 <span class="n">mini_brexit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">mini_brexit</span><span class="p">[</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="s1">&#39;numage&#39;</span><span class="p">]</span>
 <span class="n">mini_brexit</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">audit_data</span><span class="p">[</span><span class="s1">&#39;cut15&#39;</span><span class="p">]</span>
@@ -1162,7 +1167,7 @@ questions we are interested in:</p>
 to the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column in the <code class="docutils literal notranslate"><span class="pre">mini_brexit</span></code> data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;ages&quot; that refers to the &quot;numage&quot; column in &quot;mini_brexit&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;ages&quot; that refers to the &quot;numage&quot; column in &quot;mini_brexit&quot;</span>
 <span class="n">ages</span> <span class="o">=</span> <span class="n">mini_brexit</span><span class="p">[</span><span class="s2">&quot;numage&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1171,12 +1176,12 @@ to the <code class="docutils literal notranslate"><span class="pre">numage</span
 <p>Confirm that <code class="docutils literal notranslate"><span class="pre">ages</span></code> has a value of type <code class="docutils literal notranslate"><span class="pre">Series</span></code>, the Pandas type for a column of a data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -1184,12 +1189,12 @@ to the <code class="docutils literal notranslate"><span class="pre">numage</span
 <p>Here are the numbers of rows, columns in the original data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">audit_data</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(1771, 370)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1771, 370)
 </pre></div>
 </div>
 </div>
@@ -1199,12 +1204,12 @@ to the <code class="docutils literal notranslate"><span class="pre">numage</span
 to the <code class="docutils literal notranslate"><span class="pre">ages</span></code> Series.  It returns the number of values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1771
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1771
 </pre></div>
 </div>
 </div>
@@ -1212,12 +1217,12 @@ to the <code class="docutils literal notranslate"><span class="pre">ages</span><
 <p>In fact, <code class="docutils literal notranslate"><span class="pre">len</span></code>, as applied to the <em>data frame</em>, returns the number of rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">audit_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1771
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1771
 </pre></div>
 </div>
 </div>
@@ -1229,7 +1234,7 @@ frames</span></a> notebook.   Hint: consider using the <code class="docutils lit
 method of the <code class="docutils literal notranslate"><span class="pre">ages</span></code> variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a histogram of the values in the &quot;numage&quot; column.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a histogram of the values in the &quot;numage&quot; column.</span>
 <span class="c1"># Your code here.</span>
 </pre></div>
 </div>
@@ -1242,24 +1247,24 @@ selecting the cases that have ages not equal to 0.</p>
 <p>Hint:  You have seen the operator to say whether two values are equal or no:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">==</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1267,12 +1272,12 @@ selecting the cases that have ages not equal to 0.</p>
 <p>The operator for <em>not equal</em> is <code class="docutils literal notranslate"><span class="pre">!=</span></code>, as in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1280,12 +1285,12 @@ selecting the cases that have ages not equal to 0.</p>
 <p>Prepare for brain-bending double negative…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -1300,7 +1305,7 @@ notebook for a reminder of making and using Boolean vectors to select rows from
 data frames.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new variable &quot;age_not_0&quot;, with True at positions where &quot;ages&quot; is not</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new variable &quot;age_not_0&quot;, with True at positions where &quot;ages&quot; is not</span>
 <span class="c1"># equal to 0, and False otherwise.</span>
 <span class="c1"># age_not_0 = ?</span>
 </pre></div>
@@ -1311,7 +1316,7 @@ data frames.</p>
 is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and throw away the rows where the value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.  To do this, index into the data frame with the Boolean Series you created above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows in the data frame where the age is not equal to 0.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows in the data frame where the age is not equal to 0.</span>
 <span class="c1"># Make a new data # frame called &quot;good_brexit&quot; that only contains these rows. </span>
 <span class="c1"># good_brexit = ...</span>
 </pre></div>
@@ -1327,7 +1332,7 @@ that 1 is the code for a No vote.</p>
 <code class="docutils literal notranslate"><span class="pre">good_brexit</span></code> data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;votes&quot; that refers to the &quot;cut15&quot; column in &quot;good_brexit&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new variable &quot;votes&quot; that refers to the &quot;cut15&quot; column in &quot;good_brexit&quot;.</span>
 <span class="c1"># Your code will start with</span>
 <span class="c1"># votes = ?</span>
 </pre></div>
@@ -1338,7 +1343,7 @@ that 1 is the code for a No vote.</p>
 equal to 1, and False otherwise.  Call this variable <code class="docutils literal notranslate"><span class="pre">is_remain</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_remain&quot;, that True for Remain row, False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_remain&quot;, that True for Remain row, False</span>
 <span class="c1"># otherwise.</span>
 <span class="c1"># is_remain = ?</span>
 </pre></div>
@@ -1349,7 +1354,7 @@ equal to 1, and False otherwise.  Call this variable <code class="docutils liter
 confessed “Remain” voters.  Call the new data frame <code class="docutils literal notranslate"><span class="pre">remainers</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Remain voters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Remain voters</span>
 <span class="c1"># remainers = good_brexit?</span>
 </pre></div>
 </div>
@@ -1358,7 +1363,7 @@ confessed “Remain” voters.  Call the new data frame <code class="docutils li
 <p>Do a histogram of the values in the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column of <code class="docutils literal notranslate"><span class="pre">remainers</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histogram of the `numage` column from `remainers`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histogram of the `numage` column from `remainers`</span>
 </pre></div>
 </div>
 </div>
@@ -1367,7 +1372,7 @@ confessed “Remain” voters.  Call the new data frame <code class="docutils li
 to vote Yes (leave) (code 2):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_leave&quot;, that True for Leave row, False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a Boolean vector, called &quot;is_leave&quot;, that True for Leave row, False</span>
 <span class="c1"># otherwise.</span>
 <span class="c1"># is_leave = ?</span>
 </pre></div>
@@ -1377,7 +1382,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Next, use <code class="docutils literal notranslate"><span class="pre">is_leave</span></code> to select the rows in <code class="docutils literal notranslate"><span class="pre">good_brexit</span></code> that correspond to confessed “Leave” voters.  Call the new data frame <code class="docutils literal notranslate"><span class="pre">leavers</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Leave voters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the rows from &quot;good_brexit&quot; that correspond to Leave voters</span>
 <span class="c1"># leavers = good_brexit?</span>
 </pre></div>
 </div>
@@ -1386,7 +1391,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Do a histogram of the values in the <code class="docutils literal notranslate"><span class="pre">numage</span></code> column of <code class="docutils literal notranslate"><span class="pre">leavers</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histgram of the `numage` column from `remainers`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show a histgram of the `numage` column from `remainers`</span>
 </pre></div>
 </div>
 </div>
@@ -1394,7 +1399,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Uncomment the lines in the cell below to get the total number of Remain voters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_remain = len(remainers)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_remain = len(remainers)</span>
 <span class="c1"># n_remain</span>
 </pre></div>
 </div>
@@ -1403,7 +1408,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Here is the total number of Leave voters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_leave = len(leavers)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_leave = len(leavers)</span>
 <span class="c1"># n_leave</span>
 </pre></div>
 </div>
@@ -1412,7 +1417,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Here is the total number of voters who confessed to a specific Leave or Remain vote:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_total = n_leave + n_remain</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_total = n_leave + n_remain</span>
 <span class="c1"># n_total</span>
 </pre></div>
 </div>
@@ -1421,7 +1426,7 @@ to vote Yes (leave) (code 2):</p>
 <p>Here is the proportion of Leave voters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># leave_proportion = n_leave / n_total</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># leave_proportion = n_leave / n_total</span>
 <span class="c1"># leave_proportion</span>
 </pre></div>
 </div>
@@ -1458,7 +1463,7 @@ Is <code class="docutils literal notranslate"><span class="pre">leave_proportion
 <p>to remind yourself about simulations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your simulation here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your simulation here</span>
 </pre></div>
 </div>
 </div>

@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/wild-pandas/text_encoding.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -688,7 +693,7 @@
 <h2>Pandas and encoding<a class="headerlink" href="#pandas-and-encoding" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
 </pre></div>
@@ -698,7 +703,7 @@
 <p>Consider the following annoying situation.  You can download the data file from <span class="xref myst">imdblet_latin.csv</span>.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">films</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;imdblet_latin.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">films</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;imdblet_latin.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -787,7 +792,7 @@ bytes — units of information in memory, represented as numbers.</p>
 <p>This is also true for text.  For example, here is a short piece of text:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A short piece of text</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A short piece of text</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Pandas&#39;</span>
 </pre></div>
 </div>
@@ -812,7 +817,7 @@ numbers in this format into text to show on screen.</p>
 <p>We can see that process in memory, in Python, like this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the text in &quot;name&quot; into bytes.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the text in &quot;name&quot; into bytes.</span>
 <span class="n">name_as_utf8_bytes</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="c1"># Show the bytes as numbers</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">name_as_utf8_bytes</span><span class="p">)</span>
@@ -820,7 +825,7 @@ numbers in this format into text to show on screen.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[80, 97, 110, 100, 97, 115]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 97, 110, 100, 97, 115]
 </pre></div>
 </div>
 </div>
@@ -833,14 +838,14 @@ characters, UTF-8 stores each character with a single byte (80 for ‘P’ , 97 
 into a piece of text, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the sequence of numbers (bytes) into text again.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the sequence of numbers (bytes) into text again.</span>
 <span class="n">name_again</span> <span class="o">=</span> <span class="n">name_as_utf8_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="n">name_again</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Pandas&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Pandas&#39;
 </pre></div>
 </div>
 </div>
@@ -850,7 +855,7 @@ of bytes that represent an enormous range of characters, including, for
 example, Mandarin and Cantonese Chinese characters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hello in Mandarin.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hello in Mandarin.</span>
 <span class="n">mandarin_hello</span> <span class="o">=</span> <span class="s2">&quot;你好&quot;</span>
 <span class="n">hello_as_bytes</span> <span class="o">=</span> <span class="n">mandarin_hello</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">hello_as_bytes</span><span class="p">)</span>
@@ -858,7 +863,7 @@ example, Mandarin and Cantonese Chinese characters.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[228, 189, 160, 229, 165, 189]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[228, 189, 160, 229, 165, 189]
 </pre></div>
 </div>
 </div>
@@ -875,13 +880,13 @@ languages, including characters with accents.</p>
 set of character-to-byte mappings as UTF-8 does – 80 for ‘P’ and so on:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name_as_latin1_bytes</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_as_latin1_bytes</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">name_as_latin1_bytes</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[80, 97, 110, 100, 97, 115]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 97, 110, 100, 97, 115]
 </pre></div>
 </div>
 </div>
@@ -892,7 +897,7 @@ Pérez</a>
 one of the founders of the Jupyter project you are using here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter_person</span> <span class="o">=</span> <span class="s1">&#39;Pérez&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter_person</span> <span class="o">=</span> <span class="s1">&#39;Pérez&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -900,13 +905,13 @@ one of the founders of the Jupyter project you are using here:</p>
 <p>Here are the bytes that UTF-8 needs to store that name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_utf8</span> <span class="o">=</span> <span class="n">jupyter_person</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_utf8</span> <span class="o">=</span> <span class="n">jupyter_person</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">fp_as_utf8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[80, 195, 169, 114, 101, 122]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 195, 169, 114, 101, 122]
 </pre></div>
 </div>
 </div>
@@ -916,13 +921,13 @@ one of the founders of the Jupyter project you are using here:</p>
 <p>In contrast, Latin 1 uses a single byte — 233 – to store the é:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_latin1</span> <span class="o">=</span> <span class="n">jupyter_person</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_latin1</span> <span class="o">=</span> <span class="n">jupyter_person</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">fp_as_latin1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[80, 233, 114, 101, 122]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[80, 233, 114, 101, 122]
 </pre></div>
 </div>
 </div>
@@ -930,7 +935,7 @@ one of the founders of the Jupyter project you are using here:</p>
 <p>Latin 1 has no idea what to do about Mandarin:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mandarin_hello</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mandarin_hello</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -950,7 +955,7 @@ Latin 1 format, and then tries to read it (decode) assuming it is in UTF-8
 format:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_latin1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_latin1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -971,12 +976,12 @@ format:</p>
 then read (decode) assuming the bytes are for Latin 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fp_as_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;PÃ©rez&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;PÃ©rez&#39;
 </pre></div>
 </div>
 </div>
@@ -995,7 +1000,7 @@ different <em>encoding</em> than the one that Pandas assumed.</p>
 1 encoding.  We can tell Pandas about this with the <code class="docutils literal notranslate"><span class="pre">encoding=</span></code> option:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">films</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;imdblet_latin.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">films</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;imdblet_latin.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="n">films</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>

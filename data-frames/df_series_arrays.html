@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/data-frames/df_series_arrays.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -706,7 +711,7 @@ the <span class="xref myst">rate_my_course.csv</span>
 file to the same directory as this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy library, rename to &quot;np&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy library, rename to &quot;np&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Load the Pandas data science library, rename to &quot;pd&quot;</span>
@@ -717,7 +722,7 @@ file to the same directory as this notebook.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file.</span>
 <span class="n">courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -725,7 +730,7 @@ file to the same directory as this notebook.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first five rows.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the first five rows.</span>
 <span class="n">courses</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -810,12 +815,12 @@ file to the same directory as this notebook.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> function returned this table in a structure called a <em>data frame</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -823,12 +828,12 @@ file to the same directory as this notebook.</p>
 <p>The data frame is a two-dimensional structure. It has rows, and columns.   We can see the number of rows and columns with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">courses</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">courses</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(75, 6)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(75, 6)
 </pre></div>
 </div>
 </div>
@@ -838,12 +843,12 @@ file to the same directory as this notebook.</p>
 <p>Passing the data frame to the Python <code class="docutils literal notranslate"><span class="pre">len</span></code> function shows us the number of rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">courses</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>75
 </pre></div>
 </div>
 </div>
@@ -861,7 +866,7 @@ file to the same directory as this notebook.</p>
 <p>When we index with a string, the string should be a column name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -869,12 +874,12 @@ file to the same directory as this notebook.</p>
 <p>The result is a <em>series</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">easiness</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">easiness</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -882,12 +887,12 @@ file to the same directory as this notebook.</p>
 <p>The Series is a structure that holds the data for a single column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     3.162754
 1     3.063322
 2     2.710459
 3     3.316210
@@ -907,7 +912,7 @@ Name: Easiness, Length: 75, dtype: float64
 <p>Notice that, if your string specifying the column name does not match a column name exactly, you will get a long error.   This gives you some practice in reading long error messages - skip to the end first, you will often see the most helpful information there.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The exact column name starts with capital E</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The exact column name starts with capital E</span>
 <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;easiness&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -971,7 +976,7 @@ Name: Easiness, Length: 75, dtype: float64
 <p>We first make the Boolean sequence, by asking the question <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">3.25</span></code> of the values in the “Easiness” column, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="mf">3.25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="mf">3.25</span>
 </pre></div>
 </div>
 </div>
@@ -979,24 +984,24 @@ Name: Easiness, Length: 75, dtype: float64
 <p>This is a series that has True and False values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">is_easy</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">is_easy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0     False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     False
 1     False
 2     False
 3      True
@@ -1017,7 +1022,7 @@ Name: Easiness, Length: 75, dtype: bool
 <p>When we do this, we ask the data frame to give us a new version of itself, that only has the rows where there was a True value in the Boolean series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_courses</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="n">is_easy</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easy_courses</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="n">is_easy</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1025,12 +1030,12 @@ Name: Easiness, Length: 75, dtype: bool
 <p>The result is a data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">easy_courses</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">easy_courses</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1043,7 @@ Name: Easiness, Length: 75, dtype: bool
 <p>The data frame contains only the rows where the “Easiness” score is greater than 3.25:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_courses</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easy_courses</span>
 </pre></div>
 </div>
 </div>
@@ -1358,7 +1363,7 @@ Name: Easiness, Length: 75, dtype: bool
 <p>The <code class="docutils literal notranslate"><span class="pre">head</span></code> method can take an argument, which is the number of rows we want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span> <span class="o">=</span> <span class="n">courses</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span> <span class="o">=</span> <span class="n">courses</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1366,19 +1371,19 @@ Name: Easiness, Length: 75, dtype: bool
 <p>The result is a new data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span>
 </pre></div>
 </div>
 </div>
@@ -1489,13 +1494,13 @@ Name: Easiness, Length: 75, dtype: bool
 <p>We index into the new data frame with a string, to get the “Easiness” column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
 <span class="n">easiness_first_8</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3.162754
 1    3.063322
 2    2.710459
 3    3.316210
@@ -1511,13 +1516,13 @@ Name: Easiness, dtype: float64
 <p>This Boolean series has True where the “Easiness” score is greater than 3.25, and False otherwise:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy_first_8</span> <span class="o">=</span> <span class="n">easiness_first_8</span> <span class="o">&gt;</span> <span class="mf">3.25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_easy_first_8</span> <span class="o">=</span> <span class="n">easiness_first_8</span> <span class="o">&gt;</span> <span class="mf">3.25</span>
 <span class="n">is_easy_first_8</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
 1    False
 2    False
 3     True
@@ -1533,7 +1538,7 @@ Name: Easiness, dtype: bool
 <p>We index into the <code class="docutils literal notranslate"><span class="pre">first_8</span></code> data frame with this Boolean series, to select the rows where <code class="docutils literal notranslate"><span class="pre">is_easy_first_8</span></code> has True, and throw away the rows where it has False.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="n">is_easy_first_8</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easy_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="n">is_easy_first_8</span><span class="p">]</span>
 <span class="n">easy_first_8</span>
 </pre></div>
 </div>
@@ -1596,7 +1601,7 @@ Name: Easiness, dtype: bool
 <p>The series, as you have seen, is the structure that Pandas uses to store the data from a column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_8</span>
 </pre></div>
 </div>
 </div>
@@ -1706,13 +1711,13 @@ Name: Easiness, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness_first_8</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s2">&quot;Easiness&quot;</span><span class="p">]</span>
 <span class="n">easiness_first_8</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3.162754
 1    3.063322
 2    2.710459
 3    3.316210
@@ -1729,13 +1734,13 @@ Name: Easiness, dtype: float64
 <p>For now, you can convert the series to an array, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easi_8</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">easiness_first_8</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easi_8</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">easiness_first_8</span><span class="p">)</span>
 <span class="n">easi_8</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ,
        2.65205418, 3.37982853, 3.17203268])
 </pre></div>
 </div>
@@ -1744,26 +1749,26 @@ Name: Easiness, dtype: float64
 <p>Then you can use the usual <a class="reference internal" href="../arrays-iteration/array_indexing.html"><span class="doc std std-doc">array indexing</span></a> to get the values you want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first value</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first value</span>
 <span class="n">easi_8</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.1627541447114904
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1627541447114904
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first five values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The first five values</span>
 <span class="n">easi_8</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ])
 </pre></div>
 </div>
 </div>
@@ -1772,13 +1777,13 @@ Name: Easiness, dtype: float64
 <p>Here I take two columns from the data frame, as series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
 <span class="n">disciplines</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0           English
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0           English
 1       Mathematics
 2           Biology
 3        Psychology
@@ -1793,13 +1798,13 @@ Name: Discipline, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span> <span class="o">=</span> <span class="n">first_8</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span>
 <span class="n">clarity</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    3.756147
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    3.756147
 1    3.487379
 2    3.608331
 3    3.909520
@@ -1815,7 +1820,7 @@ Name: Clarity, dtype: float64
 <p>I can make a new data frame by inserting these two columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A new data frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A new data frame</span>
 <span class="n">thinner_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">disciplines</span>
 <span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clarity</span>

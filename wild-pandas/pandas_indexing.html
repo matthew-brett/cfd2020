@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/wild-pandas/pandas_indexing.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -705,7 +710,7 @@ and Series.</p>
 <p>We start with our usual imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy library, rename to &quot;np&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy library, rename to &quot;np&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Load the Pandas data science library, rename to &quot;pd&quot;</span>
@@ -726,7 +731,7 @@ some more detail.</p>
 on your own computer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data file as a data frame.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data file as a data frame.</span>
 <span class="n">gender_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;gender_stats.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># Show the first 10 rows</span>
@@ -894,12 +899,12 @@ columns.  We can see these names using the <code class="docutils literal notrans
 frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
        &#39;health_exp_per_cap&#39;, &#39;health_exp_pub&#39;, &#39;prim_ed_girls&#39;,
        &#39;mat_mort_ratio&#39;, &#39;population&#39;],
       dtype=&#39;object&#39;)
@@ -917,12 +922,12 @@ labels</em>.</p>
 <p>We can see the row labels / index with the <code class="docutils literal notranslate"><span class="pre">index</span></code> attribute of the data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=216, step=1)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=216, step=1)
 </pre></div>
 </div>
 </div>
@@ -935,7 +940,7 @@ second row.  We will soon see that the index is more than that.</p>
 method of the data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">last_15</span> <span class="o">=</span> <span class="n">gender_data</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_15</span> <span class="o">=</span> <span class="n">gender_data</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">last_15</span>
 </pre></div>
 </div>
@@ -1158,12 +1163,12 @@ method of the data frame.</p>
 <p>Here is the <code class="docutils literal notranslate"><span class="pre">index</span></code> of this new data frame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">last_15</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_15</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=201, stop=216, step=1)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=201, stop=216, step=1)
 </pre></div>
 </div>
 </div>
@@ -1177,7 +1182,7 @@ which we selected the rows.</p>
 select the top 15 rows.  By doing this, I select the top 15 richest countries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort by GDP.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort by GDP.</span>
 <span class="n">df_by_gdp</span> <span class="o">=</span> <span class="n">gender_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Take the top 15 rows.</span>
 <span class="n">richest_15</span> <span class="o">=</span> <span class="n">df_by_gdp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
@@ -1406,12 +1411,12 @@ for the USA is now first, but it has kept its original index value (row label)
 <p>Here is the index for this small table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67, 63, 26, 88, 94, 164, 32, 10, 104, 58, 124], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67, 63, 26, 88, 94, 164, 32, 10, 104, 58, 124], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -1436,13 +1441,13 @@ type of indexing.</p>
 <p>Here they are in action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the row with label 10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the row with label 10</span>
 <span class="n">richest_15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>country_name          Australia
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name          Australia
 country_code                AUS
 fert_rate                1.8615
 gdp_us_billion          1422.99
@@ -1458,13 +1463,13 @@ Name: 10, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the row at position / offset 10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the row at position / offset 10</span>
 <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>country_name           Canada
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name           Canada
 country_code              CAN
 fert_rate              1.6003
 gdp_us_billion        1708.47
@@ -1513,12 +1518,12 @@ Then you want <code class="docutils literal notranslate"><span class="pre">.loc<
 label for the <em>column</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1422.994116449394
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1422.994116449394
 </pre></div>
 </div>
 </div>
@@ -1529,7 +1534,7 @@ label for the <em>column</em>.</p>
 understand or use labels:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can&#39;t specify columns by label, using iloc.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can&#39;t specify columns by label, using iloc.</span>
 <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1588,12 +1593,12 @@ third column, and so we can get the fertility rate by asking <code class="docuti
 eleventh row, third column, like so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.6002999999999998
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6002999999999998
 </pre></div>
 </div>
 </div>
@@ -1608,14 +1613,14 @@ index).</p>
 <p>Consider this column, of the fertility rates of the richest countries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the fert_rate column from the data frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the fert_rate column from the data frame</span>
 <span class="n">rich_ferts</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="s1">&#39;fert_rate&#39;</span><span class="p">]</span>
 <span class="n">rich_ferts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    1.860875
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202    1.860875
 35     1.558750
 97     1.430000
 49     1.450000
@@ -1628,12 +1633,12 @@ Name: fert_rate, dtype: float64
 <p>As y’all know, this is a Series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">rich_ferts</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">rich_ferts</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -1645,12 +1650,12 @@ the first element has row label 202, and we remember that this is the row label
 <p>As for the data frames, here is the index for the series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rich_ferts</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich_ferts</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67, 63, 26, 88, 94, 164, 32, 10, 104, 58, 124], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67, 63, 26, 88, 94, 164, 32, 10, 104, 58, 124], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -1659,26 +1664,26 @@ the first element has row label 202, and we remember that this is the row label
 <code class="docutils literal notranslate"><span class="pre">iloc</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value for row labeled 10 - Australia.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value for row labeled 10 - Australia.</span>
 <span class="n">rich_ferts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.8615
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8615
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value for the row at position 10 - Canada</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value for the row at position 10 - Canada</span>
 <span class="n">rich_ferts</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.6002999999999998
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6002999999999998
 </pre></div>
 </div>
 </div>
@@ -1689,13 +1694,13 @@ the first element has row label 202, and we remember that this is the row label
 <p>Here we select the row at position 0 (the first row):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>country_name          United States
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name          United States
 country_code                    USA
 fert_rate                   1.86088
 gdp_us_billion              17369.1
@@ -1712,12 +1717,12 @@ Name: 202, dtype: object
 <p>This is a Series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -1727,12 +1732,12 @@ Name: 202, dtype: object
 with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_15</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(15, 9)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15, 9)
 </pre></div>
 </div>
 </div>
@@ -1742,12 +1747,12 @@ with:</p>
 the labels for the columns now become the labels for the rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
        &#39;health_exp_per_cap&#39;, &#39;health_exp_pub&#39;, &#39;prim_ed_girls&#39;,
        &#39;mat_mort_ratio&#39;, &#39;population&#39;],
       dtype=&#39;object&#39;)
@@ -1758,12 +1763,12 @@ the labels for the columns now become the labels for the rows.</p>
 <p>As for any other Series, we can get elements by label, with <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;fert_rate&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;fert_rate&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.860875
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.860875
 </pre></div>
 </div>
 </div>
@@ -1771,12 +1776,12 @@ the labels for the columns now become the labels for the rows.</p>
 <p>We can also get elements by position (offset), with <code class="docutils literal notranslate"><span class="pre">iloc</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;United States&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;United States&#39;
 </pre></div>
 </div>
 </div>
@@ -1796,7 +1801,7 @@ a very reasonable thing to do if:</p>
 <p>For example, both of these are entirely reasonable uses of direct indexing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct Boolean indexing:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct Boolean indexing:</span>
 <span class="c1"># Select rows where &#39;health_exp_per_cap&#39; is greater than 3000 dollars.</span>
 <span class="n">is_big_spender</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="s1">&#39;health_exp_per_cap&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3000</span>  <span class="c1"># Boolean Series</span>
 <span class="n">big_health_spenders</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">]</span>
@@ -1937,7 +1942,7 @@ a very reasonable thing to do if:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with column label:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct indexing with column label:</span>
 <span class="c1"># Select the &#39;country_code&#39; column.</span>
 <span class="n">country_code</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="s1">&#39;country_code&#39;</span><span class="p">]</span>
 <span class="n">country_code</span>
@@ -1945,7 +1950,7 @@ a very reasonable thing to do if:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    USA
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202    USA
 35     CHN
 97     JPN
 49     DEU
@@ -1969,13 +1974,13 @@ Name: country_code, dtype: object
 <p>For example, Pandas will also allow you to this, with the Series we just made:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nooooooo !</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nooooooo !</span>
 <span class="n">country_code</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;AUS&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AUS&#39;
 </pre></div>
 </div>
 </div>
@@ -1986,13 +1991,13 @@ you.  Don’t let it.  If you are not selecting rows / elements with Booleans,
 always do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># By label</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># By label</span>
 <span class="n">country_code</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;AUS&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AUS&#39;
 </pre></div>
 </div>
 </div>
@@ -2000,13 +2005,13 @@ always do this:</p>
 <p>or this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># By position</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># By position</span>
 <span class="n">country_code</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;CAN&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;CAN&#39;
 </pre></div>
 </div>
 </div>
@@ -2017,14 +2022,14 @@ always do this:</p>
 <p>It is often convenient to use direct indexing with Booleans, as we have just seen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Boolean series with True for big spender rows, False otherwise.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Boolean series with True for big spender rows, False otherwise.</span>
 <span class="n">is_big_spender</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="s1">&#39;health_exp_per_cap&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3000</span>
 <span class="n">is_big_spender</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202     True
 35     False
 97      True
 49      True
@@ -2046,7 +2051,7 @@ Name: health_exp_per_cap, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct Boolean indexing:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct Boolean indexing:</span>
 <span class="c1"># Select rows where &#39;health_exp_per_cap&#39; is greater than 3000 dollars.</span>
 <span class="n">big_health_spenders</span> <span class="o">=</span> <span class="n">richest_15</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">]</span>
 <span class="n">big_health_spenders</span>
@@ -2189,7 +2194,7 @@ as selecting rows with Booleans, and columns with labels, in one shot, like
 this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean indexing for rows, with &quot;loc&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boolean indexing for rows, with &quot;loc&quot;</span>
 <span class="c1"># Get &quot;country_name&quot; column values for big health spenders:</span>
 <span class="n">big_spender_names</span> <span class="o">=</span> <span class="n">richest_15</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">]</span>
 <span class="n">big_spender_names</span>
@@ -2197,7 +2202,7 @@ this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     United States
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202     United States
 97              Japan
 49            Germany
 67     United Kingdom

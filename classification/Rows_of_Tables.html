@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/classification/Rows_of_Tables.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -699,9 +704,9 @@
 <h1>Rows of tables<a class="headerlink" href="#rows-of-tables" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -711,7 +716,7 @@
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 
 <span class="k">def</span> <span class="nf">standard_units</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -726,7 +731,7 @@
 <p>The data file is <span class="xref myst">ckd.csv</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ckd.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ckd_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ckd.csv&#39;</span><span class="p">)</span>
 <span class="n">ckd_full</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -906,13 +911,13 @@
 <p>We do this with Pandas’ <em>indexing</em> selection, attached to the <code class="docutils literal notranslate"><span class="pre">iloc</span></code> attribute of the data frame, for Indexed LOCate, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">ckd_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">ckd_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Age                                48
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age                                48
 Blood Pressure                     70
 Specific Gravity                1.005
 Albumin                             4
@@ -945,12 +950,12 @@ Name: 0, dtype: object
 <p>If the display for this row looks suspiciously like the display you see when fetching a single column from a data frame, this is not a co-incidence.  The row is also a Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
@@ -965,12 +970,12 @@ row can’t be converted into floating point values or integers.</p>
 <p>For example, to access the Albumin level of Patient 0, we can look at the labels in the printout of the row above to find that it’s the item at index position 3. We can fetch the value with indexing. Again, we use <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, this time indexing into the <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -981,7 +986,7 @@ row can’t be converted into floating point values or integers.</p>
 <p>Recall that in the previous section we tried to classify the patients as ‘CKD’ or ‘not CKD’, based on two attributes <code class="docutils literal notranslate"><span class="pre">Hemoglobin</span></code> and <code class="docutils literal notranslate"><span class="pre">Glucose</span></code>, both measured in standard units.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ckd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standard_units</span><span class="p">(</span><span class="n">ckd_full</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">])</span>
 <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Glucose&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standard_units</span><span class="p">(</span><span class="n">ckd_full</span><span class="p">[</span><span class="s1">&#39;Blood Glucose Random&#39;</span><span class="p">])</span>
 <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ckd_full</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span>
@@ -1051,7 +1056,7 @@ row can’t be converted into floating point values or integers.</p>
 <p>We add the colors for each point, to reflect the Class (with kidney disease or without).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span>
 <span class="n">ckd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gold&#39;</span>
 <span class="n">ckd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1125,7 +1130,7 @@ row can’t be converted into floating point values or integers.</p>
 <p>Here is a scatter plot of the two attributes, along with a red point corresponding to Alice, a new patient. Her value of hemoglobin is 0 (that is, at the average) and glucose 1.1 (that is, 1.1 SDs above average).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
 <span class="n">ckd</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">,</span>
                  <span class="n">c</span><span class="o">=</span><span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
@@ -1139,7 +1144,7 @@ row can’t be converted into floating point values or integers.</p>
 <p>To find the distance between Alice’s point and any of the other points, we only need the values of the attributes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select Hemoglobin and Glucose columns from the data frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select Hemoglobin and Glucose columns from the data frame</span>
 <span class="n">ckd_attributes</span> <span class="o">=</span> <span class="n">ckd</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">,</span> <span class="s1">&#39;Glucose&#39;</span><span class="p">]]</span>
 <span class="n">ckd_attributes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1201,12 +1206,12 @@ row can’t be converted into floating point values or integers.</p>
 <p>Each row consists of the coordinates of one point in our training sample. <strong>Because the rows now consist only of numerical values</strong>, it is possible to convert them to numerical arrays.  For this, we use the function <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, which converts any kind of sequential object, like a row, to an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Hemoglobin   -2.814879
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hemoglobin   -2.814879
 Glucose       0.396364
 Name: 3, dtype: float64
 </pre></div>
@@ -1215,12 +1220,12 @@ Name: 3, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-2.81487943,  0.39636401])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.81487943,  0.39636401])
 </pre></div>
 </div>
 </div>
@@ -1239,26 +1244,26 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 <p>In the next section we’ll see that this formula has a straightforward extension when there are more than two attributes. For now, let’s use the formula and array operations to find the distance between Alice and the patient in Row 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">patient3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">patient3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">alice</span><span class="p">,</span> <span class="n">patient3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(array([0. , 1.1]), array([-2.81487943,  0.39636401]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0. , 1.1]), array([-2.81487943,  0.39636401]))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">alice</span> <span class="o">-</span> <span class="n">patient3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">alice</span> <span class="o">-</span> <span class="n">patient3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">distance</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.901490965127261
 </pre></div>
 </div>
 </div>
@@ -1266,7 +1271,7 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 <p>We’re going to need the distance between Alice and a bunch of points, so let’s write a function called <code class="docutils literal notranslate"><span class="pre">distance</span></code> that computes the distance between any pair of points. The function will take two arrays, each containing the <span class="math notranslate nohighlight">\((x, y)\)</span> coordinates of a point.  (Remember, those are really the Hemoglobin and Glucose levels of a patient.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns the Euclidean distance between point1 and point2.</span>
 
 <span class="sd">    Each argument is an array containing the coordinates of a point.&quot;&quot;&quot;</span>
@@ -1277,12 +1282,12 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">alice</span><span class="p">,</span> <span class="n">patient3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance</span><span class="p">(</span><span class="n">alice</span><span class="p">,</span> <span class="n">patient3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.901490965127261
 </pre></div>
 </div>
 </div>
@@ -1296,7 +1301,7 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 <p>Let’s see how this works on a very small table <code class="docutils literal notranslate"><span class="pre">t</span></code> containing the information about the first five patients in the training sample.  Here we are using <code class="docutils literal notranslate"><span class="pre">iloc</span></code> again, to get values from the data frame by index.  In this case, we want the first five rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">t</span>
 </pre></div>
 </div>
@@ -1358,7 +1363,7 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 <p>That’s the same as taking the maximum of the absolute values of the two quantities. To do this for a particular row, we can convert the row to an array and use array operations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_abs</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_abs</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -1366,12 +1371,12 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">max_abs</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_abs</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.0839536249919064
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0839536249919064
 </pre></div>
 </div>
 </div>
@@ -1379,12 +1384,12 @@ D = \sqrt{(x_0-x_1)^2 + (y_0-y_1)^2}
 <p>And now we can apply <code class="docutils literal notranslate"><span class="pre">max_abs</span></code> to each row of the table <code class="docutils literal notranslate"><span class="pre">t</span></code>. We pass the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument to tell Pandas to apply the function along the <em>rows</em> (and therefore along the second axis).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_abs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0    0.865744
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.865744
 1    1.457446
 2    3.841231
 3    2.814879
@@ -1408,12 +1413,12 @@ dtype: float64
 <p>Here’s Alice:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alice</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alice</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0. , 1.1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0. , 1.1])
 </pre></div>
 </div>
 </div>
@@ -1421,7 +1426,7 @@ dtype: float64
 <p>What we need is a function that finds the distance between Alice and another point whose coordinates are contained in a row. The function <code class="docutils literal notranslate"><span class="pre">distance</span></code> returns the distance between any two points whose coordinates are in arrays. We can use that to define <code class="docutils literal notranslate"><span class="pre">distance_from_alice</span></code>, which takes a row as its argument and returns the distance between that row and Alice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance_from_alice</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">distance_from_alice</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns distance between Alice and a row of the attributes table&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">distance</span><span class="p">(</span><span class="n">alice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
 </pre></div>
@@ -1430,12 +1435,12 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distance_from_alice</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance_from_alice</span><span class="p">(</span><span class="n">ckd_attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.901490965127261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.901490965127261
 </pre></div>
 </div>
 </div>
@@ -1443,7 +1448,7 @@ dtype: float64
 <p>Now we can <code class="docutils literal notranslate"><span class="pre">apply</span></code> the function <code class="docutils literal notranslate"><span class="pre">distance_from_alice</span></code> to each row of <code class="docutils literal notranslate"><span class="pre">ckd_attributes</span></code>, and augment the table <code class="docutils literal notranslate"><span class="pre">ckd</span></code> with the distances. Step 1 is complete!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="n">ckd_attributes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">distance_from_alice</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distances</span> <span class="o">=</span> <span class="n">ckd_attributes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">distance_from_alice</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ckd_with_distances</span> <span class="o">=</span> <span class="n">ckd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">ckd_with_distances</span><span class="p">[</span><span class="s1">&#39;Distance from Alice&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">distances</span>
 <span class="n">ckd_with_distances</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1524,7 +1529,7 @@ dtype: float64
 <p>For Step 2, let’s sort the table in increasing order of distance:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_by_distance</span> <span class="o">=</span> <span class="n">ckd_with_distances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Distance from Alice&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_by_distance</span> <span class="o">=</span> <span class="n">ckd_with_distances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Distance from Alice&#39;</span><span class="p">)</span>
 <span class="n">sorted_by_distance</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1603,7 +1608,7 @@ dtype: float64
 <p>Step 3: The top 5 rows correspond to Alice’s 5 nearest neighbors; you can replace 5 by any other positive integer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alice_5_nearest_neighbors</span> <span class="o">=</span> <span class="n">sorted_by_distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alice_5_nearest_neighbors</span> <span class="o">=</span> <span class="n">sorted_by_distance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">alice_5_nearest_neighbors</span>
 </pre></div>
 </div>

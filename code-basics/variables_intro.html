@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/code-basics/variables_intro.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -693,13 +698,13 @@
 <p>Here’s the calculation for the tip.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip - mistake fixed.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip - mistake fixed.</span>
 <span class="p">(</span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.9625
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.9625
 </pre></div>
 </div>
 </div>
@@ -707,13 +712,13 @@
 <p>We then had to add this to the total before tip, to get the grand total:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip</span>
 <span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span> <span class="o">+</span> <span class="p">(</span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>22.7125
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.7125
 </pre></div>
 </div>
 </div>
@@ -721,13 +726,13 @@
 <p>But - what if Alex changes her mind, and wants to have the aubergine gratin, for £8.95?  We have to type the whole calculation out again, but change the previous £10.50 (the fish) to the current £8.95 (the aubergine), like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip, with Alex having aubergine.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip, with Alex having aubergine.</span>
 <span class="mf">8.95</span> <span class="o">+</span> <span class="mf">9.25</span> <span class="o">+</span> <span class="p">(</span><span class="mf">8.95</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>20.93
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.93
 </pre></div>
 </div>
 </div>
@@ -739,13 +744,13 @@
 <p>Remember when we calculated the total bill before tip:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total bill, before tip.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total bill, before tip.</span>
 <span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -766,14 +771,14 @@ back a value, and shows it to us.</p>
 <p>Now consider this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -782,7 +787,7 @@ back a value, and shows it to us.</p>
 <p>Let’s consider the first line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
 </pre></div>
 </div>
 </div>
@@ -812,7 +817,7 @@ also call it an <em>object</em>, but don’t worry about that for now).</p>
 happening:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;a&#39; gets the value 10.50</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;a&#39; gets the value 10.50</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
 </pre></div>
 </div>
@@ -821,13 +826,13 @@ happening:</p>
 <p>Let’s use the new label <code class="docutils literal notranslate"><span class="pre">a</span></code> by putting it on a line on its own, in a code cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the value of &quot;a&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the value of &quot;a&quot;</span>
 <span class="n">a</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.5
 </pre></div>
 </div>
 </div>
@@ -837,7 +842,7 @@ happening:</p>
 <p>Now we go back to the original three lines.  Run this cell:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set &#39;a&#39; and &#39;b&#39;, then show the result of adding &#39;a&#39; and &#39;b&#39;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set &#39;a&#39; and &#39;b&#39;, then show the result of adding &#39;a&#39; and &#39;b&#39;.</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -845,7 +850,7 @@ happening:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -875,7 +880,7 @@ multiple letters, it just uses the name as a label to refer to the value.  So
 we could write the same calculations like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different, longer names.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different, longer names.</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">beta</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">alpha</span> <span class="o">+</span> <span class="n">beta</span>
@@ -883,7 +888,7 @@ we could write the same calculations like this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -893,7 +898,7 @@ we could write the same calculations like this:</p>
 <p>You will find it very useful to use good variable names.  A good variable name is a name that reminds you what the value represents.  For example, we could write this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Better variable names</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Better variable names</span>
 <span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
@@ -901,7 +906,7 @@ we could write the same calculations like this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -910,7 +915,7 @@ we could write the same calculations like this:</p>
 <p>Finally, we might also put the total into its own variable, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total gets its own variable.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total gets its own variable.</span>
 <span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
@@ -920,7 +925,7 @@ we could write the same calculations like this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -928,7 +933,7 @@ we could write the same calculations like this:</p>
 <p>Again, the name <code class="docutils literal notranslate"><span class="pre">total</span></code> is a good one, because it reminds us what the value means, but it is nothing special to Python - we could have called it <code class="docutils literal notranslate"><span class="pre">bandersnatch</span></code> and we would get the same result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total variable, with funny name.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total variable, with funny name.</span>
 <span class="n">alex_main</span> <span class="o">=</span> <span class="mf">10.50</span>
 <span class="n">billie_main</span> <span class="o">=</span> <span class="mf">9.25</span>
 <span class="n">bandersnatch</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
@@ -938,7 +943,7 @@ we could write the same calculations like this:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -947,13 +952,13 @@ we could write the same calculations like this:</p>
 of the bill plus tip in a rather simple and readable way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip, again.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip, again.</span>
 <span class="n">total</span> <span class="o">+</span> <span class="n">total</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>22.7125
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.7125
 </pre></div>
 </div>
 </div>
@@ -961,7 +966,7 @@ of the bill plus tip in a rather simple and readable way:</p>
 <p>It also means that we can change our minds about the individual amounts, but still keep the same bit of code.  Here’s the calculation of the total and tip, again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total and total plus tip, again.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total and total plus tip, again.</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">alex_main</span> <span class="o">+</span> <span class="n">billie_main</span>
 <span class="c1"># Calculate and show the result.</span>
 <span class="n">total</span> <span class="o">+</span> <span class="n">total</span> <span class="o">*</span> <span class="mf">0.15</span>
@@ -969,7 +974,7 @@ of the bill plus tip in a rather simple and readable way:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>22.7125
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.7125
 </pre></div>
 </div>
 </div>
@@ -977,7 +982,7 @@ of the bill plus tip in a rather simple and readable way:</p>
 <p>Now Alex has changed her mind, all we need to do is change her variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alex wants the aubergine gratin.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alex wants the aubergine gratin.</span>
 <span class="n">alex_main</span> <span class="o">=</span> <span class="mf">8.95</span>
 </pre></div>
 </div>

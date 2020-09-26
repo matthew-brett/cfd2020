@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/permutation/permutation_idea.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -724,14 +729,14 @@ page</a> for
 more details on the dataset, and <a class="reference internal" href="../data/LICENSE.html"><span class="doc std std-doc">the data license page</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Numpy library, rename as &quot;np&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Numpy library, rename as &quot;np&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># Import Pandas library, rename as &quot;pd&quot;</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Set up plotting</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -739,7 +744,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
 <span class="c1"># An extra tweak to make sure we always get the same random numbers.</span>
 <span class="c1"># Do not use this in your own code; you nearly always want an unpredictable</span>
 <span class="c1"># stream of random numbers.  Making them predictable in this way only makes</span>
@@ -752,7 +757,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>Read in the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mosquito_beer.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mosquito_beer.csv&#39;</span><span class="p">)</span>
 <span class="n">mosquitoes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -873,7 +878,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>Filter the data frame to contain only the “after” treatment rows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># After treatment rows.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># After treatment rows.</span>
 <span class="n">afters</span> <span class="o">=</span> <span class="n">mosquitoes</span><span class="p">[</span><span class="n">mosquitoes</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;after&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -882,7 +887,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>Filter the “after” rows to contain only the “beer” group, and get the number of activated mosquitoes for these 25 subjects:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># After beer treatment rows.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># After beer treatment rows.</span>
 <span class="n">beers</span> <span class="o">=</span> <span class="n">afters</span><span class="p">[</span><span class="n">afters</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;beer&#39;</span><span class="p">]</span>
 <span class="c1"># The &#39;activated&#39; numbers for the after beer rows.</span>
 <span class="n">beer_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">beers</span><span class="p">[</span><span class="s1">&#39;activated&#39;</span><span class="p">])</span>
@@ -891,7 +896,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([14, 33, 27, 11, 12, 27, 26, 25, 27, 27, 22, 36, 37,  3, 23,  7, 25,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14, 33, 27, 11, 12, 27, 26, 25, 27, 27, 22, 36, 37,  3, 23,  7, 25,
        17, 36, 31, 30, 22, 20, 29, 23])
 </pre></div>
 </div>
@@ -900,13 +905,13 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>The number of subjects in the “beer” condition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_beer</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_beer</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
 <span class="n">n_beer</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>25
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
 </pre></div>
 </div>
 </div>
@@ -914,7 +919,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>Get the “activated” number for the 18 subjects in the “water” group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same for the water group.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same for the water group.</span>
 <span class="n">waters</span> <span class="o">=</span> <span class="n">afters</span><span class="p">[</span><span class="n">afters</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;water&#39;</span><span class="p">]</span>
 <span class="n">water_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">waters</span><span class="p">[</span><span class="s1">&#39;activated&#39;</span><span class="p">])</span>
 <span class="n">water_activated</span>
@@ -922,7 +927,7 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([33, 23, 23, 13, 24,  8,  4, 21, 24, 21, 26, 27, 22, 21, 25, 20,  7,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([33, 23, 23, 13, 24,  8,  4, 21, 24, 21, 26, 27, 22, 21, 25, 20,  7,
         3])
 </pre></div>
 </div>
@@ -931,13 +936,13 @@ more details on the dataset, and <a class="reference internal" href="../data/LIC
 <p>Number of subjects in the “water” condition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_water</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_water</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
 <span class="n">n_water</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>18
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18
 </pre></div>
 </div>
 </div>
@@ -968,13 +973,13 @@ numbers for the “water” group, in blue:</p>
 <p><img alt="" src="../_images/beer_mean.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">beer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
 <span class="n">beer_mean</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>23.6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.6
 </pre></div>
 </div>
 </div>
@@ -984,13 +989,13 @@ blue):</p>
 <p><img alt="" src="../_images/water_mean.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">water_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">water_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
 <span class="n">water_mean</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.166666666666668
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.166666666666668
 </pre></div>
 </div>
 </div>
@@ -998,13 +1003,13 @@ blue):</p>
 <p>The difference between the means in our data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">observed_difference</span> <span class="o">=</span> <span class="n">beer_mean</span> <span class="o">-</span> <span class="n">water_mean</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_difference</span> <span class="o">=</span> <span class="n">beer_mean</span> <span class="o">-</span> <span class="n">water_mean</span>
 <span class="n">observed_difference</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4.433333333333334
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.433333333333334
 </pre></div>
 </div>
 </div>
@@ -1016,13 +1021,13 @@ blue):</p>
 array, 25 + 18 values long.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
 <span class="n">pooled</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([14, 33, 27, 11, 12, 27, 26, 25, 27, 27, 22, 36, 37,  3, 23,  7, 25,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14, 33, 27, 11, 12, 27, 26, 25, 27, 27, 22, 36, 37,  3, 23,  7, 25,
        17, 36, 31, 30, 22, 20, 29, 23, 33, 23, 23, 13, 24,  8,  4, 21, 24,
        21, 26, 27, 22, 21, 25, 20,  7,  3])
 </pre></div>
@@ -1036,13 +1041,13 @@ array, 25 + 18 values long.</p>
 mixed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 <span class="n">pooled</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([22, 23, 33, 27, 21, 25, 12, 37, 27, 11, 26, 23,  4, 31, 17,  3, 20,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([22, 23, 33, 27, 21, 25, 12, 37, 27, 11, 26, 23,  4, 31, 17,  3, 20,
         7, 27, 25,  8, 23, 14, 24,  7, 27, 36, 21, 33,  3, 22, 27, 24, 29,
        26, 22, 20, 36, 30, 25, 23, 13, 21])
 </pre></div>
@@ -1058,7 +1063,7 @@ mixed.</p>
 are a random mixture of the beer and the water values.  This is the same idea as taking 25 balls at random from the jumbled mix of gold and blue balls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the first 25 values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the first 25 values</span>
 <span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1068,13 +1073,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We calculate the mean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span>
 <span class="n">fake_beer_mean</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.88
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.88
 </pre></div>
 </div>
 </div>
@@ -1082,7 +1087,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>Then we take the remaining 18 values as our fake water group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -1091,13 +1096,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We take the mean of these too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
 <span class="n">fake_water_mean</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>24.333333333333332
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.333333333333332
 </pre></div>
 </div>
 </div>
@@ -1105,13 +1110,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>The difference between these means is our first estimate of how much the mean difference will vary when we take random samples from this pooled population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_diff</span> <span class="o">=</span> <span class="n">fake_beer_mean</span> <span class="o">-</span> <span class="n">fake_water_mean</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_diff</span> <span class="o">=</span> <span class="n">fake_beer_mean</span> <span class="o">-</span> <span class="n">fake_water_mean</span>
 <span class="n">fake_diff</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-4.453333333333333
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.453333333333333
 </pre></div>
 </div>
 </div>
@@ -1122,7 +1127,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We do another shuffle:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1131,13 +1136,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We take another fake beer group, and calculate another fake beer mean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>20.6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.6
 </pre></div>
 </div>
 </div>
@@ -1146,13 +1151,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p><img alt="" src="../_images/fake_water_mean1.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>23.333333333333332
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.333333333333332
 </pre></div>
 </div>
 </div>
@@ -1160,12 +1165,12 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>Now we have another example difference between these means:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-2.7333333333333307
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.7333333333333307
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1179,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 differences:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shuffle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shuffle</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 <span class="c1"># Split</span>
 <span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
@@ -1186,7 +1191,7 @@ differences:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-5.21777777777778
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5.21777777777778
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1199,7 @@ differences:</p>
 <p>It is not hard to do this as many times as we want, using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># Shuffle</span>
     <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
@@ -1217,13 +1222,13 @@ differences:</p>
 <p>To do this we calculate how many of the fake differences we generated are equal to or greater than the difference we observe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_ge_actual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">fake_differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_ge_actual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">fake_differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span>
 <span class="n">n_ge_actual</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>595
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>595
 </pre></div>
 </div>
 </div>
@@ -1231,13 +1236,13 @@ differences:</p>
 <p>That means that the chance of any one difference being greater than the one we observe is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_ge_actual</span> <span class="o">=</span> <span class="n">n_ge_actual</span> <span class="o">/</span> <span class="mi">10000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_ge_actual</span> <span class="o">=</span> <span class="n">n_ge_actual</span> <span class="o">/</span> <span class="mi">10000</span>
 <span class="n">p_ge_actual</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0595
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0595
 </pre></div>
 </div>
 </div>

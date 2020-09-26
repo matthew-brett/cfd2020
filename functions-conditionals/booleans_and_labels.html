@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/functions-conditionals/booleans_and_labels.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -674,7 +679,7 @@ intro</span></a> and the <a class="reference internal" href="../wild-pandas/pand
 page</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
@@ -682,7 +687,7 @@ page</span></a>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data file as a data frame.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data file as a data frame.</span>
 <span class="n">gender_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;gender_stats.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># Sort by GDP.</span>
@@ -791,12 +796,12 @@ page</span></a>.</p>
 <p>Consider the index (row labels) of this 5-row data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -806,14 +811,14 @@ is a Boolean series with True for rows where <code class="docutils literal notra
 than 3500 dollars, False otherwise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Boolean series with True for big spender rows, False otherwise.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Boolean series with True for big spender rows, False otherwise.</span>
 <span class="n">is_big_spender</span> <span class="o">=</span> <span class="n">richest_5</span><span class="p">[</span><span class="s1">&#39;health_exp_per_cap&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3500</span>
 <span class="n">is_big_spender</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202     True
 35     False
 97      True
 49      True
@@ -829,12 +834,12 @@ the index from the Series we used to make it
 the data frame (<code class="docutils literal notranslate"><span class="pre">richest_5</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -844,12 +849,12 @@ than 3500 dollars per capita on health care.  We can do this with, for example,
 <code class="docutils literal notranslate"><span class="pre">loc</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    United States
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202    United States
 97             Japan
 49           Germany
 Name: country_name, dtype: object
@@ -864,12 +869,12 @@ position?   Or in terms of index (row / element labels)?</p>
 <p>Here’s the Boolean series again:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_big_spender</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202     True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202     True
 35     False
 97      True
 49      True
@@ -894,13 +899,13 @@ order of the labels is the same in the data frame <code class="docutils literal 
 series and the data frame.  For example, we can sort the series, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_is_big_spender</span> <span class="o">=</span> <span class="n">is_big_spender</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_is_big_spender</span> <span class="o">=</span> <span class="n">is_big_spender</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
 <span class="n">sorted_is_big_spender</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>35     False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35     False
 67     False
 202     True
 97      True
@@ -914,12 +919,12 @@ Name: health_exp_per_cap, dtype: bool
 frame (below):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([202, 35, 97, 49, 67], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -933,12 +938,12 @@ changed - the elements labeled 202, 97 and 49 have True values, so we expect to
 see those rows in the result.  So (drum roll):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_is_big_spender</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">richest_5</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sorted_is_big_spender</span><span class="p">,</span> <span class="s1">&#39;country_name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>202    United States
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>202    United States
 97             Japan
 49           Germany
 Name: country_name, dtype: object
@@ -965,7 +970,7 @@ it do?  Does it throw away the labels and just look at the positions of the
 True and False values?  Or something else?</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iloc indexing with a Boolean series.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iloc indexing with a Boolean series.</span>
 <span class="c1"># The &#39;country_name&#39; column is the first column,</span>
 <span class="c1"># so it is at offset 0 in the columns.</span>
 <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sorted_is_big_spender</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -1018,7 +1023,7 @@ index.   This is so whatever the index order - even if the index and the
 positions give the same answer:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># iloc with the original Boolean series, where positions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iloc with the original Boolean series, where positions</span>
 <span class="c1"># and labels match.</span>
 <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">is_big_spender</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
@@ -1071,13 +1076,13 @@ converting the Boolean Series to a Numpy array, and therefore, throwing away
 the index (element labels):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_is_big_spender_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sorted_is_big_spender</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_is_big_spender_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sorted_is_big_spender</span><span class="p">)</span>
 <span class="n">sorted_is_big_spender_arr</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True,  True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True,  True,  True])
 </pre></div>
 </div>
 </div>
@@ -1086,13 +1091,13 @@ the index (element labels):</p>
 labels) to trip it up:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can use a Boolean array to index rows, with &quot;iloc&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can use a Boolean array to index rows, with &quot;iloc&quot;.</span>
 <span class="n">richest_5</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sorted_is_big_spender_arr</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>97             Japan
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97             Japan
 49           Germany
 67    United Kingdom
 Name: country_name, dtype: object

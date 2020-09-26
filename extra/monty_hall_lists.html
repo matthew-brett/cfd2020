@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/extra/monty_hall_lists.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -686,7 +691,7 @@ lists</span></a>.</p>
 <p>To operate on lists we use the Python standard <code class="docutils literal notranslate"><span class="pre">random</span></code> module, instead of the Numpy <code class="docutils literal notranslate"><span class="pre">random</span></code> module.  The Numpy module always returns arrays, but in our case, we want to return lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 </pre></div>
 </div>
 </div>
@@ -695,14 +700,14 @@ lists</span></a>.</p>
 standard <code class="docutils literal notranslate"><span class="pre">random</span></code> module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">,</span> <span class="s1">&#39;goat&#39;</span><span class="p">]</span>
 <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">doors</span><span class="p">)</span>
 <span class="n">doors</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;car&#39;, &#39;goat&#39;, &#39;goat&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;goat&#39;, &#39;goat&#39;, &#39;car&#39;]
 </pre></div>
 </div>
 </div>
@@ -711,13 +716,13 @@ standard <code class="docutils literal notranslate"><span class="pre">random</sp
 <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_door_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_door_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">my_door_index</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -725,13 +730,13 @@ standard <code class="docutils literal notranslate"><span class="pre">random</sp
 <p>We get the result of staying with our original choice, and remove that option from the list of available doors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stay_result</span> <span class="o">=</span> <span class="n">doors</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">my_door_index</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stay_result</span> <span class="o">=</span> <span class="n">doors</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">my_door_index</span><span class="p">)</span>
 <span class="n">stay_result</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;car&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;goat&#39;
 </pre></div>
 </div>
 </div>
@@ -739,12 +744,12 @@ standard <code class="docutils literal notranslate"><span class="pre">random</sp
 <p>We are left with the two doors that Monty has to choose from.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;goat&#39;, &#39;goat&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;goat&#39;, &#39;car&#39;]
 </pre></div>
 </div>
 </div>
@@ -753,13 +758,13 @@ standard <code class="docutils literal notranslate"><span class="pre">random</sp
 <p><a class="reference internal" href="more_on_lists.html"><span class="doc std std-doc">Remember</span></a>, <code class="docutils literal notranslate"><span class="pre">remove</span></code> removes only the first instance of “goat”, leaving the second, if there is one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;goat&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;goat&#39;</span><span class="p">)</span>
 <span class="n">doors</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;goat&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;car&#39;]
 </pre></div>
 </div>
 </div>
@@ -767,13 +772,13 @@ standard <code class="docutils literal notranslate"><span class="pre">random</sp
 <p>Now we have only one remaining door.  The item behind that door is the result from switching from our original door.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch_result</span> <span class="o">=</span> <span class="n">doors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">switch_result</span> <span class="o">=</span> <span class="n">doors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">switch_result</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;goat&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;car&#39;
 </pre></div>
 </div>
 </div>
@@ -787,7 +792,7 @@ Python equivalent of <code class="docutils literal notranslate"><span class="pre
 use it in a loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 10000 trials.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 10000 trials.</span>
 <span class="n">n_tries</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="c1"># Lists to store results from stay and switch strategy</span>
 <span class="n">stay_results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -812,24 +817,24 @@ each list, and divide by the length of the list, to get the proportion of
 successes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stay_results</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stay_results</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.33178
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33299
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch_results</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">switch_results</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_tries</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.66822
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.66701
 </pre></div>
 </div>
 </div>

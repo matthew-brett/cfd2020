@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/exercises/interesting.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -665,12 +670,12 @@
 <p>As in introduction, the <em>multiplication</em> operator is the <code class="docutils literal notranslate"><span class="pre">*</span></code> sign, as in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.50</span> <span class="o">*</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.50</span> <span class="o">*</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>31.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31.5
 </pre></div>
 </div>
 </div>
@@ -679,12 +684,12 @@
 <p>The <em>power</em> operator is <code class="docutils literal notranslate"><span class="pre">**</span></code>.  It works like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">**</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -694,12 +699,12 @@ the power of</em> the number to the right, here 4.  In other words, the calculat
 <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">4</span></code> in Python is the same as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>16
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -707,12 +712,12 @@ the power of</em> the number to the right, here 4.  In other words, the calculat
 <p>Likewise:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">3.5</span> <span class="o">**</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">3.5</span> <span class="o">**</span> <span class="mi">5</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>525.21875
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>525.21875
 </pre></div>
 </div>
 </div>
@@ -720,12 +725,12 @@ the power of</em> the number to the right, here 4.  In other words, the calculat
 <p>results in the same calculation as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span> <span class="o">*</span> <span class="mf">3.5</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>525.21875
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>525.21875
 </pre></div>
 </div>
 </div>
@@ -737,7 +742,7 @@ the power of</em> the number to the right, here 4.  In other words, the calculat
 <p>For example, try executing the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is just a comment.  Python ignores it.  It&#39;s just for show.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is just a comment.  Python ignores it.  It&#39;s just for show.</span>
 </pre></div>
 </div>
 </div>
@@ -779,7 +784,7 @@ of £550 is £55, so my debt at the start of the third year is £605.</p>
 <p>Let’s give my original debt amount, a <em>name</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the amount I owe at the beginning of the first year.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the amount I owe at the beginning of the first year.</span>
 <span class="n">my_debt</span> <span class="o">=</span> <span class="mi">500</span>
 </pre></div>
 </div>
@@ -789,7 +794,7 @@ of £550 is £55, so my debt at the start of the third year is £605.</p>
 interest by multiplying my current debt by 0.1.  Let’s give that a name too.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interest_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interest_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
 </div>
@@ -797,13 +802,13 @@ interest by multiplying my current debt by 0.1.  Let’s give that a name too.</
 <p>The amount of interest at the end of the first year is therefore:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interest</span> <span class="o">=</span> <span class="n">my_debt</span> <span class="o">*</span> <span class="n">interest_rate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interest</span> <span class="o">=</span> <span class="n">my_debt</span> <span class="o">*</span> <span class="n">interest_rate</span>
 <span class="n">interest</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>50.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.0
 </pre></div>
 </div>
 </div>
@@ -811,12 +816,12 @@ interest by multiplying my current debt by 0.1.  Let’s give that a name too.</
 <p>Then my total new debt at the start of the second year will be:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_debt</span> <span class="o">+</span> <span class="n">interest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_debt</span> <span class="o">+</span> <span class="n">interest</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>550.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>550.0
 </pre></div>
 </div>
 </div>
@@ -827,13 +832,13 @@ year.</p>
 <p>Now make a new variable <code class="docutils literal notranslate"><span class="pre">debt_increaser</span></code> that is equal to <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">interest_rate</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">debt_increaser</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">interest_rate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">debt_increaser</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">interest_rate</span>
 <span class="n">debt_increaser</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1
 </pre></div>
 </div>
 </div>
@@ -842,12 +847,12 @@ year.</p>
 more compact way, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_debt</span> <span class="o">*</span> <span class="n">debt_increaser</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_debt</span> <span class="o">*</span> <span class="n">debt_increaser</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>550.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>550.0
 </pre></div>
 </div>
 </div>
@@ -865,7 +870,7 @@ to <code class="docutils literal notranslate"><span class="pre">my_debt</span> <
 <p>You should get the same answer as the table above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt after two years.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt after two years.</span>
 <span class="c1"># Your code below this comment</span>
 </pre></div>
 </div>
@@ -874,7 +879,7 @@ to <code class="docutils literal notranslate"><span class="pre">my_debt</span> <
 <p>Fill in the next cell, in the same way, to show my debt at the beginning of the fourth year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt at the beginning of the fourth year.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt at the beginning of the fourth year.</span>
 </pre></div>
 </div>
 </div>
@@ -889,7 +894,7 @@ refresher on powers, you may remember that, if I have some number <code class="d
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt at the beginning of the eleventh year.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt at the beginning of the eleventh year.</span>
 </pre></div>
 </div>
 </div>
@@ -901,13 +906,13 @@ refresher on powers, you may remember that, if I have some number <code class="d
 <p>Here is their proposed weekly interest rate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_interest_rate</span> <span class="o">=</span> <span class="n">interest_rate</span> <span class="o">/</span> <span class="mi">53</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_interest_rate</span> <span class="o">=</span> <span class="n">interest_rate</span> <span class="o">/</span> <span class="mi">53</span>
 <span class="n">weekly_interest_rate</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0018867924528301887
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0018867924528301887
 </pre></div>
 </div>
 </div>
@@ -915,13 +920,13 @@ refresher on powers, you may remember that, if I have some number <code class="d
 <p>That corresponds to:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_debt_increaser</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">weekly_interest_rate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_debt_increaser</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">weekly_interest_rate</span>
 <span class="n">weekly_debt_increaser</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.0018867924528303
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0018867924528303
 </pre></div>
 </div>
 </div>
@@ -929,13 +934,13 @@ refresher on powers, you may remember that, if I have some number <code class="d
 <p>So, starting from my original debt, I will owe this much after one week:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># What I owe, after one week, on the new deal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What I owe, after one week, on the new deal</span>
 <span class="n">my_debt</span> <span class="o">*</span> <span class="n">weekly_debt_increaser</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>500.94339622641513
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500.94339622641513
 </pre></div>
 </div>
 </div>
@@ -943,7 +948,7 @@ refresher on powers, you may remember that, if I have some number <code class="d
 <p>Fill in the cell below, to show how much I will owe after 52 weeks.  You will probably want <code class="docutils literal notranslate"><span class="pre">**</span></code> here again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt after 52 weeks, on the new deal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show my debt after 52 weeks, on the new deal</span>
 </pre></div>
 </div>
 </div>
@@ -955,7 +960,7 @@ refresher on powers, you may remember that, if I have some number <code class="d
 <p><strong>Note</strong> - this is relatively hard, so don’t worry if it is not obvious how to do this.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code to estimate the right weekly interest rate.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code to estimate the right weekly interest rate.</span>
 </pre></div>
 </div>
 </div>

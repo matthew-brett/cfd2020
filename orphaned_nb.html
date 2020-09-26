@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Coding for data courses &#8212; Coding for Data - 2020 edition</title>
+    <title>An orphaned notebook &#8212; Coding for Data - 2020 edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -24,13 +24,12 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -38,7 +37,7 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/README.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/orphaned_nb.html" />
     <link rel="shortcut icon" href="_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,10 +47,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/README.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/orphaned_nb.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Coding for data courses" />
-<meta property="og:description" content="Coding for data courses  Course materials and notes for data science courses at the University of Birmingham.  This textbook is based on the Berkeley Foundation" />
+<meta property="og:title"       content="An orphaned notebook" />
+<meta property="og:description" content="An orphaned notebook  This defines a variable that we’ll re-use in another notebook.  from myst_nb import glue my_var = &#34;My orphaned variable!&#34; glue(&#34;orphaned_v" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -587,9 +586,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/orphaned_nb.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -607,10 +606,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Forphaned_nb.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/README.md"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/orphaned_nb.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -624,6 +623,37 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/orphaned_nb.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/orphaned_nb.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/matthew-brett/cfd2020/blob/master/orphaned_nb.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -632,56 +662,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#machinery">
-   Machinery
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-started-for-working-on-the-repository">
-   Getting started for working on the repository
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-stuff-for-building-serving-the-repository-files">
-   Installing stuff for building / serving the repository files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-jupyter-to-save-load-in-r-markdown">
-   Configuring Jupyter to save / load in R Markdown
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extra-stuff">
-   Extra stuff
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-build-etc">
-   Configuring build etc
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#workflow">
-   Workflow
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#developing">
-     Developing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#shipping">
-     Shipping
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -690,164 +671,21 @@
         
               <div>
                 
-  <div class="section" id="coding-for-data-courses">
-<h1>Coding for data courses<a class="headerlink" href="#coding-for-data-courses" title="Permalink to this headline">¶</a></h1>
-<p>Course materials and notes for data science courses at the University of
-Birmingham.</p>
-<p>This textbook is based on the Berkeley Foundations of Data Science
-course. The most recent version of the course is at <a class="reference external" href="https://www.inferentialthinking.com">Computational and
-Inferential Thinking</a>.  The
-repository for the textbook is <a class="reference external" href="https://github.com/data8/textbook">on
-Github</a>.</p>
-<p>Versions of the Berkeley course come from the last commit in that
-repository that is licensed with a Creative Commons CC-BY-NC license</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">64b20f0</span></code>.  The following commit (<code class="docutils literal notranslate"><span class="pre">710ed4e</span></code>) relicensed the work
-with a CC-BY-NC-ND license, forbidding derivative works.</p></li>
-</ul>
-<div class="section" id="machinery">
-<h2>Machinery<a class="headerlink" href="#machinery" title="Permalink to this headline">¶</a></h2>
-<p>The template for this website comes from <a class="reference external" href="https://jupyterbook.org">https://jupyterbook.org</a> - many
-thanks to the authors.</p>
-</div>
-<div class="section" id="getting-started-for-working-on-the-repository">
-<h2>Getting started for working on the repository<a class="headerlink" href="#getting-started-for-working-on-the-repository" title="Permalink to this headline">¶</a></h2>
-<p>Say your Github username is <code class="docutils literal notranslate"><span class="pre">my-gh-user</span></code>.</p>
-<p>Go to the repository page that houses this README - for example <a class="reference external" href="https://github.co/matthew-brett/cfd2020">https://github.co/matthew-brett/cfd2020</a>.</p>
-<p>Click on “Fork” button near top right, to make your own fork of the
-repository, that will now be at <code class="docutils literal notranslate"><span class="pre">https://github.com/my-gh-user/&lt;repo-name&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;repo-name&gt;</span></code> is the name of the repository housing this README.</p>
-<p>The following assumes that the README is in
-<a class="reference external" href="https://github.com/matthew-brett/cfd2020">https://github.com/matthew-brett/cfd2020</a>.  The name of the repository is
-therefore <code class="docutils literal notranslate"><span class="pre">cfd2020</span></code>.  Substitute URL and repository name throughout.</p>
-<p>Clone the main repo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">matthew</span><span class="o">-</span><span class="n">brett</span><span class="o">/</span><span class="n">cfd2020</span>
-</pre></div>
-</div>
-<p>Add a remote for your fork:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cfd2020</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">my</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">user</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">user</span><span class="o">/</span><span class="n">cfd2020</span><span class="o">.</span><span class="n">git</span>
-<span class="n">git</span> <span class="n">fetch</span> <span class="n">my</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">user</span>
-</pre></div>
-</div>
-<p>Get any submodules for the repository (you may need these for the
-build):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span>
-</pre></div>
-</div>
-<p>Install the code modules and build dependencies for this book:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e .
-</pre></div>
-</div>
-<p>Start by making some branch to work on, linked to your fork.  Use
-a name to match the kind of changes you are about to make, like
-<code class="docutils literal notranslate"><span class="pre">rewrite-intro-pages</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">rewrite</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">pages</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">rewrite</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">pages</span>
-</pre></div>
-</div>
-<p>Associate this branch with your fork:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">my</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">user</span> <span class="n">rewrite</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">pages</span> <span class="o">-</span><span class="n">u</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">-u</span></code> flag above stores the association of this branch with your
-fork, referenced by <code class="docutils literal notranslate"><span class="pre">my-gh-user</span></code>.</p>
-</div>
-<div class="section" id="installing-stuff-for-building-serving-the-repository-files">
-<h2>Installing stuff for building / serving the repository files<a class="headerlink" href="#installing-stuff-for-building-serving-the-repository-files" title="Permalink to this headline">¶</a></h2>
-<p>If you use <a class="reference external" href="https://conda.io/docs">Conda</a> then you might make a Conda
-environment for working on the repo.  I don’t, I use pip, and I make
-a virtual environment.  You can do that like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">my</span><span class="o">-</span><span class="n">venv</span>
-<span class="n">source</span> <span class="n">my</span><span class="o">-</span><span class="n">virtualenv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-</pre></div>
-</div>
-<p>Or, if you have
-<a class="reference external" href="https://virtualenvwrapper.readthedocs.io/en/stable/">virtualenvwrapper</a>
-(I do) then, you might prefer:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>python3 -m venv $WORKON_HOME/my-venv
-workon my-venv
-</pre></div>
-</div>
-<p>Install the Python packages you need for building the site:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">build_requirements</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>Finally, check that you can build the pages locally with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+  <div class="section" id="an-orphaned-notebook">
+<span id="orphaned-nb"></span><h1>An orphaned notebook<a class="headerlink" href="#an-orphaned-notebook" title="Permalink to this headline">¶</a></h1>
+<p>This defines a variable that we’ll re-use in another notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="n">my_var</span> <span class="o">=</span> <span class="s2">&quot;My orphaned variable!&quot;</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;orphaned_var&quot;</span><span class="p">,</span> <span class="n">my_var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="configuring-jupyter-to-save-load-in-r-markdown">
-<h2>Configuring Jupyter to save / load in R Markdown<a class="headerlink" href="#configuring-jupyter-to-save-load-in-r-markdown" title="Permalink to this headline">¶</a></h2>
-<p>I’m using the excellent <a class="reference external" href="https://github.com/mwouts/jupytext">Jupytext</a>
-to make it easier to edit Jupyter Notebooks.  Jupytext automates
-saving Notebook files as Markdown (and other formats), and loading
-them from edited Markdown (and other formats).</p>
-<p>You need to configure Jupyter to use it.  If you don’t have a Jupyter
-configuration, do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">--</span><span class="n">generate</span><span class="o">-</span><span class="n">config</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;My orphaned variable!&#39;
 </pre></div>
 </div>
-<p>You should now have a file <code class="docutils literal notranslate"><span class="pre">~/.jupyter/jupyter_notebook_config.py</span></code>.
-Append these lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">contents_manager_class</span> <span class="o">=</span> <span class="s2">&quot;jupytext.TextFileContentsManager&quot;</span>
-<span class="n">c</span><span class="o">.</span><span class="n">ContentsManager</span><span class="o">.</span><span class="n">default_jupytext_formats</span> <span class="o">=</span> <span class="s2">&quot;ipynb,Rmd&quot;</span>
-</pre></div>
-</div>
-<p>I also turned off autosave globally, by following the instructions <a class="reference external" href="https://stackoverflow.com/a/45980165">in
-this stackoverflow answer</a>.
-This stops autosave saving over any edits that I am making in the
-Markdown source.</p>
-<p><strong>Be careful</strong> - if you are used to autosave in Jupyter, you can
-easily lose work when you disable autosave.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/.</span><span class="n">jupyter</span><span class="o">/</span><span class="n">custom</span>
-</pre></div>
-</div>
-<p>Add the following line to <code class="docutils literal notranslate"><span class="pre">~/.jupyter/custom/custom.js</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jupyter</span><span class="o">.</span><span class="n">notebook</span><span class="o">.</span><span class="n">set_autosave_interval</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="o">//</span> <span class="n">disable</span> <span class="n">autosave</span>
-</pre></div>
-</div>
-<p>Finally, you may want to clone the original Berkeley textbook:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get out of cfd2020 tree</span>
-<span class="n">cd</span> <span class="o">..</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="mi">8</span><span class="o">/</span><span class="n">textbook</span>
-</pre></div>
-</div>
-<p><strong>Make sure you are using the last commit we can legally use, from the
-Berkeley repository</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">textbook</span>
-<span class="c1"># Checkout the last CC-BY-NC commit</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="mi">64</span><span class="n">b20f0</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="extra-stuff">
-<h2>Extra stuff<a class="headerlink" href="#extra-stuff" title="Permalink to this headline">¶</a></h2>
-<p>Consider installing <a class="reference external" href="https://github.com/github/hub">hub</a> to make
-interactions with Github easier, from the command line.</p>
-</div>
-<div class="section" id="configuring-build-etc">
-<h2>Configuring build etc<a class="headerlink" href="#configuring-build-etc" title="Permalink to this headline">¶</a></h2>
-<p>You might want to check the instructions for configuring the build at
-<a class="reference external" href="https://jupyterbook.org">https://jupyterbook.org</a>.</p>
-</div>
-<div class="section" id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="developing">
-<h3>Developing<a class="headerlink" href="#developing" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Edit <code class="docutils literal notranslate"><span class="pre">.Rmd</span></code> and / or <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> to rebuild <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> from more recent <code class="docutils literal notranslate"><span class="pre">.Rmd</span></code>
-files, and rebuild <code class="docutils literal notranslate"><span class="pre">.md</span></code> files from more recent <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files.</p></li>
-<li><p>Review in browser</p></li>
-</ul>
-</div>
-<div class="section" id="shipping">
-<h3>Shipping<a class="headerlink" href="#shipping" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Final check</p></li>
-<li><p>Ship with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">github</span></code></p></li>
-</ul>
 </div>
 </div>
 </div>

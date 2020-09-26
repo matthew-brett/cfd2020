@@ -9,13 +9,15 @@ Use this page for setup if you are on a slow laptop, a laptop without much
 disk space, or you are installing on a borrowed laptop where you need to get
 going quickly.
 
-*   Open your web browser, and go to <https://www.python.org/downloads/release/python-366>.
-*   Download the [Windows x86 executable installer](https://www.python.org/ftp/python/3.6.6/python-3.6.6.exe).
+*   Open your web browser, and go to
+    <https://www.python.org/downloads/release/python-385>
+*   Download the [Windows 64-bit executable
+    installer](https://www.python.org/ftp/python/3.8.5/python-3.8.5-amd64.exe).
 *   Run the installer.  At the initial screen, *unselect* "Install launcher
-    for all users", and *select* "Add Python 3.6 to PATH". Here's a screenshot
+    for all users", and *select* "Add Python 3.8 to PATH". Here's a screenshot
     of the correct options:
 
-    ![](images/python36_install_screen.png)
+    ![](images/python38_install_screen.png)
 
     When the options are right, click on "Install Now" to continue the
     installation.  Click "Close" when the installation is done.

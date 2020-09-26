@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/exercises/money_and_death.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -664,10 +669,10 @@
   <p>We return to the death penalty.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># Make plots look a little bit more fancy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
@@ -680,7 +685,7 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 <p>If you are running on your laptop, download the data file <span class="xref myst">GSS2002.csv</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data into a data frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data into a data frame</span>
 <span class="n">gss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;GSS2002.csv&#39;</span><span class="p">)</span>
 <span class="n">gss</span>
 </pre></div>
@@ -1002,12 +1007,12 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 <p>Show the column names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gss</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gss</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Index([&#39;ID&#39;, &#39;Region&#39;, &#39;Gender&#39;, &#39;Race&#39;, &#39;Education&#39;, &#39;Marital&#39;, &#39;Religion&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;ID&#39;, &#39;Region&#39;, &#39;Gender&#39;, &#39;Race&#39;, &#39;Education&#39;, &#39;Marital&#39;, &#39;Religion&#39;,
        &#39;Happy&#39;, &#39;Income&#39;, &#39;PolParty&#39;, &#39;Politics&#39;, &#39;Marijuana&#39;, &#39;DeathPenalty&#39;,
        &#39;OwnGun&#39;, &#39;GunLaw&#39;, &#39;SpendMilitary&#39;, &#39;SpendEduc&#39;, &#39;SpendEnv&#39;,
        &#39;SpendSci&#39;, &#39;Pres00&#39;, &#39;Postlife&#39;],
@@ -1021,13 +1026,13 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 <p>First make a list with the names of the columns that we want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Income&#39;</span><span class="p">,</span> <span class="s1">&#39;DeathPenalty&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Income&#39;</span><span class="p">,</span> <span class="s1">&#39;DeathPenalty&#39;</span><span class="p">]</span>
 <span class="n">cols</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Income&#39;, &#39;DeathPenalty&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Income&#39;, &#39;DeathPenalty&#39;]
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1041,7 @@ US <a class="reference external" href="http://www.gss.norc.org">General Social S
 <p>The new data frame has only the columns we selected.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">money_death</span> <span class="o">=</span> <span class="n">gss</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">money_death</span> <span class="o">=</span> <span class="n">gss</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
 <span class="n">money_death</span>
 </pre></div>
 </div>
@@ -1132,7 +1137,7 @@ question.  We use Pandas <code class="docutils literal notranslate"><span class=
 that have any missing values in the row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">money_death</span> <span class="o">=</span> <span class="n">money_death</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">money_death</span> <span class="o">=</span> <span class="n">money_death</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">money_death</span>
 </pre></div>
 </div>
@@ -1224,7 +1229,7 @@ that have any missing values in the row.</p>
 <p>Get the income column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="n">money_death</span><span class="p">[</span><span class="s1">&#39;Income&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span> <span class="o">=</span> <span class="n">money_death</span><span class="p">[</span><span class="s1">&#39;Income&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1232,12 +1237,12 @@ that have any missing values in the row.</p>
 <p>Show the unique values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">income</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>40000-49999      88
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40000-49999      88
 30000-34999      78
 50000-59999      72
 25000-29999      60
@@ -1249,8 +1254,8 @@ that have any missing values in the row.</p>
 22500-24999      40
 110000-129999    38
 17500-19999      37
-10000-124999     36
 15000-17499      36
+10000-124999     36
 1000-2999        32
 8000-9999        32
 75000-89999      26
@@ -1272,7 +1277,7 @@ bracket, with the average of the minimum and maximum in the range.</p>
 <p>We can do this with a <em>recoder function</em>.  We have not covered functions yet, so do not worry about the details of this function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recode_income</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recode_income</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;under 1000&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">500</span>
     <span class="n">low_str</span><span class="p">,</span> <span class="n">high_str</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -1285,12 +1290,12 @@ bracket, with the average of the minimum and maximum in the range.</p>
 <p>Here is what the recoder function gives with the lowest income bracket.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recode_income</span><span class="p">(</span><span class="s1">&#39;under 1000&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recode_income</span><span class="p">(</span><span class="s1">&#39;under 1000&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>500
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>500
 </pre></div>
 </div>
 </div>
@@ -1298,12 +1303,12 @@ bracket, with the average of the minimum and maximum in the range.</p>
 <p>Here is the return from a higher bracket:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recode_income</span><span class="p">(</span><span class="s1">&#39;90000-109999&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recode_income</span><span class="p">(</span><span class="s1">&#39;90000-109999&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>99999.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99999.5
 </pre></div>
 </div>
 </div>
@@ -1311,13 +1316,13 @@ bracket, with the average of the minimum and maximum in the range.</p>
 <p>Use this function to recode the “Income” strings into numbers. Again, we have not covered the <code class="docutils literal notranslate"><span class="pre">apply</span></code> method yet, so don’t worry about the details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">income_ish</span> <span class="o">=</span> <span class="n">income</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">recode_income</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_ish</span> <span class="o">=</span> <span class="n">income</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">recode_income</span><span class="p">)</span>
 <span class="n">income_ish</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0       32499.5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       32499.5
 1       82499.5
 5       44999.5
 8       67499.5
@@ -1336,13 +1341,13 @@ Name: Income, Length: 904, dtype: float64
 <p>Now get the results of the answer to the death penalty question.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">death</span> <span class="o">=</span> <span class="n">money_death</span><span class="p">[</span><span class="s1">&#39;DeathPenalty&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">death</span> <span class="o">=</span> <span class="n">money_death</span><span class="p">[</span><span class="s1">&#39;DeathPenalty&#39;</span><span class="p">]</span>
 <span class="n">death</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>Favor     622
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Favor     622
 Oppose    282
 Name: DeathPenalty, dtype: int64
 </pre></div>
@@ -1352,12 +1357,12 @@ Name: DeathPenalty, dtype: int64
 <p>We will identify the rows for respondents who are in favor of the death penalty.  To do this, we make a Boolean vector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Favor&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Favor&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0        True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        True
 1        True
 5        True
 8        True
@@ -1376,7 +1381,7 @@ Name: DeathPenalty, Length: 904, dtype: bool
 <p>Use this vector to select the income values for the respondents in favor of the death penalty.  Show the distribution of values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">favor_income</span> <span class="o">=</span> <span class="n">income_ish</span><span class="p">[</span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Favor&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favor_income</span> <span class="o">=</span> <span class="n">income_ish</span><span class="p">[</span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Favor&#39;</span><span class="p">]</span>
 <span class="n">favor_income</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -1388,7 +1393,7 @@ Name: DeathPenalty, Length: 904, dtype: bool
 <p>Likewise select incomes for those opposed.   Show the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oppose_income</span> <span class="o">=</span> <span class="n">income_ish</span><span class="p">[</span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Oppose&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oppose_income</span> <span class="o">=</span> <span class="n">income_ish</span><span class="p">[</span><span class="n">death</span> <span class="o">==</span> <span class="s1">&#39;Oppose&#39;</span><span class="p">]</span>
 <span class="n">oppose_income</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -1400,13 +1405,13 @@ Name: DeathPenalty, Length: 904, dtype: bool
 <p>Calculate the difference in mean income between the groups.  This is the difference we observe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">oppose_income</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actual_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">oppose_income</span><span class="p">)</span>
 <span class="n">actual_diff</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4535.163012246019
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4535.163012246019
 </pre></div>
 </div>
 </div>
@@ -1418,13 +1423,13 @@ two groups, and the permuting them.</p>
 <p>First, we get the number of respondents in favor of the death penalty.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_favor</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_favor</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">favor_income</span><span class="p">)</span>
 <span class="n">n_favor</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>622
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>622
 </pre></div>
 </div>
 </div>
@@ -1432,7 +1437,7 @@ two groups, and the permuting them.</p>
 <p>Then we pool the in-favor and oppose groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">favor_income</span><span class="p">,</span> <span class="n">oppose_income</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">favor_income</span><span class="p">,</span> <span class="n">oppose_income</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1441,7 +1446,7 @@ two groups, and the permuting them.</p>
 a random mixture of the two groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1451,7 +1456,7 @@ our simulated in-favor group.  The rest are our simulated oppose
 group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_favor</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_favor</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_favor</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_favor</span><span class="p">]</span>
 <span class="n">fake_oppose</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_favor</span><span class="p">:]</span>
 </pre></div>
 </div>
@@ -1460,13 +1465,13 @@ group.</p>
 <p>Calculate the difference in means for this simulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fake_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_favor</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_oppose</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_favor</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_oppose</span><span class="p">)</span>
 <span class="n">fake_diff</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-886.6543465371433
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5675.827865955165
 </pre></div>
 </div>
 </div>
@@ -1475,7 +1480,7 @@ group.</p>
 <p>Use the <a class="reference internal" href="../permutation/brexit_ages.html"><span class="doc std std-doc">Brexit ages</span></a> notebook for inspiration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># Permute the pooled incomes</span>
     <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
@@ -1493,7 +1498,7 @@ group.</p>
 <p>When you have that working, do a histogram of the differences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
 </pre></div>
 </div>
 </div>
@@ -1502,7 +1507,7 @@ group.</p>
 <p>To be more specific, count how many of the differences you calculated were greater than or equal to the actual difference.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
 </pre></div>
 </div>
 </div>
@@ -1510,7 +1515,7 @@ group.</p>
 <p>Now calculate the proportion of these differences, to give an estimate of the probability of seeing a difference this large, if the incomes all come from the same underlying population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
 </pre></div>
 </div>
 </div>

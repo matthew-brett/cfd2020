@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -636,6 +635,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/confidence/bayes_confidence.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -700,10 +705,10 @@ plus or minus a bit.  As usual, we need to quantify what we mean by “a bit”.
 around 62.25.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -711,14 +716,14 @@ around 62.25.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;havana_math_2018.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;havana_math_2018.csv&#39;</span><span class="p">)</span>
 <span class="n">marks_2018</span> <span class="o">=</span> <span class="n">havana_2018</span><span class="p">[</span><span class="s1">&#39;mark&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">marks_2018</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>65.25609088420477
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.25609088420477
 </pre></div>
 </div>
 </div>
@@ -729,7 +734,7 @@ so marks.  As usual, we make do with an <em>estimate</em> of the sampling distri
 by taking many thousands of samples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10000 samples, calculate their means.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take 10000 samples, calculate their means.</span>
 <span class="n">n_iters</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">sample_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_iters</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_iters</span><span class="p">):</span>
@@ -740,7 +745,7 @@ by taking many thousands of samples.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([60.26, 65.36, 61.88, 66.6 , 69.52])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([64.66, 59.88, 67.16, 61.76, 62.72])
 </pre></div>
 </div>
 </div>
@@ -753,7 +758,7 @@ were between 50 and 50.5 (excluding 50.5), the second bin covers 50.5 up to
 (not including) 51, and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;mean mark for sample of 50&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Estimated sampling distribution for mean of 50 marks&#39;</span><span class="p">);</span>
@@ -767,7 +772,7 @@ were between 50 and 50.5 (excluding 50.5), the second bin covers 50.5 up to
 <p>We can use <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code> to give us the counts for each of these bins, by storing the values that <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code> returns, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the values that plt.hist returns.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the values that plt.hist returns.</span>
 <span class="n">hist_vals</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">)</span>
 <span class="c1"># Counts per bin is the first returned value.</span>
 <span class="n">counts</span> <span class="o">=</span> <span class="n">hist_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -776,12 +781,12 @@ were between 50 and 50.5 (excluding 50.5), the second bin covers 50.5 up to
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  0.,   1.,   0.,   2.,   3.,   2.,   4.,   4.,   4.,  10.,  26.,
-        14.,  32.,  46.,  58.,  66., 115., 122., 134., 202., 223., 252.,
-       341., 339., 386., 435., 466., 483., 451., 511., 529., 508., 497.,
-       473., 459., 420., 418., 372., 294., 265., 224., 195., 141., 123.,
-        85.,  80.,  51.,  49.,  27.,  15.,  15.,   7.,   9.,   5.,   5.,
-         1.,   0.,   1.,   0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  0.,   0.,   1.,   1.,   2.,   1.,   2.,   9.,  11.,  16.,  14.,
+        21.,  29.,  45.,  54.,  76.,  96., 126., 179., 166., 210., 258.,
+       264., 344., 393., 453., 418., 495., 545., 522., 554., 484., 538.,
+       483., 488., 400., 366., 390., 278., 266., 208., 183., 149., 129.,
+       102.,  63.,  49.,  26.,  37.,  19.,  14.,   8.,   4.,   2.,   4.,
+         3.,   1.,   1.,   0.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_9_1.png" src="../_images/bayes_confidence_9_1.png" />
@@ -791,7 +796,7 @@ were between 50 and 50.5 (excluding 50.5), the second bin covers 50.5 up to
 neatly by <em>unpacking</em> the return values from <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code>, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the values that plt.hist returns.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the values that plt.hist returns.</span>
 <span class="c1"># We will only use the first of these.</span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">)</span>
 <span class="c1"># Counts per bin (again):</span>
@@ -800,12 +805,12 @@ neatly by <em>unpacking</em> the return values from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([  0.,   1.,   0.,   2.,   3.,   2.,   4.,   4.,   4.,  10.,  26.,
-        14.,  32.,  46.,  58.,  66., 115., 122., 134., 202., 223., 252.,
-       341., 339., 386., 435., 466., 483., 451., 511., 529., 508., 497.,
-       473., 459., 420., 418., 372., 294., 265., 224., 195., 141., 123.,
-        85.,  80.,  51.,  49.,  27.,  15.,  15.,   7.,   9.,   5.,   5.,
-         1.,   0.,   1.,   0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  0.,   0.,   1.,   1.,   2.,   1.,   2.,   9.,  11.,  16.,  14.,
+        21.,  29.,  45.,  54.,  76.,  96., 126., 179., 166., 210., 258.,
+       264., 344., 393., 453., 418., 495., 545., 522., 554., 484., 538.,
+       483., 488., 400., 366., 390., 278., 266., 208., 183., 149., 129.,
+       102.,  63.,  49.,  26.,  37.,  19.,  14.,   8.,   4.,   2.,   4.,
+         3.,   1.,   1.,   0.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_11_1.png" src="../_images/bayes_confidence_11_1.png" />
@@ -816,12 +821,12 @@ between the bin edges.  For example, the left (lower) edge of the bin at index
 20 is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>60.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.0
 </pre></div>
 </div>
 </div>
@@ -830,12 +835,12 @@ between the bin edges.  For example, the left (lower) edge of the bin at index
 counts in that that bin are:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>223.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>210.0
 </pre></div>
 </div>
 </div>
@@ -846,20 +851,20 @@ distribution, that were from 60 up to, but not including, 60.5.</p>
 samples that fall in this range:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="mi">10000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="mi">10000</span>
 <span class="n">proportions</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0001, 0.    , 0.0002, 0.0003, 0.0002, 0.0004, 0.0004,
-       0.0004, 0.001 , 0.0026, 0.0014, 0.0032, 0.0046, 0.0058, 0.0066,
-       0.0115, 0.0122, 0.0134, 0.0202, 0.0223, 0.0252, 0.0341, 0.0339,
-       0.0386, 0.0435, 0.0466, 0.0483, 0.0451, 0.0511, 0.0529, 0.0508,
-       0.0497, 0.0473, 0.0459, 0.042 , 0.0418, 0.0372, 0.0294, 0.0265,
-       0.0224, 0.0195, 0.0141, 0.0123, 0.0085, 0.008 , 0.0051, 0.0049,
-       0.0027, 0.0015, 0.0015, 0.0007, 0.0009, 0.0005, 0.0005, 0.0001,
-       0.    , 0.0001, 0.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.    , 0.0001, 0.0001, 0.0002, 0.0001, 0.0002, 0.0009,
+       0.0011, 0.0016, 0.0014, 0.0021, 0.0029, 0.0045, 0.0054, 0.0076,
+       0.0096, 0.0126, 0.0179, 0.0166, 0.021 , 0.0258, 0.0264, 0.0344,
+       0.0393, 0.0453, 0.0418, 0.0495, 0.0545, 0.0522, 0.0554, 0.0484,
+       0.0538, 0.0483, 0.0488, 0.04  , 0.0366, 0.039 , 0.0278, 0.0266,
+       0.0208, 0.0183, 0.0149, 0.0129, 0.0102, 0.0063, 0.0049, 0.0026,
+       0.0037, 0.0019, 0.0014, 0.0008, 0.0004, 0.0002, 0.0004, 0.0003,
+       0.0001, 0.0001, 0.    ])
 </pre></div>
 </div>
 </div>
@@ -867,12 +872,12 @@ samples that fall in this range:</p>
 <p>For example, here is the proportion of sample means that fell between 60 and 60.5:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0223
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
 </pre></div>
 </div>
 </div>
@@ -882,12 +887,12 @@ a mean of 62.25, the probability of any one sample mean being between 60 and
 60.5 is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proportions</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0223
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
 </pre></div>
 </div>
 </div>
@@ -904,13 +909,13 @@ distribution we have already been using.</p>
 the left (lower) edge of 54.5.   It turns out this is the bin at index 9.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bin_54p5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bin_edges</span> <span class="o">==</span> <span class="mf">54.5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_54p5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bin_edges</span> <span class="o">==</span> <span class="mf">54.5</span><span class="p">)</span>
 <span class="n">bin_54p5</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(array([9]),)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([9]),)
 </pre></div>
 </div>
 </div>
@@ -921,13 +926,13 @@ trick of using <code class="docutils literal notranslate"><span class="pre">np.w
 sample mean between 54.5 and 55:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p_around_54p5</span> <span class="o">=</span> <span class="n">proportions</span><span class="p">[</span><span class="n">bin_54p5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_around_54p5</span> <span class="o">=</span> <span class="n">proportions</span><span class="p">[</span><span class="n">bin_54p5</span><span class="p">]</span>
 <span class="n">p_around_54p5</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0.001])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0016])
 </pre></div>
 </div>
 </div>

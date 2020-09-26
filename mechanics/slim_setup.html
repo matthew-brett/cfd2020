@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -650,12 +649,14 @@ disk space, but it is more involved.</p>
 disk space, or you are installing on a borrowed laptop where you need to get
 going quickly.</p>
 <ul>
-<li><p>Open your web browser, and go to <a class="reference external" href="https://www.python.org/downloads/release/python-366">https://www.python.org/downloads/release/python-366</a>.</p></li>
-<li><p>Download the <a class="reference external" href="https://www.python.org/ftp/python/3.6.6/python-3.6.6.exe">Windows x86 executable installer</a>.</p></li>
+<li><p>Open your web browser, and go to
+<a class="reference external" href="https://www.python.org/downloads/release/python-385">https://www.python.org/downloads/release/python-385</a></p></li>
+<li><p>Download the <a class="reference external" href="https://www.python.org/ftp/python/3.8.5/python-3.8.5-amd64.exe">Windows 64-bit executable
+installer</a>.</p></li>
 <li><p>Run the installer.  At the initial screen, <em>unselect</em> “Install launcher
-for all users”, and <em>select</em> “Add Python 3.6 to PATH”. Here’s a screenshot
+for all users”, and <em>select</em> “Add Python 3.8 to PATH”. Here’s a screenshot
 of the correct options:</p>
-<p><img alt="" src="mechanics/images/python36_install_screen.png" /></p>
+<p><img alt="" src="mechanics/images/python38_install_screen.png" /></p>
 <p>When the options are right, click on “Install Now” to continue the
 installation.  Click “Close” when the installation is done.</p>
 </li>

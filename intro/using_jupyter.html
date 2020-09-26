@@ -24,13 +24,12 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -638,6 +637,12 @@
                     alt="Interact on binder">Binder</button></a>
         
         
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/intro/using_jupyter.Rmd&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -687,12 +692,12 @@
 <p>Press Shift-Enter in the cell below, to see the total:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>19.75
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.75
 </pre></div>
 </div>
 </div>
@@ -705,7 +710,7 @@
 <p>A comment is some text that the computer will ignore.  In Python, you can make a comment by starting a line with the <code class="docutils literal notranslate"><span class="pre">#</span></code> (hash) character.  For example, the next cell is a code cell, but when you run it, it does not show any result.  In this case, that is because the computer sees the <code class="docutils literal notranslate"><span class="pre">#</span></code> at the beginning of the line, and then ignores the rest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This bit of text is for me to read, and the computer to ignore.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This bit of text is for me to read, and the computer to ignore.</span>
 </pre></div>
 </div>
 </div>
@@ -719,13 +724,13 @@
 <p>What about this?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The tip - with a mistake.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The tip - with a mistake.</span>
 <span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>11.8875
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.8875
 </pre></div>
 </div>
 </div>
@@ -737,13 +742,13 @@
 <p>We need to tell Python to do the addition and then the multiplication.  We do this with round brackets (parentheses):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip - mistake fixed.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill plus tip - mistake fixed.</span>
 <span class="p">(</span><span class="mf">10.50</span> <span class="o">+</span> <span class="mf">9.25</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2.9625
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.9625
 </pre></div>
 </div>
 </div>
@@ -751,7 +756,7 @@
 <p>Now your turn.  Calculate Alex and Billie’s bill including the tip:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The bill, including the tip</span>
 <span class="c1"># Type your code below.</span>
 </pre></div>
 </div>
@@ -760,7 +765,7 @@
 <p>Alex and Billie are each going to pay half the bill.   Calculate half the bill (where the bill is the total bill including the tip):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Half the total bill, including the tip</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Half the total bill, including the tip</span>
 <span class="c1"># Type your code below.</span>
 </pre></div>
 </div>
@@ -769,7 +774,7 @@
 <p>Alex is planning to drink three cherry colas, each at £1.50.   Billie is going to have a glass of wine, at £3.50.  Now what is their combined bill, plus tip?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The total bill, including drinks, and the tip.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The total bill, including drinks, and the tip.</span>
 <span class="c1"># Type your code below.</span>
 </pre></div>
 </div>
