@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -26,8 +25,6 @@
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -554,6 +551,10 @@
 
  <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -822,17 +823,17 @@ problem? Simulation!</p>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>green</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
+      <td>2</td>
       <td>red</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
-      <td>red</td>
+      <td>green</td>
     </tr>
   </tbody>
 </table>
@@ -850,7 +851,7 @@ box we got was BOX4.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4548088064889919
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47031788586748374
 </pre></div>
 </div>
 </div>
@@ -878,8 +879,8 @@ probabilities we calculated above, but not exactly the same.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.2947
-Box2 proportion 0.7053
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.3027
+Box2 proportion 0.6973
 </pre></div>
 </div>
 </div>
@@ -907,7 +908,7 @@ that give red) = 0.24.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2456
 </pre></div>
 </div>
 </div>
@@ -924,7 +925,7 @@ that give red) = 0.28.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2823
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2766
 </pre></div>
 </div>
 </div>
@@ -941,7 +942,7 @@ red trials.  This is 0.24 + 0.28 = 0.52.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.5178
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.5222
 </pre></div>
 </div>
 </div>
@@ -956,7 +957,7 @@ red.  So the proportion of <em>all</em> red trials, that are BOX4 <em>and</em> r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.45480880648899186
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.47031788586748374
 </pre></div>
 </div>
 </div>

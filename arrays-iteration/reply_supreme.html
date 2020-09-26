@@ -14,9 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -26,8 +25,6 @@
     <script src="../_static/copybutton.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -556,6 +553,10 @@
 
  <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -711,7 +712,7 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31
 </pre></div>
 </div>
 </div>
@@ -742,7 +743,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([22.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([24.])
 </pre></div>
 </div>
 </div>
@@ -767,14 +768,14 @@ a much higher number.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([28., 25., 27., 23., 33., 28., 26., 28., 28., 29., 28., 23., 21.,
-       26., 23., 24., 29., 27., 31., 24., 28., 20., 23., 17., 32., 20.,
-       29., 24., 26., 23., 25., 24., 25., 28., 29., 18., 24., 31., 24.,
-       27., 22., 24., 36., 32., 30., 26., 23., 20., 27., 24., 27., 25.,
-       23., 29., 24., 27., 18., 28., 19., 30., 26., 26., 24., 26., 24.,
-       22., 21., 22., 33., 19., 32., 27., 18., 24., 23., 23., 11., 26.,
-       25., 25., 23., 29., 29., 24., 30., 27., 28., 31., 23., 31., 26.,
-       26., 28., 24., 37., 29., 22., 23., 28., 21.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([29., 21., 26., 27., 29., 27., 30., 20., 31., 29., 28., 18., 30.,
+       28., 24., 27., 31., 25., 30., 33., 33., 20., 24., 23., 31., 35.,
+       30., 25., 24., 28., 27., 29., 27., 28., 24., 25., 30., 24., 26.,
+       23., 27., 27., 23., 34., 23., 28., 30., 25., 17., 33., 26., 26.,
+       32., 28., 29., 21., 26., 19., 20., 33., 28., 21., 27., 28., 21.,
+       26., 25., 22., 28., 26., 18., 28., 23., 20., 21., 20., 20., 30.,
+       25., 27., 26., 29., 30., 20., 31., 19., 36., 25., 27., 23., 22.,
+       24., 23., 20., 29., 21., 32., 29., 37., 30.])
 </pre></div>
 </div>
 </div>
@@ -800,7 +801,7 @@ and therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([18., 31., 22., ..., 31., 31., 37.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([28., 29., 20., ..., 32., 16., 21.])
 </pre></div>
 </div>
 </div>
@@ -846,9 +847,9 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  23.,  101.,  577., 2272., 2647., 2314., 1605.,  370.,   71.,
-          20.]),
- array([10. , 13.3, 16.6, 19.9, 23.2, 26.5, 29.8, 33.1, 36.4, 39.7, 43. ]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  12.,  132.,  895., 1851., 3492., 2082., 1252.,  231.,   48.,
+           5.]),
+ array([10. , 13.5, 17. , 20.5, 24. , 27.5, 31. , 34.5, 38. , 41.5, 45. ]),
  &lt;a list of 10 Patch objects&gt;)
 </pre></div>
 </div>
