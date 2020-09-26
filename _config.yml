@@ -9,7 +9,9 @@ description: >-
   Textbook for University of Birmingham Data Science modules.
 
 execute:
-  execute_notebooks: cache
+  # 'cache' attempts to cache the results.
+  execute_notebooks: auto
+  timeout: 120
 
 exclude_patterns: [README.md, todo.md]
 
