@@ -147,7 +147,10 @@ ratings.head()
 
 It can be very difficult to predict when Pandas indexing will give a copy or a view.
 
-For example, here we use indirect indexing (square brackets following `.iloc`) to select the row of `ratings` with index label 0.  Remember `.loc` indexing uses the index labels, not positions, although in this case the index has label 0 for position 0.
+For example, here we use indirect indexing (square brackets following `.loc`)
+to select the row of `ratings` with index label 0.  Remember `.loc` indexing
+uses the *index labels*, not *positions*, although in this case the index has
+label 0 for position 0.
 
 ```{python}
 row_0 = ratings.loc[0]
@@ -169,9 +172,9 @@ row_0.loc['Clarity'] = 5
 row_0
 ```
 
-We will get to the warning soon.
+Notice the warning, again.
 
-Did we change the original data frame?
+But - this time - did we change the original data frame?
 
 ```{python}
 ratings.head()
@@ -197,7 +200,8 @@ copied_row_0.loc['Clarity'] = 5
 copied_row_0
 ```
 
-Please worry about these warnings.  In fact, in the interests of safety, we come to rule 2.
+**Please do worry about these warnings**.  In fact, in the interests of safety,
+we come to rule 2.
 
 ## Rule 2: make errors for copy/view warnings
 
@@ -212,7 +216,7 @@ pd.set_option('mode.chained_assignment','raise')
 After you have done this, Pandas will stop if you try to do something like this:
 
 ```{python tags=c("raises-exception")}
-row_0 = ratings.loc[0]   # Copy?  Or wiew?  Difficult to guess.
+row_0 = ratings.loc[0]   # Copy?  Or view?  Difficult to guess.
 # Now this generates an error.
 row_0.loc['Clarity'] = 99
 ```
@@ -235,14 +239,15 @@ The reason is the same as the reason for the previous error.  The code in the
 cell directly above is just a short-cut for this exact equivalent.
 
 ```{python tags=c("raises-exception")}
-row_0 = ratings.loc[0]
-row_0.loc['Clarity'] = 99
+tmp = ratings.loc[0]
+tmp.loc['Clarity'] = 99
 ```
 
 Specifically, when Python sees `ratings.loc[0].loc['Clarity'] = 99`, it first
-evaluates `ratings.loc[0]` to generate a temporary copy.  Let's call this
-temporary copy `tmp`. It then tries to set the value into the copy with
-`tmp.loc['Clarity'] = 99`.  This generates the same error as you saw before.
+evaluates `ratings.loc[0]` to generate a temporary copy.  In the code above, we
+called this temporary copy `tmp`. It then tries to set the value into the copy
+with `tmp.loc['Clarity'] = 99`.  This generates the same error as you saw
+before.
 
 As you have probably guessed from the option name above, Pandas calls this
 *chained assignment*, because you are: first, fetching the stuff you want do
@@ -250,10 +255,10 @@ the assignment on (`ratings.loc[0]`) and then doing the assignment
 `.loc['Clarity'] = 99`. There are two steps on the left hand side, in a chain,
 first fetching the data, then assigning.
 
-The problem that Pandas has is that it cannot tell that this has happened, so
-it can't tell what you mean.  Python will ask Pandas to generate
-`ratings.loc[0]` first, which it does, to generate the temporary copy that we
-can call `tmp`. Python then ask Pandas to set the value with
+The problem that Pandas has is that it cannot tell that this chained assignment
+has happened, so it can't tell what you mean.  Python will ask Pandas to
+generate `ratings.loc[0]` first, which it does, to generate the temporary copy
+that we can call `tmp`. Python then ask Pandas to set the value with
 `tmp.loc['Clarity'] = 99`.  When Pandas gets this second instruction, it has no
 way of knowing that `tmp` came from the combined instruction
 `ratings.loc[0].loc['Clarity'] = 99`, and so all it can do is set the value
