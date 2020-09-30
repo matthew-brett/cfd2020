@@ -77,8 +77,8 @@ Of course we get the same answer, because we are doing the same calculation:
 box_ps * red_ps / np.sum(box_ps * red_ps)
 ```
 
-By working through what calculations are happending above, we find this is the
-same as:
+By working through the calculations that are happening above, we find this is
+the same as:
 
 ```{python}
 # All in one go, using individual variables.
