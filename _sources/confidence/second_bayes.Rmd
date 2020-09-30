@@ -168,7 +168,7 @@ p_box4 = np.count_nonzero(red_ball_trials['box no'] == 5) / len(red_ball_trials)
 p_box4
 ```
 
-As we saw the [Bayes bars](bayes_bars) page,
+As we saw in the [Bayes bars](bayes_bars) page,
 because all the boxes have equal probability, we can skip the calculation step
 that scales by the box probability, and take the following shortcut:
 

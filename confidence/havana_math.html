@@ -1,20 +1,40 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>A problem for the education minister &#8212; Coding for Data - 2020 edition</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -23,10 +43,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -39,8 +59,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
@@ -654,12 +674,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            
-        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -685,6 +700,8 @@ the eventual results for 2019?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Make printing of numbers a bit neater.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -701,6 +718,8 @@ school-leaver mathematics examination results from 2018.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;havana_math_2018.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Drop missing marks.</span>
+<span class="n">havana_2018</span> <span class="o">=</span> <span class="n">havana_2018</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">havana_2018</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -776,7 +795,7 @@ school-leaver mathematics examination results from 2018.</p>
 </table>
 </div></div></div>
 </div>
-<p>There are about 8000 marks in this table:</p>
+<p>There are about 7300 marks in this table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">havana_2018</span><span class="p">)</span>
@@ -784,12 +803,14 @@ school-leaver mathematics examination results from 2018.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7995
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7306
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is the histogram, split into 100 bins to show more detail of the distribution — the default is 10 bins (question — how would you check this?).</p>
+<p>Here is the histogram, split into 100 bins to show more detail of the
+distribution — the default is 10 bins (question — how would you check
+this?).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2018</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;mark&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
@@ -800,7 +821,9 @@ school-leaver mathematics examination results from 2018.</p>
 <img alt="../_images/havana_math_8_0.png" src="../_images/havana_math_8_0.png" />
 </div>
 </div>
-<p>Notice this is much unlike a normal distribution,  In particular, you can see that the marks near 50% - appear to have been pushed upwards to 60%.  Maybe the markers are being generous to students close to the pass mark.</p>
+<p>Notice this is much unlike a normal distribution,  In particular, you can see
+that the marks near 50% - appear to have been pushed upwards to 60%.  Maybe the
+markers are being generous to students close to the pass mark.</p>
 <p>Here are the various statistics for the 2018 marks:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -876,43 +899,43 @@ Name: mark, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2327-PRESENCIA DE CELIA</td>
+      <td>2308-JOSE MARTI (H.VIEJA)</td>
       <td>Institutos Preuniversitarios</td>
-      <td>1101168160</td>
-      <td>RAMIREZ SANCHEZ NEYDER</td>
-      <td>89.0</td>
+      <td>1092468439</td>
+      <td>GONZALEZ CHAO SUANY DE LAS MERCEDES</td>
+      <td>52.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2305-JOSE MIGUEL PEREZ</td>
+      <td>2304-SAUL DELGADO</td>
       <td>Institutos Preuniversitarios</td>
-      <td>1101066782</td>
-      <td>LEIVA RAMOS SAMUEL ALEJANDRO</td>
-      <td>84.0</td>
+      <td>1120268571</td>
+      <td>LODEIRO CHANG AIMEE</td>
+      <td>79.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2313-VILMA ESPIN</td>
+      <td>2315-12 DE SEPTIEMBRE</td>
       <td>Institutos Preuniversitarios</td>
-      <td>1101167635</td>
-      <td>NODARSE CASTRO JENNIFER</td>
-      <td>25.0</td>
+      <td>1112967200</td>
+      <td>BORREGO CABRERA MIGUEL ANGEL</td>
+      <td>99.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2324-MANOLITO AGUIAR</td>
+      <td>2323-ROSALIA ABREU</td>
       <td>Institutos Preuniversitarios</td>
-      <td>1033165197</td>
-      <td>SCULL ORTIZ JESSICA</td>
-      <td>30.0</td>
+      <td>1110168046</td>
+      <td>PEREZ MATOS CRISTIAN</td>
+      <td>88.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2306-TOMAS DAVID ROYO</td>
+      <td>2335-RAMON PADRON</td>
       <td>Institutos Preuniversitarios</td>
-      <td>1102668498</td>
-      <td>HERRERA GARCIA REGINA TERESA</td>
-      <td>97.0</td>
+      <td>1100267571</td>
+      <td>MUSA MEDINA IRENE</td>
+      <td>67.0</td>
     </tr>
   </tbody>
 </table>
@@ -937,14 +960,14 @@ Name: mark, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    45.000000
-mean     54.511111
-std      24.015736
-min       4.000000
-25%      30.000000
-50%      60.000000
-75%      72.000000
-max      97.000000
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    50.000000
+mean     58.740000
+std      22.898899
+min       0.000000
+25%      40.250000
+50%      61.000000
+75%      71.750000
+max      99.000000
 Name: mark, dtype: float64
 </pre></div>
 </div>
@@ -959,19 +982,19 @@ Name: mark, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>54.51111111111111
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>58.74
 </pre></div>
 </div>
 </div>
 </div>
-<p>The mean here is about 54.51.  That seems a bit lower than the 2018 mean —
-but have I been deceived by the sample?  Was I just unlucky?   How confident
-can I be that the mean from the full results will in fact be near 54.51,
-rather than the 65.25 or so of the previous year?</p>
+<p>The mean here is 58.74.  That seems a bit lower than the 2018 mean — but have
+I been deceived by the sample?  Was I just unlucky?   How confident can I be
+that the mean from the full results will in fact be near 58.74, rather than the
+65.25 or so of the previous year?</p>
 <p>We now enter the territory of <em>confidence intervals</em>.</p>
-<p>My question is: how close is my <em>sample mean</em> of 54.51 likely to be to the
-eventual mean, once I have all 8000 or so results for 2019?  How <em>confident</em>
-can I be in this sample mean of around 54.51?</p>
+<p>My question is: how close is my <em>sample mean</em> of 58.74 likely to be to the
+eventual mean, once I have all 7000 or so results for 2019?  How <em>confident</em>
+can I be in this sample mean of around 58.74?</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1020,7 +1043,10 @@ can I be in this sample mean of around 54.51?</p>
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
     
   </body>
 </html>

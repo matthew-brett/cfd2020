@@ -35,6 +35,8 @@ the eventual results for 2019?
 
 ```{python}
 import numpy as np
+# Make printing of numbers a bit neater.
+np.set_printoptions(precision=4, suppress=True)
 import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -51,22 +53,28 @@ You can download the file from
 
 ```{python}
 havana_2018 = pd.read_csv('havana_math_2018.csv')
+# Drop missing marks.
+havana_2018 = havana_2018.dropna()
 havana_2018.head()
 ```
 
-There are about 8000 marks in this table:
+There are about 7300 marks in this table:
 
 ```{python}
 len(havana_2018)
 ```
 
-Here is the histogram, split into 100 bins to show more detail of the distribution --- the default is 10 bins (question --- how would you check this?).
+Here is the histogram, split into 100 bins to show more detail of the
+distribution --- the default is 10 bins (question --- how would you check
+this?).
 
 ```{python}
 havana_2018.hist('mark', bins=100);
 ```
 
-Notice this is much unlike a normal distribution,  In particular, you can see that the marks near 50% - appear to have been pushed upwards to 60%.  Maybe the markers are being generous to students close to the pass mark.
+Notice this is much unlike a normal distribution,  In particular, you can see
+that the marks near 50% - appear to have been pushed upwards to 60%.  Maybe the
+markers are being generous to students close to the pass mark.
 
 
 Here are the various statistics for the 2018 marks:
@@ -107,14 +115,14 @@ math_med_2019_samp = havana_2019_sample['mark'].mean()
 math_med_2019_samp
 ```
 
-The mean here is about 54.51.  That seems a bit lower than the 2018 mean ---
-but have I been deceived by the sample?  Was I just unlucky?   How confident
-can I be that the mean from the full results will in fact be near 54.51,
-rather than the 65.25 or so of the previous year?
+The mean here is 58.74.  That seems a bit lower than the 2018 mean --- but have
+I been deceived by the sample?  Was I just unlucky?   How confident can I be
+that the mean from the full results will in fact be near 58.74, rather than the
+65.25 or so of the previous year?
 
 
 We now enter the territory of *confidence intervals*.
 
-My question is: how close is my *sample mean* of 54.51 likely to be to the
-eventual mean, once I have all 8000 or so results for 2019?  How *confident*
-can I be in this sample mean of around 54.51?
+My question is: how close is my *sample mean* of 58.74 likely to be to the
+eventual mean, once I have all 7000 or so results for 2019?  How *confident*
+can I be in this sample mean of around 58.74?
