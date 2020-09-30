@@ -211,4 +211,4 @@ shortcut_box_given_red_probs
 ```
 
 If you do not mind a little basic algebra, see why this must be true in the
-[equal initial p](../chapters/10/equal_initial_p) page.
+[equal initial p](equal_initial_p) page.

@@ -21,7 +21,7 @@ jupyter:
 
 # Exercises on functions
 
-For background, please read the [functions](../07/functions) introduction.
+For background, please read the [functions](../functions-conditionals/functions) introduction.
 
 
 This function is not properly defined, and will give a `SyntaxError`.  Fix it, then run the call below to confirm it is working.

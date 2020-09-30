@@ -136,7 +136,10 @@ Try it.
 
 So far this is a bit abstract, but we will often use this kind of assignment when we create arrays, and then fill them in.
 
-For example, remember the solution to the three girls problem.  Our first approach to this, in [leaping ahead](leaping_ahead) was to use `np.append` to append values to the end of an array, as we run through the loop:
+For example, remember the solution to the three girls problem.  Our first
+approach to this, in [leaping ahead](../data-types/leaping_ahead) was to use
+`np.append` to append values to the end of an array, as we run through the
+loop:
 
 ```{python}
 # Reset the counts array to empty.

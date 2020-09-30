@@ -44,8 +44,7 @@ def read_url(url):
     return urlopen(url).read().decode()
 ```
 
-This page is largely derived from `Plotting_the_Classics` of the UC Berkeley
-course \- see the license file on the main website.
+{ucb-page}`Plotting_the_Classics`
 
 In this example, we will explore statistics for: *Pride and Prejudice*
 by Jane Austen.  The text of any book can be read by a computer at great

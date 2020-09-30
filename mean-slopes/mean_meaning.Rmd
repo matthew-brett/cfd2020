@@ -35,7 +35,7 @@ plt.style.use('fivethirtyeight')
 np.set_printoptions(precision=2, suppress=True)
 ```
 
-We need Pandas to load the gender data that we first saw in the [data frame introduction](../04/data_frame_intro).
+We need Pandas to load the gender data that we first saw in the [data frame introduction](../data-frames/data_frame_intro).
 
 ```{python}
 import pandas as pd

@@ -9,7 +9,11 @@ description: >-
   Textbook for University of Birmingham Data Science modules.
 
 execute:
-  execute_notebooks: cache
+  # 'cache' attempts to cache the results.
+  execute_notebooks: auto
+  timeout: 120
+
+exclude_patterns: [README.md, todo.md]
 
 html:
   favicon: images/dsfe_favicon.ico
@@ -24,8 +28,13 @@ repository:
   branch: master
 
 launch_buttons:
-  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  # The interface interactive links will activate ["classic", "jupyterlab"]
+  notebook_interface: "classic"
+  # The URL of the BinderHub (e.g., https://mybinder.org)
   binderhub_url: "https://mybinder.org"
+  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  jupyterhub_url: "https://uobhub.org"
+  # The URL of Google Colab (e.g., https://colab.research.google.com)
   colab_url: "https://colab.research.google.com"
   thebe: true
 
@@ -39,9 +48,14 @@ sphinx:
           "bmat": ["\\left[\\begin{array}"]
           "emat": ["\\end{array}\\right]"]
 
+    nb_custom_formats:
+      .Rmd:
+        - jupytext.reads
+        - fmt: Rmd
+
   extra_extensions:
     # For noting license and linking to data8 version of page.
-    - cfdcode.data8page
+    - cfdcode.ucb_page
     # For documenting 'click' Python CLIs
     # - sphinx_click.ext
     # Directive for creating tab panels in pages.

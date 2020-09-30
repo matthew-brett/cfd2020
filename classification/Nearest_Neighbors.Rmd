@@ -2,16 +2,12 @@
 jupyter:
   anaconda-cloud: {}
   jupytext:
-    metadata_filter:
-      notebook:
-        additional: all
-        excluded:
-        - language_info
+    notebook_metadata_filter: all,-language_info
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.6
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -20,7 +16,7 @@ jupyter:
 
 # Nearest neighbors
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 import numpy as np
 # %matplotlib inline
@@ -29,13 +25,13 @@ plt.style.use('fivethirtyeight')
 import pandas as pd
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def standard_units(x):
     return (x - np.mean(x))/np.std(x)
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def distance(point1, point2):
     """The distance between two arrays of numbers."""
@@ -130,7 +126,7 @@ In other words, to classify Alice as CKD or not, we find the patient in the trai
 
 In the graph below, the red dot represents Alice. It is joined with a black line to the point that is nearest to it – its *nearest neighbor* in the training set. The figure is drawn by a function called `show_closest`. It takes an array that represents the $x$ and $y$ coordinates of Alice's point. Vary those to see how the closest point changes! Note especially when the closest point is blue and when it is gold.
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 def show_closest(point):
     """point = array([x,y])
@@ -173,7 +169,7 @@ show_closest(alice)
 
 Here are hundreds of new unclassified points, all in red.
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 
 # Values for x and y coordinates
@@ -196,7 +192,7 @@ test_grid['Hemoglobin'] = x_coords
 test_grid['Glucose'] = y_coords
 ```
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 
 test_grid.plot.scatter('Hemoglobin', 'Glucose',
@@ -219,7 +215,7 @@ For each red point, it must find the closest point in the training set; it must 
 
 The resulting graph shows which points will get classified as 'CKD' (all the blue ones), and which as 'not CKD' (all the gold ones).
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 
 def classify_grid(training, test, k):
@@ -231,7 +227,7 @@ def classify_grid(training, test, k):
     return c
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 
 c = classify_grid(ckd[['Hemoglobin', 'Glucose', 'Class']],
@@ -239,7 +235,7 @@ c = classify_grid(ckd[['Hemoglobin', 'Glucose', 'Class']],
                   1)
 ```
 
-```{python}
+```{python tags=c("remove-input")}
 # NO CODE
 
 test_grid['Class'] = c

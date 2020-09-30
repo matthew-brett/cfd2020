@@ -4,8 +4,8 @@ jupyter:
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.5.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -32,6 +32,11 @@ With thanks to John Rauser: [Statistics Without the Agonizing Pain](https://www.
 Download the data from [mosquito_beer.csv](../data/mosquito_beer.csv).
 
 
+See [this
+page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer) for
+more details on the dataset, and [the data license page](../data/LICENSE).
+
+
 ```{python}
 # Import Numpy library, rename as "np"
 import numpy as np
@@ -44,7 +49,7 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-```{python}
+```{python tags=c("hide-cell")}
 # HIDDEN
 # An extra tweak to make sure we always get the same random numbers.
 # Do not use this in your own code; you nearly always want an unpredictable

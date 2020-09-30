@@ -1,5 +1,5 @@
 ---
-redirect_from: 'chapters/01/2/why-data-science'
+redirect_from: 'chapters/intro/2/why-data-science'
 ---
 
 Why Data Science?

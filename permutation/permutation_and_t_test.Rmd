@@ -16,7 +16,7 @@ jupyter:
 
 # Permutation and the t-test
 
-In [the idea of permutation](../chapters/05/permutation_idea),
+In [the idea of permutation](permutation_idea),
 we use permutation to compare a difference between two groups of numbers.
 
 In our case, each number corresponded to one person in the study.  The number
@@ -28,7 +28,30 @@ subjects who had drunk water, and 18 numbers corresponding to the "water" group.
 
 Here we repeat the permutation test, as a reminder.
 
-As before, you can download the data from [mosquito_beer.csv](../chapters/05/permutation_idea),
+As before, you can download the data from
+[mosquito_beer.csv](../data/mosquito_beer.csv).
+
+See [this
+page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer)
+for more details on the dataset, and [the data license
+page](../data/LICENSE).
+
+
+```{python}
+# Import Numpy library, rename as "np"
+import numpy as np
+# Import Pandas library, rename as "pd"
+import pandas as pd
+
+# Set up plotting
+import matplotlib.pyplot as plt
+# %matplotlib inline
+plt.style.use('fivethirtyeight')
+```
+
+Read in the data, get the numbers of mosquitoes flying towards the beer
+drinkers, and towards the water drinkers, after they had drunk their beer or
+water.  See the [the idea of permutation](permutation_idea) page.
 
 ```{python}
 # Read in the data, select beer and water values.

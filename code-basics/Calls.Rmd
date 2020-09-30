@@ -68,7 +68,7 @@ You can also call round with two arguments, where the first argument is the numb
 round(3.3333, 0)
 ```
 
-Notice that the result looks slightly different from the result of `round(3.3333)` above.  We will get onto the these differences in the [numbers](../03/Numbers) section.
+Notice that the result looks slightly different from the result of `round(3.3333)` above.  We will get onto the these differences in the [numbers](../data-types/Numbers) section.
 
 You can also round to - say - 2 decimal places, like this:
 

@@ -1,5 +1,5 @@
 ---
-redirect_from: 'chapters/01/1/1/computational-tools'
+redirect_from: 'chapters/intro/1/1/computational-tools'
 ---
 
 # Computational Tools

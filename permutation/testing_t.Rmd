@@ -21,7 +21,102 @@ jupyter:
 One of the great advantages of using simulation is that you can test the
 assertions your teachers make.
 
-For example, in the [permutation and t-test page](../chapters/05/permutation_and_t_test).
+For example, in the [permutation and t-test page](permutation_and_t_test), we asserted that the t-test is not
+valid when the underlying distribution of the numbers is not close to the
+[normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
+
+We can investigate this claim by simulating numbers from the null (ideal)
+world, and seeing what results we get from the t-test.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+# %matplotlib inline
+```
+
+The particular variant of the t-test that we were looking at in the page above
+was the *independent sample* t test for groups with similar variance.  Similar
+variance means that the distribution of the values in the first group is
+roughly equal to the distribution in the second group.
+
+For example, soon we will be testing again for a mean difference between the
+numbers of mosquitoes attracted to each of the 25 volunteers who drank beer,
+and the equivalent numbers for each of the 18 volunteers who drank water.
+
+See [the data
+page](https://github.com/matthew-brett/datasets/tree/master/mosquito_beer) for
+more details on the dataset, and [the data license page](../data/LICENSE).
+
+For an equal variance test, we assume that the spread of the beer values is
+roughly equal to the spread of the water values, as measured by the *standard
+deviation*, or, equivalently, the *variance*.  Remember the variance is the
+squared standard deviation.
+
+We can pull together the code in [permutation and t-test
+page](permutation_and_t_test) to implement our own t-test.
+
+```{python}
+# Import the Scipy statistics routines.
+import scipy.stats as sps
+```
+
+```{python}
+def t_test(group1, group2):
+    """ Independent sample t value and one-tail upper-tail p value.
+    """
+    g1_mean = np.mean(group1)
+    g2_mean = np.mean(group2)
+    omd = g1_mean - g2_mean  # The observed mean difference.
+    errors = np.append(group1 - g1_mean, group2 - g2_mean)
+    g1_n = len(group1)  # Number of observations in group1
+    g2_n = len(group2)  # Number of observations in group2
+    df = g1_n + g2_n - 2  # The "degrees of freedom".
+    estimated_sd = np.sqrt(np.sum(errors ** 2) / df)
+    t_stat = omd / (estimated_sd * np.sqrt(1 / g1_n + 1 / g2_n))
+    upper_tail_p = 1 - sps.t.cdf(t_stat, df)
+    return [t_stat, upper_tail_p]
+```
+
+The only new thing in the implementation above is the second-to-last line,
+where we are using a routine in Scipy to calculate the probability value from
+the t statistic; the details of this are not important for our purpose.
+
+First we go back to the logic of this p value, which is very similar to the
+logic for permutation test p values:
+
+* Notice that the function calculates `omd = np.mean(group1) -
+  np.mean(group2)`. Call `omd` the *observed mean difference*.
+* Assume that we are in the null (ideal) world where the numbers from `group1`
+  and the numbers from `group2` have been drawn at random from the *same*
+  distribution.
+* The p value is the probability, in this null world, of seeing a mean
+  difference that is equal to or greater than the observed mean difference
+  `omd`.
+
+You can also think of a p value as an *index of surprise*.  The p value tells
+you how often you would expect to see an observed mean different this large, or
+larger, in the null (ideal) world.  If the p value is small, then the observed
+mean difference is surprising.  For example, if the p value is 0.05, it means
+that such difference only occurs 5% of the time by chance in the null world, or
+1 in 20 times.  You could say it was surprising at a 5% level.  Similarly a p
+value of 0.01 means the result would only occur 1% of the time in the null
+world, and it is surprising at a 1% level.
+
+Here we recreate the mosquito, beer, water data from the [permutation and
+t-test page](permutation_and_t_test):
+
+```{python}
+beer_activated = np.array([14, 33, 27, 11, 12, 27, 26,
+                           25, 27, 27, 22, 36, 37,  3,
+                           23,  7, 25, 17, 36, 31, 30,
+                           22, 20, 29, 23])
+water_activated = np.array([33, 23, 23, 13, 24,  8,  4,
+                            21, 24, 21, 26, 27, 22, 21,
+                            25, 20,  7, 3])
+```
+
+We run our t-test over these data to get the same result you saw in the
+[permtuation and t-test page](permutation_and_t_test).
 
 ```{python}
 t, p = t_test(beer_activated, water_activated)

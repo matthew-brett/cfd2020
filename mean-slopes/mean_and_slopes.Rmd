@@ -338,7 +338,7 @@ np.sum(error ** 2)
 We are about to do this calculation many times, for many different slopes.  We
 need a *function*.
 
-In the function below, we are using [function world](../07/functions)
+In the function below, we are using [function world](../functions-conditionals/functions)
 to get the values of `hgb` and `pcv` defined here at the top level,
 outside *function world*. The function can see these values, from
 function world.

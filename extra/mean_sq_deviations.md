@@ -12,7 +12,7 @@ yourself what you need from web resources or an introductory textbook.
 
 Nothing in the rest of the course assumes you can follow the mathematics in this page.  The page is just for those of you who are interested, and do know that part of mathematics.
 
-In [the meaning of the mean](../08/mean_meaning) we were studying prediction
+In [the meaning of the mean](../mean-slopes/mean_meaning) we were studying prediction
 errors.
 
 We imagined using the mean of a set of value as a predictor for those values.  Then we looked at how far off we would be, on average, if we use the mean to predict each value.
@@ -53,7 +53,7 @@ SSE_c \triangleq \sum (x_i - c)^2 \tag{SSE_c}\label{eq:sse_c}
 $$
 
 This is the general formula for the specific plot we saw at the end of [the
-meaning of the mean page](../08/mean_meaning), where the value for $c$ is on
+meaning of the mean page](../mean-slopes/mean_meaning), where the value for $c$ is on
 the horizontal axis, and the value for $SSE_c$ is on the vertical axis.
 
 We want to find the value of $c$ that gives the smallest value for $SSE_c$.

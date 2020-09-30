@@ -114,7 +114,7 @@ We pass the function to `minimize` as an argument for it to use.  Try the [funct
 We can call the function we pass to `minimize` -- the *objective function* -- in the sense that our objective is to minimize this function.
 
 How is `minimize` using our objective function?   Clearly `minimize` is
-[calling](../02/Calls) the function, but what arguments is it
+[calling](../code-basics/Calls) the function, but what arguments is it
 sending?  How many times does it call the function?
 
 To find out, we can stick something inside the objective function to tell us
