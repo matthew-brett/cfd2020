@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Combining boolean arrays &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Standard scores" href="standard_scores.html" />
     <link rel="prev" title="Inference on slopes" href="inference_on_slopes.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -238,12 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,16 +259,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -316,11 +281,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -359,12 +319,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,7 +371,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -676,7 +631,12 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -690,13 +650,13 @@
 elements from arrays or tables.</p>
 <p>So far we have used <em>boolean</em> Series and arrays to select rows.  This works fine when we have some simple criterion, such as whether the value in the column or array is greater than 10.</p>
 <p>For example, consider the <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">students ratings dataset</span></a> dataset. Download the data file via
-<span class="xref myst">disciplines_SI.xlsx</span>.</p>
+<a class="reference download internal" download="" href="../_downloads/bd1ca798b7b6d67bc4fa7e606bdc95c5/disciplines_SI.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">disciplines_SI.xlsx</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># Make plots look a little bit more fancy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
@@ -705,78 +665,205 @@ elements from arrays or tables.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the Excel format data file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the Excel format data file</span>
 <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
 <span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">20</span><span class="n">eaceac4936</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Read the Excel format data file</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> 
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">304</span>         <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="k">elif</span> <span class="n">engine</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="n">io</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, io, engine)</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">823</span> 
-<span class="ne">--&gt; </span><span class="mi">824</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">825</span> 
-<span class="g g-Whitespace">    </span><span class="mi">826</span>     <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="s2">         err_msg = &quot;Install xlrd &gt;= 1.0.0 for Excel support&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">20</span><span class="s2">         import_optional_dependency(&quot;xlrd&quot;, extra=err_msg)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span><span class="s2">         super().__init__(filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="s2"> </span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/compat/_optional.py</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, raise_on_missing, on_version)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="s2">     except ImportError:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span><span class="s2">         if raise_on_missing:</span>
-<span class="ne">---&gt; </span><span class="mi">92</span><span class="s2">             raise ImportError(msg) from None</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="s2">             return None</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;xlrd&#39;. Install xlrd &gt;= 1.0.0 for Excel support Use pip or conda to install xlrd.
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>11774</td>
+      <td>3.608331</td>
+      <td>3.701530</td>
+      <td>3.657641</td>
+      <td>2.710459</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can select the rows from this table where the Easiness rating was above the median, using a <em>boolean series</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span>
 <span class="n">is_gt_median</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">easiness</span><span class="p">)</span>
 <span class="n">is_gt_median</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3     True
+4    False
+Name: Easiness, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">above_median</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">is_gt_median</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">above_median</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">is_gt_median</span><span class="p">]</span>
 <span class="n">above_median</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Sociology</td>
+      <td>4839</td>
+      <td>3.740980</td>
+      <td>3.748169</td>
+      <td>3.746962</td>
+      <td>3.395819</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Languages</td>
+      <td>3867</td>
+      <td>3.772780</td>
+      <td>3.917949</td>
+      <td>3.846951</td>
+      <td>3.277406</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Anthropology</td>
+      <td>2598</td>
+      <td>3.693222</td>
+      <td>3.704761</td>
+      <td>3.701674</td>
+      <td>3.248045</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>What if we wanted to select the rows that were between the 25th and 75th
 percentile?  Here’s how to get the percentile values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q25</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q25</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
 <span class="n">q75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q25</span><span class="p">,</span> <span class="n">q75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0283298724604153 3.34694063174731
 </pre></div>
 </div>
 </div>
@@ -784,8 +871,13 @@ percentile?  Here’s how to get the percentile values.</p>
 <p>We can do this more neatly with <a class="reference internal" href="using_minimize.html"><span class="doc std std-doc">unpacking</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q25</span><span class="p">,</span> <span class="n">q75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q25</span><span class="p">,</span> <span class="n">q75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q25</span><span class="p">,</span> <span class="n">q75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0283298724604153 3.34694063174731
 </pre></div>
 </div>
 </div>
@@ -794,7 +886,7 @@ percentile?  Here’s how to get the percentile values.</p>
 values.   We can do this the long way round, by selecting twice:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select values above the 25th percentile.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select values above the 25th percentile.</span>
 <span class="n">above_q25</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">easiness</span> <span class="o">&gt;</span> <span class="n">q25</span><span class="p">]</span>
 <span class="c1"># There are now fewer Easiness values, so we have to get the values remaining.</span>
 <span class="n">q25_easiness</span> <span class="o">=</span> <span class="n">above_q25</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span>
@@ -804,6 +896,82 @@ values.   We can do this the long way round, by selecting twice:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Business</td>
+      <td>6120</td>
+      <td>3.640327</td>
+      <td>3.680503</td>
+      <td>3.663332</td>
+      <td>3.172033</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Another, neater way of doing this is to make a single Boolean Series that has
 True only if the Easiness value is <em>both</em> above the 25th percentile <em>and</em>
@@ -812,20 +980,50 @@ below the 75th percentile.</p>
 <p>To do this we can make a Boolean Series for each of these two criteria:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># True if Easiness is above 25th percentile.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># True if Easiness is above 25th percentile.</span>
 <span class="n">is_gt_q25</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="n">q25</span>
 <span class="c1"># Show the first 10 values</span>
 <span class="n">is_gt_q25</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1     True
+2    False
+3     True
+4     True
+5    False
+6     True
+7     True
+8     True
+9    False
+Name: Easiness, dtype: bool
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># True if Easiness is below 75th percentile.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># True if Easiness is below 75th percentile.</span>
 <span class="n">is_lt_q75</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&lt;</span> <span class="n">q75</span>
 <span class="c1"># Show the first 10 values</span>
 <span class="n">is_lt_q75</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1     True
+2     True
+3     True
+4     True
+5     True
+6    False
+7     True
+8     True
+9     True
+Name: Easiness, dtype: bool
 </pre></div>
 </div>
 </div>
@@ -840,8 +1038,23 @@ only has True in positions where <em>both</em> of the input sequences have a Tru
 the corresponding position:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">is_between_25_75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">is_gt_q25</span><span class="p">,</span> <span class="n">is_lt_q75</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_between_25_75</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">is_gt_q25</span><span class="p">,</span> <span class="n">is_lt_q75</span><span class="p">)</span>
 <span class="n">is_between_25_75</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     True
+1     True
+2    False
+3     True
+4     True
+5    False
+6    False
+7     True
+8     True
+9    False
+Name: Easiness, dtype: bool
 </pre></div>
 </div>
 </div>
@@ -849,7 +1062,7 @@ the corresponding position:</p>
 <p>It might be easier to see what is going on if we make some small test arrays:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -858,13 +1071,60 @@ the corresponding position:</p>
 <p>We can show these conveniently as a DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">ab</span><span class="p">[</span><span class="s1">&#39;first input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">ab</span><span class="p">[</span><span class="s1">&#39;second input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
 <span class="n">ab</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first input</th>
+      <th>second input</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Before you look, try to work out what you would get from <code class="docutils literal notranslate"><span class="pre">np.logical_and(a,</span> <span class="pre">b)</span></code>.</p>
 <p>Remember, the rule is, the result will have True where the corresponding
@@ -872,16 +1132,31 @@ element from <em>both</em> <code class="docutils literal notranslate"><span clas
 <p>Here’s something to keep you entertained while you are thinking:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
 <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;gdJWZxPW45c&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/gdJWZxPW45c"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
 <p>The result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False, False, False])
 </pre></div>
 </div>
 </div>
@@ -890,18 +1165,70 @@ element from <em>both</em> <code class="docutils literal notranslate"><span clas
 show them nicely:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span><span class="p">[</span><span class="s1">&#39;and result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span><span class="p">[</span><span class="s1">&#39;and result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">ab</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first input</th>
+      <th>second input</th>
+      <th>and result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Check that you agree with Python’s results for combining <code class="docutils literal notranslate"><span class="pre">is_gt_q25</span></code> and
 <code class="docutils literal notranslate"><span class="pre">is_lt_q75</span></code> in the same way.  Here’s a display showing <code class="docutils literal notranslate"><span class="pre">is_gt_q25</span></code>,
 <code class="docutils literal notranslate"><span class="pre">is_lt_q75</span></code> and the result of <code class="docutils literal notranslate"><span class="pre">logical_and</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qbools</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qbools</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">qbools</span><span class="p">[</span><span class="s1">&#39;is_gt_q25&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_gt_q25</span>
 <span class="n">qbools</span><span class="p">[</span><span class="s1">&#39;is_lt_q75&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_lt_q75</span>
 <span class="n">qbools</span><span class="p">[</span><span class="s1">&#39;and_result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">is_gt_q25</span><span class="p">,</span> <span class="n">is_lt_q75</span><span class="p">)</span>
@@ -909,16 +1236,180 @@ show them nicely:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>is_gt_q25</th>
+      <th>is_lt_q75</th>
+      <th>and_result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can use the combined Boolean series from <code class="docutils literal notranslate"><span class="pre">logical_and</span></code> to select the rows
 that we want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">betweeners</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">is_gt_q25</span><span class="p">,</span> <span class="n">is_lt_q75</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betweeners</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">is_gt_q25</span><span class="p">,</span> <span class="n">is_lt_q75</span><span class="p">)]</span>
 <span class="n">betweeners</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>English</td>
+      <td>23343</td>
+      <td>3.756147</td>
+      <td>3.821866</td>
+      <td>3.791364</td>
+      <td>3.162754</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Mathematics</td>
+      <td>22394</td>
+      <td>3.487379</td>
+      <td>3.641526</td>
+      <td>3.566867</td>
+      <td>3.063322</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Psychology</td>
+      <td>11179</td>
+      <td>3.909520</td>
+      <td>3.887536</td>
+      <td>3.900949</td>
+      <td>3.316210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>History</td>
+      <td>11145</td>
+      <td>3.788818</td>
+      <td>3.753642</td>
+      <td>3.773746</td>
+      <td>3.053803</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Business</td>
+      <td>6120</td>
+      <td>3.640327</td>
+      <td>3.680503</td>
+      <td>3.663332</td>
+      <td>3.172033</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Notice that we only have rows where there is a corresponding True value in the
 result of the <code class="docutils literal notranslate"><span class="pre">logical_and</span></code>, and therefore, that we only have rows that are
@@ -930,42 +1421,190 @@ output sequence where <em>one or both</em> of the input sequences have True in t
 corresponding positions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True, False])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True, False])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span><span class="p">[</span><span class="s1">&#39;or result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ab</span><span class="p">[</span><span class="s1">&#39;or result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">ab</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first input</th>
+      <th>second input</th>
+      <th>and result</th>
+      <th>or result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>We can use this function to find all the rows that have Easiness ratings above
 the 75th percentile or below the 25th percentile:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_or_hard</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">easiness</span> <span class="o">&lt;</span> <span class="n">q25</span><span class="p">,</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="n">q75</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easy_or_hard</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">easiness</span> <span class="o">&lt;</span> <span class="n">q25</span><span class="p">,</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="n">q75</span><span class="p">)]</span>
 <span class="n">easy_or_hard</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Discipline</th>
+      <th>Number of Professors</th>
+      <th>Clarity</th>
+      <th>Helpfulness</th>
+      <th>Overall Quality</th>
+      <th>Easiness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>Biology</td>
+      <td>11774</td>
+      <td>3.608331</td>
+      <td>3.701530</td>
+      <td>3.657641</td>
+      <td>2.710459</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Chemistry</td>
+      <td>7346</td>
+      <td>3.387174</td>
+      <td>3.538980</td>
+      <td>3.465485</td>
+      <td>2.652054</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Communications</td>
+      <td>6940</td>
+      <td>3.867349</td>
+      <td>3.878602</td>
+      <td>3.875019</td>
+      <td>3.379829</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Economics</td>
+      <td>5540</td>
+      <td>3.382735</td>
+      <td>3.483617</td>
+      <td>3.435038</td>
+      <td>2.910078</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Sociology</td>
+      <td>4839</td>
+      <td>3.740980</td>
+      <td>3.748169</td>
+      <td>3.746962</td>
+      <td>3.395819</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 
@@ -1017,10 +1656,7 @@ the 75th percentile or below the 25th percentile:</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

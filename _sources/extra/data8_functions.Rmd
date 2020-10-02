@@ -12,6 +12,13 @@ jupyter:
     name: python3
 ---
 
+# Data 8 explanation of functions
+
+This is the explanation on functions from the Berkeley "Foundations of Data
+Science" course (also called "Data 8").
+
+{ucb-page}`Functions_and_Tables`
+
 ```{python}
 import numpy as np
 ```
@@ -31,7 +38,7 @@ often the case that we want to perform the same manipulation on every value in
 a column of a table.
 
 
-### Defining a Function ###
+## Defining a Function
 
 The definition of the `double` function below simply doubles a number.
 
@@ -228,7 +235,7 @@ print("Rounded to 1 decimal place:", percents(parts, 1))
 print("Rounded to the default number of decimal places:", percents(parts))
 ```
 
-### Note: Methods
+## Note: Methods
 
 Functions are called by placing argument expressions in parentheses after the
 function name. Any function that is defined in isolation is called in this way.

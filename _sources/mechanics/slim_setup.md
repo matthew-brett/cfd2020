@@ -17,7 +17,7 @@ going quickly.
     for all users", and *select* "Add Python 3.8 to PATH". Here's a screenshot
     of the correct options:
 
-    ![](images/python38_install_screen.png)
+    ![](../images/python38_install_screen.png)
 
     When the options are right, click on "Install Now" to continue the
     installation.  Click "Close" when the installation is done.

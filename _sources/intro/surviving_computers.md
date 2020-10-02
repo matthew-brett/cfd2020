@@ -9,7 +9,7 @@ taking up enough mental energy that we stop thinking carefully about the task
 at hand.  This is particularly dangerous when programming, because programming
 needs careful logical thought.
 
-For example, consider {% cite mueller2014pen %}.  In their study 1, the
+For example, consider {cite}`mueller2014pen`.  In their study 1, the
 authors asked students to take notes while listening to TED talks, and answer
 questions about the talks afterwards.  They randomly allocated students into
 two groups, where one group took notes with a pen and a notebook, and the
@@ -30,7 +30,7 @@ When *working* on the computer, have a piece of paper and a pen next to you on y
 
 [Pair programming](https://en.wikipedia.org/wiki/Pair_programming) is
 a standard technique that programmers use to improve the quality of their work
-and accelerate learning.  It is particularly useful early in learning, and with new tasks {% cite lui2006pair %}.
+and accelerate learning.  It is particularly useful early in learning, and with new tasks {cite}`lui2006pair`.
 
 Pair programming has a standard form.
 
@@ -48,4 +48,6 @@ will find that you can think more quickly and carefully.
 
 ## References
 
-{% bibliography --cited %}
+```{bibliography} ../_references.bib
+:filter: docname in docnames
+```

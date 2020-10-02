@@ -18,7 +18,7 @@ jupyter:
 The text on this page assumes you opened the page as an interactive Jupyter notebook, on your own computer, or one of the Jupyter web interfaces.
 
 
-In the Jupyter notebooi, this is a cell.
+In the Jupyter notebook, this is a cell.
 
 It's a cell with text - a text cell.
 

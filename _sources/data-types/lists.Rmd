@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# Lists
+
 Thus far we have seen the following data types:
 
 * integer (counting number) - `int`.

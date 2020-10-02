@@ -1,9 +1,4 @@
----
-redirect_from: 'chapters/intro/2/why-data-science'
----
-
-Why Data Science?
-=================
+# Why Data Science?
 
 Most important decisions are made with only partial information and uncertain
 outcomes. However, the degree of uncertainty for many decisions can be reduced
@@ -34,9 +29,9 @@ greater precision and clarity that helps them think about the process of
 drawing conclusions under uncertainty.  Code is a powerful way of explaining
 statistical reasoning, that is can be much more persuasive than traditional
 explanations using mathematics
-{% cite simon1997resampling cobb2007introductory cobb2015mere %}.
+{cite}`simon1997resampling,cobb2007introductory,cobb2015mere`.
 
-Algorithms on data already have great impact on us and our society.  Some of this impact is harmful or frightening.  Melissa O'Neil's book "Weapons of Math Destruction" gives a readable and alarming overview of misuse of code and algorithms that can have serious consequences for individuals and society {% cite oneil2016weapons %}:
+Algorithms on data already have great impact on us and our society.  Some of this impact is harmful or frightening.  Melissa O'Neil's book "Weapons of Math Destruction" gives a readable and alarming overview of misuse of code and algorithms that can have serious consequences for individuals and society {cite}`oneil2016weapons`:
 
 ![](../images/Weapons_of_Math_Destruction.jpg)
 
@@ -58,3 +53,9 @@ data sets are all readily available; this text aims to make them accessible to
 everyone.
 
 {ucb-page}`Why_Data_Science`
+
+## References
+
+```{bibliography} /_references.bib
+:filter: docname in docnames
+```

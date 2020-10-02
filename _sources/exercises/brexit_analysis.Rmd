@@ -40,8 +40,9 @@ import pandas as pd
 
 See the [Brexit survey](../data/brexit_survey) for details on the survey data.
 
-If you are running on your laptop, first [download the data file](../data/audit_of_political_engagement_14_2017.tab) to the same
-directory as this notebook.
+If you are running on your laptop, first {download}`download the data file
+<../data/audit_of_political_engagement_14_2017.tab>` to the same directory as
+this notebook.
 
 In the moment, we are going to try and analyze these data.  We will focus on
 two questions labeled `cut15` and `numage`.  `cut15` is the question about

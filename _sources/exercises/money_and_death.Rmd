@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# Money and death
+
 We return to the death penalty.
 
 ```{python}
@@ -28,7 +30,8 @@ In this case, we are going to analyze whether people with higher incomes are mor
 To do this, we are going to analyze the results from a sample of the
 US [General Social Survey](http://www.gss.norc.org) from 2002.
 
-If you are running on your laptop, download the data file [GSS2002.csv](../data/GSS2002.csv).
+If you are running on your laptop, download the data file
+{download}`GSS2002.csv <../data/GSS2002.csv>`.
 
 ```{python}
 # Read the data into a data frame

@@ -59,7 +59,7 @@ of the University of Florida. The columns:
 - `mpg`: fuel economy in miles per gallon
 - `class`: the model's class.
 
-You can download the file via [hybrid.csv](../data/hybrid.csv).
+You can download the file via {download}`hybrid.csv <../data/hybrid.csv>`.
 
 ```{python}
 hybrid = pd.read_csv('hybrid.csv')
@@ -464,7 +464,7 @@ seniors who took the test. The next three columns show the average score
 in the state on each portion of the test, and the final column is the
 average of the total scores on the test.
 
-You can download the file via [sat2014.csv](../data/sat2014.csv).
+You can download the file via {download}`sat2014.csv <../data/sat2014.csv>`.
 
 ```{python}
 sat2014 = pd.read_csv('sat2014.csv').sort_values('State')

@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Surviving the computer &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Our tools" href="the_software.html" />
     <link rel="prev" title="Another kind of character" href="Another_Kind_Of_Character.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -238,12 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,16 +259,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -316,11 +281,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -359,12 +319,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,7 +371,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -650,7 +605,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -674,7 +628,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -691,7 +644,7 @@ to use some of our mental energy to communicate with the computer.</p>
 taking up enough mental energy that we stop thinking carefully about the task
 at hand.  This is particularly dangerous when programming, because programming
 needs careful logical thought.</p>
-<p>For example, consider {% cite mueller2014pen %}.  In their study 1, the
+<p>For example, consider <a class="bibtex reference internal" href="#mueller2014pen" id="id1">[MO14]</a>.  In their study 1, the
 authors asked students to take notes while listening to TED talks, and answer
 questions about the talks afterwards.  They randomly allocated students into
 two groups, where one group took notes with a pen and a notebook, and the
@@ -708,7 +661,7 @@ less able to answer questions about ideas in the talks.</p>
 <h2>Work in pairs<a class="headerlink" href="#work-in-pairs" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a> is
 a standard technique that programmers use to improve the quality of their work
-and accelerate learning.  It is particularly useful early in learning, and with new tasks {% cite lui2006pair %}.</p>
+and accelerate learning.  It is particularly useful early in learning, and with new tasks <a class="bibtex reference internal" href="#lui2006pair" id="id2">[LC06]</a>.</p>
 <p>Pair programming has a standard form.</p>
 <p>One member of the team is the <em>driver</em>.  They sit in front of the keyboard and
 type.</p>
@@ -721,7 +674,15 @@ will find that you can think more quickly and carefully.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>{% bibliography –cited %}</p>
+<p id="bibtex-bibliography-intro/surviving_computers-0"><dl class="citation">
+<dt class="bibtex label" id="lui2006pair"><span class="brackets"><a class="fn-backref" href="#id2">LC06</a></span></dt>
+<dd><p>Kim Man Lui and Keith CC Chan. Pair programming productivity: novice–novice vs. expert–expert. <em>International Journal of Human-computer studies</em>, 64(9):915–925, 2006. URL: <a class="reference external" href="http://www.cs.utexas.edu/users/mckinley/305j/pair-hcs-2006.pdf">http://www.cs.utexas.edu/users/mckinley/305j/pair-hcs-2006.pdf</a>.</p>
+</dd>
+<dt class="bibtex label" id="mueller2014pen"><span class="brackets"><a class="fn-backref" href="#id1">MO14</a></span></dt>
+<dd><p>Pam A Mueller and Daniel M Oppenheimer. The pen is mightier than the keyboard: advantages of longhand over laptop note taking. <em>Psychological science</em>, 25(6):1159–1168, 2014.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
@@ -773,10 +734,7 @@ will find that you can think more quickly and carefully.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>The meaning of the mean &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Where and argmin" href="where_and_argmin.html" />
     <link rel="prev" title="The mean" href="mean.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -238,12 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,16 +259,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -316,11 +281,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -359,12 +319,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,7 +371,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -676,7 +631,12 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -710,7 +670,7 @@
 </div>
 </div>
 </div>
-<p>The dataset is <span class="xref myst">gender_stats.csv</span>.
+<p>The dataset is <a class="reference download internal" download="" href="../_downloads/b8711be8e94abc99770d3ac12c40852b/gender_stats.csv"><code class="xref download docutils literal notranslate"><span class="pre">gender_stats.csv</span></code></a>.
 This contains some World Bank statistics for each country on health and
 economic factors related to gender equality. See <a class="reference internal" href="../data/gender_stats.html"><span class="doc std std-doc">the data file page</span></a> for more detail.</p>
 <div class="cell docutils container">
@@ -827,7 +787,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-138.224043715847
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>224.025956284153
 </pre></div>
 </div>
 </div>
@@ -841,7 +801,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-121.97404371584699
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-144.974043715847
 </pre></div>
 </div>
 </div>
@@ -857,8 +817,8 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-138.22, -121.97, -165.47,  -18.97,  642.78,  587.03, -166.72,
-        348.78, -165.47, -168.97])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 224.03, -144.97,  502.53, -165.47,  325.53,  173.78, -169.97,
+        -13.97, -107.22,  -80.72])
 </pre></div>
 </div>
 </div>
@@ -883,7 +843,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1316282072803006e-12
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.183231456205249e-12
 </pre></div>
 </div>
 </div>
@@ -917,8 +877,8 @@ zero</span></a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 19105.89,  14877.67,  27381.66,    360.01, 413160.93, 344599.47,
-        27796.91, 121644.67,  27381.66,  28552.23])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 50187.63,  21017.47, 252532.34,  27381.66, 105967.15,  30198.08,
+        28891.18,    195.27,  11497.  ,   6516.37])
 </pre></div>
 </div>
 </div>
@@ -1123,10 +1083,7 @@ the lowest sum of squares error.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

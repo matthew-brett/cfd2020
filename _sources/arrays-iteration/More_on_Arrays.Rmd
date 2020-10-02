@@ -88,7 +88,7 @@ highs - lows
 What we've seen in these examples are special cases of a general feature of arrays.
 
 
-### Elementwise arithmetic on pairs of numerical arrays
+## Elementwise arithmetic on pairs of numerical arrays
 
 If an arithmetic operator acts on two arrays of the same size, then the
 operation is performed on each corresponding pair of elements in the two

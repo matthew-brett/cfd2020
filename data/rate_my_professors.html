@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Student ratings averages by course &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -59,15 +39,15 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data/rate_my_professors.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Student ratings averages by course" />
-<meta property="og:description" content="Student ratings averages by course  These data are directly from the supplementary material of {% cite rosen2018correlations %}, with thanks.  There is a freely" />
+<meta property="og:description" content="Student ratings averages by course  These data are directly from the supplementary material of [Ros18], with thanks.  There is a freely available post print of " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -236,12 +216,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -282,16 +257,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -314,11 +279,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -357,12 +317,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -414,7 +369,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -648,7 +603,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -662,7 +616,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -674,12 +627,12 @@
 <h1>Student ratings averages by course<a class="headerlink" href="#student-ratings-averages-by-course" title="Permalink to this headline">¶</a></h1>
 <p>These data are directly from the <a class="reference external" href="https://www.tandfonline.com/doi/suppl/10.1080/02602938.2016.1276155">supplementary
 material</a>
-of {% cite rosen2018correlations %}, with thanks.</p>
+of <a class="bibtex reference internal" href="#rosen2018correlations" id="id1">[Ros18]</a>, with thanks.</p>
 <p>There is a <a class="reference external" href="https://asrosen.com/wp-content/uploads/2018/07/postprint_rmp-1.pdf">freely available post
 print</a> of
 the paper on <a class="reference external" href="https://asrosen.com">Andrew Rosen’s website</a>.</p>
-<p>The paper studies ratings from &lt;RateMyProfessors.com&gt;, for the 190,006 US
-professors that had at least 20 student ratings.</p>
+<p>The paper studies ratings from <a class="reference external" href="https://www.ratemyprofessors.com">https://www.ratemyprofessors.com</a>, for the
+190,006 US professors that had at least 20 student ratings.</p>
 <p>Each row of the data table gives the mean ratings for all professors in a given discipline; thus there is one row per discipline.</p>
 <p>Quoting from the paper above:</p>
 <blockquote>
@@ -701,15 +654,20 @@ average of their clarity and helpfulness scores.</p>
 </ul>
 <p>There are two data files containing the same data:</p>
 <ul class="simple">
-<li><p>Original <span class="xref myst">average ratings per course in Excel</span></p></li>
-<li><p><span class="xref myst">Average ratings per course in CSV format</span>.  This is
-the Excel file above saved in CSV format; see the <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/good_and_easy">Github dataset
+<li><p>Original <a class="reference download internal" download="" href="../_downloads/0d8fa71610e4e86b46f200d46728846a/disciplines_SI.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">average</span> <span class="pre">ratings</span> <span class="pre">per</span> <span class="pre">course</span> <span class="pre">in</span> <span class="pre">Excel</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/64be76235ae1c9640da1da75c88edaf9/rate_my_course.csv"><code class="xref download docutils literal notranslate"><span class="pre">Average</span> <span class="pre">ratings</span> <span class="pre">per</span> <span class="pre">course</span> <span class="pre">in</span> <span class="pre">CSV</span> <span class="pre">format</span></code></a>.
+This is the Excel file above saved in CSV format; see the <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/good_and_easy">Github dataset
 page</a>
 for more detail.</p></li>
 </ul>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>{% bibliography –cited %}</p>
+<p id="bibtex-bibliography-data/rate_my_professors-0"><dl class="citation">
+<dt class="bibtex label" id="rosen2018correlations"><span class="brackets"><a class="fn-backref" href="#id1">Ros18</a></span></dt>
+<dd><p>Andrew S Rosen. Correlations, trends and potential biases among publicly accessible web-based student evaluations of teaching: a large-scale study of ratemyprofessors. com data. <em>Assessment &amp; Evaluation in Higher Education</em>, 43(1):31–44, 2018. URL: <a class="reference external" href="https://asrosen.com/wp-content/uploads/2018/07/postprint_rmp-1.pdf">https://asrosen.com/wp-content/uploads/2018/07/postprint_rmp-1.pdf</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
@@ -759,10 +717,7 @@ for more detail.</p></li>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

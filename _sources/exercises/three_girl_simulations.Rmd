@@ -13,9 +13,10 @@ jupyter:
     name: python3
 ---
 
-## Exercises on the three-girl simulation problem
+# Exercises on the three-girl simulation problem
 
-These exercises follow on from the three girls solution in [filling arrays](../arrays-iteration/filling_arrays), and the [reply to the Supreme
+These exercises follow on from the three girls solution in [filling
+arrays](../arrays-iteration/filling_arrays), and the [reply to the Supreme
 Court](../arrays-iteration/reply_supreme).
 
 You may want to refer back to those pages for inspiration.
@@ -27,7 +28,7 @@ Run this cell first:
 import numpy as np
 ```
 
-### Three girls in a family of four
+## Three girls in a family of four
 
 Remember the solution to this problem, from [filling arrays](../arrays-iteration/filling_arrays):
 
@@ -48,7 +49,7 @@ prop_3_girls = np.count_nonzero(counts == 3) / 10000
 prop_3_girls
 ```
 
-### No girls in a family of four
+## No girls in a family of four
 
 Estimate the chances that a 4-child family will have no girls.  You can copy the code from the cell above, and modify it, or you may be able to use variables from the code above, to get the answer, without repeating the simulation.
 
@@ -63,7 +64,7 @@ probability than the chance of three girls.  What's the exact answer, from proba
 
 Edit this code cell to give your answer.
 
-### Three girls in a family of five
+## Three girls in a family of five
 
 Simulate the chances that a family with 5 children will have
 exactly 3 girls.
@@ -75,7 +76,7 @@ exactly 3 girls.
 ```
 
 
-### Three or fewer girls in a family of five
+## Three or fewer girls in a family of five
 
 Simulate the chances that a family with 5 children will have 3 or
 fewer girls.
@@ -109,7 +110,7 @@ Hints done, now:
 # Your code below
 ```
 
-### More realistic simulation
+## More realistic simulation
 
 Now we are back to the situation of exactly 3 girls in a family of 4.
 

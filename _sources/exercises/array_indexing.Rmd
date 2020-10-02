@@ -22,6 +22,8 @@ jupyter:
     version: 3.7.1
 ---
 
+# Array indexing exercises
+
 These exercises follow on from the [array indexing page](../arrays-iteration/array_indexing).
 
 Run this cell to start:
@@ -38,7 +40,7 @@ some_words = np.array(['to', 'be', 'or', 'not', 'to', 'be'])
 some_words
 ```
 
-### Indexing with integers
+## Indexing with integers
 
 Use indexing with integers to display the first word in
 `some_words`.

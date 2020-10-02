@@ -56,7 +56,8 @@ ratings from <RateMyProfessors.com> across a single subject.  Thus, the first
 row refers to the average of all professors teaching English, the second row
 refers to all professors teaching Mathematics, and so on.
 
-Download the data file via this link [disciplines_SI.xlsx](../data/disciplines_SI.xlsx).
+Download the data file via this link {download}`disciplines_SI.xlsx
+<../data/disciplines_SI.xlsx>`.
 
 Next we load the data.  Notice we are using the Pandas
 [read_excel](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html)

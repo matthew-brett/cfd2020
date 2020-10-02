@@ -53,7 +53,7 @@ controls who were not active, and the authors termed these "bystanders".
 The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question "Did you belong to a political party before the war?".
 
 As usual, if you are running on your own computers, download the file
-[oliner_tab6_8a_1.csv](../data/oliner_tab6_8a_1.csv) to the same directory as this notebook.
+{download}`oliner_tab6_8a_1.csv <../data/oliner_tab6_8a_1.csv>` to the same directory as this notebook.
 
 ```{python}
 # Load the table

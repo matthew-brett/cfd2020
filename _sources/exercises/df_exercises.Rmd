@@ -24,7 +24,7 @@ jupyter:
 
 # Data Frames
 
-By Alex Jermakov
+By [Alex Jermakov](https://github.com/AlexBlck).
 
 We will start, as usual, by importing all the libraries we need.
 
@@ -39,7 +39,7 @@ plt.style.use('fivethirtyeight')
 ```
 
 Now we are going to need some data. Go ahead and download
-[iris.csv](../data/iris.csv) and import it as
+{download}`iris.csv <../data/iris.csv>` and import it as
 a dataframe (save the file to the same directory from which you
 are running this notebook to make your life easier).
 

@@ -13,7 +13,7 @@ jupyter:
     name: python3
 ---
 
-## Making and filling arrays.
+# Making and filling arrays.
 
 ```{python}
 import numpy as np

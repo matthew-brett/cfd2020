@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Why Data Science? &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Tools and techniques" href="tools_techniques.html" />
     <link rel="prev" title="What is data science?" href="what-is-data-science.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -238,12 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,16 +259,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -316,11 +281,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -359,12 +319,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,7 +371,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -650,7 +605,19 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -686,8 +653,8 @@ greater precision and clarity that helps them think about the process of
 drawing conclusions under uncertainty.  Code is a powerful way of explaining
 statistical reasoning, that is can be much more persuasive than traditional
 explanations using mathematics
-{% cite simon1997resampling cobb2007introductory cobb2015mere %}.</p>
-<p>Algorithms on data already have great impact on us and our society.  Some of this impact is harmful or frightening.  Melissa O’Neil’s book “Weapons of Math Destruction” gives a readable and alarming overview of misuse of code and algorithms that can have serious consequences for individuals and society {% cite oneil2016weapons %}:</p>
+<a class="bibtex reference internal" href="#simon1997resampling" id="id1">[Sim97]</a><a class="bibtex reference internal" href="#cobb2007introductory" id="id2">[Cob07]</a><a class="bibtex reference internal" href="#cobb2015mere" id="id3">[Cob15]</a>.</p>
+<p>Algorithms on data already have great impact on us and our society.  Some of this impact is harmful or frightening.  Melissa O’Neil’s book “Weapons of Math Destruction” gives a readable and alarming overview of misuse of code and algorithms that can have serious consequences for individuals and society <a class="bibtex reference internal" href="#oneil2016weapons" id="id4">[ONeil16]</a>:</p>
 <p><img alt="" src="../_images/Weapons_of_Math_Destruction.jpg" /></p>
 <p>Among many examples of misuse, prison services in the USA have started to use
 code and algorithms to inform criminal sentencing, but the apparently objective
@@ -708,6 +675,24 @@ everyone.</p>
 <p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Why_Data_Science.ipynb">Why_Data_Science</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
 </div>
 </p>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-intro/why-data-science-0"><dl class="citation">
+<dt class="bibtex label" id="cobb2015mere"><span class="brackets"><a class="fn-backref" href="#id3">Cob15</a></span></dt>
+<dd><p>George Cobb. Mere renovation is too little too late: we need to rethink our undergraduate curriculum from the ground up. <em>The American Statistician</em>, 69(4):266–282, 2015.</p>
+</dd>
+<dt class="bibtex label" id="cobb2007introductory"><span class="brackets"><a class="fn-backref" href="#id2">Cob07</a></span></dt>
+<dd><p>George W Cobb. The introductory statistics course: a ptolemaic curriculum? <em>Technology Innovations in Statistics Education</em>, 2007. URL: <a class="reference external" href="https://escholarship.org/uc/item/6hb3k0nz">https://escholarship.org/uc/item/6hb3k0nz</a>.</p>
+</dd>
+<dt class="bibtex label" id="oneil2016weapons"><span class="brackets"><a class="fn-backref" href="#id4">ONeil16</a></span></dt>
+<dd><p>Cathy O’Neil. <em>Weapons of math destruction: How big data increases inequality and threatens democracy</em>. Crown Publishing Group, “New York”, 2016.</p>
+</dd>
+<dt class="bibtex label" id="simon1997resampling"><span class="brackets"><a class="fn-backref" href="#id1">Sim97</a></span></dt>
+<dd><p>Julian Lincoln Simon. <em>Resampling: The new statistics</em>. Resampling Stats, Arlington, VA, 2 edition, 1997. URL: <a class="reference external" href="https://www.resample.com/intro-text-online">https://www.resample.com/intro-text-online</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -758,10 +743,7 @@ everyone.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

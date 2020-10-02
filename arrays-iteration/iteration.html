@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Iteration &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,15 +41,15 @@
     <link rel="next" title="Indentation, indentation, indentation" href="indentation.html" />
     <link rel="prev" title="Leaping ahead" href="../data-types/leaping_ahead.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/arrays-iteration/iteration.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Iteration" />
-<meta property="og:description" content="Iteration  It is often the case in programming – especially when dealing with randomness – that we want to repeat a process multiple times.  We know the numpy f" />
+<meta property="og:description" content="Iteration  Note  This page has content from the Iteration notebook of an older version of the UC Berkeley data science course. See the Berkeley course section o" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -238,12 +218,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/lists.html">
-   Making a list
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/lists.html#functions-and-lists">
-   Functions and lists
+   Lists
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,16 +259,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#the-idea-behind-a-for-loop">
-   The idea behind a for loop
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#unrolling-the-loop">
-   Unrolling the loop
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="indentation.html">
    Indentation, indentation, indentation
   </a>
@@ -316,11 +281,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="filling_arrays.html">
    Making and filling arrays.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filling_arrays.html#using-array-assignment-for-simulations">
-   Using array assignment for simulations
   </a>
  </li>
 </ul>
@@ -359,12 +319,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
-   A problem of populations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/population_permutation.html#population-by-permutation">
-   Population by permutation
+   Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
@@ -416,7 +371,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/functions_as_values.html">
-   A variable can point to a function
+   Functions as values
   </a>
  </li>
  <li class="toctree-l1">
@@ -676,33 +631,27 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Iteration
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-idea-behind-a-for-loop">
    The idea behind a for loop
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unrolling-the-loop">
    Unrolling the loop
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-counting-the-number-of-heads">
      Example: Counting the Number of Heads
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#example-number-of-heads-in-100-tosses">
      Example: Number of Heads in 100 Tosses
     </a>
@@ -712,7 +661,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -720,7 +668,14 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="iteration">
+<h1>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h1>
+<p><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Iteration.ipynb">Iteration</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
+</div>
+</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -728,8 +683,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="iteration">
-<h1>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h1>
 <p>It is often the case in programming – especially when dealing with randomness
 – that we want to repeat a process multiple times.</p>
 <p>We know the numpy function <code class="docutils literal notranslate"><span class="pre">random.randint</span></code> claims to choose randomly
@@ -789,9 +742,8 @@ once <em>for each item in that sequence</em>.</p>
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="the-idea-behind-a-for-loop">
-<h1>The idea behind a for loop<a class="headerlink" href="#the-idea-behind-a-for-loop" title="Permalink to this headline">¶</a></h1>
+<h2>The idea behind a for loop<a class="headerlink" href="#the-idea-behind-a-for-loop" title="Permalink to this headline">¶</a></h2>
 <p>The for loop takes a sequence of things (in our case, the sequence 0, 1, 2), and, for each element in the sequence, it does some task.   The task is the indented part of the for loop, also called the <em>body</em> of the for loop.</p>
 <p>This is a common pattern where we take a series of things, and perform the
 same steps on each.  For example, imagine a librarian describing the sequence
@@ -849,7 +801,7 @@ Put clicker back in cuboard
 <p>Notice that the body of the loop is “Press the clicker”, but that doesn’t involve the particular <strong>passenger</strong>.  The loop, here, is just a way of repeating the same action multiple times.</p>
 </div>
 <div class="section" id="unrolling-the-loop">
-<h1>Unrolling the loop<a class="headerlink" href="#unrolling-the-loop" title="Permalink to this headline">¶</a></h1>
+<h2>Unrolling the loop<a class="headerlink" href="#unrolling-the-loop" title="Permalink to this headline">¶</a></h2>
 <p>Here is the actual Python for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -956,11 +908,11 @@ print the results of five random integers:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-0
-1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 1
 0
+0
+1
 </pre></div>
 </div>
 </div>
@@ -969,7 +921,7 @@ print the results of five random integers:</p>
 times, so the code inside our <code class="docutils literal notranslate"><span class="pre">for</span></code> statement does not actually refer to the
 variable <code class="docutils literal notranslate"><span class="pre">v</span></code>.</p>
 <div class="section" id="example-counting-the-number-of-heads">
-<h2>Example: Counting the Number of Heads<a class="headerlink" href="#example-counting-the-number-of-heads" title="Permalink to this headline">¶</a></h2>
+<h3>Example: Counting the Number of Heads<a class="headerlink" href="#example-counting-the-number-of-heads" title="Permalink to this headline">¶</a></h3>
 <p>We can now simulate five tosses of a coin and place the results into
 an array. We will start by creating an empty array and then appending
 the result of each toss.</p>
@@ -986,7 +938,7 @@ the result of each toss.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 0., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 1., 1., 1., 1.])
 </pre></div>
 </div>
 </div>
@@ -1048,72 +1000,72 @@ heads in 1000 tosses.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 1., 0., 0., 0., 0., 1., 1., 1., 0., 0., 1., 1., 1., 0., 0.,
-       0., 0., 0., 0., 1., 1., 0., 1., 1., 0., 0., 1., 1., 0., 0., 0., 1.,
-       0., 0., 1., 0., 1., 0., 1., 1., 1., 1., 1., 0., 1., 1., 0., 0., 0.,
-       0., 1., 0., 0., 0., 0., 0., 0., 1., 0., 1., 0., 1., 0., 1., 0., 1.,
-       0., 0., 1., 1., 1., 0., 1., 1., 1., 1., 1., 0., 0., 0., 1., 0., 1.,
-       1., 0., 0., 1., 1., 1., 1., 0., 0., 0., 1., 1., 1., 1., 0., 0., 1.,
-       1., 1., 0., 1., 1., 0., 0., 0., 0., 0., 0., 0., 0., 0., 1., 0., 1.,
-       0., 0., 1., 1., 1., 1., 1., 1., 1., 0., 1., 0., 0., 1., 0., 1., 0.,
-       1., 0., 0., 0., 1., 1., 1., 1., 0., 1., 1., 1., 0., 0., 0., 1., 0.,
-       0., 0., 0., 0., 0., 0., 1., 1., 0., 0., 0., 0., 0., 0., 1., 0., 1.,
-       0., 0., 0., 1., 1., 1., 1., 1., 1., 0., 0., 1., 0., 0., 0., 0., 0.,
-       0., 0., 1., 0., 0., 1., 0., 1., 0., 1., 0., 1., 0., 0., 1., 1., 0.,
-       0., 0., 0., 0., 1., 0., 0., 1., 1., 0., 1., 0., 0., 1., 0., 1., 1.,
-       1., 0., 0., 1., 0., 0., 0., 0., 0., 1., 1., 0., 0., 1., 0., 0., 1.,
-       1., 0., 1., 1., 0., 0., 1., 1., 1., 1., 1., 1., 0., 0., 1., 1., 0.,
-       1., 0., 0., 0., 0., 0., 1., 1., 1., 1., 1., 0., 0., 0., 0., 1., 0.,
-       1., 0., 1., 1., 1., 0., 0., 0., 1., 1., 1., 1., 0., 1., 1., 0., 1.,
-       0., 0., 1., 0., 1., 1., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 1.,
-       1., 0., 1., 1., 0., 0., 0., 0., 0., 0., 1., 0., 1., 0., 1., 0., 0.,
-       1., 0., 1., 1., 0., 0., 0., 0., 1., 0., 1., 1., 0., 1., 1., 0., 0.,
-       1., 0., 1., 1., 0., 1., 0., 1., 0., 0., 1., 1., 0., 0., 1., 1., 0.,
-       1., 1., 0., 0., 0., 1., 0., 0., 0., 1., 0., 1., 1., 0., 0., 0., 1.,
-       0., 1., 1., 1., 1., 1., 1., 0., 1., 1., 1., 0., 1., 0., 1., 1., 0.,
-       1., 1., 0., 0., 0., 0., 0., 1., 1., 0., 0., 1., 1., 0., 0., 1., 0.,
-       0., 0., 0., 1., 0., 1., 1., 1., 0., 0., 1., 0., 0., 1., 0., 1., 1.,
-       0., 1., 1., 1., 1., 0., 0., 0., 1., 1., 0., 1., 0., 0., 1., 0., 1.,
-       1., 1., 0., 0., 0., 0., 0., 1., 1., 1., 1., 1., 0., 0., 1., 1., 0.,
-       1., 1., 1., 1., 1., 0., 1., 1., 0., 1., 0., 1., 0., 0., 0., 0., 0.,
-       1., 1., 0., 1., 1., 1., 0., 0., 1., 1., 1., 0., 1., 1., 0., 0., 0.,
-       0., 0., 0., 0., 1., 0., 0., 1., 0., 1., 0., 1., 1., 1., 1., 1., 1.,
-       0., 0., 1., 0., 0., 1., 0., 0., 0., 1., 0., 1., 0., 1., 1., 0., 0.,
-       0., 1., 0., 1., 0., 0., 1., 0., 1., 1., 0., 1., 0., 1., 1., 1., 0.,
-       1., 1., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 1., 0., 0., 0., 1.,
-       1., 1., 1., 1., 1., 0., 1., 1., 1., 0., 0., 1., 0., 0., 0., 0., 1.,
-       0., 1., 0., 1., 0., 0., 1., 0., 0., 1., 1., 1., 0., 1., 1., 0., 1.,
-       0., 1., 1., 1., 0., 1., 0., 0., 0., 1., 0., 1., 1., 0., 1., 0., 0.,
-       1., 0., 0., 1., 1., 0., 1., 1., 1., 0., 0., 1., 0., 1., 0., 1., 1.,
-       0., 1., 0., 0., 0., 1., 0., 1., 0., 1., 0., 0., 0., 0., 1., 0., 1.,
-       0., 1., 1., 1., 0., 0., 1., 1., 0., 0., 0., 0., 1., 1., 1., 1., 1.,
-       0., 1., 0., 1., 0., 1., 1., 1., 0., 0., 1., 0., 1., 1., 0., 0., 1.,
-       1., 1., 0., 0., 1., 0., 1., 1., 1., 0., 1., 1., 1., 1., 0., 1., 0.,
-       1., 0., 0., 1., 0., 1., 0., 1., 1., 1., 1., 1., 0., 1., 0., 1., 0.,
-       1., 0., 0., 0., 1., 1., 0., 0., 0., 1., 1., 1., 0., 1., 1., 0., 0.,
-       0., 0., 1., 0., 0., 0., 1., 0., 0., 0., 0., 1., 1., 0., 0., 1., 0.,
-       1., 0., 1., 1., 0., 1., 0., 0., 1., 0., 0., 1., 0., 1., 1., 0., 0.,
-       0., 1., 1., 0., 1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 1., 0., 1.,
-       1., 0., 1., 1., 1., 1., 1., 0., 1., 1., 1., 1., 1., 1., 0., 0., 1.,
-       0., 0., 0., 1., 1., 1., 1., 1., 1., 0., 1., 1., 0., 1., 1., 0., 1.,
-       0., 0., 0., 0., 1., 1., 1., 0., 1., 0., 0., 1., 1., 1., 0., 1., 0.,
-       0., 1., 0., 1., 1., 0., 0., 1., 1., 0., 0., 0., 0., 1., 1., 0., 1.,
-       0., 0., 1., 0., 0., 1., 0., 1., 1., 1., 0., 0., 1., 0., 0., 1., 0.,
-       1., 0., 0., 0., 1., 0., 0., 1., 1., 0., 0., 1., 0., 1., 1., 0., 1.,
-       1., 1., 1., 1., 1., 0., 1., 1., 0., 1., 0., 1., 0., 0., 0., 1., 1.,
-       0., 0., 0., 1., 0., 1., 0., 1., 0., 0., 0., 0., 1., 1., 1., 1., 1.,
-       1., 0., 0., 0., 0., 0., 1., 0., 0., 0., 0., 0., 1., 0., 0., 1., 0.,
-       0., 0., 1., 0., 0., 1., 1., 0., 1., 1., 0., 0., 1., 0., 1., 0., 1.,
-       0., 0., 1., 1., 1., 1., 1., 1., 0., 1., 1., 0., 0., 1., 0., 0., 0.,
-       1., 1., 0., 0., 0., 1., 0., 1., 1., 1., 0., 0., 0., 1., 1., 1., 0.,
-       1., 0., 1., 0., 0., 0., 0., 0., 1., 1., 0., 0., 0., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 1., 1., 0., 1., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0.,
+       0., 1., 1., 0., 0., 1., 1., 1., 1., 1., 0., 1., 0., 1., 1., 1., 0.,
+       1., 1., 0., 0., 0., 1., 0., 0., 1., 1., 0., 1., 0., 0., 1., 0., 0.,
+       0., 0., 0., 1., 1., 1., 1., 0., 0., 0., 1., 0., 0., 1., 1., 1., 0.,
+       1., 0., 1., 1., 0., 1., 0., 1., 1., 1., 0., 1., 0., 0., 1., 1., 1.,
+       0., 1., 1., 1., 1., 1., 0., 0., 1., 1., 0., 1., 1., 1., 0., 1., 1.,
+       0., 1., 1., 1., 1., 0., 1., 0., 1., 0., 0., 0., 0., 1., 1., 1., 1.,
+       1., 1., 1., 0., 1., 0., 0., 1., 0., 0., 1., 0., 1., 0., 0., 0., 1.,
+       1., 1., 0., 0., 0., 1., 0., 0., 0., 0., 1., 1., 1., 1., 1., 0., 1.,
+       0., 0., 1., 1., 0., 1., 1., 0., 1., 0., 0., 0., 1., 0., 1., 0., 1.,
+       0., 0., 1., 1., 1., 1., 0., 0., 1., 1., 0., 0., 1., 1., 1., 0., 0.,
+       0., 0., 1., 1., 1., 0., 1., 1., 0., 0., 0., 0., 0., 0., 1., 1., 0.,
+       1., 1., 0., 1., 0., 0., 1., 1., 0., 1., 1., 1., 0., 1., 0., 0., 1.,
+       0., 1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 1., 0., 1., 0., 0., 1.,
+       1., 0., 0., 0., 0., 1., 0., 0., 1., 0., 1., 0., 1., 1., 1., 1., 1.,
+       1., 0., 1., 1., 1., 0., 1., 1., 0., 1., 1., 0., 1., 1., 0., 1., 1.,
+       0., 0., 0., 1., 1., 1., 1., 0., 1., 0., 1., 0., 1., 1., 0., 0., 0.,
+       1., 0., 0., 1., 0., 1., 0., 1., 1., 0., 0., 1., 1., 0., 0., 0., 1.,
+       0., 0., 0., 0., 0., 0., 1., 0., 1., 1., 1., 0., 0., 1., 1., 1., 1.,
+       0., 0., 0., 1., 0., 0., 1., 1., 1., 1., 0., 0., 0., 1., 1., 0., 0.,
+       0., 1., 1., 1., 0., 1., 1., 1., 0., 0., 0., 0., 0., 1., 1., 1., 1.,
+       1., 1., 0., 1., 0., 1., 0., 1., 0., 0., 1., 0., 1., 0., 1., 0., 1.,
+       1., 1., 0., 1., 0., 1., 0., 1., 0., 0., 0., 1., 1., 0., 0., 1., 0.,
+       1., 0., 1., 0., 0., 1., 0., 1., 1., 0., 1., 0., 0., 0., 0., 0., 0.,
+       1., 0., 0., 1., 0., 1., 1., 1., 1., 1., 0., 0., 1., 1., 0., 0., 0.,
+       0., 0., 0., 0., 1., 1., 0., 0., 0., 1., 0., 0., 0., 0., 0., 1., 1.,
+       1., 0., 0., 0., 1., 1., 0., 1., 0., 1., 0., 1., 0., 1., 0., 1., 1.,
+       1., 0., 0., 1., 1., 0., 0., 0., 0., 0., 1., 1., 0., 1., 0., 0., 0.,
+       0., 0., 0., 1., 1., 0., 1., 1., 0., 1., 1., 0., 1., 1., 1., 1., 1.,
+       1., 0., 0., 0., 1., 1., 1., 1., 1., 0., 1., 1., 1., 1., 0., 1., 1.,
+       0., 0., 0., 1., 1., 0., 1., 1., 0., 0., 0., 0., 0., 1., 0., 1., 1.,
+       0., 0., 0., 1., 0., 1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0.,
+       0., 1., 1., 1., 0., 1., 0., 0., 1., 0., 1., 0., 0., 1., 1., 1., 0.,
+       0., 1., 1., 0., 1., 0., 1., 0., 1., 1., 1., 0., 1., 0., 0., 1., 1.,
+       0., 0., 0., 0., 0., 0., 1., 0., 0., 0., 1., 0., 1., 0., 1., 0., 1.,
+       0., 0., 0., 0., 1., 1., 0., 0., 0., 1., 0., 0., 1., 1., 1., 0., 1.,
+       0., 0., 0., 0., 0., 1., 0., 0., 1., 1., 0., 0., 1., 1., 0., 0., 0.,
+       0., 0., 0., 1., 0., 1., 1., 1., 1., 1., 0., 1., 0., 1., 1., 1., 1.,
+       1., 0., 0., 0., 1., 1., 0., 1., 0., 1., 0., 0., 1., 0., 1., 1., 1.,
+       1., 0., 1., 0., 0., 0., 1., 1., 0., 1., 1., 1., 0., 0., 1., 0., 1.,
+       1., 1., 0., 0., 0., 0., 1., 0., 1., 0., 0., 1., 1., 0., 1., 0., 0.,
+       1., 1., 1., 1., 0., 1., 1., 1., 1., 1., 1., 1., 1., 1., 0., 1., 0.,
+       1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 1., 0., 0., 1., 1., 1.,
+       0., 1., 0., 0., 0., 1., 0., 0., 0., 1., 0., 1., 1., 1., 1., 0., 0.,
+       1., 1., 0., 0., 1., 1., 1., 0., 0., 1., 1., 1., 1., 1., 0., 1., 1.,
+       1., 1., 0., 1., 0., 0., 0., 0., 1., 0., 0., 1., 1., 0., 1., 1., 0.,
+       0., 0., 0., 1., 0., 1., 0., 0., 0., 1., 1., 0., 1., 1., 1., 1., 0.,
+       1., 0., 1., 1., 0., 0., 0., 0., 0., 1., 1., 1., 0., 0., 0., 0., 0.,
+       1., 1., 0., 1., 0., 1., 1., 0., 1., 1., 0., 1., 1., 0., 1., 0., 1.,
+       0., 0., 1., 0., 1., 0., 0., 1., 0., 1., 1., 1., 0., 1., 0., 0., 1.,
+       1., 0., 0., 0., 1., 1., 0., 1., 0., 0., 1., 1., 0., 1., 1., 0., 1.,
+       1., 0., 1., 1., 1., 1., 1., 1., 0., 0., 0., 1., 1., 0., 0., 0., 0.,
+       1., 1., 0., 1., 0., 1., 0., 0., 1., 1., 0., 0., 0., 0., 0., 0., 1.,
+       1., 0., 1., 1., 1., 1., 1., 1., 1., 1., 0., 1., 1., 1., 1., 1., 0.,
+       1., 1., 0., 0., 0., 1., 1., 1., 1., 0., 1., 1., 1., 0., 0., 0., 0.,
+       0., 0., 1., 0., 0., 1., 0., 0., 0., 1., 0., 1., 1., 0., 1., 0., 1.,
+       0., 1., 1., 1., 1., 0., 0., 1., 0., 1., 0., 1., 1., 0., 0., 1., 0.,
+       1., 1., 0., 1., 1., 1., 1., 1., 0., 1., 0., 0., 1., 0., 1., 1., 1.,
+       1., 1., 1., 1., 0., 1., 1., 0., 1., 1., 1., 1., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="example-number-of-heads-in-100-tosses">
-<h2>Example: Number of Heads in 100 Tosses<a class="headerlink" href="#example-number-of-heads-in-100-tosses" title="Permalink to this headline">¶</a></h2>
+<h3>Example: Number of Heads in 100 Tosses<a class="headerlink" href="#example-number-of-heads-in-100-tosses" title="Permalink to this headline">¶</a></h3>
 <p>It is natural to expect that in 100 tosses of a coin, there will be 50
 heads, give or take a few.</p>
 <p>But how many is “a few”? What’s the chance of getting exactly 50
@@ -1138,7 +1090,7 @@ returns an array length 10 of random integers from 0 up to, but not including
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 1, 1, 1, 0, 0, 0, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1, 0, 1, 1, 1, 0, 0])
 </pre></div>
 </div>
 </div>
@@ -1162,7 +1114,7 @@ a coin 100 times, count the number of heads, and append it to <code class="docut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([45., 48., 57., ..., 55., 49., 53.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([56., 46., 49., ..., 53., 47., 45.])
 </pre></div>
 </div>
 </div>
@@ -1191,7 +1143,7 @@ of the number of heads.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/iteration_33_0.png" src="../_images/iteration_33_0.png" />
+<img alt="../_images/iteration_34_0.png" src="../_images/iteration_34_0.png" />
 </div>
 </div>
 <p>Not surprisingly, the histogram looks roughly symmetric around 50
@@ -1215,6 +1167,7 @@ in coin tossing, as we will see later in the course.</p>
 <p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Iteration.ipynb">Iteration</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
 </div>
 </p>
+</div>
 </div>
 </div>
 
@@ -1266,10 +1219,7 @@ in coin tossing, as we will see later in the course.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>
