@@ -69,7 +69,7 @@ def classify(training, new_point, k):
 ```
 
 You can download the data file for this page from
-[wine.csv](../data/wine.csv).
+{download}`wine.csv <../data/wine.csv>`.
 
 ```{python tags=c("hide-cell")}
 wine = pd.read_csv('wine.csv')
@@ -148,7 +148,7 @@ Unfortunately, distinguishing between benign and malignant can be tricky.  So, r
 
 We end up with the following data set.  For the "Class" column, 1 means malignant (cancer); 0 means benign (not cancer).
 
-Download the file from [breast-cancer.csv](../data/breast-cancer.csv).
+Download the file from {download}`breast-cancer.csv <../data/breast-cancer.csv>`.
 
 ```{python}
 patients = pd.read_csv('breast-cancer.csv')

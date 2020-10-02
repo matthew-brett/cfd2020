@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# Booleans and labels
+
 We have already used Boolean series to index data frames and other series.
 
 This page gives a little more details about how that works, in order to explain
@@ -21,7 +23,7 @@ some subtleties in results.
 
 
 We return to the World Bank statistics on development and gender in
-[gender_stats.csv](../data/gender_stats.csv).
+{download}`gender_stats.csv <../data/gender_stats.csv>`.
 
 Download that file to the same directory as this notebook, if you are running
 on your own computer.

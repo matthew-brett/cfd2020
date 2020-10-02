@@ -22,12 +22,14 @@ jupyter:
     version: 3.7.1
 ---
 
+# Iteration
+
+{ucb-page}`Iteration`
+
 ```{python}
 # Load the Numpy package, and rename to "np"
 import numpy as np
 ```
-
-### Iteration ###
 
 It is often the case in programming – especially when dealing with randomness
 – that we want to repeat a process multiple times.

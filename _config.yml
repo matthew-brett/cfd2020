@@ -10,7 +10,8 @@ description: >-
 
 execute:
   # 'cache' attempts to cache the results.
-  execute_notebooks: auto
+  # 'auto' appears to be safer.
+  execute_notebooks: cache
   timeout: 120
 
 exclude_patterns: [README.md, todo.md]

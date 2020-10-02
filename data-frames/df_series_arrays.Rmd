@@ -39,7 +39,7 @@ detail.
 Each row in this table corresponds to one *discipline*.  Each column corresponds to a different *rating*.
 
 If you are running on your laptop, you should download
-the [rate_my_course.csv](../data/rate_my_course.csv)
+the {download}`rate_my_course.csv <../data/rate_my_course.csv>`
 file to the same directory as this notebook.
 
 ```{python}

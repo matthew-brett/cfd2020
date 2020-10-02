@@ -1,4 +1,4 @@
-## Why the differences from the mean must add to zero.
+# Why the differences from the mean must add to zero.
 
 Have a look at this little bit of algebra to see why.
 

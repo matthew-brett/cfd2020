@@ -130,7 +130,7 @@ text will introduce the most important functions in context, rather than
 expecting the reader to memorize or understand these lists.
 
 
-### Example ###
+## Example
 
 In 1869, a French civil engineer named Charles Joseph Minard created what is
 still considered one of the greatest graphs of all time. It shows the

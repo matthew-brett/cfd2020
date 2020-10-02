@@ -14,6 +14,8 @@ jupyter:
     name: python3
 ---
 
+# Back to Bayes
+
 In the [reverse probability page](first_bayes)
 we played a game with two boxes, with different proportions of red and green
 balls.

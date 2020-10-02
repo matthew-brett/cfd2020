@@ -12,6 +12,8 @@ jupyter:
     name: python3
 ---
 
+# Functions as values
+
 In the [introduction to functions](functions), we introduced the
 metaphor of a function being a *recipe*.  It is a procedure, that
 accepts inputs, (the ingredients of the recipe), and returns an output

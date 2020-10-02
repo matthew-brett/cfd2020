@@ -84,7 +84,7 @@ def classify_grid(training, test, k):
 ```
 
 Again - if you are running on your laptop, you should download
-the [ckd.csv](../data/ckd.csv) file to the same
+the {download}`ckd.csv <../data/ckd.csv>` file to the same
 directory as this notebook.
 
 ```{python tags=c("hide-cell")}

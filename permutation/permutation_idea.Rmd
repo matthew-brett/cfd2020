@@ -29,7 +29,7 @@ With thanks to John Rauser: [Statistics Without the Agonizing Pain](https://www.
 
 ## The data
 
-Download the data from [mosquito_beer.csv](../data/mosquito_beer.csv).
+Download the data from {download}`mosquito_beer.csv <../data/mosquito_beer.csv>`.
 
 
 See [this

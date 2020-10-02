@@ -22,7 +22,7 @@ jupyter:
     version: 3.7.1
 ---
 
-## A problem of populations
+# Population and permutation
 
 As in the [Brexit analysis
 exercise](../exercises/brexiteering.zip),
@@ -49,7 +49,9 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-If you are running on your laptop, first [download the data file](../data/audit_of_political_engagement_14_2017.tab) to the same directory as this notebook.
+If you are running on your laptop, first {download}`download the data file
+<../data/audit_of_political_engagement_14_2017.tab>` to the same directory as
+this notebook.
 
 We load the data:
 

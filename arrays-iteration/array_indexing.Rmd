@@ -49,7 +49,7 @@ See [the dataset page](../data/rate_my_professors) for more
 detail.
 
 If you are running on your laptop, you should download the
-[rate_my_course.csv](../data/rate_my_course.csv) file to the
+{download}`rate_my_course.csv <../data/rate_my_course.csv>` file to the
 same directory as this notebook.
 
 Don't worry about the next cell.  It just loads the data we need from a data file.  We will come on the machinery to do this very soon.

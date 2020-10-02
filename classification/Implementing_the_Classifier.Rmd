@@ -33,7 +33,7 @@ We are now ready to implement a $k$-nearest neighbor classifier based on multipl
 This time we'll look at predicting whether a banknote (e.g., a \$20 bill) is counterfeit or legitimate.  Researchers have put together a data set for us, based on photographs of many individual banknotes: some counterfeit, some legitimate.  They computed a few numbers from each image, using techniques that we won't worry about for this course.  So, for each banknote, we know a few numbers that were computed from a photograph of it as well as its class (whether it is counterfeit or not).  Let's load it into a table and take a look.
 
 If you are running on your laptop, you should download the
-[banknote](../data/banknote.csv) file to the
+{download}`banknote <../data/banknote.csv>` file to the
 same directory as this notebook.
 
 ```{python}
@@ -126,7 +126,7 @@ def distance(point1, point2):
 Let's use this on a [new dataset](https://archive.ics.uci.edu/ml/datasets/Wine). The table `wine` contains the chemical composition of 178 different Italian wines. The classes are the grape species, called cultivars. There are three classes but let's just see whether we can tell Class 1 apart from the other two.
 
 You can download the file from
-[wine.csv](../data/wine.csv).
+{download}`wine.csv <../data/wine.csv>`.
 
 ```{python}
 wine = pd.read_csv('wine.csv')

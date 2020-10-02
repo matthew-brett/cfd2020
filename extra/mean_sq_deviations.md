@@ -1,4 +1,4 @@
-## The mean and squared differences
+# The mean and squared differences
 
 This page is assumes a lot more maths than the standard bit of the course.  In
 particular, it assumes that you know the basics of finding the

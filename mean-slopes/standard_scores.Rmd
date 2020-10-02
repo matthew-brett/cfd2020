@@ -39,7 +39,8 @@ What measure should we use for the spread?
 
 We return to the [data on chronic kidney disease](../data/chronic_kidney_disease).
 
-Download the data to your computer via this link: [ckd_clean.csv](../data/ckd_clean.csv).
+Download the data to your computer via this link: {download}`ckd_clean.csv
+<../data/ckd_clean.csv>`.
 
 ```{python}
 ckd_full = pd.read_csv('ckd_clean.csv')

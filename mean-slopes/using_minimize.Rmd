@@ -36,7 +36,7 @@ plt.style.use('fivethirtyeight')
 ```
 
 We used the [students ratings dataset](../data/rate_my_professors) dataset.  Download the data file via
-[disciplines_SI.xlsx](../data/disciplines_SI.xlsx).
+{download}`disciplines_SI.xlsx <../data/disciplines_SI.xlsx>`.
 
 We were looking for the best slope to relate the Easiness ratings to the
 Overall Quality ratings.
