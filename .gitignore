@@ -1,3 +1,4 @@
 _build/
 *.egg-info/
 __pycache__/
+_references.bib

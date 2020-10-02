@@ -8,14 +8,14 @@ permalink: /data/rate_my_professors
 
 These data are directly from the [supplementary
 material](https://www.tandfonline.com/doi/suppl/10.1080/02602938.2016.1276155)
-of {% cite rosen2018correlations %}, with thanks.
+of {cite}`rosen2018correlations`, with thanks.
 
 There is a [freely available post
 print](https://asrosen.com/wp-content/uploads/2018/07/postprint_rmp-1.pdf) of
 the paper on [Andrew Rosen's website](https://asrosen.com).
 
-The paper studies ratings from <RateMyProfessors.com>, for the 190,006 US
-professors that had at least 20 student ratings.
+The paper studies ratings from <https://www.ratemyprofessors.com>, for the
+190,006 US professors that had at least 20 student ratings.
 
 Each row of the data table gives the mean ratings for all professors in a given discipline; thus there is one row per discipline.
 
@@ -47,4 +47,6 @@ There are two data files containing the same data:
 
 ## References
 
-{% bibliography --cited %}
+```{bibliography} /_references.bib
+:filter: docname in docnames
+```

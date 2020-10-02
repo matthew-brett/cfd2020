@@ -38,11 +38,11 @@ important - that it should be:
 
 > ... the really important intellectual event of the next fifty years.
 
-{% cite donoho201550 %}
+{cite}`donoho201550`
 
 For Donoho, data science is the rediscovery of the powerful methods of data
 exploration and analysis used and taught by statisticians such as John W. Tukey
-{% cite tukey1962future %}.  These methods will be revolutionary for the future
+{cite}`tukey1962future`.  These methods will be revolutionary for the future
 of data analysis.
 
 Meanwhile, educators, especially in the United States, have concluded that data
@@ -52,19 +52,19 @@ of the National Academies of Science Engineering and Medicine recommended that:
 > ... academic institutions should encourage the development of a basic
 > understanding of data science in all undergraduates
 
-{% cite natacad2018ds %}
+{cite}`natacad2018ds`
 
 ## The origins of data science
 
-The phrase "data science" has been around for a long time {% cite
-press2013history %} but we argue that the term in its current use is very
+The phrase "data science" has been around for a long time {cite}
+`press2013history` but we argue that the term in its current use is very
 recent.  As it is currently used, the phrase "data science" comes from the job
 title "data scientist", and the job title came from the tech industry.  D.J.
 Patil, at LinkedIn, and Jeff Hammerbacher, at Facebook, noticed that they had
 a "new breed" of data analysts - these were scientists who could code. Thomas
 Davenport and Patil later described this phenomenon in a famous article "Data
-Scientist: The Sexiest Job of the 21st Century" {% cite davenport2012data %}.
-One section of the article is "Who are these people":
+Scientist: The Sexiest Job of the 21st Century" {cite}`davenport2012data`. One
+section of the article is "Who are these people":
 
 > ... what data scientists do is make discoveries while swimming in data ...
 > At ease in the digital realm, they are able to bring structure to large
@@ -91,8 +91,8 @@ Data scientists in industry were not doing anything new, in an academic sense.
 They were applying skills that they had learned in academia.  Central to these
 skills was the ability to build analyses in code.  It turned out that doing
 this led naturally to many of the powerful practices discovered and described
-by statisticians like John W. Tukey {% cite tukey1962future %} and Leo Breiman
-{% cite breiman2001statistical %}.
+by statisticians like John W. Tukey {cite}`tukey1962future` and Leo Breiman
+{cite}`breiman2001statistical`.
 
 ## What's new in data science?
 
@@ -182,4 +182,6 @@ approach to data analysis.
 
 ## References
 
-{% bibliography --cited %}
+```{bibliography} /_references.bib
+:filter: docname in docnames
+```

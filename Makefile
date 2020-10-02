@@ -1,4 +1,4 @@
-html:
+html: bibliography
 	jupyter-book build .
 
 github: html
@@ -6,3 +6,9 @@ github: html
 
 clean:
 	rm -rf _build
+
+BIBLIOGRAPHIES= bib/data-science-bib/data_science.bib \
+				bib/course_refs.bib
+
+bibliography: $(BIBLIOGRAPHIES)
+	cat $(BIBLIOGRAPHIES) > _references.bib
