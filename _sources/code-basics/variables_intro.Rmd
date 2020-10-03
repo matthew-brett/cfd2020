@@ -73,7 +73,7 @@ Python's representation of `19.75`.
 Finally, Python sends back the `19.75`.  The notebook detects that Python sent
 back a value, and shows it to us.
 
-## Variables
+## Enter - variables!
 
 Now consider this:
 
@@ -166,7 +166,7 @@ Finally, it makes something we can show on the screen for this value, 19.75, and
 
 So `a + b` ends up with exactly the same calculation, and result, as `10.50 + 9.25`.
 
-## Variables
+## Using variables
 
 `a` and `b` above are *variables*.  Variables are labels attached to values.
 
@@ -248,4 +248,8 @@ Now re-run the cell above - what do you see?
 
 ## End note
 
-Variables are the heart of coding.  By using good variable names, we can write down our calculations in a way that is easy to understand.  We can make calculations more general, and therefore more useful, but using variables instead of values like `10.50`, so that the calculation works for any valid number, that we put into the variable.
+Variables are the heart of coding.  By using good variable names, we can write
+down our calculations in a way that is easy to understand.  We can make
+calculations more general, and therefore more useful, but using variables
+instead of values like `10.50`, so that the calculation works for any valid
+number, that we put into the variable.
