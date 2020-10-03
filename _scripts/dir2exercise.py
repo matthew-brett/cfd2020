@@ -97,7 +97,9 @@ def write_dir(path, out_path, clean=True):
             shutil.copy(op.join(dirpath, f), this_out_path)
 
 
-def find_site_config(dir_path, filenames=('course.yml', '_config.yml')):
+def find_site_config(dir_path, filenames=('course.yml',
+                                          '_course.yml',
+                                          '_config.yml')):
     """ Iterate to parents to locate one of filenames specified in `filenames`.
     """
     dir_path = op.realpath(dir_path)
@@ -132,10 +134,12 @@ def main():
         args.site_config = find_site_config(args.dir)
     site_dict = get_site_dict(args.site_config) if args.site_config else {}
     if args.out_path is None:
-        args.out_path = site_dict['org_path']
+        args.out_path = site_dict.get('org_path')
     if args.out_path is None:
         raise RuntimeError(
-            'Must specify out path or "org_path" in config file')
+            'Must specify out path or "org_path" in config file\n'
+            f'Config file is {args.site_config}'
+        )
     process_dir(args.dir, not args.no_grade, site_dict)
     write_dir(args.dir, args.out_path)
 
