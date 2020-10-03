@@ -1,0 +1,7 @@
+# Configuration for cfd2020 exercise builds
+# For dir2exercise script.
+# Link into home directory.
+url : "https://matthew-brett.github.io" # Top-level URL for built book.
+baseurl                  : "/cfd2020" # the subpath of built book under URL.
+org_path: "~/dev_trees/uob-cfd"  # Output root for exercise directories.
+org_name: "uob-cfd"  # Github organization name
