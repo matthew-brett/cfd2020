@@ -120,10 +120,11 @@ Python does the following:
 
 * makes a CR of the number 3;
 * makes a CR of the number 4;
-* adds the CR of 3 and the CR of 4 to get a CR of 7.
+* multiplies the CR of 3 and the CR of 4 to get a CR of 12.
 
-The CR of 7 is the value returned from the expression.  The notebook turns that
-into something that humans can read easily - the HR of 7 - which is `7`.
+The CR of 12 is the value returned from the expression.  The notebook turns
+that into something that humans can read easily - the HR of 12 - which is
+`12`.
 
 
 ## Common Operators
