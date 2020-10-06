@@ -8,6 +8,8 @@ import sys
 import shutil
 from argparse import ArgumentParser
 import re
+from subprocess import check_call, check_output
+from contextlib import contextmanager
 
 import yaml
 from jinja2 import Template
@@ -25,6 +27,16 @@ import grade_oknb as gok
 
 
 TEMPLATE_RE = re.compile('_template\.Rmd$')
+
+
+@contextmanager
+def cd(newdir):
+    prevdir = os.getcwd()
+    os.chdir(os.path.expanduser(newdir))
+    try:
+        yield
+    finally:
+        os.chdir(prevdir)
 
 
 def get_site_dict(site_config):
@@ -73,24 +85,22 @@ def clean_path(path):
 
 
 def write_dir(path, out_path, clean=True):
-    """ Copy exercise files from `path` to subdirectory of `out_path`
+    """ Copy exercise files from `path` to directory `out_path`
 
     `clean`, if True, will clean all files from the eventual output directory
     before copying.
     """
-    ex_name = op.split(path)[-1]
-    ex_out = op.join(out_path, ex_name)
-    if op.isdir(ex_out) and clean:
-        clean_path(ex_out)
+    if op.isdir(out_path) and clean:
+        clean_path(out_path)
     else:
-        os.makedirs(ex_out)
+        os.makedirs(out_path)
     for dirpath, dirnames, filenames in os.walk(path):
         sub_dir = op.relpath(dirpath, path)
         dirnames[:] = [d for d in dirnames if b_e.good_fname(d)]
         filenames[:] = [f for f in filenames if b_e.good_fname(f)]
         if len(filenames) == 0:
             continue
-        this_out_path = op.join(ex_out, sub_dir)
+        this_out_path = op.join(out_path, sub_dir)
         if not op.isdir(this_out_path):
             os.makedirs(this_out_path)
         for f in filenames:
@@ -116,6 +126,21 @@ def find_site_config(dir_path, filenames=('course.yml',
     return None
 
 
+def push_dir(path, site_dict):
+    with cd(path):
+        ex_name = op.basename(path)
+        if not op.isdir('.git'):
+            check_call(['git', 'init'])
+            check_call(['hub', 'create',
+                        f"{site_dict['org_name']}/{ex_name}"])
+        check_call(['git', 'add', '.'])
+        if len(check_output(['git', 'diff', '--staged'])) == 0:
+            print('No changes to commit')
+            return
+        check_call(['git', 'commit', '-m', 'Update from template'])
+        check_call(['git', 'push', 'origin', 'master'])
+
+
 def main():
     parser = ArgumentParser()
     parser.add_argument('dir', help="Directory of exercise")
@@ -125,6 +150,11 @@ def main():
                        )
     parser.add_argument('--no-grade', action='store_true',
                         help='If specified, do not grade solution notebook')
+    parser.add_argument('--push', action='store_true',
+                        help='If specified, push exercise to remote')
+    parser.add_argument('--no-clean', action='store_true',
+                        help='If specified, do not delete existing exercise '
+                             'files in output directory')
     parser.add_argument('--site-config',
                         help='Path to configuration file for course '
                         '(default finds {course,_config}.yml, in dir, parents)'
@@ -140,8 +170,12 @@ def main():
             'Must specify out path or "org_path" in config file\n'
             f'Config file is {args.site_config}'
         )
-    process_dir(args.dir, not args.no_grade, site_dict)
-    write_dir(args.dir, args.out_path)
+    in_dir = op.abspath(args.dir)
+    process_dir(in_dir, not args.no_grade, site_dict)
+    out_path = op.abspath(op.join(args.out_path, op.basename(in_dir)))
+    write_dir(args.dir, out_path, clean=not args.no_clean)
+    if args.push:
+        push_dir(out_path, site_dict)
 
 
 if __name__ == '__main__':
