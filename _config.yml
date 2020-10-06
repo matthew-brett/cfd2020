@@ -14,7 +14,7 @@ execute:
   execute_notebooks: auto
   timeout: 120
 
-exclude_patterns: [README.md, todo.md]
+exclude_patterns: [README.md, todo.md, _scripts]
 
 html:
   favicon: images/dsfe_favicon.ico
