@@ -23,12 +23,11 @@
   - file: code-basics/sampling_problem
   - file: code-basics/three_girls
   - file: code-basics/variables_intro
+  - file: code-basics/Expressions
+  - file: code-basics/Names
   - file: code-basics/functions
   - file: code-basics/first_pass_three_girls
-  - file: code-basics/Expressions
   - file: code-basics/Calls
-  - file: code-basics/sub_expressions
-  - file: code-basics/Names
 
 - part: Data types
   chapters:
