@@ -26,8 +26,8 @@
   - file: code-basics/Expressions
   - file: code-basics/Names
   - file: code-basics/functions
-  - file: code-basics/first_pass_three_girls
   - file: code-basics/Calls
+  - file: code-basics/first_pass_three_girls
 
 - part: Data types
   chapters:

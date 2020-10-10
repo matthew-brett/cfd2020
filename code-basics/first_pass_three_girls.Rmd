@@ -22,7 +22,8 @@ jupyter:
 Remember the [three girls in a family problem](three_girls)?
 
 
-Now we have variables and functions, we can do a first pass at solving the problem.
+Now we have variables and functions, we can do a first pass at solving the
+problem.
 
 
 First we `import` the function we need to make random numbers.  Don't worry about this line for now:
