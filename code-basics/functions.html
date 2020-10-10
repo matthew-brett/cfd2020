@@ -38,8 +38,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A first pass at the simple problem" href="first_pass_three_girls.html" />
-    <link rel="prev" title="Introduction to variables" href="variables_intro.html" />
+    <link rel="next" title="Call expressions" href="Calls.html" />
+    <link rel="prev" title="Names and variables" href="Names.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -49,7 +49,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/code-basics/functions.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Introduction to functions" />
-<meta property="og:description" content="Introduction to functions  This is a very short introduction to functions.  We will soon go into more detail on functions, in the page on call expressions.  For" />
+<meta property="og:description" content="Introduction to functions  This is a very short introduction to functions.  Functions are recipes with names 1.  Let’s start with an example where you have seen" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -154,19 +154,19 @@
    Introduction to variables
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Introduction to functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="first_pass_three_girls.html">
-   A first pass at the simple problem
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Expressions.html">
    Expressions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Names.html">
+   Names and variables
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction to functions
   </a>
  </li>
  <li class="toctree-l1">
@@ -175,13 +175,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="sub_expressions.html">
-   Expressions and sub-expressions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Names.html">
-   Names and variables
+  <a class="reference internal" href="first_pass_three_girls.html">
+   A first pass at the simple problem
   </a>
  </li>
 </ul>
@@ -635,7 +630,29 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cosine">
+   cosine
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-in-python">
+   Functions in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#again-with-the-recipe-metaphor">
+   Again with the recipe metaphor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practice-with-functions">
+   Practice with functions
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -647,9 +664,13 @@
   <div class="section" id="introduction-to-functions">
 <h1>Introduction to functions<a class="headerlink" href="#introduction-to-functions" title="Permalink to this headline">¶</a></h1>
 <p>This is a very short introduction to functions.</p>
-<p>We will soon go into more detail on functions, in the page on <a class="reference internal" href="Calls.html"><span class="doc std std-doc">call expressions</span></a>.</p>
-<p>For now, we start with something simple, the function <code class="docutils literal notranslate"><span class="pre">cos</span></code>.</p>
-<p>Remember functions from mathematics?  We might write something like this, in mathematics:</p>
+<p>Functions are <em>recipes</em> with names <a class="footnote-reference brackets" href="#berkeley-thanks" id="id1">1</a>.</p>
+<p>Let’s start with an example where you have seen functions - mathematics.</p>
+<div class="section" id="cosine">
+<h2>cosine<a class="headerlink" href="#cosine" title="Permalink to this headline">¶</a></h2>
+<p>You have used functions in mathematics.  For example, <code class="docutils literal notranslate"><span class="pre">cosine</span></code> is a function in
+mathematics.  We often write the <code class="docutils literal notranslate"><span class="pre">cosine</span></code> function as <code class="docutils literal notranslate"><span class="pre">cos</span></code></p>
+<p>We might write something like this, in mathematics:</p>
 <div class="math notranslate nohighlight">
 \[
 y = cos(0)
@@ -660,12 +681,19 @@ y = cos(0)
 </div></blockquote>
 <p>Then <span class="math notranslate nohighlight">\(y = cos(0)\)</span> means:</p>
 <blockquote>
-<div><p>Call the function “cos” with the value 0, and return the result, storing the result in “y”.</p>
+<div><p>Call the function “cos” with the value 0, and return the result, storing the
+result in “y”.</p>
 </div></blockquote>
-<p>We <em>pass</em> a value to the function.  In our case we pass the value <span class="math notranslate nohighlight">\(0\)</span>.</p>
-<p>The function <em>returns</em> a value.  In our case it returns the calculation of the cosine of <span class="math notranslate nohighlight">\(0\)</span>.</p>
-<p>You may remember that the cosine of 0 is 1.  So, after <span class="math notranslate nohighlight">\(y = cos(0)\)</span>, we expect <span class="math notranslate nohighlight">\(y\)</span> to equal 1.</p>
+<p>We <em>pass</em> a value to the function.  In our case we pass the value <span class="math notranslate nohighlight">\(0\)</span>.  The
+value that we pass is called the <em>argument</em>.</p>
+<p>The function <em>returns</em> a value.  In our case it returns the calculation of the
+cosine of <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>You may remember that the cosine of 0 is 1.  So, after <span class="math notranslate nohighlight">\(y = cos(0)\)</span>, we expect
+<span class="math notranslate nohighlight">\(y\)</span> to equal 1.</p>
 <p>Functions in Python work in a similar way.</p>
+</div>
+<div class="section" id="functions-in-python">
+<h2>Functions in Python<a class="headerlink" href="#functions-in-python" title="Permalink to this headline">¶</a></h2>
 <p>First we load up the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function from a library called <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <p>Don’t worry about the command to load the function, for now.  We will come back
 to that later.  Here is the command you need. Just run it in the notebook.</p>
@@ -677,7 +705,7 @@ to that later.  Here is the command you need. Just run it in the notebook.</p>
 </div>
 </div>
 </div>
-<p>Now we <em>call</em> the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function with the value 0, and see what we get:</p>
+<p>Now we <em>call</em> the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function, <em>passing</em> the value 0, and see what we get:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -692,13 +720,79 @@ to that later.  Here is the command you need. Just run it in the notebook.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cos</span></code> is the <em>name</em> of the function;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> is the <em>value</em> we as <em>passing</em> to the function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> is the <em>value</em> we <em>pass</em> to the function.</p></li>
 <li><p>The value we pass to the function goes between the parentheses <code class="docutils literal notranslate"><span class="pre">(</span></code> and <code class="docutils literal notranslate"><span class="pre">)</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> is the value that the function <em>returns</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code> is the value that the function <em>returns</em>.  It is the <em>return value</em> of
+the function.</p></li>
 </ul>
 <p>The value we pass to the function is also called the function <em>argument</em>.</p>
 <p>In our case we pass <code class="docutils literal notranslate"><span class="pre">0</span></code> as the <em>argument</em> to the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function.</p>
-<p>Let’s try the same thing with the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function:</p>
+<p>We can also store the return value in a variable, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you will see, it’s a very common pattern in Jupyter notebooks to store the
+value, and then show the value, in the same cell, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read this code as:</p>
+<blockquote>
+<div><p>Pass the value 0 to the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function.  Put the result into the variable
+<code class="docutils literal notranslate"><span class="pre">y</span></code>. Show the contents of variable <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="again-with-the-recipe-metaphor">
+<h2>Again with the recipe metaphor<a class="headerlink" href="#again-with-the-recipe-metaphor" title="Permalink to this headline">¶</a></h2>
+<p>A recipe is the <em>procedure</em> to go from <em>ingredients</em> to a <em>meal</em>.</p>
+<p>A function is the <em>procedure</em> to go from the <em>arguments</em> to the <em>return value</em>.</p>
+<p>The <em>arguments</em> are the things that I send to the function.  The <em>return value</em>
+is the thing that the function sends back.</p>
+<p>It is the job of the function to do some work on the arguments, and return the
+correct return value.</p>
+<p>For example, I might have a recipe with the procedure to go from the
+ingredients: two eggs; butter; and cheese - to the meal - a cheese omelette.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">cos</span></code> has the procedure to go from the input argument - a number -
+to the return value, which is the calculation of the cosine of the value of the
+input argument.</p>
+<p>I could call my recipe “two egg cheese omelette”, or “recipe number
+4”.  Whatever I called it, it would be the same recipe.  I might
+prefer a name that describes what the recipe makes, to help me
+remember.</p>
+<p>Likewise, the name <code class="docutils literal notranslate"><span class="pre">cos</span></code> refers to a procedure above.  The folks who wrote the
+Numpy library could have give it another name, like <code class="docutils literal notranslate"><span class="pre">some_function</span></code>, but <code class="docutils literal notranslate"><span class="pre">cos</span></code>
+is a good name, because it helps us remember what the procedure does.</p>
+</div>
+<div class="section" id="practice-with-functions">
+<h2>Practice with functions<a class="headerlink" href="#practice-with-functions" title="Permalink to this headline">¶</a></h2>
+<p>So far we have used the <code class="docutils literal notranslate"><span class="pre">cos</span></code> function from Numpy.  Let’s try doing the same
+thing with the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the sin function from the numpy library.</span>
@@ -727,7 +821,9 @@ to that later.  Here is the command you need. Just run it in the notebook.</p>
 </ul>
 <p>We pass <code class="docutils literal notranslate"><span class="pre">0</span></code> as the <em>argument</em> to the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function.</p>
 <p>Now your turn.</p>
-<p>Try importing the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function.</p>
+<p>Try importing the <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> function.  Yes, you guessed it, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> is the
+procedure to go from a number (the argument) to the square root of that number
+(the return value).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the sqrt function from the numpy library.</span>
@@ -744,7 +840,24 @@ to that later.  Here is the command you need. Just run it in the notebook.</p>
 </div>
 </div>
 </div>
+<p>Use Python to show that <span class="math notranslate nohighlight">\(3^2\)</span> is indeed 9:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code to show the value of 3 squared.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We will see more about functions in the section on <a class="reference internal" href="Calls.html"><span class="doc std std-doc">call expressions</span></a>.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="berkeley-thanks"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Thanks to <a class="reference external" href="https://www.inferentialthinking.com/chapters/08/Functions_and_Tables">the Berkeley
+team</a>
+for this metaphor.</p>
+</dd>
+</dl>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -775,8 +888,8 @@ to that later.  Here is the command you need. Just run it in the notebook.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="variables_intro.html" title="previous page">Introduction to variables</a>
-    <a class='right-next' id="next-link" href="first_pass_three_girls.html" title="next page">A first pass at the simple problem</a>
+    <a class='left-prev' id="prev-link" href="Names.html" title="previous page">Names and variables</a>
+    <a class='right-next' id="next-link" href="Calls.html" title="next page">Call expressions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
