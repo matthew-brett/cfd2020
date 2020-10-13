@@ -76,9 +76,18 @@ cos(0)
 
 * `cos` is the *name* of the function;
 * `0` is the *value* we *pass* to the function.
-* The value we pass to the function goes between the parentheses `(` and `)`.
+* The value we pass to the function goes between the parentheses `(` and `)`
+  [^brackets].
 * `1.0` is the value that the function *returns*.  It is the *return value* of
   the function.
+
+[^brackets]: Please be very careful to distinguish between different types of
+  brackets in Python (and other languages).  The different types of brackets
+  are: *parentheses* (round brackets), as in `()`; *square brackets* as in
+  `[]`; and *curly brackets* as in `{}`.  These brackets have different
+  meanings to Python; if you use the wrong type of brackets, you will either
+  get an error, or you will get a result you didn't expect.  Calling functions
+  uses parentheses.
 
 The value we pass to the function is also called the function *argument*.
 
