@@ -46,9 +46,9 @@ def write_dir(out_dir):
     with open(out_fname, 'wt') as fobj:
         fobj.write(TEMPLATE_OK.format(**locals()))
     with open(op.join(out_dir, '.gitignore'), 'wt') as fobj:
-        fobj.write(f'{name}.Rmd\n')
-        fobj.write(f'{name}.ipynb\n')
-        fobj.write(f'{name}_solution.Rmd\n')
+        for ext in ('Rmd', 'ipynb'):
+            fobj.write(f'{name}.{ext}\n')
+            fobj.write(f'{name}_solution.{ext}\n')
 
 
 def main():
@@ -57,7 +57,7 @@ def main():
     parser.add_argument('--clobber', action='store_true',
                         help='If set, delete existing directory')
     args = parser.parse_args()
-    out_dir = args.out_dir
+    out_dir = op.abspath(args.out_dir)
     if not check_out_dir(out_dir, args.clobber):
         raise RuntimeError(
             f'Directory {out_dir} already exists, --clobber not set')
