@@ -60,20 +60,19 @@ def test_smoke_and_fails():
         assert op.isfile(tmp_ex_out)
         tmp_out = op.join(tmpdir, 'out_path')
         write_dir(tmp_3g, tmp_out)
-        ex_out = op.join(tmp_out, 'three_girls')
-        assert op.isdir(ex_out)
-        assert op.isdir(op.join(ex_out, 'tests'))
-        all_files = [str(p) for p in Path(ex_out).rglob('*')]
+        assert op.isdir(tmp_out)
+        assert op.isdir(op.join(tmp_out, 'tests'))
+        all_files = [str(p) for p in Path(tmp_out).rglob('*')]
         z_list = sorted(op.relpath(f, tmp_out) for f in all_files)
         assert z_list == [
-            'three_girls/tests',
-            'three_girls/tests/__init__.py',
-            'three_girls/tests/q_1_no_girls.py',
-            'three_girls/tests/q_2_three_of_five.py',
-            'three_girls/tests/q_3_three_or_fewer.py',
-            'three_girls/tests/q_4_r_three_of_four.py',
-            'three_girls/three_girls.ipynb',
-            'three_girls/three_girls.ok']
+            'tests',
+            'tests/__init__.py',
+            'tests/q_1_no_girls.py',
+            'tests/q_2_three_of_five.py',
+            'tests/q_3_three_or_fewer.py',
+            'tests/q_4_r_three_of_four.py',
+            'three_girls.ipynb',
+            'three_girls.ok']
         # Test failing exercise causes error.
         bad_ex_fname = op.join(tmp_3g, 'tests', 'q_5.py')
         with open(bad_ex_fname, 'wt') as fobj:
