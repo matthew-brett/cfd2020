@@ -8,6 +8,7 @@ from argparse import ArgumentParser
 import shutil
 from glob import glob
 from zipfile import ZipFile
+import re
 
 import jupytext
 import nbformat
@@ -45,6 +46,19 @@ def clear_outputs(nb):
     for cell in nb['cells']:
         if cell['cell_type'] == 'code':
             cell['outputs'] = []
+    return nb
+
+
+HTML_COMMENT_RE = re.compile(r'<!--(.*?)-->', re.M | re.DOTALL)
+
+
+def clear_md_comments(nb):
+    """ Strip HTML comments using regexp
+    """
+    for cell in nb['cells']:
+        if cell['cell_type'] != 'markdown':
+            continue
+        cell['source'] = HTML_COMMENT_RE.sub('', cell['source'])
     return nb
 
 
@@ -95,6 +109,7 @@ def process_nb(fname, execute=False):
     if execute:
         nb = execute_nb(nb, path_of(fname))
     nb = clear_outputs(nb)
+    nb = clear_md_comments(nb)
     write_nb(nb, ipynb_fname(fname))
 
 

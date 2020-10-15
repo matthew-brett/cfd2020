@@ -33,6 +33,29 @@ ok = Notebook('three_girls.ok')
 
 Remember the solution to this problem, from [filling arrays](../03/filling_arrays)?  Here is a version of that solution:
 
+<!--This an HTML comment-->
+
+Text.
+
+<!--
+This another HTML comment-->
+
+More text.
+
+<!--
+
+This yet another HTML comment
+
+   -->
+
+Yet more text.
+
+<!--
+
+This yet another another HTML comment
+
+-->
+
 ```{python}
 # Reset the counts array to empty (all zeros)
 counts_girls = np.zeros(10000)
