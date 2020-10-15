@@ -856,9 +856,6 @@ the full expression above.  It returns the CR of the number 19.75.</p></li>
 <code class="docutils literal notranslate"><span class="pre">(10.50</span> <span class="pre">+</span> <span class="pre">9.25)</span> <span class="pre">*</span> <span class="pre">0.15</span></code>.</p>
 <p>What do you think?  Is <code class="docutils literal notranslate"><span class="pre">9.25</span> <span class="pre">*</span> <span class="pre">0.15</span></code> a sub-expression in this compound
 expression? <a class="footnote-reference brackets" href="#answer1" id="id1">1</a></p>
-<ul class="simple">
-<li><p>0.15`.</p></li>
-</ul>
 <p>Now consider:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1022,7 +1019,8 @@ the CR of 2.9625</p></li>
 <dd><p>No - Python never evaluates that expression, because the <code class="docutils literal notranslate"><span class="pre">9.25</span></code> was
 part of sub-expression between brackets, and Python evaluated and used the
 <code class="docutils literal notranslate"><span class="pre">9.25</span></code> as part of the expression <code class="docutils literal notranslate"><span class="pre">(10.50</span> <span class="pre">+</span> <span class="pre">9.25)</span></code>.  There is no point in the
-evaluation of this expression that Python calculates the equivalent of `9.25</p>
+evaluation of this expression that Python calculates the equivalent of
+<code class="docutils literal notranslate"><span class="pre">9.25</span> <span class="pre">*</span> <span class="pre">0.15</span></code>.</p>
 </dd>
 <dt class="label" id="a-plus-b"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>It is short-hand at this point to say that Python evaluates the
