@@ -194,8 +194,8 @@ expression? [^answer1]
 [^answer1]: No - Python never evaluates that expression, because the `9.25` was
   part of sub-expression between brackets, and Python evaluated and used the
   `9.25` as part of the expression `(10.50 + 9.25)`.  There is no point in the
-  evaluation of this expression that Python calculates the equivalent of `9.25
-  * 0.15`.
+  evaluation of this expression that Python calculates the equivalent of
+  `9.25 * 0.15`.
 
 Now consider:
 
