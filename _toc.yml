@@ -34,6 +34,7 @@
   - file: data-types/data_types
   - file: data-types/Numbers
   - file: data-types/Strings
+  - file: data-types/strings_and_variables
   - file: data-types/String_Methods
   - file: data-types/Comparison
   - file: data-types/lists
