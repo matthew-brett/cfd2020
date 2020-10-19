@@ -39,8 +39,9 @@ languages) distinguishes between two different types of numbers:
 The type of a number is evident from the way it is displayed: `int` values
 have no decimal point and `float` values always have a decimal point.
 
+Here are some `int` values:
+
 ```{python}
-# Some int values
 2
 ```
 
@@ -52,8 +53,9 @@ have no decimal point and `float` values always have a decimal point.
 -1234567890000000000
 ```
 
+Here are some float values:
+
 ```{python}
-# Some float values
 1.2
 ```
 
@@ -75,8 +77,51 @@ integers combine to form another integer, but any number (`int` or `float`)
 divided by another will be a `float` value. Very large or very small `float`
 values are displayed using scientific notation.
 
+## Another way of writing float values
 
-## Float Values
+You can also write float values in *exponential* format, like this:
+
+```{python}
+# Two thousand one hundred.
+2.1e3
+```
+
+Read this as $2.1 x 10^3$.  The `e3` means "times 10 to the power of 3".
+
+Or we can use negative powers to represent small numbers:
+
+```{python}
+1e-3
+```
+
+Read this as $1 x 10^-3$, or "1 then moving the decimal point 3 spaces to the
+left", or:
+
+```{python}
+1 * 10 ** -3
+```
+
+This notation makes it easier write and display very large and very small
+numbers. For example, we can write 10 million million as:
+
+```{python}
+# 10 million million
+1e7
+```
+
+Or 0.0000001 as:
+
+```{python}
+1e-7
+```
+
+This is exactly the same value as:
+
+```{python}
+0.0000001
+```
+
+## The limits of float Values
 
 Float values are very flexible, but they do have limits.
 
