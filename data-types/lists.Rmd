@@ -110,7 +110,11 @@ some_strings
 
 Python has some built-in functions that operate on sequences, like lists.
 
-One of these is the function `len`.  Here is a *call expression*, using the function `len` on our list:
+A built-in function is a function that we can use in any Python session,
+without `import`ing it from a library.
+
+One of these built-in functions is `len`.  Here is a *call expression*, using
+the function `len` on our list:
 
 ```{python}
 len(my_numbers)
