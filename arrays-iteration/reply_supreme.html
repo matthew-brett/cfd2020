@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Reply to the Supreme Court &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="More on Arrays" href="More_on_Arrays.html" />
     <link rel="prev" title="Indentation, indentation, indentation" href="indentation.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -651,7 +631,12 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -702,7 +687,7 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
 </pre></div>
 </div>
 </div>
@@ -733,7 +718,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([23.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20.])
 </pre></div>
 </div>
 </div>
@@ -758,14 +743,14 @@ a much higher number.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([27., 20., 22., 24., 32., 22., 33., 20., 32., 23., 28., 25., 22.,
-       27., 26., 23., 25., 32., 22., 24., 27., 26., 17., 24., 23., 24.,
-       28., 20., 31., 24., 28., 31., 28., 29., 17., 27., 31., 26., 29.,
-       25., 28., 30., 33., 28., 28., 24., 25., 29., 21., 36., 30., 26.,
-       23., 29., 23., 23., 23., 29., 15., 24., 22., 26., 33., 32., 31.,
-       24., 32., 22., 31., 24., 30., 23., 27., 24., 34., 23., 28., 27.,
-       26., 24., 22., 26., 21., 21., 25., 25., 30., 20., 17., 26., 22.,
-       20., 24., 19., 25., 23., 18., 30., 26., 33.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([23., 28., 25., 26., 24., 25., 22., 28., 31., 22., 29., 31., 31.,
+       29., 25., 29., 40., 19., 21., 30., 21., 28., 24., 19., 28., 23.,
+       30., 25., 19., 24., 20., 28., 29., 19., 23., 25., 24., 28., 28.,
+       25., 34., 22., 30., 28., 24., 24., 29., 22., 28., 22., 29., 18.,
+       27., 27., 20., 27., 27., 21., 25., 30., 31., 30., 16., 25., 23.,
+       28., 34., 31., 25., 29., 31., 31., 33., 28., 26., 19., 31., 32.,
+       26., 21., 23., 26., 16., 15., 26., 29., 33., 29., 27., 33., 23.,
+       29., 28., 24., 25., 24., 30., 20., 22., 37.])
 </pre></div>
 </div>
 </div>
@@ -791,7 +776,7 @@ and therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([27., 29., 18., ..., 19., 21., 30.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([31., 26., 33., ..., 33., 22., 26.])
 </pre></div>
 </div>
 </div>
@@ -837,10 +822,10 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  14.,  104.,  537., 1519., 2377., 3326., 1372.,  584.,  144.,
-          23.]),
- array([10. , 13.2, 16.4, 19.6, 22.8, 26. , 29.2, 32.4, 35.6, 38.8, 42. ]),
- &lt;BarContainer object of 10 artists&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([   7.,  101.,  920., 1845., 3530., 2075., 1235.,  227.,   54.,
+           6.]),
+ array([10. , 13.5, 17. , 20.5, 24. , 27.5, 31. , 34.5, 38. , 41.5, 45. ]),
+ &lt;a list of 10 Patch objects&gt;)
 </pre></div>
 </div>
 <img alt="../_images/reply_supreme_24_1.png" src="../_images/reply_supreme_24_1.png" />
@@ -942,10 +927,7 @@ makes us think that the probability of getting 8 black people in a jury pool of
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>
