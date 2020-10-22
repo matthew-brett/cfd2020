@@ -82,7 +82,7 @@ Python provides a much cleaner way to write this:
 highs - lows
 ```
 
-<img src="../images/array_subtraction.png">
+![](../images/array_subtraction.png)
 
 
 What we've seen in these examples are special cases of a general feature of arrays.
@@ -92,7 +92,7 @@ What we've seen in these examples are special cases of a general feature of arra
 
 If an arithmetic operator acts on two arrays of the same size, then the
 operation is performed on each corresponding pair of elements in the two
-arrays. The final result is an array. 
+arrays. The final result is an array.
 
 For example, if `array1` and `array2` have the same number of elements, then
 the value of `array1 * array2` is an array. Its first element is the first
