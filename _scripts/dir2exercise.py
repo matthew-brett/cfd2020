@@ -9,9 +9,7 @@ import shutil
 from argparse import ArgumentParser
 import re
 from subprocess import check_call, check_output
-from contextlib import contextmanager
 
-import yaml
 from jinja2 import Template
 
 from rmdex.exerciser import (make_exercise, make_solution, write_utf8,
@@ -23,32 +21,11 @@ SITE_ROOT = op.realpath(op.join(HERE, '..'))
 sys.path.append(HERE)
 
 import build_exercise as b_e
+from cutils import cd, proc_config, build_url
 import grade_oknb as gok
 
 
 TEMPLATE_RE = re.compile('_template\.Rmd$')
-
-
-@contextmanager
-def cd(newdir):
-    prevdir = os.getcwd()
-    os.chdir(os.path.expanduser(newdir))
-    try:
-        yield
-    finally:
-        os.chdir(prevdir)
-
-
-def get_site_dict(site_config):
-    with open(site_config, 'r') as ff:
-        site = yaml.load(ff.read(), Loader=yaml.SafeLoader)
-    # Get full baseurl from _config.yml format.
-    if not site['baseurl'].startswith('http') and 'url' in site:
-        site['baseurl'] = site['url'] + site['baseurl']
-    for path_key in ('org_path',):
-        if path_key in site:
-            site[path_key] = op.expanduser(site[path_key])
-    return site
 
 
 def process_dir(path, grade=False, site_dict=None):
@@ -107,38 +84,29 @@ def write_dir(path, out_path, clean=True):
             shutil.copy(op.join(dirpath, f), this_out_path)
 
 
-def find_site_config(dir_path, filenames=('course.yml',
-                                          '_course.yml',
-                                          '_config.yml')):
-    """ Iterate to parents to locate one of filenames specified in `filenames`.
-    """
-    dir_path = op.realpath(dir_path)
-    while True:
-        for fn in filenames:
-            pth = op.join(dir_path, fn)
-            if op.isfile(pth):
-                return pth
-        prev_dir_path = dir_path
-        dir_path = op.realpath(op.join(dir_path, '..'))
-        if (dir_path == prev_dir_path or  # We hit root.
-            not prev_dir_path.startswith(dir_path)): # We hit fs boundary.
-            break
-    return None
-
-
-def push_dir(path, site_dict):
+def push_dir(path, site_dict, strip=False):
     with cd(path):
         ex_name = op.basename(path)
-        if not op.isdir('.git'):
+        has_history = op.isdir('.git')
+        if has_history and strip:
+            origin_url = check_output(
+                ['git', 'remote', 'get-url', 'origin'], text=True).strip()
+            if len(origin_url) == 0:
+                raise RuntimeError('Could not find origin URL')
+            shutil.rmtree('.git')
+            check_call(['git', 'init'])
+            check_call(['git', 'remote', 'add', 'origin', origin_url])
+        else:  # No history
             check_call(['git', 'init'])
             check_call(['hub', 'create',
-                        f"{site_dict['org_name']}/{ex_name}"])
+                        f"{site_dict['git_root']}/{ex_name}"])
         check_call(['git', 'add', '.'])
         if len(check_output(['git', 'diff', '--staged'])) == 0:
             print('No changes to commit')
             return
         check_call(['git', 'commit', '-m', 'Update from template'])
-        check_call(['git', 'push', 'origin', 'master'])
+        check_call(['git', 'push', 'origin', 'master'] +
+                   ['--force'] if strip else [])
 
 
 def main():
@@ -152,6 +120,8 @@ def main():
                         help='If specified, do not grade solution notebook')
     parser.add_argument('--push', action='store_true',
                         help='If specified, push exercise to remote')
+    parser.add_argument('--strip', action='store_true',
+                        help='If specified, strip exercise history')
     parser.add_argument('--no-clean', action='store_true',
                         help='If specified, do not delete existing exercise '
                              'files in output directory')
@@ -160,22 +130,16 @@ def main():
                         '(default finds {course,_config}.yml, in dir, parents)'
                        )
     args = parser.parse_args()
-    if args.site_config is None:
-        args.site_config = find_site_config(args.dir)
-    site_dict = get_site_dict(args.site_config) if args.site_config else {}
-    if args.out_path is None:
-        args.out_path = site_dict.get('org_path')
-    if args.out_path is None:
-        raise RuntimeError(
-            'Must specify out path or "org_path" in config file\n'
-            f'Config file is {args.site_config}'
-        )
+    site_dict, out_path = proc_config(args.dir,
+                                      args.site_config,
+                                      args.out_path)
     in_dir = op.abspath(args.dir)
     process_dir(in_dir, not args.no_grade, site_dict)
-    out_path = op.abspath(op.join(args.out_path, op.basename(in_dir)))
+    out_path = op.abspath(op.join(out_path, op.basename(in_dir)))
     write_dir(args.dir, out_path, clean=not args.no_clean)
     if args.push:
-        push_dir(out_path, site_dict)
+        push_dir(out_path, site_dict, args.strip)
+    print(build_url(out_path, site_dict))
 
 
 if __name__ == '__main__':
