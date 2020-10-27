@@ -185,11 +185,14 @@ value.
 
 | **Function**       | Description                                                          |
 |--------------------|----------------------------------------------------------------------|
-| `np.prod`          | Multiply all elements together                                       |
 | `np.sum`           | Add all elements together                                            |
+| `np.prod`          | Multiply all elements together                                       |
 | `np.all`           | Test whether all elements are true values (non-zero numbers are true)|
 | `np.any`           | Test whether any elements are true values (non-zero numbers are true)|
 | `np.count_nonzero` | Count the number of non-zero elements                                |
+| `np.mean`          | Calculate the mean (sum divided by number of elements)               |
+| `np.min`           | The minimum over the array                                           |
+| `np.max`           | The maximum over the array                                           |
 
 Each of these functions takes an array as an argument and returns an array of values.
 
@@ -197,6 +200,7 @@ Each of these functions takes an array as an argument and returns an array of va
 |--------------------|----------------------------------------------------------------------|
 | `np.diff`          | Difference between adjacent elements                                 |
 | `np.round`         | Round each number to the nearest integer (whole number)              |
+| `np.abs`           | Absolute value of each number (remove minus signs                    |
 | `np.cumprod`       | A cumulative product: for each element, multiply all elements so far |
 | `np.cumsum`        | A cumulative sum: for each element, add all elements so far          |
 | `np.exp`           | Exponentiate each element                                            |
