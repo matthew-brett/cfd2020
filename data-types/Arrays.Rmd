@@ -116,11 +116,7 @@ If you are interested, you can get more data from [this file of daily high
 temperatures](http://berkeleyearth.lbl.gov/auto/Regional/TMAX/Text/global-land-TMAX-Trend.txt).
 
 ```{python}
-baseline_high = 14.48
-highs = np.array([baseline_high - 0.880,
-                  baseline_high - 0.093,
-                  baseline_high + 0.105,
-                  baseline_high + 0.684])
+highs = np.array([13.6  , 14.387, 14.585, 15.164])
 highs
 ```
 

@@ -45,18 +45,12 @@ import numpy as np
 Next we create the array:
 
 ```{python}
-baseline_high = 14.48
-highs = np.array([baseline_high - 0.880,
-                  baseline_high - 0.093,
-                  baseline_high + 0.105,
-                  baseline_high + 0.684])
+highs = np.array([13.6, 14.387, 14.585, 15.164])
 highs
 ```
 
 ```{python}
-baseline_low = 3.00
-lows = np.array([baseline_low - 0.872, baseline_low - 0.629,
-                 baseline_low - 0.126, baseline_low + 0.728])
+lows = np.array([2.128, 2.371, 2.874, 3.728])
 lows
 ```
 
