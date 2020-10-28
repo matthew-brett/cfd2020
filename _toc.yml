@@ -38,24 +38,32 @@
   - file: data-types/data_types
   - file: data-types/Numbers
   - file: data-types/Strings
+  # data_types exercise
   - file: data-types/strings_and_variables
   - file: data-types/String_Methods
+  # strings_vars exercise
+  # strings exercise
+  # AKA Booleans
   - file: data-types/Comparison
+
+- part: Arrays
+  # Move these pages to their eventual homes
   - file: data-types/lists
   - file: data-types/Arrays
   - file: data-types/Ranges
-  - file: data-types/numpy_append
-  - file: data-types/function_arguments
-  - file: data-types/leaping_ahead
+  # arrays exercise
+  - file: arrays-iteration/More_on_Arrays
+  - file: arrays-iteration/array_indexing
+  # More_arrays exercise - this has missing questions
+  - file: arrays-iteration/filling_arrays
 
 - part: Iteration and arrays
   chapters:
   - file: arrays-iteration/iteration
   - file: arrays-iteration/indentation
+  - file: data-types/function_arguments
   - file: arrays-iteration/reply_supreme
-  - file: arrays-iteration/More_on_Arrays
-  - file: arrays-iteration/array_indexing
-  - file: arrays-iteration/filling_arrays
+  - file: arrays-iteration/boolean_arrays
 
 - part: Data frames
   chapters:
