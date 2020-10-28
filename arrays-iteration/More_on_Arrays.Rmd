@@ -25,12 +25,12 @@ jupyter:
 
 # More on Arrays
 
-It's often necessary to compute something that involves data from more than
-one array. If two arrays are of the same size, Python makes it easy to do
+It's often necessary to compute something that involves data from more than one
+array. If two arrays are of the same size, Python makes it easy to do
 calculations involving both arrays.
 
-For our first example, we return once more to the temperature data.  This
-time, we create arrays of average daily
+For our first example, we return once more to the temperature data.  This time,
+we create arrays of average daily
 [high](http://berkeleyearth.lbl.gov/auto/Regional/TMAX/Text/global-land-TMAX-Trend.txt)
 and
 [low](http://berkeleyearth.lbl.gov/auto/Regional/TMIN/Text/global-land-TMIN-Trend.txt)
