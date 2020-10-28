@@ -84,18 +84,24 @@ def write_dir(path, out_path, clean=True):
             shutil.copy(op.join(dirpath, f), this_out_path)
 
 
+def strip_repo_at(path):
+    with cd(path):
+        origin_url = check_output(
+            ['git', 'remote', 'get-url', 'origin'], text=True).strip()
+        if len(origin_url) == 0:
+            raise RuntimeError('Could not find origin URL')
+        shutil.rmtree('.git')
+        check_call(['git', 'init'])
+        check_call(['git', 'remote', 'add', 'origin', origin_url])
+
+
 def push_dir(path, site_dict, strip=False):
     with cd(path):
         ex_name = op.basename(path)
         has_history = op.isdir('.git')
-        if has_history and strip:
-            origin_url = check_output(
-                ['git', 'remote', 'get-url', 'origin'], text=True).strip()
-            if len(origin_url) == 0:
-                raise RuntimeError('Could not find origin URL')
-            shutil.rmtree('.git')
-            check_call(['git', 'init'])
-            check_call(['git', 'remote', 'add', 'origin', origin_url])
+        if has_history:
+            if strip:
+                strip_repo_at('.')
         else:  # No history
             check_call(['git', 'init'])
             check_call(['hub', 'create',
@@ -106,7 +112,7 @@ def push_dir(path, site_dict, strip=False):
             return
         check_call(['git', 'commit', '-m', 'Update from template'])
         check_call(['git', 'push', 'origin', 'master'] +
-                   ['--force'] if strip else [])
+                   (['--force'] if strip else []))
 
 
 def main():
