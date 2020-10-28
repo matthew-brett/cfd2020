@@ -155,13 +155,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Expressions.html">
-   Expressions
+  <a class="reference internal" href="../code-basics/Names.html">
+   Names and variables
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../code-basics/Names.html">
-   Names and variables
+  <a class="reference internal" href="../code-basics/Expressions.html">
+   Expressions
   </a>
  </li>
  <li class="toctree-l1">
@@ -653,11 +653,11 @@
                 
   <div class="section" id="more-on-arrays">
 <h1>More on Arrays<a class="headerlink" href="#more-on-arrays" title="Permalink to this headline">¶</a></h1>
-<p>It’s often necessary to compute something that involves data from more than
-one array. If two arrays are of the same size, Python makes it easy to do
+<p>It’s often necessary to compute something that involves data from more than one
+array. If two arrays are of the same size, Python makes it easy to do
 calculations involving both arrays.</p>
-<p>For our first example, we return once more to the temperature data.  This
-time, we create arrays of average daily
+<p>For our first example, we return once more to the temperature data.  This time,
+we create arrays of average daily
 <a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TMAX/Text/global-land-TMAX-Trend.txt">high</a>
 and
 <a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TMIN/Text/global-land-TMIN-Trend.txt">low</a>
@@ -673,11 +673,7 @@ temperatures for the decades surrounding 1850, 1900, 1950, and 2000.</p>
 <p>Next we create the array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_high</span> <span class="o">=</span> <span class="mf">14.48</span>
-<span class="n">highs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.880</span><span class="p">,</span>
-                  <span class="n">baseline_high</span> <span class="o">-</span> <span class="mf">0.093</span><span class="p">,</span>
-                  <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.105</span><span class="p">,</span>
-                  <span class="n">baseline_high</span> <span class="o">+</span> <span class="mf">0.684</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">highs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">13.6</span><span class="p">,</span> <span class="mf">14.387</span><span class="p">,</span> <span class="mf">14.585</span><span class="p">,</span> <span class="mf">15.164</span><span class="p">])</span>
 <span class="n">highs</span>
 </pre></div>
 </div>
@@ -690,9 +686,7 @@ temperatures for the decades surrounding 1850, 1900, 1950, and 2000.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_low</span> <span class="o">=</span> <span class="mf">3.00</span>
-<span class="n">lows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.872</span><span class="p">,</span> <span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.629</span><span class="p">,</span>
-                 <span class="n">baseline_low</span> <span class="o">-</span> <span class="mf">0.126</span><span class="p">,</span> <span class="n">baseline_low</span> <span class="o">+</span> <span class="mf">0.728</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.128</span><span class="p">,</span> <span class="mf">2.371</span><span class="p">,</span> <span class="mf">2.874</span><span class="p">,</span> <span class="mf">3.728</span><span class="p">])</span>
 <span class="n">lows</span>
 </pre></div>
 </div>
