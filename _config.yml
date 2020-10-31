@@ -69,3 +69,21 @@ sphinx:
 latex:
   latex_documents:
     targetname: cfd2020.tex
+
+# HTML redirection
+redirection:
+  builddir : _build/html
+  redirects:
+    data-types/Ranges: ../arrays/Ranges
+    data-types/Arrays: ../arrays/Arrays
+    arrays-iteration/More_on_Arrays: ../arrays/More_on_Arrays
+    data-types/Ranges: ../arrays/Ranges
+    arrays-iteration/array_indexing: ../arrays/array_indexing
+    arrays-iteration/filling_arrays: ../arrays/filling_arrays
+    data-types/function_arguments: ../arrays/function_arguments
+    data-types/leaping_ahead: ../arrays/leaping_ahead
+    arrays-iteration/rate_my_course.csv: ../arrays/rate_my_course.csv
+    arrays-iteration/arrays_and_axes: ../iteration/arrays_and_axes
+    arrays-iteration/indentation: ../iteration/indentation
+    arrays-iteration/iteration: ../iteration/iteration
+    arrays-iteration/reply_supreme: ../iteration/reply_supreme

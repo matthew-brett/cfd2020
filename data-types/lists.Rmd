@@ -128,6 +128,8 @@ Another function that operates on lists is `sum`.  This adds all the elements in
 sum(my_numbers)
 ```
 
+## A half-solution for three girls
+
 Now we have another way of solving the problem of making the family of four
 children above.  Use Control-Enter a few times on the cell below to convince
 yourself it returns numbers between 0 and 4 - simulated numbers of girls in

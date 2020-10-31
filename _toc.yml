@@ -45,25 +45,26 @@
   # strings exercise
   # AKA Booleans
   - file: data-types/Comparison
+  - file: data-types/lists
 
 - part: Arrays
   # Move these pages to their eventual homes
-  - file: data-types/lists
-  - file: data-types/Arrays
-  - file: data-types/Ranges
+  - file: arrays/Arrays
+  - file: arrays/Ranges
   # arrays exercise
-  - file: arrays-iteration/More_on_Arrays
-  - file: arrays-iteration/array_indexing
-  # More_arrays exercise - this has missing questions
-  - file: arrays-iteration/filling_arrays
+  - file: arrays/More_on_Arrays
+  - file: arrays/array_indexing
+  # More_arrays exercise - this has missing tests.
+  - file: arrays/filling_arrays
+  - file: arrays/function_arguments
+  - file: arrays/leaping_ahead
 
-- part: Iteration and arrays
+- part: Iteration
   chapters:
-  - file: arrays-iteration/iteration
-  - file: arrays-iteration/indentation
-  - file: data-types/function_arguments
-  - file: arrays-iteration/reply_supreme
-  - file: arrays-iteration/boolean_arrays
+  - file: iteration/iteration
+  - file: iteration/indentation
+  - file: iteration/boolean_arrays
+  - file: iteration/reply_supreme
 
 - part: Data frames
   chapters:
