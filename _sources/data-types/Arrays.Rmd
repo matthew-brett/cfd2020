@@ -116,7 +116,11 @@ If you are interested, you can get more data from [this file of daily high
 temperatures](http://berkeleyearth.lbl.gov/auto/Regional/TMAX/Text/global-land-TMAX-Trend.txt).
 
 ```{python}
-highs = np.array([13.6  , 14.387, 14.585, 15.164])
+baseline_high = 14.48
+highs = np.array([baseline_high - 0.880,
+                  baseline_high - 0.093,
+                  baseline_high + 0.105,
+                  baseline_high + 0.684])
 highs
 ```
 
@@ -132,7 +136,7 @@ to Fahrenheit by writing the familiar conversion formula.
 (9/5) * highs + 32
 ```
 
-![](../images/array_arithmetic.png)
+<img src="../images/array_arithmetic.png">
 
 
 As we saw for strings, arrays have *methods*, which are functions that
@@ -181,14 +185,11 @@ value.
 
 | **Function**       | Description                                                          |
 |--------------------|----------------------------------------------------------------------|
-| `np.sum`           | Add all elements together                                            |
 | `np.prod`          | Multiply all elements together                                       |
+| `np.sum`           | Add all elements together                                            |
 | `np.all`           | Test whether all elements are true values (non-zero numbers are true)|
 | `np.any`           | Test whether any elements are true values (non-zero numbers are true)|
 | `np.count_nonzero` | Count the number of non-zero elements                                |
-| `np.mean`          | Calculate the mean (sum divided by number of elements)               |
-| `np.min`           | The minimum over the array                                           |
-| `np.max`           | The maximum over the array                                           |
 
 Each of these functions takes an array as an argument and returns an array of values.
 
@@ -196,7 +197,6 @@ Each of these functions takes an array as an argument and returns an array of va
 |--------------------|----------------------------------------------------------------------|
 | `np.diff`          | Difference between adjacent elements                                 |
 | `np.round`         | Round each number to the nearest integer (whole number)              |
-| `np.abs`           | Absolute value of each number (remove minus signs                    |
 | `np.cumprod`       | A cumulative product: for each element, multiply all elements so far |
 | `np.cumsum`        | A cumulative sum: for each element, add all elements so far          |
 | `np.exp`           | Exponentiate each element                                            |

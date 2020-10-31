@@ -1,20 +1,40 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Reply to the Supreme Court &#8212; Coding for Data - 2020 edition</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -23,10 +43,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -38,11 +58,11 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data frames" href="../data-frames/data_frames.html" />
-    <link rel="prev" title="Boolean arrays" href="boolean_arrays.html" />
+    <link rel="next" title="Boolean arrays" href="../data-frames/boolean_indexing.html" />
+    <link rel="prev" title="Indentation, indentation, indentation" href="indentation.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
@@ -280,11 +300,6 @@
    Indentation, indentation, indentation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="boolean_arrays.html">
-   Boolean arrays
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Reply to the Supreme Court
@@ -297,6 +312,11 @@
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-frames/boolean_indexing.html">
+   Boolean arrays
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/data_frames.html">
    Data frames
@@ -643,12 +663,26 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-ideal-world">
+   The ideal world
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-with-the-ideal-model">
+   Simulations with the ideal model
+  </a>
+ </li>
+</ul>
+
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -668,12 +702,31 @@ selection was biased against black people.</p>
 be black.  That’s around 1 in 4 (25%), so we would expect about one in four
 jurors to be black - so around 3 of 12.</p>
 <p>The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being black?</p>
-<p>To answer this, we are going to <em>simulate</em> making a jury.</p>
-<p>Our <em>model</em> is that each juror has been randomly selected from the population.
-That is, for any one juror, there is a 0.26 probability that they are black.</p>
-<p>First we make one jury, of 12 people, to remind ourselves of the task.</p>
-<p>Then we make 10 juries of 12 people, to get warmed up.</p>
-<p>Finally we make 10000 juries, each of 12 members, and see what we get.</p>
+<p>To answer this, we are going to go through a couple of steps.</p>
+<p>The first is to build an <em>ideal model</em> of the world, where it <em>is true</em> that
+each juror has a 26% of being black.  We sometimes call this our <em>ideal world</em>.
+If you are used to statistical terms, this ideal model is our <em>null
+hypothesis</em>.</p>
+<p>Then we can <em>simulate</em> making many juries in this ideal world.</p>
+<p>Finally we ask whether our simulated juries, from the ideal world, often give
+us a count of zero black jurors.  If they don’t, then we can say that we are
+<em>surprised</em> by the value of 0, if the jury did arise from that real world.  If
+the value 0 is sufficiently unusual, we become suspicious that the real world
+is rather different from our ideal world.  We consider <em>rejecting</em> the ideal
+world as a good model of the real world.</p>
+<div class="section" id="the-ideal-world">
+<h2>The ideal world<a class="headerlink" href="#the-ideal-world" title="Permalink to this headline">¶</a></h2>
+<p>Our <em>ideal model</em> (or null hypothesis) is a world where each juror has been
+truly randomly selected from the eligible population. That is, for any one
+juror, there is a 0.26 probability that they are black.</p>
+</div>
+<div class="section" id="simulations-with-the-ideal-model">
+<h2>Simulations with the ideal model<a class="headerlink" href="#simulations-with-the-ideal-model" title="Permalink to this headline">¶</a></h2>
+<p>To do a <em>simulation</em> with this ideal model, we will start by making one jury,
+of 12 people, where it is really true that each juror has a 26% of being black.
+Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>.</p>
+<p>Then we simulate 10 juries of 12 people (do 10 trials), to get warmed up.</p>
+<p>Finally we make 10000 juries, each of 12 people, and see what we get.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the array library</span>
@@ -697,7 +750,7 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -730,7 +783,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([19.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([28.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
@@ -754,7 +807,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2., 5., 3., 3., 4., 2., 1., 3., 3.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8., 5., 2., 1., 5., 3., 3., 1., 4., 4.])
 </pre></div>
 </div>
 </div>
@@ -781,7 +834,7 @@ therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 6., 2., ..., 3., 2., 4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 3., 2., ..., 3., 2., 6.])
 </pre></div>
 </div>
 </div>
@@ -818,25 +871,25 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 </div>
-<p>Now show the histogram.</p>
+<p>Now show the histogram.  Don’t worry about the details of this command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do the histogram of our 10000 estimates.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">13</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1434., 2180., 2553., 2019., 1169.,  464.,  138.,   32.,    8.,
-           3.]),
- array([ 0. ,  1.1,  2.2,  3.3,  4.4,  5.5,  6.6,  7.7,  8.8,  9.9, 11. ]),
- &lt;a list of 10 Patch objects&gt;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 278., 1139., 2227., 2604., 1993., 1090.,  497.,  133.,   35.,
+           4.,    0.,    0.]),
+ array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
+ &lt;BarContainer object of 12 artists&gt;)
 </pre></div>
 </div>
 <img alt="../_images/reply_supreme_24_1.png" src="../_images/reply_supreme_24_1.png" />
 </div>
 </div>
-<p>It looks as if 0 is a rare value on the spread of our estimates.  How many
+<p>It looks as if 0 is a relatively uncommon value among our simulations. How many
 times did we get a value of 0, in all our 10000 estimates?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,13 +900,13 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>270
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>278
 </pre></div>
 </div>
 </div>
 </div>
-<p>In 10000 random jury pools, we rarely see a value of 0.</p>
-<p>How often do we see it?  We just divide the number of times we see 0 by the number trials we made:</p>
+<p>What <em>proportion</em> of jury simulations give a value of 0?  We just divide the
+number of times we see 0 by the number trials we made:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">n_zeros</span> <span class="o">/</span> <span class="mi">10000</span>
@@ -862,13 +915,14 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
 </pre></div>
 </div>
 </div>
 </div>
 <p>We have run an analysis assuming that the jurors were selected at random.  On
-that assumption, a count of 0 jurors in 12 comes up rather rarely.  The proportion of times we see that result is:</p>
+that assumption, a count of 0 jurors in 12 is fairly uncommon, in the sense
+that the proportion of times we see that result is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
@@ -876,7 +930,7 @@ that assumption, a count of 0 jurors in 12 comes up rather rarely.  The proporti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
 </pre></div>
 </div>
 </div>
@@ -890,10 +944,16 @@ in a jury of 12, is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
 </pre></div>
 </div>
 </div>
+</div>
+<p>What can we conclude?  Only this: that in our ideal model world, where each
+juror has a 26% chance of being black, 0 is uncommon.  This surprising result,
+of 0, gives us some cause to wonder if our ideal model of the world is wrong.
+One way it could be wrong, is if there was bias in jury selection, so it was
+not true that each juror had a 26% of being black.</p>
 </div>
 </div>
 
@@ -925,8 +985,8 @@ in a jury of 12, is</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="boolean_arrays.html" title="previous page">Boolean arrays</a>
-    <a class='right-next' id="next-link" href="../data-frames/data_frames.html" title="next page">Data frames</a>
+    <a class='left-prev' id="prev-link" href="indentation.html" title="previous page">Indentation, indentation, indentation</a>
+    <a class='right-next' id="next-link" href="../data-frames/boolean_indexing.html" title="next page">Boolean arrays</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -945,7 +1005,10 @@ in a jury of 12, is</p>
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
+
+
     
   </body>
 </html>
