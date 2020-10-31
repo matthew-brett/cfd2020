@@ -63,11 +63,11 @@
   chapters:
   - file: iteration/iteration
   - file: iteration/indentation
-  - file: iteration/boolean_arrays
   - file: iteration/reply_supreme
 
 - part: Data frames
   chapters:
+  - file: data-frames/boolean_indexing
   - file: data-frames/data_frames
   - file: data-frames/data_frame_intro
   - file: data-frames/df_series_arrays
