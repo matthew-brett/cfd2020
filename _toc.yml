@@ -75,6 +75,7 @@
 - part: Population and permutation
   chapters:
   - file: permutation/permutation
+  - file: permutation/numpy_append
   - file: permutation/population_permutation
   - file: permutation/brexit_ages
   - file: permutation/permutation_idea

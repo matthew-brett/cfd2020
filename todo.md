@@ -4,9 +4,6 @@
 ## Refactoring of append etc
 
 * More on **Boolean arrays**.  Work with these a bit.  Exercise.
-* Later **Boolean indexing**.  Exercise.
-* Remove almost all use of `np.append`.
-* Split Arrays into own section?
 
 
 ## Orphan pages
