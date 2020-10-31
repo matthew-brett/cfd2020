@@ -325,6 +325,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -659,8 +664,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indexing-with-boolean-arrays">
-   Indexing with Boolean arrays
+  <a class="reference internal nav-link" href="#another-way-of-indexing-into-arrays">
+   Another way of indexing into arrays
   </a>
  </li>
 </ul>
@@ -1089,254 +1094,12 @@ element:</p>
 </div>
 </div>
 </div>
-<div class="section" id="indexing-with-boolean-arrays">
-<h2>Indexing with Boolean arrays<a class="headerlink" href="#indexing-with-boolean-arrays" title="Permalink to this headline">¶</a></h2>
-<p>We often want to select several elements from an array according to some criterion.</p>
-<p>The most common way to do this, is to do array slicing, using
-a Boolean array between the square brackets.</p>
-<p>It can be easier to understand this by example than by description.</p>
-<p>Here are the “Overall Quality” scores for the ten largest courses:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.79136358, 3.56686702, 3.65764056, 3.9009491 , 3.77374607,
-       3.46548462, 3.87501873, 3.6633317 ])
-</pre></div>
-</div>
-</div>
-</div>
-<p>These are the quality ratings corresponding to the <code class="docutils literal notranslate"><span class="pre">disciplines</span></code> we saw earlier.  The top (largest) discipline is:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;English&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>The Overall Quality rating for that course is:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7913635779463704
-</pre></div>
-</div>
-</div>
-</div>
-<p>You have already come across Boolean arrays.</p>
-<p>These are arrays of <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> values.</p>
-<p>Here is a Boolean array, created from applying a comparison to an array:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greater_than_3</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="mi">3</span>
-<span class="n">greater_than_3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False,  True,  True, False,  True,  True])
-</pre></div>
-</div>
-</div>
-</div>
-<p>This has a <code class="docutils literal notranslate"><span class="pre">True</span></code> value at the positions of elements &gt; 3, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
-<p>As you have already seen, we can do things like count the number
-of <code class="docutils literal notranslate"><span class="pre">True</span></code> values in the Boolean array:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">greater_than_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now let us say that we wanted to get the elements from <code class="docutils literal notranslate"><span class="pre">easiness</span></code>
-that are greater than 4.   That is, we want to get the elements
-in <code class="docutils literal notranslate"><span class="pre">easiness</span></code> for which the corresponding element in
-<code class="docutils literal notranslate"><span class="pre">greater_than_3</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>We can do this with <em>Boolean array indexing</em>.  The Boolean array goes between the square brackets, like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 2.71045949, 3.31620986, 3.0538026 ,
-       2.65205418, 3.37982853, 3.17203268])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greater_than_3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False,  True,  True, False,  True,  True])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span><span class="p">[</span><span class="n">greater_than_3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.16275414, 3.06332232, 3.31620986, 3.0538026 , 3.37982853,
-       3.17203268])
-</pre></div>
-</div>
-</div>
-</div>
-<p>We have selected the numbers in <code class="docutils literal notranslate"><span class="pre">easiness</span></code> that are greater than 3.</p>
-<p>We can use this same Boolean array to index into another array.  For example, here we show the discipline <em>names</em> corresponding to the courses with Easiness scores greater than 3:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span><span class="p">[</span><span class="n">greater_than_3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;English&#39;, &#39;Mathematics&#39;, &#39;Psychology&#39;, &#39;History&#39;,
-       &#39;Communications&#39;, &#39;Business&#39;], dtype=object)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Just to confirm that these are the disciplines with “Easiness” ratings greater than 4, here are the first ten rows of the table.  These are the rows corresponding to numbers in the arrays.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We haven&#39;t covered &#39;.head&#39; yet.  This code shows the first 10 rows of</span>
-<span class="c1"># the data table.</span>
-<span class="n">big_courses</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Discipline</th>
-      <th>Number of Professors</th>
-      <th>Clarity</th>
-      <th>Helpfulness</th>
-      <th>Overall Quality</th>
-      <th>Easiness</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>English</td>
-      <td>23343</td>
-      <td>3.756147</td>
-      <td>3.821866</td>
-      <td>3.791364</td>
-      <td>3.162754</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Mathematics</td>
-      <td>22394</td>
-      <td>3.487379</td>
-      <td>3.641526</td>
-      <td>3.566867</td>
-      <td>3.063322</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Biology</td>
-      <td>11774</td>
-      <td>3.608331</td>
-      <td>3.701530</td>
-      <td>3.657641</td>
-      <td>2.710459</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Psychology</td>
-      <td>11179</td>
-      <td>3.909520</td>
-      <td>3.887536</td>
-      <td>3.900949</td>
-      <td>3.316210</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>History</td>
-      <td>11145</td>
-      <td>3.788818</td>
-      <td>3.753642</td>
-      <td>3.773746</td>
-      <td>3.053803</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Chemistry</td>
-      <td>7346</td>
-      <td>3.387174</td>
-      <td>3.538980</td>
-      <td>3.465485</td>
-      <td>2.652054</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Communications</td>
-      <td>6940</td>
-      <td>3.867349</td>
-      <td>3.878602</td>
-      <td>3.875019</td>
-      <td>3.379829</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Business</td>
-      <td>6120</td>
-      <td>3.640327</td>
-      <td>3.680503</td>
-      <td>3.663332</td>
-      <td>3.172033</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
+<div class="section" id="another-way-of-indexing-into-arrays">
+<h2>Another way of indexing into arrays<a class="headerlink" href="#another-way-of-indexing-into-arrays" title="Permalink to this headline">¶</a></h2>
+<p>The methods of indexing above work just as well for <a class="reference internal" href="../data-types/lists.html"><span class="doc std std-doc">lists</span></a> as they do for arrays.</p>
+<p>There are other, particularly useful forms of indexing that only work for
+arrays.  We will cover these later - but the most important of these is the
+ability to <a class="reference internal" href="../iteration/boolean_arrays.html"><span class="doc std std-doc">index arrays with Boolean arrays</span></a>.</p>
 </div>
 </div>
 

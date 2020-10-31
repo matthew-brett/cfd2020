@@ -171,7 +171,7 @@ n_favor = len(favor_income)
 n_favor
 ```
 
-Then we pool the in-favor and oppose groups.
+Then we pool the in-favor and oppose groups, by using `np.append` to concatenate (stick together) the two arrays, into one long array.
 
 ```{python}
 pooled = np.append(favor_income, oppose_income)

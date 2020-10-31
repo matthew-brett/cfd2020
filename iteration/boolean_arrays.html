@@ -49,7 +49,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/iteration/boolean_arrays.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Boolean arrays" />
-<meta property="og:description" content="Boolean arrays  To be written." />
+<meta property="og:description" content="Boolean arrays  Select values with Boolean arrays  Here we are using Boolean arrays to index into other arrays.  You will see what we mean by that by the end of" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -322,6 +322,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/permutation.html">
    Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
   </a>
  </li>
  <li class="toctree-l1">
@@ -642,7 +647,24 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-values-with-boolean-arrays">
+   Select values with Boolean arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Boolean arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-values-with-boolean-arrays">
+   Setting values with Boolean arrays
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -653,7 +675,217 @@
                 
   <div class="section" id="boolean-arrays">
 <h1>Boolean arrays<a class="headerlink" href="#boolean-arrays" title="Permalink to this headline">¶</a></h1>
-<p>To be written.</p>
+<div class="section" id="select-values-with-boolean-arrays">
+<h2>Select values with Boolean arrays<a class="headerlink" href="#select-values-with-boolean-arrays" title="Permalink to this headline">¶</a></h2>
+<p>Here we are using Boolean arrays to <em>index</em> into other arrays.  You will see what we mean by that by the end of this section.</p>
+<p>We often want to select several elements from an array according to some
+criterion.</p>
+<p>The most common way to do this, is to do array slicing, using
+a Boolean array between the square brackets.</p>
+<p>It can be easier to understand this by example than by description.</p>
+<p>Remember <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">the RateMyProfessors dataset</span></a>.</p>
+<p>It it a table where the rows are academic disciplines, and the columns contain the average student rating values for the corresponding discipline.</p>
+<p>If you are running on your laptop, you should download the
+<a class="reference download internal" download="" href="../_downloads/71a02d2c269c0c385d76278a1b7a573b/rate_my_course.csv"><code class="xref download docutils literal notranslate"><span class="pre">rate_my_course.csv</span></code></a> file to the same
+directory as this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We have not covered this code yet.  We will soon.</span>
+<span class="c1"># Load the library for reading data files.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># Read the file, select the first 10 values.</span>
+<span class="n">big_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># Put the columns into arrays</span>
+<span class="n">disciplines</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">easiness</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">quality</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f9ff49fbe346</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Read the file, select the first 10 values.</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">big_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Put the columns into arrays</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">disciplines</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/parsers.py</span> in <span class="ni">parser_f</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">675</span> 
+<span class="ne">--&gt; </span><span class="mi">676</span>         <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> 
+<span class="g g-Whitespace">    </span><span class="mi">678</span>     <span class="n">parser_f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span> 
+<span class="g g-Whitespace">    </span><span class="mi">447</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">448</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> 
+<span class="g g-Whitespace">    </span><span class="mi">450</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span> 
+<span class="ne">--&gt; </span><span class="mi">880</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span> 
+<span class="g g-Whitespace">    </span><span class="mi">882</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1112</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1113</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1114</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1115</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1116</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> 
+<span class="ne">-&gt; </span><span class="mi">1891</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1892</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">1893</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] File rate_my_course.csv does not exist: &#39;rate_my_course.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have the names of the disciplines with the largest number of professors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the “Overall Quality” scores for the ten largest courses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are the quality ratings corresponding to the <code class="docutils literal notranslate"><span class="pre">disciplines</span></code> we saw earlier.  The top (largest) discipline is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Overall Quality rating for that course is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Boolean arrays<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Boolean arrays are arrays that contain values that are one of True or False.</p>
+<p>Here is a Boolean array, created from applying a comparison to an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greater_than_3</span> <span class="o">=</span> <span class="n">easiness</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="n">greater_than_3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This has a <code class="docutils literal notranslate"><span class="pre">True</span></code> value at the positions of elements &gt; 3, and <code class="docutils literal notranslate"><span class="pre">False</span></code>
+otherwise.</p>
+<p>We can do things like count the number of <code class="docutils literal notranslate"><span class="pre">True</span></code> values in the Boolean array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">greater_than_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let us say that we wanted to get the elements from <code class="docutils literal notranslate"><span class="pre">easiness</span></code>
+that are greater than 4.   That is, we want to get the elements
+in <code class="docutils literal notranslate"><span class="pre">easiness</span></code> for which the corresponding element in
+<code class="docutils literal notranslate"><span class="pre">greater_than_3</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>We can do this with <em>Boolean array indexing</em>.  The Boolean array goes between the square brackets, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greater_than_3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span><span class="p">[</span><span class="n">greater_than_3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have selected the numbers in <code class="docutils literal notranslate"><span class="pre">easiness</span></code> that are greater than 3.</p>
+<p>We can use this same Boolean array to index into another array.  For example, here we show the discipline <em>names</em> corresponding to the courses with Easiness scores greater than 3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">disciplines</span><span class="p">[</span><span class="n">greater_than_3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just to confirm that these are the disciplines with “Easiness” ratings greater than 4, here are the first ten rows of the table.  These are the rows corresponding to numbers in the arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We haven&#39;t covered &#39;.head&#39; yet.  This code shows the first 10 rows of</span>
+<span class="c1"># the data table.</span>
+<span class="n">big_courses</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-values-with-boolean-arrays">
+<h2>Setting values with Boolean arrays<a class="headerlink" href="#setting-values-with-boolean-arrays" title="Permalink to this headline">¶</a></h2>
+<p>You have seen, above, that Boolean indexing can select values from an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the Boolean array</span>
+<span class="n">another_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">are_gt_2</span> <span class="o">=</span> <span class="n">another_array</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="n">are_gt_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the values by indexing with the Boolean array.</span>
+<span class="c1"># Return only the values of &#39;another_array&#39; where the Boolean array has True.</span>
+<span class="n">another_array</span><span class="p">[</span><span class="n">are_gt_2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given what you know, what do you think would happen with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">another_array</span><span class="p">[</span><span class="n">are_gt_2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">another_array</span>
+</pre></div>
+</div>
+<p>Try it.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

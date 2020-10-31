@@ -45,7 +45,7 @@ had to be convinced with a computer simulation.  That's what we will do now.
 
 For the simulation, we will need:
 
-* `np.random.choice` \- see [the iteration page](../arrays-iteration/iteration) for an
+* `np.random.choice` \- see [the iteration page](../iteration/iteration) for an
   introduction.
 * `np.sort` \- see [sorting arrays](sorting_arrays).
 

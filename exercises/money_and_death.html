@@ -323,6 +323,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -1234,16 +1239,16 @@ that have any missing values in the row.</p>
 25000-29999      60
 35000-39999      54
 60000-74999      51
-12500-14999      44
 20000-22499      44
+12500-14999      44
 130000-149999    43
 22500-24999      40
 110000-129999    38
 17500-19999      37
 15000-17499      36
 10000-124999     36
-1000-2999        32
 8000-9999        32
+1000-2999        32
 75000-89999      26
 3000-3999        19
 under 1000       17
@@ -1420,7 +1425,7 @@ two groups, and the permuting them.</p>
 </div>
 </div>
 </div>
-<p>Then we pool the in-favor and oppose groups.</p>
+<p>Then we pool the in-favor and oppose groups, by using <code class="docutils literal notranslate"><span class="pre">np.append</span></code> to concatenate (stick together) the two arrays, into one long array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">favor_income</span><span class="p">,</span> <span class="n">oppose_income</span><span class="p">)</span>
@@ -1457,7 +1462,7 @@ group.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3057.3087557866384
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>771.5963661033966
 </pre></div>
 </div>
 </div>

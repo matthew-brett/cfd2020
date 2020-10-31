@@ -325,6 +325,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -653,24 +658,22 @@
                 
   <div class="section" id="reply-to-the-supreme-court">
 <h1>Reply to the Supreme Court<a class="headerlink" href="#reply-to-the-supreme-court" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="../code-basics/sampling_problem.html"><span class="doc std std-doc">Our task</span></a> has been to reply to the Supreme Court on
-their judgment in the appeal of Robert Swain.</p>
-<p>Remember, Robert Swain appealed his death sentence, for rape, on the
-basis that the jury selection was biased against black people.</p>
-<p>His trial had a jury pool, of 100, from which the jury had to be selected.
-That jury pool should have been representative of the local population.</p>
-<p>The jury pool had 8 black people, but the local population was 26% black.</p>
-<p>If the jury pool had been representative, we would expect about 26 of 100
-people to be black.  Our question is what we mean by <em>about</em> 26 of 100.</p>
-<p>The Supreme Court thought that the difference between expected (26) and actual
-(8) was small. But was it?  Does 8 of 100 fit somewhere in our description of
-<em>about</em> 26 of 100?</p>
-<p>To answer this, we are going to <em>simulate</em> making a jury pool.</p>
+<p><a class="reference internal" href="../code-basics/sampling_problem.html"><span class="doc std std-doc">Our task</span></a> has been to reply to the Supreme
+Court on their judgment in the appeal of Robert Swain.</p>
+<p>Remember, Robert Swain appealed his death sentence, on the basis that the jury
+selection was biased against black people.</p>
+<p>His trial jury of 12 people had no black members.</p>
+<p>The local population of eligible jurors was 26% black.</p>
+<p>If the jury had been representative, we would expect about 26 of 100 people to
+be black.  That’s around 1 in 4 (25%), so we would expect about one in four
+jurors to be black - so around 3 of 12.</p>
+<p>The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being black?</p>
+<p>To answer this, we are going to <em>simulate</em> making a jury.</p>
 <p>Our <em>model</em> is that each juror has been randomly selected from the population.
 That is, for any one juror, there is a 0.26 probability that they are black.</p>
-<p>First we make one jury pool, of 100, to remind ourselves of the task.</p>
-<p>Then we make 10 jury pools of 100, to get warmed up.</p>
-<p>Finally we make 10000 jury pools, each of 100 members, and see what we get.</p>
+<p>First we make one jury, of 12 people, to remind ourselves of the task.</p>
+<p>Then we make 10 juries of 12 people, to get warmed up.</p>
+<p>Finally we make 10000 juries, each of 12 members, and see what we get.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the array library</span>
@@ -679,11 +682,11 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </div>
 </div>
 </div>
-<p>Here is one jury pool, and the number of black people we get in our simulation.</p>
+<p>Here is one jury, and the number of black people we get in our simulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 100 random integers from 0 through 99</span>
-<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 12 random integers from 0 through 99</span>
+<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="c1"># Say values &lt; 26 correspond to black jurors.</span>
 <span class="c1"># 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).</span>
 <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
@@ -694,7 +697,7 @@ That is, for any one juror, there is a 0.26 probability that they are black.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -704,94 +707,89 @@ model is correct.  Call this one <em>trial</em>. We can run that a few times to 
 range of values.   If we run it only a few times, we might be unlucky, and get
 some results that are not representative.  It is safer to run it a huge number
 of times, to make sure we’ve got an idea of the variation.</p>
-<p>Next we get ready to store the results of each estimate.</p>
+<p>To start with, we will run 10 trials.</p>
+<p>We get ready to store the results of each estimate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an empty counts array, to append to.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array of 10 zeros, to store the results.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>We repeat the code from the cell above, but now, we append to the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
+<p>We repeat the code from the cell above, but now, we store each trial result
+(count) in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
 <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="n">counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([19.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Run the cell above a few times, perhaps with Control-Enter, to see the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array extending, for each time we run the cell.</p>
-<p>Now we collect the result of many trials, by using a for loop.</p>
-<p>We will start by making 10 jury pools, to get warmed up.  Later we will use
-a much higher number.</p>
+<p>Run the cell above a few times, perhaps with Control-Enter, to see the first value in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array changing.</p>
+<p>Now we collect the result of 10 trials, by using a for loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new empty counts array, to append to.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new counts array of zeros to store the results.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
     <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="c1"># Store the result at position i</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="n">counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([26., 37., 25., 33., 28., 24., 29., 23., 25., 29., 24., 26., 31.,
-       16., 21., 27., 25., 25., 23., 28., 33., 26., 23., 23., 29., 26.,
-       33., 24., 33., 21., 26., 23., 22., 32., 26., 32., 30., 26., 24.,
-       28., 29., 26., 29., 32., 22., 20., 37., 26., 32., 28., 29., 28.,
-       29., 22., 25., 33., 28., 27., 23., 25., 30., 31., 21., 27., 16.,
-       22., 36., 18., 23., 18., 18., 25., 20., 27., 33., 27., 32., 28.,
-       28., 26., 29., 22., 27., 16., 25., 26., 27., 27., 12., 27., 28.,
-       23., 24., 27., 27., 22., 31., 28., 24., 24.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2., 5., 3., 3., 4., 2., 1., 3., 3.])
 </pre></div>
 </div>
 </div>
 </div>
 <p>Each of these values is one estimate for how many black jurors we should
-expect, if our model is right.  Already we get the feeling that 8 is rather
+expect, if our model is right.  Already we get the feeling that 0 is rather
 unlikely, if our model is correct.  But - how unlikely?</p>
-<p>To get a better estimate, let us do the same thing, but with 10000 jury pools,
-and therefore, 10000 estimates.</p>
+<p>To get a better estimate, let us do the same thing, but with 10000 juries, and
+therefore, 10000 estimates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new empty counts array, to append to.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new counts array of zeros to store the results.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
     <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="c1"># Store the result at position i</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="n">counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([29., 27., 20., ..., 16., 22., 27.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 6., 2., ..., 3., 2., 4.])
 </pre></div>
 </div>
 </div>
 </div>
 <p>If you ran this cell yourself, you will notice that it runs very fast, in much
-less than a second, on a reasonable laptop.</p>
+less than a second, on any reasonable computer.</p>
 <p>We now have 10000 estimates, one for each row in the original array, and
-therefore, one for each simulated jury pool.</p>
+therefore, one for each simulated jury.</p>
 <p>Remember, the function <code class="docutils literal notranslate"><span class="pre">len</span></code> shows us the length of the array, and therefore,
 the number of values in this one-dimensional array.</p>
 <div class="cell docutils container">
@@ -829,57 +827,70 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  10.,  126.,  894., 1875., 2632., 2937., 1064.,  410.,   42.,
-          10.]),
- array([10. , 13.4, 16.8, 20.2, 23.6, 27. , 30.4, 33.8, 37.2, 40.6, 44. ]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1434., 2180., 2553., 2019., 1169.,  464.,  138.,   32.,    8.,
+           3.]),
+ array([ 0. ,  1.1,  2.2,  3.3,  4.4,  5.5,  6.6,  7.7,  8.8,  9.9, 11. ]),
  &lt;a list of 10 Patch objects&gt;)
 </pre></div>
 </div>
 <img alt="../_images/reply_supreme_24_1.png" src="../_images/reply_supreme_24_1.png" />
 </div>
 </div>
-<p>It looks as if 8 is nowhere on the spread of our estimates.  How many times did
-we get a value less than or equal to 8, in all our 10000 estimates?</p>
+<p>It looks as if 0 is a rare value on the spread of our estimates.  How many
+times did we get a value of 0, in all our 10000 estimates?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_are_low</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">&lt;=</span> <span class="mi">8</span>
-<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts_are_low</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_of_0</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">n_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts_of_0</span><span class="p">)</span>
+<span class="n">n_zeros</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>270
 </pre></div>
 </div>
 </div>
 </div>
-<p>In 10000 random jury pools, we never see a value as low as 8.  We can ask Numpy
-to show us the minimum value that we do see, by using the <code class="docutils literal notranslate"><span class="pre">np.min</span></code> function:</p>
+<p>In 10000 random jury pools, we rarely see a value of 0.</p>
+<p>How often do we see it?  We just divide the number of times we see 0 by the number trials we made:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">n_zeros</span> <span class="o">/</span> <span class="mi">10000</span>
+<span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
 </pre></div>
 </div>
 </div>
 </div>
 <p>We have run an analysis assuming that the jurors were selected at random.  On
-that assumption, a count of 8 jurors in 1000 is incredibly unlikely.  It is so
-unlikely, that we never get a number as low as 8, in 10000 repeats.   That
-makes us think that the probability of getting 8 black people in a jury pool of
-100, is less than 1 in 10000 or:</p>
+that assumption, a count of 0 jurors in 12 comes up rather rarely.  The proportion of times we see that result is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">10000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
+</pre></div>
+</div>
+</div>
+</div>
+<p>In other words, our <em>estimate</em> of the <em>probability</em> of getting 0 black people
+in a jury of 12, is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
 </pre></div>
 </div>
 </div>

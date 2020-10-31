@@ -49,7 +49,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/arrays/filling_arrays.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Making and filling arrays." />
-<meta property="og:description" content="Making and filling arrays.  import numpy as np  You have seen how to create arrays from a sequence of values:  np.array([1, 2, 3])  array([1, 2, 3])  You have a" />
+<meta property="og:description" content="Making and filling arrays.  import numpy as np  Making arrays  You have seen how to create arrays from a sequence of values:  np.array([1, 2, 3])  array([1, 2, " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -322,6 +322,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/permutation.html">
    Populations and permutations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
   </a>
  </li>
  <li class="toctree-l1">
@@ -644,8 +649,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-array-assignment-for-simulations">
-   Using array assignment for simulations
+  <a class="reference internal nav-link" href="#making-arrays">
+   Making arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filling-arrays">
+   Filling arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-refresher-on-assignment">
+     A refresher on assignment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-refresher-on-indexing">
+     A refresher on indexing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-with-indexing">
+   Assignment with indexing
   </a>
  </li>
 </ul>
@@ -667,6 +694,8 @@
 </div>
 </div>
 </div>
+<div class="section" id="making-arrays">
+<h2>Making arrays<a class="headerlink" href="#making-arrays" title="Permalink to this headline">¶</a></h2>
 <p>You have seen how to create arrays from a sequence of values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -721,7 +750,12 @@
 </div>
 </div>
 <p>These arrays aren’t very useful at the moment; usually, we will want to fill in the elements of these arrays with other values.</p>
-<p>We can do that using <em>assignment</em>.</p>
+</div>
+<div class="section" id="filling-arrays">
+<h2>Filling arrays<a class="headerlink" href="#filling-arrays" title="Permalink to this headline">¶</a></h2>
+<p>We put values into arrays using <em>assignment</em>.</p>
+<div class="section" id="a-refresher-on-assignment">
+<h3>A refresher on assignment<a class="headerlink" href="#a-refresher-on-assignment" title="Permalink to this headline">¶</a></h3>
 <p>Remember the basic assignment statement.  We have so far learned that the assignment statement is a <em>name</em> followed by <code class="docutils literal notranslate"><span class="pre">=</span></code> followed by an expression (a recipe that returns a value).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,6 +776,9 @@
 <p>We can read <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code> as “a gets the value 1.”  We can also read it as: “Make the location called ‘a’ point to the value 1.”</p>
 <p>So far, the left hand side (LHS) has always been a <em>name</em>.</p>
 <p>In fact, the LHS can be anything we can <em>assign</em> to.</p>
+</div>
+<div class="section" id="a-refresher-on-indexing">
+<h3>A refresher on indexing<a class="headerlink" href="#a-refresher-on-indexing" title="Permalink to this headline">¶</a></h3>
 <p>Remember too that we can retrieve values from an array by <em>indexing</em>.</p>
 <p>Here is an example array:</p>
 <div class="cell docutils container">
@@ -782,6 +819,10 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="assignment-with-indexing">
+<h2>Assignment with indexing<a class="headerlink" href="#assignment-with-indexing" title="Permalink to this headline">¶</a></h2>
 <p>In fact we can use these exact same specifications on the LHS of an assignment statement:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,105 +855,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">my_array[5]</span></code> on the RHS means - get the value at offset 5 in <code class="docutils literal notranslate"><span class="pre">my_array</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">my_array[5]</span></code> on the LHS means - use this location to store the data returned from the RHS.</p></li>
 </ul>
-<p>So we can read <code class="docutils literal notranslate"><span class="pre">my_array[1]</span> <span class="pre">=</span> <span class="pre">99</span></code> as “Make the location ‘my_array[5]’ point to the value 99.”.</p>
-<p>Remember too that we can get array values using Boolean arrays:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the Boolean array</span>
-<span class="n">another_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">are_gt_2</span> <span class="o">=</span> <span class="n">another_array</span> <span class="o">&gt;</span> <span class="mi">2</span>
-<span class="n">are_gt_2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True,  True, False, False,  True, False, False,  True])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the values by indexing with the Boolean array.</span>
-<span class="c1"># Return only the values of &#39;another_array&#39; where the Boolean array has True.</span>
-<span class="n">another_array</span><span class="p">[</span><span class="n">are_gt_2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 4, 5, 3])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Given what you know, what do you think would happen with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">another_array</span><span class="p">[</span><span class="n">are_gt_2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">another_array</span>
-</pre></div>
-</div>
-<p>Try it.</p>
-<div class="section" id="using-array-assignment-for-simulations">
-<h2>Using array assignment for simulations<a class="headerlink" href="#using-array-assignment-for-simulations" title="Permalink to this headline">¶</a></h2>
-<p>So far this is a bit abstract, but we will often use this kind of assignment when we create arrays, and then fill them in.</p>
-<p>For example, remember the solution to the three girls problem.  Our first
-approach to this, in <span class="xref myst">leaping ahead</span> was to use
-<code class="docutils literal notranslate"><span class="pre">np.append</span></code> to append values to the end of an array, as we run through the
-loop:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-
-<span class="c1"># Repeat the indented stuff 10000 times.</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="c1"># The procedure for one family.</span>
-    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-    <span class="c1"># Store the count in the counts array.</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-
-<span class="c1"># Proportion</span>
-<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2456
-</pre></div>
-</div>
-</div>
-</div>
-<p>This works fine for relatively small numbers of iterations, such as 10000 (yes, that is small for the computer!).  Try changing the 10000 above to 1000000 and you will find it becomes very slow.  This is because it is inefficient to make a new array each time we go through the loop, which is what we have to do using <code class="docutils literal notranslate"><span class="pre">np.append</span></code>.   Each new array is one element longer than the last, so by the end of the one million iterations we will be making a new array of nearly one million values for each time through the loop.</p>
-<p>It is much more efficient to:</p>
-<ul class="simple">
-<li><p>Create an empty array to store the results</p></li>
-<li><p>Fill in each element for each time we go through the loop.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty (all zeros)</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
-
-<span class="c1"># Repeat the indented stuff 10000 times.</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="c1"># The procedure for one family.</span>
-    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-    <span class="c1"># Fill in the corresponding value in the counts array.</span>
-    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
-
-<span class="c1"># Proportion</span>
-<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10000</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2564
-</pre></div>
-</div>
-</div>
-</div>
-<p>We will use loops like these many times to solve problems in statistics.</p>
+<p>So we can read <code class="docutils literal notranslate"><span class="pre">my_array[1]</span> <span class="pre">=</span> <span class="pre">99</span></code> as “Make the location ‘my_array[5]’ point to
+the value 99.”.</p>
+<p>We will use this kind of assignment to get a little closer to a good solution to the three girl problem, in <a class="reference internal" href="leaping_ahead.html"><span class="doc std std-doc">leaping ahead</span></a>.</p>
 </div>
 </div>
 

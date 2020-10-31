@@ -325,6 +325,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/numpy_append.html">
+   Numpy append
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -678,22 +683,24 @@ problem</span></a>.</p>
 </div>
 </div>
 <p>We are going to simulate 10000 families, each with four children.</p>
-<p>Here we put together some things you’ve seen before.  We are creating a Numpy array from an empty list.  We get an empty array.</p>
+<p>Call one family <em>one trial</em>.  Each <em>trial</em> involves the simulation of four children.</p>
+<p>Here we put together some things you’ve seen before.  We are creating a Numpy array that has 10000 values, each of which is 0</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an empty array to store counts of girls in each family</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array of zeros to store the counts for each of the 10000 families.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([], dtype=float64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0., 0., 0., ..., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">counts</span></code> will eventually have 10000 elements where each will be the number of girls in one simulated family.</p>
+<p><code class="docutils literal notranslate"><span class="pre">counts</span></code> has 10000 elements. When we have finished, each of these 10000 values
+will be the number of girls in one simulated family.</p>
 <p>Remembering <a class="reference internal" href="function_arguments.html"><span class="doc std std-doc">function arguments</span></a>, here is how we make
 an array that simulates a family of four children:</p>
 <div class="cell docutils container">
@@ -706,7 +713,7 @@ an array that simulates a family of four children:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 1])
 </pre></div>
 </div>
 </div>
@@ -720,22 +727,23 @@ an array that simulates a family of four children:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
 </div>
-<p>We want to build up a lot of counts, in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array, so we start by appending the <code class="docutils literal notranslate"><span class="pre">count</span></code> value:</p>
+<p>We can store this count at the beginning of our 10000 counts:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the count in the counts array.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-<span class="n">counts</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store the count as the first value in the counts array.</span>
+<span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+<span class="c1"># Show the first 10 values</span>
+<span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -743,62 +751,58 @@ an array that simulates a family of four children:</p>
 <p>We can do this again in a single cell, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A second family</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our first simulated family</span>
 <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-
-<span class="c1"># Store the count in the counts array.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-<span class="n">counts</span>
+<span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 2.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
-<p>To add another family, we just repeat the same:</p>
+<p>To add another family, we just repeat the same, but storing the result as the <em>second</em> value in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A third family</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our second simulated family</span>
 <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-
-<span class="c1"># Store the count in the counts array.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-<span class="n">counts</span>
+<span class="n">counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 2., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 2., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Notice that the only thing that changed is that we stored the value at position (offset) 1 instead of position (offset) 0.</p>
 <p>Obviously this is getting a bit boring and repetitive. Surely we can do better.</p>
-<p>Yes indeed, we can use a <em>for loop</em>.  We will see much more of for loops <span class="xref myst">very
-soon</span>.  Here’s a preview:</p>
+<p>Yes indeed, we can use a <em>for loop</em>.  We will see much more of for loops <a class="reference internal" href="../iteration/iteration.html"><span class="doc std std-doc">very
+soon</span></a>.  You will recognize nearly all the code below, from the single trials we did above.  The new thing is the <em>for</em> loop, that tells Python to repeat the indented steps 10000 times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to 10000 zeros.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="c1"># Repeat the indented stuff 10000 times.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># The procedure for one family.</span>
     <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-    <span class="c1"># Store the count in the counts array.</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
-<span class="n">counts</span>
+    <span class="c1"># Store the count at position i in the counts array.</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+<span class="c1"># Show the first 10 counts</span>
+<span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 3., 3., ..., 3., 2., 1.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 3., 1., 2., 2., 3., 1., 1., 4., 1.])
 </pre></div>
 </div>
 </div>
@@ -854,13 +858,16 @@ soon</span>.  Here’s a preview:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True,  True, ...,  True, False, False])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, ..., False,  True, False])
 </pre></div>
 </div>
 </div>
 </div>
-<p>This is a new 10000 element array of True and False values.  It is called a <em>Boolean array</em>.  We will see many more of these.</p>
-<p>Next we will use a Numpy function called <code class="docutils literal notranslate"><span class="pre">count_nonzero</span></code>.   It counts the number of values in an array that are not equivalent to 0.   It turns out that <code class="docutils literal notranslate"><span class="pre">False</span></code> is equivalent to 0, but <code class="docutils literal notranslate"><span class="pre">True</span></code> is not:</p>
+<p>This is a new 10000 element array of True and False values.  It is called a
+<a class="reference internal" href="../iteration/boolean_arrays.html"><span class="doc std std-doc">Boolean array</span></a>.  We will see many more of these.</p>
+<p>Next we will use a Numpy function called <code class="docutils literal notranslate"><span class="pre">count_nonzero</span></code>.   It counts the
+number of values in an array that are not equivalent to 0.   It turns out that
+<code class="docutils literal notranslate"><span class="pre">False</span></code> is equivalent to 0, but <code class="docutils literal notranslate"><span class="pre">True</span></code> is not:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -911,12 +918,13 @@ soon</span>.  Here’s a preview:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2454
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2490
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally we estimate the probability by dividing the number of times we saw 3 by the number of trials:</p>
+<p>Finally we estimate the probability by dividing the number of times we saw 3 by
+the number of trials:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Estimate probability of 3 girls.</span>
@@ -925,7 +933,7 @@ soon</span>.  Here’s a preview:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2454
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.249
 </pre></div>
 </div>
 </div>
@@ -936,16 +944,16 @@ soon</span>.  Here’s a preview:</p>
 <p>It is make from the combination of the code in the cells above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty.</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to 10000 zeros.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="c1"># Repeat the indented stuff 10000 times.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># The procedure for one family.</span>
     <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
-    <span class="c1"># Store the count in the counts array.</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="c1"># Store the count at position i in the counts array.</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 
 <span class="c1"># True where counts has the value 3, False otherwise.</span>
 <span class="n">has_3_girls</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span>
@@ -959,7 +967,7 @@ soon</span>.  Here’s a preview:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2459
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2445
 </pre></div>
 </div>
 </div>
@@ -967,8 +975,8 @@ soon</span>.  Here’s a preview:</p>
 </div>
 <div class="section" id="for-loops">
 <h2>For loops.<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h2>
-<p>The new part of this story is the <em>for loop</em>.  On to <span class="xref myst">iteration with for
-loops</span>.</p>
+<p>The new part of this story is the <em>for loop</em>.  On to <a class="reference internal" href="../iteration/iteration.html"><span class="doc std std-doc">iteration with for
+loops</span></a>.</p>
 </div>
 </div>
 

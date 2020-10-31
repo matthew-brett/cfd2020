@@ -29,15 +29,18 @@ import numpy as np
 
 We are going to simulate 10000 families, each with four children.
 
-Here we put together some things you've seen before.  We are creating a Numpy array from an empty list.  We get an empty array.
+Call one family *one trial*.  Each *trial* involves the simulation of four children.
+
+Here we put together some things you've seen before.  We are creating a Numpy array that has 10000 values, each of which is 0
 
 ```{python}
-# Make an empty array to store counts of girls in each family
-counts = np.array([])
+# Make an array of zeros to store the counts for each of the 10000 families.
+counts = np.zeros(10000)
 counts
 ```
 
-`counts` will eventually have 10000 elements where each will be the number of girls in one simulated family.
+`counts` has 10000 elements. When we have finished, each of these 10000 values
+will be the number of girls in one simulated family.
 
 Remembering [function arguments](function_arguments), here is how we make
 an array that simulates a family of four children:
@@ -56,55 +59,53 @@ count = np.sum(family)
 count
 ```
 
-We want to build up a lot of counts, in the `counts` array, so we start by appending the `count` value:
+We can store this count at the beginning of our 10000 counts:
 
 ```{python}
-# Store the count in the counts array.
-counts = np.append(counts, count)
-counts
+# Store the count as the first value in the counts array.
+counts[0] = count
+# Show the first 10 values
+counts[:10]
 ```
 
 We can do this again in a single cell, like this:
 
 ```{python}
-# A second family
+# Our first simulated family
 family = np.random.randint(0, 2, size=4)
-count = np.sum(family)
-
-# Store the count in the counts array.
-counts = np.append(counts, count)
-counts
+counts[0] = np.sum(family)
+counts[:10]
 ```
 
-To add another family, we just repeat the same:
+To add another family, we just repeat the same, but storing the result as the *second* value in the `counts` array:
 
 ```{python}
-# A third family
+# Our second simulated family
 family = np.random.randint(0, 2, size=4)
-count = np.sum(family)
-
-# Store the count in the counts array.
-counts = np.append(counts, count)
-counts
+counts[1] = np.sum(family)
+counts[:10]
 ```
+
+Notice that the only thing that changed is that we stored the value at position (offset) 1 instead of position (offset) 0.
 
 Obviously this is getting a bit boring and repetitive. Surely we can do better.
 
 Yes indeed, we can use a *for loop*.  We will see much more of for loops [very
-soon](../arrays-iteration/iteration).  Here's a preview:
+soon](../iteration/iteration).  You will recognize nearly all the code below, from the single trials we did above.  The new thing is the *for* loop, that tells Python to repeat the indented steps 10000 times.
 
 ```{python}
-# Reset the counts array to empty.
-counts = np.array([])
+# Reset the counts array to 10000 zeros.
+counts = np.zeros(10000)
 
 # Repeat the indented stuff 10000 times.
 for i in np.arange(10000):
     # The procedure for one family.
     family = np.random.randint(0, 2, size=4)
     count = np.sum(family)
-    # Store the count in the counts array.
-    counts = np.append(counts, count)
-counts
+    # Store the count at position i in the counts array.
+    counts[i] = count
+# Show the first 10 counts
+counts[:10]
 ```
 
 Now we have a count of the number of girls, from 10000 simulated families:
@@ -137,9 +138,12 @@ What do you think we will get if do the same test on all 10000 values in `counts
 counts == 3
 ```
 
-This is a new 10000 element array of True and False values.  It is called a *Boolean array*.  We will see many more of these.
+This is a new 10000 element array of True and False values.  It is called a
+[Boolean array](../iteration/boolean_arrays).  We will see many more of these.
 
-Next we will use a Numpy function called `count_nonzero`.   It counts the number of values in an array that are not equivalent to 0.   It turns out that `False` is equivalent to 0, but `True` is not:
+Next we will use a Numpy function called `count_nonzero`.   It counts the
+number of values in an array that are not equivalent to 0.   It turns out that
+`False` is equivalent to 0, but `True` is not:
 
 ```{python}
 np.count_nonzero(False)
@@ -165,7 +169,8 @@ n_3_girls = np.count_nonzero(has_3_girls)
 n_3_girls
 ```
 
-Finally we estimate the probability by dividing the number of times we saw 3 by the number of trials:
+Finally we estimate the probability by dividing the number of times we saw 3 by
+the number of trials:
 
 ```{python}
 # Estimate probability of 3 girls.
@@ -179,16 +184,16 @@ Here then is the whole solution to three girl problem.
 It is make from the combination of the code in the cells above.
 
 ```{python}
-# Reset the counts array to empty.
-counts = np.array([])
+# Reset the counts array to 10000 zeros.
+counts = np.zeros(10000)
 
 # Repeat the indented stuff 10000 times.
 for i in np.arange(10000):
     # The procedure for one family.
     family = np.random.randint(0, 2, size=4)
     count = np.sum(family)
-    # Store the count in the counts array.
-    counts = np.append(counts, count)
+    # Store the count at position i in the counts array.
+    counts[i] = count
 
 # True where counts has the value 3, False otherwise.
 has_3_girls = counts == 3
@@ -203,4 +208,4 @@ n_3_girls / 10000
 ## For loops.
 
 The new part of this story is the *for loop*.  On to [iteration with for
-loops](../arrays-iteration/iteration).
+loops](../iteration/iteration).
