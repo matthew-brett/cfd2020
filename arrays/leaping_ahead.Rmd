@@ -102,7 +102,7 @@ for i in np.arange(10000):
     # The procedure for one family.
     family = np.random.randint(0, 2, size=4)
     count = np.sum(family)
-    # Store the count in the counts array.
+    # Store the count at position i in the counts array.
     counts[i] = count
 # Show the first 10 counts
 counts[:10]
@@ -192,7 +192,7 @@ for i in np.arange(10000):
     # The procedure for one family.
     family = np.random.randint(0, 2, size=4)
     count = np.sum(family)
-    # Store the count in the counts array.
+    # Store the count at position i in the counts array.
     counts[i] = count
 
 # True where counts has the value 3, False otherwise.

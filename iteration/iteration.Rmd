@@ -204,16 +204,16 @@ variable `v`.
 
 ### Example: Counting the Number of Heads ###
 
-We can now simulate five tosses of a coin and place the results into
-an array. We will start by creating an empty array and then appending
-the result of each toss.
+We can now simulate five tosses of a coin and place the results into an array.
+We will start by creating an array of zeros then filling up the array with the
+result of each toss.
 
 ```{python}
-# An empty array.
-tosses = np.array([])
+# An array of zeros
+tosses = np.zeros(5)
 
 for v in np.arange(5):
-    tosses = np.append(tosses, np.random.randint(0, 2))
+    tosses[v] = np.random.randint(0, 2)
 
 tosses
 ```
@@ -222,18 +222,18 @@ Let us rewrite the cell with the `for` statement unrolled:
 
 ```{python}
 # An empty array.
-tosses = np.array([])
+tosses = np.zeros(5)
 
 v = 0
-tosses = np.append(tosses, np.random.randint(0, 2))
+tosses[0] = np.random.randint(0, 2)
 v = 1
-tosses = np.append(tosses, np.random.randint(0, 2))
+tosses[1] = np.random.randint(0, 2)
 v = 2
-tosses = np.append(tosses, np.random.randint(0, 2))
+tosses[2] = np.random.randint(0, 2)
 v = 3
-tosses = np.append(tosses, np.random.randint(0, 2))
+tosses[3] = np.random.randint(0, 2)
 v = 4
-tosses = np.append(tosses, np.random.randint(0, 2))
+tosses[4] = np.random.randint(0, 2)
 
 tosses
 ```
@@ -251,10 +251,10 @@ heads in 1000 tosses.
 
 ```{python}
 # An empty array.
-tosses = np.array([])
+tosses = np.zeros(1000)
 
 for i in np.arange(1000):
-    tosses = np.append(tosses, np.random.randint(0, 2))
+    tosses[i] = np.random.randint(0, 2)
 
 tosses
 ```
@@ -294,20 +294,21 @@ a coin 100 times, count the number of heads, and append it to `heads`.
 ```{python}
 N = 10000
 
-head_counts = np.array([])
+head_counts = np.zeros(N)
 
 for i in np.arange(N):
     tosses = np.random.randint(0, 2, size=100)
     n_heads = np.sum(tosses)
-    head_counts = np.append(head_counts, n_heads)
+    head_counts[i] = n_heads
 
 head_counts
 ```
 
-Here is a histogram of the data, with bins of width 1 centered at each value
-of the number of heads.
+Here is a histogram of the data, with bins of width 1 centered at each value of
+the number of heads.
 
-This is the first time we have used plotting, so please accept this piece of code to initialize the plotting first:
+This is the first time we have used plotting, so please accept this piece of
+code to initialize the plotting, to begin with:
 
 ```{python}
 # Please don't worry about this bit of code for now.
@@ -325,17 +326,15 @@ Now we do the histogram:
 plt.hist(head_counts, bins=np.arange(30.5, 69.6, 1));
 ```
 
-Not surprisingly, the histogram looks roughly symmetric around 50
-heads. The height of the bar at 50 is about 8% per unit. Since each
-bin is 1 unit wide, this is the same as saying that about 8% of the
-repetitions produced exactly 50 heads. That's not a huge percent, but
-it's the largest compared to the percent at every other number of
-heads.
+Not surprisingly, the histogram looks roughly symmetric around 50 heads. The
+height of the bar at 50 is about 8% per unit. Since each bin is 1 unit wide,
+this is the same as saying that about 8% of the repetitions produced exactly 50
+heads. That's not a huge percent, but it's the largest compared to the percent
+at every other number of heads.
 
-The histogram also shows that in almost all of the repetitions, the
-number of heads in 100 tosses was somewhere between 35 and 65. Indeed,
-the bulk of the repetitions produced numbers of heads in the range 45
-to 55.
+The histogram also shows that in almost all of the repetitions, the number of
+heads in 100 tosses was somewhere between 35 and 65. Indeed, the bulk of the
+repetitions produced numbers of heads in the range 45 to 55.
 
 While in theory it is *possible* that the number of heads can be
 anywhere between 0 and 100, the simulation shows that the range of

@@ -24,48 +24,46 @@ jupyter:
 
 # Reply to the Supreme Court
 
-[Our task](../code-basics/sampling_problem) has been to reply to the Supreme Court on
-their judgment in the appeal of Robert Swain.
+[Our task](../code-basics/sampling_problem) has been to reply to the Supreme
+Court on their judgment in the appeal of Robert Swain.
 
 
-Remember, Robert Swain appealed his death sentence, for rape, on the
-basis that the jury selection was biased against black people.
+Remember, Robert Swain appealed his death sentence, on the basis that the jury
+selection was biased against black people.
 
 
-His trial had a jury pool, of 100, from which the jury had to be selected.
-That jury pool should have been representative of the local population.
+His trial jury of 12 people had no black members.
 
-The jury pool had 8 black people, but the local population was 26% black.
+The local population of eligible jurors was 26% black. 
 
-If the jury pool had been representative, we would expect about 26 of 100
-people to be black.  Our question is what we mean by *about* 26 of 100.
+If the jury had been representative, we would expect about 26 of 100 people to
+be black.  That's around 1 in 4 (25%), so we would expect about one in four
+jurors to be black - so around 3 of 12.
 
-The Supreme Court thought that the difference between expected (26) and actual
-(8) was small. But was it?  Does 8 of 100 fit somewhere in our description of
-*about* 26 of 100?
+The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being black?
 
 
-To answer this, we are going to *simulate* making a jury pool.
+To answer this, we are going to *simulate* making a jury.
 
 Our *model* is that each juror has been randomly selected from the population.
 That is, for any one juror, there is a 0.26 probability that they are black.
 
-First we make one jury pool, of 100, to remind ourselves of the task.
+First we make one jury, of 12 people, to remind ourselves of the task.
 
-Then we make 10 jury pools of 100, to get warmed up.
+Then we make 10 juries of 12 people, to get warmed up.
 
-Finally we make 10000 jury pools, each of 100 members, and see what we get.
+Finally we make 10000 juries, each of 12 members, and see what we get.
 
 ```{python}
 # Import the array library
 import numpy as np
 ```
 
-Here is one jury pool, and the number of black people we get in our simulation.
+Here is one jury, and the number of black people we get in our simulation.
 
 ```{python}
-# Make 100 random integers from 0 through 99
-randoms = np.random.randint(0, 100, size=100)
+# Make 12 random integers from 0 through 99
+randoms = np.random.randint(0, 100, size=12)
 # Say values < 26 correspond to black jurors.
 # 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).
 black_yn = randoms < 26
@@ -81,71 +79,74 @@ some results that are not representative.  It is safer to run it a huge number
 of times, to make sure we've got an idea of the variation.
 
 
-Next we get ready to store the results of each estimate.
+To start with, we will run 10 trials.
+
+We get ready to store the results of each estimate.
 
 ```{python}
-# Make an empty counts array, to append to.
-counts = np.array([])
+# Make an array of 10 zeros, to store the results.
+counts = np.zeros(10)
 ```
 
-We repeat the code from the cell above, but now, we append to the `counts` array:
+We repeat the code from the cell above, but now, we store each trial result
+(count) in the `counts` array:
 
 ```{python}
 randoms = np.random.randint(0, 100, size=100)
 black_yn = randoms < 26
 count = np.count_nonzero(black_yn)
-counts = np.append(counts, count)
+counts[0] = count
 counts
 ```
 
-Run the cell above a few times, perhaps with Control-Enter, to see the `counts` array extending, for each time we run the cell.
+Run the cell above a few times, perhaps with Control-Enter, to see the first value in the `counts` array changing.
 
 
-Now we collect the result of many trials, by using a for loop.
+Now we collect the result of 10 trials, by using a for loop.
 
-We will start by making 10 jury pools, to get warmed up.  Later we will use
-a much higher number.
 
 ```{python}
-# Make a new empty counts array, to append to.
-counts = np.array([])
-for i in np.arange(100):
+# Make a new counts array of zeros to store the results.
+counts = np.zeros(10)
+for i in np.arange(10):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.randint(0, 100, size=100)
+    randoms = np.random.randint(0, 100, size=12)
     black_yn = randoms < 26
     count = np.count_nonzero(black_yn)
-    counts = np.append(counts, count)
+    # Store the result at position i
+    counts[i] = count
 counts
 ```
 
 Each of these values is one estimate for how many black jurors we should
-expect, if our model is right.  Already we get the feeling that 8 is rather
+expect, if our model is right.  Already we get the feeling that 0 is rather
 unlikely, if our model is correct.  But - how unlikely?
 
 
-To get a better estimate, let us do the same thing, but with 10000 jury pools,
-and therefore, 10000 estimates.
+To get a better estimate, let us do the same thing, but with 10000 juries, and
+therefore, 10000 estimates.
 
 ```{python}
-# Make a new empty counts array, to append to.
-counts = np.array([])
+# Make a new counts array of zeros to store the results.
+counts = np.zeros(10000)
 for i in np.arange(10000):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.randint(0, 100, size=100)
+    randoms = np.random.randint(0, 100, size=12)
     black_yn = randoms < 26
     count = np.count_nonzero(black_yn)
-    counts = np.append(counts, count)
+    # Store the result at position i
+    counts[i] = count
 counts
 ```
 
 If you ran this cell yourself, you will notice that it runs very fast, in much
-less than a second, on a reasonable laptop.
+less than a second, on any reasonable computer.
 
 
 We now have 10000 estimates, one for each row in the original array, and
-therefore, one for each simulated jury pool.
+therefore, one for each simulated jury.
 
 Remember, the function `len` shows us the length of the array, and therefore,
 the number of values in this one-dimensional array.
@@ -173,27 +174,34 @@ Now show the histogram.
 plt.hist(counts)
 ```
 
-It looks as if 8 is nowhere on the spread of our estimates.  How many times did
-we get a value less than or equal to 8, in all our 10000 estimates?
+It looks as if 0 is a rare value on the spread of our estimates.  How many
+times did we get a value of 0, in all our 10000 estimates?
 
 ```{python}
-counts_are_low = counts <= 8
-np.count_nonzero(counts_are_low)
+counts_of_0 = counts == 0
+n_zeros = np.count_nonzero(counts_of_0)
+n_zeros
 ```
 
-In 10000 random jury pools, we never see a value as low as 8.  We can ask Numpy
-to show us the minimum value that we do see, by using the `np.min` function:
+In 10000 random jury pools, we rarely see a value of 0.
+
+How often do we see it?  We just divide the number of times we see 0 by the number trials we made:
 
 ```{python}
-np.min(counts)
+p = n_zeros / 10000
+p
 ```
 
 We have run an analysis assuming that the jurors were selected at random.  On
-that assumption, a count of 8 jurors in 1000 is incredibly unlikely.  It is so
-unlikely, that we never get a number as low as 8, in 10000 repeats.   That
-makes us think that the probability of getting 8 black people in a jury pool of
-100, is less than 1 in 10000 or:
+that assumption, a count of 0 jurors in 12 comes up rather rarely.  The proportion of times we see that result is:
 
 ```{python}
-1 / 10000
+p
+```
+
+In other words, our *estimate* of the *probability* of getting 0 black people
+in a jury of 12, is
+
+```{python}
+p
 ```
