@@ -16,8 +16,8 @@ jupyter:
 # Exercises on the three-girl simulation problem
 
 These exercises follow on from the three girls solution in [filling
-arrays](../arrays-iteration/filling_arrays), and the [reply to the Supreme
-Court](../arrays-iteration/reply_supreme).
+arrays](../arrays/filling_arrays), and the [reply to the Supreme
+Court](../iteration/reply_supreme).
 
 You may want to refer back to those pages for inspiration.
 
@@ -30,7 +30,7 @@ import numpy as np
 
 ## Three girls in a family of four
 
-Remember the solution to this problem, from [filling arrays](../arrays-iteration/filling_arrays):
+Remember the solution to this problem, from [filling arrays](../arrays/filling_arrays):
 
 ```{python}
 # Reset the counts array to empty (all zeros)

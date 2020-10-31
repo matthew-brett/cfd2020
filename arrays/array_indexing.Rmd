@@ -189,7 +189,6 @@ disciplines[-2]
 
 ## Index with slices
 
-
 Sometimes we want more than one element from the array.  For example, we might want the first 4 elements from the array.  We can get these using an array *slice*.  It looks like this:
 
 ```{python}
@@ -214,88 +213,10 @@ You can omit the last number if you mean to end at the last element of the array
 disciplines[4:]
 ```
 
+## Another way of indexing into arrays
 
-## Indexing with Boolean arrays
+The methods of indexing above work just as well for [lists](../data-types/lists) as they do for arrays.
 
-We often want to select several elements from an array according to some criterion.
-
-The most common way to do this, is to do array slicing, using
-a Boolean array between the square brackets.
-
-It can be easier to understand this by example than by description.
-
-
-Here are the "Overall Quality" scores for the ten largest courses:
-
-```{python}
-quality
-```
-
-These are the quality ratings corresponding to the `disciplines` we saw earlier.  The top (largest) discipline is:
-
-```{python}
-disciplines[0]
-```
-
-The Overall Quality rating for that course is:
-
-```{python}
-quality[0]
-```
-
-You have already come across Boolean arrays.
-
-These are arrays of `True` and `False` values.
-
-Here is a Boolean array, created from applying a comparison to an array:
-
-```{python}
-greater_than_3 = easiness > 3
-greater_than_3
-```
-
-This has a `True` value at the positions of elements > 3, and `False` otherwise.
-
-
-As you have already seen, we can do things like count the number
-of `True` values in the Boolean array:
-
-```{python}
-np.count_nonzero(greater_than_3)
-```
-
-Now let us say that we wanted to get the elements from `easiness`
-that are greater than 4.   That is, we want to get the elements
-in `easiness` for which the corresponding element in
-`greater_than_3` is `True`.
-
-We can do this with *Boolean array indexing*.  The Boolean array goes between the square brackets, like this:
-
-```{python}
-easiness
-```
-
-```{python}
-greater_than_3
-```
-
-```{python}
-easiness[greater_than_3]
-```
-
-We have selected the numbers in `easiness` that are greater than 3.
-
-
-We can use this same Boolean array to index into another array.  For example, here we show the discipline *names* corresponding to the courses with Easiness scores greater than 3:
-
-```{python}
-disciplines[greater_than_3]
-```
-
-Just to confirm that these are the disciplines with "Easiness" ratings greater than 4, here are the first ten rows of the table.  These are the rows corresponding to numbers in the arrays.
-
-```{python}
-# We haven't covered '.head' yet.  This code shows the first 10 rows of
-# the data table.
-big_courses.head(10)
-```
+There are other, particularly useful forms of indexing that only work for
+arrays.  We will cover these later - but the most important of these is the
+ability to [index arrays with Boolean arrays](../iteration/boolean_arrays).

@@ -301,4 +301,4 @@ Which use of square brackets was that?
 Look through the [data frame introduction](../data-frames/data_frame_intro)
 page.  There are several other examples of the use of square brackets.  Which use are they?
 
-Now look at [More on arrays](../arrays-iteration/More_on_Arrays).   Which uses do you see there?
+Now look at [More on arrays](../arrays/More_on_Arrays).   Which uses do you see there?

@@ -24,7 +24,7 @@ jupyter:
 
 # Array indexing exercises
 
-These exercises follow on from the [array indexing page](../arrays-iteration/array_indexing).
+These exercises follow on from the [array indexing page](../arrays/array_indexing).
 
 Run this cell to start:
 

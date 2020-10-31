@@ -92,7 +92,7 @@ You need more information about what these column names refer to.  Here are the 
 * `population`: Population, total.
 
 You have just seen array slicing (in [Selecting with
-arrays](../arrays-iteration/array_indexing).  You remember that array slicing
+arrays](../arrays/array_indexing).  You remember that array slicing
 uses square brackets.   Data frames also allow slicing.  For
 example, we often want to get all the data for a single column
 of the data frame.  To do this, we use the same square bracket
