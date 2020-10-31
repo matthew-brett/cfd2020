@@ -219,66 +219,73 @@
    Lists
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Arrays
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/Arrays.html">
+  <a class="reference internal" href="../arrays/Arrays.html">
    Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/Ranges.html">
+  <a class="reference internal" href="../arrays/Ranges.html">
    Ranges
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/numpy_append.html">
-   Numpy append
+  <a class="reference internal" href="../arrays/More_on_Arrays.html">
+   More on Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/function_arguments.html">
+  <a class="reference internal" href="../arrays/array_indexing.html">
+   Selecting values from an array
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/filling_arrays.html">
+   Making and filling arrays.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/function_arguments.html">
    Function arguments
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/leaping_ahead.html">
+  <a class="reference internal" href="../arrays/leaping_ahead.html">
    Leaping ahead
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Iteration and arrays
+  Iteration
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html">
+  <a class="reference internal" href="../iteration/iteration.html">
    Iteration
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/indentation.html">
+  <a class="reference internal" href="../iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+  <a class="reference internal" href="../iteration/boolean_arrays.html">
+   Boolean arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../iteration/reply_supreme.html">
    Reply to the Supreme Court
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
-   More on Arrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/array_indexing.html">
-   Selecting values from an array
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
-   Making and filling arrays.
   </a>
  </li>
 </ul>
@@ -671,9 +678,9 @@
                 
   <div class="section" id="exercises-on-the-three-girl-simulation-problem">
 <h1>Exercises on the three-girl simulation problem<a class="headerlink" href="#exercises-on-the-three-girl-simulation-problem" title="Permalink to this headline">¶</a></h1>
-<p>These exercises follow on from the three girls solution in <a class="reference internal" href="../arrays-iteration/filling_arrays.html"><span class="doc std std-doc">filling
-arrays</span></a>, and the <a class="reference internal" href="../arrays-iteration/reply_supreme.html"><span class="doc std std-doc">reply to the Supreme
-Court</span></a>.</p>
+<p>These exercises follow on from the three girls solution in <span class="xref myst">filling
+arrays</span>, and the <span class="xref myst">reply to the Supreme
+Court</span>.</p>
 <p>You may want to refer back to those pages for inspiration.</p>
 <p>Run this cell first:</p>
 <div class="cell docutils container">
@@ -686,7 +693,7 @@ Court</span></a>.</p>
 </div>
 <div class="section" id="three-girls-in-a-family-of-four">
 <h2>Three girls in a family of four<a class="headerlink" href="#three-girls-in-a-family-of-four" title="Permalink to this headline">¶</a></h2>
-<p>Remember the solution to this problem, from <a class="reference internal" href="../arrays-iteration/filling_arrays.html"><span class="doc std std-doc">filling arrays</span></a>:</p>
+<p>Remember the solution to this problem, from <span class="xref myst">filling arrays</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reset the counts array to empty (all zeros)</span>
@@ -707,7 +714,7 @@ Court</span></a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2548
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2491
 </pre></div>
 </div>
 </div>
@@ -827,7 +834,7 @@ is 0.513.  Hence the proportion of girls is 1-0.513 = 0.487.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.19968115, 0.42951909, 0.13521012, 0.42393986])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.09057762, 0.85555108, 0.89632906, 0.98690579])
 </pre></div>
 </div>
 </div>
@@ -841,7 +848,7 @@ is 0.513.  Hence the proportion of girls is 1-0.513 = 0.487.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9479926503313617
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5530215128107894
 </pre></div>
 </div>
 </div>

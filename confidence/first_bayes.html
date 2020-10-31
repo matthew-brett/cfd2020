@@ -219,66 +219,73 @@
    Lists
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Arrays
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/Arrays.html">
+  <a class="reference internal" href="../arrays/Arrays.html">
    Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/Ranges.html">
+  <a class="reference internal" href="../arrays/Ranges.html">
    Ranges
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/numpy_append.html">
-   Numpy append
+  <a class="reference internal" href="../arrays/More_on_Arrays.html">
+   More on Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/function_arguments.html">
+  <a class="reference internal" href="../arrays/array_indexing.html">
+   Selecting values from an array
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/filling_arrays.html">
+   Making and filling arrays.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/function_arguments.html">
    Function arguments
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../data-types/leaping_ahead.html">
+  <a class="reference internal" href="../arrays/leaping_ahead.html">
    Leaping ahead
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Iteration and arrays
+  Iteration
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/iteration.html">
+  <a class="reference internal" href="../iteration/iteration.html">
    Iteration
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/indentation.html">
+  <a class="reference internal" href="../iteration/indentation.html">
    Indentation, indentation, indentation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/reply_supreme.html">
+  <a class="reference internal" href="../iteration/boolean_arrays.html">
+   Boolean arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../iteration/reply_supreme.html">
    Reply to the Supreme Court
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/More_on_Arrays.html">
-   More on Arrays
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/array_indexing.html">
-   Selecting values from an array
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../arrays-iteration/filling_arrays.html">
-   Making and filling arrays.
   </a>
  </li>
 </ul>
@@ -787,8 +794,8 @@ problem? Simulation!</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>4</td>
-      <td>red</td>
+      <td>2</td>
+      <td>green</td>
     </tr>
     <tr>
       <th>1</th>
@@ -803,12 +810,12 @@ problem? Simulation!</p>
     <tr>
       <th>3</th>
       <td>2</td>
-      <td>green</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
-      <td>red</td>
+      <td>green</td>
     </tr>
   </tbody>
 </table>
@@ -826,7 +833,7 @@ box we got was BOX4.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4638322431704502
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4627599243856333
 </pre></div>
 </div>
 </div>
@@ -854,8 +861,8 @@ probabilities we calculated above, but not exactly the same.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.304
-Box2 proportion 0.696
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.305
+Box2 proportion 0.695
 </pre></div>
 </div>
 </div>
@@ -883,7 +890,7 @@ that give red) = 0.24.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2411
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2448
 </pre></div>
 </div>
 </div>
@@ -900,7 +907,7 @@ that give red) = 0.28.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2787
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2842
 </pre></div>
 </div>
 </div>
@@ -917,7 +924,7 @@ red trials.  This is 0.24 + 0.28 = 0.52.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.5198
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.529
 </pre></div>
 </div>
 </div>
@@ -932,7 +939,7 @@ red.  So the proportion of <em>all</em> red trials, that are BOX4 <em>and</em> r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.46383224317045013
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.46275992438563324
 </pre></div>
 </div>
 </div>
