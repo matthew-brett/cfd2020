@@ -4,6 +4,7 @@
 ## Refactoring of append etc
 
 * More on **Boolean arrays**.  Work with these a bit.  Exercise.
+* Move boolean indexing to data frames part
 
 
 ## Orphan pages
