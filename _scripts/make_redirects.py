@@ -19,13 +19,12 @@ from cutils import find_site_config
 def write_redirect(source, target, out_dir):
     redirect_fname = op.join(out_dir, f'{source}.html')
     fname_dir = op.dirname(redirect_fname)
-    print('here', source, target, fname_dir)
     if not op.isdir(fname_dir):
         os.makedirs(fname_dir)
     with open(redirect_fname, 'wt') as fobj:
         fobj.write(
             """<meta http-equiv="Refresh" content="0; """
-            f"""url='{target}'" />""")
+            f"""url='{target}.html'" />""")
 
 
 def main():
