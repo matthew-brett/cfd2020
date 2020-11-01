@@ -63,6 +63,8 @@
   chapters:
   - file: iteration/iteration
   - file: iteration/indentation
+  # fix my fors exercise.
+  - file: iteration/boolean_arrays
   - file: iteration/reply_supreme
 
 - part: Data frames
