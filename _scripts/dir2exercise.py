@@ -105,7 +105,7 @@ def push_dir(path, site_dict, strip=False):
         else:  # No history
             check_call(['git', 'init'])
             check_call(['hub', 'create',
-                        f"{site_dict['git_root']}/{ex_name}"])
+                        f"{site_dict['org_name']}/{ex_name}"])
         check_call(['git', 'add', '.'])
         if len(check_output(['git', 'diff', '--staged'])) == 0:
             print('No changes to commit')

@@ -4,5 +4,6 @@
 url : "https://matthew-brett.github.io" # Top-level URL for built book.
 baseurl : "/cfd2020" # the subpath of built book under URL.
 org_path : "~/dev_trees/uob-cfd"  # Local output path for exercise dirs.
-git_root : "https://github.com/uob-cfd"  # Git base URL for exercise dirs.
+org_name : "uob-cfd"
+git_root : "https://github.com"  # Git base URL for exercise dirs.
 jh_root : "https://uobhub.org"  # JupyterHub base URL

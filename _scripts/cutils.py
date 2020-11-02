@@ -90,6 +90,8 @@ def build_url(fn, site_dict):
     if ext not in ('.Rmd', '.ipynb'):
         raise RuntimeError(f'Is {fn} really a notebook?')
     repo = op.basename(nb_path)
-    repo_url = urllib.parse.quote(f'{site_dict["git_root"]}/{repo}')
+    s_d = site_dict
+    repo_url = urllib.parse.quote(
+        f'{s_d["git_root"]}/{s_d["org_name"]}/{repo}')
     hub_suffix = 'hub/user-redirect/git-pull?repo='
     return f'{site_dict["jh_root"]}/{hub_suffix}{repo_url}&subPath={nb_basen}'
