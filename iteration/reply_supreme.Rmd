@@ -83,11 +83,11 @@ import numpy as np
 Here is one jury, and the number of Black people we get in our simulation.
 
 ```{python}
-# Make 12 random integers from 1 through 100
-randoms = np.random.random_integers(1, 100, size=12)
-# Say values < 27 correspond to Black jurors.
-# 26 of the numbers 1 through 100 are less than 27 (so 26% or p=0.26).
-black_yn = randoms < 27
+# Make 12 random integers from 0 through 99
+randoms = np.random.randint(0, 100, size=12)
+# Say values < 26 correspond to black jurors.
+# 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).
+black_yn = randoms < 26
 # We now have True for Black jurors and False otherwise.
 # Count the number of Trues
 np.count_nonzero(black_yn)
@@ -113,8 +113,8 @@ We repeat the code from the cell above, but now, we store each trial result
 (count) in the `counts` array:
 
 ```{python}
-randoms = np.random.random_integers(1, 100, size=100)
-black_yn = randoms < 27
+randoms = np.random.randint(0, 100, size=100)
+black_yn = randoms < 26
 count = np.count_nonzero(black_yn)
 counts[0] = count
 counts
@@ -132,8 +132,8 @@ counts = np.zeros(10)
 for i in np.arange(10):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.random_integers(1, 100, size=12)
-    black_yn = randoms < 27
+    randoms = np.random.randint(0, 100, size=12)
+    black_yn = randoms < 26
     count = np.count_nonzero(black_yn)
     # Store the result at position i
     counts[i] = count
@@ -154,8 +154,8 @@ counts = np.zeros(10000)
 for i in np.arange(10000):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.random_integers(1, 100, size=12)
-    black_yn = randoms < 27
+    randoms = np.random.randint(0, 100, size=12)
+    black_yn = randoms < 26
     count = np.count_nonzero(black_yn)
     # Store the result at position i
     counts[i] = count

@@ -42,7 +42,7 @@ John's chances?
 
 Solve by simulation.
 
-Hint: consider `np.random.random_integers`.  Read the help with `np.random.random_integers?`.
+Hint: consider `np.random.randint`.  Read the help with `np.random.randint?`.
 
 ## Blackjack
 

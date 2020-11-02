@@ -29,37 +29,38 @@ np.cos(0)
 Here is another Numpy function, from the `random` sub-package of the Numpy library.  We get to the sub-packages with the dot `.` - so to get to the `random` sub-package, we use `np.random`.  Then, to get to the functions in this sub-package, we use the dot again, like this:
 
 ```{python}
-np.random.random_integers(0, 1)
+np.random.randint(0, 2)
 ```
 
-Remember, this is a random integer from 0 to 1.
+Remember, this is a random integer from 0 up to, but *not including* 2, so it is a random integer that can either be 0 or 1.
 
-Now let us look at the help for the `np.random.random_integers` function.  As usual, we do this by appending `?` to the function name, and pressing Enter in the notebook.
+Now let us look at the help for the `np.random.randint` function.  As usual, we do this by appending `?` to the function name, and pressing Enter in the notebook.
 
 ```{python}
-# To see the help for np.random.random_integers, remove the # at the beginning
+# To see the help for np.random.randint, remove the # at the beginning
 # of the next line, and execute this cell.
-# np.random.random_integers?
+# np.random.randint?
 ```
 
 We find that the function can accept up to four arguments.  We have passed two.
 The first sets the argument called `low` to be 0, and the second sets the
-argument called `high` to be 1.
+argument called `high` to be 2.
 
 To take another example, in this case we are asking for a random number
-starting at 1 up to (including) 10. `low` is 1 and `high` is 10.
+starting at 1 up to, but not including 11. This gives us a random integer from
+1 through 10. `low` is 1 and `high` is 11.
 
 
 ```{python}
 # Random integer from 1 through 10.
-np.random.random_integers(1, 10)
+np.random.randint(1, 11)
 ```
 
 If we pass three arguments, we also set the `size` argument.  This tells the function how many random numbers to return.  The following asks for an array of four random integers from 1 through 20:
 
 ```{python}
 # Four random integers from 1 through 20.
-np.random.random_integers(1, 20, 4)
+np.random.randint(1, 21, 4)
 ```
 
 Notice that this is an *array*.
@@ -71,7 +72,7 @@ above.
 
 ```{python}
 # Four random integers from 1 through 20, using keyword arguments.
-np.random.random_integers(low=1, high=20, size=4)
+np.random.randint(low=1, high=21, size=4)
 ```
 
 When we call the function using the arguments with their names like this, the named arguments are called *keyword* arguments.
@@ -82,7 +83,7 @@ clearer what each argument means.   For example, it's a common pattern to call a
 
 ```{python}
 # Four random integers from 1 through 20.
-np.random.random_integers(1, 20, size=4)
+np.random.randint(1, 21, size=4)
 ```
 
 Writing the call like the cell gives exactly the same result as the cell below,
@@ -92,7 +93,7 @@ of the output array.
 
 ```{python}
 # Four random integers from 1 through 20 - but no keyword argument.
-np.random.random_integers(1, 20, size=4)
+np.random.randint(1, 21, size=4)
 ```
 
 To take another example, we have already seen the function `round`.  Inspect
