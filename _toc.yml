@@ -58,7 +58,9 @@
   # More_arrays exercise - this has held-back tests.
   - file: arrays/filling_arrays
   - file: arrays/function_arguments
+  # Consider exercise.
   - file: arrays/boolean_arrays
+  # Expand?  Need exercise.
   - file: arrays/leaping_ahead
 
 - part: Iteration
