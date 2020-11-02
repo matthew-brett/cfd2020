@@ -29,42 +29,95 @@ jupyter:
 import numpy as np
 ```
 
-In the next section [reply to the Supreme Court](reply_supreme), we will give
-an answer to the question we posed earlier.
+In the next section - [reply to the Supreme Court](reply_supreme) - we will
+give an answer to the question we [posed
+earlier](../code-basics/sampling_problem).
 
 The question was about Robert Swain's jury selection.  As you remember, Robert
-Swain was a young black man sentenced to death in a trial in which all 12
+Swain was a young Black man sentenced to death in a trial in which all 12
 members of his jury were white.
 
-Of the eligible jurors in Talladega County, Alabama, 26% were black.  But even
-if jury selection is entirely random, we will get some variation in the number
-of black jurors.  The question is - is 0 a surprising number?
+Of the eligible jurors in Talladega County, Alabama, 26% were Black.  If jury
+selection is entirely random, we would have expected roughly a quarter (25%)
+of Swain's jurors to be Black.  But, if selection is random, will get some
+variation in the number of Black jurors.  The question is: is 0 a surprising
+number?
 
 In order to answer that question, we are going to simulate a jury of 12 people,
 in a world we imagine, and build with computer code.
 
-We want to simulate a juror who has a 26% of being black.   We can do this by
+We want to simulate a juror who has a 26% of being Black.   We can do this by
 drawing a random integer that has an equal chance of being any integer between
-0 and 99 inclusive, like this:
+1 and 100 inclusive, like this:
 
 ```{python}
-# Make a random integer from 0 through 99
-# (from 0 up to but not including 100)
-r_num = np.random.randint(0, 100)
+# Make a random integer from 1 through 100
+r_num = np.random.random_integers(1, 100)
 r_num
 ```
 
-Run this cell above a few times to persuade yourself this generates integers
-from 0 through 99.
+Run this cell above a few times, perhaps with Control-Enter, to persuade
+yourself this generates integers from 1 through 100.
 
-We will say `r_num` means a black juror if the integer is any number from 0
-through 25, and a white juror otherwise.  Because there are 26 integers from 0
-through 25, and 74 integers from 26 though 99, this means that there is a 26%
-chance that running the cell above will give us an `r_num` that means a black
+We will say `r_num` means a Black juror if the integer is any number from 1
+through 26, and a white juror otherwise.  Because there are 26 integers from 1
+through 26, and 74 integers from 27 though 100, this means that there is a 26%
+chance that running the cell above will give us an `r_num` that means a Black
 juror, and a 74% chance it will mean a white juror.
 
+We can look at that number and write down "Black" if the number is less than
+27 and "White" if the number is 27 or over, but we would like the computer to
+do that routine work for us.  We use [comparison](../data-types/Comparison):
+
 ```{python}
-# Make 12 random integers from 0 through 99
-randoms = np.random.randint(0, 100, size=12)
+is_black = rnum < 27
+is_black
 ```
 
+`is_black` is True if the `r_num` is less than 27, and `False` if it is 27 or
+greater.  True means our simulation found a Black juror, and False means we found a White juror.
+
+We make `r_num` and then `is_black` 12 times, and write down the result, but a
+better way is to make an *array* of 12 random numbers, and then do the
+comparison on the array.  We saw this in [function
+arguments](../arrays/function_arguments).
+
+```{python}
+# Make 12 random integers from 1 through 100
+r_nums = np.random.random_integers(1, 100, size=12)
+```
+
+Now we have 12 numbers for which we want to ask the question - is this number
+less than 27?  We would like 12 corresponding True or False values.
+
+Here is where arrays continue to work their magic - we can get this result with a single expression:
+
+```{python}
+are_black = rnums < 27
+are_black
+```
+
+`are_black` is an array with 12 elements, one for every element in the array
+we compared, `r_nums`.
+
+Each element in `are_black` has the result of the comparison for the corresponding element.  The code above is equivalent to doing:
+
+```{python}
+# Make an array of Boolean type (the "dtype" argument)
+are_black_longhand = np.zeros(12, dtype=bool)
+are_black_longhand[0] = rnums[0] < 27
+are_black_longhand[1] = rnums[1] < 27
+are_black_longhand[2] = rnums[2] < 27
+are_black_longhand[3] = rnums[3] < 27
+are_black_longhand[4] = rnums[4] < 27
+are_black_longhand[5] = rnums[5] < 27
+are_black_longhand[6] = rnums[6] < 27
+are_black_longhand[7] = rnums[7] < 27
+are_black_longhand[8] = rnums[8] < 27
+are_black_longhand[9] = rnums[9] < 27
+are_black_longhand[10] = rnums[10] < 27
+are_black_longhand[11] = rnums[11] < 27
+are_black_longhand[12] = rnums[12] < 27
+# Show the result
+are_black_longhand
+```
