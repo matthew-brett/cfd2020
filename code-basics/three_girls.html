@@ -676,42 +676,36 @@ like the real data.</p>
 <p>In our model, the chances of any one child being a boy or a girl is 0.5, or
 50%.  To do our simulation, we need something random, like the toss of a coin, to decide if the next child is a boy or a girl.</p>
 <p>Tossing a coin is a bit time-consuming, and your computer is well designed to solve this task in a more efficient way.  It can generate random numbers.</p>
-<p>In this next cell, we fetch a routine (actually, a <em>function</em>) to generate
-random numbers.  We fetch it from the Numpy library, of which you will see
-much more.  For now, all you need to know is that the function we want is
-called <code class="docutils literal notranslate"><span class="pre">random_integer</span></code> in the Numpy <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-library.  We fetch it like
-this:</p>
+<p>In this next cell, we fetch a routine (actually, a <em>function</em>) to generate random numbers.  We fetch it from the Numpy library, of which you will see much more.  For now, all you need to know is that the function we want is called <code class="docutils literal notranslate"><span class="pre">randint</span></code> in the Numpy <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-library.  We fetch it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the random_integers function from the Numpy library.</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random_integers</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the randint function from the Numpy library.</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randint</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we have the <code class="docutils literal notranslate"><span class="pre">random_integers</span></code> function, we can run the following cell 4 times, to
+<p>Now we have the <code class="docutils literal notranslate"><span class="pre">randint</span></code> function, we can run the following cell 4 times, to
 get 4 random numbers between 0 and 1.</p>
 <p>Call 0 a boy, and 1 a girl.  If we run this four times, then we have one simulated family.  We can count how many 1s (girls) we got in the four runs, and that is the simulated number of girls, for this family.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return a random number that is either 0 or 1.</span>
-<span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># The second arguments, 2, tells the function to return numbers up to, but</span>
+<span class="c1"># not including 2.</span>
+<span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-52e74079e92f&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
-  random_integers(0, 1)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">random_integers</span></code> is a <em>function</em>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">random_integers(2)</span></code> <em>calls</em> the function, and returns a random number, that
-is either 0 and 1.</p>
+<p><code class="docutils literal notranslate"><span class="pre">randint</span></code> is a <em>function</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">randint(2)</span></code> <em>calls</em> the function, and returns a random number, that is either
+0 and 1.</p>
 <p>It’s inconvenient to have to run this cell many times.   We really need some
 machinery to make the computer do that for us.  We need <em>variables</em>,
 <em>functions</em>, <em>comparisons</em> and <em>arrays</em>.  We will deal with those next.</p>

@@ -712,7 +712,7 @@ Court</span></a>.</p>
 <span class="c1"># Repeat the indented stuff 10000 times.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># The procedure for one family.</span>
-    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
     <span class="c1"># Fill in the corresponding value in the counts array.</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -724,11 +724,7 @@ Court</span></a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-02175b05ccc6&gt;:7: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
-  family = np.random.random_integers(0, 1, size=4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2523
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2432
 </pre></div>
 </div>
 </div>
@@ -848,7 +844,7 @@ is 0.513.  Hence the proportion of girls is 1-0.513 = 0.487.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.86107938, 0.2364501 , 0.47576117, 0.24746841])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.24127345, 0.59950847, 0.03935316, 0.8059836 ])
 </pre></div>
 </div>
 </div>
@@ -862,7 +858,7 @@ is 0.513.  Hence the proportion of girls is 1-0.513 = 0.487.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9793334710065316
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5613832852107705
 </pre></div>
 </div>
 </div>

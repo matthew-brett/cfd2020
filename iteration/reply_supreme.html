@@ -721,11 +721,11 @@ Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>
 <p>Here is one jury, and the number of Black people we get in our simulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 12 random integers from 1 through 100</span>
-<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="c1"># Say values &lt; 27 correspond to Black jurors.</span>
-<span class="c1"># 26 of the numbers 1 through 100 are less than 27 (so 26% or p=0.26).</span>
-<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 12 random integers from 0 through 99</span>
+<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Say values &lt; 26 correspond to black jurors.</span>
+<span class="c1"># 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).</span>
+<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
 <span class="c1"># We now have True for Black jurors and False otherwise.</span>
 <span class="c1"># Count the number of Trues</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
@@ -733,10 +733,6 @@ Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-b55012746099&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
-  randoms = np.random.random_integers(1, 100, size=12)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
@@ -761,8 +757,8 @@ of times, to make sure we’ve got an idea of the variation.</p>
 (count) in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
 <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="n">counts</span>
@@ -770,11 +766,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-4-028d4bdb1177&gt;:1: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
-  randoms = np.random.random_integers(1, 100, size=100)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([27.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([29.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
@@ -788,8 +780,8 @@ of times, to make sure we’ve got an idea of the variation.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
     <span class="c1"># Store the result at position i</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -798,11 +790,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-57daa6de8232&gt;:6: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
-  randoms = np.random.random_integers(1, 100, size=12)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5., 2., 4., 4., 3., 3., 6., 2., 5., 4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 1., 5., 3., 4., 2., 3., 5., 2., 1.])
 </pre></div>
 </div>
 </div>
@@ -819,8 +807,8 @@ therefore, 10000 estimates.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
     <span class="c1"># Store the result at position i</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -829,11 +817,7 @@ therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-6-60bed21fd65a&gt;:6: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
-  randoms = np.random.random_integers(1, 100, size=12)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 4., 5., ..., 5., 2., 5.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 1., 1., ..., 4., 1., 5.])
 </pre></div>
 </div>
 </div>
@@ -879,7 +863,7 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 261., 1171., 2244., 2570., 1981., 1130.,  459.,  136.,   43.,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 265., 1116., 2182., 2599., 2022., 1156.,  475.,  153.,   27.,
            5.,    0.,    0.]),
  array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
  &lt;a list of 12 Patch objects&gt;)
@@ -900,7 +884,7 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>265
 </pre></div>
 </div>
 </div>
@@ -915,7 +899,7 @@ number of times we see 0 by the number trials we made:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0265
 </pre></div>
 </div>
 </div>
@@ -930,7 +914,7 @@ that the proportion of times we see that result is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0265
 </pre></div>
 </div>
 </div>
@@ -944,7 +928,7 @@ in a jury of 12, is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0265
 </pre></div>
 </div>
 </div>

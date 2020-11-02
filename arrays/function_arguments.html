@@ -687,49 +687,42 @@
 <p>Here is another Numpy function, from the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package of the Numpy library.  We get to the sub-packages with the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> - so to get to the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package, we use <code class="docutils literal notranslate"><span class="pre">np.random</span></code>.  Then, to get to the functions in this sub-package, we use the dot again, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-a7fc385b5e1c&gt;:1: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
-  np.random.random_integers(0, 1)
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
 </div>
-<p>Remember, this is a random integer from 0 to 1.</p>
-<p>Now let us look at the help for the <code class="docutils literal notranslate"><span class="pre">np.random.random_integers</span></code> function.  As usual, we do this by appending <code class="docutils literal notranslate"><span class="pre">?</span></code> to the function name, and pressing Enter in the notebook.</p>
+<p>Remember, this is a random integer from 0 up to, but <em>not including</em> 2, so it is a random integer that can either be 0 or 1.</p>
+<p>Now let us look at the help for the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function.  As usual, we do this by appending <code class="docutils literal notranslate"><span class="pre">?</span></code> to the function name, and pressing Enter in the notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To see the help for np.random.random_integers, remove the # at the beginning</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To see the help for np.random.randint, remove the # at the beginning</span>
 <span class="c1"># of the next line, and execute this cell.</span>
-np.random.random_integers<span class="o">?</span>
+np.random.randint<span class="o">?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>We find that the function can accept up to four arguments.  We have passed two.
 The first sets the argument called <code class="docutils literal notranslate"><span class="pre">low</span></code> to be 0, and the second sets the
-argument called <code class="docutils literal notranslate"><span class="pre">high</span></code> to be 1.</p>
+argument called <code class="docutils literal notranslate"><span class="pre">high</span></code> to be 2.</p>
 <p>To take another example, in this case we are asking for a random number
-starting at 1 up to (including) 10. <code class="docutils literal notranslate"><span class="pre">low</span></code> is 1 and <code class="docutils literal notranslate"><span class="pre">high</span></code> is 10.</p>
+starting at 1 up to, but not including 11. This gives us a random integer from
+1 through 10. <code class="docutils literal notranslate"><span class="pre">low</span></code> is 1 and <code class="docutils literal notranslate"><span class="pre">high</span></code> is 11.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random integer from 1 through 10.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-fb688314c989&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 10 + 1) instead
-  np.random.random_integers(1, 10)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
 </div>
@@ -738,16 +731,12 @@ starting at 1 up to (including) 10. <code class="docutils literal notranslate"><
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-6-9f27ddd52814&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 20 + 1) instead
-  np.random.random_integers(1, 20, 4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4, 13,  4, 12])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3,  1, 17, 15])
 </pre></div>
 </div>
 </div>
@@ -760,16 +749,12 @@ above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20, using keyword arguments.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-7-1fc0ed401849&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 20 + 1) instead
-  np.random.random_integers(low=1, high=20, size=4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2, 14,  2, 13])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16, 10,  7, 17])
 </pre></div>
 </div>
 </div>
@@ -780,16 +765,12 @@ clearer what each argument means.   For example, it’s a common pattern to call
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-8-dc0df791d49f&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 20 + 1) instead
-  np.random.random_integers(1, 20, size=4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([15,  5,  8, 10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6, 16,  6, 12])
 </pre></div>
 </div>
 </div>
@@ -801,16 +782,12 @@ of the output array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20 - but no keyword argument.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-9-2aa73a728d39&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 20 + 1) instead
-  np.random.random_integers(1, 20, size=4)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 20,  2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3,  8, 10,  2])
 </pre></div>
 </div>
 </div>

@@ -24,14 +24,14 @@ import numpy as np
 Say we want to choose randomly between 0 and 1.  We want an equal probability of getting 0 and getting 1.  We could do it like this:
 
 ```{python}
-np.random.random_integers(0, 1)
+np.random.randint(0, 2)
 ```
 
 If we do that lots of times, we see that we have a roughly 50% chance of getting 0 (and therefore, a roughly 50% chance of getting 1).
 
 ```{python}
 # Make 10000 random numbers that can be 0 or 1, with equal probability.
-lots_of_0_1 = np.random.random_integers(0, 1, size=10000)
+lots_of_0_1 = np.random.randint(0, 2, size=10000)
 # Count the proportion that are 1.
 np.count_nonzero(lots_of_0_1) / 10000
 ```
