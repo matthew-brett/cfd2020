@@ -24,3 +24,47 @@ jupyter:
 
 # Boolean arrays
 
+```{python}
+# Import the array library
+import numpy as np
+```
+
+In the next section [reply to the Supreme Court](reply_supreme), we will give
+an answer to the question we posed earlier.
+
+The question was about Robert Swain's jury selection.  As you remember, Robert
+Swain was a young black man sentenced to death in a trial in which all 12
+members of his jury were white.
+
+Of the eligible jurors in Talladega County, Alabama, 26% were black.  But even
+if jury selection is entirely random, we will get some variation in the number
+of black jurors.  The question is - is 0 a surprising number?
+
+In order to answer that question, we are going to simulate a jury of 12 people,
+in a world we imagine, and build with computer code.
+
+We want to simulate a juror who has a 26% of being black.   We can do this by
+drawing a random integer that has an equal chance of being any integer between
+0 and 99 inclusive, like this:
+
+```{python}
+# Make a random integer from 0 through 99
+# (from 0 up to but not including 100)
+r_num = np.random.randint(0, 100)
+r_num
+```
+
+Run this cell above a few times to persuade yourself this generates integers
+from 0 through 99.
+
+We will say `r_num` means a black juror if the integer is any number from 0
+through 25, and a white juror otherwise.  Because there are 26 integers from 0
+through 25, and 74 integers from 26 though 99, this means that there is a 26%
+chance that running the cell above will give us an `r_num` that means a black
+juror, and a 74% chance it will mean a white juror.
+
+```{python}
+# Make 12 random integers from 0 through 99
+randoms = np.random.randint(0, 100, size=12)
+```
+
