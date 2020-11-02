@@ -40,6 +40,10 @@ Use a `for` loop to print out all the numbers from 3 through 7, one number on ea
 # Your code here.
 ```
 
+<!---
+Do not use append here
+-->
+
 Make an empty array called `my_array`.  Use a `for` loop to append all the numbers between 0 and 10 (inclusive) to `my_array`.  Show the array at the end of the loop.
 
 ```{python}

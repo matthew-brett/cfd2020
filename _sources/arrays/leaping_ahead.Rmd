@@ -20,8 +20,6 @@ problem](../code-basics/three_girls).
 
 We have more of the building blocks we need.
 
-First we load the Numpy library.
-
 ```{python}
 # Load the Numpy package, and rename to "np"
 import numpy as np
@@ -31,7 +29,7 @@ We are going to simulate 10000 families, each with four children.
 
 Call one family *one trial*.  Each *trial* involves the simulation of four children.
 
-Here we put together some things you've seen before.  We are creating a Numpy array that has 10000 values, each of which is 0
+Here we put together what we have up until now.  We are creating a Numpy array that has 10000 values, each of which is 0
 
 ```{python}
 # Make an array of zeros to store the counts for each of the 10000 families.
@@ -42,19 +40,14 @@ counts
 `counts` has 10000 elements. When we have finished, each of these 10000 values
 will be the number of girls in one simulated family.
 
-Remembering [function arguments](function_arguments), here is how we make
-an array that simulates a family of four children:
+From [boolean arrays](boolean_arrays), here is how we make an array that
+simulates a family of four children, and count the number of girls.
 
 ```{python}
-# Get an array of 4 integers from 0 up to, but not including 2.
-# (Therefore, 4 integers that can be either 0 or 1).
-family = np.random.randint(0, 2, size=4)
-family
-```
-
-We represented girls with a value of one. We can count the number of girls by using the `np.sum` function on the `family` array:
-
-```{python}
+# Make an array of four random integers that are either 0 or 1.
+# 1 means a girl.
+family = np.random.random_integers(0, 1, size=4)
+# Add up the integers to count the number of girls.
 count = np.sum(family)
 count
 ```
@@ -68,27 +61,29 @@ counts[0] = count
 counts[:10]
 ```
 
-We can do this again in a single cell, like this:
+Here that is again, in a single cell:
 
 ```{python}
 # Our first simulated family
-family = np.random.randint(0, 2, size=4)
+family = np.random.random_integers(0, 1, size=4)
 counts[0] = np.sum(family)
 counts[:10]
 ```
 
-To add another family, we just repeat the same, but storing the result as the *second* value in the `counts` array:
+To add another family, we just repeat the same, but storing the result as the
+*second* value in the `counts` array:
 
 ```{python}
 # Our second simulated family
-family = np.random.randint(0, 2, size=4)
+family = np.random.random_integers(0, 1, size=4)
 counts[1] = np.sum(family)
 counts[:10]
 ```
 
 Notice that the only thing that changed is that we stored the value at position (offset) 1 instead of position (offset) 0.
 
-Obviously this is getting a bit boring and repetitive. Surely we can do better.
+Obviously this is getting a bit boring and repetitive. Surely we can do
+better.
 
 Yes indeed, we can use a *for loop*.  We will see much more of for loops [very
 soon](../iteration/iteration).  You will recognize nearly all the code below, from the single trials we did above.  The new thing is the *for* loop, that tells Python to repeat the indented steps 10000 times.
@@ -100,7 +95,7 @@ counts = np.zeros(10000)
 # Repeat the indented stuff 10000 times.
 for i in np.arange(10000):
     # The procedure for one family.
-    family = np.random.randint(0, 2, size=4)
+    family = np.random.random_integers(0, 1, size=4)
     count = np.sum(family)
     # Store the count at position i in the counts array.
     counts[i] = count
@@ -114,56 +109,16 @@ Now we have a count of the number of girls, from 10000 simulated families:
 len(counts)
 ```
 
-Our next problem is to find how many of these `counts` are equal to 3.
-
-Remember [comparison](Comparison)?
-
-Imagine I have some value `count`, like this:
+We use [Boolean arrays](boolean_arrays) to make an array of 10000 elements, where each element is True if the corresponding element in `counts` was equal to 3, and False otherwise.
 
 ```{python}
-count = 3
-count
-```
-
-I can use the `==` comparison to test if `count` is equal to 3:
-
-```{python}
-# A comparison expression, asking whether "count" is equal to 3.
-count == 3
-```
-
-What do you think we will get if do the same test on all 10000 values in `counts`?
-
-```{python}
-counts == 3
-```
-
-This is a new 10000 element array of True and False values.  It is called a
-[Boolean array](../iteration/boolean_arrays).  We will see many more of these.
-
-Next we will use a Numpy function called `count_nonzero`.   It counts the
-number of values in an array that are not equivalent to 0.   It turns out that
-`False` is equivalent to 0, but `True` is not:
-
-```{python}
-np.count_nonzero(False)
-```
-
-```{python}
-np.count_nonzero(True)
-```
-
-```{python}
-my_booleans = np.array([True, False, True])
-np.count_nonzero(my_booleans)
-```
-
-This means that `count_nonzero` returns the number of True values in a Boolean array.  Now we can count how many of the `counts` array were equal to 3.
-
-```{python}
-# The Boolean array, with True where counts equal to 3, False otherwise.
+# The Boolean array
 has_3_girls = counts == 3
+```
 
+`np.count_nonzero` counts the number of True values (and therefore, the number of `counts` equal to 3).
+
+```{python}
 # Number of counts values equal to 3.
 n_3_girls = np.count_nonzero(has_3_girls)
 n_3_girls
@@ -190,7 +145,7 @@ counts = np.zeros(10000)
 # Repeat the indented stuff 10000 times.
 for i in np.arange(10000):
     # The procedure for one family.
-    family = np.random.randint(0, 2, size=4)
+    family = np.random.random_integers(0, 1, size=4)
     count = np.sum(family)
     # Store the count at position i in the counts array.
     counts[i] = count

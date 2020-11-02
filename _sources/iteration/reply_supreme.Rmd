@@ -29,31 +29,31 @@ Court on their judgment in the appeal of Robert Swain.
 
 
 Remember, Robert Swain appealed his death sentence, on the basis that the jury
-selection was biased against black people.
+selection was biased against Black people.
 
 
-His trial jury of 12 people had no black members.
+His trial jury of 12 people had no Black members.
 
-The local population of eligible jurors was 26% black.
+The local population of eligible jurors was 26% Black.
 
 If the jury had been representative, we would expect about 26 of 100 people to
-be black.  That's around 1 in 4 (25%), so we would expect about one in four
-jurors to be black - so around 3 of 12.
+be Black.  That's around 1 in 4 (25%), so we would expect about one in four
+jurors to be Black - so around 3 of 12.
 
-The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being black?
+The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 Black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being Black?
 
 
 To answer this, we are going to go through a couple of steps.
 
 The first is to build an *ideal model* of the world, where it *is true* that
-each juror has a 26% of being black.  We sometimes call this our *ideal world*.
+each juror has a 26% of being Black.  We sometimes call this our *ideal world*.
 If you are used to statistical terms, this ideal model is our *null
 hypothesis*.
 
 Then we can *simulate* making many juries in this ideal world.
 
 Finally we ask whether our simulated juries, from the ideal world, often give
-us a count of zero black jurors.  If they don't, then we can say that we are
+us a count of zero Black jurors.  If they don't, then we can say that we are
 *surprised* by the value of 0, if the jury did arise from that real world.  If
 the value 0 is sufficiently unusual, we become suspicious that the real world
 is rather different from our ideal world.  We consider *rejecting* the ideal
@@ -63,12 +63,12 @@ world as a good model of the real world.
 
 Our *ideal model* (or null hypothesis) is a world where each juror has been
 truly randomly selected from the eligible population. That is, for any one
-juror, there is a 0.26 probability that they are black.
+juror, there is a 0.26 probability that they are Black.
 
 ## Simulations with the ideal model
 
 To do a *simulation* with this ideal model, we will start by making one jury,
-of 12 people, where it is really true that each juror has a 26% of being black.
+of 12 people, where it is really true that each juror has a 26% of being Black.
 Not to pun, but we will call one simulation of a jury of 12 - *one trial*.
 
 Then we simulate 10 juries of 12 people (do 10 trials), to get warmed up.
@@ -80,20 +80,20 @@ Finally we make 10000 juries, each of 12 people, and see what we get.
 import numpy as np
 ```
 
-Here is one jury, and the number of black people we get in our simulation.
+Here is one jury, and the number of Black people we get in our simulation.
 
 ```{python}
-# Make 12 random integers from 0 through 99
-randoms = np.random.randint(0, 100, size=12)
-# Say values < 26 correspond to black jurors.
-# 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).
-black_yn = randoms < 26
-# We now have True for black jurors and False otherwise.
+# Make 12 random integers from 1 through 100
+randoms = np.random.random_integers(1, 100, size=12)
+# Say values < 27 correspond to Black jurors.
+# 26 of the numbers 1 through 100 are less than 27 (so 26% or p=0.26).
+black_yn = randoms < 27
+# We now have True for Black jurors and False otherwise.
 # Count the number of Trues
 np.count_nonzero(black_yn)
 ```
 
-That is one estimate, for the number of black people we can expect, if our
+That is one estimate, for the number of Black people we can expect, if our
 model is correct.  Call this one *trial*. We can run that a few times to get a
 range of values.   If we run it only a few times, we might be unlucky, and get
 some results that are not representative.  It is safer to run it a huge number
@@ -113,8 +113,8 @@ We repeat the code from the cell above, but now, we store each trial result
 (count) in the `counts` array:
 
 ```{python}
-randoms = np.random.randint(0, 100, size=100)
-black_yn = randoms < 26
+randoms = np.random.random_integers(1, 100, size=100)
+black_yn = randoms < 27
 count = np.count_nonzero(black_yn)
 counts[0] = count
 counts
@@ -132,15 +132,15 @@ counts = np.zeros(10)
 for i in np.arange(10):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.randint(0, 100, size=12)
-    black_yn = randoms < 26
+    randoms = np.random.random_integers(1, 100, size=12)
+    black_yn = randoms < 27
     count = np.count_nonzero(black_yn)
     # Store the result at position i
     counts[i] = count
 counts
 ```
 
-Each of these values is one estimate for how many black jurors we should
+Each of these values is one estimate for how many Black jurors we should
 expect, if our model is right.  Already we get the feeling that 0 is rather
 unlikely, if our model is correct.  But - how unlikely?
 
@@ -154,8 +154,8 @@ counts = np.zeros(10000)
 for i in np.arange(10000):
     # This code is the same as the cell above, but indented,
     # so we run it all, for each time through the for loop.
-    randoms = np.random.randint(0, 100, size=12)
-    black_yn = randoms < 26
+    randoms = np.random.random_integers(1, 100, size=12)
+    black_yn = randoms < 27
     count = np.count_nonzero(black_yn)
     # Store the result at position i
     counts[i] = count
@@ -195,6 +195,8 @@ Now show the histogram.  Don't worry about the details of this command.
 plt.hist(counts, bins=np.arange(13))
 ```
 
+The histogram above is called the *sampling distribution*.  The sampling distribution is the distribution of thing we are interested in (the number of Black jurors) given the ideal model, of completely random selection of jurors from a 26% Black population.
+
 It looks as if 0 is a relatively uncommon value among our simulations. How many
 times did we get a value of 0, in all our 10000 estimates?
 
@@ -220,7 +222,7 @@ that the proportion of times we see that result is:
 p
 ```
 
-In other words, our *estimate* of the *probability* of getting 0 black people
+In other words, our *estimate* of the *probability* of getting 0 Black people
 in a jury of 12, is
 
 ```{python}
@@ -228,7 +230,7 @@ p
 ```
 
 What can we conclude?  Only this: that in our ideal model world, where each
-juror has a 26% chance of being black, 0 is uncommon.  This surprising result,
+juror has a 26% chance of being Black, 0 is uncommon.  This surprising result,
 of 0, gives us some cause to wonder if our ideal model of the world is wrong.
 One way it could be wrong, is if there was bias in jury selection, so it was
-not true that each juror had a 26% of being black.
+not true that each juror had a 26% of being Black.

@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Leaping ahead &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -59,17 +39,17 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Iteration" href="../iteration/iteration.html" />
-    <link rel="prev" title="Function arguments" href="function_arguments.html" />
+    <link rel="prev" title="Boolean arrays" href="boolean_arrays.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/arrays/leaping_ahead.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Leaping ahead" />
-<meta property="og:description" content="Leaping ahead  We are still building up to a solution for the three girls problem.  We have more of the building blocks we need.  First we load the Numpy librar" />
+<meta property="og:description" content="Leaping ahead  We are still building up to a solution for the three girls problem.  We have more of the building blocks we need.  # Load the Numpy package, and " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -276,6 +256,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="function_arguments.html">
    Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="boolean_arrays.html">
+   Boolean arrays
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -663,7 +648,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -682,7 +666,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -695,7 +678,6 @@
 <p>We are still building up to a solution for the <a class="reference internal" href="../code-basics/three_girls.html"><span class="doc std std-doc">three girls
 problem</span></a>.</p>
 <p>We have more of the building blocks we need.</p>
-<p>First we load the Numpy library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
@@ -706,7 +688,7 @@ problem</span></a>.</p>
 </div>
 <p>We are going to simulate 10000 families, each with four children.</p>
 <p>Call one family <em>one trial</em>.  Each <em>trial</em> involves the simulation of four children.</p>
-<p>Here we put together some things you’ve seen before.  We are creating a Numpy array that has 10000 values, each of which is 0</p>
+<p>Here we put together what we have up until now.  We are creating a Numpy array that has 10000 values, each of which is 0</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array of zeros to store the counts for each of the 10000 families.</span>
@@ -723,32 +705,24 @@ problem</span></a>.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">counts</span></code> has 10000 elements. When we have finished, each of these 10000 values
 will be the number of girls in one simulated family.</p>
-<p>Remembering <a class="reference internal" href="function_arguments.html"><span class="doc std std-doc">function arguments</span></a>, here is how we make
-an array that simulates a family of four children:</p>
+<p>From <a class="reference internal" href="boolean_arrays.html"><span class="doc std std-doc">boolean arrays</span></a>, here is how we make an array that
+simulates a family of four children, and count the number of girls.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get an array of 4 integers from 0 up to, but not including 2.</span>
-<span class="c1"># (Therefore, 4 integers that can be either 0 or 1).</span>
-<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">family</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 0, 1])
-</pre></div>
-</div>
-</div>
-</div>
-<p>We represented girls with a value of one. We can count the number of girls by using the <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> function on the <code class="docutils literal notranslate"><span class="pre">family</span></code> array:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an array of four random integers that are either 0 or 1.</span>
+<span class="c1"># 1 means a girl.</span>
+<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># Add up the integers to count the number of girls.</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
 <span class="n">count</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-f5d31ec11ced&gt;:3: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  family = np.random.random_integers(0, 1, size=4)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
@@ -770,40 +744,50 @@ an array that simulates a family of four children:</p>
 </div>
 </div>
 </div>
-<p>We can do this again in a single cell, like this:</p>
+<p>Here that is again, in a single cell:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our first simulated family</span>
-<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-05056951d3cb&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  family = np.random.random_integers(0, 1, size=4)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
-<p>To add another family, we just repeat the same, but storing the result as the <em>second</em> value in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
+<p>To add another family, we just repeat the same, but storing the result as the
+<em>second</em> value in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our second simulated family</span>
-<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-6-3537ed9fa87a&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  family = np.random.random_integers(0, 1, size=4)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 2., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
 </div>
 <p>Notice that the only thing that changed is that we stored the value at position (offset) 1 instead of position (offset) 0.</p>
-<p>Obviously this is getting a bit boring and repetitive. Surely we can do better.</p>
+<p>Obviously this is getting a bit boring and repetitive. Surely we can do
+better.</p>
 <p>Yes indeed, we can use a <em>for loop</em>.  We will see much more of for loops <a class="reference internal" href="../iteration/iteration.html"><span class="doc std std-doc">very
 soon</span></a>.  You will recognize nearly all the code below, from the single trials we did above.  The new thing is the <em>for</em> loop, that tells Python to repeat the indented steps 10000 times.</p>
 <div class="cell docutils container">
@@ -814,7 +798,7 @@ soon</span></a>.  You will recognize nearly all the code below, from the single 
 <span class="c1"># Repeat the indented stuff 10000 times.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># The procedure for one family.</span>
-    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
     <span class="c1"># Store the count at position i in the counts array.</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -824,7 +808,11 @@ soon</span></a>.  You will recognize nearly all the code below, from the single 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 2., 2., 3., 1., 2., 3., 1., 3., 1.])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-7-339ec4757907&gt;:7: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  family = np.random.random_integers(0, 1, size=4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 2., 1., 2., 1., 2., 2., 4., 1., 4.])
 </pre></div>
 </div>
 </div>
@@ -842,105 +830,26 @@ soon</span></a>.  You will recognize nearly all the code below, from the single 
 </div>
 </div>
 </div>
-<p>Our next problem is to find how many of these <code class="docutils literal notranslate"><span class="pre">counts</span></code> are equal to 3.</p>
-<p>Remember <span class="xref myst">comparison</span>?</p>
-<p>Imagine I have some value <code class="docutils literal notranslate"><span class="pre">count</span></code>, like this:</p>
+<p>We use <a class="reference internal" href="boolean_arrays.html"><span class="doc std std-doc">Boolean arrays</span></a> to make an array of 10000 elements, where each element is True if the corresponding element in <code class="docutils literal notranslate"><span class="pre">counts</span></code> was equal to 3, and False otherwise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">count</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p>I can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> comparison to test if <code class="docutils literal notranslate"><span class="pre">count</span></code> is equal to 3:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A comparison expression, asking whether &quot;count&quot; is equal to 3.</span>
-<span class="n">count</span> <span class="o">==</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>What do you think we will get if do the same test on all 10000 values in <code class="docutils literal notranslate"><span class="pre">counts</span></code>?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, ...,  True, False,  True])
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is a new 10000 element array of True and False values.  It is called a
-<span class="xref myst">Boolean array</span>.  We will see many more of these.</p>
-<p>Next we will use a Numpy function called <code class="docutils literal notranslate"><span class="pre">count_nonzero</span></code>.   It counts the
-number of values in an array that are not equivalent to 0.   It turns out that
-<code class="docutils literal notranslate"><span class="pre">False</span></code> is equivalent to 0, but <code class="docutils literal notranslate"><span class="pre">True</span></code> is not:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_booleans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">my_booleans</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<p>This means that <code class="docutils literal notranslate"><span class="pre">count_nonzero</span></code> returns the number of True values in a Boolean array.  Now we can count how many of the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array were equal to 3.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Boolean array, with True where counts equal to 3, False otherwise.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Boolean array</span>
 <span class="n">has_3_girls</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">==</span> <span class="mi">3</span>
-
-<span class="c1"># Number of counts values equal to 3.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">np.count_nonzero</span></code> counts the number of True values (and therefore, the number of <code class="docutils literal notranslate"><span class="pre">counts</span></code> equal to 3).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of counts values equal to 3.</span>
 <span class="n">n_3_girls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">has_3_girls</span><span class="p">)</span>
 <span class="n">n_3_girls</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2545
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2489
 </pre></div>
 </div>
 </div>
@@ -955,7 +864,7 @@ the number of trials:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2545
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2489
 </pre></div>
 </div>
 </div>
@@ -972,7 +881,7 @@ the number of trials:</p>
 <span class="c1"># Repeat the indented stuff 10000 times.</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># The procedure for one family.</span>
-    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">family</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">family</span><span class="p">)</span>
     <span class="c1"># Store the count at position i in the counts array.</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -989,7 +898,11 @@ the number of trials:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2469
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-12-262097e570da&gt;:7: DeprecationWarning: This function is deprecated. Please call randint(0, 1 + 1) instead
+  family = np.random.random_integers(0, 1, size=4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2594
 </pre></div>
 </div>
 </div>
@@ -1030,7 +943,7 @@ loops</span></a>.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="function_arguments.html" title="previous page">Function arguments</a>
+    <a class='left-prev' id="prev-link" href="boolean_arrays.html" title="previous page">Boolean arrays</a>
     <a class='right-next' id="next-link" href="../iteration/iteration.html" title="next page">Iteration</a>
 
     </div>
@@ -1050,10 +963,7 @@ loops</span></a>.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

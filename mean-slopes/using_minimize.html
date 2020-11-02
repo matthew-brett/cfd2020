@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Using minimize &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Inference on slopes" href="inference_on_slopes.html" />
     <link rel="prev" title="Finding lines" href="finding_lines.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -276,6 +256,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays/function_arguments.html">
    Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/boolean_arrays.html">
+   Boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
@@ -663,7 +648,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -709,7 +693,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -722,7 +705,7 @@
 <p>We have already used the <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function a few times:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 </pre></div>
 </div>
 </div>
@@ -731,11 +714,11 @@
 <p>Let’s go back to the problem from <a class="reference internal" href="finding_lines.html"><span class="doc std std-doc">finding lines</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports and configuration.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports and configuration.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># Make plots look a little bit more fancy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 </pre></div>
@@ -748,7 +731,7 @@
 Overall Quality ratings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the Excel format data file, get columns as arrays.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the Excel format data file, get columns as arrays.</span>
 <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
 <span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
 <span class="n">quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">])</span>
@@ -759,52 +742,16 @@ Overall Quality ratings.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">969</span><span class="n">f90ee0ba2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Read the Excel format data file, get columns as arrays.</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> 
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">304</span>         <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="k">elif</span> <span class="n">engine</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="n">io</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, io, engine)</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">823</span> 
-<span class="ne">--&gt; </span><span class="mi">824</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">825</span> 
-<span class="g g-Whitespace">    </span><span class="mi">826</span>     <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span><span class="s2">         err_msg = &quot;Install xlrd &gt;= 1.0.0 for Excel support&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">20</span><span class="s2">         import_optional_dependency(&quot;xlrd&quot;, extra=err_msg)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span><span class="s2">         super().__init__(filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="s2"> </span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/compat/_optional.py</span> in <span class="ni">import_optional_dependency</span><span class="nt">(name, extra, raise_on_missing, on_version)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="s2">     except ImportError:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span><span class="s2">         if raise_on_missing:</span>
-<span class="ne">---&gt; </span><span class="mi">92</span><span class="s2">             raise ImportError(msg) from None</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="s2">         else:</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="s2">             return None</span>
-
-<span class="ne">ImportError</span>: Missing optional dependency &#39;xlrd&#39;. Install xlrd &gt;= 1.0.0 for Excel support Use pip or conda to install xlrd.
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Overall quality&#39;)
 </pre></div>
 </div>
+<img alt="../_images/using_minimize_5_1.png" src="../_images/using_minimize_5_1.png" />
 </div>
 </div>
 <p>Here is the function we used to calculate sum of squared error, adapted for <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sos_error_for_minimize</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sos_error_for_minimize</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
     <span class="c1"># c_s has two elements, the intercept c and the slope s.</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">c_s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -818,8 +765,23 @@ Overall Quality ratings.</p>
 <p>We called <code class="docutils literal notranslate"><span class="pre">minimize</span></code> to find the best intercept and slope:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">sos_error_for_minimize</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">sos_error_for_minimize</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
 <span class="n">min_res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -830,8 +792,13 @@ Overall Quality ratings.</p>
 information about the result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value that comes back is a special thing to contain minimize results:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The value that comes back is a special thing to contain minimize results:</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">min_res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scipy.optimize.optimize.OptimizeResult
 </pre></div>
 </div>
 </div>
@@ -841,8 +808,13 @@ This value is the final minimal value of the function we are trying to minimize
 — here the sum of squared error given an intercept and slope:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The minimal value that `minimize` could find for our function.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The minimal value that `minimize` could find for our function.</span>
 <span class="n">min_res</span><span class="o">.</span><span class="n">fun</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0674471058041965
 </pre></div>
 </div>
 </div>
@@ -850,7 +822,12 @@ This value is the final minimal value of the function we are trying to minimize
 <p>We also have an array with the values for the intercept and slope that give the minimal value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -858,7 +835,12 @@ This value is the final minimal value of the function we are trying to minimize
 <p>We confirm that <code class="docutils literal notranslate"><span class="pre">min_res.fun</span></code> is indeed the value we get from our function given the intercept, slope array in <code class="docutils literal notranslate"><span class="pre">min_res.x</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error_for_minimize</span><span class="p">(</span><span class="n">min_res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error_for_minimize</span><span class="p">(</span><span class="n">min_res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0674471058041965
 </pre></div>
 </div>
 </div>
@@ -869,7 +851,12 @@ This value is the final minimal value of the function we are trying to minimize
 <p><code class="docutils literal notranslate"><span class="pre">sos_error_for_minimize</span></code> is a <em>function</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sos_error_for_minimize</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">sos_error_for_minimize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>function
 </pre></div>
 </div>
 </div>
@@ -883,7 +870,7 @@ sending?  How many times does it call the function?</p>
 each time it is called:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_func_for_info</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_func_for_info</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
     <span class="c1"># Print the argument that minimize sent.</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Called with&#39;</span><span class="p">,</span> <span class="n">c_s</span><span class="p">,</span> <span class="s1">&#39;of type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">c_s</span><span class="p">))</span>
     <span class="c1"># The rest of the function is the same as the original above.</span>
@@ -900,8 +887,40 @@ each time it is called:</p>
 <p>The we call <code class="docutils literal notranslate"><span class="pre">minimize</span></code> with the new objective function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_func_for_info</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_func_for_info</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
 <span class="n">min_res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Called with [2.25 0.47] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.25000001 0.47      ] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.25       0.47000001] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579402 -0.48655135] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579404 -0.48655135] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [ 1.92579402 -0.48655136] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898338 0.46700051] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898339 0.46700051] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.24898338 0.46700052] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510782 0.50564778] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510784 0.50564778] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.12510782 0.5056478 ] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480098 0.50886336] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480099 0.50886336] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+Called with [2.11480098 0.50886338] of type &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -935,7 +954,7 @@ array</em>, and the slope from the second.</p>
 <em>unpacking</em>.   Consider this array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -943,7 +962,7 @@ array</em>, and the slope from the second.</p>
 <p>We can <em>unpack</em> these two values into variables like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unpacking!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unpacking!</span>
 <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span>
 </pre></div>
 </div>
@@ -953,8 +972,14 @@ array</em>, and the slope from the second.</p>
 two variable names, separated by a comma.  Python take the two values from the right hand side, and puts them into the variables on the left:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c is&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c is&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s_is&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c is 2
+s_is 1
 </pre></div>
 </div>
 </div>
@@ -962,10 +987,16 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>The thing on the right hand side can be anything that is a sequence of two things.  For example, it can also be a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 <span class="n">my_var1</span><span class="p">,</span> <span class="n">my_var2</span> <span class="o">=</span> <span class="n">my_list</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my_var1 is&#39;</span><span class="p">,</span> <span class="n">my_var1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my_var2 is&#39;</span><span class="p">,</span> <span class="n">my_var2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_var1 is 6
+my_var2 is 7
 </pre></div>
 </div>
 </div>
@@ -973,7 +1004,7 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>There can be three or four or any other number of variables on the left, as long as there is a matching number of elements in the thing on the right:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
 <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">list2</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;w is&#39;</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -981,12 +1012,30 @@ two variable names, separated by a comma.  Python take the two values from the r
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>w is 10
+x is 100
+y is 10000
+</pre></div>
+</div>
+</div>
 </div>
 <p>The number of elements must match the number of variables:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error - three variables on the left, two elements on the right.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Error - three variables on the left, two elements on the right.</span>
 <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mf">5e8</span><span class="n">ef03e134f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Error - three variables on the left, two elements on the right.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="ne">ValueError</span>: not enough values to unpack (expected 3, got 2)
 </pre></div>
 </div>
 </div>
@@ -997,7 +1046,7 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>Unpacking has two good uses with <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.  The first is that we can make our function to minimize a little neater:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_with_unpacking</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_with_unpacking</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
     <span class="c1"># c_s has two elements, the intercept c and the slope s.</span>
     <span class="c1"># Use unpacking!</span>
     <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span>
@@ -1011,8 +1060,23 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>The second is, we can use unpacking to — er — unpack the best fit intercept and slope from the result of <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.  Remember, <code class="docutils literal notranslate"><span class="pre">minimize</span></code> returns a result value, that includes an array <code class="docutils literal notranslate"><span class="pre">x</span></code> with the parameters minimizing our function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m_r</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_unpacking</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_r</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_unpacking</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
 <span class="n">m_r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -1020,9 +1084,15 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>We can get the best-fit intercept and slope values by unpacking:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span> <span class="o">=</span> <span class="n">m_r</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span> <span class="o">=</span> <span class="n">m_r</span><span class="o">.</span><span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1148009756319426
+0.5088633634080739
 </pre></div>
 </div>
 </div>
@@ -1030,9 +1100,15 @@ two variable names, separated by a comma.  Python take the two values from the r
 <p>We often end up doing this all in one shot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_unpacking</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_unpacking</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span><span class="o">.</span><span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_c</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1148009756319426
+0.5088633634080739
 </pre></div>
 </div>
 </div>
@@ -1045,7 +1121,7 @@ is an argument we can pass to <code class="docutils literal notranslate"><span c
 arguments passed to the objective function”.  In fact, this is very useful to make our objective function more general.  First we try this silly use of <code class="docutils literal notranslate"><span class="pre">args</span></code> where we pass a couple of useless numbers to our objective function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_with_extra_numbers</span><span class="p">(</span><span class="n">c_s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_with_extra_numbers</span><span class="p">(</span><span class="n">c_s</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
     <span class="c1"># An objective function with some useless extra arguments.</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c_s&#39;</span><span class="p">,</span> <span class="n">c_s</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
     <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span>
@@ -1059,8 +1135,40 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 <p>Now we tell <code class="docutils literal notranslate"><span class="pre">minimize</span></code> to pass some value for <code class="docutils literal notranslate"><span class="pre">p</span></code> and <code class="docutils literal notranslate"><span class="pre">q</span></code> for each call to the objective function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># args has two values, one that becomes &quot;p&quot; and the other that becomes &quot;q&quot;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># args has two values, one that becomes &quot;p&quot; and the other that becomes &quot;q&quot;.</span>
 <span class="n">minimize</span><span class="p">(</span><span class="n">ss_with_extra_numbers</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c_s [2.25 0.47] p 99 q 101
+c_s [2.25000001 0.47      ] p 99 q 101
+c_s [2.25       0.47000001] p 99 q 101
+c_s [ 1.92579402 -0.48655135] p 99 q 101
+c_s [ 1.92579404 -0.48655135] p 99 q 101
+c_s [ 1.92579402 -0.48655136] p 99 q 101
+c_s [2.24898338 0.46700051] p 99 q 101
+c_s [2.24898339 0.46700051] p 99 q 101
+c_s [2.24898338 0.46700052] p 99 q 101
+c_s [2.12510782 0.50564778] p 99 q 101
+c_s [2.12510784 0.50564778] p 99 q 101
+c_s [2.12510782 0.5056478 ] p 99 q 101
+c_s [2.11480098 0.50886336] p 99 q 101
+c_s [2.11480099 0.50886336] p 99 q 101
+c_s [2.11480098 0.50886338] p 99 q 101
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
@@ -1070,14 +1178,14 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 <p>For example, we might want to find the best slope relating <code class="docutils literal notranslate"><span class="pre">easiness</span></code> to the ratings for “Clarity”.  We have to write a whole new function to do that, where we replace <code class="docutils literal notranslate"><span class="pre">quality</span></code> with <code class="docutils literal notranslate"><span class="pre">clarity</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clarity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_clarity</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_clarity</span><span class="p">(</span><span class="n">c_s</span><span class="p">):</span>
     <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span>
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">easiness</span> <span class="o">*</span> <span class="n">s</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">clarity</span> <span class="o">-</span> <span class="n">predicted</span>
@@ -1088,7 +1196,22 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_clarity</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_clarity</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.1958591481237595
+ hess_inv: array([[ 0.98777016, -0.30796917],
+       [-0.30796917,  0.09667177]])
+      jac: array([0.0000000e+00, 7.4505806e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([1.94388533, 0.55407123])
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1220,7 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 <p>Aha - we can use <code class="docutils literal notranslate"><span class="pre">args</span></code> to pass the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values for our function to work on:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_any_line</span><span class="p">(</span><span class="n">c_s</span><span class="p">,</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ss_any_line</span><span class="p">(</span><span class="n">c_s</span><span class="p">,</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">):</span>
     <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">c_s</span>
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">x_values</span> <span class="o">*</span> <span class="n">s</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">y_values</span> <span class="o">-</span> <span class="n">predicted</span>
@@ -1109,14 +1232,44 @@ arguments passed to the objective function”.  In fact, this is very useful to 
 <p>Now we can use the same objective function for any pair of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+ hess_inv: array([[ 0.9877698 , -0.30796906],
+       [-0.30796906,  0.09667173]])
+      jac: array([-1.49011612e-08, -1.49011612e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([2.11480098, 0.50886336])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">clarity</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">clarity</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.1958591481237595
+ hess_inv: array([[ 0.98777016, -0.30796917],
+       [-0.30796917,  0.09667177]])
+      jac: array([0.0000000e+00, 7.4505806e-08])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 3
+     njev: 5
+   status: 0
+  success: True
+        x: array([1.94388533, 0.55407123])
 </pre></div>
 </div>
 </div>
@@ -1173,10 +1326,7 @@ arguments passed to the objective function”.  In fact, this is very useful to 
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>

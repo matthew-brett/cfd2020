@@ -219,4 +219,4 @@ The methods of indexing above work just as well for [lists](../data-types/lists)
 
 There are other, particularly useful forms of indexing that only work for
 arrays.  We will cover these later - but the most important of these is the
-ability to [index arrays with Boolean arrays](../iteration/boolean_arrays).
+ability to [index arrays with Boolean arrays](../data-frames/boolean_arrays).

@@ -1,40 +1,20 @@
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Reply to the Supreme Court &#8212; Coding for Data - 2020 edition</title>
-    
-  <link rel="stylesheet" href="../_static/css/index.d431a4ee1c1efae0e38bdfebc22debff.css">
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.bfb7730f9caf2ec0b46a44615585038c.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.30270b6e4c972e43c488.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -43,10 +23,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -61,8 +41,8 @@
     <link rel="next" title="Boolean arrays" href="../data-frames/boolean_indexing.html" />
     <link rel="prev" title="Indentation, indentation, indentation" href="indentation.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
 <!-- Opengraph tags -->
@@ -276,6 +256,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays/function_arguments.html">
    Function arguments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/boolean_arrays.html">
+   Boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
@@ -663,7 +648,6 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
@@ -682,7 +666,6 @@
 </ul>
 
         </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -695,21 +678,21 @@
 <p><a class="reference internal" href="../code-basics/sampling_problem.html"><span class="doc std std-doc">Our task</span></a> has been to reply to the Supreme
 Court on their judgment in the appeal of Robert Swain.</p>
 <p>Remember, Robert Swain appealed his death sentence, on the basis that the jury
-selection was biased against black people.</p>
-<p>His trial jury of 12 people had no black members.</p>
-<p>The local population of eligible jurors was 26% black.</p>
+selection was biased against Black people.</p>
+<p>His trial jury of 12 people had no Black members.</p>
+<p>The local population of eligible jurors was 26% Black.</p>
 <p>If the jury had been representative, we would expect about 26 of 100 people to
-be black.  That’s around 1 in 4 (25%), so we would expect about one in four
-jurors to be black - so around 3 of 12.</p>
-<p>The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being black?</p>
+be Black.  That’s around 1 in 4 (25%), so we would expect about one in four
+jurors to be Black - so around 3 of 12.</p>
+<p>The Supreme Court was not convinced that there was evidence of systematic bias.  But, to start with the jurors - is it surprising that we expected around 3 Black jurors, but we got 0.  Is the value 0 surprising, if each juror has 26% chance of being Black?</p>
 <p>To answer this, we are going to go through a couple of steps.</p>
 <p>The first is to build an <em>ideal model</em> of the world, where it <em>is true</em> that
-each juror has a 26% of being black.  We sometimes call this our <em>ideal world</em>.
+each juror has a 26% of being Black.  We sometimes call this our <em>ideal world</em>.
 If you are used to statistical terms, this ideal model is our <em>null
 hypothesis</em>.</p>
 <p>Then we can <em>simulate</em> making many juries in this ideal world.</p>
 <p>Finally we ask whether our simulated juries, from the ideal world, often give
-us a count of zero black jurors.  If they don’t, then we can say that we are
+us a count of zero Black jurors.  If they don’t, then we can say that we are
 <em>surprised</em> by the value of 0, if the jury did arise from that real world.  If
 the value 0 is sufficiently unusual, we become suspicious that the real world
 is rather different from our ideal world.  We consider <em>rejecting</em> the ideal
@@ -718,12 +701,12 @@ world as a good model of the real world.</p>
 <h2>The ideal world<a class="headerlink" href="#the-ideal-world" title="Permalink to this headline">¶</a></h2>
 <p>Our <em>ideal model</em> (or null hypothesis) is a world where each juror has been
 truly randomly selected from the eligible population. That is, for any one
-juror, there is a 0.26 probability that they are black.</p>
+juror, there is a 0.26 probability that they are Black.</p>
 </div>
 <div class="section" id="simulations-with-the-ideal-model">
 <h2>Simulations with the ideal model<a class="headerlink" href="#simulations-with-the-ideal-model" title="Permalink to this headline">¶</a></h2>
 <p>To do a <em>simulation</em> with this ideal model, we will start by making one jury,
-of 12 people, where it is really true that each juror has a 26% of being black.
+of 12 people, where it is really true that each juror has a 26% of being Black.
 Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>.</p>
 <p>Then we simulate 10 juries of 12 people (do 10 trials), to get warmed up.</p>
 <p>Finally we make 10000 juries, each of 12 people, and see what we get.</p>
@@ -735,27 +718,31 @@ Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>
 </div>
 </div>
 </div>
-<p>Here is one jury, and the number of black people we get in our simulation.</p>
+<p>Here is one jury, and the number of Black people we get in our simulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 12 random integers from 0 through 99</span>
-<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="c1"># Say values &lt; 26 correspond to black jurors.</span>
-<span class="c1"># 26 of the numbers 0 through 99 are less than 26 (so 26% or p=0.26).</span>
-<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
-<span class="c1"># We now have True for black jurors and False otherwise.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make 12 random integers from 1 through 100</span>
+<span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Say values &lt; 27 correspond to Black jurors.</span>
+<span class="c1"># 26 of the numbers 1 through 100 are less than 27 (so 26% or p=0.26).</span>
+<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
+<span class="c1"># We now have True for Black jurors and False otherwise.</span>
 <span class="c1"># Count the number of Trues</span>
 <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-b55012746099&gt;:2: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
+  randoms = np.random.random_integers(1, 100, size=12)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
 </div>
-<p>That is one estimate, for the number of black people we can expect, if our
+<p>That is one estimate, for the number of Black people we can expect, if our
 model is correct.  Call this one <em>trial</em>. We can run that a few times to get a
 range of values.   If we run it only a few times, we might be unlucky, and get
 some results that are not representative.  It is safer to run it a huge number
@@ -774,8 +761,8 @@ of times, to make sure we’ve got an idea of the variation.</p>
 (count) in the <code class="docutils literal notranslate"><span class="pre">counts</span></code> array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
 <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
 <span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="n">counts</span>
@@ -783,7 +770,11 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([28.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-4-028d4bdb1177&gt;:1: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
+  randoms = np.random.random_integers(1, 100, size=100)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([27.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
@@ -797,8 +788,8 @@ of times, to make sure we’ve got an idea of the variation.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
     <span class="c1"># Store the result at position i</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -807,12 +798,16 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8., 5., 2., 1., 5., 3., 3., 1., 4., 4.])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-57daa6de8232&gt;:6: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
+  randoms = np.random.random_integers(1, 100, size=12)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5., 2., 4., 4., 3., 3., 6., 2., 5., 4.])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Each of these values is one estimate for how many black jurors we should
+<p>Each of these values is one estimate for how many Black jurors we should
 expect, if our model is right.  Already we get the feeling that 0 is rather
 unlikely, if our model is correct.  But - how unlikely?</p>
 <p>To get a better estimate, let us do the same thing, but with 10000 juries, and
@@ -824,8 +819,8 @@ therefore, 10000 estimates.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># This code is the same as the cell above, but indented,</span>
     <span class="c1"># so we run it all, for each time through the for loop.</span>
-    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">26</span>
+    <span class="n">randoms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">black_yn</span> <span class="o">=</span> <span class="n">randoms</span> <span class="o">&lt;</span> <span class="mi">27</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">black_yn</span><span class="p">)</span>
     <span class="c1"># Store the result at position i</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
@@ -834,7 +829,11 @@ therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 3., 2., ..., 3., 2., 6.])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-6-60bed21fd65a&gt;:6: DeprecationWarning: This function is deprecated. Please call randint(1, 100 + 1) instead
+  randoms = np.random.random_integers(1, 100, size=12)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 4., 5., ..., 5., 2., 5.])
 </pre></div>
 </div>
 </div>
@@ -880,15 +879,16 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 278., 1139., 2227., 2604., 1993., 1090.,  497.,  133.,   35.,
-           4.,    0.,    0.]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 261., 1171., 2244., 2570., 1981., 1130.,  459.,  136.,   43.,
+           5.,    0.,    0.]),
  array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
- &lt;BarContainer object of 12 artists&gt;)
+ &lt;a list of 12 Patch objects&gt;)
 </pre></div>
 </div>
 <img alt="../_images/reply_supreme_24_1.png" src="../_images/reply_supreme_24_1.png" />
 </div>
 </div>
+<p>The histogram above is called the <em>sampling distribution</em>.  The sampling distribution is the distribution of thing we are interested in (the number of Black jurors) given the ideal model, of completely random selection of jurors from a 26% Black population.</p>
 <p>It looks as if 0 is a relatively uncommon value among our simulations. How many
 times did we get a value of 0, in all our 10000 estimates?</p>
 <div class="cell docutils container">
@@ -900,7 +900,7 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>278
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>261
 </pre></div>
 </div>
 </div>
@@ -915,7 +915,7 @@ number of times we see 0 by the number trials we made:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
 </pre></div>
 </div>
 </div>
@@ -930,12 +930,12 @@ that the proportion of times we see that result is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
 </pre></div>
 </div>
 </div>
 </div>
-<p>In other words, our <em>estimate</em> of the <em>probability</em> of getting 0 black people
+<p>In other words, our <em>estimate</em> of the <em>probability</em> of getting 0 Black people
 in a jury of 12, is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -944,16 +944,16 @@ in a jury of 12, is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0278
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0261
 </pre></div>
 </div>
 </div>
 </div>
 <p>What can we conclude?  Only this: that in our ideal model world, where each
-juror has a 26% chance of being black, 0 is uncommon.  This surprising result,
+juror has a 26% chance of being Black, 0 is uncommon.  This surprising result,
 of 0, gives us some cause to wonder if our ideal model of the world is wrong.
 One way it could be wrong, is if there was bias in jury selection, so it was
-not true that each juror had a 26% of being black.</p>
+not true that each juror had a 26% of being Black.</p>
 </div>
 </div>
 
@@ -1005,10 +1005,7 @@ not true that each juror had a 26% of being black.</p>
       </div>
     </div>
 
-    
-  <script src="../_static/js/index.30270b6e4c972e43c488.js"></script>
-
-
+    <script src="../_static/js/index.js"></script>
     
   </body>
 </html>
