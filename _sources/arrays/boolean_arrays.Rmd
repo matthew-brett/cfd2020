@@ -39,6 +39,10 @@ version, like this:
 # Make an array of four random integers that are either 0 or 1.
 # 1 means a girl.
 family = np.random.randint(0, 2, size=4)
+family
+```
+
+```{python}
 # Add up the integers to count the number of girls.
 count = np.sum(family)
 count
@@ -109,7 +113,7 @@ corresponding element.  The code above is equivalent to doing:
 
 ```{python}
 # Make an array of Boolean type (the "dtype" argument)
-are_three_longhand = np.zeros(12, dtype=bool)
+are_three_longhand = np.zeros(5, dtype=bool)
 # Do the comparisons one by one.
 are_three_longhand[0] = counts[0] == 3
 are_three_longhand[1] = counts[1] == 3
