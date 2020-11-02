@@ -78,6 +78,7 @@ counts[3] = np.sum(family)
 family = np.random.randint(0, 2, size=4)
 counts[4] = np.sum(family)
 # Show the counts
+counts
 ```
 
 Each value in `counts` is the number of girls in one simulated family.
