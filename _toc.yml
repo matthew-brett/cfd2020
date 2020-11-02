@@ -50,6 +50,7 @@
 - part: Arrays
   chapters:
   - file: arrays/Arrays
+  # Page above covers multi-line statements.
   - file: arrays/Ranges
   # arrays exercise
   - file: arrays/More_on_Arrays
@@ -57,6 +58,7 @@
   # More_arrays exercise - this has held-back tests.
   - file: arrays/filling_arrays
   - file: arrays/function_arguments
+  - file: arrays/boolean_arrays
   - file: arrays/leaping_ahead
 
 - part: Iteration
@@ -64,7 +66,6 @@
   - file: iteration/iteration
   - file: iteration/indentation
   # fix my fors exercise.
-  - file: iteration/boolean_arrays
   - file: iteration/reply_supreme
 
 - part: Data frames
