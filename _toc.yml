@@ -64,11 +64,13 @@
   - file: arrays/leaping_ahead
 
 - part: Iteration
+  # and inference.
   chapters:
   - file: iteration/iteration
   - file: iteration/indentation
   # fix my fors exercise.
   - file: iteration/reply_supreme
+  - file: iteration/inference
 
 - part: Data frames
   chapters:
