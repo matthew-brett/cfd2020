@@ -22,7 +22,7 @@ jupyter:
     version: 3.6.5
 ---
 
-# Boolean arrays
+# Indexing with Boolean arrays
 
 ## Select values with Boolean arrays
 
