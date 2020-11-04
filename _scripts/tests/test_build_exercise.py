@@ -14,9 +14,9 @@ THREE_GIRLS = op.join(DATA_DIR, 'three_girls')
 
 
 from tempfile import TemporaryDirectory
-from build_exercise import (process_nb, pack_exercise,
-                            HTML_COMMENT_RE,
-                            clear_md_comments)
+
+from cutils import (process_nb, HTML_COMMENT_RE, clear_md_comments)
+from build_exercise import pack_exercise
 
 
 def test_smoke():

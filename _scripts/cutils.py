@@ -4,10 +4,16 @@
 import os
 import os.path as op
 from glob import iglob
+import shutil
+import re
 import urllib.parse
 from contextlib import contextmanager
 
 import yaml
+
+import nbformat
+import jupytext
+from nbconvert.preprocessors import ExecutePreprocessor
 
 
 @contextmanager
@@ -95,3 +101,66 @@ def build_url(fn, site_dict):
         f'{s_d["git_root"]}/{s_d["org_name"]}/{repo}')
     hub_suffix = 'hub/user-redirect/git-pull?repo='
     return f'{site_dict["jh_root"]}/{hub_suffix}{repo_url}&subPath={nb_basen}'
+
+
+def execute_nb(nb, path, nbargs=None):
+    nbargs = {} if nbargs is None else nbargs
+    ep = ExecutePreprocessor(**nbargs)
+    ep.preprocess(nb, {'metadata': {'path': path}})
+    return nb
+
+
+def clear_outputs(nb):
+    for cell in nb['cells']:
+        if cell['cell_type'] == 'code':
+            cell['outputs'] = []
+    return nb
+
+
+def path_of(fname):
+    return op.split(op.abspath(fname))[0]
+
+
+def clear_directory(fname):
+    path = path_of(fname)
+    for basename in ('.ok_storage',):
+        pth = op.join(path, basename)
+        if op.exists(pth):
+            os.unlink(pth)
+    pycache = op.join(path, 'tests', '__pycache__')
+    if op.isdir(pycache):
+        shutil.rmtree(pycache)
+
+
+def ipynb_fname(fname):
+    froot, ext = op.splitext(fname)
+    return froot + '.ipynb'
+
+
+HTML_COMMENT_RE = re.compile(r'<!--(.*?)-->', re.M | re.DOTALL)
+
+
+def clear_md_comments(nb):
+    """ Strip HTML comments using regexp
+    """
+    for cell in nb['cells']:
+        if cell['cell_type'] != 'markdown':
+            continue
+        cell['source'] = HTML_COMMENT_RE.sub('', cell['source'])
+    return nb
+
+
+def write_nb(nb, fname):
+    with open(fname, 'w', encoding='utf-8') as f:
+        nbformat.write(nb, f)
+
+
+
+def process_nb(fname, execute=False):
+    clear_directory(fname)
+    nb = jupytext.read(fname)
+    if execute:
+        nb = execute_nb(nb, path_of(fname))
+    nb = clear_outputs(nb)
+    nb = clear_md_comments(nb)
+    write_nb(nb, ipynb_fname(fname))

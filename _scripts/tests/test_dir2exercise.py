@@ -12,8 +12,8 @@ THREE_GIRLS = op.join(DATA_DIR, 'three_girls')
 
 
 from tempfile import TemporaryDirectory
-from dir2exercise import (find_site_config, get_site_dict, process_dir,
-                          write_dir)
+from cutils import find_site_config, get_site_dict
+from dir2exercise import (process_dir, write_dir)
 
 import pytest
 
