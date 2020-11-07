@@ -20,12 +20,11 @@ HERE = op.dirname(op.realpath(__file__))
 SITE_ROOT = op.realpath(op.join(HERE, '..'))
 sys.path.append(HERE)
 
-import build_exercise as b_e
-from cutils import cd, proc_config, build_url
+from cutils import cd, proc_config, build_url, good_fname, process_write_nb
 import grade_oknb as gok
 
 
-TEMPLATE_RE = re.compile('_template\.Rmd$')
+TEMPLATE_RE = re.compile(r'_template\.Rmd$')
 
 
 def process_dir(path, grade=False, site_dict=None):
@@ -43,7 +42,7 @@ def process_dir(path, grade=False, site_dict=None):
     write_utf8(exercise_fname, make_exercise(template))
     solution_fname = TEMPLATE_RE.sub('_solution.Rmd', template_fname)
     write_utf8(solution_fname, make_solution(template))
-    b_e.process_nb(exercise_fname, execute=False)
+    process_write_nb(exercise_fname, execute=False)
     if grade:
         grades = gok.grade_nb_fname(solution_fname, path)
         gok.print_grades(grades)
@@ -73,8 +72,8 @@ def write_dir(path, out_path, clean=True):
         os.makedirs(out_path)
     for dirpath, dirnames, filenames in os.walk(path):
         sub_dir = op.relpath(dirpath, path)
-        dirnames[:] = [d for d in dirnames if b_e.good_fname(d)]
-        filenames[:] = [f for f in filenames if b_e.good_fname(f)]
+        dirnames[:] = [d for d in dirnames if good_fname(d)]
+        filenames[:] = [f for f in filenames if good_fname(f)]
         if len(filenames) == 0:
             continue
         this_out_path = op.join(out_path, sub_dir)

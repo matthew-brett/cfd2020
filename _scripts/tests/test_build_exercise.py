@@ -15,7 +15,7 @@ THREE_GIRLS = op.join(DATA_DIR, 'three_girls')
 
 from tempfile import TemporaryDirectory
 
-from cutils import (process_nb, HTML_COMMENT_RE, clear_md_comments)
+from cutils import (process_write_nb, HTML_COMMENT_RE, clear_md_comments)
 from build_exercise import pack_exercise
 
 
@@ -28,7 +28,7 @@ def test_smoke():
         tmp_nb_out = op.join(tmp_3g, base_nb_root + '.ipynb')
         assert op.isfile(tmp_nb_in)
         assert not op.isfile(tmp_nb_out)
-        process_nb(tmp_nb_in)
+        process_write_nb(tmp_nb_in)
         assert op.isfile(tmp_nb_out)
         pack_exercise(tmp_nb_in, tmpdir)
         zip_fname = op.join(tmpdir, 'three_girls.zip')

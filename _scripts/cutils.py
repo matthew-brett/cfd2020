@@ -132,6 +132,28 @@ def clear_directory(fname):
         shutil.rmtree(pycache)
 
 
+def good_fname(fname):
+    fn = op.basename(fname)
+    froot, ext = op.splitext(fn)
+    if froot.startswith('.'):
+        return False
+    if ext in ('.Rmd', '.pyc'):
+        return False
+    if froot.startswith('test_'):
+        return False
+    if froot.startswith('notes'):
+        return False
+    if froot.endswith('solution'):
+        return False
+    if froot.endswith('template'):
+        return False
+    if fn in ('__pycache__',
+              'tests-extended',
+              'Makefile'):
+        return False
+    return True
+
+
 def ipynb_fname(fname):
     froot, ext = op.splitext(fname)
     return froot + '.ipynb'
@@ -155,12 +177,14 @@ def write_nb(nb, fname):
         nbformat.write(nb, f)
 
 
-
 def process_nb(fname, execute=False):
-    clear_directory(fname)
     nb = jupytext.read(fname)
     if execute:
         nb = execute_nb(nb, path_of(fname))
     nb = clear_outputs(nb)
-    nb = clear_md_comments(nb)
-    write_nb(nb, ipynb_fname(fname))
+    return clear_md_comments(nb)
+
+
+def process_write_nb(fname, execute=False):
+    clear_directory(fname)
+    write_nb(process_nb(fname, execute), ipynb_fname(fname))

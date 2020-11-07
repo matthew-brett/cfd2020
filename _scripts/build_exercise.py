@@ -14,29 +14,7 @@ HERE = op.dirname(op.realpath(__file__))
 SITE_ROOT = op.realpath(op.join(HERE, '..'))
 sys.path.append(HERE)
 
-from cutils import process_nb, path_of
-
-
-def good_fname(fname):
-    fn = op.basename(fname)
-    froot, ext = op.splitext(fn)
-    if froot.startswith('.'):
-        return False
-    if ext in ('.Rmd', '.pyc'):
-        return False
-    if froot.startswith('test_'):
-        return False
-    if froot.startswith('notes'):
-        return False
-    if froot.endswith('solution'):
-        return False
-    if froot.endswith('template'):
-        return False
-    if fn in ('__pycache__',
-              'tests-extended',
-              'Makefile'):
-        return False
-    return True
+from cutils import process_write_nb, path_of, good_fname
 
 
 def pack_exercise(fname, out_path=None):
@@ -67,7 +45,7 @@ def get_parser():
 def main():
     args = get_parser().parse_args()
     for fname in args.notebook:
-        process_nb(fname, execute=args.execute)
+        process_write_nb(fname, execute=args.execute)
         pack_exercise(fname, args.out_path)
 
 
