@@ -55,6 +55,7 @@
   # arrays exercise
   - file: arrays/More_on_Arrays
   - file: arrays/array_indexing
+  # array_indexing exercise
   # More_arrays exercise - this has held-back tests.
   - file: arrays/filling_arrays
   - file: arrays/function_arguments
@@ -71,10 +72,16 @@
   # fix my fors exercise.
   - file: iteration/reply_supreme
   - file: iteration/inference
+  # simulation exercise
+  # money_death
+  # three_girls
+
+# Need some introduction to plotting here.
 
 - part: Data frames
   chapters:
   - file: data-frames/boolean_indexing
+  # boolean_arrays exercise.
   - file: data-frames/data_frames
   - file: data-frames/data_frame_intro
   - file: data-frames/df_series_arrays
