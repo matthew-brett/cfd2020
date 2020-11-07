@@ -158,15 +158,10 @@ scores greater than 3:
 disciplines[greater_than_3]
 ```
 
-Just to confirm that these are the disciplines with "Easiness" ratings greater
-than 3, here are the first six rows of the table.  These are the rows
-corresponding to numbers in the arrays.
+See the picture below for an illustration of how this works:
 
-```{python}
-# We haven't covered '.head' or data tables yet.  This code shows the first 6
-# rows of the data table.
-big_courses.head(6)
-```
+![](../images/easiness_reused.png)
+
 
 ## Setting values with Boolean arrays
 
