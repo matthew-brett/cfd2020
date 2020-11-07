@@ -24,6 +24,21 @@ jupyter:
 
 # Indexing with Boolean arrays
 
+As usual with arrays, we need the Numpy library:
+
+```{python}
+import numpy as np
+```
+
+Just for neatness below, we will only show numbers in arrays to 2 decimal
+places.  This doesn't affect any calculations, it just changes what we see when
+we show arrays in Jupyter:
+
+```{python}
+# Set how many decimal places to display when showing arrays.
+np.set_printoptions(precision=2)
+```
+
 ## Select values with Boolean arrays
 
 Here we are using Boolean arrays to *index* into other arrays.  You will see what we mean by that by the end of this section.
@@ -37,9 +52,11 @@ a Boolean array between the square brackets.
 It can be easier to understand this by example than by description.
 
 
-Remember [the RateMyProfessors dataset](../data/rate_my_professors).
+We start with the [RateMyProfessors dataset](../data/rate_my_professors).
 
-It it a table where the rows are academic disciplines, and the columns contain the average student rating values for the corresponding discipline.
+It is a table where the rows are academic disciplines, and the columns contain
+the average student rating values for the corresponding discipline.  We are
+going to fetch the columns from this table as arrays.
 
 If you are running on your laptop, you should download the
 {download}`rate_my_course.csv <../data/rate_my_course.csv>` file to the same
@@ -49,8 +66,8 @@ directory as this notebook.
 # We have not covered this code yet.  We will soon.
 # Load the library for reading data files.
 import pandas as pd
-# Read the file, select the first 10 values.
-big_courses = pd.read_csv('rate_my_course.csv').head(10)
+# Read the file, select the first 6 values.
+big_courses = pd.read_csv('rate_my_course.csv').head(6)
 # Put the columns into arrays
 disciplines = big_courses['Discipline'].values
 easiness = big_courses['Easiness'].values
@@ -69,7 +86,8 @@ Here are the "Overall Quality" scores for the ten largest courses:
 quality
 ```
 
-These are the quality ratings corresponding to the `disciplines` we saw earlier.  The top (largest) discipline is:
+These are the quality ratings corresponding to the `disciplines` we saw
+earlier.  The top (largest) discipline is:
 
 ```{python}
 disciplines[0]
@@ -103,39 +121,51 @@ np.count_nonzero(greater_than_3)
 ```
 
 Now let us say that we wanted to get the elements from `easiness`
-that are greater than 4.   That is, we want to get the elements
-in `easiness` for which the corresponding element in
-`greater_than_3` is `True`.
+that are greater than 3.   That is, we want to get the elements in `easiness`
+for which the corresponding element in `greater_than_3` is `True`.
 
-We can do this with *Boolean array indexing*.  The Boolean array goes between the square brackets, like this:
+We can do this with *Boolean array indexing*.  The Boolean array goes between
+the square brackets, after the array name.  As a reminder:
 
 ```{python}
+# The easiness array
 easiness
 ```
 
 ```{python}
+# The greater_than_3 Boolean array
 greater_than_3
 ```
 
+We put the Boolean array between square brackets, after the array we want to get values from, like this:
+
 ```{python}
+# Boolean indexing into the easiness array.
 easiness[greater_than_3]
 ```
 
 We have selected the numbers in `easiness` that are greater than 3.
 
+See the picture below for an illustration of what is happening:
 
-We can use this same Boolean array to index into another array.  For example, here we show the discipline *names* corresponding to the courses with Easiness scores greater than 3:
+![](../images/easiness_values.png)
+
+We can use this same Boolean array to index into another array.  For example,
+here we show the discipline *names* corresponding to the courses with Easiness
+scores greater than 3:
 
 ```{python}
 disciplines[greater_than_3]
 ```
 
-Just to confirm that these are the disciplines with "Easiness" ratings greater than 4, here are the first ten rows of the table.  These are the rows corresponding to numbers in the arrays.
+Just to confirm that these are the disciplines with "Easiness" ratings greater
+than 3, here are the first six rows of the table.  These are the rows
+corresponding to numbers in the arrays.
 
 ```{python}
-# We haven't covered '.head' yet.  This code shows the first 10 rows of
-# the data table.
-big_courses.head(10)
+# We haven't covered '.head' or data tables yet.  This code shows the first 6
+# rows of the data table.
+big_courses.head(6)
 ```
 
 ## Setting values with Boolean arrays
