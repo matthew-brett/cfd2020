@@ -6,29 +6,26 @@ import os
 import os.path as op
 import sys
 from argparse import ArgumentParser
-from glob import glob
-from zipfile import ZipFile
+from shutil import make_archive
 
+from rnbgrader.tmpdirs import in_dtemp
 
 HERE = op.dirname(op.realpath(__file__))
 SITE_ROOT = op.realpath(op.join(HERE, '..'))
 sys.path.append(HERE)
 
-from cutils import process_write_nb, path_of, good_fname
+from cutils import process_write_nb, path_of, write_dir
 
 
 def pack_exercise(fname, out_path=None):
-    path = path_of(fname)
-    below_path, sdir_name = op.split(path)
     if out_path is None:
         out_path = os.getcwd()
-    zip_fname = op.join(out_path, sdir_name + '.zip')
-    listing = glob(op.join(path, '**'), recursive=True)
-    files = [f for f in listing if good_fname(f)]
-    with ZipFile(zip_fname, 'w') as zip_obj:
-        for fn in files:
-            arcname = op.relpath(fn, below_path)
-            zip_obj.write(fn, arcname)
+    in_path = path_of(fname)
+    below_path, sdir_name = op.split(in_path)
+    zip_froot = op.join(out_path, sdir_name)
+    with in_dtemp():
+        write_dir(in_path, sdir_name)
+        make_archive(zip_froot, 'zip')
 
 
 def get_parser():

@@ -3,17 +3,32 @@
 
 import os
 import os.path as op
+import sys
 from glob import iglob
 import shutil
 import re
 import urllib.parse
 from contextlib import contextmanager
+from tempfile import mkdtemp
 
 import yaml
 
 import nbformat
 import jupytext
 from nbconvert.preprocessors import ExecutePreprocessor
+from jinja2 import Template
+
+from rmdex.exerciser import (make_exercise, make_solution, write_utf8,
+                             read_utf8)
+
+HERE = op.dirname(op.realpath(__file__))
+SITE_ROOT = op.realpath(op.join(HERE, '..'))
+sys.path.append(HERE)
+
+import grade_oknb as gok
+
+
+TEMPLATE_RE = re.compile(r'_template\.Rmd$')
 
 
 @contextmanager
@@ -188,3 +203,59 @@ def process_nb(fname, execute=False):
 def process_write_nb(fname, execute=False):
     clear_directory(fname)
     write_nb(process_nb(fname, execute), ipynb_fname(fname))
+
+
+def process_dir(path, grade=False, site_dict=None):
+    site_dict = {} if site_dict is None else site_dict
+    templates = [fn for fn in os.listdir(path) if TEMPLATE_RE.search(fn)]
+    if len(templates) == 0:
+        raise RuntimeError('No _template.Rmd in directory')
+    if len(templates) > 1:
+        raise RuntimeError('More than one _template.Rmd in directory')
+    template_fname = op.join(path, templates[0])
+    template = read_utf8(template_fname)
+    if site_dict:
+        template = Template(template).render(site=site_dict)
+    exercise_fname = TEMPLATE_RE.sub('.Rmd', template_fname)
+    write_utf8(exercise_fname, make_exercise(template))
+    solution_fname = TEMPLATE_RE.sub('_solution.Rmd', template_fname)
+    write_utf8(solution_fname, make_solution(template))
+    process_write_nb(exercise_fname, execute=False)
+    if grade:
+        grades = gok.grade_nb_fname(solution_fname, path)
+        gok.print_grades(grades)
+        if not all(grades.values()):
+            raise RuntimeError('One or more grades 0')
+
+
+def clean_path(path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            os.remove(op.join(root, file))
+        for d in dirs:
+            if d != '.git':
+                shutil.rmtree(op.join(root, d))
+        break
+
+
+def write_dir(path, out_path, clean=True):
+    """ Copy exercise files from `path` to directory `out_path`
+
+    `clean`, if True, will clean all files from the eventual output directory
+    before copying.
+    """
+    if op.isdir(out_path) and clean:
+        clean_path(out_path)
+    else:
+        os.makedirs(out_path)
+    for dirpath, dirnames, filenames in os.walk(path):
+        sub_dir = op.relpath(dirpath, path)
+        dirnames[:] = [d for d in dirnames if good_fname(d)]
+        filenames[:] = [f for f in filenames if good_fname(f)]
+        if len(filenames) == 0:
+            continue
+        this_out_path = op.join(out_path, sub_dir)
+        if not op.isdir(this_out_path):
+            os.makedirs(this_out_path)
+        for f in filenames:
+            shutil.copy(op.join(dirpath, f), this_out_path)
