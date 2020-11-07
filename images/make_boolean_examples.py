@@ -14,14 +14,16 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import (SimpleDocTemplate, Table, TableStyle,
                                 Paragraph)
 
-course_fname = op.join('..', 'data', 'rate_my_course.csv')
+HERE = op.dirname(__file__)
+
+course_fname = op.join(HERE, '..', 'data', 'rate_my_course.csv')
 big_courses = pd.read_csv(course_fname).head(6)
 # Put the columns into arrays
 disciplines = big_courses['Discipline'].values
 easiness = big_courses['Easiness'].values
 quality = big_courses['Overall Quality'].values
 
-pdf_fname = "easiness_values.pdf"
+pdf_fname = op.join(HERE, "easiness_values.pdf")
 doc = SimpleDocTemplate(pdf_fname, pagesize=letter)
 
 col_widths = 34
@@ -91,7 +93,7 @@ def write_png(pdf_fname):
 
 write_png(pdf_fname)
 
-other_array = "easiness_reused.pdf"
+other_array = op.join(HERE, "easiness_reused.pdf")
 o_doc = SimpleDocTemplate(other_array, pagesize=letter)
 
 col_widths = 70
