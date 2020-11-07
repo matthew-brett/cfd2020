@@ -25,6 +25,48 @@ TEMPLATE_OK = '''
 }}
 '''
 
+TEMPLATE_TEMPLATE = """\
+---
+jupyter:
+  jupytext:
+    notebook_metadata_filter: all,-language_info
+    split_at_heading: true
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.1'
+      jupytext_version: 1.2.4
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+# {name}
+
+```{{python}}
+# Don't change this cell; just run it.
+import numpy as np  # The array library.
+
+# The OKpy testing system.
+from client.api.notebook import Notebook
+ok = Notebook('{name}.ok')
+```
+
+## Done.
+
+Congratulations, you're done with the assignment!  Be sure to:
+
+- **run all the tests** (the next cell has a shortcut for that).
+- **Save and Checkpoint** from the `File` menu.
+
+```{{python}}
+# For your convenience, you can run this cell to run all the tests at once!
+import os
+_ = [ok.grade(q[:-3]) for q in os.listdir("tests") if q.startswith('q')]
+```
+"""
+
 
 def check_out_dir(out_dir, clobber=False):
     if op.exists(out_dir):
@@ -49,6 +91,8 @@ def write_dir(out_dir):
         for ext in ('Rmd', 'ipynb'):
             fobj.write(f'{name}.{ext}\n')
             fobj.write(f'{name}_solution.{ext}\n')
+    with open(op.join(out_dir, f'{name}_template.Rmd'), 'wt') as fobj:
+        fobj.write(TEMPLATE_TEMPLATE.format(**locals()))
 
 
 def main():
