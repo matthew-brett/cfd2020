@@ -21,8 +21,7 @@ disciplines = big_courses['Discipline'].values
 easiness = big_courses['Easiness'].values
 quality = big_courses['Overall Quality'].values
 
-out_froot = "easiness_values"
-pdf_fname = out_froot + '.pdf'
+pdf_fname = "easiness_values.pdf"
 doc = SimpleDocTemplate(pdf_fname, pagesize=letter)
 
 col_widths = 34
@@ -69,20 +68,66 @@ def dp(text, table):
 doc.build(sum([
     dp('<b>easiness</b>:', t1),
     dp('<b>greater_than_3</b>:', t2),
-    dp('<b>greater_than_3</b> with white for True, gray for False', t3),
+    dp('<b>greater_than_3</b> displayed as white for True, gray for False',
+       t3),
     dp('<b>easiness</b> overlaid with <b>greater_than_3</b>:', t4),
     dp('<b>easiness[greater_than_3]</b>:', t5),
 ], []))
 
-# From some TeX distribution.
-check_call(['pdfcrop', pdf_fname,
-            '--margins', '10 10 10 10',
-            pdf_fname])
 
-# ImageMagick
-check_call(['convert', '-strip',
-            '-density', '300',
-            pdf_fname,
-            out_froot + '.png'])
+def write_png(pdf_fname):
+    # From some TeX distribution.
+    check_call(['pdfcrop', pdf_fname,
+                '--margins', '10 10 10 10',
+                pdf_fname])
 
-os.unlink(pdf_fname)
+    # ImageMagick
+    png_fname = op.splitext(pdf_fname)[0] + '.png'
+    check_call(['convert', '-strip',
+                '-density', '300',
+                pdf_fname,
+                png_fname])
+    os.unlink(pdf_fname)
+
+write_png(pdf_fname)
+
+other_array = "easiness_reused.pdf"
+o_doc = SimpleDocTemplate(other_array, pagesize=letter)
+
+col_widths = 70
+o_t1 = Table([list(disciplines)],
+           colWidths=col_widths)
+o_t1.setStyle(TableStyle(grid_stuff))
+
+o_t1a = Table([easy_list],
+              colWidths=col_widths)
+o_t1a.setStyle(TableStyle(grid_stuff))
+
+o_t2 = Table([list(greater_than_3)],
+             colWidths=col_widths)
+o_t2.setStyle(TableStyle(grid_stuff))
+
+o_t3 = Table([[''] * len(greater_than_3)],
+             colWidths=col_widths)
+o_t3.setStyle(TableStyle(grid_stuff + backgrounds))
+
+o_t4 = Table([list(disciplines)],
+             colWidths=col_widths)
+o_t4.setStyle(TableStyle(grid_stuff + backgrounds))
+
+o_t5 = Table([list(disciplines[greater_than_3])],
+             colWidths=col_widths)
+o_t5.setStyle(TableStyle(grid_stuff))
+
+# write the document to disk
+o_doc.build(sum([
+    dp('<b>disciplines</b>:', o_t1),
+    dp('<b>easiness</b>:', o_t1a),
+    dp('<b>greater_than_3</b>:', o_t2),
+    dp('<b>greater_than_3</b> displayed as white for True, gray for False',
+       o_t3),
+    dp('<b>disciplines</b> overlaid with <b>greater_than_3</b>:', o_t4),
+    dp('<b>disciplines[greater_than_3]</b>:', o_t5),
+], []))
+
+write_png(other_array)
