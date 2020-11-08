@@ -136,7 +136,24 @@ see, when taking random *samples* from the same underlying population.
 
 Our question now is, is the difference we actually saw, a likely value, given the sampling distribution.
 
-Looking at the distribution above - what do you think?
+Looking at the distribution above - what do you think? 
+
+Now look at the graph below. The actual difference between the ages of the two groups is shown as a red dot. Does it look like there were many differences that large in our simulation? 
+
+```{python}
+# plotting the example differences, from the simulation
+plt.figure(figsize = (9,4))
+plt.hist(example_diffs, label = 'Differences obtained in the simulation')
+# plotting the actual difference, as a red dot
+plt.plot(actual_diff, 20, 'o', color = 'red', markersize = 10, label = 'Actual Difference')
+# adding some labels to the plot
+font_size = {'size':'12'}
+plt.xlabel('Difference between the mean ages of the groups', **font_size)
+plt.ylabel('No. of times obtained in the simulation', **font_size)
+plt.legend(fontsize = 10, loc = 'upper right')
+# displaying the plot
+plt.show()
+```
 
 As a first pass, let us check how many of the values from the sampling
 distribution are as large, or larger than the value we actually saw.
