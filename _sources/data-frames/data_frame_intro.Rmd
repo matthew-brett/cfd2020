@@ -26,6 +26,9 @@ frames.
 ```{python}
 # Load the Pandas data science library, call it 'pd'
 import pandas as pd
+# Turn on a setting to use Pandas more safely.
+# We will discuss this setting later.
+pd.set_option('mode.chained_assignment', 'raise')
 ```
 
 We will also use the usual Numpy array library:
@@ -342,9 +345,8 @@ gdp_per_million = rich_gdp / rich_population
 gdp_per_million
 ```
 
-Notice that the result is *elementwise* division, that is Python divides
-each element in `rich_gdp` by the *corresponding* element in
-`rich_population`.
+Notice that the result is *elementwise* division.  Python divides each element
+in `rich_gdp` by the *corresponding* element in `rich_population`.
 
 
 Remember that India is the first country in the `rich_by_descending_mmr`
