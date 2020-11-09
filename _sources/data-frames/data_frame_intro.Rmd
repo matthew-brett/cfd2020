@@ -24,7 +24,7 @@ implements data frames, and functions that operate on data
 frames.
 
 ```{python}
-# Load the Pands data science library, call it 'pd'
+# Load the Pandas data science library, call it 'pd'
 import pandas as pd
 ```
 
@@ -65,12 +65,30 @@ columns.
 gender_data
 ```
 
-The data frame has rows and columns.  Like other Python objects, it has *attributes*.  These are pieces of data associated with the data frame.  You have already seen *methods*, which are functions associated with the data frame.  You can access attributes in the same way as you access methods, by typing the variable name, followed by a dot `.`, followed by the attribute name.
+Notice the `NaN` at the top of the GDP column.  This is a *missing value*.  We
+will come to these in [missing values](missing_values).
+
+For the moment, we will do something quick and dirty, which is to drop all the
+missing values from the data frame.   *Be careful* - this is rarely the right
+thing to do, without a lot of investigation as to why the values are missing.
+
+```{python}
+# Drop all missing values.  Be careful, this is rarely the right thing to do.
+gender_data_no_na = gender_data.dropna()
+gender_data_no_na
+```
+
+The data frame has rows and columns.  Like other Python objects, it has
+*attributes*.  These are pieces of data associated with the data frame.  You
+have already seen *methods*, which are functions associated with the data
+frame.  You can access attributes in the same way as you access methods, by
+typing the variable name, followed by a dot `.`, followed by the attribute
+name.
 
 For example, one attribute of the data frame, is the `shape`:
 
 ```{python}
-gender_data.shape
+gender_data_no_na.shape
 ```
 
 Another attribute is `columns`.  This has the column names. For
@@ -78,29 +96,30 @@ example, here is a good way of quickly seeing the column names
 for a data frame:
 
 ```{python}
-gender_data.columns
+gender_data_no_na.columns
 ```
 
 You need more information about what these column names refer to.  Here are the longer descriptions from the original data source (link above):
 
 * `fert_rate`: Fertility rate, total (births per woman).
 * `gdp_us_billion`: GDP (in current US \$ billions).
-* `health_exp_per_cap`: Health expenditure per capita, PPP (constant 2011 international \$).
+* `health_exp_per_cap`: Health expenditure per capita, PPP (constant 2011
+  international \$).
 * `health_exp_pub`: Health expenditure, public (% of GDP).
 * `prim_ed_girls`: Primary education, pupils (% female).
-* `mat_mort_ratio`: Maternal mortality ratio (modeled estimate, per 100,000 live births).
+* `mat_mort_ratio`: Maternal mortality ratio (modeled estimate, per 100,000
+  live births).
 * `population`: Population, total.
 
-You have just seen array slicing (in [Selecting with
-arrays](../arrays/array_indexing).  You remember that array slicing
-uses square brackets.   Data frames also allow slicing.  For
-example, we often want to get all the data for a single column
-of the data frame.  To do this, we use the same square bracket
-notation as we use for array slicing, with the name of the
-column inside the square brackets.
+You have seen array slicing (in [Selecting with
+arrays](../arrays/array_indexing).  You remember that array slicing uses
+square brackets.   Data frames also allow slicing.  For example, we often want
+to get all the data for a single column of the data frame.  To do this, we use
+the same square bracket notation as we use for array slicing, with the name of
+the column inside the square brackets.
 
 ```{python}
-gdp = gender_data['gdp_us_billion']
+gdp = gender_data_no_na['gdp_us_billion']
 ```
 
 What `type` of thing is this column of data?
@@ -109,51 +128,20 @@ What `type` of thing is this column of data?
 type(gdp)
 ```
 
-Here are the values for `gdp`.  You will notice that these are the
-same values you saw in the "gdp_us_billion" column when you displayed the whole
-data frame.
+Here are the values for `gdp`.  You will notice that these are the same values
+you saw in the "gdp_us_billion" column when you displayed the whole data
+frame.
 
 ```{python}
 gdp
 ```
 
-## Missing values and `NaN`
 
-Looking at the values of `gdp` (and therefore, the values of the
-`gdp_us_billion` column of `gender_data`, we see that some of the values are
-`NaN`, which means Not a Number.  Pandas uses this marker to indicate values
-that are not available, or *missing data*.
+## Plotting, the basic way
 
-Numpy does not like to calculate with `NaN` values.  Here is Numpy trying to
-calculate the median of the `gdp` values.
-
-```{python}
-np.median(gdp)
-```
-
-Notice the warning about an invalid value.
-
-Numpy recognizes that one or more values are `NaN` and refuses to guess what to do, when calculating the median.
-
-
-You saw from the shape above that `gender_data` has 263 rows.  We can use the
-general Python `len` function, to see how many elements there are in `gdp`.
-
-```{python}
-len(gdp)
-```
-
-As expected, it has the same number of elements as there are rows in `gender_data`.
-
-The `count` method of the series gives the number of values that are not missing - that is - not `NaN`.
-
-```{python}
-gdp.count()
-```
-
-
-## Plotting with methods
-
+There are two ways of getting plots from data in data frames.   Here we use
+the most basic method, that you have already seen.   Soon, we will get onto [a
+more elegant plotting method](df_plotting).
 
 We start with the magic incantation to load the plotting library.
 
@@ -173,33 +161,21 @@ values, as we have done histograms on arrays.
 plt.hist(gdp);
 ```
 
-Notice the multiple warnings as Matplotlib tried to calculate the bin widths for the histogram.  These warnings result from Matplotlib struggline with `NaN` values.
-
-
-Another way to do the histogram, is to use the `hist` *method* of the series.  
-
-A method is a function attached to a value.  In this case `hist` is a function attached to a value of type `Series`.
-
-Using the `hist` method instead of the `plt.hist` function can make the code a bit easier to read.  The method also has the advantage that it discards the `NaN` values, by default, so it does not generate the same warnings.
-
-```{python}
-gdp.hist();
-```
-
 Now we have had a look at the GDP values, we will look at the
 values for the `mat_mort_ratio` column.  These are the numbers
 of women who die in childbirth for every 100,000 births.
 
 ```{python}
-mmr = gender_data['mat_mort_ratio']
+mmr = gender_data_no_na['mat_mort_ratio']
 mmr
 ```
 
 ```{python}
-mmr.hist();
+plt.hist(mmr);
 ```
 
-We are interested in the relationship of `gpp` and `mmr`.  Maybe richer countries have better health care, and fewer maternal deaths.
+We are interested in the relationship of `gpp` and `mmr`.  Maybe richer
+countries have better health care, and fewer maternal deaths.
 
 Here is a plot, using the standard Matplotlib `scatter`
 function.
@@ -208,21 +184,13 @@ function.
 plt.scatter(gdp, mmr);
 ```
 
-We can do the same plot using the `plot.scatter` method on the data frame.  In that case, we specify the column names that should go on the x and the y axes.
-
-```{python}
-gender_data.plot.scatter('gdp_us_billion', 'mat_mort_ratio');
-```
-
-An advantage of doing it this way is that we get the column names on the x and y axes by default.
-
 ## Showing the top 5 values with the `head` method
 
 
 We have already seen that Pandas will display the data frame with nice formatting.  If the data frame is long, it will display only the first few and the last few rows:
 
 ```{python}
-gender_data
+gender_data_no_na
 ```
 
 Notice the `...` in the center of this listing, to show that it has not printed some rows.
@@ -231,7 +199,7 @@ Notice the `...` in the center of this listing, to show that it has not printed 
 Sometimes we do not want to see all these rows, but only - say - the top five rows.   The `head` method of the data frame is a useful way to do this:
 
 ```{python}
-gender_data.head()
+gender_data_no_na.head()
 ```
 
 The `Series` also has a `head` method, that does the same thing:
@@ -260,8 +228,8 @@ type(high_gdp)
 ```
 
 Notice that `high_gdp` is a Boolean series, like the Boolean arrays you have
-already seen.  It has `True` for elements corresponding to countries with `gdp`
-value greater than `1000` and `False` otherwise.
+already seen.  It has `True` for elements corresponding to countries with
+`gdp` value greater than `1000` and `False` otherwise.
 
 We can use this Boolean series to select rows from the data frame.
 
@@ -273,7 +241,7 @@ what we want.
 When we put our Boolean series inside the square brackets, it works like this:
 
 ```{python}
-rich_gender_data = gender_data[high_gdp]
+rich_gender_data = gender_data_no_na[high_gdp]
 rich_gender_data
 ```
 
@@ -282,17 +250,18 @@ type(rich_gender_data)
 ```
 
 `rich_gender_data` is a new data frame, that is a subset of the original
-`gender_data` frame.  It contains only the rows where the GDP value is greater
-than `1000` billion dollars.  Check the display of `rich_gender_data` above to
-confirm that the values in the `gdp_us_billion` column are all greater than
-`1000`.
+`gender_data_no_na` frame.  It contains only the rows where the GDP value is
+greater than `1000` billion dollars.  Check the display of `rich_gender_data`
+above to confirm that the values in the `gdp_us_billion` column are all
+greater than `1000`.
 
 We can do a scatter plot of GDP values against maternal
 mortality rate, and we find, oddly, that for rich countries,
 there is little relationship between GDP and maternal mortality.
 
 ```{python}
-rich_gender_data.plot.scatter('gdp_us_billion', 'mat_mort_ratio')
+plt.scatter(rich_gender_data['gdp_us_billion'],
+            rich_gender_data['mat_mort_ratio'])
 ```
 
 One thing that stands out is the very high value at around 180.   Which country does this refer to?  We can use sorting to find out.

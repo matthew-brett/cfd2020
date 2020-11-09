@@ -49,7 +49,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/data-frames/data_frame_intro.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Introduction to data frames" />
-<meta property="og:description" content="Introduction to data frames  Pandas is a Python package that implements data frames, and functions that operate on data frames.  # Load the Pands data science l" />
+<meta property="og:description" content="Introduction to data frames  Pandas is a Python package that implements data frames, and functions that operate on data frames.  # Load the Pandas data science " />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -304,7 +304,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="boolean_indexing.html">
-   Boolean arrays
+   Indexing with Boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
@@ -320,6 +320,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="df_series_arrays.html">
    Data frames, Series and arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="missing_values.html">
+   Missing values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="df_plotting.html">
+   Pandas plotting methods
   </a>
  </li>
 </ul>
@@ -664,18 +674,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missing-values-and-nan">
-   Missing values and
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     NaN
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-with-methods">
-   Plotting with methods
+  <a class="reference internal nav-link" href="#plotting-the-basic-way">
+   Plotting, the basic way
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -721,7 +721,7 @@ implements data frames, and functions that operate on data
 frames.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Pands data science library, call it &#39;pd&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Pandas data science library, call it &#39;pd&#39;</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
@@ -942,263 +942,16 @@ columns.</p>
 <p>216 rows × 9 columns</p>
 </div></div></div>
 </div>
-<p>The data frame has rows and columns.  Like other Python objects, it has <em>attributes</em>.  These are pieces of data associated with the data frame.  You have already seen <em>methods</em>, which are functions associated with the data frame.  You can access attributes in the same way as you access methods, by typing the variable name, followed by a dot <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the attribute name.</p>
-<p>For example, one attribute of the data frame, is the <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> at the top of the GDP column.  This is a <em>missing value</em>.  We
+will come to these in <a class="reference internal" href="missing_values.html"><span class="doc std std-doc">missing values</span></a>.</p>
+<p>For the moment, we will do something quick and dirty, which is to drop all the
+missing values from the data frame.   <em>Be careful</em> - this is rarely the right
+thing to do, without a lot of investigation as to why the values are missing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(216, 9)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Another attribute is <code class="docutils literal notranslate"><span class="pre">columns</span></code>.  This has the column names. For
-example, here is a good way of quickly seeing the column names
-for a data frame:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
-       &#39;health_exp_per_cap&#39;, &#39;health_exp_pub&#39;, &#39;prim_ed_girls&#39;,
-       &#39;mat_mort_ratio&#39;, &#39;population&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>You need more information about what these column names refer to.  Here are the longer descriptions from the original data source (link above):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">fert_rate</span></code>: Fertility rate, total (births per woman).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gdp_us_billion</span></code>: GDP (in current US $ billions).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">health_exp_per_cap</span></code>: Health expenditure per capita, PPP (constant 2011 international $).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">health_exp_pub</span></code>: Health expenditure, public (% of GDP).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">prim_ed_girls</span></code>: Primary education, pupils (% female).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code>: Maternal mortality ratio (modeled estimate, per 100,000 live births).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">population</span></code>: Population, total.</p></li>
-</ul>
-<p>You have just seen array slicing (in <a class="reference internal" href="../arrays/array_indexing.html"><span class="doc std std-doc">Selecting with
-arrays</span></a>.  You remember that array slicing
-uses square brackets.   Data frames also allow slicing.  For
-example, we often want to get all the data for a single column
-of the data frame.  To do this, we use the same square bracket
-notation as we use for array slicing, with the name of the
-column inside the square brackets.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span> <span class="o">=</span> <span class="n">gender_data</span><span class="p">[</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>What <code class="docutils literal notranslate"><span class="pre">type</span></code> of thing is this column of data?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here are the values for <code class="docutils literal notranslate"><span class="pre">gdp</span></code>.  You will notice that these are the
-same values you saw in the “gdp_us_billion” column when you displayed the whole
-data frame.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0             NaN
-1       19.961015
-2      111.936542
-3       12.327586
-4        3.197538
-          ...    
-211      6.804620
-212     36.819337
-213    345.209888
-214     24.280990
-215     15.495514
-Name: gdp_us_billion, Length: 216, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="missing-values-and-nan">
-<h2>Missing values and <code class="docutils literal notranslate"><span class="pre">NaN</span></code><a class="headerlink" href="#missing-values-and-nan" title="Permalink to this headline">¶</a></h2>
-<p>Looking at the values of <code class="docutils literal notranslate"><span class="pre">gdp</span></code> (and therefore, the values of the
-<code class="docutils literal notranslate"><span class="pre">gdp_us_billion</span></code> column of <code class="docutils literal notranslate"><span class="pre">gender_data</span></code>, we see that some of the values are
-<code class="docutils literal notranslate"><span class="pre">NaN</span></code>, which means Not a Number.  Pandas uses this marker to indicate values
-that are not available, or <em>missing data</em>.</p>
-<p>Numpy does not like to calculate with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.  Here is Numpy trying to
-calculate the median of the <code class="docutils literal notranslate"><span class="pre">gdp</span></code> values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice the warning about an invalid value.</p>
-<p>Numpy recognizes that one or more values are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and refuses to guess what to do, when calculating the median.</p>
-<p>You saw from the shape above that <code class="docutils literal notranslate"><span class="pre">gender_data</span></code> has 263 rows.  We can use the
-general Python <code class="docutils literal notranslate"><span class="pre">len</span></code> function, to see how many elements there are in <code class="docutils literal notranslate"><span class="pre">gdp</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>216
-</pre></div>
-</div>
-</div>
-</div>
-<p>As expected, it has the same number of elements as there are rows in <code class="docutils literal notranslate"><span class="pre">gender_data</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> method of the series gives the number of values that are not missing - that is - not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="plotting-with-methods">
-<h2>Plotting with methods<a class="headerlink" href="#plotting-with-methods" title="Permalink to this headline">¶</a></h2>
-<p>We start with the magic incantation to load the plotting library.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the library for plotting, name it &#39;plt&#39;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># Display plots inside the notebook.</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1"># Make plots look a little more fancy</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">gdp</span></code> variable is a sequence of values, so we can do a histogram on these
-values, as we have done histograms on arrays.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">gdp</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frame_intro_32_0.png" src="../_images/data_frame_intro_32_0.png" />
-</div>
-</div>
-<p>Notice the multiple warnings as Matplotlib tried to calculate the bin widths for the histogram.  These warnings result from Matplotlib struggline with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
-<p>Another way to do the histogram, is to use the <code class="docutils literal notranslate"><span class="pre">hist</span></code> <em>method</em> of the series.</p>
-<p>A method is a function attached to a value.  In this case <code class="docutils literal notranslate"><span class="pre">hist</span></code> is a function attached to a value of type <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">hist</span></code> method instead of the <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code> function can make the code a bit easier to read.  The method also has the advantage that it discards the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values, by default, so it does not generate the same warnings.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frame_intro_35_0.png" src="../_images/data_frame_intro_35_0.png" />
-</div>
-</div>
-<p>Now we have had a look at the GDP values, we will look at the
-values for the <code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code> column.  These are the numbers
-of women who die in childbirth for every 100,000 births.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mmr</span> <span class="o">=</span> <span class="n">gender_data</span><span class="p">[</span><span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">]</span>
-<span class="n">mmr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         NaN
-1      444.00
-2      501.25
-3       29.25
-4         NaN
-        ...  
-211       NaN
-212    399.75
-213    143.75
-214    233.75
-215    398.00
-Name: mat_mort_ratio, Length: 216, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mmr</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frame_intro_38_0.png" src="../_images/data_frame_intro_38_0.png" />
-</div>
-</div>
-<p>We are interested in the relationship of <code class="docutils literal notranslate"><span class="pre">gpp</span></code> and <code class="docutils literal notranslate"><span class="pre">mmr</span></code>.  Maybe richer countries have better health care, and fewer maternal deaths.</p>
-<p>Here is a plot, using the standard Matplotlib <code class="docutils literal notranslate"><span class="pre">scatter</span></code>
-function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gdp</span><span class="p">,</span> <span class="n">mmr</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frame_intro_40_0.png" src="../_images/data_frame_intro_40_0.png" />
-</div>
-</div>
-<p>We can do the same plot using the <code class="docutils literal notranslate"><span class="pre">plot.scatter</span></code> method on the data frame.  In that case, we specify the column names that should go on the x and the y axes.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">,</span> <span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frame_intro_42_0.png" src="../_images/data_frame_intro_42_0.png" />
-</div>
-</div>
-<p>An advantage of doing it this way is that we get the column names on the x and y axes by default.</p>
-</div>
-<div class="section" id="showing-the-top-5-values-with-the-head-method">
-<h2>Showing the top 5 values with the <code class="docutils literal notranslate"><span class="pre">head</span></code> method<a class="headerlink" href="#showing-the-top-5-values-with-the-head-method" title="Permalink to this headline">¶</a></h2>
-<p>We have already seen that Pandas will display the data frame with nice formatting.  If the data frame is long, it will display only the first few and the last few rows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop all missing values.  Be careful, this is rarely the right thing to do.</span>
+<span class="n">gender_data_no_na</span> <span class="o">=</span> <span class="n">gender_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">gender_data_no_na</span>
 </pre></div>
 </div>
 </div>
@@ -1234,18 +987,6 @@ function.</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Aruba</td>
-      <td>ABW</td>
-      <td>1.66325</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>48.721939</td>
-      <td>NaN</td>
-      <td>0.103744</td>
-    </tr>
-    <tr>
       <th>1</th>
       <td>Afghanistan</td>
       <td>AFG</td>
@@ -1256,18 +997,6 @@ function.</p>
       <td>40.109708</td>
       <td>444.00</td>
       <td>32.715838</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Angola</td>
-      <td>AGO</td>
-      <td>6.12300</td>
-      <td>111.936542</td>
-      <td>254.747970</td>
-      <td>2.447546</td>
-      <td>NaN</td>
-      <td>501.25</td>
-      <td>26.937545</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1282,16 +1011,40 @@ function.</p>
       <td>2.888280</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Andorra</td>
-      <td>AND</td>
-      <td>NaN</td>
-      <td>3.197538</td>
-      <td>4421.224933</td>
-      <td>7.260281</td>
-      <td>47.123345</td>
-      <td>NaN</td>
-      <td>0.079547</td>
+      <th>5</th>
+      <td>United Arab Emirates</td>
+      <td>ARE</td>
+      <td>1.79300</td>
+      <td>375.027082</td>
+      <td>2202.407569</td>
+      <td>2.581168</td>
+      <td>48.789260</td>
+      <td>6.00</td>
+      <td>9.080299</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2.32800</td>
+      <td>550.980968</td>
+      <td>1148.256142</td>
+      <td>2.782216</td>
+      <td>48.915810</td>
+      <td>53.75</td>
+      <td>42.976675</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Armenia</td>
+      <td>ARM</td>
+      <td>1.54550</td>
+      <td>10.885362</td>
+      <td>348.663884</td>
+      <td>1.916016</td>
+      <td>46.782180</td>
+      <td>27.25</td>
+      <td>2.904683</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1306,16 +1059,16 @@ function.</p>
       <td>...</td>
     </tr>
     <tr>
-      <th>211</th>
-      <td>Kosovo</td>
-      <td>XKX</td>
-      <td>2.14250</td>
-      <td>6.804620</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.813820</td>
+      <th>210</th>
+      <td>Samoa</td>
+      <td>WSM</td>
+      <td>4.11825</td>
+      <td>0.799887</td>
+      <td>366.353096</td>
+      <td>5.697059</td>
+      <td>48.350049</td>
+      <td>54.75</td>
+      <td>0.192225</td>
     </tr>
     <tr>
       <th>212</th>
@@ -1367,14 +1120,199 @@ function.</p>
     </tr>
   </tbody>
 </table>
-<p>216 rows × 9 columns</p>
+<p>167 rows × 9 columns</p>
 </div></div></div>
 </div>
-<p>Notice the <code class="docutils literal notranslate"><span class="pre">...</span></code> in the center of this listing, to show that it has not printed some rows.</p>
-<p>Sometimes we do not want to see all these rows, but only - say - the top five rows.   The <code class="docutils literal notranslate"><span class="pre">head</span></code> method of the data frame is a useful way to do this:</p>
+<p>The data frame has rows and columns.  Like other Python objects, it has
+<em>attributes</em>.  These are pieces of data associated with the data frame.  You
+have already seen <em>methods</em>, which are functions associated with the data
+frame.  You can access attributes in the same way as you access methods, by
+typing the variable name, followed by a dot <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the attribute
+name.</p>
+<p>For example, one attribute of the data frame, is the <code class="docutils literal notranslate"><span class="pre">shape</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data_no_na</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(167, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another attribute is <code class="docutils literal notranslate"><span class="pre">columns</span></code>.  This has the column names. For
+example, here is a good way of quickly seeing the column names
+for a data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data_no_na</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;country_name&#39;, &#39;country_code&#39;, &#39;fert_rate&#39;, &#39;gdp_us_billion&#39;,
+       &#39;health_exp_per_cap&#39;, &#39;health_exp_pub&#39;, &#39;prim_ed_girls&#39;,
+       &#39;mat_mort_ratio&#39;, &#39;population&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You need more information about what these column names refer to.  Here are the longer descriptions from the original data source (link above):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fert_rate</span></code>: Fertility rate, total (births per woman).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdp_us_billion</span></code>: GDP (in current US $ billions).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">health_exp_per_cap</span></code>: Health expenditure per capita, PPP (constant 2011
+international $).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">health_exp_pub</span></code>: Health expenditure, public (% of GDP).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prim_ed_girls</span></code>: Primary education, pupils (% female).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code>: Maternal mortality ratio (modeled estimate, per 100,000
+live births).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">population</span></code>: Population, total.</p></li>
+</ul>
+<p>You have seen array slicing (in <a class="reference internal" href="../arrays/array_indexing.html"><span class="doc std std-doc">Selecting with
+arrays</span></a>.  You remember that array slicing uses
+square brackets.   Data frames also allow slicing.  For example, we often want
+to get all the data for a single column of the data frame.  To do this, we use
+the same square bracket notation as we use for array slicing, with the name of
+the column inside the square brackets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span> <span class="o">=</span> <span class="n">gender_data_no_na</span><span class="p">[</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What <code class="docutils literal notranslate"><span class="pre">type</span></code> of thing is this column of data?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">gdp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the values for <code class="docutils literal notranslate"><span class="pre">gdp</span></code>.  You will notice that these are the same values
+you saw in the “gdp_us_billion” column when you displayed the whole data
+frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1       19.961015
+3       12.327586
+5      375.027082
+6      550.980968
+7       10.885362
+          ...    
+210      0.799887
+212     36.819337
+213    345.209888
+214     24.280990
+215     15.495514
+Name: gdp_us_billion, Length: 167, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plotting-the-basic-way">
+<h2>Plotting, the basic way<a class="headerlink" href="#plotting-the-basic-way" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways of getting plots from data in data frames.   Here we use
+the most basic method, that you have already seen.   Soon, we will get onto <a class="reference internal" href="df_plotting.html"><span class="doc std std-doc">a
+more elegant plotting method</span></a>.</p>
+<p>We start with the magic incantation to load the plotting library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the library for plotting, name it &#39;plt&#39;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># Display plots inside the notebook.</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Make plots look a little more fancy</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">gdp</span></code> variable is a sequence of values, so we can do a histogram on these
+values, as we have done histograms on arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">gdp</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_26_0.png" src="../_images/data_frame_intro_26_0.png" />
+</div>
+</div>
+<p>Now we have had a look at the GDP values, we will look at the
+values for the <code class="docutils literal notranslate"><span class="pre">mat_mort_ratio</span></code> column.  These are the numbers
+of women who die in childbirth for every 100,000 births.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mmr</span> <span class="o">=</span> <span class="n">gender_data_no_na</span><span class="p">[</span><span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">]</span>
+<span class="n">mmr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1      444.00
+3       29.25
+5        6.00
+6       53.75
+7       27.25
+        ...  
+210     54.75
+212    399.75
+213    143.75
+214    233.75
+215    398.00
+Name: mat_mort_ratio, Length: 167, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mmr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_29_0.png" src="../_images/data_frame_intro_29_0.png" />
+</div>
+</div>
+<p>We are interested in the relationship of <code class="docutils literal notranslate"><span class="pre">gpp</span></code> and <code class="docutils literal notranslate"><span class="pre">mmr</span></code>.  Maybe richer
+countries have better health care, and fewer maternal deaths.</p>
+<p>Here is a plot, using the standard Matplotlib <code class="docutils literal notranslate"><span class="pre">scatter</span></code>
+function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gdp</span><span class="p">,</span> <span class="n">mmr</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frame_intro_31_0.png" src="../_images/data_frame_intro_31_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="showing-the-top-5-values-with-the-head-method">
+<h2>Showing the top 5 values with the <code class="docutils literal notranslate"><span class="pre">head</span></code> method<a class="headerlink" href="#showing-the-top-5-values-with-the-head-method" title="Permalink to this headline">¶</a></h2>
+<p>We have already seen that Pandas will display the data frame with nice formatting.  If the data frame is long, it will display only the first few and the last few rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data_no_na</span>
 </pre></div>
 </div>
 </div>
@@ -1410,18 +1348,6 @@ function.</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Aruba</td>
-      <td>ABW</td>
-      <td>1.66325</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>48.721939</td>
-      <td>NaN</td>
-      <td>0.103744</td>
-    </tr>
-    <tr>
       <th>1</th>
       <td>Afghanistan</td>
       <td>AFG</td>
@@ -1432,18 +1358,6 @@ function.</p>
       <td>40.109708</td>
       <td>444.00</td>
       <td>32.715838</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Angola</td>
-      <td>AGO</td>
-      <td>6.12300</td>
-      <td>111.936542</td>
-      <td>254.747970</td>
-      <td>2.447546</td>
-      <td>NaN</td>
-      <td>501.25</td>
-      <td>26.937545</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1458,16 +1372,216 @@ function.</p>
       <td>2.888280</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Andorra</td>
-      <td>AND</td>
-      <td>NaN</td>
-      <td>3.197538</td>
-      <td>4421.224933</td>
-      <td>7.260281</td>
-      <td>47.123345</td>
-      <td>NaN</td>
-      <td>0.079547</td>
+      <th>5</th>
+      <td>United Arab Emirates</td>
+      <td>ARE</td>
+      <td>1.79300</td>
+      <td>375.027082</td>
+      <td>2202.407569</td>
+      <td>2.581168</td>
+      <td>48.789260</td>
+      <td>6.00</td>
+      <td>9.080299</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2.32800</td>
+      <td>550.980968</td>
+      <td>1148.256142</td>
+      <td>2.782216</td>
+      <td>48.915810</td>
+      <td>53.75</td>
+      <td>42.976675</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Armenia</td>
+      <td>ARM</td>
+      <td>1.54550</td>
+      <td>10.885362</td>
+      <td>348.663884</td>
+      <td>1.916016</td>
+      <td>46.782180</td>
+      <td>27.25</td>
+      <td>2.904683</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>Samoa</td>
+      <td>WSM</td>
+      <td>4.11825</td>
+      <td>0.799887</td>
+      <td>366.353096</td>
+      <td>5.697059</td>
+      <td>48.350049</td>
+      <td>54.75</td>
+      <td>0.192225</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>Yemen, Rep.</td>
+      <td>YEM</td>
+      <td>4.22575</td>
+      <td>36.819337</td>
+      <td>207.949700</td>
+      <td>1.417836</td>
+      <td>44.470076</td>
+      <td>399.75</td>
+      <td>26.246608</td>
+    </tr>
+    <tr>
+      <th>213</th>
+      <td>South Africa</td>
+      <td>ZAF</td>
+      <td>2.37525</td>
+      <td>345.209888</td>
+      <td>1123.142656</td>
+      <td>4.241441</td>
+      <td>48.516298</td>
+      <td>143.75</td>
+      <td>54.177209</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>Zambia</td>
+      <td>ZMB</td>
+      <td>5.39425</td>
+      <td>24.280990</td>
+      <td>185.556359</td>
+      <td>2.687290</td>
+      <td>49.934484</td>
+      <td>233.75</td>
+      <td>15.633220</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Zimbabwe</td>
+      <td>ZWE</td>
+      <td>3.94300</td>
+      <td>15.495514</td>
+      <td>115.519881</td>
+      <td>2.695188</td>
+      <td>49.529875</td>
+      <td>398.00</td>
+      <td>15.420964</td>
+    </tr>
+  </tbody>
+</table>
+<p>167 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">...</span></code> in the center of this listing, to show that it has not printed some rows.</p>
+<p>Sometimes we do not want to see all these rows, but only - say - the top five rows.   The <code class="docutils literal notranslate"><span class="pre">head</span></code> method of the data frame is a useful way to do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gender_data_no_na</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country_name</th>
+      <th>country_code</th>
+      <th>fert_rate</th>
+      <th>gdp_us_billion</th>
+      <th>health_exp_per_cap</th>
+      <th>health_exp_pub</th>
+      <th>prim_ed_girls</th>
+      <th>mat_mort_ratio</th>
+      <th>population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Afghanistan</td>
+      <td>AFG</td>
+      <td>4.95450</td>
+      <td>19.961015</td>
+      <td>161.138034</td>
+      <td>2.834598</td>
+      <td>40.109708</td>
+      <td>444.00</td>
+      <td>32.715838</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>1.76925</td>
+      <td>12.327586</td>
+      <td>574.202694</td>
+      <td>2.836021</td>
+      <td>47.201082</td>
+      <td>29.25</td>
+      <td>2.888280</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>United Arab Emirates</td>
+      <td>ARE</td>
+      <td>1.79300</td>
+      <td>375.027082</td>
+      <td>2202.407569</td>
+      <td>2.581168</td>
+      <td>48.789260</td>
+      <td>6.00</td>
+      <td>9.080299</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Argentina</td>
+      <td>ARG</td>
+      <td>2.32800</td>
+      <td>550.980968</td>
+      <td>1148.256142</td>
+      <td>2.782216</td>
+      <td>48.915810</td>
+      <td>53.75</td>
+      <td>42.976675</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Armenia</td>
+      <td>ARM</td>
+      <td>1.54550</td>
+      <td>10.885362</td>
+      <td>348.663884</td>
+      <td>1.916016</td>
+      <td>46.782180</td>
+      <td>27.25</td>
+      <td>2.904683</td>
     </tr>
   </tbody>
 </table>
@@ -1481,11 +1595,11 @@ function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0           NaN
-1     19.961015
-2    111.936542
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1     19.961015
 3     12.327586
-4      3.197538
+5    375.027082
+6    550.980968
+7     10.885362
 Name: gdp_us_billion, dtype: float64
 </pre></div>
 </div>
@@ -1506,11 +1620,11 @@ identify high GDP countries.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
-1    False
-2    False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    False
 3    False
-4    False
+5    False
+6    False
+7    False
 Name: gdp_us_billion, dtype: bool
 </pre></div>
 </div>
@@ -1529,8 +1643,8 @@ Name: gdp_us_billion, dtype: bool
 </div>
 </div>
 <p>Notice that <code class="docutils literal notranslate"><span class="pre">high_gdp</span></code> is a Boolean series, like the Boolean arrays you have
-already seen.  It has <code class="docutils literal notranslate"><span class="pre">True</span></code> for elements corresponding to countries with <code class="docutils literal notranslate"><span class="pre">gdp</span></code>
-value greater than <code class="docutils literal notranslate"><span class="pre">1000</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+already seen.  It has <code class="docutils literal notranslate"><span class="pre">True</span></code> for elements corresponding to countries with
+<code class="docutils literal notranslate"><span class="pre">gdp</span></code> value greater than <code class="docutils literal notranslate"><span class="pre">1000</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
 <p>We can use this Boolean series to select rows from the data frame.</p>
 <p>Remember <em>indexing</em>.  When we follow a name of something, like an array or
 series or data frame, with an open square bracket, this means we are trying to
@@ -1539,7 +1653,7 @@ what we want.</p>
 <p>When we put our Boolean series inside the square brackets, it works like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich_gender_data</span> <span class="o">=</span> <span class="n">gender_data</span><span class="p">[</span><span class="n">high_gdp</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich_gender_data</span> <span class="o">=</span> <span class="n">gender_data_no_na</span><span class="p">[</span><span class="n">high_gdp</span><span class="p">]</span>
 <span class="n">rich_gender_data</span>
 </pre></div>
 </div>
@@ -1772,24 +1886,25 @@ what we want.</p>
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">rich_gender_data</span></code> is a new data frame, that is a subset of the original
-<code class="docutils literal notranslate"><span class="pre">gender_data</span></code> frame.  It contains only the rows where the GDP value is greater
-than <code class="docutils literal notranslate"><span class="pre">1000</span></code> billion dollars.  Check the display of <code class="docutils literal notranslate"><span class="pre">rich_gender_data</span></code> above to
-confirm that the values in the <code class="docutils literal notranslate"><span class="pre">gdp_us_billion</span></code> column are all greater than
-<code class="docutils literal notranslate"><span class="pre">1000</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">gender_data_no_na</span></code> frame.  It contains only the rows where the GDP value is
+greater than <code class="docutils literal notranslate"><span class="pre">1000</span></code> billion dollars.  Check the display of <code class="docutils literal notranslate"><span class="pre">rich_gender_data</span></code>
+above to confirm that the values in the <code class="docutils literal notranslate"><span class="pre">gdp_us_billion</span></code> column are all
+greater than <code class="docutils literal notranslate"><span class="pre">1000</span></code>.</p>
 <p>We can do a scatter plot of GDP values against maternal
 mortality rate, and we find, oddly, that for rich countries,
 there is little relationship between GDP and maternal mortality.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich_gender_data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">,</span> <span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rich_gender_data</span><span class="p">[</span><span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">],</span>
+            <span class="n">rich_gender_data</span><span class="p">[</span><span class="s1">&#39;mat_mort_ratio&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11bdda190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x119cb8ca0&gt;
 </pre></div>
 </div>
-<img alt="../_images/data_frame_intro_60_1.png" src="../_images/data_frame_intro_60_1.png" />
+<img alt="../_images/data_frame_intro_48_1.png" src="../_images/data_frame_intro_48_1.png" />
 </div>
 </div>
 <p>One thing that stands out is the very high value at around 180.   Which country does this refer to?  We can use sorting to find out.</p>
@@ -2262,10 +2377,10 @@ any of this selection of rich countries.   Here’s a plot of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11bd74fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x119d22a60&gt;
 </pre></div>
 </div>
-<img alt="../_images/data_frame_intro_80_1.png" src="../_images/data_frame_intro_80_1.png" />
+<img alt="../_images/data_frame_intro_68_1.png" src="../_images/data_frame_intro_68_1.png" />
 </div>
 </div>
 <p>It does look as if low income per person predisposes to high maternal mortality.</p>

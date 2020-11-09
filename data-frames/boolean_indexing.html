@@ -322,6 +322,16 @@
    Data frames, Series and arrays
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="missing_values.html">
+   Missing values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="df_plotting.html">
+   Pandas plotting methods
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -706,7 +716,8 @@ we show arrays in Jupyter:</p>
 </div>
 <div class="section" id="select-values-with-boolean-arrays">
 <h2>Select values with Boolean arrays<a class="headerlink" href="#select-values-with-boolean-arrays" title="Permalink to this headline">¶</a></h2>
-<p>Here we are using Boolean arrays to <em>index</em> into other arrays.  You will see what we mean by that by the end of this section.</p>
+<p>Here we are using Boolean arrays to <em>index</em> into other arrays.  You will see
+what we mean by that by the end of this section.</p>
 <p>We often want to select several elements from an array according to some
 criterion.</p>
 <p>The most common way to do this, is to do array slicing, using
@@ -724,12 +735,13 @@ directory as this notebook.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We have not covered this code yet.  We will soon.</span>
 <span class="c1"># Load the library for reading data files.</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># Read the file, select the first 6 values.</span>
+<span class="c1"># Read the file into a table, select the first six rows.</span>
 <span class="n">big_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="c1"># Put the columns into arrays</span>
+<span class="c1"># Put the columns into arrays, each with six elements.</span>
+<span class="c1"># The disciplines (names of disciplines).</span>
 <span class="n">disciplines</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># The corresponding average scores for Easiness.</span>
 <span class="n">easiness</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">quality</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -748,20 +760,20 @@ directory as this notebook.</p>
 </div>
 </div>
 </div>
-<p>Here are the “Overall Quality” scores for the ten largest courses:</p>
+<p>Here are the “Easiness” scores for the six largest courses:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.79, 3.57, 3.66, 3.9 , 3.77, 3.47])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.16, 3.06, 2.71, 3.32, 3.05, 2.65])
 </pre></div>
 </div>
 </div>
 </div>
-<p>These are the quality ratings corresponding to the <code class="docutils literal notranslate"><span class="pre">disciplines</span></code> we saw
+<p>These are the easiness ratings corresponding to the <code class="docutils literal notranslate"><span class="pre">disciplines</span></code> we saw
 earlier.  The top (largest) discipline is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,15 +787,15 @@ earlier.  The top (largest) discipline is:</p>
 </div>
 </div>
 </div>
-<p>The Overall Quality rating for that course is:</p>
+<p>The Easiness rating for that course is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quality</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">easiness</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7913635779463704
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1627541447114904
 </pre></div>
 </div>
 </div>

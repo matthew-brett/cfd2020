@@ -48,10 +48,13 @@ import numpy as np
 
 # Load the Pandas data science library, rename to "pd"
 import pandas as pd
+# Turn on a setting to use Pandas more safely.
+# We will discuss this setting later.
+pd.set_option('mode.chained_assignment', 'raise')
 ```
 
 ```{python}
-# Read the file.
+# Read the file as a data frame.
 courses = pd.read_csv('rate_my_course.csv')
 ```
 
@@ -72,7 +75,8 @@ The data frame is a two-dimensional structure. It has rows, and columns.   We ca
 courses.shape
 ```
 
-This means there are 75 rows.  In this case, each row corresponds to one discpline.
+This means there are 75 rows.  In this case, each row corresponds to one
+discipline.
 
 There are 6 columns.  In this case, each column corresponds to a different student rating.
 

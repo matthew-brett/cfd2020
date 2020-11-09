@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Populations and permutations" href="../permutation/permutation.html" />
+    <link rel="next" title="Missing values" href="missing_values.html" />
     <link rel="prev" title="Introduction to data frames" href="data_frame_intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -304,7 +304,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="boolean_indexing.html">
-   Boolean arrays
+   Indexing with Boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
@@ -320,6 +320,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Data frames, Series and arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="missing_values.html">
+   Missing values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="df_plotting.html">
+   Pandas plotting methods
   </a>
  </li>
 </ul>
@@ -714,13 +724,16 @@ file to the same directory as this notebook.</p>
 
 <span class="c1"># Load the Pandas data science library, rename to &quot;pd&quot;</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># Turn on a setting to use Pandas more safely.</span>
+<span class="c1"># We will discuss this setting later.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the file as a data frame.</span>
 <span class="n">courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -836,7 +849,8 @@ file to the same directory as this notebook.</p>
 </div>
 </div>
 </div>
-<p>This means there are 75 rows.  In this case, each row corresponds to one discpline.</p>
+<p>This means there are 75 rows.  In this case, each row corresponds to one
+discipline.</p>
 <p>There are 6 columns.  In this case, each column corresponds to a different student rating.</p>
 <p>Passing the data frame to the Python <code class="docutils literal notranslate"><span class="pre">len</span></code> function shows us the number of rows:</p>
 <div class="cell docutils container">
@@ -1927,7 +1941,7 @@ Name: Clarity, dtype: float64
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="data_frame_intro.html" title="previous page">Introduction to data frames</a>
-    <a class='right-next' id="next-link" href="../permutation/permutation.html" title="next page">Populations and permutations</a>
+    <a class='right-next' id="next-link" href="missing_values.html" title="next page">Missing values</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -210,7 +210,7 @@ Pandas has a setting that allows you to change the nasty warning about setting w
 We strongly suggest that you do that, for all your notebooks, like this:
 
 ```{python}
-pd.set_option('mode.chained_assignment','raise')
+pd.set_option('mode.chained_assignment', 'raise')
 ```
 
 After you have done this, Pandas will stop if you try to do something like this:
