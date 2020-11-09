@@ -21,11 +21,6 @@ except ImportError:
     jupytext = None
 
 
-HERE = op.dirname(__file__)
-NB_DIR = op.join(HERE, 'tests', 'data', 'three_girls')
-TESTS = sorted(glob(op.join(NB_DIR, 'tests', 'q*.py')))
-
-
 def as_nb(fname, as_version=DEFAULT_NB_VERSION):
     if jupytext:
         return jupytext.read(fname, as_version=as_version)
@@ -36,15 +31,21 @@ def name_from_fn(test_fn):
     return op.splitext(op.basename(test_fn))[0]
 
 
+def _gcc(code, cell_name):
+    return nbf.new_code_cell(code, metadata={'gok_name': cell_name})
+
+
 def create_test_cells(tests):
     cells = []
-    lines = ['_tdict = {}']
+    cells.append(_gcc('_tdict = {}', 'dict_init'))
     for test_fname in tests:
-        tns = f"'{name_from_fn(test_fname)}'"
-        lines.append(f"_tdict[{tns}] = ok.grade({tns})['failed']")
-    cells.append(nbf.new_code_cell('\n'.join(lines)))
-    cells.append(nbf.new_code_cell(
-        "_ = [print(f'{tn}, {_tdict[tn]}') for tn in sorted(_tdict)]"))
+        test_name = name_from_fn(test_fname)
+        tns = f"'{test_name}'"
+        cells.append(
+            _gcc(f"_tdict[{tns}] = ok.grade({tns})['failed']", test_name))
+    cells.append(
+        _gcc("_ = [print(f'{tn}, {_tdict[tn]}') for tn in sorted(_tdict)]",
+             'scores'))
     return cells
 
 
@@ -57,22 +58,37 @@ def execute_nb(nb, path, timeout=240):
     return nb
 
 
-def merge_stdouts(outputs):
+def merge_stdouts(cell):
     merged = []
-    for output in outputs:
+    for output in cell['outputs']:
         assert output['name'] == 'stdout'
         merged.append(output['text'])
     return ''.join(merged)
 
 
+def get_gok_cells(cells):
+    gok_cells = {}
+    for cell in cells:
+        gok_name = cell.get('metadata', {}).get('gok_name')
+        if gok_name:
+            assert gok_name not in gok_cells
+            gok_cells[gok_name] = cell
+    return gok_cells
+
+
 def get_test_fails(nb):
-    out_cell = nb.cells[-1]
-    assert out_cell['cell_type'] == 'code'
-    test_outs = merge_stdouts(out_cell['outputs'])
+    gok_cells = get_gok_cells(nb.cells)
+    scores = gok_cells['scores']
+    assert scores['cell_type'] == 'code'
+    test_outs = merge_stdouts(scores)
     fails = {}
     for line in test_outs.splitlines():
         name, fail_count = line.split(',')
-        fails[name] = int(fail_count)
+        output = None
+        fail_count = int(fail_count)
+        if fail_count:
+            output = merge_stdouts(gok_cells[name])
+        fails[name] = {'count': fail_count, 'output': output}
     return fails
 
 
@@ -96,16 +112,21 @@ def grade_nb(nb, wd):
     nb = execute_nb(nb, wd)
     # Collect output from executed notebook.
     fails = get_test_fails(nb)
+    # Points if all correct.
     full_points = get_tests_points(tests)
     # Get grades
     grades = {}
+    messages = {}
     for tn in full_points:
-        if tn in fails:
-            grade = full_points[tn] if fails[tn] == 0 else 0
-        else:
-            grade = np.nan
-        grades[tn] = grade
-    return grades
+        if tn not in fails:
+            grades[tn] = np.nan
+            continue
+        if fails[tn]['count'] == 0:  # No errors
+            grades[tn] = full_points[tn]
+            continue
+        grades[tn] = 0
+        messages[tn] = fails[tn]['output']
+    return grades, messages
 
 
 def grade_nb_fname(nb_fname, wd=None):
@@ -120,22 +141,10 @@ def print_grades(grades):
     print(f'Total: {sum(grades.values())}')
 
 
-def test_get_tests_points():
-    assert get_tests_points(TESTS) == {
-        'q_1_no_girls': 5,
-        'q_2_three_of_five': 10,
-        'q_3_three_or_fewer': 15,
-        'q_4_r_three_of_four': 20,
-    }
-
-
-def test_solution():
-    solution_fname = op.join(NB_DIR, 'three_girls_template.Rmd')
-    grades = grade_nb_fname(solution_fname, NB_DIR)
-    assert sum(grades.values()) == 50
-    solution_fname = op.join(NB_DIR, 'three_girls_solution_minus_15.Rmd')
-    grades = grade_nb_fname(solution_fname, NB_DIR)
-    assert sum(grades.values()) == 35
+def print_messages(messages):
+    for tn in sorted(messages):
+        print(tn)
+        print(messages[tn])
 
 
 def get_args():
@@ -152,12 +161,14 @@ def show_grade(nb_fname, wd):
     """ Print notebook filename and grades for each question
     """
     try:
-        grades = grade_nb_fname(nb_fname, wd)
+        grades, messages = grade_nb_fname(nb_fname, wd)
     except Exception as exc:
         print(nb_fname)
+        print(exc)
         return
     print(nb_fname)
     print_grades(grades)
+    print_messages(messages)
     print()
 
 

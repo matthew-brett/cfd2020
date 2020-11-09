@@ -221,8 +221,9 @@ def process_dir(path, grade=False, site_dict=None):
     write_utf8(solution_fname, make_solution(template))
     process_write_nb(exercise_fname, execute=False)
     if grade:
-        grades = gok.grade_nb_fname(solution_fname, path)
+        grades, messages = gok.grade_nb_fname(solution_fname, path)
         gok.print_grades(grades)
+        gok.print_messages(messages)
         if not all(grades.values()):
             raise RuntimeError('One or more grades 0')
 
