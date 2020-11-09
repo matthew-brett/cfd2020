@@ -85,6 +85,8 @@
   - file: data-frames/data_frames
   - file: data-frames/data_frame_intro
   - file: data-frames/df_series_arrays
+  - file: data-frames/missing_values
+  - file: data-frames/df_plotting
 
 - part: Population and permutation
   chapters:

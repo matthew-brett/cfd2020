@@ -72,7 +72,8 @@ The data frame is a two-dimensional structure. It has rows, and columns.   We ca
 courses.shape
 ```
 
-This means there are 75 rows.  In this case, each row corresponds to one discpline.
+This means there are 75 rows.  In this case, each row corresponds to one
+discipline.
 
 There are 6 columns.  In this case, each column corresponds to a different student rating.
 
