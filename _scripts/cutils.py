@@ -9,7 +9,6 @@ import shutil
 import re
 import urllib.parse
 from contextlib import contextmanager
-from tempfile import mkdtemp
 
 import yaml
 
