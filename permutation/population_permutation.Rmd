@@ -24,9 +24,7 @@ jupyter:
 
 # Population and permutation
 
-As in the [Brexit analysis
-exercise](../exercises/brexiteering.zip),
-we analyze the [Brexit survey](../data/brexit_survey).
+Here we analyze the [Brexit survey](../data/brexit_survey).
 
 As you will see in the link above, the data are from a survey of the UK
 population.  Each row in the survey corresponds to one person answering.  One
@@ -49,17 +47,25 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-If you are running on your laptop, first {download}`download the data file
-<../data/audit_of_political_engagement_14_2017.tab>` to the same directory as
-this notebook.
+If you are running on your laptop, first
+{download}`download the data file <../data/audit_of_political_engagement_14_2017.tab>`
+to the same directory as this notebook.
 
-We load the data:
+The cell below loads the data file into memory with Pandas.  Notice the `.tab`
+extension for this file.  This file is just like the `.csv` (Comma Separated
+Values) files you have already seen, but the values are separated by a
+different character. Instead of being separated by commas - `,` - they are
+separated by a character called Tab.  We tell Pandas about this in the cell
+below:
 
 ```{python}
 # Load the data frame, and put it in the variable "audit_data".
 # The values are separated by tab characters, written as "\t" in Python
 # strings.
-audit_data = pd.read_csv('audit_of_political_engagement_14_2017.tab', sep='\t')
+audit_data = pd.read_csv('audit_of_political_engagement_14_2017.tab',
+                         sep='\t')
+# Show the first 5 rows.
+audit_data.head()
 ```
 
 Now get the ages for the Leavers and the Remainers.
