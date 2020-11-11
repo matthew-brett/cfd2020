@@ -15,6 +15,12 @@ jupyter:
 
 # Numpy append
 
+<!---
+This page retired, because we don't now use the element by element
+concatenation, and the array array concatenation is not enough for its own
+page.
+-->
+
 We have already seen how to build a Numpy array from a sequence of values.
 
 

@@ -156,6 +156,22 @@ observed_difference
 We can put the values values for the beer and water conditions into one long
 array, 25 + 18 values long.
 
+In order to do this, we use the `np.append` function.  It does what we want; it
+takes two arrays and splices them together into one long array.  This operation
+is called *concatenation*.
+
+Here is `np.append` in action:
+
+```{python}
+first_array = np.array([10, 20, 30])
+second_array = np.array([99, 199, 299])
+# The two arrays concatenated.
+both_together = np.array(first_array, second_array)
+both_together
+```
+
+We apply `np.append` to *pool* our two groups of numbers into one array.
+
 ```{python}
 pooled = np.append(beer_activated, water_activated)
 pooled
