@@ -3,9 +3,7 @@
 
 ## Refactoring of append etc
 
-* More on **Boolean arrays**.  Work with these a bit.  Exercise.
-* Add OKpy tests for exercises/array_indexing
-
+Make much of population_permutation hidden, to avoid boring data frame logic.
 
 ## Orphan pages
 
