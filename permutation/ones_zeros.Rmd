@@ -12,6 +12,12 @@ jupyter:
     name: python3
 ---
 
+# Arrays of ones and zeros
+
+<!---
+This page retired; we are not using 2D arrays until much later.
+-->
+
 ```{python}
 import numpy as np
 ```
