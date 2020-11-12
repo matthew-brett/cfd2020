@@ -103,15 +103,26 @@ The `out of` row has the total number of people in each column.
 
 ```{python}
 # Proportion of Yes for Rescuers.
-party_tab.loc['Yes', 'rescuers'] / party_tab.loc['out of', 'rescuers']
+prop_yes_rescuers = party_tab.loc['Yes', 'rescuers'] / party_tab.loc['out of', 'rescuers']
+print(prop_yes_rescuers )
 ```
 
 ```{python}
 # Proportion of Yes for Bystanders.
-party_tab.loc['Yes', 'bystanders'] / party_tab.loc['out of', 'bystanders']
+prop_yes_bystanders = party_tab.loc['Yes', 'bystanders'] / party_tab.loc['out of', 'bystanders']
+print(prop_yes_bystanders)
 ```
 
-That looks like a substantial difference - but could it have come about by chance?
+```{python}
+# plotting the proportions as percentages, do not worry about this code for now
+plt.bar(party_tab.loc['out of', ['rescuers', 'bystanders']].index, 
+        height= [prop_yes_rescuers*100, prop_yes_bystanders*100], color = ['red', 'blue'])
+plt.ylabel('Probability %', **{'fontsize': 13})
+plt.title('Probability of being a member of a political party')
+plt.show()
+```
+
+That looks like a substantial difference - it appears that a much higher proportion of rescuers were members of a political party before the war. But could this difference have come about by chance?
 
 What do we mean by chance here?
 
