@@ -3,6 +3,15 @@
 
 ## Refactoring of append etc
 
+Page on official name, variable name for module import.  Covering:
+
+```{python}
+import numpy
+import numpy as np
+# Why does `from np import cos` fail?
+from numpy import cos
+```
+
 Make much of population_permutation hidden, to avoid boring data frame logic.
 
 ## Orphan pages
