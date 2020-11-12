@@ -345,11 +345,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/numpy_append.html">
-   Numpy append
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -1835,8 +1830,9 @@ Name: Clarity, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A new data frame</span>
 <span class="n">thinner_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">disciplines</span>
-<span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clarity</span>
+<span class="c1"># We will come to the need for the `copy` later.</span>
+<span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">disciplines</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">thinner_courses</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clarity</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">thinner_courses</span>
 </pre></div>
 </div>

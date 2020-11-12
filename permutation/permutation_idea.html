@@ -345,11 +345,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="numpy_append.html">
-   Numpy append
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="population_permutation.html">
    Population and permutation
   </a>
@@ -1027,6 +1022,27 @@ blue):</p>
 <h2>Pool<a class="headerlink" href="#pool" title="Permalink to this headline">¶</a></h2>
 <p>We can put the values values for the beer and water conditions into one long
 array, 25 + 18 values long.</p>
+<p>In order to do this, we use the <code class="docutils literal notranslate"><span class="pre">np.append</span></code> function.  It does what we want; it
+takes two arrays and splices them together into one long array.  This operation
+is called <em>concatenation</em>.</p>
+<p>Here is <code class="docutils literal notranslate"><span class="pre">np.append</span></code> in action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">second_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">299</span><span class="p">])</span>
+<span class="c1"># The two arrays concatenated.</span>
+<span class="n">both_together</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first_array</span><span class="p">,</span> <span class="n">second_array</span><span class="p">)</span>
+<span class="n">both_together</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 10,  20,  30,  99, 199, 299])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We apply <code class="docutils literal notranslate"><span class="pre">np.append</span></code> to <em>pool</em> our two groups of numbers into one array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
@@ -1223,7 +1239,7 @@ differences:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/permutation_idea_51_0.png" src="../_images/permutation_idea_51_0.png" />
+<img alt="../_images/permutation_idea_53_0.png" src="../_images/permutation_idea_53_0.png" />
 </div>
 </div>
 <p>We are interested to know just how unusual it is to get a difference as big as we actually see, in these many samples of differences we expect by chance, from random sampling.</p>

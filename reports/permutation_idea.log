@@ -17,14 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-np.count_nonzero(greater_than_3)
+first_array = np.array([10, 20, 30])
+second_array = np.array([99, 199, 299])
+# The two arrays concatenated.
+both_together = np.array(first_array, second_array)
+both_together
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-7-8fef5da1e3fe>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mnp[0m[0;34m.[0m[0mcount_nonzero[0m[0;34m([0m[0mgreater_than_3[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'np' is not defined
-NameError: name 'np' is not defined
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-12-37ddfd394464>[0m in [0;36m<module>[0;34m[0m
+[1;32m      2[0m [0msecond_array[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m99[0m[0;34m,[0m [0;36m199[0m[0;34m,[0m [0;36m299[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;31m# The two arrays concatenated.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mboth_together[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mfirst_array[0m[0;34m,[0m [0msecond_array[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0mboth_together[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: Cannot construct a dtype from an array
+TypeError: Cannot construct a dtype from an array
 

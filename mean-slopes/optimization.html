@@ -345,11 +345,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/numpy_append.html">
-   Numpy append
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -898,9 +893,11 @@ minimum.</p>
 of the function.</p>
 <p>This is the optimization technique known as <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">gradient
 descent</a>.</p>
-<p>Here it is in action, using code modified from the Wikipedia page above.</p>
-<p>We try new x (slope) values by making big jumps when the gradient is steep, and
-small jumps when the gradient is shallow.</p>
+<p>Here it is in action. We try new x-axis values by making big jumps when the
+gradient is steep, and small jumps when the gradient is shallow.  For each new
+value of x, we check the gradient, and choose our new jump size.</p>
+<p>Remember each value on the x-axis is another value we want to try, in order to
+find the best-fitting slope for our original problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_x</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># We start the search at x=4</span>
@@ -950,7 +947,7 @@ Minimum at 3.0474521484512476
 </div>
 </div>
 <p>As you can see, by doing this, we save ourselves from trying a very large
-number of other potential x values (slopes), and we focus in on the minimum
+number of other potential x values, and we focus in on the minimum
 very quickly.</p>
 <p>This is just one method among many for optimizing our search for the minimum of
 a function.  Now you know what kind of thing it is doing, we will just let

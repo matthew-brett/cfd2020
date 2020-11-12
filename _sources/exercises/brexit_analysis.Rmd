@@ -64,13 +64,20 @@ Value = 6.0    Label = Refused
 We also want the variable `numage`; this is the age of the respondent in years.
 
 
-The data file that you just downloaded should be called
-`audit_of_political_engagement_14_2017.tab`.  The cell below loads the data
-file into memory with Pandas:
+The data file is `audit_of_political_engagement_14_2017.tab`.  The cell below
+loads the data file into memory with Pandas.  Notice the `.tab` extension for
+this file.  This file is just like the `.csv` (Comma Separated Values) files
+you have already seen, but the values are separated by a different character.
+Instead of being separated by commas - `,` - they are separated by a character
+called Tab.  We tell Pandas about this in the cell below.
 
 ```{python}
 # Load the data frame, and put it in the variable "audit_data"
-audit_data = pd.read_table('audit_of_political_engagement_14_2017.tab')
+# The values are SEParated by Tabs - \t in the code below.
+audit_data = pd.read_csv('audit_of_political_engagement_14_2017.tab',
+                         sep='\t')
+# Show the first 5 rows.
+audit_data.head()
 ```
 
 As you know, we now have a *data frame*:

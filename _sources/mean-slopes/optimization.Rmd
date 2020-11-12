@@ -182,10 +182,12 @@ of the function.
 This is the optimization technique known as [gradient
 descent](https://en.wikipedia.org/wiki/Gradient_descent).
 
-Here it is in action, using code modified from the Wikipedia page above.
+Here it is in action. We try new x-axis values by making big jumps when the
+gradient is steep, and small jumps when the gradient is shallow.  For each new
+value of x, we check the gradient, and choose our new jump size.
 
-We try new x (slope) values by making big jumps when the gradient is steep, and
-small jumps when the gradient is shallow.
+Remember each value on the x-axis is another value we want to try, in order to
+find the best-fitting slope for our original problem.
 
 ```{python}
 next_x = 4 # We start the search at x=4
@@ -215,7 +217,7 @@ print("Minimum at", next_x)
 ```
 
 As you can see, by doing this, we save ourselves from trying a very large
-number of other potential x values (slopes), and we focus in on the minimum
+number of other potential x values, and we focus in on the minimum
 very quickly.
 
 This is just one method among many for optimizing our search for the minimum of

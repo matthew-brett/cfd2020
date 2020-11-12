@@ -343,11 +343,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/numpy_append.html">
-   Numpy append
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
@@ -711,16 +706,190 @@ Union or leave the European Union’?”.  The recorded values run from 1 throug
 </pre></div>
 </div>
 <p>We also want the variable <code class="docutils literal notranslate"><span class="pre">numage</span></code>; this is the age of the respondent in years.</p>
-<p>The data file that you just downloaded should be called
-<code class="docutils literal notranslate"><span class="pre">audit_of_political_engagement_14_2017.tab</span></code>.  The cell below loads the data
-file into memory with Pandas:</p>
+<p>The data file is <code class="docutils literal notranslate"><span class="pre">audit_of_political_engagement_14_2017.tab</span></code>.  The cell below
+loads the data file into memory with Pandas.  Notice the <code class="docutils literal notranslate"><span class="pre">.tab</span></code> extension for
+this file.  This file is just like the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> (Comma Separated Values) files
+you have already seen, but the values are separated by a different character.
+Instead of being separated by commas - <code class="docutils literal notranslate"><span class="pre">,</span></code> - they are separated by a character
+called Tab.  We tell Pandas about this in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data frame, and put it in the variable &quot;audit_data&quot;</span>
-<span class="n">audit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="s1">&#39;audit_of_political_engagement_14_2017.tab&#39;</span><span class="p">)</span>
+<span class="c1"># The values are SEParated by Tabs - \t in the code below.</span>
+<span class="n">audit_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;audit_of_political_engagement_14_2017.tab&#39;</span><span class="p">,</span>
+                         <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># Show the first 5 rows.</span>
+<span class="n">audit_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cu041</th>
+      <th>cu042</th>
+      <th>cu043</th>
+      <th>cu044</th>
+      <th>cu045</th>
+      <th>cu046</th>
+      <th>cu047</th>
+      <th>cu048</th>
+      <th>cu049</th>
+      <th>cu0410</th>
+      <th>...</th>
+      <th>intten</th>
+      <th>cx_971_980</th>
+      <th>serial</th>
+      <th>week</th>
+      <th>wts</th>
+      <th>numage</th>
+      <th>weight0</th>
+      <th>sgrade_grp</th>
+      <th>age_grp</th>
+      <th>region2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>3.41659</td>
+      <td>1399</td>
+      <td>648</td>
+      <td>3.41659</td>
+      <td>37</td>
+      <td>3.41659</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>2.68198</td>
+      <td>1733</td>
+      <td>648</td>
+      <td>2.68198</td>
+      <td>55</td>
+      <td>2.68198</td>
+      <td>2</td>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>0.79379</td>
+      <td>1736</td>
+      <td>648</td>
+      <td>0.79379</td>
+      <td>71</td>
+      <td>0.79379</td>
+      <td>2</td>
+      <td>7</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>1.40580</td>
+      <td>1737</td>
+      <td>648</td>
+      <td>1.40580</td>
+      <td>37</td>
+      <td>1.40580</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-1</td>
+      <td>0.89475</td>
+      <td>1738</td>
+      <td>648</td>
+      <td>0.89475</td>
+      <td>42</td>
+      <td>0.89475</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 370 columns</p>
+</div></div></div>
 </div>
 <p>As you know, we now have a <em>data frame</em>:</p>
 <div class="cell docutils container">

@@ -275,7 +275,8 @@ I can make a new data frame by inserting these two columns:
 ```{python}
 # A new data frame
 thinner_courses = pd.DataFrame()
-thinner_courses['Discipline'] = disciplines
-thinner_courses['Clarity'] = clarity
+# We will come to the need for the `copy` later.
+thinner_courses['Discipline'] = disciplines.copy()
+thinner_courses['Clarity'] = clarity.copy()
 thinner_courses
 ```
