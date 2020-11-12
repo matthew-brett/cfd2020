@@ -166,7 +166,7 @@ Here is `np.append` in action:
 first_array = np.array([10, 20, 30])
 second_array = np.array([99, 199, 299])
 # The two arrays concatenated.
-both_together = np.array(first_array, second_array)
+both_together = np.append(first_array, second_array)
 both_together
 ```
 
