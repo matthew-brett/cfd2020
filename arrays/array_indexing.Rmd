@@ -90,9 +90,9 @@ big_courses
 ```{python}
 # Again - don't worry about this code - we will cover it later.
 # Put the columns into arrays
-disciplines = big_courses['Discipline'].values
-easiness = big_courses['Easiness'].values
-quality = big_courses['Overall Quality'].values
+disciplines = np.array(big_courses['Discipline'])
+easiness = np.array(big_courses['Easiness'])
+quality = np.array(big_courses['Overall Quality'])
 ```
 
 We now have the names of the disciplines with the largest number of professors.

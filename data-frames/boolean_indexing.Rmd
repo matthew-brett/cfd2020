@@ -71,9 +71,9 @@ import pandas as pd
 big_courses = pd.read_csv('rate_my_course.csv').head(6)
 # Put the columns into arrays, each with six elements.
 # The disciplines (names of disciplines).
-disciplines = big_courses['Discipline'].values
+disciplines = np.array(big_courses['Discipline'])
 # The corresponding average scores for Easiness.
-easiness = big_courses['Easiness'].values
+easiness = np.array(big_courses['Easiness'])
 ```
 
 We now have the names of the disciplines with the largest number of professors.

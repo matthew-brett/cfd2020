@@ -19,9 +19,9 @@ HERE = op.dirname(__file__)
 course_fname = op.join(HERE, '..', 'data', 'rate_my_course.csv')
 big_courses = pd.read_csv(course_fname).head(6)
 # Put the columns into arrays
-disciplines = big_courses['Discipline'].values
-easiness = big_courses['Easiness'].values
-quality = big_courses['Overall Quality'].values
+disciplines = np.array(big_courses['Discipline'])
+easiness = np.array(big_courses['Easiness'])
+quality = np.array(big_courses['Overall Quality'])
 
 pdf_fname = op.join(HERE, "easiness_values.pdf")
 doc = SimpleDocTemplate(pdf_fname, pagesize=letter)
