@@ -134,9 +134,22 @@ sampling distribution of the difference in means.  It is the
 *sampling* distribution, because it is the distribution we expect to
 see, when taking random *samples* from the same underlying population.
 
-Our question now is, is the difference we actually saw, a likely value, given the sampling distribution.
+Our question now is, is the difference we actually saw, a likely value, given the sampling distribution. Let's plot the actual difference, so we can see how similar/different it is to the simulated differences.
+
+```{python}
+# do not worry about the code below, it just plots the sampling distribution, the actual difference in the mean ages, 
+# and adds some labels to the histogram. 
+plt.hist(example_diffs, label = 'simulated differences')
+fontsize = {'fontsize': 10}
+plt.plot(actual_diff, 20 , 'o', markersize = 10,color = 'red', label = 'actual difference')
+plt.xlabel('Difference between the mean ages of leavers and remainers', **fontsize)
+plt.ylabel('Number of times obtained in simulation', **fontsize)
+plt.legend(**fontsize);
+```
 
 Looking at the distribution above - what do you think?
+
+The blue histogram shows the distribution of differences we would expect to obtain in an ideal world. That is, in a world where there was no difference between the mean age of leavers and remainers. The red dot shows the actual difference between the mean ages of leavers and remainers. Does it look likely that we would obtain the actual difference in the ideal world?
 
 As a first pass, let us check how many of the values from the sampling
 distribution are as large, or larger than the value we actually saw.
