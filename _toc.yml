@@ -95,7 +95,6 @@
   - file: permutation/brexit_ages
   - file: permutation/permutation_idea
   - file: permutation/permutation_and_t_test
-  - file: permutation/testing_t
 
 - part: More building blocks
   chapters:

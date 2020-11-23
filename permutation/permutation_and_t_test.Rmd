@@ -219,3 +219,7 @@ permutation_p
 The permutation test is more general than the t test, because the t test relies
 on the assumption that the numbers come from a normal distribution, but the
 permutation test does not.
+
+Of course, you should should not believe these assertions without evidence, so
+your next step is to use the *simulation* tools you have learned, to [test the
+t-test](testing_t).
