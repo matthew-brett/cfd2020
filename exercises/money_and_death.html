@@ -1447,7 +1447,7 @@ two groups, and the permuting them.</p>
 a random mixture of the two groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1457,8 +1457,8 @@ our simulated in-favor group.  The rest are our simulated oppose
 group.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_favor</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_favor</span><span class="p">]</span>
-<span class="n">fake_oppose</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_favor</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_favor</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_favor</span><span class="p">]</span>
+<span class="n">fake_oppose</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_favor</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -1472,7 +1472,7 @@ group.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-71.05775808988983
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-436.9838715194637
 </pre></div>
 </div>
 </div>
@@ -1484,7 +1484,7 @@ group.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># Permute the pooled incomes</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+    <span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
     <span class="c1"># Make a fake favor sample</span>
 
     <span class="c1"># Make a fake opposed sample</span>

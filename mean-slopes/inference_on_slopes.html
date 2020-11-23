@@ -746,19 +746,12 @@ random sampling.</p>
 <p>Then we check what slope we get.</p>
 <p>We keep doing this, and keep checking the slope, to build up the <em>sampling distribution</em> for the slope.</p>
 <p>Then we compare our actual slope to the sampling distribution.  If the actual slope is not a rare value from the sampling distribution, the slope may have come about because of random sampling.  If it is a rare value, random sampling is an unlikely explanation.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a copy of the quality values</span>
-<span class="n">shuffled_quality</span> <span class="o">=</span> <span class="n">quality</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now shuffle the copy of the Quality values, to make a fake and random pairing between the Easiness and Quality values.</p>
+<p>First shuffle the copy of the Quality values, to make a fake and random pairing
+between the Easiness and Quality values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a fake pairing of Easiness and Quality, by shuffling Quality</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_quality</span><span class="p">)</span>
+<span class="n">shuffled_quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">quality</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -774,7 +767,7 @@ random sampling.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.522 , 0.0671])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.5422, 0.0608])
 </pre></div>
 </div>
 </div>
@@ -788,7 +781,7 @@ random sampling.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06713107192835349
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06079931306094122
 </pre></div>
 </div>
 </div>
@@ -799,7 +792,7 @@ random sampling.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">fake_slopes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_quality</span><span class="p">)</span>
+    <span class="n">shuffled_quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">quality</span><span class="p">)</span>
     <span class="n">fake_inter</span><span class="p">,</span> <span class="n">fake_slope</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span>
                                       <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">shuffled_quality</span><span class="p">))</span><span class="o">.</span><span class="n">x</span>
     <span class="n">fake_slopes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_slope</span>
@@ -820,7 +813,7 @@ random sampling.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sampling distribution for slope&#39;)
 </pre></div>
 </div>
-<img alt="../_images/inference_on_slopes_21_1.png" src="../_images/inference_on_slopes_21_1.png" />
+<img alt="../_images/inference_on_slopes_20_1.png" src="../_images/inference_on_slopes_20_1.png" />
 </div>
 </div>
 <p>We find the proportion of the sampling distribution that is greater than or

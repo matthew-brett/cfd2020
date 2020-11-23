@@ -792,9 +792,8 @@ you.  That is your <em>prediction error</em> for that value.</p>
 <p>Let’s start by shuffling up the values, ready to give you, one by one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not really necessary, but still</span>
-<span class="n">mm_shuffled</span> <span class="o">=</span> <span class="n">mm_arr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">mm_shuffled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not really necessary, but still.</span>
+<span class="n">mm_shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">mm_arr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -809,7 +808,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-121.97404371584699
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-138.724043715847
 </pre></div>
 </div>
 </div>
@@ -823,7 +822,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-164.974043715847
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>58.52595628415301
 </pre></div>
 </div>
 </div>
@@ -839,8 +838,8 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-121.97, -164.97, -144.97, -170.72, -160.97, -160.47, -159.72,
-        556.03, -144.47,  -55.72])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-138.72,   58.53, -166.97, -167.72,  -13.97, -151.97, -166.97,
+       -151.47,  548.28, -116.97])
 </pre></div>
 </div>
 </div>
@@ -865,7 +864,7 @@ you.  That is your <em>prediction error</em> for that value.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0463630789890885e-12
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5011104298755527e-12
 </pre></div>
 </div>
 </div>
@@ -899,8 +898,8 @@ zero</span></a>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 14877.67,  27216.44,  21017.47,  29146.7 ,  25912.64,  25751.92,
-        25511.77, 309164.86,  20872.75,   3105.17])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 19244.36,   3425.29,  27880.33,  28131.35,    195.27,  23096.11,
+        27880.33,  22944.39, 300606.52,  13682.93])
 </pre></div>
 </div>
 </div>

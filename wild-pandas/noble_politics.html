@@ -1221,13 +1221,13 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 <p>Next we shuffle the Yes, No labels randomly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
-<span class="n">party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rand_party_yn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+<span class="n">rand_party_yn</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;Yes&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;No&#39;, &#39;No&#39;, &#39;Yes&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;],
       dtype=&#39;&lt;U3&#39;)
 </pre></div>
 </div>
@@ -1237,7 +1237,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">party_yn</span>
+<span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand_party_yn</span>
 <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">respondent</span>
 <span class="n">fake_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -1279,12 +1279,12 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
     </tr>
     <tr>
       <th>2</th>
-      <td>No</td>
+      <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Yes</td>
+      <td>No</td>
       <td>rescuer</td>
     </tr>
     <tr>
@@ -1316,7 +1316,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>61
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>56
 </pre></div>
 </div>
 </div>
@@ -1324,7 +1324,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 <p>Luckily, Pandas has a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> function that does this work for us:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">rand_party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
 <span class="n">fake_tab</span>
 </pre></div>
 </div>
@@ -1360,13 +1360,13 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
   <tbody>
     <tr>
       <th>No</th>
-      <td>61</td>
-      <td>168</td>
+      <td>56</td>
+      <td>173</td>
     </tr>
     <tr>
       <th>Yes</th>
-      <td>10</td>
-      <td>41</td>
+      <td>15</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
@@ -1396,7 +1396,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
 </div>
@@ -1407,15 +1407,15 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
-    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+    <span class="n">rand_party_yn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">rand_party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
 <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12., 11., 17., 11., 10., 15., 11., 13., 16.,  9.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12., 10., 18., 12., 15., 14., 19., 14., 10., 16.])
 </pre></div>
 </div>
 </div>
@@ -1441,7 +1441,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
 </pre></div>
 </div>
 </div>
@@ -1461,8 +1461,8 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 <span class="c1"># No, rescuer</span>
 <span class="n">counts_n_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
-    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
+    <span class="n">rand_party_yn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+    <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">rand_party_yn</span><span class="p">,</span> <span class="n">respondent</span><span class="p">)</span>
     <span class="n">counts_y_by</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
     <span class="n">counts_n_r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
 </pre></div>
@@ -1480,7 +1480,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1496,7 @@ Last 10: [&#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;No&#39; &#39;
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.029
 </pre></div>
 </div>
 </div>

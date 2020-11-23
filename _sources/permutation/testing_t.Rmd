@@ -262,8 +262,8 @@ def permutation(group1, group2, niters=10000):
     fake_mds = np.zeros(niters)
     pooled = np.append(group1, group2)
     for i in np.arange(niters):
-        np.random.shuffle(pooled)
-        fake_mds[i] = np.mean(pooled[:g1_n]) - np.mean(pooled[g1_n:])
+        shuffled = np.random.permutation(pooled)
+        fake_mds[i] = np.mean(shuffled[:g1_n]) - np.mean(shuffled[g1_n:])
     return np.count_nonzero(fake_mds >= omd) / niters
 ```
 

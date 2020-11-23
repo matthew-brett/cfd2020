@@ -1060,8 +1060,8 @@ is called <em>concatenation</em>.</p>
 mixed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-<span class="n">pooled</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<span class="n">shuffled</span>
 </pre></div>
 </div>
 </div>
@@ -1083,7 +1083,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the first 25 values</span>
-<span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
+<span class="n">fake_beer</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1121,7 +1121,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.333333333333332
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.166666666666668
 </pre></div>
 </div>
 </div>
@@ -1135,7 +1135,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.453333333333333
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7133333333333312
 </pre></div>
 </div>
 </div>
@@ -1146,7 +1146,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We do another shuffle:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1155,13 +1155,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p>We take another fake beer group, and calculate another fake beer mean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_beer</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.16
 </pre></div>
 </div>
 </div>
@@ -1170,13 +1170,13 @@ are a random mixture of the beer and the water values.  This is the same idea as
 <p><img alt="" src="../_images/fake_water_mean1.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_water</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.333333333333332
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.166666666666668
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1189,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.7333333333333307
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9933333333333323
 </pre></div>
 </div>
 </div>
@@ -1199,10 +1199,10 @@ differences:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shuffle</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
 <span class="c1"># Split</span>
-<span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
-<span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
+<span class="n">fake_beer</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
+<span class="n">fake_water</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
 <span class="c1"># Recalculate mean difference</span>
 <span class="n">fake_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
 <span class="n">fake_diff</span>
@@ -1210,7 +1210,7 @@ differences:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5.21777777777778
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.351111111111109
 </pre></div>
 </div>
 </div>
@@ -1221,10 +1221,10 @@ differences:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
     <span class="c1"># Shuffle</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+    <span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
     <span class="c1"># Split</span>
-    <span class="n">fake_beer</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
-    <span class="n">fake_water</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
+    <span class="n">fake_beer</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_beer</span><span class="p">]</span>
+    <span class="n">fake_water</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_beer</span><span class="p">:]</span>
     <span class="c1"># Recalculate mean difference</span>
     <span class="n">fake_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_beer</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_water</span><span class="p">)</span>
     <span class="c1"># Store mean difference</span>
@@ -1247,7 +1247,7 @@ differences:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>595
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>602
 </pre></div>
 </div>
 </div>
@@ -1261,7 +1261,7 @@ differences:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0595
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0602
 </pre></div>
 </div>
 </div>

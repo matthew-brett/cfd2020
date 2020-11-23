@@ -766,9 +766,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">remain_ages</span><span class="p">,</span> <span class="n">leave_ages</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-<span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
-<span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
+<span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+<span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
+<span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -782,24 +782,23 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7823892972627036
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.31989759608725166
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now we know how do to this once, we can use the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to do the
-shuffle operation many times.  We collect the results in an array.
-You will recognize the code in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop from the code in the
-cells above.</p>
+permutation operation many times.  We collect the results in an array. You will
+recognize the code in the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop from the code in the cells above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># An array of zeros to store the fake differences</span>
 <span class="n">example_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="c1"># Do the shuffle / difference steps 10000 times</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-    <span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
-    <span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">pooled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
+    <span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+    <span class="n">fake_remainers</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_remain</span><span class="p">]</span>
+    <span class="n">fake_leavers</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_remain</span><span class="p">:]</span>
     <span class="n">eg_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_leavers</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_remainers</span><span class="p">)</span>
     <span class="c1"># Collect the results in the results array</span>
     <span class="n">example_diffs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eg_diff</span>
@@ -854,7 +853,7 @@ distribution are as large, or larger than the value we actually saw.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -871,7 +870,7 @@ that is as high, or higher.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0004
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0002
 </pre></div>
 </div>
 </div>

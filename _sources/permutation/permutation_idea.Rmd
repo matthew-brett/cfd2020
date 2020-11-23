@@ -183,8 +183,8 @@ Then we shuffle the pooled values so the beer and water values are completely
 mixed.
 
 ```{python}
-np.random.shuffle(pooled)
-pooled
+shuffled = np.random.permutation(pooled)
+shuffled
 ```
 
 This is the same idea as putting the gold and blue balls into a bucket and shaking them up into a random arrangement.
@@ -198,7 +198,7 @@ are a random mixture of the beer and the water values.  This is the same idea as
 
 ```{python}
 # Take the first 25 values
-fake_beer = pooled[:n_beer]
+fake_beer = shuffled[:n_beer]
 ```
 
 ![](../images/fake_beer_mean0.png)
@@ -237,7 +237,7 @@ fake_diff
 We do another shuffle:
 
 ```{python}
-np.random.shuffle(pooled)
+shuffled = np.random.permutation(pooled)
 ```
 
 ![](../images/fake_beer_mean1.png)
@@ -245,7 +245,7 @@ np.random.shuffle(pooled)
 We take another fake beer group, and calculate another fake beer mean:
 
 ```{python}
-fake_beer = pooled[:n_beer]
+fake_beer = shuffled[:n_beer]
 np.mean(fake_beer)
 ```
 
@@ -254,7 +254,7 @@ We take another fake water group, find the mean:
 ![](../images/fake_water_mean1.png)
 
 ```{python}
-fake_water = pooled[n_beer:]
+fake_water = shuffled[n_beer:]
 np.mean(fake_water)
 ```
 
@@ -269,10 +269,10 @@ differences:
 
 ```{python}
 # Shuffle
-np.random.shuffle(pooled)
+shuffled = np.random.permutation(pooled)
 # Split
-fake_beer = pooled[:n_beer]
-fake_water = pooled[n_beer:]
+fake_beer = shuffled[:n_beer]
+fake_water = shuffled[n_beer:]
 # Recalculate mean difference
 fake_diff = np.mean(fake_beer) - np.mean(fake_water)
 fake_diff
@@ -284,10 +284,10 @@ It is not hard to do this as many times as we want, using a `for` loop:
 fake_differences = np.zeros(10000)
 for i in np.arange(10000):
     # Shuffle
-    np.random.shuffle(pooled)
+    shuffled = np.random.permutation(pooled)
     # Split
-    fake_beer = pooled[:n_beer]
-    fake_water = pooled[n_beer:]
+    fake_beer = shuffled[:n_beer]
+    fake_water = shuffled[n_beer:]
     # Recalculate mean difference
     fake_diff = np.mean(fake_beer) - np.mean(fake_water)
     # Store mean difference
