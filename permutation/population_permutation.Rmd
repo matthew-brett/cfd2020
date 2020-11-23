@@ -168,8 +168,8 @@ pooled
 len(pooled)
 ```
 
-We mix the two samples together, using `np.random.shuffle`.  It works like
-this:
+We mix the two samples together, using `np.random.permutation`, to make a
+random permutation of the values.  It works like this:
 
 ```{python}
 pets = np.array(['cat', 'dog', 'rabbit'])
@@ -177,20 +177,18 @@ pets
 ```
 
 ```{python}
-np.random.shuffle(pets)
-pets
+np.random.permutation(pets)
 ```
 
 ```{python}
-np.random.shuffle(pets)
-pets
+np.random.permutation(pets)
 ```
 
 Now to mix up ages of the Leavers and Remainers:
 
 ```{python}
-np.random.shuffle(pooled)
-pooled
+shuffled = np.random.permutation(pooled)
+shuffled
 ```
 
 We split the newly mixed group into 774 simulated Remain voters and 541
@@ -199,9 +197,9 @@ and Remain ages.
 
 ```{python}
 # The first 774 values
-fake_remainers = pooled[:774]
+fake_remainers = shuffled[:774]
 # The rest
-fake_leavers = pooled[774:]
+fake_leavers = shuffled[774:]
 len(fake_leavers)
 ```
 
@@ -217,9 +215,10 @@ this, to collect more simulations.  We need to mix up the ages again, to give
 us new random samples of fake Remainers and fake Leavers.
 
 ```{python}
-np.random.shuffle(pooled)
-fake_difference_2 = np.mean(pooled[:774]) - np.mean(pooled[774:])
+shuffled = np.random.permutation(pooled)
+fake_difference_2 = np.mean(shuffled[:774]) - np.mean(shuffled[774:])
 fake_difference_2
 ```
 
-We want to keep doing this - and that calls for a `for` loop.
+We want to keep doing this - and that calls for a `for` loop.  That's what we
+will do in the next page.

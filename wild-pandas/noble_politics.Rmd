@@ -260,15 +260,15 @@ Next we shuffle the Yes, No labels randomly:
 
 
 ```{python}
-np.random.shuffle(party_yn)
-party_yn[:10]
+rand_party_yn = np.random.permutation(party_yn)
+rand_party_yn[:10]
 ```
 
 We can look at the new random pairing by putting the rows into a table, with 280 rows, one for each person:
 
 ```{python}
 fake_data = pd.DataFrame()
-fake_data['party_yn'] = party_yn
+fake_data['party_yn'] = rand_party_yn
 fake_data['respondent'] = respondent
 fake_data.head()
 ```
@@ -294,7 +294,7 @@ len(fake_nos_bystanders)
 Luckily, Pandas has a `crosstab` function that does this work for us:
 
 ```{python}
-fake_tab = pd.crosstab(party_yn, respondent)
+fake_tab = pd.crosstab(rand_party_yn, respondent)
 fake_tab
 ```
 
@@ -321,8 +321,8 @@ Unfortunately, `pd.crosstab` is horribly slow, so we need to drop our usual numb
 ```{python}
 counts = np.zeros(1000)
 for i in np.arange(1000):
-    np.random.shuffle(party_yn)
-    fake_tab = pd.crosstab(party_yn, respondent)
+    rand_party_yn = np.random.permutation(party_yn)
+    fake_tab = pd.crosstab(rand_party_yn, respondent)
     counts[i] = fake_tab.loc['Yes', 'bystander']
 counts[:10]
 ```
@@ -354,8 +354,8 @@ counts_y_by = np.zeros(1000)
 # No, rescuer
 counts_n_r = np.zeros(1000)
 for i in np.arange(1000):
-    np.random.shuffle(party_yn)
-    fake_tab = pd.crosstab(party_yn, respondent)
+    rand_party_yn = np.random.permutation(party_yn)
+    fake_tab = pd.crosstab(rand_party_yn, respondent)
     counts_y_by[i] = fake_tab.loc['Yes', 'bystander']
     counts_n_r[i] = fake_tab.loc['No', 'rescuer']
 ```

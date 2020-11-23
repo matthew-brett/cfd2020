@@ -4,7 +4,7 @@
 import os.path as op
 from itertools import cycle
 from collections import Counter
-from numpy.random import shuffle, seed
+from numpy.random import permutation, seed
 
 import numpy as np
 import pandas as pd
@@ -64,11 +64,11 @@ class BallShower:
             bugs, color = balls[ball_no]
             p = mpatches.Circle((c_x, c_y), self.radius, color=color)
             plt.text(c_x, c_y,
-                    bugs,
-                    horizontalalignment='center',
-                    verticalalignment='center',
-                    fontsize=self.ball_txt_fontsize,
-                    color=self.ball_txt_color)
+                     bugs,
+                     horizontalalignment='center',
+                     verticalalignment='center',
+                     fontsize=self.ball_txt_fontsize,
+                     color=self.ball_txt_color)
             ax.add_patch(p)
         ax.axis('off')
         self._balls = balls
@@ -101,7 +101,7 @@ beer_balls = list(zip(beer_activated, cycle(['#cc9900'])))
 
 water_activated = list(waters['activated'])
 water_balls = list(zip(water_activated, cycle(['#33bbff'])))
-balls = beer_balls + water_balls
+balls = np.array(beer_balls + water_balls, dtype=object)
 n_balls = len(balls)
 
 bshower = BallShower(7, 7)
@@ -123,10 +123,9 @@ plt.savefig('water_mean.png')
 print(f'Actual difference: {beer_m - water_m:0.2f}')
 
 seed(42)
-shuffled = balls[:]
 
 for i in range(2):
-    shuffle(shuffled)
+    shuffled = permutation(balls)
     bshower.ball_figure(shuffled)
     plt.savefig(f'fake_balls{i}.png')
     bshower.plot_bb(beer_nos)

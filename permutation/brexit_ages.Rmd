@@ -91,9 +91,9 @@ We asserted we could use permutation to take random samples from the data that w
 
 ```{python}
 pooled = np.append(remain_ages, leave_ages)
-np.random.shuffle(pooled)
-fake_remainers = pooled[:n_remain]
-fake_leavers = pooled[n_remain:]
+shuffled = np.random.permutation(pooled)
+fake_remainers = shuffled[:n_remain]
+fake_leavers = shuffled[n_remain:]
 ```
 
 Those are our samples.  Now we get the difference in mean ages, as one example of a difference we might see, if the samples are from the same population:
@@ -104,18 +104,17 @@ example_diff
 ```
 
 Now we know how do to this once, we can use the `for` loop to do the
-shuffle operation many times.  We collect the results in an array.
-You will recognize the code in the `for` loop from the code in the
-cells above.
+permutation operation many times.  We collect the results in an array. You will
+recognize the code in the `for` loop from the code in the cells above.
 
 ```{python}
 # An array of zeros to store the fake differences
 example_diffs = np.zeros(10000)
 # Do the shuffle / difference steps 10000 times
 for i in np.arange(10000):
-    np.random.shuffle(pooled)
-    fake_remainers = pooled[:n_remain]
-    fake_leavers = pooled[n_remain:]
+    shuffled = np.random.permutation(pooled)
+    fake_remainers = shuffled[:n_remain]
+    fake_leavers = shuffled[n_remain:]
     eg_diff = np.mean(fake_leavers) - np.mean(fake_remainers)
     # Collect the results in the results array
     example_diffs[i] = eg_diff

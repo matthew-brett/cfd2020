@@ -95,16 +95,13 @@ We keep doing this, and keep checking the slope, to build up the *sampling distr
 
 Then we compare our actual slope to the sampling distribution.  If the actual slope is not a rare value from the sampling distribution, the slope may have come about because of random sampling.  If it is a rare value, random sampling is an unlikely explanation.
 
-```{python}
-# Make a copy of the quality values
-shuffled_quality = quality.copy()
-```
 
-Now shuffle the copy of the Quality values, to make a fake and random pairing between the Easiness and Quality values.
+First shuffle the copy of the Quality values, to make a fake and random pairing
+between the Easiness and Quality values.
 
 ```{python}
 # Make a fake pairing of Easiness and Quality, by shuffling Quality
-np.random.shuffle(shuffled_quality)
+shuffled_quality = np.random.permutation(quality)
 ```
 
 Use `minimize` to estimate the best-fit slope for this new fake pairing:
@@ -129,7 +126,7 @@ We need to do this many times to build up a good estimate of the sampling distri
 n_samples = 10000
 fake_slopes = np.zeros(n_samples)
 for i in np.arange(n_samples):
-    np.random.shuffle(shuffled_quality)
+    shuffled_quality = np.random.permutation(quality)
     fake_inter, fake_slope = minimize(ss_any_line, [2.25, 0.47],
                                       args=(easiness, shuffled_quality)).x
     fake_slopes[i] = fake_slope

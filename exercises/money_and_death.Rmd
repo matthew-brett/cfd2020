@@ -181,7 +181,7 @@ To do the random sampling we permute the values, so the `pooled` vector is
 a random mixture of the two groups.
 
 ```{python}
-np.random.shuffle(pooled)
+shuffled = np.random.permutation(pooled)
 ```
 
 Treat the first `n_favor` observations from this shuffled vector as
@@ -189,8 +189,8 @@ our simulated in-favor group.  The rest are our simulated oppose
 group.
 
 ```{python}
-fake_favor = pooled[:n_favor]
-fake_oppose = pooled[n_favor:]
+fake_favor = shuffled[:n_favor]
+fake_oppose = shuffled[n_favor:]
 ```
 
 Calculate the difference in means for this simulation.
@@ -208,7 +208,7 @@ Use the [Brexit ages](../permutation/brexit_ages) notebook for inspiration.
 differences = np.zeros(10000)
 for i in np.arange(10000):
     # Permute the pooled incomes
-    np.random.shuffle(pooled)
+    shuffled = np.random.permutation(pooled)
     # Make a fake favor sample
 
     # Make a fake opposed sample

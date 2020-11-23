@@ -90,8 +90,8 @@ pooled = np.append(beer_activated, water_activated)
 n_iters = 10000
 fake_differences = np.zeros(n_iters)
 for i in np.arange(n_iters):
-    np.random.shuffle(pooled)
-    fake_differences[i] = np.mean(pooled[:25]) - np.mean(pooled[25:])
+    shuffled = np.random.permutation(pooled)
+    fake_differences[i] = np.mean(shuffled[:25]) - np.mean(shuffled[25:])
 ```
 
 Here's the histogram.   This time we have given the plot a title, using the

@@ -114,9 +114,8 @@ Is that a good value to give you?
 Let's start by shuffling up the values, ready to give you, one by one.
 
 ```{python}
-# Not really necessary, but still
-mm_shuffled = mm_arr.copy()
-np.random.shuffle(mm_shuffled)
+# Not really necessary, but still.
+mm_shuffled = np.random.permutation(mm_arr)
 ```
 
 I give you the mean, as a predictor.
