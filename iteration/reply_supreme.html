@@ -364,11 +364,6 @@
    Permutation and the t-test
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/testing_t.html">
-   Testing the t test
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -743,7 +738,7 @@ Not to pun, but we will call one simulation of a jury of 12 - <em>one trial</em>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
@@ -776,7 +771,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([30.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
@@ -800,7 +795,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 1., 2., 1., 5., 4., 3., 6., 3., 3.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 4., 2., 4., 3., 3., 5., 3., 4., 5.])
 </pre></div>
 </div>
 </div>
@@ -827,7 +822,7 @@ therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 3., 4., ..., 4., 0., 5.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 2., 2., ..., 5., 1., 2.])
 </pre></div>
 </div>
 </div>
@@ -873,8 +868,8 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 257., 1167., 2189., 2555., 2056., 1107.,  482.,  155.,   28.,
-           4.,    0.,    0.]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([2.620e+02, 1.191e+03, 2.115e+03, 2.680e+03, 2.010e+03, 1.127e+03,
+        4.490e+02, 1.290e+02, 3.000e+01, 6.000e+00, 1.000e+00, 0.000e+00]),
  array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
  &lt;a list of 12 Patch objects&gt;)
 </pre></div>
@@ -894,7 +889,7 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>257
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>262
 </pre></div>
 </div>
 </div>
@@ -909,7 +904,7 @@ number of times we see 0 by the number trials we made:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0257
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0262
 </pre></div>
 </div>
 </div>
@@ -924,7 +919,7 @@ that the proportion of times we see that result is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0257
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0262
 </pre></div>
 </div>
 </div>
@@ -938,7 +933,7 @@ in a jury of 12, is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0257
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0262
 </pre></div>
 </div>
 </div>

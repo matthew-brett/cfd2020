@@ -364,11 +364,6 @@
    Permutation and the t-test
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/testing_t.html">
-   Testing the t test
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -734,9 +729,9 @@ directory as this notebook.</p>
 <span class="n">big_courses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="c1"># Put the columns into arrays, each with six elements.</span>
 <span class="c1"># The disciplines (names of disciplines).</span>
-<span class="n">disciplines</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">disciplines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">])</span>
 <span class="c1"># The corresponding average scores for Easiness.</span>
-<span class="n">easiness</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>

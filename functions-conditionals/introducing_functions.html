@@ -364,11 +364,6 @@
    Permutation and the t-test
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/testing_t.html">
-   Testing the t test
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -591,9 +586,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/functions-conditionals/introducing_functions.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/functions-conditionals/introducing_functions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.Rmd</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -614,7 +609,7 @@
             href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Ffunctions-conditionals/introducing_functions.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/functions-conditionals/introducing_functions.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/functions-conditionals/introducing_functions.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -633,19 +628,24 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/functions-conditionals/introducing_functions.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/functions-conditionals/introducing_functions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/functions-conditionals/introducing_functions.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/functions-conditionals/introducing_functions.ipynb&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
                     alt="Interact on JupyterHub">JupyterHub</button></a>
         
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/matthew-brett/cfd2020/blob/master/functions-conditionals/introducing_functions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -686,6 +686,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-flexibility">
+   More flexibility
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#advantages-of-using-functions">
    Advantages of using functions
   </a>
@@ -700,7 +705,7 @@
         
               <div>
                 
-  <p>This page is from the <a class="reference external" href="http://introtopython.org/introducing_functions.html">equivalent
+  <p>This page derives from the <a class="reference external" href="http://introtopython.org/introducing_functions.html">equivalent
 page</a> in the excellent
 <a class="reference external" href="http://introtopython.org">introduction to Python</a> by <a class="reference external" href="https://github.com/ehmatthes">Eric
 Matthes</a>.  The original page has an <a class="reference external" href="https://github.com/ehmatthes/intro_programming/blob/master/LICENSE.md">MIT
@@ -711,56 +716,68 @@ license</a>.</p>
 <p>We are already repeating ourselves in our code, so this is a good time to introduce simple functions. Functions mean less work for us as programmers, and effective use of functions results in code that is less error-prone.</p>
 <div class="section" id="what-are-functions">
 <h2>What are functions?<a class="headerlink" href="#what-are-functions" title="Permalink to this headline">¶</a></h2>
-<p>Functions are a set of actions that we group together, and give a name to. You have already used a number of functions from the core Python language, such as <em>string.title()</em> and <em>list.sort()</em>. We can define our own functions, which allows us to “teach” Python new behavior.</p>
+<p>Functions are <em>named recipes</em>. The recipe is a procedure; a set of actions
+that we group together. You have already used a number of functions from the
+core Python language, such as <code class="docutils literal notranslate"><span class="pre">round</span></code>, and <code class="docutils literal notranslate"><span class="pre">type</span></code>. We can define our own
+functions, which allows us to “teach” Python new behavior.</p>
 </div>
 <div class="section" id="general-syntax">
 <h2>General Syntax<a class="headerlink" href="#general-syntax" title="Permalink to this headline">¶</a></h2>
-<p>A general function looks something like this:</p>
+<p>A function looks something like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define a function.</span>
 <span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">argument_1</span><span class="p">,</span> <span class="n">argument_2</span><span class="p">):</span>
     <span class="c1"># Do whatever we want this function to do,</span>
-    <span class="c1"># using argument_1 and argument_2</span>
-    <span class="o">...</span>
+    <span class="c1"># using argument_1 and argument_2.</span>
+    <span class="c1"># In this case we just add the two arguments.</span>
+    <span class="n">a_value</span> <span class="o">=</span> <span class="n">argument_1</span> <span class="o">+</span> <span class="n">argument_2</span>
+    <span class="c1"># Send back (return) the calculated result.</span>
+    <span class="k">return</span> <span class="n">a_value</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>We would call the function like this:</p>
-<div class="cell tag_hide-cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
-<span class="c1"># Just to define some values</span>
-<span class="n">value_1</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">value_2</span> <span class="o">=</span> <span class="mi">15</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use function_name to call the function.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Just to define some values</span>
+<span class="n">value_1</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">value_2</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># Use function_name to call the function.</span>
 <span class="n">function_name</span><span class="p">(</span><span class="n">value_1</span><span class="p">,</span> <span class="n">value_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
 </div>
+</div>
+</div>
+<p>Notice that our new function <strong>returns</strong> a result.  Jupyter displays the
+result for us.</p>
 <p>This code isn’t very useful, but it shows how functions are used in general.</p>
 <ul class="simple">
 <li><p><strong>Defining a function</strong></p>
 <ul>
-<li><p>Give the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, which tells Python that you are about to <em>define</em> a function.</p></li>
-<li><p>Give your function a name. A variable name tells you what kind of value the variable contains; a function name should tell you what the function does.</p></li>
+<li><p>Give the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code>, which tells Python that you are about to
+<em>define</em> a function.</p></li>
+<li><p>Give your function a name. A variable name tells you what kind of value
+the variable contains; a function name should tell you what the function
+does.</p></li>
 <li><p>Give names for each value the function needs in order to do its work.</p>
 <ul>
-<li><p>These are basically variable names, but they are only used in the function.</p></li>
-<li><p>They can be different names than what you use in the rest of your program.</p></li>
+<li><p>These are basically variable names, but they are only used in the
+function.</p></li>
+<li><p>They can be different names than what you use in the rest of your
+program.</p></li>
 <li><p>These are called the function’s <em>arguments</em>.</p></li>
 </ul>
 </li>
 <li><p>Make sure the function definition line ends with a colon.</p></li>
-<li><p>Inside the function, write whatever code you need to make the function do its work.</p></li>
+<li><p>Inside the function, write whatever code you need to make the function
+do its work.</p></li>
 </ul>
 </li>
 <li><p><strong>Using your function</strong></p>
@@ -779,65 +796,108 @@ they can be actual values such as “eric” and 5.</p></li>
 </div>
 <div class="section" id="basic-example">
 <h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h2>
-<p>For a simple first example, we will look at a program that compliments people. Let’s look at the example, and then try to understand the code. First we will look at a version of this program as we would have written it earlier, with no functions.</p>
+<p>For a simple first example, we will look at a program that compliments people.
+Let’s look at the example, and then try to understand the code. First we will
+look at a version of this program with no functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing good work, Adriana!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>  <span class="c1"># Print a blank line.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &quot;\n&quot; below means start a new line.</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Great work, Adriana!</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thanks for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing good work, Billy!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Great work, Billy!</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thanks for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing good work, Caroline!&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Great work, Caroline!</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thanks for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are doing good work, Adriana!
-Thank you very much for your efforts on this project.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Adriana!
+Thanks for your efforts.
 
-You are doing good work, Billy!
-Thank you very much for your efforts on this project.
+Great work, Billy!
+Thanks for your efforts.
 
-You are doing good work, Caroline!
-Thank you very much for your efforts on this project.
+Great work, Caroline!
+Thanks for your efforts.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Functions take repeated code, put it in one place, and then you call that code when you want to use it. Here’s what the same program looks like with a function.</p>
+<p>Functions take repeated code, put it in one place, and then you call that code
+when you want to use it. Here is a function which assembles the message for one person.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">thank_you</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="c1"># This function prints a two-line personalized thank you message.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing good work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very much for your efforts on this project.&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>  <span class="c1"># Print a blank line.</span>
-
-<span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">)</span>
+    <span class="c1"># This function returns a two-line personalized thank you message.</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Great work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thanks for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use our new function like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Sidney&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are doing good work, Adriana!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Billy!
-Thank you very much for your efforts on this project.
-
-You are doing good work, Caroline!
-Thank you very much for your efforts on this project.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Sidney
+Thanks for your efforts.
 </pre></div>
 </div>
 </div>
 </div>
-<p>In our original code, each pair of print statements was run three times, and the only difference was the name of the person being thanked. When you see repetition like this, you can usually make your program more efficient by defining a function.</p>
+<p>Or - to be even more brief, we can return the message and print it, all in the same line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Sidney&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Sidney
+Thanks for your efforts.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now use our function to do all three thank you’s above in a more
+compact form:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Great work, Adriana
+Thanks for your efforts.
+
+Great work, Billy
+Thanks for your efforts.
+
+Great work, Caroline
+Thanks for your efforts.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In our original code, we assembled the message three times, and the only
+difference was the name of the person being thanked. When you see repetition
+like this, you can usually make your program more efficient by defining a
+function.</p>
 <p>The keyword <em>def</em> tells Python that we are about to define a function. We give our function a name, <em>thank_you()</em> in this case. A variable’s name should tell us what kind of information it holds; a function’s name should tell us what the variable does.  We then put parentheses. Inside these parentheses we create variable names for any variable the function will need to be given in order to do its job. In this case the function will need a name to include in the thank you message. The variable <code class="docutils literal notranslate"><span class="pre">name</span></code> will hold the value that is passed into the function <code class="docutils literal notranslate"><span class="pre">thank_you()</span></code>.</p>
 <p>To use a function we give the function’s name, and then put any values the function needs in order to do its work. In this case we call the function three times, each time passing it a different name.</p>
 <div class="section" id="a-common-error">
@@ -847,25 +907,25 @@ example, putting the function at the end of the program or notebook cell would
 not work.</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">thank_you_effusively</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="c1"># This function prints another two-line personalized thank you message.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are doing EXCELLENT work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thank you very very much for your efforts on this project.&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">()</span>  <span class="c1"># Print a blank line.</span>
+    <span class="c1"># This function compiles another two-line personalized thank you message.</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;EXCELLENT work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thank you for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">msg</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">dccaaffa26c9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">d3576868aa3b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">thank_you_effusively</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 
@@ -877,6 +937,86 @@ not work.</p>
 <p>On the first line we ask Python to run the function <code class="docutils literal notranslate"><span class="pre">thank_you_effusively()</span></code>,
 but Python does not yet know how to do this function. We define our functions
 at the beginning of our programs, and then we can use them when we need to.</p>
+<p>Here’s what that should have looked like.  We <em>first</em> define the function, <em>then</em> we call the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">thank_you_effusively</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="c1"># This function compiles another two-line personalized thank you message.</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;EXCELLENT work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thank you for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">msg</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_effusively</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EXCELLENT work, Adriana!
+Thank you for your efforts.
+
+EXCELLENT work, Billy!
+Thank you for your efforts.
+
+EXCELLENT work, Caroline!
+Thank you for your efforts.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="more-flexibility">
+<h2>More flexibility<a class="headerlink" href="#more-flexibility" title="Permalink to this headline">¶</a></h2>
+<p>We can also make functions that get more than one argument.  For example, let’s say I wanted to customize the message, to tell the person how well they had done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">thank_you_specifically</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quality</span><span class="p">):</span>
+    <span class="c1"># This function compiles a more personalized thank you message.</span>
+    <span class="c1"># Notice we use &quot;name&quot; and &quot;quality&quot; in this line.</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">quality</span> <span class="o">+</span> <span class="s2">&quot; work, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="s2">&quot;Thank you for your efforts.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use our new function like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thank_you_specifically</span><span class="p">(</span><span class="s1">&#39;Matthew&#39;</span><span class="p">,</span> <span class="s1">&#39;Barely acceptable&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Barely acceptable work, Matthew!
+Thank you for your efforts.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thank_you_specifically</span><span class="p">(</span><span class="s1">&#39;Adriana&#39;</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_specifically</span><span class="p">(</span><span class="s1">&#39;Billy&#39;</span><span class="p">,</span> <span class="s1">&#39;Shocking&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">thank_you_specifically</span><span class="p">(</span><span class="s1">&#39;Caroline&#39;</span><span class="p">,</span> <span class="s1">&#39;AMAZING&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OK work, Adriana!
+Thank you for your efforts.
+
+Shocking work, Billy!
+Thank you for your efforts.
+
+AMAZING work, Caroline!
+Thank you for your efforts.
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="advantages-of-using-functions">

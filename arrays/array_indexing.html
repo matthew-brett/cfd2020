@@ -364,11 +364,6 @@
    Permutation and the t-test
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../permutation/testing_t.html">
-   Testing the t test
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -886,9 +881,9 @@ file. We will come on the machinery to do this very soon.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Again - don&#39;t worry about this code - we will cover it later.</span>
 <span class="c1"># Put the columns into arrays</span>
-<span class="n">disciplines</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">easiness</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">quality</span> <span class="o">=</span> <span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">disciplines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">])</span>
+<span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
+<span class="n">quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">big_courses</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>

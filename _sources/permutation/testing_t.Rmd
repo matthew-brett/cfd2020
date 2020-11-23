@@ -31,7 +31,7 @@ world, and seeing what results we get from the t-test.
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
-# %matplotlib inline
+%matplotlib inline
 ```
 
 The particular variant of the t-test that we were looking at in the page above

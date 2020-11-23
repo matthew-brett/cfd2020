@@ -364,11 +364,6 @@
    Permutation and the t-test
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="testing_t.html">
-   Testing the t test
-  </a>
- </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -787,7 +782,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9950875734953399
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7823892972627036
 </pre></div>
 </div>
 </div>
@@ -828,8 +823,26 @@ cells above.</p>
 sampling distribution of the difference in means.  It is the
 <em>sampling</em> distribution, because it is the distribution we expect to
 see, when taking random <em>samples</em> from the same underlying population.</p>
-<p>Our question now is, is the difference we actually saw, a likely value, given the sampling distribution.</p>
+<p>Our question now is, is the difference we actually saw, a likely value, given the sampling distribution. Let’s plot the actual difference, so we can see how similar/different it is to the simulated differences.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do not worry about the code below, it just plots the sampling distribution, the actual difference in the mean ages, </span>
+<span class="c1"># and adds some labels to the histogram. </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">example_diffs</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;simulated differences&#39;</span><span class="p">)</span>
+<span class="n">fontsize</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">actual_diff</span><span class="p">,</span> <span class="mi">20</span> <span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;actual difference&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Difference between the mean ages of leavers and remainers&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fontsize</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of times obtained in simulation&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fontsize</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">**</span><span class="n">fontsize</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/brexit_ages_21_0.png" src="../_images/brexit_ages_21_0.png" />
+</div>
+</div>
 <p>Looking at the distribution above - what do you think?</p>
+<p>The blue histogram shows the distribution of differences we would expect to obtain in an ideal world. That is, in a world where there was no difference between the mean age of leavers and remainers. The red dot shows the actual difference between the mean ages of leavers and remainers. Does it look likely that we would obtain the actual difference in the ideal world?</p>
 <p>As a first pass, let us check how many of the values from the sampling
 distribution are as large, or larger than the value we actually saw.</p>
 <div class="cell docutils container">
@@ -841,7 +854,7 @@ distribution are as large, or larger than the value we actually saw.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -858,7 +871,7 @@ that is as high, or higher.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0002
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0004
 </pre></div>
 </div>
 </div>

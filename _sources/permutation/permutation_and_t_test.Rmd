@@ -94,9 +94,12 @@ for i in np.arange(n_iters):
     fake_differences[i] = np.mean(pooled[:25]) - np.mean(pooled[25:])
 ```
 
+Here's the histogram.   This time we have given the plot a title, using the
+`plt.title` function.
+
 ```{python}
 plt.hist(fake_differences)
-plt.title('Sampling difference of means');
+plt.title('Sampling distribution of difference of means');
 ```
 
 We can work out the proportion of the sampling distribution that is greater
@@ -109,15 +112,29 @@ permutation_p = np.count_nonzero(
 permutation_p
 ```
 
-Remember that the *standard deviation* is a measure of the spread of
-a distribution.
+Remember that the *standard deviation* is a measure of the spread of a
+distribution.  We go into the standard deviation in more detail [later in the
+course](../mean-slopes/standard_scores), but for now, we just use Numpy to
+calculate the standard deviation.
 
 ```{python}
 sampling_sd = np.std(fake_differences)
 sampling_sd
 ```
 
-We can use the standard deviation as unit of distance in the distribution.
+Here is the distribution of the `fake_differences` again, showing the mean plus
+and minus one standard deviation.  The standard deviation is a measure of how
+spread out the distribution is, around its mean.
+
+```{python}
+plt.hist(fake_differences)
+fake_mean = np.mean(fake_differences)
+# Red dot just above x-axis at +/- one standard deviation.
+plt.plot([fake_mean - sampling_sd, fake_mean + sampling_sd], [50, 50], 'or')
+plt.title('Sampling distribution +/- one standard deviation');
+```
+
+We can use the standard deviation as a unit of distance in the distribution.
 
 A way of getting an idea of how extreme the observed value is, is to ask how
 many standard deviations the observed value is from the center of the
@@ -202,3 +219,7 @@ permutation_p
 The permutation test is more general than the t test, because the t test relies
 on the assumption that the numbers come from a normal distribution, but the
 permutation test does not.
+
+Of course, you should should not believe these assertions without evidence, so
+your next step is to use the *simulation* tools you have learned, to [test the
+t-test](testing_t).

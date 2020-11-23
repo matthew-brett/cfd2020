@@ -38,7 +38,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing the t test" href="testing_t.html" />
+    <link rel="next" title="More building blocks" href="../functions-conditionals/more_building_blocks.html" />
     <link rel="prev" title="The idea of permutation" href="permutation_idea.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -362,11 +362,6 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Permutation and the t-test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="testing_t.html">
-   Testing the t test
   </a>
  </li>
 </ul>
@@ -767,15 +762,17 @@ distribution</em> of the mean difference:</p>
 </div>
 </div>
 </div>
+<p>Here’s the histogram.   This time we have given the plot a title, using the
+<code class="docutils literal notranslate"><span class="pre">plt.title</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling difference of means&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution of difference of means&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/permutation_and_t_test_10_0.png" src="../_images/permutation_and_t_test_10_0.png" />
+<img alt="../_images/permutation_and_t_test_11_0.png" src="../_images/permutation_and_t_test_11_0.png" />
 </div>
 </div>
 <p>We can work out the proportion of the sampling distribution that is greater
@@ -790,13 +787,15 @@ the observed value, if we are in fact in the null (ideal) world:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0566
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0608
 </pre></div>
 </div>
 </div>
 </div>
-<p>Remember that the <em>standard deviation</em> is a measure of the spread of
-a distribution.</p>
+<p>Remember that the <em>standard deviation</em> is a measure of the spread of a
+distribution.  We go into the standard deviation in more detail <a class="reference internal" href="../mean-slopes/standard_scores.html"><span class="doc std std-doc">later in the
+course</span></a>, but for now, we just use Numpy to
+calculate the standard deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
@@ -805,12 +804,29 @@ a distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.761115792985112
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.777949253159928
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can use the standard deviation as unit of distance in the distribution.</p>
+<p>Here is the distribution of the <code class="docutils literal notranslate"><span class="pre">fake_differences</span></code> again, showing the mean plus
+and minus one standard deviation.  The standard deviation is a measure of how
+spread out the distribution is, around its mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
+<span class="n">fake_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
+<span class="c1"># Red dot just above x-axis at +/- one standard deviation.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fake_mean</span> <span class="o">-</span> <span class="n">sampling_sd</span><span class="p">,</span> <span class="n">fake_mean</span> <span class="o">+</span> <span class="n">sampling_sd</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution +/- one standard deviation&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/permutation_and_t_test_17_0.png" src="../_images/permutation_and_t_test_17_0.png" />
+</div>
+</div>
+<p>We can use the standard deviation as a unit of distance in the distribution.</p>
 <p>A way of getting an idea of how extreme the observed value is, is to ask how
 many standard deviations the observed value is from the center of the
 distribution, which is zero.</p>
@@ -822,7 +838,7 @@ distribution, which is zero.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6056310802309182
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5959014831859868
 </pre></div>
 </div>
 </div>
@@ -875,7 +891,7 @@ permutation distribution:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.761115792985112
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.777949253159928
 </pre></div>
 </div>
 </div>
@@ -936,7 +952,7 @@ permutation test.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0566
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0608
 </pre></div>
 </div>
 </div>
@@ -944,6 +960,9 @@ permutation test.</p>
 <p>The permutation test is more general than the t test, because the t test relies
 on the assumption that the numbers come from a normal distribution, but the
 permutation test does not.</p>
+<p>Of course, you should should not believe these assertions without evidence, so
+your next step is to use the <em>simulation</em> tools you have learned, to <a class="reference internal" href="testing_t.html"><span class="doc std std-doc">test the
+t-test</span></a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -975,7 +994,7 @@ permutation test does not.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="permutation_idea.html" title="previous page">The idea of permutation</a>
-    <a class='right-next' id="next-link" href="testing_t.html" title="next page">Testing the t test</a>
+    <a class='right-next' id="next-link" href="../functions-conditionals/more_building_blocks.html" title="next page">More building blocks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
