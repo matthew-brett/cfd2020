@@ -723,8 +723,10 @@ StackOverflow answer</a>, but be warned,
 it’s dark down there.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># Safe settings for Pandas.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -734,7 +736,7 @@ columns include average ratings for all University professors / lecturers
 teaching that subject. See <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">the dataset page</span></a> for more detail.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
 <span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -819,7 +821,7 @@ teaching that subject. See <a class="reference internal" href="../data/rate_my_p
 <p>We make a smaller data frame to play with, using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First three rows, first three columns</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First three rows, first three columns</span>
 <span class="n">first_33</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">first_33</span>
 </pre></div>
@@ -876,7 +878,7 @@ teaching that subject. See <a class="reference internal" href="../data/rate_my_p
 values in <code class="docutils literal notranslate"><span class="pre">first_33</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span> <span class="o">=</span> <span class="n">first_33</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span> <span class="o">=</span> <span class="n">first_33</span><span class="p">[</span><span class="s1">&#39;Discipline&#39;</span><span class="p">]</span>
 <span class="n">discipline</span>
 </pre></div>
 </div>
@@ -895,16 +897,48 @@ in <code class="docutils literal notranslate"><span class="pre">discipline</span
 a big warning.  See the <a class="reference internal" href="safe_pandas.html"><span class="doc std std-doc">Pandas safe handling guide</span></a> for more on this warning.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spanglish&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spanglish&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:671: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">SettingWithCopyError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">286</span><span class="n">d1533d343</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">discipline</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Spanglish&#39;</span>
 
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_with_indexer(indexer, value)
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span>             <span class="n">key</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>         <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_setitem_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">671</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">672</span> 
+<span class="g g-Whitespace">    </span><span class="mi">673</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1059</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1060</span>             <span class="c1"># check for chained assignment</span>
+<span class="ne">-&gt; </span><span class="mi">1061</span>             <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1062</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1063</span>             <span class="c1"># actually do the set</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_is_chained_assignment_possible</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3648</span>             <span class="n">ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cacher</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3649</span>             <span class="k">if</span> <span class="n">ref</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ref</span><span class="o">.</span><span class="n">_is_mixed_type</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3650</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referant&quot;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3651</span>             <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">3652</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
+
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_setitem_copy</span><span class="nt">(self, stacklevel, t, force)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3727</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3728</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3729</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3730</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3731</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
+
+<span class="ne">SettingWithCopyError</span>: 
+<span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">DataFrame</span>
+
+<span class="n">See</span> <span class="n">the</span> <span class="n">caveats</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">documentation</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pandas</span><span class="o">.</span><span class="n">pydata</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pandas</span><span class="o">-</span><span class="n">docs</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">user_guide</span><span class="o">/</span><span class="n">indexing</span><span class="o">.</span><span class="n">html</span><span class="c1">#returning-a-view-versus-a-copy</span>
 </pre></div>
 </div>
 </div>
@@ -912,15 +946,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>As expected, the value in <code class="docutils literal notranslate"><span class="pre">discipline</span></code> has changed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Spanglish
-1    Mathematics
-2        Biology
-Name: Discipline, dtype: object
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discipline</span>
 </pre></div>
 </div>
 </div>
@@ -931,56 +957,10 @@ a <em>view</em>. That means that the <code class="docutils literal notranslate">
 <code class="docutils literal notranslate"><span class="pre">first_33</span></code> values, and so we see the changes in <code class="docutils literal notranslate"><span class="pre">first_33</span></code> as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Discipline</th>
-      <th>Number of Professors</th>
-      <th>Clarity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Spanglish</td>
-      <td>23343</td>
-      <td>3.756147</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Mathematics</td>
-      <td>22394</td>
-      <td>3.487379</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Biology</td>
-      <td>11774</td>
-      <td>3.608331</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Unfortunately, it can be very difficult to work out whether you have a view or
 a <em>copy</em>.  A copy has <em>duplicates</em> of the values, that are in different memory
@@ -989,16 +969,8 @@ duplicates, <em>but not</em> the original data frame.</p>
 <p>For example, consider this.  Is this a view or a copy?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline              Spanglish
-Number of Professors        23343
-Clarity                   3.75615
-Name: 0, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1006,28 +978,8 @@ Name: 0, dtype: object
 <p>To test whether it is a view or a copy, we set the first value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
 <span class="n">first_row</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:671: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_with_indexer(indexer, value)
-&lt;ipython-input-9-b2051515e51b&gt;:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  first_row.iloc[0] = &#39;Franglais&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline              Franglais
-Number of Professors        23343
-Clarity                   3.75615
-Name: 0, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1035,56 +987,10 @@ Name: 0, dtype: object
 <p>Now we look at the data frame from which <code class="docutils literal notranslate"><span class="pre">first_row</span></code> came.   If it was a view, then the original data frame will have changed in the same way as <code class="docutils literal notranslate"><span class="pre">first_row</span></code>.  If it was a copy, the original data frame will not change.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Discipline</th>
-      <th>Number of Professors</th>
-      <th>Clarity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Spanglish</td>
-      <td>23343</td>
-      <td>3.756147</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Mathematics</td>
-      <td>22394</td>
-      <td>3.487379</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Biology</td>
-      <td>11774</td>
-      <td>3.608331</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">first_row</span></code> was a copy — because changing <code class="docutils literal notranslate"><span class="pre">first_row</span></code> did <em>not</em> change the
 original data frame.</p>
@@ -1092,22 +998,8 @@ original data frame.</p>
 <p>Look at this bit of code.   Do you think that <code class="docutils literal notranslate"><span class="pre">first_33</span></code> will change?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Will first_33 change?</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Will first_33 change?</span>
 <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:671: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_with_indexer(indexer, value)
-&lt;ipython-input-11-219070429907&gt;:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  first_33.iloc[0].iloc[0] = &#39;Franglais&#39;
 </pre></div>
 </div>
 </div>
@@ -1116,77 +1008,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 left value has changed to ‘Franglais’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Discipline</th>
-      <th>Number of Professors</th>
-      <th>Clarity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Spanglish</td>
-      <td>23343</td>
-      <td>3.756147</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Mathematics</td>
-      <td>22394</td>
-      <td>3.487379</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Biology</td>
-      <td>11774</td>
-      <td>3.608331</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>In fact the code above: <code class="docutils literal notranslate"><span class="pre">first_33.iloc[0].iloc[0]</span> <span class="pre">=</span> <span class="pre">'Franglais'</span></code> is exactly
 equivalent to the code we have already seen above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:671: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_with_indexer(indexer, value)
-&lt;ipython-input-13-833fb9aa8416&gt;:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  first_row.iloc[0] = &#39;Franglais&#39;
 </pre></div>
 </div>
 </div>
@@ -1194,75 +1026,15 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>Because it is exactly equivalent - it has the same result - it does not change the underlying data frame, even though it looks as if it should.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Discipline</th>
-      <th>Number of Professors</th>
-      <th>Clarity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Spanglish</td>
-      <td>23343</td>
-      <td>3.756147</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Mathematics</td>
-      <td>22394</td>
-      <td>3.487379</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Biology</td>
-      <td>11774</td>
-      <td>3.608331</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The two versions are equivalent, because, when we run:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:671: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_with_indexer(indexer, value)
-&lt;ipython-input-15-438c4abb5cde&gt;:1: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  first_33.iloc[0].iloc[0] = &#39;Franglais&#39;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1279,17 +1051,8 @@ refers to this as <em>chained assignment</em>, in the sense that we first do
 <p>The chaining is fairly obvious in the both-at-the-same-time version above, but it can be a harder to spot when the assignments are separated, even by a line, as in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row</span> <span class="o">=</span> <span class="n">first_33</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Franglais&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-16-833fb9aa8416&gt;:2: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  first_row.iloc[0] = &#39;Franglais&#39;
 </pre></div>
 </div>
 </div>
@@ -1308,72 +1071,18 @@ assignment.  It can be even more difficult to spot when the lines are a bit sepa
 this slight variation on our original <code class="docutils literal notranslate"><span class="pre">first_33</span></code> data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First 3 rows, last three columns.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First 3 rows, last three columns.</span>
 <span class="n">first_3_end_3</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">:]</span>
 <span class="n">first_3_end_3</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Helpfulness</th>
-      <th>Overall Quality</th>
-      <th>Easiness</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3.821866</td>
-      <td>3.791364</td>
-      <td>3.162754</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3.641526</td>
-      <td>3.566867</td>
-      <td>3.063322</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3.701530</td>
-      <td>3.657641</td>
-      <td>2.710459</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Knowing what you know now - does the following give a view on the row, or a copy of the row?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row_f3e3</span> <span class="o">=</span> <span class="n">first_3_end_3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row_f3e3</span> <span class="o">=</span> <span class="n">first_3_end_3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">first_row_f3e3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Helpfulness        3.821866
-Overall Quality    3.791364
-Easiness           3.162754
-Name: 0, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1381,16 +1090,8 @@ Name: 0, dtype: float64
 <p>We can check by setting a value on the row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_row_f3e3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_row_f3e3</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 <span class="n">first_row_f3e3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Helpfulness        99.000000
-Overall Quality     3.791364
-Easiness            3.162754
-Name: 0, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1401,56 +1102,10 @@ underlying data frame — <code class="docutils literal notranslate"><span class
 was a copy, it will have the value it had before - 3.821866.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_3_end_3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_3_end_3</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Helpfulness</th>
-      <th>Overall Quality</th>
-      <th>Easiness</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>99.000000</td>
-      <td>3.791364</td>
-      <td>3.162754</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>3.641526</td>
-      <td>3.566867</td>
-      <td>3.063322</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3.701530</td>
-      <td>3.657641</td>
-      <td>2.710459</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Was <code class="docutils literal notranslate"><span class="pre">first_row_f3e3</span></code> a view or a copy?  Did you guess right?</p>
 <p>The point of all this is to say that - when you take stuff out of a Pandas data

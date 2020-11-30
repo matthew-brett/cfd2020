@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 1077, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.8/3.8.6_1/Frameworks/Python.framework/Versions/3.8/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 526, in async_execute
+    await self.async_execute_cell(
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 822, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 730, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+discipline.iloc[0] = 'Spanglish'
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mSettingWithCopyError[0m                      Traceback (most recent call last)
+[0;32m<ipython-input-5-286d1533d343>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mdiscipline[0m[0;34m.[0m[0miloc[0m[0;34m[[0m[0;36m0[0m[0;34m][0m [0;34m=[0m [0;34m'Spanglish'[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m__setitem__[0;34m(self, key, value)[0m
+[1;32m    669[0m             [0mkey[0m [0;34m=[0m [0mcom[0m[0;34m.[0m[0mapply_if_callable[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    670[0m         [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_setitem_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 671[0;31m         [0mself[0m[0;34m.[0m[0m_setitem_with_indexer[0m[0;34m([0m[0mindexer[0m[0;34m,[0m [0mvalue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    672[0m [0;34m[0m[0m
+[1;32m    673[0m     [0;32mdef[0m [0m_validate_key[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m,[0m [0maxis[0m[0;34m:[0m [0mint[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m_setitem_with_indexer[0;34m(self, indexer, value)[0m
+[1;32m   1059[0m [0;34m[0m[0m
+[1;32m   1060[0m             [0;31m# check for chained assignment[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1061[0;31m             [0mself[0m[0;34m.[0m[0mobj[0m[0;34m.[0m[0m_check_is_chained_assignment_possible[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1062[0m [0;34m[0m[0m
+[1;32m   1063[0m             [0;31m# actually do the set[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py[0m in [0;36m_check_is_chained_assignment_possible[0;34m(self)[0m
+[1;32m   3648[0m             [0mref[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_get_cacher[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3649[0m             [0;32mif[0m [0mref[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m [0;32mand[0m [0mref[0m[0;34m.[0m[0m_is_mixed_type[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3650[0;31m                 [0mself[0m[0;34m.[0m[0m_check_setitem_copy[0m[0;34m([0m[0mstacklevel[0m[0;34m=[0m[0;36m4[0m[0;34m,[0m [0mt[0m[0;34m=[0m[0;34m"referant"[0m[0;34m,[0m [0mforce[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3651[0m             [0;32mreturn[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3652[0m         [0;32melif[0m [0mself[0m[0;34m.[0m[0m_is_copy[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py[0m in [0;36m_check_setitem_copy[0;34m(self, stacklevel, t, force)[0m
+[1;32m   3727[0m [0;34m[0m[0m
+[1;32m   3728[0m         [0;32mif[0m [0mvalue[0m [0;34m==[0m [0;34m"raise"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3729[0;31m             [0;32mraise[0m [0mcom[0m[0;34m.[0m[0mSettingWithCopyError[0m[0;34m([0m[0mt[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3730[0m         [0;32melif[0m [0mvalue[0m [0;34m==[0m [0;34m"warn"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3731[0m             [0mwarnings[0m[0;34m.[0m[0mwarn[0m[0;34m([0m[0mt[0m[0;34m,[0m [0mcom[0m[0;34m.[0m[0mSettingWithCopyWarning[0m[0;34m,[0m [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mSettingWithCopyError[0m: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+SettingWithCopyError: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+

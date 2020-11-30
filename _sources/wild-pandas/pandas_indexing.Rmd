@@ -31,6 +31,9 @@ import numpy as np
 
 # Load the Pandas data science library, rename to "pd"
 import pandas as pd
+
+# Safe settings for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
 ```
 
 ## The index
