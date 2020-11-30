@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 """ Print results of grading notebook
-
-TODO: print debug messages when running tests.
 """
 
 import os
