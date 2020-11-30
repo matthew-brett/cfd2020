@@ -1,6 +1,8 @@
 BUILD_DIR=_build/html
 
 html: bibliography
+	# Check for ipynb files in source (should all be .Rmd).
+	[ -z `ls */*.ipynb 2> /dev/null` ] || ( echo "ipynb files" && exit 1 )
 	jupyter-book build .
 	python _scripts/make_redirects.py
 
