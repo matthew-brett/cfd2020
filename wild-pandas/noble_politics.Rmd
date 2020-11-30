@@ -27,6 +27,9 @@ We also ask the question - is politics noble?
 # Our usual imports
 import numpy as np
 import pandas as pd
+# Safe settings for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
+
 import matplotlib.pyplot as plt
 # %matplotlib inline
 plt.style.use('fivethirtyeight')

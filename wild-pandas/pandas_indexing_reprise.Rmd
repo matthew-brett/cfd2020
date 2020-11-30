@@ -23,6 +23,8 @@ parts of the basic indexing page.
 
 ```{python}
 import pandas as pd
+# Safe settings for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
 ```
 
 We use the familiar dataset on student ratings of professors.  It is a table

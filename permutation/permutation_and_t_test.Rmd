@@ -42,6 +42,8 @@ page](../data/LICENSE).
 import numpy as np
 # Import Pandas library, rename as "pd"
 import pandas as pd
+# Safe setting for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
 
 # Set up plotting
 import matplotlib.pyplot as plt

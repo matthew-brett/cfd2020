@@ -35,6 +35,9 @@ import numpy as np
 # Data frame library.
 import pandas as pd
 
+# Safe setting for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
+
 # Plotting
 import matplotlib.pyplot as plt
 %matplotlib inline
