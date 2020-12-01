@@ -19,7 +19,7 @@ jupyter:
 
 # Where and argmin in 2D
 
-This follows from [where and argmin](../mean-meaning/where_and_argmin).
+This follows from [where and argmin](../mean-slopes/where_and_argmin).
 
 That page covers how `np.where` and `np.argmin` work for one-dimensional
 arrays.
@@ -58,7 +58,8 @@ arr2d = np.array([[4, 99, 3], [8, 8, 99]])
 arr2d
 ```
 
-`np.where` now returns two index arrays, one for the rows, and one for the columns.
+`np.where` now returns two index arrays, one for the rows, and one for the
+columns.
 
 ```{python}
 indices2d = np.where(arr2d == 99)
