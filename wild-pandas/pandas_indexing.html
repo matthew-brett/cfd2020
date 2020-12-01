@@ -751,11 +751,22 @@
                 
   <div class="section" id="indexing-in-pandas">
 <h1>Indexing in Pandas<a class="headerlink" href="#indexing-in-pandas" title="Permalink to this headline">¶</a></h1>
-<p>Way back in the <a class="reference internal" href="../data-frames/data_frame_intro.html"><span class="doc std std-doc">introduction to data frames</span></a>, we covered indexing into data frames with
-<em>Boolean vectors</em>, such as Pandas Series or Numpy arrays, and indexing into data frames with column names.</p>
-<p>This page covers more sophisticated indexing in Pandas.</p>
-<p>To understand this indexing, we first need to cover the <em>index</em> of data frames
-and Series.</p>
+<p>Way back in the <a class="reference internal" href="../data-frames/data_frame_intro.html"><span class="doc std std-doc">introduction to data frames</span></a>,
+we covered indexing into data frames with <em>Boolean vectors</em>, such as Pandas
+Series or Numpy arrays, and indexing into data frames with column names.</p>
+<p>We call this type of indexing <em>simple indexing</em></p>
+<p>This page covers more sophisticated indexing in Pandas - <em>advanced indexing</em>.</p>
+<!---
+Summary:
+
+Simple indexing
+Advanced indexing
+   Labels with loc
+   Positions with iloc
+-->
+<p>To understand advanced indexing, we first need to cover the <em>index</em> of data
+frames and Series.  The <em>index</em> contains the <em>row labels</em> for a data frame or
+series.</p>
 <p>We start with our usual imports:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

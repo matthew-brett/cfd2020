@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Where and argmin &#8212; Coding for Data - 2020 edition</title>
+    <title>Where and argmin in 2D &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,22 +54,20 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/mean-slopes/where_and_argmin.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/extra/where_2d.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The mean and slopes" href="mean_and_slopes.html" />
-    <link rel="prev" title="The meaning of the mean" href="mean_meaning.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/mean-slopes/where_and_argmin.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/extra/where_2d.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Where and argmin" />
-<meta property="og:description" content="Where and argmin  We sometimes want to know where a value is in an array.  import numpy as np  By “where” we mean, which element contains a particular value.  H" />
+<meta property="og:title"       content="Where and argmin in 2D" />
+<meta property="og:description" content="Where and argmin in 2D  This follows from where and argmin.  That page covers how np.where and np.argmin work for one-dimensional arrays.  This page covers what" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -489,59 +487,59 @@
   The mean and straight lines
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="mean.html">
+  <a class="reference internal" href="../mean-slopes/mean.html">
    The mean
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="mean_meaning.html">
+  <a class="reference internal" href="../mean-slopes/mean_meaning.html">
    The meaning of the mean
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/where_and_argmin.html">
    Where and argmin
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="mean_and_slopes.html">
+  <a class="reference internal" href="../mean-slopes/mean_and_slopes.html">
    The mean and slopes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="optimization.html">
+  <a class="reference internal" href="../mean-slopes/optimization.html">
    Optimization
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="finding_lines.html">
+  <a class="reference internal" href="../mean-slopes/finding_lines.html">
    Finding lines
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="using_minimize.html">
+  <a class="reference internal" href="../mean-slopes/using_minimize.html">
    Using minimize
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="inference_on_slopes.html">
+  <a class="reference internal" href="../mean-slopes/inference_on_slopes.html">
    Inference on slopes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="combining_boolean_arrays.html">
+  <a class="reference internal" href="../mean-slopes/combining_boolean_arrays.html">
    Combining boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="standard_scores.html">
+  <a class="reference internal" href="../mean-slopes/standard_scores.html">
    Standard scores
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Correlation.html">
+  <a class="reference internal" href="../mean-slopes/Correlation.html">
    Correlation
   </a>
  </li>
@@ -634,7 +632,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/mean-slopes/where_and_argmin.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/extra/where_2d.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -654,10 +652,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fmean-slopes/where_and_argmin.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fextra/where_2d.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/mean-slopes/where_and_argmin.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/extra/where_2d.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -677,14 +675,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/mean-slopes/where_and_argmin.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/extra/where_2d.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/mean-slopes/where_and_argmin.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/extra/where_2d.Rmd&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -709,18 +707,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#enter-where">
-   Enter “where”
+  <a class="reference internal nav-link" href="#revision-the-one-dimensional-case">
+   Revision: the one-dimensional case
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#where-summary">
-   Where summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#argmin">
-   Argmin
+  <a class="reference internal nav-link" href="#the-two-dimensional-case">
+   The two-dimensional case
   </a>
  </li>
 </ul>
@@ -734,9 +727,14 @@
         
               <div>
                 
-  <div class="section" id="where-and-argmin">
-<h1>Where and argmin<a class="headerlink" href="#where-and-argmin" title="Permalink to this headline">¶</a></h1>
-<p>We sometimes want to know where a value is in an array.</p>
+  <div class="section" id="where-and-argmin-in-2d">
+<h1>Where and argmin in 2D<a class="headerlink" href="#where-and-argmin-in-2d" title="Permalink to this headline">¶</a></h1>
+<p>This follows from <span class="xref myst">where and argmin</span>.</p>
+<p>That page covers how <code class="docutils literal notranslate"><span class="pre">np.where</span></code> and <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> work for one-dimensional
+arrays.</p>
+<p>This page covers what happens for arrays of two dimensions and more.</p>
+<div class="section" id="revision-the-one-dimensional-case">
+<h2>Revision: the one-dimensional case<a class="headerlink" href="#revision-the-one-dimensional-case" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -744,8 +742,6 @@
 </div>
 </div>
 </div>
-<p>By “where” we mean, which element contains a particular value.</p>
-<p>Here is an array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
@@ -759,74 +755,6 @@
 </div>
 </div>
 </div>
-<p>As you know, we can get element using their <em>index</em> in the array.  In
-Python, array indices start at zero.</p>
-<p>Here’s the value at index (position) 0:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<p>We might also be interested to find which positions hold particular values.</p>
-<p>In our array above, by reading, and counting positions, we can see
-that the values of 99 are in positions 1 and 4.  We can ask for these
-elements by passing a list or an array between the square brackets, to
-index the array:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positions_with_99</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">arr</span><span class="p">[</span><span class="n">positions_with_99</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([99, 99])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Of course, we are already used to finding and then selecting elements according to various conditions, using <em>Boolean vectors</em>.</p>
-<p>Here we identify the elements that contain 99.  There is a <code class="docutils literal notranslate"><span class="pre">True</span></code> at the position where the array contains 99, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contains_99</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">==</span> <span class="mi">99</span>
-<span class="n">contains_99</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, False,  True])
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can then get the 99 values with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="n">contains_99</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([99, 99])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="enter-where">
-<h2>Enter “where”<a class="headerlink" href="#enter-where" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes we really do need to know the index of the values that meet a certain condition.</p>
-<p>In that case, you can use the Numpy <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.where.html">where
-function</a>.
-<code class="docutils literal notranslate"><span class="pre">where</span></code> finds the index positions of the <code class="docutils literal notranslate"><span class="pre">True</span></code> values in Boolean
-vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
@@ -854,148 +782,47 @@ vectors.</p>
 </div>
 </div>
 </div>
-<div class="section" id="where-summary">
-<h2>Where summary<a class="headerlink" href="#where-summary" title="Permalink to this headline">¶</a></h2>
-<p>Numpy <code class="docutils literal notranslate"><span class="pre">where</span></code> returns the indices of <code class="docutils literal notranslate"><span class="pre">True</span></code> values in a Boolean array.</p>
-<p>You can use these indices to index into an array, and get the matching
-elements.</p>
-</div>
-<div class="section" id="argmin">
-<h2>Argmin<a class="headerlink" href="#argmin" title="Permalink to this headline">¶</a></h2>
-<p>Numpy has various <em>argmin</em> functions that are a shortcut for using <code class="docutils literal notranslate"><span class="pre">where</span></code>, for
-particular cases.</p>
-<p>A typical case is where you want to know the index (position) of the minimum
-value in an array.</p>
-<p>Here is our array:</p>
+<div class="section" id="the-two-dimensional-case">
+<h2>The two-dimensional case<a class="headerlink" href="#the-two-dimensional-case" title="Permalink to this headline">¶</a></h2>
+<p>This also works in two or more dimensions.  Here is a two-dimensional array,
+with some values of 99.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]])</span>
+<span class="n">arr2d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2, 99, -1,  4, 99])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4, 99,  3],
+       [ 8,  8, 99]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can get the minimum value with Numpy <code class="docutils literal notranslate"><span class="pre">min</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.where</span></code> now returns two index arrays, one for the rows, and one for the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr2d</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
+<span class="n">indices2d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1]), array([1, 2]))
 </pre></div>
 </div>
 </div>
 </div>
-<p>Sometimes we want to know the <em>index position</em> of the minimum value.  Numpy <code class="docutils literal notranslate"><span class="pre">argmin</span></code> returns the index of the minimum value:</p>
+<p>Just as for the one-dimensional case, we can use the returned indices to index into the array, and get the elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">min_pos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr2d</span><span class="p">[</span><span class="n">indices2d</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<p>Therefore, we can get the minimum value again with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="n">min_pos</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
-</pre></div>
-</div>
-</div>
-</div>
-<p>There is a matching <code class="docutils literal notranslate"><span class="pre">argmax</span></code> function that returns the position of the maximum value:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">max_pos</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="p">[</span><span class="n">max_pos</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
-</pre></div>
-</div>
-</div>
-</div>
-<p>We could also have found the position of the minimum value above, using <code class="docutils literal notranslate"><span class="pre">np.min</span></code> and <code class="docutils literal notranslate"><span class="pre">where</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">min_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">min_value</span><span class="p">)</span>
-<span class="n">arr</span><span class="p">[</span><span class="n">min_indices</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">argmin</span></code> and <code class="docutils literal notranslate"><span class="pre">argmax</span></code> functions are not quite the same, in that they only return the <em>first</em> position of the minimum or maximum, if there are multiple values with the same value.</p>
-<p>Compare:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<p>to</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">max_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1, 4]),)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([99, 99])
 </pre></div>
 </div>
 </div>
@@ -1016,7 +843,7 @@ value in an array.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./mean-slopes"
+            path: "./extra"
         },
         predefinedOutput: true
     }
@@ -1031,8 +858,6 @@ value in an array.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mean_meaning.html" title="previous page">The meaning of the mean</a>
-    <a class='right-next' id="next-link" href="mean_and_slopes.html" title="next page">The mean and slopes</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -90,37 +90,20 @@ We can use the returned `indices` to index into the array, using square brackets
 arr[indices]
 ```
 
-This also works in two or more dimensions.  Here is a two-dimensional array, with some values of 99.
-
-```{python}
-arr2d = np.array([[4, 99, 3], [8, 8, 99]])
-arr2d
-```
-
-`where` now returns two index arrays, one for the rows, and one for the columns.
-
-```{python}
-indices2d = np.where(arr2d == 99)
-indices2d
-```
-
-Just as for the one-dimensional case, we can use the returned indices to index into the array, and get the elements.
-
-```{python}
-arr2d[indices2d]
-```
-
 ## Where summary
 
-Numpy `where` returns the indices of `True` values in a Boolean array/
+Numpy `where` returns the indices of `True` values in a Boolean array.
 
-You can use these indices to index into an array, and get the matching elements.
+You can use these indices to index into an array, and get the matching
+elements.
 
 ## Argmin
 
-Numpy has various *argmin* functions that are a shortcut for using `where`, for particular cases.
+Numpy has various *argmin* functions that are a shortcut for using `where`, for
+particular cases.
 
-A typical case is where you want to know the index (position) of the minimum value in an array.
+A typical case is where you want to know the index (position) of the minimum
+value in an array.
 
 Here is our array:
 
