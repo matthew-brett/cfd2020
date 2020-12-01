@@ -106,15 +106,26 @@ The `out of` row has the total number of people in each column.
 
 ```{python}
 # Proportion of Yes for Rescuers.
-party_tab.loc['Yes', 'rescuers'] / party_tab.loc['out of', 'rescuers']
+prop_yes_rescuers = party_tab.loc['Yes', 'rescuers'] / party_tab.loc['out of', 'rescuers']
+print(prop_yes_rescuers )
 ```
 
 ```{python}
 # Proportion of Yes for Bystanders.
-party_tab.loc['Yes', 'bystanders'] / party_tab.loc['out of', 'bystanders']
+prop_yes_bystanders = party_tab.loc['Yes', 'bystanders'] / party_tab.loc['out of', 'bystanders']
+print(prop_yes_bystanders)
 ```
 
-That looks like a substantial difference - but could it have come about by chance?
+```{python}
+# plotting the proportions as percentages, do not worry about this code for now
+plt.bar(party_tab.loc['out of', ['rescuers', 'bystanders']].index, 
+        height= [prop_yes_rescuers*100, prop_yes_bystanders*100], color = ['red', 'blue'])
+plt.ylabel('Probability %', **{'fontsize': 13})
+plt.title('Probability of being a member of a political party')
+plt.show()
+```
+
+That looks like a substantial difference - it appears that a much higher proportion of rescuers were members of a political party before the war. But could this difference have come about by chance?
 
 What do we mean by chance here?
 
@@ -330,10 +341,35 @@ for i in np.arange(1000):
 counts[:10]
 ```
 
-Here is our *sampling distribution* from sampling in the ideal world:
+Just to make it clearer what is going on here, let's look at what is happening in the first few iterations of the for loop. (You can ignore the code for now, and just look at the output below the cell):
 
 ```{python}
-plt.hist(counts);
+for i in np.arange(3):   
+    np.random.shuffle(party_yn)
+    fake_tab = pd.crosstab(party_yn, respondent)
+    counts[i] = fake_tab.loc['Yes', 'bystander']
+    # displaying the shuffled data
+    print('This is how the data looks after shuffle number '+str(i+1)+':')
+    display(fake_tab)
+    # calculating the proportion of political party members in the recuer and bystander groups
+    fake_prop_yes_rescuers = fake_tab.loc['Yes', 'rescuer']/fake_tab['rescuer'].sum()
+    fake_prop_yes_bystanders = fake_tab.loc['Yes', 'bystander']/fake_tab['bystander'].sum()
+    # do not worry about the code below, it is just to plot the proportions as percentages
+    plt.figure()
+    plt.bar(fake_tab.columns, 
+            height= [fake_prop_yes_rescuers*100, fake_prop_yes_bystanders*100], color = ['red', 'blue'])
+    plt.ylabel('Probability %', **{'fontsize': 13})
+    plt.title('Probability of being a member of a political party')
+    plt.show()
+```
+The labels are being shuffled around so there is no systematic relationship between 'being a member of political party' and 'being a rescuer or bystander'. Try re-running the cell above a few times to get a picture of what is happening  over the 1000 iterations of the for loop.
+
+Here is our *sampling distribution* from sampling in the ideal world, which we generated with the 1000 iterations of the for loop. This shows the counts we got when we were sampling from a world where there is no association between being a member of a political party and being a rescuer or bystander:
+
+```{python}
+plt.hist(counts)
+plt.xlabel('Number of people, in the bystander group, who were political party members', **{'fontsize': 11})
+plt.ylabel('Number of times obtained in simulation', **{'fontsize': 11});
 ```
 
 How unusual is the actual value, in this ideal world?
@@ -342,6 +378,14 @@ How unusual is the actual value, in this ideal world?
 # Proportion of times we see ideal world sample >= actual value.
 p_lte = np.count_nonzero(counts <= actual_y_by) / len(counts)
 p_lte
+```
+```{python}
+plt.hist(counts)
+plt.plot(actual_y_by, 5, 'o', color = 'red', markersize = 10, label = 'Actual number of people \n in the bystander group \n who were members of a \n political party')
+plt.xlabel('Number of people, in the bystander group, who were political party members', **{'fontsize': 11})
+plt.ylabel('Number of times obtained in simulation', **{'fontsize': 11});
+plt.legend(**{'fontsize': 8})
+plt.show()
 ```
 
 ## A question
