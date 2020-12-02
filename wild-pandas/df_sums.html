@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Permutation and the t-test &#8212; Coding for Data - 2020 edition</title>
+    <title>Data frame, sums &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,22 +54,20 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/permutation/permutation_and_t_test.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/wild-pandas/df_sums.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="More building blocks" href="../functions-conditionals/more_building_blocks.html" />
-    <link rel="prev" title="The idea of permutation" href="permutation_idea.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/permutation/permutation_and_t_test.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/df_sums.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Permutation and the t-test" />
-<meta property="og:description" content="Permutation and the t-test  In the idea of permutation, we use permutation to compare a difference between two groups of numbers.  In our case, each number corr" />
+<meta property="og:title"       content="Data frame, sums" />
+<meta property="og:description" content="Data frame, sums  This page is a short explanation of how to use sums across columns and rows in data frames.  It follows on from the noble politics page.  # Ou" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -388,29 +386,29 @@
   Population and permutation
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="permutation.html">
+  <a class="reference internal" href="../permutation/permutation.html">
    Populations and permutations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="population_permutation.html">
+  <a class="reference internal" href="../permutation/population_permutation.html">
    Population and permutation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="brexit_ages.html">
+  <a class="reference internal" href="../permutation/brexit_ages.html">
    Brexit and ages
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="permutation_idea.html">
+  <a class="reference internal" href="../permutation/permutation_idea.html">
    The idea of permutation
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../permutation/permutation_and_t_test.html">
    Permutation and the t-test
   </a>
  </li>
@@ -459,27 +457,27 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/pandas_indexing.html">
+  <a class="reference internal" href="pandas_indexing.html">
    Indexing in Pandas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/noble_politics.html">
+  <a class="reference internal" href="noble_politics.html">
    Noble politics and comparing counts
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/safe_pandas.html">
+  <a class="reference internal" href="safe_pandas.html">
    Handling Pandas safely
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/text_encoding.html">
+  <a class="reference internal" href="text_encoding.html">
    Storing and loading text
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/numbers_and_strings.html">
+  <a class="reference internal" href="numbers_and_strings.html">
    Numbers and strings
   </a>
  </li>
@@ -634,7 +632,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/permutation/permutation_and_t_test.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/wild-pandas/df_sums.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -654,10 +652,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fpermutation/permutation_and_t_test.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fwild-pandas/df_sums.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/permutation/permutation_and_t_test.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/wild-pandas/df_sums.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -677,14 +675,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/permutation/permutation_and_t_test.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/wild-pandas/df_sums.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/permutation/permutation_and_t_test.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/wild-pandas/df_sums.Rmd&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -710,33 +708,18 @@
         
               <div>
                 
-  <div class="section" id="permutation-and-the-t-test">
-<h1>Permutation and the t-test<a class="headerlink" href="#permutation-and-the-t-test" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="permutation_idea.html"><span class="doc std std-doc">the idea of permutation</span></a>,
-we use permutation to compare a difference between two groups of numbers.</p>
-<p>In our case, each number corresponded to one person in the study.  The number
-for each subject was the number of mosquitoes flying towards them. The subjects
-were from two groups: people who had just drunk beer, and people who had just
-drunk water.   There were 25 subjects who had drunk beer, and therefore, 25
-numbers of mosquitoes corresponding to the “beer” group.  There were 18
-subjects who had drunk water, and 18 numbers corresponding to the “water” group.</p>
-<p>Here we repeat the permutation test, as a reminder.</p>
-<p>As before, you can download the data from
-<a class="reference download internal" download="" href="../_downloads/c9bde4b28f8ed34b0d13c146bbb23a17/mosquito_beer.csv"><code class="xref download docutils literal notranslate"><span class="pre">mosquito_beer.csv</span></code></a>.</p>
-<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/mosquito_beer">this
-page</a>
-for more details on the dataset, and <a class="reference internal" href="../data/LICENSE.html"><span class="doc std std-doc">the data license
-page</span></a>.</p>
+  <div class="section" id="data-frame-sums">
+<h1>Data frame, sums<a class="headerlink" href="#data-frame-sums" title="Permalink to this headline">¶</a></h1>
+<p>This page is a short explanation of how to use sums across columns and rows in data frames.</p>
+<p>It follows on from the <a class="reference internal" href="noble_politics.html"><span class="doc std std-doc">noble politics</span></a> page.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Numpy library, rename as &quot;np&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># Import Pandas library, rename as &quot;pd&quot;</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># Safe setting for Pandas.</span>
+<span class="c1"># Safe settings for Pandas.</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
 
-<span class="c1"># Set up plotting</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
@@ -744,271 +727,225 @@ page</span></a>.</p>
 </div>
 </div>
 </div>
-<p>Read in the data, get the numbers of mosquitoes flying towards the beer
-drinkers, and towards the water drinkers, after they had drunk their beer or
-water.  See the <a class="reference internal" href="permutation_idea.html"><span class="doc std std-doc">the idea of permutation</span></a> page.</p>
+<p>As in the <em>noble politics</em> page, we load the table of counts from table 6.8 of:</p>
+<blockquote>
+<div><p>Samuel P. Oliner and Pearl M. Oliner (1992) “The Altruistic Personality:
+Rescuers of Jews in Nazi Europe”. Free Press, New York. ISBN 0-02923829-3.</p>
+</div></blockquote>
+<p>As usual, if you are running on your own computers, download the file
+<a class="reference download internal" download="" href="../_downloads/dc0d004b673f9a7f8ec56e24e4a39ba1/oliner_tab6_8a_1.csv"><code class="xref download docutils literal notranslate"><span class="pre">oliner_tab6_8a_1.csv</span></code></a> to the same directory as this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the data, select beer and water values.</span>
-<span class="n">mosquitoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;mosquito_beer.csv&#39;</span><span class="p">)</span>
-<span class="n">after_rows</span> <span class="o">=</span> <span class="n">mosquitoes</span><span class="p">[</span><span class="n">mosquitoes</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;after&#39;</span><span class="p">]</span>
-<span class="n">beer_rows</span> <span class="o">=</span> <span class="n">after_rows</span><span class="p">[</span><span class="n">after_rows</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;beer&#39;</span><span class="p">]</span>
-<span class="n">beer_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">beer_rows</span><span class="p">[</span><span class="s1">&#39;activated&#39;</span><span class="p">])</span>
-<span class="n">water_rows</span> <span class="o">=</span> <span class="n">after_rows</span><span class="p">[</span><span class="n">after_rows</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;water&#39;</span><span class="p">]</span>
-<span class="n">water_activated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">water_rows</span><span class="p">[</span><span class="s1">&#39;activated&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are 25 values in the beer group, and 18 in the water group:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number in beer group:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number in water group:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">water_activated</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the table</span>
+<span class="n">party_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;oliner_tab6_8a_1.csv&#39;</span><span class="p">)</span>
+<span class="n">party_tab</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number in beer group: 25
-Number in water group: 18
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>party_yn</th>
+      <th>rescuer</th>
+      <th>active</th>
+      <th>bystander</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Yes</td>
+      <td>44</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>165</td>
+      <td>44</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>out of</td>
+      <td>209</td>
+      <td>50</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>We are interested in the difference between the means of these numbers:</p>
+<p>Next we follow the procedure in the noble politics page set the index and drop
+the last (redundant) row, and a column we are not interested in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_difference</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
-<span class="n">observed_difference</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace the numerical index with the party_yn labels.</span>
+<span class="n">party_tab</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;party_yn&#39;</span><span class="p">)</span>
+<span class="c1"># Select rows and columns of interest.</span>
+<span class="n">bystander_tab</span> <span class="o">=</span> <span class="n">party_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;rescuer&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]]</span>
+<span class="n">bystander_tab</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.433333333333334
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rescuer</th>
+      <th>bystander</th>
+    </tr>
+    <tr>
+      <th>party_yn</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Yes</th>
+      <td>44</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>No</th>
+      <td>165</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>In the permutation test we simulate a ideal (null) world in which there is no
-average difference between the numbers in the two groups.  We do this by
-pooling the beer and water numbers, shuffling them, and then making fake beer
-and water groups when we know, from the shuffling, that the average difference
-will, in the long run, be zero.  By doing this shuffle, sample step many times
-we build up the distribution of the average difference.  This is the <em>sampling
-distribution</em> of the mean difference:</p>
+<p>Adding up the entries in the columns of the data frame, we see that there were
+209 <em>rescuers</em> and 71 <em>bystanders</em>.</p>
+<p>We can calculate these numbers by using the <code class="docutils literal notranslate"><span class="pre">.sum</span></code> method to get sum of the
+values along the columns, and therefore, across rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
-<span class="n">n_iters</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">fake_differences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_iters</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_iters</span><span class="p">):</span>
-    <span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
-    <span class="n">fake_differences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">shuffled</span><span class="p">[:</span><span class="mi">25</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">shuffled</span><span class="p">[</span><span class="mi">25</span><span class="p">:])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here’s the histogram.   This time we have given the plot a title, using the
-<code class="docutils literal notranslate"><span class="pre">plt.title</span></code> function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution of difference of means&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/permutation_and_t_test_11_0.png" src="../_images/permutation_and_t_test_11_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rescuer      209
+bystander     71
+dtype: int64
+</pre></div>
 </div>
 </div>
-<p>We can work out the proportion of the sampling distribution that is greater
-than or equal to the observed value, to get an estimate of the probability of
-the observed value, if we are in fact in the null (ideal) world:</p>
+</div>
+<p>We would like to get the sums along the rows. We have already seen that <code class="docutils literal notranslate"><span class="pre">sum</span></code>,
+by default, gives the sum for each column.</p>
+<p>Luckily Pandas has a method called <code class="docutils literal notranslate"><span class="pre">transpose</span></code> that flips the rows and columns of a data frame, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permutation_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
-    <span class="n">fake_differences</span> <span class="o">&gt;=</span> <span class="n">observed_difference</span><span class="p">)</span><span class="o">/</span> <span class="n">n_iters</span>
-<span class="n">permutation_p</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flipped_tab</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">flipped_tab</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0516
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>party_yn</th>
+      <th>Yes</th>
+      <th>No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>rescuer</th>
+      <td>44</td>
+      <td>165</td>
+    </tr>
+    <tr>
+      <th>bystander</th>
+      <td>7</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Remember that the <em>standard deviation</em> is a measure of the spread of a
-distribution.  We go into the standard deviation in more detail <a class="reference internal" href="../mean-slopes/standard_scores.html"><span class="doc std std-doc">later in the
-course</span></a>, but for now, we just use Numpy to
-calculate the standard deviation.</p>
+<p>Now the rows have become columns, and we can get the sum of Yes and No with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
-<span class="n">sampling_sd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flipped_tab</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.740908199726723
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>party_yn
+Yes     51
+No     229
+dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is the distribution of the <code class="docutils literal notranslate"><span class="pre">fake_differences</span></code> again, showing the mean plus
-and minus one standard deviation.  The standard deviation is a measure of how
-spread out the distribution is, around its mean.</p>
+<p>Or, all in one go:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
-<span class="n">fake_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fake_differences</span><span class="p">)</span>
-<span class="c1"># Red dot just above x-axis at +/- one standard deviation.</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fake_mean</span> <span class="o">-</span> <span class="n">sampling_sd</span><span class="p">,</span> <span class="n">fake_mean</span> <span class="o">+</span> <span class="n">sampling_sd</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;or&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution +/- one standard deviation&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bystander_tab</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/permutation_and_t_test_17_0.png" src="../_images/permutation_and_t_test_17_0.png" />
-</div>
-</div>
-<p>We can use the standard deviation as a unit of distance in the distribution.</p>
-<p>A way of getting an idea of how extreme the observed value is, is to ask how
-many standard deviations the observed value is from the center of the
-distribution, which is zero.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">like_t</span> <span class="o">=</span> <span class="n">observed_difference</span> <span class="o">/</span> <span class="n">sampling_sd</span>
-<span class="n">like_t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6174687403888064
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>party_yn
+Yes     51
+No     229
+dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice the variable name <code class="docutils literal notranslate"><span class="pre">like_t</span></code>.  This number is rather like the famous <a class="reference external" href="https://en.wikipedia.org/wiki/T-statistic">t
-statistic</a>.</p>
-<p>The difference between this <code class="docutils literal notranslate"><span class="pre">like_t</span></code> value and the <em>t statistic</em> is that the t
-statistic is the observed difference divided by another <em>estimate</em> of the
-standard deviation of the sampling distribution.  Specifically it is an
-estimate that relies on the assumption that the <code class="docutils literal notranslate"><span class="pre">beer_activated</span></code> and
-<code class="docutils literal notranslate"><span class="pre">water_activated</span></code> numbers come from a simple bell-shaped <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal
-distribution</a>.</p>
-<p>The specific calculation relies on calculating the <em>prediction errors</em> when we
-use the mean from each group as the prediction for the values in the group.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beer_errors</span> <span class="o">=</span> <span class="n">beer_activated</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
-<span class="n">water_errors</span> <span class="o">=</span> <span class="n">water_activated</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
-<span class="n">all_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">beer_errors</span><span class="p">,</span> <span class="n">water_errors</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The estimate for the standard deviation of the sampling distribution follows
-this formula.  The derivation of the formula is well outside the scope of the
-class.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The t-statistic estimate.</span>
-<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">)</span>
-<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">water_activated</span><span class="p">)</span>
-<span class="n">est_error_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">all_errors</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">sampling_sd_estimate</span> <span class="o">=</span> <span class="n">est_error_sd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n2</span><span class="p">)</span>
-<span class="n">sampling_sd_estimate</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.7028390172904366
-</pre></div>
-</div>
-</div>
-</div>
-<p>Notice that this is rather similar to the estimate we got directly from the
-permutation distribution:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_sd</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.740908199726723
-</pre></div>
-</div>
-</div>
-</div>
-<p>The t statistic is the observed mean difference divided by the estimate of the
-standard deviation of the sampling distribution.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_statistic</span> <span class="o">=</span> <span class="n">observed_difference</span> <span class="o">/</span> <span class="n">sampling_sd_estimate</span>
-<span class="n">t_statistic</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.640250605001883
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is the same t statistic value calculated by the <em>independent sample t
-test</em> routine from Scipy:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
-<span class="n">t_result</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">beer_activated</span><span class="p">,</span> <span class="n">water_activated</span><span class="p">)</span>
-<span class="n">t_result</span><span class="o">.</span><span class="n">statistic</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6402506050018828
-</pre></div>
-</div>
-</div>
-</div>
-<p>The equivalent probability from a t test is also outside the scope of the
-course, but, if the data we put into the t test is more or less compatible with
-a normal distribution, then the matching p value is similar to that of the
-permutation test.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &quot;one-tailed&quot; probability from the t-test.</span>
-<span class="n">t_result</span><span class="o">.</span><span class="n">pvalue</span> <span class="o">/</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.054302080886695414
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The permutation p value is very similar.</span>
-<span class="n">permutation_p</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0516
-</pre></div>
-</div>
-</div>
-</div>
-<p>The permutation test is more general than the t test, because the t test relies
-on the assumption that the numbers come from a normal distribution, but the
-permutation test does not.</p>
-<p>Of course, you should should not believe these assertions without evidence, so
-your next step is to use the <em>simulation</em> tools you have learned, to <a class="reference internal" href="testing_t.html"><span class="doc std std-doc">test the
-t-test</span></a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1024,7 +961,7 @@ t-test</span></a>.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./permutation"
+            path: "./wild-pandas"
         },
         predefinedOutput: true
     }
@@ -1039,8 +976,6 @@ t-test</span></a>.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="permutation_idea.html" title="previous page">The idea of permutation</a>
-    <a class='right-next' id="next-link" href="../functions-conditionals/more_building_blocks.html" title="next page">More building blocks</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

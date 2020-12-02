@@ -1,0 +1,114 @@
+Traceback (most recent call last):
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 1077, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.8/3.8.6_1/Frameworks/Python.framework/Versions/3.8/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 526, in async_execute
+    await self.async_execute_cell(
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 822, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/mb312/Library/Python/3.8/lib/python/site-packages/nbclient/client.py", line 730, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+actual_y_resc = bystander_tab.loc['Yes', 'rescuer']
+actual_y_resc
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2645[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2646[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2647[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'rescuer'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+[0;32m<ipython-input-18-433bcec71539>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mactual_y_resc[0m [0;34m=[0m [0mbystander_tab[0m[0;34m.[0m[0mloc[0m[0;34m[[0m[0;34m'Yes'[0m[0;34m,[0m [0;34m'rescuer'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      2[0m [0mactual_y_resc[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   1760[0m                 [0;32mexcept[0m [0;34m([0m[0mKeyError[0m[0;34m,[0m [0mIndexError[0m[0;34m,[0m [0mAttributeError[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1761[0m                     [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1762[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_tuple[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1763[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1764[0m             [0;31m# we by definition only have the 0th axis[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m_getitem_tuple[0;34m(self, tup)[0m
+[1;32m   1270[0m     [0;32mdef[0m [0m_getitem_tuple[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mtup[0m[0;34m:[0m [0mTuple[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1271[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1272[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_lowerdim[0m[0;34m([0m[0mtup[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1273[0m         [0;32mexcept[0m [0mIndexingError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1274[0m             [0;32mpass[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m_getitem_lowerdim[0;34m(self, tup)[0m
+[1;32m   1419[0m                     [0;32mreturn[0m [0msection[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1420[0m                 [0;31m# This is an elided recursive call to iloc/loc/etc'[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1421[0;31m                 [0;32mreturn[0m [0mgetattr[0m[0;34m([0m[0msection[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mname[0m[0;34m)[0m[0;34m[[0m[0mnew_key[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1422[0m [0;34m[0m[0m
+[1;32m   1423[0m         [0;32mraise[0m [0mIndexingError[0m[0;34m([0m[0;34m"not applicable"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
+[1;32m   1766[0m [0;34m[0m[0m
+[1;32m   1767[0m             [0mmaybe_callable[0m [0;34m=[0m [0mcom[0m[0;34m.[0m[0mapply_if_callable[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1768[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_getitem_axis[0m[0;34m([0m[0mmaybe_callable[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1769[0m [0;34m[0m[0m
+[1;32m   1770[0m     [0;32mdef[0m [0m_is_scalar_access[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mkey[0m[0;34m:[0m [0mTuple[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m_getitem_axis[0;34m(self, key, axis)[0m
+[1;32m   1963[0m         [0;31m# fall thru to straight lookup[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   1964[0m         [0mself[0m[0;34m.[0m[0m_validate_key[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1965[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_get_label[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1966[0m [0;34m[0m[0m
+[1;32m   1967[0m [0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py[0m in [0;36m_get_label[0;34m(self, label, axis)[0m
+[1;32m    619[0m             [0;31m# but will fail when the index is not present[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    620[0m             [0;31m# see GH5667[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 621[0;31m             [0;32mreturn[0m [0mself[0m[0;34m.[0m[0mobj[0m[0;34m.[0m[0m_xs[0m[0;34m([0m[0mlabel[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    622[0m         [0;32melif[0m [0misinstance[0m[0;34m([0m[0mlabel[0m[0;34m,[0m [0mtuple[0m[0;34m)[0m [0;32mand[0m [0misinstance[0m[0;34m([0m[0mlabel[0m[0;34m[[0m[0maxis[0m[0;34m][0m[0;34m,[0m [0mslice[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    623[0m             [0;32mraise[0m [0mIndexingError[0m[0;34m([0m[0;34m"no slices here, handle elsewhere"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py[0m in [0;36mxs[0;34m(self, key, axis, level, drop_level)[0m
+[1;32m   3535[0m             [0mloc[0m[0;34m,[0m [0mnew_index[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mget_loc_level[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0mdrop_level[0m[0;34m=[0m[0mdrop_level[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   3536[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 3537[0;31m             [0mloc[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   3538[0m [0;34m[0m[0m
+[1;32m   3539[0m             [0;32mif[0m [0misinstance[0m[0;34m([0m[0mloc[0m[0;34m,[0m [0mnp[0m[0;34m.[0m[0mndarray[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexes/base.py[0m in [0;36mget_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   2646[0m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2647[0m             [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 2648[0;31m                 [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_engine[0m[0;34m.[0m[0mget_loc[0m[0;34m([0m[0mself[0m[0;34m.[0m[0m_maybe_cast_indexer[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   2649[0m         [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mget_indexer[0m[0;34m([0m[0;34m[[0m[0mkey[0m[0;34m][0m[0;34m,[0m [0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m,[0m [0mtolerance[0m[0;34m=[0m[0mtolerance[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m   2650[0m         [0;32mif[0m [0mindexer[0m[0;34m.[0m[0mndim[0m [0;34m>[0m [0;36m1[0m [0;32mor[0m [0mindexer[0m[0;34m.[0m[0msize[0m [0;34m>[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;32mpandas/_libs/hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
+
+[0;31mKeyError[0m: 'rescuer'
+KeyError: 'rescuer'
+

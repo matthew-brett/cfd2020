@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Back to Bayes &#8212; Coding for Data - 2020 edition</title>
+    <title>The magic of 2 by 2 tables &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,7 +54,7 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/confidence/second_bayes.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/wild-pandas/two_by_two_tables.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -64,10 +64,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/second_bayes.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/wild-pandas/two_by_two_tables.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Back to Bayes" />
-<meta property="og:description" content="Back to Bayes  In the reverse probability page we played a game with two boxes, with different proportions of red and green balls.  The Bayes bars page has a wa" />
+<meta property="og:title"       content="The magic of 2 by 2 tables" />
+<meta property="og:description" content="The magic of 2 by 2 tables  # Our usual imports import numpy as np import pandas as pd # Safe settings for Pandas. pd.set_option(&#39;mode.chained_assignment&#39;, &#39;rai" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -457,27 +457,27 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/pandas_indexing.html">
+  <a class="reference internal" href="pandas_indexing.html">
    Indexing in Pandas
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/noble_politics.html">
+  <a class="reference internal" href="noble_politics.html">
    Noble politics and comparing counts
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/safe_pandas.html">
+  <a class="reference internal" href="safe_pandas.html">
    Handling Pandas safely
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/text_encoding.html">
+  <a class="reference internal" href="text_encoding.html">
    Storing and loading text
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../wild-pandas/numbers_and_strings.html">
+  <a class="reference internal" href="numbers_and_strings.html">
    Numbers and strings
   </a>
  </li>
@@ -632,7 +632,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/confidence/second_bayes.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/wild-pandas/two_by_two_tables.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -652,10 +652,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fconfidence/second_bayes.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fwild-pandas/two_by_two_tables.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/confidence/second_bayes.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/wild-pandas/two_by_two_tables.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -675,14 +675,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/confidence/second_bayes.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/wild-pandas/two_by_two_tables.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/confidence/second_bayes.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/wild-pandas/two_by_two_tables.Rmd&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -707,9 +707,21 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#towards-confidence">
-   Towards confidence
+  <a class="reference internal nav-link" href="#why-are-the-table-values-linked">
+   Why are the table values linked?
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-1-the-row-and-column-totals-cannot-change">
+     Explanation 1: the row and column totals cannot change
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explanation-2-what-goes-up-must-come-down">
+     Explanation 2: what goes up, must come down
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -722,62 +734,44 @@
         
               <div>
                 
-  <div class="section" id="back-to-bayes">
-<h1>Back to Bayes<a class="headerlink" href="#back-to-bayes" title="Permalink to this headline">¶</a></h1>
-<p>In the <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a>
-we played a game with two boxes, with different proportions of red and green
-balls.</p>
-<p>The <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes bars page</span></a> has a way of
-thinking of our calculations for this game, using the height of bars to
-express our probabilities.</p>
-<p>Now we extend the game to more options.</p>
-<p>Now I have five boxes:</p>
-<ul class="simple">
-<li><p>BOX1 has one red ball and four green balls.</p></li>
-<li><p>BOX2 has two red balls and three green balls.</p></li>
-<li><p>BOX3 has three red balls and two green balls.</p></li>
-<li><p>BOX4 has four red balls and one green ball.</p></li>
-<li><p>BOX5 has five red balls.</p></li>
-</ul>
-<p>The game proceeds as before:</p>
-<ul class="simple">
-<li><p>I offer you one of these five boxes at random, without telling you which.</p></li>
-<li><p>You draw a ball at random from the box, and you get a red ball.</p></li>
-<li><p>Now, what is the probability that I gave you BOX4?</p></li>
-</ul>
-<p>First we will solve this by simulation. Then we will solve it by expressing
-the calculation we illustrated with the bars from the Bayes bars page.</p>
+  <div class="section" id="the-magic-of-2-by-2-tables">
+<h1>The magic of 2 by 2 tables<a class="headerlink" href="#the-magic-of-2-by-2-tables" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our usual imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Safe settings for Pandas.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is the simulation.  It is a small modification from the simulation in the reverse probability page.</p>
+<p>At the end of the <a class="reference internal" href="noble_politics.html"><span class="doc std std-doc">noble politics</span></a> page, you came across an
+enigma, from analyzing two by two tables of counts.</p>
+<p>This page shows you another version of that enigma, and gives a few
+explanations for these strange effects.</p>
+<p>To start with, we make a simple data frame, where each row corresponds
+to a person.  Each person, and therefore, each row, has two labels.  If you
+have read the Noble Politics page, you will see what inspired this example.</p>
+<p>The first label for each person, called “Party” can be either “Yes”, or “No”.</p>
+<p>The second label for each person, called “Respondent”, can be either “R” or
+“B”.</p>
+<p>Here we use Pandas to create our data frame from scratch:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iters</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">box_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">)</span>
-<span class="n">ball_colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_iters</span><span class="p">):</span>
-    <span class="c1"># Choose a box number randomly.</span>
-    <span class="n">box_no</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-    <span class="c1"># Create the box with the correct numbers of red and green.</span>
-    <span class="n">box</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">box_no</span><span class="p">,</span> <span class="mi">5</span><span class="o">-</span><span class="n">box_no</span><span class="p">])</span>
-    <span class="c1"># Draw a ball from the box</span>
-    <span class="n">ball_color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
-    <span class="c1"># Store the results.</span>
-    <span class="n">box_nos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">box_no</span>
-    <span class="n">ball_colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ball_color</span>
-<span class="c1"># Make the results into a data frame.</span>
-<span class="n">trial_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">box_nos</span>
-<span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ball_colors</span>
-<span class="n">trial_results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a data frame from scratch with some data.</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">],</span>
+                       <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">]],</span>
+                       <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">,</span> <span class="s1">&#39;Party&#39;</span><span class="p">])</span>
+<span class="c1"># Show the result</span>
+<span class="n">people</span>
 </pre></div>
 </div>
 </div>
@@ -800,251 +794,442 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>box no</th>
-      <th>ball color</th>
+      <th>Respondent</th>
+      <th>Party</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>4</td>
-      <td>red</td>
+      <td>Yes</td>
+      <td>R</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>green</td>
+      <td>Yes</td>
+      <td>R</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>red</td>
+      <td>Yes</td>
+      <td>R</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
-      <td>green</td>
+      <td>No</td>
+      <td>R</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1</td>
-      <td>green</td>
+      <td>No</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Yes</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Yes</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>No</td>
+      <td>B</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Calculate the proportion of “red” trials that came from BOX4:</p>
+<p>We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each entry in the table gives the number of times the combination of labels occurs.  For example, the “Yes” row, “R” column gives the number of rows that have a “Yes” label for “Party” <em>and</em> a “R” label for “Respondent”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Of the trials giving a red ball, what proportion came from box 4?</span>
-<span class="n">red_ball_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
-<span class="n">p_box4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">)</span>
-<span class="n">p_box4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_by_two</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
+<span class="n">two_by_two</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2596749874350813
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>Party</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Here are the initial probabilities of the boxes.</p>
+<p>You might want to confirm these counts.  You should see that there are in fact
+3 rows which have both the “Yes” label and the “R” label, and this matches the
+bottom right entry in the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> table.</p>
+<p>Now let’s say we want to create a random association between the “Party” (Yes/No) column and the “Respondent” (R/B) column.   We can do that by shuffling (permuting) the Yes/No values, and recreating the table, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">x_locations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">box_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BOX1&#39;</span><span class="p">,</span> <span class="s1">&#39;BOX2&#39;</span><span class="p">,</span> <span class="s1">&#39;BOX3&#39;</span><span class="p">,</span> <span class="s1">&#39;BOX4&#39;</span><span class="p">,</span> <span class="s1">&#39;BOX5&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Initial probability of boxes&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span>
+<span class="n">respondents</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">]</span>
+<span class="n">permuted_tab_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
+<span class="n">permuted_tab_1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/second_bayes_7_0.png" src="../_images/second_bayes_7_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>row_0</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-<p>We display the probabilities of getting a red ball from boxes 1 through 5:</p>
+<p>Let’s make another couple of those random tables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">5</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">red_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red for each box&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permuted_tab_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
+<span class="n">permuted_tab_2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/second_bayes_9_0.png" src="../_images/second_bayes_9_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>row_0</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-<p>Next we combine the two steps, of getting a box, and then drawing a ball.</p>
-<p>As before, we do this by multiplying the values expressed by heights in the
-first bar graph, by the values expressed by heights in the second bar graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_and_red_probs</span> <span class="o">=</span> <span class="n">box_probabilities</span> <span class="o">*</span> <span class="n">red_probabilities</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting red ball and the given box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red and each box&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permuted_tab_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
+<span class="n">permuted_tab_3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/second_bayes_11_0.png" src="../_images/second_bayes_11_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>row_0</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<p>You will see that, if the top left value goes up, or down, compared to the
+original table, then the bottom right value goes up, or down, by the same
+amount.  Call the change in the top-right value, from the original <code class="docutils literal notranslate"><span class="pre">c</span></code>.  The
+original value for that element was 1, so if the new value is 2, <span class="math notranslate nohighlight">\(c = 1\)</span>.  If
+the new value was 0, then <span class="math notranslate nohighlight">\(c = -1\)</span>.</p>
+<p>You will also see that the bottom left value goes <em>down</em> by the same amount as
+the top left value goes up.  If the top left value goes up by <span class="math notranslate nohighlight">\(c\)</span>, then the
+bottom left value does down by <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<p>All the values in the table appear to be linked, and move in lock-step.</p>
+<p>This is another version of the enigma you saw at the end of the <a class="reference internal" href="noble_politics.html"><span class="doc std std-doc">Noble
+Politics</span></a> page.</p>
+<div class="section" id="why-are-the-table-values-linked">
+<h2>Why are the table values linked?<a class="headerlink" href="#why-are-the-table-values-linked" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="explanation-1-the-row-and-column-totals-cannot-change">
+<h3>Explanation 1: the row and column totals cannot change<a class="headerlink" href="#explanation-1-the-row-and-column-totals-cannot-change" title="Permalink to this headline">¶</a></h3>
+<p>The first explanation for the relationship between the values is — the total
+counts over the rows and columns are fixed.</p>
+<p>The sums of the counts along the columns are fixed, regardless of the ordering
+of the “Yes” and “No” labels. If we add the “Yes” and “No” counts for “R”, we
+have the total number of rows with “R” in the table (5) because each row can
+only have a “Yes” or a “No”, so every “R” value has either a “Yes” or a “No”.</p>
+<p>For the same reason, the “Yes” and “No” counts for “B” add up to the number of rows with a “B” label (3).</p>
+<p>These values, 5 and 3, must be the same regardless of the ordering of the
+“Yes” and “No” labels, and therefore, the relationship of “Yes” or “No” to “R”
+and “B”.</p>
+<p>Similarly for the sum of the counts along the rows.  If we add the “R” and “B”
+counts for the “Yes” rows we get the total number of “Yes” rows (5).  There
+are 3 “No” rows.  That will be so regardless of ordering of the “Yes” and “No”
+labels.</p>
+<p>This means that if the top-left value goes up by 1 (the “No”, “R”) value, then
+the bottom-left value (“Yes”, “R”) must go down by 1, because the total number
+of “R” rows cannot change.  It also means that the top-right value (“No”, “B”)
+has to go down by 1, because the total number of “No” rows can’t change.  And
+for the same reason, the “Yes”, “B” value has to go <em>up</em> by 1, like the
+top-left value, because the total number of “Yes”, and the total number of “B”
+values cannot change.</p>
+<p>You may now see that, if you give me the value for any one of the four
+elements in the table, I can fill in the rest, because they follow from the
+fact that I know what the rows and columns have to add up to.</p>
 </div>
-<p>In this case, as before, where all the initial probabilities of the boxes are
-the same, this last bar graph is just the second bar graph scaled down by 1/5.</p>
-<p>Lastly, remember we are interested in the probability that we started with
-BOX4, given we have a red ball.</p>
-<p>To get this probability, we first take the probability of getting a red ball
-<em>and</em> BOX4.  This is the fourth bar on the graph above - 0.2 * 0.8 = 0.4.</p>
-<p>Next we divide by the overall probability of getting a red ball, which is the
-sum of the heights of the five bars above.</p>
-<p>We can do this calculation by dividing the heights of the bars above by the
-sum of the heights, so the heights of the bars now sum to 1.</p>
+<div class="section" id="explanation-2-what-goes-up-must-come-down">
+<h3>Explanation 2: what goes up, must come down<a class="headerlink" href="#explanation-2-what-goes-up-must-come-down" title="Permalink to this headline">¶</a></h3>
+<p>Here we think about what happens as we permute the Yes/No labels.  The same
+argument applies to permuting the R/B labels, and in fact, to permuting both
+the labels.</p>
+<p>Consider the original table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overall probability of getting a red ball.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_and_red_probs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_by_two</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6000000000000001
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>Party</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Here are the bars divided by this sum:</p>
+<p>Now consider permutations in the order of the Yes/No column.  We will just
+permute the first “Yes”, for now.</p>
+<p>Imagine the first “Yes” gets swapped with the “Yes” in one of the other “R”,
+“Yes” rows.  We still end up with the same two by two counts table.</p>
+<p>Next swap the first “Yes” with the “No” in one of the “R”, “No” rows.  The
+first row is “R”, “No” but the other row has now become “R”, “Yes”, we still
+have the same number of “R”, “Yes” and “R”, “No”, and the counts table doesn’t
+change.</p>
+<p>Now swap the first “Yes” with the “Yes” in one of the “B”, “Yes” rows.  We
+still have the same number of “R”, “Yes” and “B”, “Yes” rows, just in a
+different row order, and the counts table doesn’t change.</p>
+<p>Last, we swap the first “Yes” with the “No” in one of the “B”, “No” rows. Now,
+for the first time, the counts table does change, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">box_and_red_probs</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_given_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of box given a red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of initial box given red ball drawn&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The data frame with first &quot;Yes&quot; permuted to last row.</span>
+<span class="n">perm_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">]],</span>
+                            <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">,</span> <span class="s1">&#39;Party&#39;</span><span class="p">])</span>
+<span class="c1"># Show cross-tabulation</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/second_bayes_16_0.png" src="../_images/second_bayes_16_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Respondent</th>
+      <th>No</th>
+      <th>Yes</th>
+    </tr>
+    <tr>
+      <th>Party</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B</th>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>R</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
+<p>When we do this single change, we have:</p>
+<ul class="simple">
+<li><p>One less “R”, “Yes” row (bottom-right count goes down by 1)</p></li>
+<li><p>One less “B”, “No” row (top-left count down by 1)</p></li>
+<li><p>One more “R”, “No” row (bottom-left count up by 1)</p></li>
+<li><p>One more “B”, “Yes” row (top-right count up by 1)</p></li>
+</ul>
+<p>As we permute the “Yes”, “No” labels, we either leave the total number of
+unique “R/B”, “Yes/No” pairings unchanged, or we change the number of all the
+pairings at once.</p>
 </div>
-<p>The probability we want is the height of the fourth bar:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26666666666666666
-</pre></div>
-</div>
-</div>
-</div>
-<p>The probability that we drew from BOX5 (given we have a red ball) is the height
-of the fifth bar:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3333333333333333
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can estimate this from the simulation as well:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Of the trials giving a red ball, what proportion came from box5?</span>
-<span class="n">red_ball_trials</span> <span class="o">=</span> <span class="n">trial_results</span><span class="p">[</span><span class="n">trial_results</span><span class="p">[</span><span class="s1">&#39;ball color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
-<span class="n">p_box4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">[</span><span class="s1">&#39;box no&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">red_ball_trials</span><span class="p">)</span>
-<span class="n">p_box4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3261852906684537
-</pre></div>
-</div>
-</div>
-</div>
-<p>As we saw in the <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes bars</span></a> page,
-because all the boxes have equal probability, we can skip the calculation step
-that scales by the box probability, and take the following shortcut:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skipping scaling by box probabilities, when probabilities are equal.</span>
-<span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">red_probabilities</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">red_probabilities</span><span class="p">)</span>
-<span class="c1"># We get the same result as before.</span>
-<span class="n">box_given_red_probs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.06666667, 0.13333333, 0.2       , 0.26666667, 0.33333333])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="towards-confidence">
-<h2>Towards confidence<a class="headerlink" href="#towards-confidence" title="Permalink to this headline">¶</a></h2>
-<p>Now let me ask a different question.</p>
-<p>What is the probability that the red ball came from <em>any</em> of boxes 2 through
-5?</p>
-<p>This is just the sum of the adjusted probabilities above, for boxes 2 through
-5.  Remember the sum of all the adjusted probabilities is 1.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_given_red_probs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probability that red ball came from any of boxes 2 through 5.</span>
-<span class="n">red_from_box_2_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="n">red_from_box_2_5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333
-</pre></div>
-</div>
-</div>
-</div>
-<p>Put another way:</p>
-<p>If I draw a red ball, there is a 93% chance that the box I drew from was one of
-BOX2 through BOX5.</p>
-<p>Put yet another way:</p>
-<p>If I draw a red ball, I have 93% confidence that I have drawn from one of BOX2
-through BOX5.</p>
-<p>This is the logic for <em>Bayesian confidence intervals</em>.  These are sometimes
-called <a class="reference external" href="https://en.wikipedia.org/wiki/Credible_interval">credible intervals</a>.
-We can reason about plausible states of the world that led to our results.  In
-our case we can reason about which box we have drawn from (state of the
-world), given we have seen a red ball (the result).</p>
-<p>We will soon see that we can apply this logic when we want to reason about —
-for example — the relationship of the mean of a sample (the result) to the
-mean for a whole population (the state of the world).</p>
 </div>
 </div>
 
@@ -1061,7 +1246,7 @@ mean for a whole population (the state of the world).</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./confidence"
+            path: "./wild-pandas"
         },
         predefinedOutput: true
     }
