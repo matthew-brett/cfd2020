@@ -72,11 +72,14 @@ We have already seen [Pandas indexing](pandas_indexing).   We are going to be se
 party_tab.index
 ```
 
-Row labels need not be numbers.  They can also be strings.  Strings are often more useful in identifying the data in the rows.
+Row labels need not be numbers.  They can also be strings.  Strings are often
+more useful in identifying the data in the rows.
 
-We might prefer to use the values in the first column - `party_yn` as the labels for the rows.
+We might prefer to use the values in the first column - `party_yn` as the
+labels for the rows.
 
-We can do this with the data frame `set_index` method.  It replaces the current index (the sequential numbers) with the data from a column.
+We can do this with the data frame `set_index` method.  It replaces the current
+index (the sequential numbers) with the data from a column.
 
 ```{python}
 # Replace the numerical index with the party_yn labels.
@@ -90,7 +93,7 @@ This makes it easier to use the `.loc` attribute to select data, using row label
 
 ```{python}
 # How many rescuers were there, in total?
-party_tab.loc['out of', 'rescuers']
+party_tab.loc['out of', 'rescuer']
 ```
 
 ## The question
@@ -100,37 +103,48 @@ Looking at the data in the table, it seems as if the Rescuers had a stronger
 tendency to belong to a political party than, say, the Bystanders.
 
 
-To get more specific, we look at the proportion of rescuers and bystanders that answered Yes (to being a member of a political party before the war).
+To get more specific, we look at the proportion of Rescuers and Bystanders that answered Yes (to being a member of a political party before the war).
 
 The `out of` row has the total number of people in each column.
 
 ```{python}
 # Proportion of Yes for Rescuers.
-party_tab.loc['Yes', 'rescuers'] / party_tab.loc['out of', 'rescuers']
+party_tab.loc['Yes', 'rescuer'] / party_tab.loc['out of', 'rescuer']
 ```
 
 ```{python}
 # Proportion of Yes for Bystanders.
-party_tab.loc['Yes', 'bystanders'] / party_tab.loc['out of', 'bystanders']
+party_tab.loc['Yes', 'bystander'] / party_tab.loc['out of', 'bystander']
 ```
 
 That looks like a substantial difference - but could it have come about by chance?
 
-What do we mean by chance here?
+Let's put that another way - we see that 44 of 209 Rescuers have "Yes" to
+belonging to political party.  Is 44 a larger number than we would expect by
+chance?
+
+
+## What do we mean by chance?
 
 We imagine an ideal world where rescuers and bystanders have exactly the same tendency to belong to a political party.
 
-We will take random samples from this world, to see if the random samples look anything like the numbers we see in the actual data.  If they do, then we might not be very interested in the difference in proportion, in the actual data, because it could plausibly have come about from a world where there was no difference in tendency to belong to political parties.
+We will take random samples from this world, to see if the random samples look
+anything like the numbers we see in the actual data.  If they do, then we might
+not be very interested in the differences we see, in the actual data, because
+the differences could plausibly have come about as a sample from an ideal world
+where there was no difference in tendency to belong to political parties.
 
 So, how do we take samples from this ideal world?
 
-We will take the same number of fake rescuers as there are real rescuers, and the same number of fake bystanders as there are real bystanders.
+We will take the same number of fake rescuers as there are real rescuers, and
+the same number of fake bystanders as there are real bystanders.
 
-We will assume that the same number of people overall are members of a political party:
+We will assume that the same number of people overall are members of a
+political party:
 
 ```{python}
 # Number of people who belonged to a political party.
-n_yes = party_tab.loc['Yes', 'rescuers'] + party_tab.loc['Yes', 'bystanders']
+n_yes = party_tab.loc['Yes', 'rescuer'] + party_tab.loc['Yes', 'bystander']
 n_yes
 ```
 
@@ -138,7 +152,7 @@ This leaves the rest, who were not a member of a political party:
 
 ```{python}
 # Number of people who did not belong to a political party.
-n_no = party_tab.loc['No', 'rescuers'] + party_tab.loc['No', 'bystanders']
+n_no = party_tab.loc['No', 'rescuer'] + party_tab.loc['No', 'bystander']
 n_no
 ```
 
@@ -151,13 +165,15 @@ n_yes + n_no
 We therefore have 280 labels (51 Yes labels and 229 No labels) to assign to our
 280 people (209 rescuers and 71 bystanders).
 
-In our ideal world, this assignment is random.   We can shuffle up the labels
-(Yes, No), and assign each person (rescuer, bystander) a shuffled (therefore,
-random) label.  We take this fake pairing, and calculate the numbers in each of
-the four categories, to create a fake table, that is a random version of the
-actual table.  If we do that many times, we can get an idea of how the numbers
-vary in the fake tables, and therefore, what randomness looks like, in this
-ideal world, of no association between rescuer / bystander and Yes / No.
+In our ideal world, this assignment to "Yes" and "No" is random.   We can
+shuffle up the labels ("Yes", "No"), and assign each person (rescuer,
+bystander) a shuffled (therefore, random) label.  We take this fake pairing,
+and calculate the numbers in each of the four categories, to create a fake
+table, that is a random version of the actual table.  If we do that many times,
+we can get an idea of how the numbers vary in the fake tables, and therefore,
+what randomness looks like, in this ideal world, of no association between
+rescuer / bystander and Yes / No.
+
 
 ## Cleaning up the table
 
@@ -165,20 +181,28 @@ We start by selecting the data we need from the original table.
 
 First we use `loc` indexing to specify that we want:
 
-* The rows labeled "Yes" and "No";
-* The columns labeled "rescuers" and "bystanders".
+* The rows labeled "No" and "Yes";
+* The columns labeled "bystander" and "rescuer".
 
 ```{python}
-bystander_tab = party_tab.loc[['Yes', 'No'], ['rescuers', 'bystanders']]
+bystander_tab = party_tab.loc[['No', 'Yes'], ['bystander', 'rescuer']]
 bystander_tab
 ```
 
-Notice the *lists* `['Yes', 'No']` and `['rescuers', 'bystanders']` specifying
+Notice the *lists* `['Yes', 'No']` and `['bystander', 'rescuer']` specifying
 the row labels and columns labels that we want.
+
+Notice too that we have swapped the order of the rows (to "No" and "Yes" ) and
+the columns (to "bystander" and "rescuer").  This is to better match the
+output of `pd.crosstab` below.  You may see what we mean when we get there.
+
+Now we ask you to cast your eye to the bottom-right value of the table, and
+the value of interest --- 44.  This is the count for people who were both
+"rescuer" and said "Yes" to political party.  We continue our search to see if
+this value is larger than we would expect by chance.
 
 
 ## Recreating the original data
-
 
 The table gives the counts of people in each of the four categories.
 
@@ -199,22 +223,10 @@ print('First 10:', respondent[:10])
 print('Last 10:', respondent[-10:])
 ```
 
-Here we typed ("hard-coded") the numbers 209, 71.  We can also get these numbers using the sum of the values in the columns of our table:
+Here we typed ("hard-coded") the numbers 209, 71.  We could also get these
+numbers using the sum of the values in the columns of our table.  See the [data
+frame sums](df_sums) page to see how that works.
 
-```{python}
-bystander_tab.sum()
-```
-
-Our code above is a little clearer as:
-
-```{python}
-# Make the 280 respondent labels.
-respondent = np.repeat(['rescuer', 'bystander'], bystander_tab.sum())
-# Show the first 10.
-print('First 10:', respondent[:10])
-# Show the last 10.
-print('Last 10:', respondent[-10:])
-```
 
 Now to create the 'Yes', 'No' labels.   Again, we could do this:
 
@@ -227,37 +239,8 @@ print('First 10:', party_yn[:10])
 print('Last 10:', party_yn[-10:])
 ```
 
-We would like to use `sum` again to get those totals automatically, but we have already seen that `sum`, by default, works down the columns.
-
-Luckily Pandas has a method called `transpose` that flips the rows and columns of a data frame, like this:
-
-```{python}
-flipped_tab = bystander_tab.transpose()
-flipped_tab
-```
-
-We can get the sum of Yes and No with:
-
-```{python}
-flipped_tab.sum()
-```
-
-Or, all in one go:
-
-```{python}
-bystander_tab.transpose().sum()
-```
-
-This allows us to do:
-
-```{python}
-# Make the 280 Yes No labels.
-party_yn = np.repeat(['Yes', 'No'], bystander_tab.transpose().sum())
-# Show the first 10.
-print('First 10:', party_yn[:10])
-# Show the last 10.
-print('Last 10:', party_yn[-10:])
-```
+We could also have used a sum to get the row totals `[51, 229]` more
+automatically with [data frame sums](df_sums).
 
 Next we shuffle the Yes, No labels randomly:
 
@@ -267,7 +250,8 @@ rand_party_yn = np.random.permutation(party_yn)
 rand_party_yn[:10]
 ```
 
-We can look at the new random pairing by putting the rows into a table, with 280 rows, one for each person:
+We can look at the new random pairing by putting the rows into a table, with
+280 rows, one for each person:
 
 ```{python}
 fake_data = pd.DataFrame()
@@ -283,15 +267,18 @@ We now need the counts of people in each category.  That is we need counts for:
 * 'No' paired with 'rescuer'
 * 'Yes' paired with 'rescuer'
 
+For example, remember we are particularly interested in the combination of
+"rescuer" and "Yes".
+
 We could do this this the long way round, with cells like:
 
 ```{python}
-# Just the Nos.
-fake_nos = fake_data[fake_data['party_yn'] == 'No']
-# From the Nos, just the Bystanders.
-fake_nos_bystanders = fake_nos[fake_nos['respondent'] == 'bystander']
-# How many rows?
-len(fake_nos_bystanders)
+# Just the rescuers
+just_rescuers = fake_data[fake_data['respondent'] == 'rescuer']
+# Just the fake Yeses from the rescuers.
+fake_yes_rescuers = just_rescuers[just_rescuers['party_yn'] == 'Yes']
+# How many rows (how many fake rescuer / Yes pairs)?
+len(fake_yes_rescuers)
 ```
 
 Luckily, Pandas has a `crosstab` function that does this work for us:
@@ -301,32 +288,38 @@ fake_tab = pd.crosstab(rand_party_yn, respondent)
 fake_tab
 ```
 
-We saw in the original data that the Bystanders seemed to have a lesser tendency to belong to a political party.  Let us restrict our attention to the count of "Yes" and "bystander" for now.
+We saw in the original data that the Rescuers seemed to have a greater
+tendency to belong to a political party.  Let us restrict our attention to the
+count of "Yes" and "rescuer" for now.
 
 That count, in our original data, was:
 
 ```{python}
-actual_y_by = bystander_tab.loc['Yes', 'bystanders']
-actual_y_by
+actual_y_resc = bystander_tab.loc['Yes', 'rescuer']
+actual_y_resc
 ```
 
 The equivalent count in our new fake table is:
 
 ```{python}
-fake_y_by = fake_tab.loc['Yes', 'bystander']
-fake_y_by
+fake_y_resc = fake_tab.loc['Yes', 'rescuer']
+fake_y_resc
 ```
 
-We need more random samples to see if the fake value is often as small as the real value.  If so, then the ideal world, where the association between rescuer / bystander and Yes / No is random, is a reasonable explanation of what we see, and we might not want to investigate these data much further.
+We need more random samples to see if the fake value is often as small as the
+real value.  If so, then the ideal world, where the association between rescuer
+/ bystander and Yes / No is random, is a reasonable explanation of what we see,
+and we might not want to investigate these data much further.
 
-Unfortunately, `pd.crosstab` is horribly slow, so we need to drop our usual number of iterations to 1000 to keep the run-time down.
+Unfortunately, `pd.crosstab` is horribly slow, so we need to drop our usual
+number of iterations to 1000 to keep the run-time down.
 
 ```{python}
 counts = np.zeros(1000)
 for i in np.arange(1000):
     rand_party_yn = np.random.permutation(party_yn)
     fake_tab = pd.crosstab(rand_party_yn, respondent)
-    counts[i] = fake_tab.loc['Yes', 'bystander']
+    counts[i] = fake_tab.loc['Yes', 'rescuer']
 counts[:10]
 ```
 
@@ -340,45 +333,49 @@ How unusual is the actual value, in this ideal world?
 
 ```{python}
 # Proportion of times we see ideal world sample >= actual value.
-p_lte = np.count_nonzero(counts <= actual_y_by) / len(counts)
+p_lte = np.count_nonzero(counts >= actual_y_resc) / len(counts)
 p_lte
 ```
 
-## A question
+## A question for reflection
 
-Now look at this.  Here I do the same test, but I am looking at the both of these counts:
+Now look at this.  Here I do the same test, but I am looking at the both of
+these counts:
 
-* "No", "bystander".
 * "Yes", "rescuer".
+* "No", "bystander".
 
 ```{python}
-# Yes, bystander
-counts_y_by = np.zeros(1000)
+# Yes, rescuer
+counts_y_resc = np.zeros(1000)
 # No, rescuer
-counts_n_r = np.zeros(1000)
+counts_n_by = np.zeros(1000)
 for i in np.arange(1000):
     rand_party_yn = np.random.permutation(party_yn)
     fake_tab = pd.crosstab(rand_party_yn, respondent)
-    counts_y_by[i] = fake_tab.loc['Yes', 'bystander']
-    counts_n_r[i] = fake_tab.loc['No', 'rescuer']
+    counts_y_resc[i] = fake_tab.loc['Yes', 'rescuer']
+    counts_n_by[i] = fake_tab.loc['No', 'bystander']
 ```
 
-The test for "Yes", "bystander":
+The test for "Yes", "rescuer" follows.  Of course, this will be very similar to
+the value we got on the last run.
 
 ```{python}
 # Proportion of times we see ideal world sample >= actual value.
-actual_y_by = bystander_tab.loc['Yes', 'bystanders']
-p_lte_y_by = np.count_nonzero(counts_y_by <= actual_y_by) / len(counts)
-p_lte_y_by
+p_lte_y_resc = np.count_nonzero(counts_y_resc >= actual_y_resc) / len(counts)
+p_lte_y_resc
 ```
 
-The test for "No", "rescuer":
+The test for "No", "bystander" follows.
 
 ```{python}
 # Proportion of times we see ideal world sample >= actual value.
-actual_n_r = bystander_tab.loc['No', 'rescuers']
-p_lte_n_r = np.count_nonzero(counts_n_r <= actual_n_r) / len(counts)
-p_lte_n_r
+actual_n_by = bystander_tab.loc['No', 'bystander']
+p_lte_n_by = np.count_nonzero(counts_n_by >= actual_n_by) / len(counts)
+p_lte_n_by
 ```
 
 See if you can work out why these two answers are *exactly* the same.
+
+After a little reflection, have a look at the [2 by 2
+tables](two_by_two_tables) page.
