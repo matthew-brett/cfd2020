@@ -747,6 +747,18 @@
 </div>
 </div>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="c1"># An extra tweak to make sure we always get the same random numbers.</span>
+<span class="c1"># Do not use this in your own code; you nearly always want an unpredictable</span>
+<span class="c1"># stream of random numbers.  Making them predictable in this way only makes</span>
+<span class="c1"># sense for a very limited range of things, like tutorials and tests.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1938</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>At the end of the <a class="reference internal" href="noble_politics.html"><span class="doc std std-doc">noble politics</span></a> page, you came across an
 enigma, from analyzing two by two tables of counts.</p>
 <p>This page shows you another version of that enigma, and gives a few
@@ -938,19 +950,19 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
   <tbody>
     <tr>
       <th>B</th>
-      <td>1</td>
       <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>R</th>
-      <td>2</td>
-      <td>3</td>
+      <td>1</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Let’s make another couple of those random tables:</p>
+<p>Let’s make another few of those random tables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permuted_tab_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
@@ -989,13 +1001,13 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
   <tbody>
     <tr>
       <th>B</th>
-      <td>1</td>
-      <td>2</td>
+      <td>0</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>R</th>
-      <td>2</td>
       <td>3</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1039,13 +1051,13 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
   <tbody>
     <tr>
       <th>B</th>
-      <td>0</td>
-      <td>3</td>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>R</th>
-      <td>3</td>
       <td>2</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
