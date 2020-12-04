@@ -1,5 +1,8 @@
 BUILD_DIR=_build/html
 
+rm-ipynb:
+	rm -rf */*.ipynb
+
 html: bibliography
 	# Check for ipynb files in source (should all be .Rmd).
 	[ -z `ls */*.ipynb 2> /dev/null` ] || ( echo "ipynb files" && exit 1 )

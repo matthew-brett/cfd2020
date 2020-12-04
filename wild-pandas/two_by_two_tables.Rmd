@@ -1,12 +1,13 @@
 ---
 jupyter:
   jupytext:
+    notebook_metadata_filter: all,-language_info
     split_at_heading: true
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.6.0
   kernelspec:
     display_name: Python 3
     language: python
@@ -21,6 +22,15 @@ import numpy as np
 import pandas as pd
 # Safe settings for Pandas.
 pd.set_option('mode.chained_assignment', 'raise')
+```
+
+```{python tags=c("hide-cell")}
+# HIDDEN
+# An extra tweak to make sure we always get the same random numbers.
+# Do not use this in your own code; you nearly always want an unpredictable
+# stream of random numbers.  Making them predictable in this way only makes
+# sense for a very limited range of things, like tutorials and tests.
+np.random.seed(1938)
 ```
 
 At the end of the [noble politics](noble_politics) page, you came across an
@@ -38,9 +48,9 @@ The first label for each person, called "Party" can be either "Yes", or "No".
 The second label for each person, called "Respondent", can be either "R" or
 "B".
 
-Here we use Pandas to create our data frame from scratch:
+Here is our data frame from scratch:
 
-```{python}
+```{python tags=c("hide-input")}
 # Create a data frame from scratch with some data.
 people = pd.DataFrame([["Yes", "R"],
                        ["Yes", "R"],
@@ -55,7 +65,10 @@ people = pd.DataFrame([["Yes", "R"],
 people
 ```
 
-We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each entry in the table gives the number of times the combination of labels occurs.  For example, the "Yes" row, "R" column gives the number of rows that have a "Yes" label for "Party" *and* a "R" label for "Respondent":
+We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each
+entry in the table gives the number of times the combination of labels occurs.
+For example, the "Yes" row, "R" column gives the number of rows that have a
+"Yes" label for "Party" *and* a "R" label for "Respondent":
 
 ```{python}
 two_by_two = pd.crosstab(people['Party'], people['Respondent'])
@@ -66,25 +79,56 @@ You might want to confirm these counts.  You should see that there are in fact
 3 rows which have both the "Yes" label and the "R" label, and this matches the
 bottom right entry in the `pd.crosstab` table.
 
+We can add the row and column totals to this table, with some fancy Pandas code
+(unhide the code in this page, or see the notebook version for details):
+
+```{python tags=c("hide-cell")}
+# Fancy code for adding row / column totals, giving them colors.
+from matplotlib.colors import ListedColormap
+
+PALE_GREY = ListedColormap([0.8, 0.8, 0.8])
+MID_GREY = ListedColormap([0.6, 0.6, 0.6])
+
+def with_margins(df):
+    """ Data frame displayed with row, column totals added, colored.
+    """
+    # Add row totals to copy of data frame.
+    row_margin = df.sum().astype(int).rename('Row totals')
+    df_margins = df.append(row_margin)
+    # Add column totals.
+    df_o = df_margins.assign(**{'Col totals': df_margins.sum(axis='columns')})
+    # Set colors for row, column totals.
+    styler = df_o.style.background_gradient(subset='Col totals', cmap=PALE_GREY)
+    styler = styler.background_gradient(subset=('Row totals',), cmap=PALE_GREY)
+    styler = styler.background_gradient(subset=('Row totals', 'Col totals'),
+                                                cmap=MID_GREY)
+    return styler
+```
+
+```{python}
+# Display the table with colors, using fancy plotting function.
+with_margins(two_by_two)
+```
+
 Now let's say we want to create a random association between the "Party" (Yes/No) column and the "Respondent" (R/B) column.   We can do that by shuffling (permuting) the Yes/No values, and recreating the table, like this:
 
 ```{python}
 parties = people['Party']
 respondents = people['Respondent']
 permuted_tab_1 = pd.crosstab(np.random.permutation(parties), respondents)
-permuted_tab_1
+with_margins(permuted_tab_1)
 ```
 
-Let's make another couple of those random tables:
+Let's make another few of those random tables:
 
 ```{python}
 permuted_tab_2 = pd.crosstab(np.random.permutation(parties), respondents)
-permuted_tab_2
+with_margins(permuted_tab_2)
 ```
 
 ```{python}
 permuted_tab_3 = pd.crosstab(np.random.permutation(parties), respondents)
-permuted_tab_3
+with_margins(permuted_tab_3)
 ```
 
 You will see that, if the top left value goes up, or down, compared to the
@@ -98,6 +142,9 @@ the top left value goes up.  If the top left value goes up by $c$, then the
 bottom left value does down by $c$.
 
 All the values in the table appear to be linked, and move in lock-step.
+
+Notice too that the column and row totals do not --- and in fact cannot ---
+change, whatever the association of the R/B and Yes/No labels, for reasons we go into below.
 
 This is another version of the enigma you saw at the end of the [Noble
 Politics](noble_politics) page.
@@ -146,7 +193,7 @@ the labels.
 Consider the original table.
 
 ```{python}
-two_by_two
+with_margins(two_by_two)
 ```
 
 Now consider permutations in the order of the Yes/No column.  We will just
@@ -167,7 +214,7 @@ different row order, and the counts table doesn't change.
 Last, we swap the first "Yes" with the "No" in one of the "B", "No" rows. Now,
 for the first time, the counts table does change, like this:
 
-```{python}
+```{python tags=c("hide-input")}
 # The data frame with first "Yes" permuted to last row.
 perm_people = pd.DataFrame([["No", "R"],
                             ["Yes", "R"],
@@ -178,8 +225,14 @@ perm_people = pd.DataFrame([["No", "R"],
                             ["Yes","B"],
                             ["Yes","B"]],
                             columns = ['Respondent', 'Party'])
-# Show cross-tabulation
-pd.crosstab(perm_people['Party'], perm_people['Respondent'])
+perm_people
+```
+
+Here is the cross-tabulation for that case:
+
+```{python tags=c("hide-input")}
+perm_crosstab = pd.crosstab(perm_people['Party'], perm_people['Respondent'])
+with_margins(perm_crosstab)
 ```
 
 When we do this single change, we have:
