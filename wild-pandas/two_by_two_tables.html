@@ -769,8 +769,8 @@ have read the Noble Politics page, you will see what inspired this example.</p>
 <p>The first label for each person, called “Party” can be either “Yes”, or “No”.</p>
 <p>The second label for each person, called “Respondent”, can be either “R” or
 “B”.</p>
-<p>Here we use Pandas to create our data frame from scratch:</p>
-<div class="cell docutils container">
+<p>Here is our data frame from scratch:</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a data frame from scratch with some data.</span>
 <span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
@@ -855,7 +855,10 @@ have read the Noble Politics page, you will see what inspired this example.</p>
 </table>
 </div></div></div>
 </div>
-<p>We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each entry in the table gives the number of times the combination of labels occurs.  For example, the “Yes” row, “R” column gives the number of rows that have a “Yes” label for “Party” <em>and</em> a “R” label for “Respondent”:</p>
+<p>We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each
+entry in the table gives the number of times the combination of labels occurs.
+For example, the “Yes” row, “R” column gives the number of rows that have a
+“Yes” label for “Party” <em>and</em> a “R” label for “Respondent”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_by_two</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
@@ -909,159 +912,233 @@ have read the Noble Politics page, you will see what inspired this example.</p>
 <p>You might want to confirm these counts.  You should see that there are in fact
 3 rows which have both the “Yes” label and the “R” label, and this matches the
 bottom right entry in the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> table.</p>
+<p>We can add the row and column totals to this table, with some fancy Pandas code
+(unhide the code in this page, or see the notebook version for details):</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fancy code for adding row / column totals, giving them colors.</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">PALE_GREY</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">MID_GREY</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">with_margins</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Data frame displayed with row, column totals added, colored.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Add row totals to copy of data frame.</span>
+    <span class="n">row_margin</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;Row totals&#39;</span><span class="p">)</span>
+    <span class="n">df_margins</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_margin</span><span class="p">)</span>
+    <span class="c1"># Add column totals.</span>
+    <span class="n">df_o</span> <span class="o">=</span> <span class="n">df_margins</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;Col totals&#39;</span><span class="p">:</span> <span class="n">df_margins</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)})</span>
+    <span class="c1"># Set colors for row, column totals.</span>
+    <span class="n">styler</span> <span class="o">=</span> <span class="n">df_o</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;Col totals&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">PALE_GREY</span><span class="p">)</span>
+    <span class="n">styler</span> <span class="o">=</span> <span class="n">styler</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Row totals&#39;</span><span class="p">,),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">PALE_GREY</span><span class="p">)</span>
+    <span class="n">styler</span> <span class="o">=</span> <span class="n">styler</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Row totals&#39;</span><span class="p">,</span> <span class="s1">&#39;Col totals&#39;</span><span class="p">),</span>
+                                                <span class="n">cmap</span><span class="o">=</span><span class="n">MID_GREY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">styler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the table with colors, using fancy plotting function.</span>
+<span class="n">with_margins</span><span class="p">(</span><span class="n">two_by_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92c7d04e_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
 <p>Now let’s say we want to create a random association between the “Party” (Yes/No) column and the “Respondent” (R/B) column.   We can do that by shuffling (permuting) the Yes/No values, and recreating the table, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span>
 <span class="n">respondents</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">]</span>
 <span class="n">permuted_tab_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
-<span class="n">permuted_tab_1</span>
+<span class="n">with_margins</span><span class="p">(</span><span class="n">permuted_tab_1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Respondent</th>
-      <th>No</th>
-      <th>Yes</th>
-    </tr>
-    <tr>
-      <th>row_0</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>B</th>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>R</th>
-      <td>1</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92cc77d4_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >2</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >1</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >4</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 <p>Let’s make another few of those random tables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permuted_tab_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
-<span class="n">permuted_tab_2</span>
+<span class="n">with_margins</span><span class="p">(</span><span class="n">permuted_tab_2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Respondent</th>
-      <th>No</th>
-      <th>Yes</th>
-    </tr>
-    <tr>
-      <th>row_0</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>B</th>
-      <td>0</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>R</th>
-      <td>3</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92d0fdae_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >3</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >3</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >2</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">permuted_tab_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">parties</span><span class="p">),</span> <span class="n">respondents</span><span class="p">)</span>
-<span class="n">permuted_tab_3</span>
+<span class="n">with_margins</span><span class="p">(</span><span class="n">permuted_tab_3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Respondent</th>
-      <th>No</th>
-      <th>Yes</th>
-    </tr>
-    <tr>
-      <th>row_0</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>B</th>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>R</th>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92d566fa_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 <p>You will see that, if the top left value goes up, or down, compared to the
 original table, then the bottom right value goes up, or down, by the same
@@ -1072,6 +1149,8 @@ the new value was 0, then <span class="math notranslate nohighlight">\(c = -1\)<
 the top left value goes up.  If the top left value goes up by <span class="math notranslate nohighlight">\(c\)</span>, then the
 bottom left value does down by <span class="math notranslate nohighlight">\(c\)</span>.</p>
 <p>All the values in the table appear to be linked, and move in lock-step.</p>
+<p>Notice too that the column and row totals do not — and in fact cannot —
+change, whatever the association of the R/B and Yes/No labels, for reasons we go into below.</p>
 <p>This is another version of the enigma you saw at the end of the <a class="reference internal" href="noble_politics.html"><span class="doc std std-doc">Noble
 Politics</span></a> page.</p>
 <div class="section" id="why-are-the-table-values-linked">
@@ -1111,52 +1190,51 @@ the labels.</p>
 <p>Consider the original table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_by_two</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">with_margins</span><span class="p">(</span><span class="n">two_by_two</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Respondent</th>
-      <th>No</th>
-      <th>Yes</th>
-    </tr>
-    <tr>
-      <th>Party</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>B</th>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>R</th>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_html"><style  type="text/css" >
+    #T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92d88146_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 <p>Now consider permutations in the order of the Yes/No column.  We will just
 permute the first “Yes”, for now.</p>
@@ -1171,7 +1249,7 @@ still have the same number of “R”, “Yes” and “B”, “Yes” rows, ju
 different row order, and the counts table doesn’t change.</p>
 <p>Last, we swap the first “Yes” with the “No” in one of the “B”, “No” rows. Now,
 for the first time, the counts table does change, like this:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The data frame with first &quot;Yes&quot; permuted to last row.</span>
 <span class="n">perm_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s2">&quot;No&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],</span>
@@ -1183,8 +1261,7 @@ for the first time, the counts table does change, like this:</p>
                             <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">],</span>
                             <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">]],</span>
                             <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">,</span> <span class="s1">&#39;Party&#39;</span><span class="p">])</span>
-<span class="c1"># Show cross-tabulation</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
+<span class="n">perm_people</span>
 </pre></div>
 </div>
 </div>
@@ -1206,30 +1283,105 @@ for the first time, the counts table does change, like this:</p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
+      <th></th>
       <th>Respondent</th>
-      <th>No</th>
-      <th>Yes</th>
-    </tr>
-    <tr>
       <th>Party</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>B</th>
-      <td>0</td>
-      <td>3</td>
+      <th>0</th>
+      <td>No</td>
+      <td>R</td>
     </tr>
     <tr>
-      <th>R</th>
-      <td>3</td>
-      <td>2</td>
+      <th>1</th>
+      <td>Yes</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Yes</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>No</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>No</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Yes</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Yes</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Yes</td>
+      <td>B</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+<p>Here is the cross-tabulation for that case:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perm_crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">perm_people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
+<span class="n">with_margins</span><span class="p">(</span><span class="n">perm_crosstab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col0 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col1 {
+            background-color:  #cccccc;
+            color:  #000000;
+        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col2 {
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #cccccc;
+            color:  #000000;
+            background-color:  #999999;
+            color:  #000000;
+        }</style><table id="T_92de9dd8_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >3</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+            </tr>
+            <tr>
+                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >3</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >2</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+            </tr>
+            <tr>
+                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 <p>When we do this single change, we have:</p>
 <ul class="simple">
