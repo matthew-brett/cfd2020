@@ -104,6 +104,7 @@
   - file: functions-conditionals/functions
   - file: functions-conditionals/conditional_statements
   - file: functions-conditionals/functions_as_values
+  # functions_conditionals
 
 - part: Pandas, indices and labels
   chapters:
@@ -117,11 +118,14 @@
   chapters:
   - file: mean-slopes/mean
   - file: mean-slopes/mean_meaning
+  # other_predictors
   - file: mean-slopes/where_and_argmin
   - file: mean-slopes/mean_and_slopes
+  # time_slopes
   - file: mean-slopes/optimization
   - file: mean-slopes/finding_lines
   - file: mean-slopes/using_minimize
+  # isloping
   - file: mean-slopes/inference_on_slopes
   - file: mean-slopes/combining_boolean_arrays
   - file: mean-slopes/standard_scores
