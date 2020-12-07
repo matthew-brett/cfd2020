@@ -2,6 +2,7 @@
 """ Build OKpy exercise directory from directory template.
 """
 
+import os
 import os.path as op
 import sys
 import shutil
@@ -49,7 +50,8 @@ def push_dir(path, site_dict, strip=False):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('dir', help="Directory of exercise")
+    parser.add_argument('dir', help="Directory of exercise", nargs='?',
+                        default=os.getcwd())
     parser.add_argument('--out-path',
                         help='Output path for exercise directory'
                         '(default from course config below)'
