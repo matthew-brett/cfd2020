@@ -97,12 +97,12 @@ Numpy `where` returns the indices of `True` values in a Boolean array.
 You can use these indices to index into an array, and get the matching
 elements.
 
-## Argmin
+## Argmin, argmax
 
-Numpy has various *argmin* functions that are a shortcut for using `where`, for
+Numpy has various *arg-* functions that are a shortcut for using `where`, for
 particular cases.
 
-A typical case is where you want to know the index (position) of the minimum
+A typical case is where you want to know the *index* (position) of the minimum
 value in an array.
 
 Here is our array:
@@ -145,26 +145,6 @@ max_pos
 arr[max_pos]
 ```
 
-We could also have found the position of the minimum value above, using `np.min` and `where`:
-
-```{python}
-min_value = np.min(arr)
-min_indices = np.where(arr == min_value)
-arr[min_indices]
-```
-
-The `argmin` and `argmax` functions are not quite the same, in that they only return the *first* position of the minimum or maximum, if there are multiple values with the same value.
-
-Compare:
-
-```{python}
-np.argmax(arr)
-```
-
-to
-
-
-```{python}
-max_value = np.max(arr)
-np.where(arr == max_value)
-```
+Notice that there are *two* values of 99 in this array, and therefore, two
+maximum values.  `np.argmax` returns the index of the *first* maximum values.
+`np.argmin` does the same, if there is more than one minimum value.
