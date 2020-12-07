@@ -67,8 +67,9 @@ people
 
 We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each
 entry in the table gives the number of times the combination of labels occurs.
-For example, the "Yes" row, "R" column gives the number of rows that have a
-"Yes" label for "Party" *and* a "R" label for "Respondent":
+For example, the cell in the "Yes" row, "R" column gives the number of rows in
+the original table that have a "Yes" label for "Party" *and* a "R" label for
+"Respondent".  Call this the *Yes-with-R* cell.
 
 ```{python}
 two_by_two = pd.crosstab(people['Party'], people['Respondent'])
@@ -79,8 +80,8 @@ You might want to confirm these counts.  You should see that there are in fact
 3 rows which have both the "Yes" label and the "R" label, and this matches the
 bottom right entry in the `pd.crosstab` table.
 
-We can add the row and column totals to this table, with some fancy Pandas code
-(unhide the code in this page, or see the notebook version for details):
+We can add the row and column totals to this table, with some fancy Pandas
+code (unhide the code in this page, or see the notebook version for details):
 
 ```{python tags=c("hide-cell")}
 # Fancy code for adding row / column totals, giving them colors.
@@ -119,6 +120,10 @@ permuted_tab_1 = pd.crosstab(np.random.permutation(parties), respondents)
 with_margins(permuted_tab_1)
 ```
 
+Note that I could have shuffled the "Respondent" labels instead, or both sets
+of labels - any of these operations creates what we want - which is a random
+association between the "Party" and "Respondent" labels.
+
 Let's make another few of those random tables:
 
 ```{python}
@@ -156,29 +161,18 @@ Politics](noble_politics) page.
 The first explanation for the relationship between the values is --- the total
 counts over the rows and columns are fixed.
 
-The sums of the counts along the columns are fixed, regardless of the ordering
-of the "Yes" and "No" labels. If we add the "Yes" and "No" counts for "R", we
-have the total number of rows with "R" in the table (5) because each row can
-only have a "Yes" or a "No", so every "R" value has either a "Yes" or a "No".
+They are fixed because they depend only on the labels, not on the relationship of the labels.   So, we cannot change the counts over rows or columns by shuffling the order of either or both set of labels.
 
-For the same reason, the "Yes" and "No" counts for "B" add up to the number of rows with a "B" label (3).
+For example, consider the sum of counts over columns.  In our example, the
+columns are for "B" and "R", and the column sums of the counts are the total
+number of "B" and "R" labels.
 
-These values, 5 and 3, must be the same regardless of the ordering of the
-"Yes" and "No" labels, and therefore, the relationship of "Yes" or "No" to "R"
-and "B".
+By shuffling the order of the labels, we can change the number in the
+B-with-Yes cell, but we can't change the total number of "B" labels, so, if
+the B-with-Yes number increases, the B-with-No number has to decrease by the
+same amount.
 
-Similarly for the sum of the counts along the rows.  If we add the "R" and "B"
-counts for the "Yes" rows we get the total number of "Yes" rows (5).  There
-are 3 "No" rows.  That will be so regardless of ordering of the "Yes" and "No"
-labels.
-
-This means that if the top-left value goes up by 1 (the "No", "R") value, then
-the bottom-left value ("Yes", "R") must go down by 1, because the total number
-of "R" rows cannot change.  It also means that the top-right value ("No", "B")
-has to go down by 1, because the total number of "No" rows can't change.  And
-for the same reason, the "Yes", "B" value has to go *up* by 1, like the
-top-left value, because the total number of "Yes", and the total number of "B"
-values cannot change.
+The same argument applies for the row totals.
 
 You may now see that, if you give me the value for any one of the four
 elements in the table, I can fill in the rest, because they follow from the
@@ -196,8 +190,8 @@ Consider the original table.
 with_margins(two_by_two)
 ```
 
-Now consider permutations in the order of the Yes/No column.  We will just
-permute the first "Yes", for now.
+Now consider permutations in the order of the Yes/No column of the original
+table.  We will just permute the first "Yes", for now.
 
 Imagine the first "Yes" gets swapped with the "Yes" in one of the other "R",
 "Yes" rows.  We still end up with the same two by two counts table.
