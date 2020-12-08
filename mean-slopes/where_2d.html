@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Where and argmin in 2D &#8212; Coding for Data - 2020 edition</title>
+    <title>Where in 2D &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -68,8 +68,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/mean-slopes/where_2d.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Where and argmin in 2D" />
-<meta property="og:description" content="Where and argmin in 2D  This follows from where and argmin.  That page covers how np.where and np.argmin work for one-dimensional arrays.  This page covers what" />
+<meta property="og:title"       content="Where in 2D" />
+<meta property="og:description" content="Where in 2D  This follows from where and argmin.  That page covers how np.where and np.argmin work for one-dimensional arrays.  This page covers what happens fo" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -517,7 +517,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Where and argmin in 2D
+   Where in 2D
   </a>
  </li>
  <li class="toctree-l1">
@@ -739,18 +739,18 @@
         
               <div>
                 
-  <div class="section" id="where-and-argmin-in-2d">
-<h1>Where and argmin in 2D<a class="headerlink" href="#where-and-argmin-in-2d" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="where-in-2d">
+<h1>Where in 2D<a class="headerlink" href="#where-in-2d" title="Permalink to this headline">¶</a></h1>
 <p>This follows from <a class="reference internal" href="where_and_argmin.html"><span class="doc std std-doc">where and argmin</span></a>.</p>
 <p>That page covers how <code class="docutils literal notranslate"><span class="pre">np.where</span></code> and <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> work for one-dimensional
 arrays.</p>
-<p>This page covers what happens for arrays of two dimensions and more.</p>
-<p>We start with some ratings from the <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">students ratings dataset</span></a> dataset.</p>
+<p>This page covers what happens for <code class="docutils literal notranslate"><span class="pre">np.where</span></code> with arrays of two dimensions and
+more.</p>
 <div class="section" id="arrays-can-have-two-dimensions">
 <h2>Arrays can have two dimensions<a class="headerlink" href="#arrays-can-have-two-dimensions" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -760,7 +760,7 @@ arrays.</p>
 <p>Here’s a one-dimensional array (vector):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
 <span class="n">arr_one_d</span>
 </pre></div>
 </div>
@@ -774,7 +774,7 @@ arrays.</p>
 <p>Notice the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -788,7 +788,7 @@ arrays.</p>
 <p>In fact you can have arrays with more than one row, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]])</span>
 <span class="n">arr_two_d</span>
 </pre></div>
 </div>
@@ -803,7 +803,7 @@ arrays.</p>
 <p>Notice the <code class="docutils literal notranslate"><span class="pre">shape</span></code>.  This array has 2 rows, each with 5 columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -816,7 +816,7 @@ arrays.</p>
 <p>Remember, we can ask for a single element from a one-dimensional array, using <em>indexing</em> with an integer between square brackets. The integer gives the <em>position</em> (or offset) of the element we want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -829,17 +829,12 @@ arrays.</p>
 <p>With a two-dimensional array, we need to specify the row <em>and</em> column of the element we want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">52</span><span class="n">acb28606a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">arr_two_d</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">IndexError</span>: index 3 is out of bounds for axis 0 with size 2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-13
 </pre></div>
 </div>
 </div>
@@ -848,10 +843,31 @@ arrays.</p>
 </div>
 <div class="section" id="revision-using-where-on-one-dimensional-arrays">
 <h2>Revision - using where on one-dimensional arrays<a class="headerlink" href="#revision-using-where-on-one-dimensional-arrays" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">np.where</span></code> gets the indices of the True values in a Boolean array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr_one_d</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A Boolean array.</span>
+<span class="n">equal_to_99</span> <span class="o">=</span> <span class="n">arr_one_d</span> <span class="o">==</span> <span class="mi">99</span>
+<span class="n">equal_to_99</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False, False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indices of the True values.</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">equal_to_99</span><span class="p">)</span>
 <span class="n">indices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1, 4]),)
 </pre></div>
 </div>
 </div>
@@ -859,7 +875,12 @@ arrays.</p>
 <p>We can use the returned <code class="docutils literal notranslate"><span class="pre">indices</span></code> to index into the array, using square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([99, 99])
 </pre></div>
 </div>
 </div>
@@ -867,22 +888,18 @@ arrays.</p>
 </div>
 <div class="section" id="the-two-dimensional-case">
 <h2>The two-dimensional case<a class="headerlink" href="#the-two-dimensional-case" title="Permalink to this headline">¶</a></h2>
-<p>This also works in two or more dimensions.  Here is another two-dimensional
-array, with some values of 99.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]])</span>
-<span class="n">arr2</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>This also works in two or more dimensions.</p>
 <p><code class="docutils literal notranslate"><span class="pre">np.where</span></code> now returns two index arrays, one for the rows, and one for the
 columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indices2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr2</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr_two_d</span> <span class="o">==</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">indices2d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1]), array([4, 3]))
 </pre></div>
 </div>
 </div>
@@ -891,7 +908,12 @@ columns.</p>
 into the array, and get the elements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span><span class="p">[</span><span class="n">indices2d</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="p">[</span><span class="n">indices2d</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3, -3])
 </pre></div>
 </div>
 </div>

@@ -1,33 +1,28 @@
 ---
 jupyter:
   jupytext:
-    metadata_filter:
-      notebook:
-        additional: all
-        excluded:
-        - language_info
+    notebook_metadata_filter: all,-language_info
+    split_at_heading: true
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.0'
-      jupytext_version: 0.8.6
+      format_version: '1.2'
+      jupytext_version: 1.6.0
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
 ---
 
-# Where and argmin in 2D
+# Where in 2D
 
 This follows from [where and argmin](where_and_argmin).
 
 That page covers how `np.where` and `np.argmin` work for one-dimensional
 arrays.
 
-This page covers what happens for arrays of two dimensions and more.
-
-We start with some ratings from the [students ratings dataset](../data/rate_my_professors) dataset.
-
+This page covers what happens for `np.where` with arrays of two dimensions and
+more.
 
 ## Arrays can have two dimensions
 
@@ -76,7 +71,7 @@ arr_one_d[1]
 With a two-dimensional array, we need to specify the row *and* column of the element we want:
 
 ```{python}
-arr_two_d[3, 1]
+arr_two_d[1, 4]
 ```
 
 The first value between the brackets is the row position, and the second is the column position.
@@ -84,8 +79,17 @@ The first value between the brackets is the row position, and the second is the 
 
 ## Revision - using where on one-dimensional arrays
 
+`np.where` gets the indices of the True values in a Boolean array.
+
 ```{python}
-indices = np.where(arr_one_d == 99)
+# A Boolean array.
+equal_to_99 = arr_one_d == 99
+equal_to_99
+```
+
+```{python}
+# Indices of the True values.
+indices = np.where(equal_to_99)
 indices
 ```
 
@@ -97,19 +101,13 @@ arr_one_d[indices]
 
 ## The two-dimensional case
 
-This also works in two or more dimensions.  Here is another two-dimensional
-array, with some values of 99.
-
-```{python}
-arr2 = np.array([[4, 99, 3], [8, 8, 99]])
-arr2
-```
+This also works in two or more dimensions.
 
 `np.where` now returns two index arrays, one for the rows, and one for the
 columns.
 
 ```{python}
-indices2d = np.where(arr2 == 99)
+indices2d = np.where(arr_two_d == -3)
 indices2d
 ```
 
@@ -117,5 +115,5 @@ Just as for the one-dimensional case, we can use the returned indices to index
 into the array, and get the elements.
 
 ```{python}
-arr2[indices2d]
+arr_two_d[indices2d]
 ```
