@@ -516,6 +516,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/where_2d.html">
+   Where and argmin in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../mean-slopes/finding_lines.html">
    Finding lines
   </a>
@@ -822,7 +827,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([24.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([32.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 </pre></div>
 </div>
 </div>
@@ -846,7 +851,7 @@ of times, to make sure we’ve got an idea of the variation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 3., 2., 2., 7., 2., 3., 4., 3., 1.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 4., 3., 5., 5., 3., 1., 4., 2., 2.])
 </pre></div>
 </div>
 </div>
@@ -873,7 +878,7 @@ therefore, 10000 estimates.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 5., 1., ..., 5., 7., 4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 2., 4., ..., 3., 4., 3.])
 </pre></div>
 </div>
 </div>
@@ -919,8 +924,8 @@ a histogram.  Here is how to do that, in Python.  Don’t worry about the detail
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 276., 1162., 2214., 2554., 2044., 1132.,  461.,  133.,   20.,
-           4.,    0.,    0.]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([2.530e+02, 1.103e+03, 2.197e+03, 2.574e+03, 2.049e+03, 1.153e+03,
+        4.790e+02, 1.520e+02, 3.300e+01, 6.000e+00, 1.000e+00, 0.000e+00]),
  array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12]),
  &lt;a list of 12 Patch objects&gt;)
 </pre></div>
@@ -940,7 +945,7 @@ times did we get a value of 0, in all our 10000 estimates?</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>253
 </pre></div>
 </div>
 </div>
@@ -955,7 +960,7 @@ number of times we see 0 by the number trials we made:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0253
 </pre></div>
 </div>
 </div>
@@ -970,7 +975,7 @@ that the proportion of times we see that result is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0253
 </pre></div>
 </div>
 </div>
@@ -984,7 +989,7 @@ in a jury of 12, is</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0253
 </pre></div>
 </div>
 </div>

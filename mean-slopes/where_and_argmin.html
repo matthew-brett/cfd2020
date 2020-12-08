@@ -516,6 +516,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="where_2d.html">
+   Where and argmin in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="finding_lines.html">
    Finding lines
   </a>
@@ -719,8 +724,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#argmin">
-   Argmin
+  <a class="reference internal nav-link" href="#argmin-argmax">
+   Argmin, argmax
   </a>
  </li>
 </ul>
@@ -860,11 +865,11 @@ vectors.</p>
 <p>You can use these indices to index into an array, and get the matching
 elements.</p>
 </div>
-<div class="section" id="argmin">
-<h2>Argmin<a class="headerlink" href="#argmin" title="Permalink to this headline">¶</a></h2>
-<p>Numpy has various <em>argmin</em> functions that are a shortcut for using <code class="docutils literal notranslate"><span class="pre">where</span></code>, for
+<div class="section" id="argmin-argmax">
+<h2>Argmin, argmax<a class="headerlink" href="#argmin-argmax" title="Permalink to this headline">¶</a></h2>
+<p>Numpy has various <em>arg-</em> functions that are a shortcut for using <code class="docutils literal notranslate"><span class="pre">where</span></code>, for
 particular cases.</p>
-<p>A typical case is where you want to know the index (position) of the minimum
+<p>A typical case is where you want to know the <em>index</em> (position) of the minimum
 value in an array.</p>
 <p>Here is our array:</p>
 <div class="cell docutils container">
@@ -957,49 +962,9 @@ value in an array.</p>
 </div>
 </div>
 </div>
-<p>We could also have found the position of the minimum value above, using <code class="docutils literal notranslate"><span class="pre">np.min</span></code> and <code class="docutils literal notranslate"><span class="pre">where</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">min_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">min_value</span><span class="p">)</span>
-<span class="n">arr</span><span class="p">[</span><span class="n">min_indices</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">argmin</span></code> and <code class="docutils literal notranslate"><span class="pre">argmax</span></code> functions are not quite the same, in that they only return the <em>first</em> position of the minimum or maximum, if there are multiple values with the same value.</p>
-<p>Compare:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<p>to</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">max_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1, 4]),)
-</pre></div>
-</div>
-</div>
-</div>
+<p>Notice that there are <em>two</em> values of 99 in this array, and therefore, two
+maximum values.  <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> returns the index of the <em>first</em> maximum values.
+<code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> does the same, if there is more than one minimum value.</p>
 </div>
 </div>
 

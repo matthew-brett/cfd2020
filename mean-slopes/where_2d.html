@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Function arguments &#8212; Coding for Data - 2020 edition</title>
+    <title>Where and argmin in 2D &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,22 +54,22 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/arrays/function_arguments.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/mean-slopes/where_2d.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Boolean arrays" href="boolean_arrays.html" />
-    <link rel="prev" title="Making and filling arrays." href="filling_arrays.html" />
+    <link rel="next" title="Finding lines" href="finding_lines.html" />
+    <link rel="prev" title="Optimization" href="optimization.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/arrays/function_arguments.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/mean-slopes/where_2d.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Function arguments" />
-<meta property="og:description" content="Function arguments  So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:  # Load the Numpy package, and ren" />
+<meta property="og:title"       content="Where and argmin in 2D" />
+<meta property="og:description" content="Where and argmin in 2D  This follows from where and argmin.  That page covers how np.where and np.argmin work for one-dimensional arrays.  This page covers what" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -277,44 +277,44 @@
   Arrays
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="Arrays.html">
+  <a class="reference internal" href="../arrays/Arrays.html">
    Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Ranges.html">
+  <a class="reference internal" href="../arrays/Ranges.html">
    Ranges
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="More_on_Arrays.html">
+  <a class="reference internal" href="../arrays/More_on_Arrays.html">
    More on Arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="array_indexing.html">
+  <a class="reference internal" href="../arrays/array_indexing.html">
    Selecting values from an array
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="filling_arrays.html">
+  <a class="reference internal" href="../arrays/filling_arrays.html">
    Making and filling arrays.
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../arrays/function_arguments.html">
    Function arguments
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="boolean_arrays.html">
+  <a class="reference internal" href="../arrays/boolean_arrays.html">
    Boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="leaping_ahead.html">
+  <a class="reference internal" href="../arrays/leaping_ahead.html">
    Leaping ahead
   </a>
  </li>
@@ -489,64 +489,64 @@
   The mean and straight lines
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/mean.html">
+  <a class="reference internal" href="mean.html">
    The mean
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/mean_meaning.html">
+  <a class="reference internal" href="mean_meaning.html">
    The meaning of the mean
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/where_and_argmin.html">
+  <a class="reference internal" href="where_and_argmin.html">
    Where and argmin
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/mean_and_slopes.html">
+  <a class="reference internal" href="mean_and_slopes.html">
    The mean and slopes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/optimization.html">
+  <a class="reference internal" href="optimization.html">
    Optimization
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/where_2d.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Where and argmin in 2D
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/finding_lines.html">
+  <a class="reference internal" href="finding_lines.html">
    Finding lines
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/using_minimize.html">
+  <a class="reference internal" href="using_minimize.html">
    Using minimize
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/inference_on_slopes.html">
+  <a class="reference internal" href="inference_on_slopes.html">
    Inference on slopes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/combining_boolean_arrays.html">
+  <a class="reference internal" href="combining_boolean_arrays.html">
    Combining boolean arrays
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/standard_scores.html">
+  <a class="reference internal" href="standard_scores.html">
    Standard scores
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../mean-slopes/Correlation.html">
+  <a class="reference internal" href="Correlation.html">
    Correlation
   </a>
  </li>
@@ -639,7 +639,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/arrays/function_arguments.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/mean-slopes/where_2d.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -659,10 +659,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Farrays/function_arguments.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fmean-slopes/where_2d.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/arrays/function_arguments.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/mean-slopes/where_2d.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -682,14 +682,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/arrays/function_arguments.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/mean-slopes/where_2d.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/arrays/function_arguments.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/mean-slopes/where_2d.Rmd&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -708,6 +708,30 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arrays-can-have-two-dimensions">
+   Arrays can have two dimensions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#revision-using-where-on-one-dimensional-arrays">
+   Revision - using where on one-dimensional arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-two-dimensional-case">
+   The two-dimensional case
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -715,181 +739,172 @@
         
               <div>
                 
-  <div class="section" id="function-arguments">
-<h1>Function arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">¶</a></h1>
-<p>So far we have used function arguments in a basic way; this is the way that is familiar from mathematics:</p>
+  <div class="section" id="where-and-argmin-in-2d">
+<h1>Where and argmin in 2D<a class="headerlink" href="#where-and-argmin-in-2d" title="Permalink to this headline">¶</a></h1>
+<p>This follows from <a class="reference internal" href="where_and_argmin.html"><span class="doc std std-doc">where and argmin</span></a>.</p>
+<p>That page covers how <code class="docutils literal notranslate"><span class="pre">np.where</span></code> and <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> work for one-dimensional
+arrays.</p>
+<p>This page covers what happens for arrays of two dimensions and more.</p>
+<p>We start with some ratings from the <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">students ratings dataset</span></a> dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Numpy package, and rename to &quot;np&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="arrays-can-have-two-dimensions">
+<h2>Arrays can have two dimensions<a class="headerlink" href="#arrays-can-have-two-dimensions" title="Permalink to this headline">¶</a></h2>
+<p>So far we have only seen one-dimensional arrays.</p>
+<p>A <em>vector</em> is another term for a one-dimensional array.</p>
+<p>Here’s a one-dimensional array (vector):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">])</span>
+<span class="n">arr_one_d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2, 99, -1,  4, 99])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Here is another Numpy function, from the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package of the Numpy library.  We get to the sub-packages with the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> - so to get to the <code class="docutils literal notranslate"><span class="pre">random</span></code> sub-package, we use <code class="docutils literal notranslate"><span class="pre">np.random</span></code>.  Then, to get to the functions in this sub-package, we use the dot again, like this:</p>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5,)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Remember, this is a random integer from 0 up to, but <em>not including</em> 2, so it is a random integer that can either be 0 or 1.</p>
-<p>Now let us look at the help for the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function.  As usual, we do this by appending <code class="docutils literal notranslate"><span class="pre">?</span></code> to the function name, and pressing Enter in the notebook.</p>
+<p>You can also think of this one-dimensional array as a single <em>row</em>.</p>
+<p>In fact you can have arrays with more than one row, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To see the help for np.random.randint, remove the # at the beginning</span>
-<span class="c1"># of the next line, and execute this cell.</span>
-np.random.randint<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We find that the function can accept up to four arguments.  We have passed two.
-The first sets the argument called <code class="docutils literal notranslate"><span class="pre">low</span></code> to be 0, and the second sets the
-argument called <code class="docutils literal notranslate"><span class="pre">high</span></code> to be 2.</p>
-<p>To take another example, in this case we are asking for a random number
-starting at 1 up to, but not including 11. This gives us a random integer from
-1 through 10. <code class="docutils literal notranslate"><span class="pre">low</span></code> is 1 and <code class="docutils literal notranslate"><span class="pre">high</span></code> is 11.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random integer from 1 through 10.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">]])</span>
+<span class="n">arr_two_d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1,   2,   3,  -2,  -3],
+       [ 10,  11,  12,  -3, -13]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>If we pass three arguments, we also set the <code class="docutils literal notranslate"><span class="pre">size</span></code> argument.  This tells the function how many random numbers to return.  The following asks for an array of four random integers from 1 through 20:</p>
+<p>Notice the <code class="docutils literal notranslate"><span class="pre">shape</span></code>.  This array has 2 rows, each with 5 columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7, 11, 12, 20])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 5)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that this is an <em>array</em>.</p>
-<p>Now look again at the help.  Notice that the help gives each argument a <em>name</em>
-— <code class="docutils literal notranslate"><span class="pre">low</span></code>, <code class="docutils literal notranslate"><span class="pre">high</span></code>, <code class="docutils literal notranslate"><span class="pre">size</span></code>.  We can also use these names when we set these
-arguments.  For example, the cell below does exactly the same thing as the cell
-above.</p>
+<p>Remember, we can ask for a single element from a one-dimensional array, using <em>indexing</em> with an integer between square brackets. The integer gives the <em>position</em> (or offset) of the element we want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20, using keyword arguments.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20, 19, 14, 17])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99
 </pre></div>
 </div>
 </div>
 </div>
-<p>When we call the function using the arguments with their names like this, the named arguments are called <em>keyword</em> arguments.</p>
-<p>Passing the arguments like this, using keywords, can be very useful, to make it
-clearer what each argument means.   For example, it’s a common pattern to call a function with one or a few keyword arguments, like this:</p>
+<p>With a two-dimensional array, we need to specify the row <em>and</em> column of the element we want:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_two_d</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([13,  9, 12,  9])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">52</span><span class="n">acb28606a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">arr_two_d</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: index 3 is out of bounds for axis 0 with size 2
 </pre></div>
 </div>
 </div>
 </div>
-<p>Writing the call like the cell gives exactly the same result as the cell below,
-but the cell above can be easier to follow, because the person reading the code
-does not have to guess what the 4 means — they can see that it means the size
-of the output array.</p>
+<p>The first value between the brackets is the row position, and the second is the column position.</p>
+</div>
+<div class="section" id="revision-using-where-on-one-dimensional-arrays">
+<h2>Revision - using where on one-dimensional arrays<a class="headerlink" href="#revision-using-where-on-one-dimensional-arrays" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Four random integers from 1 through 20 - but no keyword argument.</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14,  5, 18, 14])
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr_one_d</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
+<span class="n">indices</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>To take another example, we have already seen the function <code class="docutils literal notranslate"><span class="pre">round</span></code>.  Inspect
-the help for <code class="docutils literal notranslate"><span class="pre">round</span></code> with <code class="docutils literal notranslate"><span class="pre">round?</span></code> and Enter in a notebook cell.</p>
-<p><code class="docutils literal notranslate"><span class="pre">round</span></code> takes up to two arguments.  If we pass one argument, it is just the value that <code class="docutils literal notranslate"><span class="pre">round</span></code> will round to the nearest integer:</p>
+<p>We can use the returned <code class="docutils literal notranslate"><span class="pre">indices</span></code> to index into the array, using square brackets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr_one_d</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>If we pass two arguments, the first argument is the value we will round, and the second is the number of digits to round to, like this:</p>
+</div>
+<div class="section" id="the-two-dimensional-case">
+<h2>The two-dimensional case<a class="headerlink" href="#the-two-dimensional-case" title="Permalink to this headline">¶</a></h2>
+<p>This also works in two or more dimensions.  Here is another two-dimensional
+array, with some values of 99.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">99</span><span class="p">]])</span>
+<span class="n">arr2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you saw in the help, the second argument has the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code>, so we can also write:</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.where</span></code> now returns two index arrays, one for the rows, and one for the
+columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indices2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr2</span> <span class="o">==</span> <span class="mi">99</span><span class="p">)</span>
+<span class="n">indices2d</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>As before, this makes the code a little bit easier to read and understand,
-because it is immediately clear from the name <code class="docutils literal notranslate"><span class="pre">ndigits</span></code> that the 2 means the
-number of digits to round to.</p>
+<p>Just as for the one-dimensional case, we can use the returned indices to index
+into the array, and get the elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arr2</span><span class="p">[</span><span class="n">indices2d</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -905,7 +920,7 @@ number of digits to round to.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./arrays"
+            path: "./mean-slopes"
         },
         predefinedOutput: true
     }
@@ -920,8 +935,8 @@ number of digits to round to.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="filling_arrays.html" title="previous page">Making and filling arrays.</a>
-    <a class='right-next' id="next-link" href="boolean_arrays.html" title="next page">Boolean arrays</a>
+    <a class='left-prev' id="prev-link" href="optimization.html" title="previous page">Optimization</a>
+    <a class='right-next' id="next-link" href="finding_lines.html" title="next page">Finding lines</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

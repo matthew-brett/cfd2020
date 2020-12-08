@@ -514,6 +514,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../mean-slopes/where_2d.html">
+   Where and argmin in 2D
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../mean-slopes/finding_lines.html">
    Finding lines
   </a>
@@ -857,8 +862,9 @@ have read the Noble Politics page, you will see what inspired this example.</p>
 </div>
 <p>We can ask Pandas to make a 2 by 2 table of counts, for these labels.  Each
 entry in the table gives the number of times the combination of labels occurs.
-For example, the “Yes” row, “R” column gives the number of rows that have a
-“Yes” label for “Party” <em>and</em> a “R” label for “Respondent”:</p>
+For example, the cell in the “Yes” row, “R” column gives the number of rows in
+the original table that have a “Yes” label for “Party” <em>and</em> a “R” label for
+“Respondent”.  Call this the <em>Yes-with-R</em> cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_by_two</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">],</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;Respondent&#39;</span><span class="p">])</span>
@@ -912,8 +918,8 @@ For example, the “Yes” row, “R” column gives the number of rows that hav
 <p>You might want to confirm these counts.  You should see that there are in fact
 3 rows which have both the “Yes” label and the “R” label, and this matches the
 bottom right entry in the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> table.</p>
-<p>We can add the row and column totals to this table, with some fancy Pandas code
-(unhide the code in this page, or see the notebook version for details):</p>
+<p>We can add the row and column totals to this table, with some fancy Pandas
+code (unhide the code in this page, or see the notebook version for details):</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fancy code for adding row / column totals, giving them colors.</span>
@@ -949,43 +955,43 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64cde904_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64cde904_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92c7d04e_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64cde904_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64cde904_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64cde904_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92c7d04e_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92c7d04e_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64cde904_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64cde904_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1001,46 +1007,49 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64d3a376_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64d3a376_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92cc77d4_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64d3a376_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >2</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >1</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64d3a376_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >2</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >1</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >1</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >4</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64d3a376_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >1</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >4</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92cc77d4_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92cc77d4_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64d3a376_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64d3a376_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
+<p>Note that I could have shuffled the “Respondent” labels instead, or both sets
+of labels - any of these operations creates what we want - which is a random
+association between the “Party” and “Respondent” labels.</p>
 <p>Let’s make another few of those random tables:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1051,43 +1060,43 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64d941fa_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64d941fa_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92d0fdae_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64d941fa_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >3</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64d941fa_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >3</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >3</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >2</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64d941fa_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >3</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >2</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92d0fdae_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92d0fdae_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64d941fa_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64d941fa_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1100,43 +1109,43 @@ bottom right entry in the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64ddd710_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64ddd710_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92d566fa_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64ddd710_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >row_0</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64ddd710_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64ddd710_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92d566fa_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92d566fa_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64ddd710_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64ddd710_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1159,25 +1168,15 @@ Politics</span></a> page.</p>
 <h3>Explanation 1: the row and column totals cannot change<a class="headerlink" href="#explanation-1-the-row-and-column-totals-cannot-change" title="Permalink to this headline">¶</a></h3>
 <p>The first explanation for the relationship between the values is — the total
 counts over the rows and columns are fixed.</p>
-<p>The sums of the counts along the columns are fixed, regardless of the ordering
-of the “Yes” and “No” labels. If we add the “Yes” and “No” counts for “R”, we
-have the total number of rows with “R” in the table (5) because each row can
-only have a “Yes” or a “No”, so every “R” value has either a “Yes” or a “No”.</p>
-<p>For the same reason, the “Yes” and “No” counts for “B” add up to the number of rows with a “B” label (3).</p>
-<p>These values, 5 and 3, must be the same regardless of the ordering of the
-“Yes” and “No” labels, and therefore, the relationship of “Yes” or “No” to “R”
-and “B”.</p>
-<p>Similarly for the sum of the counts along the rows.  If we add the “R” and “B”
-counts for the “Yes” rows we get the total number of “Yes” rows (5).  There
-are 3 “No” rows.  That will be so regardless of ordering of the “Yes” and “No”
-labels.</p>
-<p>This means that if the top-left value goes up by 1 (the “No”, “R”) value, then
-the bottom-left value (“Yes”, “R”) must go down by 1, because the total number
-of “R” rows cannot change.  It also means that the top-right value (“No”, “B”)
-has to go down by 1, because the total number of “No” rows can’t change.  And
-for the same reason, the “Yes”, “B” value has to go <em>up</em> by 1, like the
-top-left value, because the total number of “Yes”, and the total number of “B”
-values cannot change.</p>
+<p>They are fixed because they depend only on the labels, not on the relationship of the labels.   So, we cannot change the counts over rows or columns by shuffling the order of either or both set of labels.</p>
+<p>For example, consider the sum of counts over columns.  In our example, the
+columns are for “B” and “R”, and the column sums of the counts are the total
+number of “B” and “R” labels.</p>
+<p>By shuffling the order of the labels, we can change the number in the
+B-with-Yes cell, but we can’t change the total number of “B” labels, so, if
+the B-with-Yes number increases, the B-with-No number has to decrease by the
+same amount.</p>
+<p>The same argument applies for the row totals.</p>
 <p>You may now see that, if you give me the value for any one of the four
 elements in the table, I can fill in the rest, because they follow from the
 fact that I know what the rows and columns have to add up to.</p>
@@ -1196,48 +1195,48 @@ the labels.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64e1061a_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64e1061a_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92d88146_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64e1061a_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >1</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >2</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64e1061a_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >1</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >2</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >2</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >3</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64e1061a_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >2</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >3</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92d88146_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92d88146_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64e1061a_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64e1061a_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
-<p>Now consider permutations in the order of the Yes/No column.  We will just
-permute the first “Yes”, for now.</p>
+<p>Now consider permutations in the order of the Yes/No column of the original
+table.  We will just permute the first “Yes”, for now.</p>
 <p>Imagine the first “Yes” gets swapped with the “Yes” in one of the other “R”,
 “Yes” rows.  We still end up with the same two by two counts table.</p>
 <p>Next swap the first “Yes” with the “No” in one of the “R”, “No” rows.  The
@@ -1343,43 +1342,43 @@ for the first time, the counts table does change, like this:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col2 {
+    #T_64e91b7a_3969_11eb_a6a7_f01898f38fderow0_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col2 {
+        }    #T_64e91b7a_3969_11eb_a6a7_f01898f38fderow1_col2 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col0 {
+        }    #T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col0 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col1 {
+        }    #T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col1 {
             background-color:  #cccccc;
             color:  #000000;
-        }    #T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col2 {
+        }    #T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col2 {
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #cccccc;
             color:  #000000;
             background-color:  #999999;
             color:  #000000;
-        }</style><table id="T_92de9dd8_365e_11eb_8d6c_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
+        }</style><table id="T_64e91b7a_3969_11eb_a6a7_f01898f38fde" ><thead>    <tr>        <th class="index_name level0" >Respondent</th>        <th class="col_heading level0 col0" >No</th>        <th class="col_heading level0 col1" >Yes</th>        <th class="col_heading level0 col2" >Col totals</th>    </tr>    <tr>        <th class="index_name level0" >Party</th>        <th class="blank" ></th>        <th class="blank" ></th>        <th class="blank" ></th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col0" class="data row0 col0" >0</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col1" class="data row0 col1" >3</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow0_col2" class="data row0 col2" >3</td>
+                        <th id="T_64e91b7a_3969_11eb_a6a7_f01898f38fdelevel0_row0" class="row_heading level0 row0" >B</th>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow0_col0" class="data row0 col0" >0</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow0_col1" class="data row0 col1" >3</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow0_col2" class="data row0 col2" >3</td>
             </tr>
             <tr>
-                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col0" class="data row1 col0" >3</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col1" class="data row1 col1" >2</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow1_col2" class="data row1 col2" >5</td>
+                        <th id="T_64e91b7a_3969_11eb_a6a7_f01898f38fdelevel0_row1" class="row_heading level0 row1" >R</th>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow1_col0" class="data row1 col0" >3</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow1_col1" class="data row1 col1" >2</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow1_col2" class="data row1 col2" >5</td>
             </tr>
             <tr>
-                        <th id="T_92de9dd8_365e_11eb_8d6c_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col0" class="data row2 col0" >3</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col1" class="data row2 col1" >5</td>
-                        <td id="T_92de9dd8_365e_11eb_8d6c_f01898f38fderow2_col2" class="data row2 col2" >8</td>
+                        <th id="T_64e91b7a_3969_11eb_a6a7_f01898f38fdelevel0_row2" class="row_heading level0 row2" >Row totals</th>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col0" class="data row2 col0" >3</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col1" class="data row2 col1" >5</td>
+                        <td id="T_64e91b7a_3969_11eb_a6a7_f01898f38fderow2_col2" class="data row2 col2" >8</td>
             </tr>
     </tbody></table></div></div>
 </div>
