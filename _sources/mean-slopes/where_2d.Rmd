@@ -28,7 +28,6 @@ This page covers what happens for arrays of two dimensions and more.
 
 We start with some ratings from the [students ratings dataset](../data/rate_my_professors) dataset.
 
-```
 
 ## Arrays can have two dimensions
 

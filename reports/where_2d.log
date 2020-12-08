@@ -17,16 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-arr_one_d = np.array([2, 99, -1, 4, 99])
-arr_one_d
+arr_two_d[3, 1]
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-1-c93d1af7ae3f>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0marr_one_d[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0;34m[[0m[0;36m2[0m[0;34m,[0m [0;36m99[0m[0;34m,[0m [0;34m-[0m[0;36m1[0m[0;34m,[0m [0;36m4[0m[0;34m,[0m [0;36m99[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0marr_one_d[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mNameError[0m: name 'np' is not defined
-NameError: name 'np' is not defined
+[0;31mIndexError[0m                                Traceback (most recent call last)
+[0;32m<ipython-input-7-52acb28606a2>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0marr_two_d[0m[0;34m[[0m[0;36m3[0m[0;34m,[0m [0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mIndexError[0m: index 3 is out of bounds for axis 0 with size 2
+IndexError: index 3 is out of bounds for axis 0 with size 2
 
