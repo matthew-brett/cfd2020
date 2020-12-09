@@ -517,7 +517,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="where_2d.html">
-   Where and argmin in 2D
+   Where in 2D
   </a>
  </li>
  <li class="toctree-l1">
@@ -744,8 +744,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-metric-for-the-line">
-   One metric for the line
+  <a class="reference internal nav-link" href="#a-dangerous-but-attractive-metric-for-the-line">
+   A dangerous, but attractive metric for the line
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-better-metric-for-the-line">
+   A better metric for the line
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -778,9 +783,9 @@ lowest average squared difference from the observed value.</p></li>
 <p>We load our usual libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="c1"># Make plots look a little bit more fancy</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
 <span class="c1"># Print to 4 decimal places, show tiny values as 0</span>
@@ -800,7 +805,7 @@ have chronic kidney disease.</p>
 <p>To make things a bit easier this dataset is a version from which we have already dropped all missing values.  See the dataset page linked above for more detail.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell</span>
 <span class="n">ckd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ckd_clean.csv&#39;</span><span class="p">)</span>
 <span class="n">ckd</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -981,7 +986,7 @@ is a measurement of anemia, and anemia is a common consequence of chronic
 kidney disease.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the packed cell volume values as a Series.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the packed cell volume values as a Series.</span>
 <span class="n">pcv_series</span> <span class="o">=</span> <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Packed Cell Volume&#39;</span><span class="p">]</span>
 <span class="c1"># Show the distribution.</span>
 <span class="n">pcv_series</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
@@ -989,7 +994,7 @@ kidney disease.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11d1f5190&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11a09a190&gt;
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_5_1.png" src="../_images/mean_and_slopes_5_1.png" />
@@ -1001,7 +1006,7 @@ grams per deciliter.  Hemoglobin is the iron-containing protein in red blood
 cells that carries oxygen to the tissues.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the hemoglobin concentration values as a Series.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the hemoglobin concentration values as a Series.</span>
 <span class="n">hgb_series</span> <span class="o">=</span> <span class="n">ckd</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">]</span>
 <span class="c1"># Show the distribution.</span>
 <span class="n">hgb_series</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
@@ -1009,7 +1014,7 @@ cells that carries oxygen to the tissues.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11d31f340&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x108a04730&gt;
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_7_1.png" src="../_images/mean_and_slopes_7_1.png" />
@@ -1020,7 +1025,7 @@ this with the Numpy <code class="docutils literal notranslate"><span class="pre"
 of object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pcv_series</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pcv_series</span><span class="p">)</span>
 <span class="n">hgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hgb_series</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1044,7 +1049,7 @@ straight line going through 0, 0, and with a slope of about 3.</p>
 <code class="docutils literal notranslate"><span class="pre">xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot HGB on the x axis, PCV on the y axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot HGB on the x axis, PCV on the y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hemoglobin concentration&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Packed cell volume&#39;</span><span class="p">)</span>
@@ -1072,7 +1077,7 @@ slope?  What could <em>best</em> mean, for <em>best slope</em>?</p>
 x=0, y=0.  In order to this, we can add a <code class="docutils literal notranslate"><span class="pre">plt.axis</span></code> function call, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot HGB on the x axis, PCV on the y axis</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot HGB on the x axis, PCV on the y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hemoglobin concentration&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Packed cell volume&#39;</span><span class="p">)</span>
@@ -1102,14 +1107,14 @@ the second.</p>
 <p>To plot a single point, pass a single x and y coordinate value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="c1"># A red point at x=5, y=40</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d4826d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a325910&gt;]
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_17_1.png" src="../_images/mean_and_slopes_17_1.png" />
@@ -1118,14 +1123,14 @@ the second.</p>
 <p>To plot more than one point, pass multiple x and y coordinate values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="c1"># Two red points, one at [5, 40], the other at [10, 50]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d4a7460&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a1c48e0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_19_1.png" src="../_images/mean_and_slopes_19_1.png" />
@@ -1144,7 +1149,7 @@ we take the mean of all the PCV values corresponding to HGB values between 7
 and 8, 8 and 9, and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The centers for our HGB bins</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The centers for our HGB bins</span>
 <span class="n">hgb_bin_centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">)</span>
 <span class="n">hgb_bin_centers</span>
 </pre></div>
@@ -1158,7 +1163,7 @@ and 8, 8 and 9, and so on.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The number of bins</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The number of bins</span>
 <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">)</span>
 <span class="n">n_bins</span>
 </pre></div>
@@ -1173,13 +1178,13 @@ and 8, 8 and 9, and so on.</p>
 <p>Show the center of the bins on the x axis of the plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_bins</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d442250&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a2e6ca0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_24_1.png" src="../_images/mean_and_slopes_24_1.png" />
@@ -1188,7 +1193,7 @@ and 8, 8 and 9, and so on.</p>
 <p>Take the mean of the PCV values for each bin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcv_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_bins</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcv_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_bins</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_bins</span><span class="p">):</span>
     <span class="n">mid</span> <span class="o">=</span> <span class="n">hgb_bin_centers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="c1"># Boolean identifing indices withing the HGB bin</span>
@@ -1212,13 +1217,13 @@ prediction.</p>
 <p>Here is a plot of the means of PCV for every bin:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb_bin_centers</span><span class="p">,</span> <span class="n">pcv_means</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d52b520&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a3d2520&gt;]
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_28_1.png" src="../_images/mean_and_slopes_28_1.png" />
@@ -1246,7 +1251,7 @@ the increase in the PCV for a 1 gram / deciliter increase in the HGB.</p>
 <p>Let’s guess the slope is 3, as Wikipedia told us it should be:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -1259,7 +1264,7 @@ y = c + x * s
 <p>where x is the HGB.  In our case we assume the intercept is 0, so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcv_predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">slope</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcv_predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">slope</span>
 </pre></div>
 </div>
 </div>
@@ -1267,13 +1272,13 @@ y = c + x * s
 <p>Plot the predictions in red on the original data in blue.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv_predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11d579fa0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11a420fa0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/mean_and_slopes_34_1.png" src="../_images/mean_and_slopes_34_1.png" />
@@ -1284,7 +1289,7 @@ we have a prediction, and therefore, an error in our prediction; the difference
 between the predicted value and the actual values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">pcv_predicted</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">pcv_predicted</span>
 <span class="n">error</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1299,7 +1304,7 @@ between the predicted value and the actual values.</p>
 of PCV for each point, and its actual value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv_predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="c1"># Draw a line between predicted and actual</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hgb</span><span class="p">)):</span>
@@ -1325,9 +1330,77 @@ we decide when we have a good line?</p>
 a good prediction of the points.  That is, the line should result in small
 <em>errors</em>.</p>
 <p>We would like a slope that gives us the smallest error.</p>
+<p>We would like a <em>metric</em> or <em>score</em> for the line — a single number that tells
+us how good the line is, in terms of fitting the data.</p>
+<p>We will try and find a score (metric) that is <em>low</em> when the line is good, and
+<em>high</em> when the line is bad.   A low  means that the errors are low, in some
+sense, and a high score means the errors are high, in the same sense.</p>
 </div>
-<div class="section" id="one-metric-for-the-line">
-<h2>One metric for the line<a class="headerlink" href="#one-metric-for-the-line" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-dangerous-but-attractive-metric-for-the-line">
+<h2>A dangerous, but attractive metric for the line<a class="headerlink" href="#a-dangerous-but-attractive-metric-for-the-line" title="Permalink to this headline">¶</a></h2>
+<p>One obvious idea for a metric is to add up all the errors, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="n">a2ecd194a8f3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;errors&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will want to knock of the sign of the sum of the errors, because we want to
+penalize negative and positive sum of the errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bad_metric</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
+<span class="n">bad_metric</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This number will be small or even zero when the line fits well, because the sum
+errors above the line (positive errors) will be roughly equal to the sum of the
+errors below the line.</p>
+<p>And, in fact, for our case, where we know the intercept is zero, this is a
+perfectly reasonable metric.  If the slope is big, then there are more, larger
+negative errors and fewer, smaller positive errors, then the sum of error will
+be negative, and the error will be large.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slope too large - sum of errors is negative.</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="mf">3.5</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">prediction</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum of error for slope of 3.5&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Conversely for a slope that is too small:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slope too small - sum of errors is positive.</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="mf">2.5</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">prediction</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum of error for slope of 2.5&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we will see later, that this metric is very bad when we are trying to find
+a line where we allow the intercept to be something other than zero, because we
+can fit all sorts of obviously bad lines by changing the intercept and the
+slope.  So, for now, let us choose another metric.</p>
+</div>
+<div class="section" id="a-better-metric-for-the-line">
+<h2>A better metric for the line<a class="headerlink" href="#a-better-metric-for-the-line" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="mean_meaning.html"><span class="doc std std-doc">The Mean as Predictor</span></a> section showed that the mean is the value
 with the smallest squared distance from the other values in the distribution.
 The mean is the predictor value that minimizes the sum of squared distances
@@ -1341,16 +1414,11 @@ difference between the line prediction and the actual values.</p>
 let’s do it again, and then calculate the <em>sum of squares</em> of the error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">pcv_predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">slope</span>
 <span class="n">error</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">pcv_predicted</span>
 <span class="c1"># The sum of squared error</span>
 <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">error</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3689.340000000001
 </pre></div>
 </div>
 </div>
@@ -1363,7 +1431,7 @@ outside <em>function world</em>. The function can see these values, from
 function world.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sos_error</span><span class="p">(</span><span class="n">slope</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sos_error</span><span class="p">(</span><span class="n">slope</span><span class="p">):</span>
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">slope</span>  <span class="c1"># &#39;hgb&#39; comes from the top level</span>
     <span class="n">error</span> <span class="o">=</span> <span class="n">pcv</span> <span class="o">-</span> <span class="n">predicted</span>  <span class="c1"># &#39;pcv&#39; comes from the top level</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">error</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -1374,12 +1442,7 @@ function world.</p>
 <p>First check we get the same answer as the calculation above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3689.340000000001
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1387,12 +1450,7 @@ function world.</p>
 <p>Does 3.5 give a higher or lower sum of squared error?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9947.535
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1402,7 +1460,7 @@ page, to try lots of slopes, and find the one that gives the smallest sum of
 squared error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slopes to try</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slopes to try</span>
 <span class="n">some_slopes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">n_slopes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">)</span>
 <span class="c1"># Try all these slopes, calculate and record sum of squared error</span>
@@ -1415,39 +1473,22 @@ squared error.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37529.64  , 36885.2828, 36247.1066, 35615.1112, 34989.2967,
-       34369.6632, 33756.2105, 33148.9387, 32547.8477, 31952.9377])
-</pre></div>
-</div>
-</div>
 </div>
 <p>We plot the slopes we have tried, on the x axis, against the sum of squared
 error, on the y-axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">,</span> <span class="n">sos_errors</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">,</span> <span class="n">sos_errors</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Candidate slopes&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sum of squared error&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Sum of squared error&#39;)
-</pre></div>
-</div>
-<img alt="../_images/mean_and_slopes_51_1.png" src="../_images/mean_and_slopes_51_1.png" />
-</div>
 </div>
 <p>The minimum of the sum of squared error is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3619.8091499999964
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1456,14 +1497,9 @@ error, on the y-axis.</p>
 <a class="reference internal" href="where_and_argmin.html"><span class="doc std std-doc">argmin</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index of minumum value</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Index of minumum value</span>
 <span class="n">i_of_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
 <span class="n">i_of_min</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>105
 </pre></div>
 </div>
 </div>
@@ -1472,13 +1508,8 @@ error, on the y-axis.</p>
 (again) if we index into the original array with the index we just found:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check we do in fact get the minimum at this index</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check we do in fact get the minimum at this index</span>
 <span class="n">sos_errors</span><span class="p">[</span><span class="n">i_of_min</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3619.8091499999964
 </pre></div>
 </div>
 </div>
@@ -1487,13 +1518,8 @@ error, on the y-axis.</p>
 squared error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_slope</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i_of_min</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_slope</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i_of_min</span><span class="p">]</span>
 <span class="n">best_slope</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0499999999999776
 </pre></div>
 </div>
 </div>
@@ -1502,7 +1528,7 @@ squared error:</p>
 squared error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">best_slope</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">best_predicted</span> <span class="o">=</span> <span class="n">hgb</span> <span class="o">*</span> <span class="n">best_slope</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">pcv</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hgb</span><span class="p">,</span> <span class="n">best_predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hgb</span><span class="p">)):</span>
@@ -1513,12 +1539,6 @@ squared error:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The best-fit line using least-squared error&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;The best-fit line using least-squared error&#39;)
-</pre></div>
-</div>
-<img alt="../_images/mean_and_slopes_61_1.png" src="../_images/mean_and_slopes_61_1.png" />
 </div>
 </div>
 <p>The algorithm we have used so far, is rather slow and clunky, because we had to
@@ -1532,24 +1552,10 @@ called <a class="reference external" href="https://en.wikipedia.org/wiki/Mathema
 best slope:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 <span class="c1"># 3 below is the slope value to start the search.</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">sos_error</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">res</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 3619.6157878183294
- hess_inv: array([[0.]])
-      jac: array([0.])
-  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 10
-      nit: 2
-     njev: 5
-   status: 2
-  success: False
-        x: array([3.0475])
 </pre></div>
 </div>
 </div>
@@ -1557,12 +1563,7 @@ best slope:</p>
 <p>The slope is in the <code class="docutils literal notranslate"><span class="pre">x</span></code> attribute of the return value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.0475])
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -1576,13 +1577,8 @@ this case we can work out the best slope with some <a class="reference internal"
 algebra</span></a>.  It turns out like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maths_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">*</span> <span class="n">pcv</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maths_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">*</span> <span class="n">pcv</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hgb</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">maths_slope</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.047498645826524
 </pre></div>
 </div>
 </div>

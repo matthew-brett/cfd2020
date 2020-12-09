@@ -312,7 +312,60 @@ a good prediction of the points.  That is, the line should result in small
 
 We would like a slope that gives us the smallest error.
 
-## One metric for the line
+We would like a *metric* or *score* for the line --- a single number that tells
+us how good the line is, in terms of fitting the data.
+
+We will try and find a score (metric) that is *low* when the line is good, and
+*high* when the line is bad.   A low  means that the errors are low, in some
+sense, and a high score means the errors are high, in the same sense.
+
+## A dangerous, but attractive metric for the line
+
+One obvious idea for a metric is to add up all the errors, like this:
+
+```{python}
+np.sum(errors)
+```
+
+We will want to knock of the sign of the sum of the errors, because we want to
+penalize negative and positive sum of the errors.
+
+```{python}
+bad_metric = np.abs(np.sum(errors))
+bad_metric
+```
+
+This number will be small or even zero when the line fits well, because the sum
+errors above the line (positive errors) will be roughly equal to the sum of the
+errors below the line.
+
+And, in fact, for our case, where we know the intercept is zero, this is a
+perfectly reasonable metric.  If the slope is big, then there are more, larger
+negative errors and fewer, smaller positive errors, then the sum of error will
+be negative, and the error will be large.
+
+```{python}
+# Slope too large - sum of errors is negative.
+prediction = hgb * 3.5
+errors = pcv - prediction
+print('Sum of error for slope of 3.5', np.sum(errors))
+```
+
+Conversely for a slope that is too small:
+
+```{python}
+# Slope too small - sum of errors is positive.
+prediction = hgb * 2.5
+errors = pcv - prediction
+print('Sum of error for slope of 2.5', np.sum(errors))
+```
+
+But we will see later, that this metric is very bad when we are trying to find
+a line where we allow the intercept to be something other than zero, because we
+can fit all sorts of obviously bad lines by changing the intercept and the
+slope.  So, for now, let us choose another metric.
+
+## A better metric for the line
 
 [The Mean as Predictor](mean_meaning) section showed that the mean is the value
 with the smallest squared distance from the other values in the distribution.
