@@ -57,14 +57,14 @@ def find_site_config(dir_path, filenames=('course.yml',
                                           '_config.yml')):
     """ Iterate to parents to locate one of filenames specified in `filenames`.
     """
-    dir_path = op.realpath(dir_path)
+    dir_path = op.abspath(dir_path)
     while True:
         for fn in filenames:
             pth = op.join(dir_path, fn)
             if op.isfile(pth):
                 return pth
         prev_dir_path = dir_path
-        dir_path = op.realpath(op.join(dir_path, '..'))
+        dir_path = op.abspath(op.join(dir_path, '..'))
         if (dir_path == prev_dir_path or  # We hit root.
             not prev_dir_path.startswith(dir_path)): # We hit fs boundary.
             break
