@@ -1,8 +1,6 @@
 # Todo
 
 
-## Refactoring of append etc
-
 Page on official name, variable name for module import.  Covering:
 
 ```{python}
@@ -20,6 +18,19 @@ Cover:
 * histograms
 * scatter plots
 * maybe maps.
+
+Explain and do `.copy()` for Pandas series throughout.
+
+Improve discussion of mean as center of distribution.
+
+Move to "what's my best guess" idea for sum of squared deviations.
+
+Need to slow down a bit for the mean / sum of squares discussion.
+
+Remove, de-emphasize or at least comment on t-test calculation, including in
+exercise.
+
+Introduction to probability.
 
 ## Orphan pages
 
