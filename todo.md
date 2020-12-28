@@ -12,7 +12,14 @@ import numpy as np
 from numpy import cos
 ```
 
-Make much of population_permutation hidden, to avoid boring data frame logic.
+Hide much of `population_permutation`, to avoid boring data frame logic.
+
+Cover:
+
+* bar charts
+* histograms
+* scatter plots
+* maybe maps.
 
 ## Orphan pages
 
