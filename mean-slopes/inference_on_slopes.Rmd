@@ -30,6 +30,83 @@ arose because of *sampling error*.  That is, there was some random fluctuation
 in the data, from course to course, and just by chance, the random fluctuation
 resulted in the slope we observe.
 
+Suggestion: It might be nice to have the something like the output of the following code here (it sometimes takes a while to run!), as an illustration of what sampling error is, in the context of line-fitting and the present example. (Just the output, not the code):
+
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import scipy.stats
+
+x = np.random.uniform(20,100, size = 500)
+y = np.random.uniform(20,100, size = 500)
+
+
+regress_random = scipy.stats.linregress(x,y)
+while regress_random[3] < 0.8 :
+    x = np.random.uniform(20,100, size = 500)
+    y = np.random.uniform(20,100, size = 500)
+    regress_random = scipy.stats.linregress(x,y)
+
+
+regress_random = scipy.stats.linregress(x,y)
+b0_random = regress_random[1]
+b1_random = regress_random[0]
+x1_random = np.linspace(min(x),max(x))
+y_random = b0_random + b1_random*x1_random
+
+
+print()
+print('Imagine there are 500 students taking a subject. We ask each student to rate the subject for easiness and overall quality.')
+print("If there were no positive or negative relationship between the easiness and quality ratings, then the scatterplot of the")
+print("students' ratings would look something like this....")
+
+plt.figure()
+plt.scatter(x,y)
+plt.plot(x1_random,y_random, color = 'red')
+plt.axis([15, 101, 15, 101])
+plt.xlabel('Easiness')
+plt.ylabel('Quality')
+plt.show()
+
+df = pd.DataFrame({'x':x, 'y': y})
+sample = df.sample(n = 20)
+regress = scipy.stats.linregress(sample['x'],sample['y'])
+while regress[2] < 0.8:
+    sample = df.sample(n = 20)
+    regress = scipy.stats.linregress(sample['x'],sample['y'])
+    
+regress_samp_err = scipy.stats.linregress(sample['x'],sample['y'])
+b0_samp_err = regress_samp_err[1]
+b1_samp_err = regress_samp_err[0]
+x1_samp_err = np.linspace(min(sample['x']),max(sample['x']))
+y_samp_err = b0_samp_err + b1_samp_err*x1_samp_err
+
+print()
+print('What if we took a sample of twenty subjects, and just by chance our sample consisted of the points shown in red below...')
+plt.figure
+plt.scatter(x,y)
+plt.scatter(sample['x'],sample['y'], color = 'red')
+plt.axis([15, 101, 15, 101])
+plt.xlabel('Easiness')
+plt.ylabel('Quality')
+plt.show()
+
+print()
+print('Just by chance, even though there is no relationship between the two variables, the points that happened to be in our sample do show a strong relationship....')
+plt.figure()
+plt.scatter(sample['x'],sample['y'])
+plt.plot(x1_samp_err,y_samp_err, color = 'red')
+plt.axis([15, 101, 15, 101])
+plt.xlabel('Easiness')
+plt.ylabel('Quality')
+plt.show()
+
+print("This is sampling error, and it can be very misleading. It can lead us to believe there is a relationship between variables")
+print("when in reality there isn't...")
+```
+
 This is a very similar problem to the problem of comparing means between two groups.  Like that problem, we can get at our question using a permutation test.
 
 ```{python}
