@@ -188,6 +188,48 @@ The last but one element:
 ```{python}
 disciplines[-2]
 ```
+This shortcut is possible because each element in an array has both a non-negative and negative index number. The table below shows the non-negative and negative index numbers of the elements in the "disciplines" array.
+You can use the number shown above or below each element in the table to select that element:
+
+```{python}
+# don't worry about this code yet, we will cover it later, it's just to create an illustration
+
+import pandas as pd
+
+columns = []
+for i in np.arange(len(disciplines)):
+    columns.append('')
+    
+nonnegative_index = np.arange(len(disciplines))
+negative_index = np.arange(-8,0)
+
+df = pd.DataFrame(index = ['Non-negative Index Number:','Array Element:', 'Negative Index Number:'], columns = columns)
+df.loc['Non-negative Index Number:'] = nonnegative_index
+df.loc['Array Element:'] = disciplines
+df.loc['Negative Index Number:'] = negative_index
+ 
+display(df)
+```
+So if you wanted to select "Biology", you could use either of the following (try running the cells):
+
+```{python}
+disciplines[2]
+```
+```{python}
+disciplines[-6]
+```
+If you wanted to select "Chemistry", you could use either of the following (try running the cells):
+```{python}
+disciplines[5]
+```
+```{python}
+disciplines[-3]
+```
+In the cell below, try and select "History" using both its non-negative and negative index number...
+
+```{python}
+```
+Generally you would only use the negative indexe numbers to access elements near the end of the array.
 
 ## Index with slices
 
