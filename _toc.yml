@@ -103,8 +103,9 @@
   - file: functions-conditionals/none
   - file: functions-conditionals/functions
   - file: functions-conditionals/conditional_statements
-  - file: functions-conditionals/functions_as_values
   # functions_conditionals
+  - file: functions-conditionals/functions_as_values
+  # function_vals
 
 - part: Pandas, indices and labels
   chapters:
