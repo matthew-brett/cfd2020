@@ -114,6 +114,7 @@ $$
 y = c + x * s
 $$
 
+[LINK TO THIS FILE HERE: https://github.com/pxr687/temporary/blob/main/Lines_Slopes_and_Intercepts_-_Refresher.Rmd]
 
 Let's say we guess that:
 
