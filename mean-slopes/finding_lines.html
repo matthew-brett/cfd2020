@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using minimize" href="using_minimize.html" />
-    <link rel="prev" title="Where and argmin in 2D" href="where_2d.html" />
+    <link rel="prev" title="Where in 2D" href="where_2d.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -517,7 +517,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="where_2d.html">
-   Where and argmin in 2D
+   Where in 2D
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -749,10 +749,10 @@ zero) intercept, as well as a slope?</p>
 </div>
 <p>We return to the <a class="reference internal" href="../data/rate_my_professors.html"><span class="doc std std-doc">students ratings dataset</span></a> dataset.</p>
 <p>This is a dataset, in Excel form, where each row is the average of students’
-ratings from &lt;RateMyProfessors.com&gt; across a single subject.  Thus, the first
+ratings from &lt;<a class="reference external" href="http://RateMyProfessors.com">RateMyProfessors.com</a>&gt; across a single subject.  Thus, the first
 row refers to the average of all professors teaching English, the second row
 refers to all professors teaching Mathematics, and so on.</p>
-<p>Download the data file via this link {download}<code class="docutils literal notranslate"><span class="pre">disciplines_SI.xlsx</span> <span class="pre">&lt;../data/disciplines_SI.xlsx&gt;</span></code>.</p>
+<p>Download the data file via this link <a class="reference download internal" download="" href="../_downloads/bd1ca798b7b6d67bc4fa7e606bdc95c5/disciplines_SI.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">disciplines_SI.xlsx</span></code></a>.</p>
 <p>Next we load the data.  Notice we are using the Pandas
 <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html">read_excel</a>
 function to read this Excel spreadsheet.</p>
@@ -765,6 +765,10 @@ function to read this Excel spreadsheet.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-20eaceac4936&gt;:2: FutureWarning: Your version of xlrd is 1.2.0. In xlrd &gt;= 2.0, only the xls format is supported. As a result, the openpyxl engine will be used if it is installed and the engine argument is not specified. Install openpyxl instead.
+  ratings = pd.read_excel(&#39;disciplines_SI.xlsx&#39;)
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1340,7 +1344,7 @@ example, in the Scipy <code class="docutils literal notranslate"><span class="pr
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="where_2d.html" title="previous page">Where and argmin in 2D</a>
+    <a class='left-prev' id="prev-link" href="where_2d.html" title="previous page">Where in 2D</a>
     <a class='right-next' id="next-link" href="using_minimize.html" title="next page">Using minimize</a>
 
     </div>

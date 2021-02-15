@@ -517,7 +517,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="where_2d.html">
-   Where and argmin in 2D
+   Where in 2D
   </a>
  </li>
  <li class="toctree-l1">
@@ -803,10 +803,14 @@ Overall Quality ratings.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-969f90ee0ba2&gt;:2: FutureWarning: Your version of xlrd is 1.2.0. In xlrd &gt;= 2.0, only the xls format is supported. As a result, the openpyxl engine will be used if it is installed and the engine argument is not specified. Install openpyxl instead.
+  ratings = pd.read_excel(&#39;disciplines_SI.xlsx&#39;)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Overall quality&#39;)
 </pre></div>
 </div>
-<img alt="../_images/using_minimize_5_1.png" src="../_images/using_minimize_5_1.png" />
+<img alt="../_images/using_minimize_5_2.png" src="../_images/using_minimize_5_2.png" />
 </div>
 </div>
 <p>Here is the function we used to calculate sum of squared error, adapted for <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.</p>
@@ -1211,7 +1215,9 @@ c_s [ 1.92579402 -0.48655136] p 99 q 101
 c_s [2.24898338 0.46700051] p 99 q 101
 c_s [2.24898339 0.46700051] p 99 q 101
 c_s [2.24898338 0.46700052] p 99 q 101
-c_s [2.12510782 0.50564778] p 99 q 101
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c_s [2.12510782 0.50564778] p 99 q 101
 c_s [2.12510784 0.50564778] p 99 q 101
 c_s [2.12510782 0.5056478 ] p 99 q 101
 c_s [2.11480098 0.50886336] p 99 q 101
