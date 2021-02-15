@@ -149,13 +149,15 @@ def get_args():
     parser = ArgumentParser(__doc__)
     parser.add_argument('nb_fname', nargs='+',
                         help='Path to notebook')
+    parser.add_argument('-n', '--no-messages', action='store_true',
+                        help='If set, do not show grading messages')
     parser.add_argument('--cwd',
                         help='Path in which to run notebook; '
                        'default is directory containing notebook(s)')
     return parser.parse_args()
 
 
-def show_grade(nb_fname, wd):
+def show_grade(nb_fname, wd, show_messages=True):
     """ Print notebook filename and grades for each question
     """
     try:
@@ -166,14 +168,15 @@ def show_grade(nb_fname, wd):
         return
     print(nb_fname)
     print_grades(grades)
-    print_messages(messages)
+    if show_messages:
+        print_messages(messages)
     print()
 
 
 def main():
     args = get_args()
     for nb_fname in args.nb_fname:
-        show_grade(nb_fname, args.cwd)
+        show_grade(nb_fname, args.cwd, not args.no_messages)
 
 
 if __name__ == '__main__':
