@@ -897,14 +897,18 @@ would go through 0, 0:</p>
 intercept that is not zero, so we need to find the <em>best slope</em> and the <em>best
 intercept</em> at the same time.  How do we search for a slope as well as an
 intercept?</p>
-<p>To be more formal, we describe the line with an <em>intercept</em> <span class="math notranslate nohighlight">\(c\)</span> and a <em>slope</em>
-<span class="math notranslate nohighlight">\(s\)</span>.  A line predicts the <span class="math notranslate nohighlight">\(y\)</span> values from the <span class="math notranslate nohighlight">\(x\)</span> values, using the slope <span class="math notranslate nohighlight">\(s\)</span>
-and the intercept <span class="math notranslate nohighlight">\(c\)</span>:</p>
+<p>But wait - why do we have to search for the slope and the intercept <em>at the same time</em>?  Can’t we just find the best slope, and then the best intercept?</p>
+<p>In fact we can’t do that, because the best slope will change for every intercept.</p>
+<p>To see why that is, we need to try a few different lines.   To do that, we need to remind ourselves about defining lines, and then testing them.</p>
+<p>Remember, we can describe a line with an <em>intercept</em> and a <em>slope</em>.  Call the
+<em>intercept</em> <span class="math notranslate nohighlight">\(c\)</span> and a <em>slope</em> <span class="math notranslate nohighlight">\(s\)</span>.  A line predicts the <span class="math notranslate nohighlight">\(y\)</span> values from the
+<span class="math notranslate nohighlight">\(x\)</span> values, using the slope <span class="math notranslate nohighlight">\(s\)</span> and the intercept <span class="math notranslate nohighlight">\(c\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
 y = c + x * s
 \]</div>
-<p>Let’s say we guess that:</p>
+<p>Let’s start with a guess for the line, just from eyeballing the plot. We guess
+that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intercept and slope for guessed line</span>
@@ -933,6 +937,27 @@ predicted <span class="math notranslate nohighlight">\(y\)</span> values.</p>
 </div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">quality</span></code> contains our actual <span class="math notranslate nohighlight">\(y\)</span> values.</p>
+<p>We can look at the <em>predictions</em> for this line (in red), and the actual values (in blue) and then the errors (the lengths of the dotted lines joining the red predictions and the corresponding blue actual values).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t worry about this code, it&#39;s just to plot the line, and the errors.</span>
+<span class="n">x_values</span> <span class="o">=</span> <span class="n">easiness</span>  <span class="c1"># The thing we&#39;re predicting from, on the x axis</span>
+<span class="n">y_values</span> <span class="o">=</span> <span class="n">quality</span>  <span class="c1"># The thing we&#39;re predicting, on the y axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># Draw a line between predicted and actual</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">y_0</span> <span class="o">=</span> <span class="n">predicted</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">y_1</span> <span class="o">=</span> <span class="n">y_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/finding_lines_21_0.png" src="../_images/finding_lines_21_0.png" />
+</div>
+</div>
 <p>The sum of squared errors is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,9 +973,94 @@ predicted <span class="math notranslate nohighlight">\(y\)</span> values.</p>
 </div>
 </div>
 </div>
-<p>We want to find the <em>pair of values</em> — <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>  — such that we get the
-smallest possible value for <code class="docutils literal notranslate"><span class="pre">sse_c_s</span></code> above.</p>
-<p>First we define a function, that gives the sum of squared error from our line, defined by the intercept, slope pair.</p>
+<p>Actually, those bits of code are so useful, let’s make them into a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_with_errors</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Plot a line through data with errors</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_values : array</span>
+<span class="sd">        Values we are predicting from, for the x-axis of the plot.</span>
+<span class="sd">    y_values : array</span>
+<span class="sd">        Values we are predicting, for the y-axis of the plot.</span>
+<span class="sd">    c : number</span>
+<span class="sd">        Intercept for predicting line.</span>
+<span class="sd">    s : number</span>
+<span class="sd">        Slope for predicting line.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    s_o_s : number</span>
+<span class="sd">        The sum of squares of the errors, for the given `x_values`, `y_values` and line.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Predict the y values from the line.</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">s</span> <span class="o">*</span> <span class="n">x_values</span>
+    <span class="c1"># Errors are the real values minus the predicted values.</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="n">y_values</span> <span class="o">-</span> <span class="n">predicted</span>
+    <span class="c1"># Plot real values in blue, predicted values in red.</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="c1"># Draw a line between predicted and actual</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">y_0</span> <span class="o">=</span> <span class="n">predicted</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">y_1</span> <span class="o">=</span> <span class="n">y_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">errors</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the same thing with the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_with_errors</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="n">c_guess</span><span class="p">,</span> <span class="n">s_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
+</pre></div>
+</div>
+<img alt="../_images/finding_lines_27_1.png" src="../_images/finding_lines_27_1.png" />
+</div>
+</div>
+<p>If we try a different intercept, we’ll get a different line, and a different
+error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_intercept</span> <span class="o">=</span> <span class="mf">2.2</span>
+<span class="n">plot_with_errors</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="n">another_intercept</span><span class="p">,</span> <span class="n">s_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1870570019289326
+</pre></div>
+</div>
+<img alt="../_images/finding_lines_29_1.png" src="../_images/finding_lines_29_1.png" />
+</div>
+</div>
+<p>Or, we could go back to the same intercept, but try a different slope, and we’d get a different error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">another_slope</span> <span class="o">=</span> <span class="mf">0.48</span>
+<span class="n">plot_with_errors</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="n">c_guess</span><span class="p">,</span> <span class="n">another_slope</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2120381957320197
+</pre></div>
+</div>
+<img alt="../_images/finding_lines_31_1.png" src="../_images/finding_lines_31_1.png" />
+</div>
+</div>
+<p>Let’s use the long slow method to find the best slope for our initial intercept of 2.25.  You may recognize the following from the <a class="reference internal" href="mean_and_slopes.html"><span class="doc std std-doc">mean and slopes</span></a> notebook.</p>
+<p>First we make a function, a bit like the function above, that gives us the
+error for any given intercept (<code class="docutils literal notranslate"><span class="pre">c</span></code>) and slope (<code class="docutils literal notranslate"><span class="pre">s</span></code>) like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sos_error_c_s</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
@@ -961,7 +1071,23 @@ smallest possible value for <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 </div>
-<p>Here we pass the new function our guessed intercept and slope function to confirm we get the same answer as we did before:</p>
+<p>We have already calculated the error for the original guess at slope and intercept, but let’s do it again for practice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum of squared error for our initial guessed line.</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">c_guess</span> <span class="o">+</span> <span class="n">easiness</span> <span class="o">*</span> <span class="n">s_guess</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">quality</span> <span class="o">-</span> <span class="n">predicted</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">error</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that our function gives the same value for the same intercept and slope:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error_c_s</span><span class="p">(</span><span class="n">c_guess</span><span class="p">,</span> <span class="n">s_guess</span><span class="p">)</span>
@@ -974,26 +1100,76 @@ smallest possible value for <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 </div>
-<p>We can try other values for the intercept and slope to see if we can make the
-sum of squared error go down:</p>
+<p>OK, now we use this function to try lots of different slopes, for this intercept, and see which slope gives us the lowest error (see the means, slopes notebook for the first time we did this):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sos_error_c_s</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slopes to try</span>
+<span class="n">some_slopes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">n_slopes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">)</span>
+<span class="c1"># Try all these slopes, calculate and record sum of squared error</span>
+<span class="n">sos_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_slopes</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_slopes</span><span class="p">):</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">sos_errors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sos_error_c_s</span><span class="p">(</span><span class="mf">2.25</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now plot the errors we got for each slope, and find the slope giving the smallest error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">,</span> <span class="n">sos_errors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Candidate slopes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sum of squared error&#39;</span><span class="p">)</span>
+<span class="n">i_of_best_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
+<span class="n">best_slope_for_2p25</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i_of_best_slope</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best slope for intercept of&#39;</span><span class="p">,</span> <span class="n">c_guess</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">best_slope_for_2p25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0751749908632549
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best slope for intercept of 2.25 is 0.4700000000000013
+</pre></div>
+</div>
+<img alt="../_images/finding_lines_41_1.png" src="../_images/finding_lines_41_1.png" />
+</div>
+</div>
+<p>OK - that’s the best slope for an intercept of 2.25.  How about our other suggestion, of an intercept of 2.2?  Let’s try that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try all slopes, calculate and record sum of squared error</span>
+<span class="n">sos_errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_slopes</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_slopes</span><span class="p">):</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">sos_errors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sos_error_c_s</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In <a class="reference internal" href="mean_and_slopes.html"><span class="doc std std-doc">Mean and Slopes</span></a>, we found the best slope by trying lots
-of slopes and choosing the one the gave the minimum sum of squares. What do we
-do when we are trying to find the best slope <em>and</em> the best intercept at the same time?</p>
-<p>We can do the same thing as we did when we were just looking for the slope, but
-this time, instead of searching over many slopes, we search over many
-<em>combinations</em> of slopes and intercepts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">some_slopes</span><span class="p">,</span> <span class="n">sos_errors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Candidate slopes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sum of squared error&#39;</span><span class="p">)</span>
+<span class="n">i_of_best_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sos_errors</span><span class="p">)</span>
+<span class="n">best_slope_for_2p2</span> <span class="o">=</span> <span class="n">some_slopes</span><span class="p">[</span><span class="n">i_of_best_slope</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best slope for intercept of&#39;</span><span class="p">,</span> <span class="n">c_guess</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">best_slope_for_2p2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best slope for intercept of 2.25 is 0.4800000000000013
+</pre></div>
+</div>
+<img alt="../_images/finding_lines_44_1.png" src="../_images/finding_lines_44_1.png" />
+</div>
+</div>
+<p>Oh dear - the best slope has changed.  And, in general, for any intercept, you may able to see that the best slope will be different, as the slope tries to adjust for the stuff that the intercept does not explain.</p>
+<p>This means we can’t just find the intercept, and find the slope, at least not in our case - we have to find the best <em>pair</em> of intercept and slope.  This is the pair, of all possible pairs, that gives the lowest error.</p>
+<p>Our task the, is to find the <em>pair of values</em> — <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">s</span></code>  — such that we
+get the smallest possible value for the sum of squared errors above.</p>
+<p>One way of doing this, is to try <em>every possible</em> plausible pair of intercept and slope, calculate the error for this pair, and then find the <em>pair</em> that gave the lowest error.</p>
+<p>We are now searching over many <em>combinations</em> of slopes and intercepts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some slopes and intercepts to try</span>
@@ -1060,7 +1236,7 @@ be blue, the largest will be red:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sum of squared error&#39;)
 </pre></div>
 </div>
-<img alt="../_images/finding_lines_35_1.png" src="../_images/finding_lines_35_1.png" />
+<img alt="../_images/finding_lines_54_1.png" src="../_images/finding_lines_54_1.png" />
 </div>
 </div>
 <p>At the moment, it’s a bit difficult to see what’s going on, because the lowest
@@ -1085,7 +1261,7 @@ the smaller values.  The details of this plotting code are not important.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sum of squared error&#39;)
 </pre></div>
 </div>
-<img alt="../_images/finding_lines_37_1.png" src="../_images/finding_lines_37_1.png" />
+<img alt="../_images/finding_lines_56_1.png" src="../_images/finding_lines_56_1.png" />
 </div>
 </div>
 <p>We can display this as a 3D surface, to get a better idea of where the minimum
@@ -1117,7 +1293,7 @@ of plots in data analysis.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.92, &#39;Sum of squared error&#39;)
 </pre></div>
 </div>
-<img alt="../_images/finding_lines_39_1.png" src="../_images/finding_lines_39_1.png" />
+<img alt="../_images/finding_lines_58_1.png" src="../_images/finding_lines_58_1.png" />
 </div>
 </div>
 <p>The minimum over all pairs of intercepts and slopes is at the bottom of the
@@ -1206,22 +1382,15 @@ column indices for the minimum value:</p>
 squared error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">si_predicted</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">easiness</span><span class="p">)):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">easiness</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">y_0</span> <span class="o">=</span> <span class="n">si_predicted</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">y_1</span> <span class="o">=</span> <span class="n">quality</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">],</span> <span class="p">[</span><span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The best-fit line using least-squared error&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_with_errors</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">,</span> <span class="n">best_c</span><span class="p">,</span> <span class="n">best_s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;The best-fit line using least-squared error&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0675058315271388
 </pre></div>
 </div>
-<img alt="../_images/finding_lines_53_1.png" src="../_images/finding_lines_53_1.png" />
+<img alt="../_images/finding_lines_72_1.png" src="../_images/finding_lines_72_1.png" />
 </div>
 </div>
 <p>Now you know about <a class="reference internal" href="optimization.html"><span class="doc std std-doc">optimization</span></a>, you will not be surprised to
