@@ -106,16 +106,24 @@ intercept* at the same time.  How do we search for a slope as well as an
 intercept?
 
 
-To be more formal, we describe the line with an *intercept* $c$ and a *slope*
-$s$.  A line predicts the $y$ values from the $x$ values, using the slope $s$
-and the intercept $c$:
+But wait - why do we have to search for the slope and the intercept *at the same time*?  Can't we just find the best slope, and then the best intercept?
+
+In fact we can't do that, because the best slope will change for every intercept.
+
+To see why that is, we need to try a few different lines.   To do that, we need to remind ourselves about defining lines, and then testing them.
+
+
+Remember, we can describe a line with an *intercept* and a *slope*.  Call the
+*intercept* $c$ and a *slope* $s$.  A line predicts the $y$ values from the
+$x$ values, using the slope $s$ and the intercept $c$:
 
 $$
 y = c + x * s
 $$
 
 
-Let's say we guess that:
+Let's start with a guess for the line, just from eyeballing the plot. We guess
+that:
 
 ```{python}
 # Intercept and slope for guessed line
@@ -140,6 +148,22 @@ error = quality - predicted
 
 where `quality` contains our actual $y$ values.
 
+We can look at the *predictions* for this line (in red), and the actual values (in blue) and then the errors (the lengths of the dotted lines joining the red predictions and the corresponding blue actual values).
+
+```{python}
+# Don't worry about this code, it's just to plot the line, and the errors.
+x_values = easiness  # The thing we're predicting from, on the x axis
+y_values = quality  # The thing we're predicting, on the y axis.
+plt.plot(x_values, y_values, 'o')
+plt.plot(x_values, predicted, 'o', color='red')
+# Draw a line between predicted and actual
+for i in np.arange(len(x_values)):
+    x = x_values[i]
+    y_0 = predicted[i]
+    y_1 = y_values[i]
+    plt.plot([x, x], [y_0, y_1], ':', color='black', linewidth=1)
+```
+
 The sum of squared errors is:
 
 ```{python}
@@ -147,13 +171,69 @@ The sum of squared errors is:
 sse_c_s = np.sum(error ** 2)
 sse_c_s
 ```
+Actually, those bits of code are so useful, let's make them into a function:
 
-We want to find the *pair of values* --- `c` and `s`  --- such that we get the
-smallest possible value for `sse_c_s` above.
+```{python}
+def plot_with_errors(x_values, y_values, c, s):
+    """ Plot a line through data with errors
 
+    Parameters
+    ----------
+    x_values : array
+        Values we are predicting from, for the x-axis of the plot.
+    y_values : array
+        Values we are predicting, for the y-axis of the plot.
+    c : number
+        Intercept for predicting line.
+    s : number
+        Slope for predicting line.
 
-First we define a function, that gives the sum of squared error from our line, defined by the intercept, slope pair.
+    Returns
+    -------
+    s_o_s : number
+        The sum of squares of the errors, for the given `x_values`, `y_values` and line.
+    """
+    # Predict the y values from the line.
+    predicted = c + s * x_values
+    # Errors are the real values minus the predicted values.
+    errors = y_values - predicted
+    # Plot real values in blue, predicted values in red.
+    plt.plot(x_values, y_values, 'o', color='blue')
+    plt.plot(x_values, predicted, 'o', color='red')
+    # Draw a line between predicted and actual
+    for i in np.arange(len(x_values)):
+        x = x_values[i]
+        y_0 = predicted[i]
+        y_1 = y_values[i]
+        plt.plot([x, x], [y_0, y_1], ':', color='black', linewidth=1)
+    return np.sum(errors ** 2)
+```
 
+Now the same thing with the function:
+
+```{python}
+plot_with_errors(easiness, quality, c_guess, s_guess)
+```
+
+If we try a different intercept, we'll get a different line, and a different
+error:
+
+```{python}
+another_intercept = 2.2
+plot_with_errors(easiness, quality, another_intercept, s_guess)
+```
+
+Or, we could go back to the same intercept, but try a different slope, and we'd get a different error:
+
+```{python}
+another_slope = 0.48
+plot_with_errors(easiness, quality, c_guess, another_slope)
+```
+
+Let's use the long slow method to find the best slope for our initial intercept of 2.25.  You may recognize the following from the [mean and slopes](mean_and_slopes) notebook.
+
+First we make a function, a bit like the function above, that gives us the
+error for any given intercept (`c`) and slope (`s`) like this:
 
 ```{python}
 def sos_error_c_s(c, s):
@@ -162,27 +242,76 @@ def sos_error_c_s(c, s):
     return np.sum(error ** 2)
 ```
 
-Here we pass the new function our guessed intercept and slope function to confirm we get the same answer as we did before:
+We have already calculated the error for the original guess at slope and intercept, but let's do it again for practice:
+
+```{python}
+# Sum of squared error for our initial guessed line.
+predicted = c_guess + easiness * s_guess
+error = quality - predicted
+np.sum(error ** 2)
+```
+
+Check that our function gives the same value for the same intercept and slope:
 
 ```{python}
 sos_error_c_s(c_guess, s_guess)
 ```
 
-We can try other values for the intercept and slope to see if we can make the
-sum of squared error go down:
+OK, now we use this function to try lots of different slopes, for this intercept, and see which slope gives us the lowest error (see the means, slopes notebook for the first time we did this):
 
 ```{python}
-sos_error_c_s(2.2, 0.48)
+# Slopes to try
+some_slopes = np.arange(-1, 1, 0.01)
+n_slopes = len(some_slopes)
+# Try all these slopes, calculate and record sum of squared error
+sos_errors = np.zeros(n_slopes)
+for i in np.arange(n_slopes):
+    slope = some_slopes[i]
+    sos_errors[i] = sos_error_c_s(2.25, slope)
 ```
 
+Now plot the errors we got for each slope, and find the slope giving the smallest error:
 
-In [Mean and Slopes](mean_and_slopes), we found the best slope by trying lots
-of slopes and choosing the one the gave the minimum sum of squares. What do we
-do when we are trying to find the best slope *and* the best intercept at the same time?
+```{python}
+plt.plot(some_slopes, sos_errors)
+plt.xlabel('Candidate slopes')
+plt.ylabel('Sum of squared error')
+i_of_best_slope = np.argmin(sos_errors)
+best_slope_for_2p25 = some_slopes[i_of_best_slope]
+print('Best slope for intercept of', c_guess, 'is', best_slope_for_2p25)
+```
 
-We can do the same thing as we did when we were just looking for the slope, but
-this time, instead of searching over many slopes, we search over many
-*combinations* of slopes and intercepts.
+OK - that's the best slope for an intercept of 2.25.  How about our other suggestion, of an intercept of 2.2?  Let's try that:
+
+```{python}
+# Try all slopes, calculate and record sum of squared error
+sos_errors = np.zeros(n_slopes)
+for i in np.arange(n_slopes):
+    slope = some_slopes[i]
+    sos_errors[i] = sos_error_c_s(2.2, slope)
+```
+
+```{python}
+plt.plot(some_slopes, sos_errors)
+plt.xlabel('Candidate slopes')
+plt.ylabel('Sum of squared error')
+i_of_best_slope = np.argmin(sos_errors)
+best_slope_for_2p2 = some_slopes[i_of_best_slope]
+print('Best slope for intercept of', c_guess, 'is', best_slope_for_2p2)
+```
+
+Oh dear - the best slope has changed.  And, in general, for any intercept, you may able to see that the best slope will be different, as the slope tries to adjust for the stuff that the intercept does not explain.
+
+This means we can't just find the intercept, and find the slope, at least not in our case - we have to find the best *pair* of intercept and slope.  This is the pair, of all possible pairs, that gives the lowest error.
+
+
+Our task the, is to find the *pair of values* --- `c` and `s`  --- such that we
+get the smallest possible value for the sum of squared errors above.
+
+
+One way of doing this, is to try *every possible* plausible pair of intercept and slope, calculate the error for this pair, and then find the *pair* that gave the lowest error.
+
+We are now searching over many *combinations* of slopes and intercepts.
 
 ```{python}
 # Some slopes and intercepts to try
@@ -329,14 +458,7 @@ Plot the data, predictions and errors for the line that minimizes the sum of
 squared error:
 
 ```{python}
-plt.plot(easiness, quality, 'o')
-plt.plot(easiness, si_predicted, 'o', color='red')
-for i in np.arange(len(easiness)):
-    x = easiness[i]
-    y_0 = si_predicted[i]
-    y_1 = quality[i]
-    plt.plot([x, x], [y_0, y_1], ':', color='black', linewidth=1)
-plt.title('The best-fit line using least-squared error')
+plot_with_errors(easiness, quality, best_c, best_s)
 ```
 
 Now you know about [optimization](optimization), you will not be surprised to

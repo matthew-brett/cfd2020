@@ -130,6 +130,7 @@
   # isloping
   - file: mean-slopes/inference_on_slopes
   - file: mean-slopes/combining_boolean_arrays
+  # is_slope_real
   - file: mean-slopes/standard_scores
   - file: mean-slopes/Correlation
 
