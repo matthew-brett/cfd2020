@@ -32,6 +32,8 @@ exercise.
 
 Introduction to probability.
 
+Better introduction to functions, and docstrings.
+
 ## Orphan pages
 
 ```
