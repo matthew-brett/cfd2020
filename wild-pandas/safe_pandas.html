@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Handling Pandas safely &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -24,8 +25,8 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,19 +34,18 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -587,6 +587,11 @@
    Accuracy of the classifier
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/Multiple_Regression.html">
+   Multiple regression
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -616,21 +621,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -648,7 +653,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -669,13 +674,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -703,13 +708,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -752,6 +758,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -905,11 +912,11 @@ Name: Clarity, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:1636: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/brettmz-admin/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_single_block(indexer, value, name)
+  iloc._setitem_with_indexer(indexer, value)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    4.000000
@@ -1172,12 +1179,12 @@ label 0 for position 0.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline               English
-Number of Professors       23343
-Clarity                 4.000000
-Helpfulness             3.821866
-Overall Quality         3.791364
-Easiness                3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline              English
+Number of Professors      23343
+Clarity                       4
+Helpfulness             3.82187
+Overall Quality         3.79136
+Easiness                3.16275
 Name: 0, dtype: object
 </pre></div>
 </div>
@@ -1198,24 +1205,24 @@ fetching a column, it would be reasonable to predict this would give us a view.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:1636: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/brettmz-admin/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_single_block(indexer, value, name)
-/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py:691: SettingWithCopyWarning: 
+  iloc._setitem_with_indexer(indexer, value)
+&lt;ipython-input-12-2f52da317153&gt;:2: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  iloc._setitem_with_indexer(indexer, value, self.name)
+  row_0.loc[&#39;Clarity&#39;] = 5
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline               English
-Number of Professors       23343
-Clarity                        5
-Helpfulness             3.821866
-Overall Quality         3.791364
-Easiness                3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline              English
+Number of Professors      23343
+Clarity                       5
+Helpfulness             3.82187
+Overall Quality         3.79136
+Easiness                3.16275
 Name: 0, dtype: object
 </pre></div>
 </div>
@@ -1329,12 +1336,12 @@ making a mistake:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline               English
-Number of Professors       23343
-Clarity                        5
-Helpfulness             3.821866
-Overall Quality         3.791364
-Easiness                3.162754
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Discipline              English
+Number of Professors      23343
+Clarity                       5
+Helpfulness             3.82187
+Overall Quality         3.79136
+Easiness                3.16275
 Name: 0, dtype: object
 </pre></div>
 </div>
@@ -1372,39 +1379,32 @@ we come to rule 2.</p>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">row_0</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span> 
-<span class="g g-Whitespace">    </span><span class="mi">690</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
-<span class="ne">--&gt; </span><span class="mi">691</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span> 
-<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span> 
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
+<span class="ne">--&gt; </span><span class="mi">670</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> 
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1634</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1635</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1636</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1637</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1638</span>     <span class="k">def</span> <span class="nf">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1855</span>         <span class="c1"># check for chained assignment</span>
-<span class="ne">-&gt; </span><span class="mi">1856</span>         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1857</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="c1"># actually do the set</span>
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>             <span class="c1"># check for chained assignment</span>
+<span class="ne">-&gt; </span><span class="mi">1796</span>             <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1798</span>             <span class="c1"># actually do the set</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_is_chained_assignment_possible</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3855</span>             <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">3856</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3857</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referent&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3858</span>         <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">3859</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3604</span>             <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">3605</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3606</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referant&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3607</span>         <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">3608</span> 
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_setitem_copy</span><span class="nt">(self, stacklevel, t, force)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3931</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3932</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3933</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3934</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3935</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3679</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3680</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3681</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3682</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3683</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
 
 <span class="ne">SettingWithCopyError</span>: 
 <span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">DataFrame</span>
@@ -1434,39 +1434,32 @@ go away.  Please be patient.  You will find that, if you follow the <em>copy rig
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span> 
-<span class="g g-Whitespace">    </span><span class="mi">690</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
-<span class="ne">--&gt; </span><span class="mi">691</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span> 
-<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span> 
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
+<span class="ne">--&gt; </span><span class="mi">670</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> 
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1634</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1635</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1636</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1637</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1638</span>     <span class="k">def</span> <span class="nf">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1855</span>         <span class="c1"># check for chained assignment</span>
-<span class="ne">-&gt; </span><span class="mi">1856</span>         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1857</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="c1"># actually do the set</span>
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>             <span class="c1"># check for chained assignment</span>
+<span class="ne">-&gt; </span><span class="mi">1796</span>             <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1798</span>             <span class="c1"># actually do the set</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_is_chained_assignment_possible</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3855</span>             <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">3856</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3857</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referent&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3858</span>         <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">3859</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3604</span>             <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">3605</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3606</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referant&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3607</span>         <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">3608</span> 
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_setitem_copy</span><span class="nt">(self, stacklevel, t, force)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3931</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3932</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3933</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3934</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3935</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3679</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3680</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3681</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3682</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3683</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
 
 <span class="ne">SettingWithCopyError</span>: 
 <span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">DataFrame</span>
@@ -1494,39 +1487,32 @@ cell directly above is just a short-cut for this exact equivalent.</p>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tmp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span> 
-<span class="g g-Whitespace">    </span><span class="mi">690</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
-<span class="ne">--&gt; </span><span class="mi">691</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span> 
-<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span> 
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
+<span class="ne">--&gt; </span><span class="mi">670</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> 
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1634</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1635</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1636</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1637</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1638</span>     <span class="k">def</span> <span class="nf">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1855</span>         <span class="c1"># check for chained assignment</span>
-<span class="ne">-&gt; </span><span class="mi">1856</span>         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1857</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="c1"># actually do the set</span>
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>             <span class="c1"># check for chained assignment</span>
+<span class="ne">-&gt; </span><span class="mi">1796</span>             <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1798</span>             <span class="c1"># actually do the set</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_is_chained_assignment_possible</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3855</span>             <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">3856</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3857</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referent&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3858</span>         <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">3859</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3604</span>             <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">3605</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3606</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referant&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3607</span>         <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">3608</span> 
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_setitem_copy</span><span class="nt">(self, stacklevel, t, force)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3931</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3932</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3933</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3934</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3935</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3679</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3680</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3681</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3682</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3683</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
 
 <span class="ne">SettingWithCopyError</span>: 
 <span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">DataFrame</span>
@@ -1575,39 +1561,32 @@ with <code class="docutils literal notranslate"><span class="pre">.loc</span></c
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Clarity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">689</span> 
-<span class="g g-Whitespace">    </span><span class="mi">690</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
-<span class="ne">--&gt; </span><span class="mi">691</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">692</span> 
-<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span> 
+<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
+<span class="ne">--&gt; </span><span class="mi">670</span>         <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span> 
+<span class="g g-Whitespace">    </span><span class="mi">672</span>     <span class="k">def</span> <span class="nf">_validate_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1634</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1635</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1636</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1637</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1638</span>     <span class="k">def</span> <span class="nf">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1854</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1855</span>         <span class="c1"># check for chained assignment</span>
-<span class="ne">-&gt; </span><span class="mi">1856</span>         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1857</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="c1"># actually do the set</span>
+<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_setitem_with_indexer</span><span class="nt">(self, indexer, value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1794</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>             <span class="c1"># check for chained assignment</span>
+<span class="ne">-&gt; </span><span class="mi">1796</span>             <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_check_is_chained_assignment_possible</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1798</span>             <span class="c1"># actually do the set</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_is_chained_assignment_possible</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3855</span>             <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">3856</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3857</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referent&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3858</span>         <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">3859</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3604</span>             <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">   </span><span class="mi">3605</span>         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_copy</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3606</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_setitem_copy</span><span class="p">(</span><span class="n">stacklevel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="s2">&quot;referant&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3607</span>         <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">3608</span> 
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/generic.py</span> in <span class="ni">_check_setitem_copy</span><span class="nt">(self, stacklevel, t, force)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3931</span> 
-<span class="g g-Whitespace">   </span><span class="mi">3932</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3933</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3934</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3935</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3679</span> 
+<span class="g g-Whitespace">   </span><span class="mi">3680</span>         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3681</span>             <span class="k">raise</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyError</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3682</span>         <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3683</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">com</span><span class="o">.</span><span class="n">SettingWithCopyWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
 
 <span class="ne">SettingWithCopyError</span>: 
 <span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">DataFrame</span>
@@ -1664,15 +1643,15 @@ data frame, and does just this.</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="noble_politics.html" title="previous page">Noble politics and comparing counts</a>
     <a class='right-next' id="next-link" href="text_encoding.html" title="next page">Storing and loading text</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1691,7 +1670,7 @@ data frame, and does just this.</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

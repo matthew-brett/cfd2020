@@ -282,6 +282,12 @@ Now plot the errors we got for each slope, and find the slope giving the smalles
 plt.plot(some_slopes, sos_errors)
 plt.xlabel('Candidate slopes')
 plt.ylabel('Sum of squared error')
+```
+
+Using the tricks from [where and argmin](where_and_argmin), we find the index
+(position) of the minimum value, and then find the corresponding slope.
+
+```{python}
 i_of_best_slope = np.argmin(sos_errors)
 best_slope_for_2p25 = some_slopes[i_of_best_slope]
 print('Best slope for intercept of', 2.25, 'is', best_slope_for_2p25)
@@ -433,8 +439,8 @@ Notice that this error is lower than the error we found for our guessed `c` and
 sos_error_c_s(2.25, 0.47)
 ```
 
-Using the tricks from [where and argmin](where_and_argmin), we find the index
-(position) of the minimum value:
+Again, we use [argmin](where_and_argmin) to find the index (position) of the
+minimum value:
 
 ```{python}
 # The index (position) of this lowest error
