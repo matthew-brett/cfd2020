@@ -38,3 +38,11 @@ See <https://github.com/matthew-brett/datasets/oliner1988> for details.
 I believe the underlying *data* are not subject to copyright.  To the extent
 that this table reflects my own (MBs) arrangement of the data, I release it
 under the [PDDL](https://opendatacommons.org/licenses/pddl).
+
+## Houses
+
+`houses.csv` is the Ames house price data set, originally from
+<http://jse.amstat.org/v19n3/decock.pdf>.  This is a backup copy of the data
+and various documentation files at
+<https://github.com/odsti/datasets/tree/master/ames_houses>.  It differs from
+the original only in that it is a CSV file, rather than tab-delimited.

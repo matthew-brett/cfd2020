@@ -139,9 +139,13 @@
   - file: classification/classification
   - file: classification/Nearest_Neighbors
   - file: classification/Training_and_Testing
+  # classify_song_discussion
   - file: classification/Rows_of_Tables
   - file: classification/Implementing_the_Classifier
+  # classify_song_part1
   - file: classification/Accuracy_of_the_Classifier
+  # classify_song_part2
+  - file: classification/Multiple_Regression
 
 #     - file: /confidence
 #       - file: /havana_math
