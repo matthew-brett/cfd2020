@@ -7,7 +7,7 @@ jupyter:
       extension: .Rmd
       format_name: rmarkdown
       format_version: '1.2'
-      jupytext_version: 1.10.0
+      jupytext_version: 1.8.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -101,23 +101,26 @@ list(ckd)
 ```
 
 ```{python}
+# Data frame, just patients, columns of interest.
 ckdp = ckd.loc[
     ckd['Class'] == 1,
     ['Serum Creatinine', 'Blood Urea', 'Hemoglobin']]
+# Rename the columns
+ckdp.columns = ['Creatinine', 'Urea', 'Hemoglobin']
 ckdp.head()
 ```
 
 ```{python}
-sns.pairplot(ckd_patients)
+sns.pairplot(ckdp)
 ```
 
 ```{python}
-correlation(ckd_patients, 'Serum Creatinine',
-            'Blood Urea')
+correlation(ckdp, 'Creatinine',
+            'Urea')
 ```
 
 ```{python}
-correlation(ckd_patients, 'Serum Creatinine',
+correlation(ckdp, 'Creatinine',
             'Hemoglobin')
 ```
 
@@ -143,13 +146,17 @@ def rmse(intercept, slopes, attributes, prices):
 ```
 
 ```{python}
+rmse(0, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
+```
+
+```{python}
 def rmse_for_params(params):
     intercept = params[0]
     slopes = params[1:]
     return rmse(intercept, 
                 slopes, 
-                ckd_patients.loc[:, 'Blood Urea':],
-                ckd_patients['Serum Creatinine']
+                ckdp.loc[:, 'Urea':],
+                ckdp['Creatinine']
                )
 ```
 
@@ -159,31 +166,116 @@ min_res
 ```
 
 ```{python}
-N = len(ckd_patients)
-X = np.ones((N, 3))
-X[:, 1:] = ckd_patients.loc[:, 'Blood Urea':]
-B = np.linalg.pinv(X) @ ckd_patients['Serum Creatinine']
-B
+def rmse_fast(intercept, slopes, attributes, prices):
+    slopes_array = np.tile(slopes, [len(prices), 1])
+    slopes_fitted = np.sum(slopes_array * attributes, axis=1)
+    predicted = intercept + slopes_fitted
+    errors = prices - predicted
+    return np.sqrt(np.mean(errors ** 2))
 ```
 
 ```{python}
+intercept = 0
+slopes = [0, 0]
+attributes = ckdp.loc[:, 'Urea':]
+prices = ckdp['Creatinine']
+slopes_array = np.tile(slopes, [len(prices), 1])
+slopes_array * attributes
+```
+
+```{python}
+rmse_fast(0, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
+```
+
+```{python}
+def rmse_for_params_fast(params):
+    intercept = params[0]
+    slopes = params[1:]
+    return rmse_fast(intercept, 
+                slopes, 
+                ckdp.loc[:, 'Urea':],
+                ckdp['Creatinine']
+               )
+```
+
+```{python}
+min_res_fast = minimize(rmse_for_params_fast, [0, 0, 0])
+min_res_fast
+```
+
+```{python}
+def multiple_regression_algebra(y, x_attributes):
+    intercept_col = np.ones(len(y))
+    X = np.column_stack([intercept_col, x_attributes])
+    return np.linalg.pinv(X) @ y
+```
+
+```{python}
+params = multiple_regression_algebra(ckdp['Creatinine'], 
+                                     ckdp.loc[:, 'Urea':])
+params
+```
+
+```{python}
+import statsmodels.formula.api as smf
+```
+
+```{python}
+model = smf.ols(formula="Creatinine ~ Urea + Hemoglobin", data=ckdp)
+fit = model.fit()
+fit.summary()
+```
+
+```{python}
+import mpl_toolkits.mplot3d
 ax = plt.figure(figsize=(8,8)).add_subplot(111, projection='3d')
-ax.scatter(ckdp['Blood Urea'],
+ax.scatter(ckdp['Urea'],
            ckdp['Hemoglobin'],
-           ckdp['Serum Creatinine'])
-ax.set_xlabel('Blood Urea')
+           ckdp['Creatinine'],
+           c=ckdp['Creatinine'],
+           cmap='hot'
+          )
+ax.set_xlabel('Urea')
 ax.set_ylabel('Hemoglobin')
 ax.set_zlabel('Creatinine')
-           #c=banknotes['Color']);
+intercept, urea_slope, hgb_slope = min_res_fast.x
+mx_urea, mx_hgb, mx_creat = 300, 16, 18
+ax.plot([0, mx_urea],
+        [intercept, intercept + urea_slope * mx_urea],
+        0,
+        zdir='y', color='blue', linestyle=':')
+mx_hgb = ckdp['Hemoglobin'].max()
+ax.plot([0, mx_hgb],
+        [intercept, intercept + hgb_slope * mx_hgb],
+        0,
+        zdir='x', color='black', linestyle=':')
+# Plot the fitting plane.
+plane_x = np.linspace(0, mx_urea, 50)
+plane_y = np.linspace(0, mx_hgb, 50)
+X, Y = np.meshgrid(plane_x, plane_y)
+Z = intercept + urea_slope * X + hgb_slope * Y
+ax.plot_surface(X, Y, Z, alpha=0.5)
+# Plot lines between each point and fitting plane
+for i, row in ckdp.iterrows():
+    x, y, actual = row['Urea'], row['Hemoglobin'], row['Creatinine']
+    fitted = intercept + x * urea_slope + y * hgb_slope
+    ax.plot([x, x], [y, y], [fitted, actual],
+            linestyle=':',
+            linewidth=0.5,
+            color='black')
+# Set the axis limits (and reverse y axis)
+ax.set_xlim(0, mx_urea)
+ax.set_ylim(mx_hgb, 0)
+ax.set_zlim(0, mx_creat);
 ```
 
 ```{python}
 import plotly.express as px
 fig = px.scatter_3d(ckdp,
-                    x='Blood Urea', 
-                    y='Hemoglobin', 
-                    z='Serum Creatinine',
-              color='Serum Creatinine')
+                    x='Urea',
+                    y='Hemoglobin',
+                    z='Creatinine',
+              color='Creatinine')
 fig.show()
 ```
 
@@ -363,6 +455,26 @@ Finally, we can draw a residual plot for these predictions. We still underestima
 plt.scatter(test_prices, test_prices - nn_test_predictions)
 plt.plot([0, 7e5], [0, 0], color='red')
 plt.xticks(rotation=45);
+```
+
+```{python}
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from numpy import arange, sin, pi
+
+x =  arange(0.0, 10, 0.04)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+for y in list(range(0,8))[::-1]:
+    z = sin(2*x*pi*y) 
+    ax.plot(x, z ,y, zdir="y")
+
+plt.xlabel(' x', fontsize = 12, color = 'black')
+plt.ylabel(' y', fontsize = 12, color = 'black')
+ax.set_ylim(0,9)
+ax.set_zlim(-1,1)
+plt.show()
 ```
 
 {ucb-page}`Multiple_Regression`
