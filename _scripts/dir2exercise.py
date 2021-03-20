@@ -58,6 +58,9 @@ def main():
                        )
     parser.add_argument('--no-grade', action='store_true',
                         help='If specified, do not grade solution notebook')
+    parser.add_argument('--rmd', action='store_true',
+                        help='If specified, use Rmd exercise file rather than '
+                        'ipynb')
     parser.add_argument('--push', action='store_true',
                         help='If specified, push exercise to remote')
     parser.add_argument('--strip', action='store_true',
@@ -74,9 +77,11 @@ def main():
                                       args.site_config,
                                       args.out_path)
     in_dir = op.abspath(args.dir)
-    process_dir(in_dir, not args.no_grade, site_dict)
+    process_dir(in_dir, not args.no_grade, site_dict,
+                write_ipynb=not args.rmd)
     out_path = op.abspath(op.join(out_path, op.basename(in_dir)))
-    write_dir(args.dir, out_path, clean=not args.no_clean)
+    write_dir(args.dir, out_path, clean=not args.no_clean,
+              exclude_exts=() if args.rmd else ('.Rmd',))
     if args.push:
         push_dir(out_path, site_dict, args.strip)
     print(build_url(out_path, site_dict))

@@ -146,12 +146,12 @@ def clear_directory(fname):
         shutil.rmtree(pycache)
 
 
-def good_fname(fname):
+def good_fname(fname, exclude_exts=()):
     fn = op.basename(fname)
     froot, ext = op.splitext(fn)
     if froot.startswith('.'):
         return False
-    if ext in ('.Rmd', '.pyc'):
+    if ext in ('.pyc',) + exclude_exts:
         return False
     if froot.startswith('test_'):
         return False
@@ -199,12 +199,7 @@ def process_nb(fname, execute=False):
     return clear_md_comments(nb)
 
 
-def process_write_nb(fname, execute=False):
-    clear_directory(fname)
-    write_nb(process_nb(fname, execute), ipynb_fname(fname))
-
-
-def process_dir(path, grade=False, site_dict=None):
+def process_dir(path, grade=False, site_dict=None, write_ipynb=True):
     site_dict = {} if site_dict is None else site_dict
     templates = [fn for fn in os.listdir(path) if TEMPLATE_RE.search(fn)]
     if len(templates) == 0:
@@ -219,7 +214,10 @@ def process_dir(path, grade=False, site_dict=None):
     write_utf8(exercise_fname, make_exercise(template))
     solution_fname = TEMPLATE_RE.sub('_solution.Rmd', template_fname)
     write_utf8(solution_fname, make_solution(template))
-    process_write_nb(exercise_fname, execute=False)
+    clear_directory(exercise_fname)
+    if write_ipynb:
+        write_nb(process_nb(exercise_fname, False),
+                 ipynb_fname(exercise_fname))
     if grade:
         grades, messages = gok.grade_nb_fname(solution_fname, path)
         gok.print_grades(grades)
@@ -238,11 +236,14 @@ def clean_path(path):
         break
 
 
-def write_dir(path, out_path, clean=True):
+def write_dir(path, out_path, clean=True, exclude_exts=('.Rmd',)):
     """ Copy exercise files from `path` to directory `out_path`
 
     `clean`, if True, will clean all files from the eventual output directory
     before copying.
+
+    `exclude_exts` specifies filename extensions that should be excluded from
+    output directory.
     """
     if op.isdir(out_path) and clean:
         clean_path(out_path)
@@ -251,7 +252,7 @@ def write_dir(path, out_path, clean=True):
     for dirpath, dirnames, filenames in os.walk(path):
         sub_dir = op.relpath(dirpath, path)
         dirnames[:] = [d for d in dirnames if good_fname(d)]
-        filenames[:] = [f for f in filenames if good_fname(f)]
+        filenames[:] = [f for f in filenames if good_fname(f, exclude_exts)]
         if len(filenames) == 0:
             continue
         this_out_path = op.join(out_path, sub_dir)
