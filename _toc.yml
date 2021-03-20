@@ -132,6 +132,7 @@
   - file: mean-slopes/combining_boolean_arrays
   # is_slope_real
   - file: mean-slopes/standard_scores
+  # ryostd
   - file: mean-slopes/Correlation
 
 - part: Classification
@@ -146,6 +147,7 @@
   - file: classification/Accuracy_of_the_Classifier
   # classify_song_part2
   - file: classification/Multiple_Regression
+  - file: classification/single_multiple
 
 #     - file: /confidence
 #       - file: /havana_math
