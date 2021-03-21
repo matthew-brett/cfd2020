@@ -58,7 +58,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The end of the beginning" href="../end/end_of_beginning.html" />
+    <link rel="next" title="Simple and multiple regression" href="single_multiple.html" />
     <link rel="prev" title="Accuracy of the classifier" href="Accuracy_of_the_Classifier.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -590,6 +590,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Multiple regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="single_multiple.html">
+   Simple and multiple regression
   </a>
  </li>
 </ul>
@@ -1134,19 +1139,19 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        1801.0
-2nd Flr SF           0.0
-Total Bsmt SF     1501.0
-Garage Area        484.0
-Wood Deck SF         0.0
-Open Porch SF       54.0
-Lot Area         15602.0
-Year Built        1959.0
-Yr Sold           2010.0
-Name: 300, dtype: float64
-Using slopes: [11.04977945 10.24912627  9.37214368  8.86538016  9.03204954  9.5708971
-  8.07642155 10.07682849  8.54285454]
-Result: 201695.88653962707
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        819.0
+2nd Flr SF        784.0
+Total Bsmt SF     784.0
+Garage Area       599.0
+Wood Deck SF        0.0
+Open Porch SF     217.0
+Lot Area         9650.0
+Year Built       1923.0
+Yr Sold          2008.0
+Name: 1530, dtype: float64
+Using slopes: [10.08267736  9.18922839  9.32634424 10.93991746 10.44666393 11.35823637
+  9.33107718 10.65500604 11.53989575]
+Result: 165498.25165596674
 </pre></div>
 </div>
 </div>
@@ -1160,8 +1165,8 @@ Result: 201695.88653962707
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 289000
-Predicted sale price using random slopes: 201695.88653962707
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 138000
+Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
@@ -1190,7 +1195,7 @@ Predicted sale price using random slopes: 201695.88653962707
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 84873.20287304114
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 70148.68590003051
 </pre></div>
 </div>
 </div>
@@ -1212,56 +1217,6 @@ Predicted sale price using random slopes: 201695.88653962707
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best slopes for the training set:
-RMSE of all training examples using the best slopes: 30486.494909878907
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>1st Flr SF</th>
-      <th>2nd Flr SF</th>
-      <th>Total Bsmt SF</th>
-      <th>Garage Area</th>
-      <th>Wood Deck SF</th>
-      <th>Open Porch SF</th>
-      <th>Lot Area</th>
-      <th>Year Built</th>
-      <th>Yr Sold</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>77.635231</td>
-      <td>75.769932</td>
-      <td>47.310164</td>
-      <td>52.009372</td>
-      <td>32.967105</td>
-      <td>11.47228</td>
-      <td>0.47311</td>
-      <td>521.518107</td>
-      <td>-520.092485</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="interpreting-multiple-regression">
@@ -1281,11 +1236,6 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 31612.919828778297
-</pre></div>
-</div>
-</div>
 </div>
 <p>If the predictions were perfect, then a scatter plot of the predicted and actual values would be a straight line with slope 1. We see that most dots fall near that line, but there is some error in the predictions.</p>
 <div class="cell docutils container">
@@ -1300,9 +1250,6 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_29_0.png" src="../_images/Multiple_Regression_29_0.png" />
-</div>
 </div>
 <p>A residual plot for multiple regression typically compares the errors (residuals) to the actual values of the predicted variable. We see in the residual plot below that we have systematically underestimated the value of expensive houses, shown by the many positive residual values on the right side of the graph.</p>
 <div class="cell docutils container">
@@ -1312,9 +1259,6 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_31_0.png" src="../_images/Multiple_Regression_31_0.png" />
 </div>
 </div>
 <p>As with simple linear regression, interpreting the result of a predictor is at least as important as making predictions. There are many lessons about interpreting multiple regression that are not included in this textbook. A natural next step after completing this text would be to study linear modeling and regression in further depth.</p>
@@ -1331,64 +1275,6 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>SalePrice</th>
-      <th>1st Flr SF</th>
-      <th>2nd Flr SF</th>
-      <th>Total Bsmt SF</th>
-      <th>Garage Area</th>
-      <th>Year Built</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1807</th>
-      <td>147000</td>
-      <td>1143</td>
-      <td>0</td>
-      <td>1143.0</td>
-      <td>0.0</td>
-      <td>2006</td>
-    </tr>
-    <tr>
-      <th>2138</th>
-      <td>130000</td>
-      <td>907</td>
-      <td>0</td>
-      <td>876.0</td>
-      <td>308.0</td>
-      <td>1977</td>
-    </tr>
-    <tr>
-      <th>2584</th>
-      <td>139500</td>
-      <td>1008</td>
-      <td>0</td>
-      <td>1008.0</td>
-      <td>280.0</td>
-      <td>1952</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The computation of closest neighbors is identical to a nearest-neighbor classifier. In this case, we will exclude the <code class="docutils literal notranslate"><span class="pre">'SalePrice'</span></code> rather than the <code class="docutils literal notranslate"><span class="pre">'Class'</span></code> column from the distance computation. The five nearest neighbors of the first test row are shown below.</p>
 <div class="cell docutils container">
@@ -1422,88 +1308,6 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>SalePrice</th>
-      <th>1st Flr SF</th>
-      <th>2nd Flr SF</th>
-      <th>Total Bsmt SF</th>
-      <th>Garage Area</th>
-      <th>Year Built</th>
-      <th>Distance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>788</th>
-      <td>127500</td>
-      <td>1689</td>
-      <td>0</td>
-      <td>1436.0</td>
-      <td>480.0</td>
-      <td>1956</td>
-      <td>129.591666</td>
-    </tr>
-    <tr>
-      <th>141</th>
-      <td>165500</td>
-      <td>1700</td>
-      <td>0</td>
-      <td>1398.0</td>
-      <td>447.0</td>
-      <td>1959</td>
-      <td>148.926156</td>
-    </tr>
-    <tr>
-      <th>1183</th>
-      <td>290000</td>
-      <td>1671</td>
-      <td>0</td>
-      <td>1426.0</td>
-      <td>550.0</td>
-      <td>1976</td>
-      <td>164.833249</td>
-    </tr>
-    <tr>
-      <th>339</th>
-      <td>285000</td>
-      <td>1803</td>
-      <td>0</td>
-      <td>1679.0</td>
-      <td>482.0</td>
-      <td>1994</td>
-      <td>181.430427</td>
-    </tr>
-    <tr>
-      <th>832</th>
-      <td>275000</td>
-      <td>1644</td>
-      <td>0</td>
-      <td>1518.0</td>
-      <td>569.0</td>
-      <td>1989</td>
-      <td>181.832340</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>One simple method for predicting the price is to average the prices of the nearest neighbors.</p>
 <div class="cell docutils container">
@@ -1518,23 +1322,12 @@ RMSE of all training examples using the best slopes: 30486.494909878907
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>228600.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Finally, we can inspect whether our prediction is close to the true sale price for our one test example. Looks reasonable!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual sale price:&#39;</span><span class="p">,</span> <span class="n">test_nn</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted sale price using nearest neighbors:&#39;</span><span class="p">,</span> <span class="n">predict_nn</span><span class="p">(</span><span class="n">example_nn_row</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 289000
-Predicted sale price using nearest neighbors: 228600.0
 </pre></div>
 </div>
 </div>
@@ -1553,12 +1346,6 @@ Predicted sale price using nearest neighbors: 228600.0
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  31612.919828778297
-Test set RMSE for nearest neighbor regression: 33434.20054607923
-</pre></div>
-</div>
-</div>
 </div>
 <p>For these data, the errors of the two techniques are quite similar! For different data sets, one technique might outperform another. By computing the RMSE of both techniques on the same data, we can compare methods fairly. One note of caution: the difference in performance might not be due to the technique at all; it might be due to the random variation due to sampling the training and test sets in the first place.</p>
 <p>Finally, we can draw a residual plot for these predictions. We still underestimate the prices of the most expensive houses, but the bias does not appear to be as systematic. However, fewer residuals are very close to zero, indicating that fewer prices were predicted with very high accuracy.</p>
@@ -1569,9 +1356,6 @@ Test set RMSE for nearest neighbor regression: 33434.20054607923
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_44_0.png" src="../_images/Multiple_Regression_44_0.png" />
 </div>
 </div>
 <p><div class="admonition note">
@@ -1609,7 +1393,7 @@ Test set RMSE for nearest neighbor regression: 33434.20054607923
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Accuracy_of_the_Classifier.html" title="previous page">Accuracy of the classifier</a>
-    <a class='right-next' id="next-link" href="../end/end_of_beginning.html" title="next page">The end of the beginning</a>
+    <a class='right-next' id="next-link" href="single_multiple.html" title="next page">Simple and multiple regression</a>
 
         </div>
         

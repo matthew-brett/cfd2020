@@ -590,6 +590,11 @@
    Multiple regression
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../classification/single_multiple.html">
+   Simple and multiple regression
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -843,7 +848,7 @@ by taking many thousands of samples.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([65.74, 61.8 , 65.24, 68.84, 68.92])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([67.24, 60.3 , 63.7 , 59.86, 63.88])
 </pre></div>
 </div>
 </div>
@@ -857,7 +862,7 @@ of the population:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.24596199999999
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.25129799999999
 </pre></div>
 </div>
 </div>
@@ -897,13 +902,13 @@ the values that <code class="docutils literal notranslate"><span class="pre">plt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    7.,    7.,    9.,   20.,   19.,   42.,   56.,   79.,
-        110.,  196.,  254.,  323.,  441.,  568.,  707.,  916., 1218.,
-       1479., 1838., 2206., 2554., 2947., 3404., 3872., 4132., 4629.,
-       4660., 5038., 5268., 5218., 5262., 5068., 5072., 4551., 4236.,
-       3968., 3489., 3103., 2635., 2242., 1915., 1521., 1148.,  948.,
-        755.,  582.,  368.,  295.,  201.,  157.,  100.,   71.,   36.,
-         19.,   11.,   14.,    6.,    4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    6.,    6.,   10.,    9.,   31.,   37.,   48.,   87.,
+        123.,  169.,  217.,  325.,  418.,  616.,  789.,  912., 1183.,
+       1478., 1775., 2109., 2595., 2970., 3359., 3682., 4099., 4516.,
+       4921., 5074., 5399., 5434., 5059., 5074., 5011., 4661., 4261.,
+       3951., 3525., 3088., 2660., 2218., 1894., 1550., 1241.,  954.,
+        660.,  526.,  403.,  283.,  196.,  132.,   98.,   62.,   41.,
+         22.,   11.,    8.,    5.,    4.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_14_1.png" src="../_images/bayes_confidence_14_1.png" />
@@ -922,13 +927,13 @@ neatly by <em>unpacking</em> the return values from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    7.,    7.,    9.,   20.,   19.,   42.,   56.,   79.,
-        110.,  196.,  254.,  323.,  441.,  568.,  707.,  916., 1218.,
-       1479., 1838., 2206., 2554., 2947., 3404., 3872., 4132., 4629.,
-       4660., 5038., 5268., 5218., 5262., 5068., 5072., 4551., 4236.,
-       3968., 3489., 3103., 2635., 2242., 1915., 1521., 1148.,  948.,
-        755.,  582.,  368.,  295.,  201.,  157.,  100.,   71.,   36.,
-         19.,   11.,   14.,    6.,    4.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    6.,    6.,   10.,    9.,   31.,   37.,   48.,   87.,
+        123.,  169.,  217.,  325.,  418.,  616.,  789.,  912., 1183.,
+       1478., 1775., 2109., 2595., 2970., 3359., 3682., 4099., 4516.,
+       4921., 5074., 5399., 5434., 5059., 5074., 5011., 4661., 4261.,
+       3951., 3525., 3088., 2660., 2218., 1894., 1550., 1241.,  954.,
+        660.,  526.,  403.,  283.,  196.,  132.,   98.,   62.,   41.,
+         22.,   11.,    8.,    5.,    4.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_16_1.png" src="../_images/bayes_confidence_16_1.png" />
@@ -1006,7 +1011,7 @@ Upper edge (not included): 60.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2206.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2109.0
 </pre></div>
 </div>
 </div>
@@ -1023,13 +1028,13 @@ that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0001, 0.0001, 0.0001, 0.0002, 0.0002, 0.0004, 0.0006,
-       0.0008, 0.0011, 0.002 , 0.0025, 0.0032, 0.0044, 0.0057, 0.0071,
-       0.0092, 0.0122, 0.0148, 0.0184, 0.0221, 0.0255, 0.0295, 0.034 ,
-       0.0387, 0.0413, 0.0463, 0.0466, 0.0504, 0.0527, 0.0522, 0.0526,
-       0.0507, 0.0507, 0.0455, 0.0424, 0.0397, 0.0349, 0.031 , 0.0263,
-       0.0224, 0.0192, 0.0152, 0.0115, 0.0095, 0.0076, 0.0058, 0.0037,
-       0.0029, 0.002 , 0.0016, 0.001 , 0.0007, 0.0004, 0.0002, 0.0001,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0001, 0.0001, 0.0001, 0.0001, 0.0003, 0.0004, 0.0005,
+       0.0009, 0.0012, 0.0017, 0.0022, 0.0032, 0.0042, 0.0062, 0.0079,
+       0.0091, 0.0118, 0.0148, 0.0177, 0.0211, 0.026 , 0.0297, 0.0336,
+       0.0368, 0.041 , 0.0452, 0.0492, 0.0507, 0.054 , 0.0543, 0.0506,
+       0.0507, 0.0501, 0.0466, 0.0426, 0.0395, 0.0352, 0.0309, 0.0266,
+       0.0222, 0.0189, 0.0155, 0.0124, 0.0095, 0.0066, 0.0053, 0.004 ,
+       0.0028, 0.002 , 0.0013, 0.001 , 0.0006, 0.0004, 0.0002, 0.0001,
        0.0001, 0.0001, 0.    ])
 </pre></div>
 </div>
@@ -1044,7 +1049,7 @@ that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02109
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1064,7 @@ a mean of 62.25, the probability of any one sample mean being between 60 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02206
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02109
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1119,7 @@ sample mean between 58.5 and 59:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0122])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0118])
 </pre></div>
 </div>
 </div>
@@ -1287,7 +1292,7 @@ bin for practice.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0184])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0177])
 </pre></div>
 </div>
 </div>
@@ -1367,13 +1372,13 @@ the bin between 58.5 and 59, centered on 58.75.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0001, 0.0002, 0.0004, 0.0007, 0.001 , 0.0016, 0.002 ,
-       0.0029, 0.0037, 0.0058, 0.0076, 0.0095, 0.0115, 0.0152, 0.0192,
-       0.0224, 0.0263, 0.031 , 0.0349, 0.0397, 0.0424, 0.0455, 0.0507,
-       0.0507, 0.0526, 0.0522, 0.0527, 0.0504, 0.0466, 0.0463, 0.0413,
-       0.0387, 0.034 , 0.0295, 0.0255, 0.0221, 0.0184, 0.0148, 0.0122,
-       0.0092, 0.0071, 0.0057, 0.0044, 0.0032, 0.0025, 0.002 , 0.0011,
-       0.0008, 0.0006])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0001, 0.0002, 0.0004, 0.0006, 0.001 , 0.0013, 0.002 ,
+       0.0028, 0.004 , 0.0053, 0.0066, 0.0095, 0.0124, 0.0155, 0.0189,
+       0.0222, 0.0266, 0.0309, 0.0352, 0.0395, 0.0426, 0.0466, 0.0501,
+       0.0507, 0.0506, 0.0543, 0.054 , 0.0507, 0.0492, 0.0452, 0.041 ,
+       0.0368, 0.0336, 0.0297, 0.026 , 0.0211, 0.0177, 0.0148, 0.0118,
+       0.0091, 0.0079, 0.0062, 0.0042, 0.0032, 0.0022, 0.0017, 0.0012,
+       0.0009, 0.0005])
 </pre></div>
 </div>
 </div>
@@ -1465,13 +1470,13 @@ probabilities:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0001, 0.0002, 0.0004, 0.0007, 0.001 , 0.0016, 0.002 ,
-       0.003 , 0.0037, 0.0058, 0.0076, 0.0095, 0.0115, 0.0152, 0.0192,
-       0.0224, 0.0264, 0.0311, 0.0349, 0.0397, 0.0424, 0.0456, 0.0508,
-       0.0507, 0.0527, 0.0522, 0.0527, 0.0504, 0.0467, 0.0463, 0.0414,
-       0.0388, 0.0341, 0.0295, 0.0256, 0.0221, 0.0184, 0.0148, 0.0122,
-       0.0092, 0.0071, 0.0057, 0.0044, 0.0032, 0.0025, 0.002 , 0.0011,
-       0.0008, 0.0006])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0001, 0.0002, 0.0004, 0.0006, 0.001 , 0.0013, 0.002 ,
+       0.0028, 0.004 , 0.0053, 0.0066, 0.0096, 0.0124, 0.0155, 0.019 ,
+       0.0222, 0.0266, 0.0309, 0.0353, 0.0396, 0.0427, 0.0467, 0.0502,
+       0.0508, 0.0506, 0.0544, 0.0541, 0.0508, 0.0493, 0.0452, 0.041 ,
+       0.0369, 0.0336, 0.0297, 0.026 , 0.0211, 0.0178, 0.0148, 0.0118,
+       0.0091, 0.0079, 0.0062, 0.0042, 0.0033, 0.0022, 0.0017, 0.0012,
+       0.0009, 0.0005])
 </pre></div>
 </div>
 </div>
@@ -1546,13 +1551,13 @@ to the corresponding position.  This might be clearer by example:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0003, 0.0004, 0.0008, 0.0015, 0.0025, 0.0041, 0.0061,
-       0.0091, 0.0127, 0.0186, 0.0261, 0.0356, 0.0471, 0.0623, 0.0815,
-       0.104 , 0.1303, 0.1614, 0.1963, 0.2361, 0.2785, 0.324 , 0.3748,
-       0.4256, 0.4782, 0.5305, 0.5832, 0.6337, 0.6803, 0.7267, 0.768 ,
-       0.8068, 0.8409, 0.8704, 0.896 , 0.9181, 0.9365, 0.9513, 0.9635,
-       0.9726, 0.9797, 0.9854, 0.9898, 0.993 , 0.9956, 0.9975, 0.9986,
-       0.9994, 1.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0002, 0.0004, 0.0008, 0.0014, 0.0024, 0.0037, 0.0057,
+       0.0085, 0.0126, 0.0178, 0.0244, 0.034 , 0.0464, 0.0619, 0.0809,
+       0.1031, 0.1297, 0.1607, 0.1959, 0.2355, 0.2782, 0.3248, 0.375 ,
+       0.4258, 0.4764, 0.5308, 0.5849, 0.6357, 0.6849, 0.7302, 0.7712,
+       0.8081, 0.8417, 0.8714, 0.8974, 0.9185, 0.9363, 0.9511, 0.9629,
+       0.972 , 0.9799, 0.9861, 0.9903, 0.9936, 0.9957, 0.9974, 0.9986,
+       0.9995, 1.    ])
 </pre></div>
 </div>
 </div>
