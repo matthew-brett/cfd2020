@@ -316,55 +316,107 @@ min_rmse_hgb = minimize(rmse_any_line,
 min_rmse_hgb
 ```
 
+The results from minimize show that the line relating `Hemoglobin` and the
+residuals has a negative slope, as we would expect; more severe kidney disease
+leads to lower hemoglobin and higher creatinine.  The root mean square error
+has hardly changed, suggesting that `Hemoglobin` does not predict much, once we
+have allowed for the predictions using `Urea`.
 
+
+## Multiple regression in one go
+
+Here we build the machinery as we did in the [multiple
+regression](Multiple_Regression) page.
+
+In particular, we are going to find three parameters:
+
+* An intercept;
+* A slope for the line relating `Urea` to `Creatinine`;
+* A slope for the line relating `Hemoglobin` to `Creatinine`.
+
+In the multiple regression page, we found our best-fit slopes using the
+training set, but here we will use the whole dataset.
+
+The multiple regression page did not allow for an intercept.  Here we do allow
+for an intercept.
+
+Otherwise, you will recognize much of this machinery from the multiple
+regression page.
 
 ```{python}
 def predict(intercept, slopes, row):
+    """ Predict a value given an intercept, slopes and corresponding row values
+    """
     return intercept + np.sum(slopes * np.array(row))
 ```
 
 ```{python}
-def rmse(intercept, slopes, attributes, prices):
+def rmse(intercept, slopes, attributes, y_values):
+    """ Root mean square error for prediction of `y_values` from `attributes`
+
+    Use `intercept` and `slopes` multiplied by `attributes` to give prediction.
+
+    `attributes` is a data frame with numerical attributes to predict from.
+    """
     errors = []
-    for i in np.arange(len(prices)):
+    for i in np.arange(len(y_values)):
         predicted = predict(intercept, slopes, attributes.iloc[i])
-        actual = prices.iloc[i]
+        actual = y_values.iloc[i]
         errors.append((predicted - actual) ** 2)
     return np.sqrt(np.mean(errors))
 ```
 
+Here we calculate the root mean square error for an intercept of 1, and slopes
+for `Urea` and `Hemoglobin` of 0 and 0.
+
 ```{python}
-rmse(0, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
+rmse(1, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
 ```
 
 ```{python}
 def rmse_for_params(params):
+    """ RMSE for intercept, slopes contained in `params`
+
+    `params[0]` is the intercept.  `params[1:]` are the slopes.
+    """
     intercept = params[0]
     slopes = params[1:]
-    return rmse(intercept, 
-                slopes, 
+    return rmse(intercept,
+                slopes,
                 ckdp.loc[:, 'Urea':],
                 ckdp['Creatinine']
                )
 ```
 
-```{python}
-min_res = minimize(rmse_for_params, [0, 0, 0])
-min_res
-```
+Now we can get minimize to find the intercept and two slopes that minimize the
+root mean square error (and the sum of squared error):
 
 ```{python}
-def rmse_fast(intercept, slopes, attributes, prices):
-    slopes_array = np.tile(slopes, [len(prices), 1])
+min_css = minimize(rmse_for_params, [0, 0, 0])
+min_css
+```
+
+In fact, we can do this calculation more quickly, and without using a loop, by
+using array calculations.  Don't worry about the details of the function below; as you will soon see, it does the same calculation as the `rmse` function above.
+
+```{python}
+def rmse_fast(intercept, slopes, attributes, y_values):
+    # Make an n by s array of slopes by copying the s slopes array n times.
+    slopes_array = np.tile(slopes, [len(y_values), 1])
+    # Multiply the n by s array by the corresponding attributes.
     slopes_fitted = np.sum(slopes_array * attributes, axis=1)
     predicted = intercept + slopes_fitted
-    errors = prices - predicted
+    errors = y_values - predicted
     return np.sqrt(np.mean(errors ** 2))
 ```
 
+Here we show we get exactly the same answer with this function, as we got from the `rmse` function above.
+
 ```{python}
-rmse_fast(0, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
+rmse_fast(1, [0, 0], ckdp.loc[:, 'Urea':], ckdp['Creatinine'])
 ```
+
+Here we use the `rmse_fast` function with our specific data.
 
 ```{python}
 def rmse_for_params_fast(params):
@@ -377,33 +429,68 @@ def rmse_for_params_fast(params):
                )
 ```
 
+We apply the faster version of the function with minimize, to find the same
+intercept and two slopes.
+
 ```{python}
 min_res_fast = minimize(rmse_for_params_fast, [0, 0, 0])
 min_res_fast
 ```
 
-```{python}
-def multiple_regression_algebra(y, x_attributes):
-    intercept_col = np.ones(len(y))
-    X = np.column_stack([intercept_col, x_attributes])
-    return np.linalg.pinv(X) @ y
-```
+Just as for the simple regression case, and `linregress`, we can get our parameters by calculation directly, in this case we were are using least-squares as our criterion.
+
+Don't worry about the details of the function below - but this function will
+quickly give us the same answer as `minimize` above, as long as we are
+minimizing the root mean square error for one or more slopes and an intercept.
 
 ```{python}
-params = multiple_regression_algebra(ckdp['Creatinine'], 
+def multiple_regression_algebra(y_values, x_attributes):
+    intercept_col = np.ones(len(y_values))
+    X = np.column_stack([intercept_col, x_attributes])
+    return np.linalg.pinv(X) @ y_values
+```
+
+We get the same result as we do for `minimize`.
+
+```{python}
+params = multiple_regression_algebra(ckdp['Creatinine'],
                                      ckdp.loc[:, 'Urea':])
 params
 ```
 
-```{python}
-import statsmodels.formula.api as smf
-```
+Finally, let's see StatsModels in action, to do the same calculation.
+
+Here we specify that we want to fit a linear model to `Creatinine` *as a
+function of* `Urea` *and* as a function of `Hemoglobin`.  This has the same
+meaning as above; that we will simultaneously fit the intercept, `Urea` slope
+and the `Hemoglobin` slope.
 
 ```{python}
-model = smf.ols(formula="Creatinine ~ Urea + Hemoglobin", data=ckdp)
-fit = model.fit()
-fit.summary()
+multi_model = smf.ols(formula="Creatinine ~ Urea + Hemoglobin", data=ckdp)
+multi_fit = multi_model.fit()
+multi_fit.summary()
 ```
+
+Notice again that StatsModels is doing the same calculation as above, and
+finding the same result as `minimize`.
+
+
+## Multiple regression in 3D
+
+It can be useful to use a 3D plot to show what is going on here.  `minimize`
+and the other methods are finding these three parameters *simultaneously*:
+
+* An intercept;
+* A slope for `Urea`
+* A slope for `Hemoglobin`.
+
+The plot below shows what this looks like, in 3D.  Instead of the 2D case,
+where we are fitting the y data values (`Creatinine`) with a single straight
+line, here we are fitting the y data values with *two* straight lines.  In 3D
+these two straight lines form a plane, and we want the plane such that the sum
+of squares of the distance of the y values from the plane (plotted) is as small
+as possible.  `minimize` will change the intercept and the two slopes to move
+this plane around until it has minimized the error.
 
 ```{python}
 import mpl_toolkits.mplot3d
