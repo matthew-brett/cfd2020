@@ -728,42 +728,36 @@
   <a class="reference internal nav-link" href="#home-prices">
    Home Prices
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation">
-     Correlation
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation">
+   Correlation
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#multiple-linear-regression">
    Multiple Linear Regression
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#least-squares-regression">
-     Least Squares Regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interpreting-multiple-regression">
-     Interpreting Multiple Regression
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#least-squares-regression">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpreting-multiple-regression">
+   Interpreting Multiple Regression
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nearest-neighbors-for-regression">
    Nearest Neighbors for Regression
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evaluation">
-     Evaluation
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
  </li>
 </ul>
 
@@ -1032,8 +1026,9 @@ houses that sold for less than $35,000.</p>
 <img alt="../_images/Multiple_Regression_6_0.png" src="../_images/Multiple_Regression_6_0.png" />
 </div>
 </div>
+</div>
 <div class="section" id="correlation">
-<h3>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h3>
+<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
 <p>No single attribute is sufficient to predict the sale price. For example, the area of first floor, measured in square feet, correlates with sale price but only explains some of its variability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1045,7 +1040,7 @@ houses that sold for less than $35,000.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;1st Flr SF&#39;, ylabel=&#39;SalePrice&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/Multiple_Regression_8_1.png" src="../_images/Multiple_Regression_8_1.png" />
+<img alt="../_images/Multiple_Regression_9_1.png" src="../_images/Multiple_Regression_9_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1101,7 +1096,6 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 <p>This high correlation indicates that we should try to use more than one attribute to predict the sale price. In a dataset with multiple observed attributes and a single numerical value to be predicted (the sale price in this case), multiple linear regression can be an effective technique.</p>
 </div>
-</div>
 <div class="section" id="multiple-linear-regression">
 <h2>Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">¶</a></h2>
 <p>In multiple linear regression, a numerical output is predicted from numerical input attributes by multiplying each attribute value by a different slope, then summing the results. In this example, the slope for the <code class="docutils literal notranslate"><span class="pre">1st</span> <span class="pre">Flr</span> <span class="pre">SF</span></code> would represent the dollars per square foot of area on the first floor of the house that should be used in our prediction.</p>
@@ -1139,19 +1133,19 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF       1268.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF       1269.0
 2nd Flr SF          0.0
-Total Bsmt SF    1268.0
-Garage Area       244.0
+Total Bsmt SF    1269.0
+Garage Area       308.0
 Wood Deck SF        0.0
-Open Porch SF      98.0
-Lot Area         7800.0
-Year Built       1954.0
-Yr Sold          2010.0
-Name: 133, dtype: float64
-Using slopes: [ 7.65536744  7.90029756 10.02415159  9.74092437 10.63769876 11.67177179
- 10.9662586   8.24366541 10.93948696]
-Result: 149571.55737623933
+Open Porch SF       0.0
+Lot Area         7931.0
+Year Built       1960.0
+Yr Sold          2008.0
+Name: 1272, dtype: float64
+Using slopes: [ 9.10712489  9.16760599  9.35529784  9.68207737  9.29145672 10.46456376
+  9.37823691  8.45963486  8.88124005]
+Result: 135204.1055112745
 </pre></div>
 </div>
 </div>
@@ -1165,14 +1159,15 @@ Result: 149571.55737623933
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 132000
-Predicted sale price using random slopes: 149571.55737623933
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 155000
+Predicted sale price using random slopes: 135204.1055112745
 </pre></div>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="least-squares-regression">
-<h3>Least Squares Regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h3>
+<h2>Least Squares Regression<a class="headerlink" href="#least-squares-regression" title="Permalink to this headline">¶</a></h2>
 <p>The next step in performing multiple regression is to define the least squares objective. We perform the prediction for each row in the training set, and then compute the root mean squared error (RMSE) of the predictions from the actual prices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1195,7 +1190,7 @@ Predicted sale price using random slopes: 149571.55737623933
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 99111.87980825795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 70863.06663335835
 </pre></div>
 </div>
 </div>
@@ -1223,7 +1218,7 @@ Don’t worry about the details, unless you are interested.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 99111.87980825795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 70863.06663335835
 </pre></div>
 </div>
 </div>
@@ -1246,45 +1241,44 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 29598.91309674193
- hess_inv: array([[  91.5970462 ,   11.82737672,   -9.91895967,   43.86551299,
-          39.97542774,   12.40222304,  -11.37729356, -240.30391389,
-         234.62542913],
-       [  11.82737672,    1.73452909,   -1.17374868,    5.61328636,
-           5.19175954,    1.37223051,   -1.47429285,  -31.48671423,
-          30.69842439],
-       [  -9.91895967,   -1.17374868,    1.51497727,   -4.80674123,
-          -4.4394703 ,   -1.47136934,    1.20283919,   24.55213613,
-         -24.03541914],
-       [  43.86551299,    5.61328636,   -4.80674123,   21.91521971,
-          18.47928606,    5.84884104,   -5.46486018, -116.65500264,
-         113.8481454 ],
-       [  39.97542774,    5.19175954,   -4.4394703 ,   18.47928606,
-          18.02513569,    5.67469615,   -4.94506419, -103.96719243,
-         101.56624622],
-       [  12.40222304,    1.37223051,   -1.47136934,    5.84884104,
-           5.67469615,    7.64812419,   -1.56490959,  -32.81670464,
-          32.15123752],
-       [ -11.37729356,   -1.47429285,    1.20283919,   -5.46486018,
-          -4.94506419,   -1.56490959,    1.41955872,   29.93040032,
-         -29.23825983],
-       [-240.30391389,  -31.48671423,   24.55213613, -116.65500264,
-        -103.96719243,  -32.81670464,   29.93040032,  674.30731715,
-        -657.77230954],
-       [ 234.62542913,   30.69842439,  -24.03541914,  113.8481454 ,
-         101.56624622,   32.15123752,  -29.23825983, -657.77230954,
-         641.77666917]])
-      jac: array([ 0.        ,  0.        , -0.00024414, -0.00024414, -0.00024414,
-        0.        , -0.0012207 , -0.00024414, -0.00024414])
-  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 788
-      nit: 24
-     njev: 78
-   status: 2
-  success: False
-        x: array([  70.51929967,   70.54405112,   46.97010717,   52.87391257,
-         27.17260491,   13.22565725,    0.58941776,  579.95740775,
-       -573.34155948])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 29975.542047608058
+ hess_inv: array([[  0.67698297,   0.0956998 ,  -0.35669761,  -0.19671276,
+         -0.0933107 ,   0.09262922,  -0.00731067,   0.26542999,
+         -0.39152146],
+       [  0.0956998 ,   0.23248403,   0.02165071,  -0.16734868,
+         -0.08625235,  -0.23154662,  -0.00055587,  -0.13137857,
+          0.0738815 ],
+       [ -0.35669761,   0.02165071,   0.51176253,  -0.11911581,
+         -0.05449252,  -0.31099773,   0.00210094,  -0.8139822 ,
+          0.76114323],
+       [ -0.19671276,  -0.16734868,  -0.11911581,   1.30056675,
+         -0.08052522,   0.18135283,  -0.00445176,  -2.46160399,
+          2.33100052],
+       [ -0.0933107 ,  -0.08625235,  -0.05449252,  -0.08052522,
+          1.84865494,   0.78111649,  -0.00606916,  -1.00450846,
+          1.02144938],
+       [  0.09262922,  -0.23154662,  -0.31099773,   0.18135283,
+          0.78111649,   3.0755634 ,  -0.00945757,  -0.45678923,
+          0.49513535],
+       [ -0.00731067,  -0.00055587,   0.00210094,  -0.00445176,
+         -0.00606916,  -0.00945757,   0.00099235,   0.01534914,
+         -0.01559242],
+       [  0.26542999,  -0.13137857,  -0.8139822 ,  -2.46160399,
+         -1.00450846,  -0.45678923,   0.01534914,  41.86861066,
+        -40.18761326],
+       [ -0.39152146,   0.0738815 ,   0.76114323,   2.33100052,
+          1.02144938,   0.49513535,  -0.01559242, -40.18761326,
+         38.68721133]])
+      jac: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 310
+      nit: 27
+     njev: 31
+   status: 0
+  success: True
+        x: array([  67.30253502,   69.81054037,   47.10786492,   55.78629266,
+         32.91100994,    8.64928069,    0.95851672,  544.87196882,
+       -539.06605236])
 </pre></div>
 </div>
 </div>
@@ -1300,9 +1294,7 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best slopes for the training set:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using the best slopes: 29598.91309674193
+RMSE of all training examples using the best slopes: 29975.542047608058
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1337,15 +1329,15 @@ RMSE. Computation of the best slopes may take several minutes.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>70.5193</td>
-      <td>70.544051</td>
-      <td>46.970107</td>
-      <td>52.873913</td>
-      <td>27.172605</td>
-      <td>13.225657</td>
-      <td>0.589418</td>
-      <td>579.957408</td>
-      <td>-573.341559</td>
+      <td>67.302535</td>
+      <td>69.81054</td>
+      <td>47.107865</td>
+      <td>55.786293</td>
+      <td>32.91101</td>
+      <td>8.649281</td>
+      <td>0.958517</td>
+      <td>544.871969</td>
+      <td>-539.066052</td>
     </tr>
   </tbody>
 </table>
@@ -1353,9 +1345,17 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 </div>
 <div class="section" id="interpreting-multiple-regression">
-<h3>Interpreting Multiple Regression<a class="headerlink" href="#interpreting-multiple-regression" title="Permalink to this headline">¶</a></h3>
-<p>Let’s interpret these results. The best slopes give us a method for estimating the price of a house from its attributes. A square foot of area on the first floor is worth about 80 USD (the first slope), while one on the second floor is worth about 75 USD (the second slope). The final negative value describes the market: prices in later years were lower on average.</p>
-<p>The RMSE of around 30,000 USD means that our best linear prediction of the sale price based on all of the attributes is off by around 30,000 USD on the training set, on average.  We find a similar error when predicting prices on the test set, which indicates that our prediction method will generalize to other samples from the same population.</p>
+<h2>Interpreting Multiple Regression<a class="headerlink" href="#interpreting-multiple-regression" title="Permalink to this headline">¶</a></h2>
+<p>Let’s interpret these results. The best slopes give us a method for estimating
+the price of a house from its attributes. A square foot of area on the first
+floor is worth about 80 USD (the first slope), while one on the second floor is
+worth about 75 USD (the second slope). The final negative value describes the
+market: prices in later years were lower on average.</p>
+<p>The RMSE of around 30,000 USD means that our best linear prediction of the sale
+price based on all of the attributes is off by around 30,000 USD on the
+training set, on average.  We find a similar error when predicting prices on
+the test set, which indicates that our prediction method will generalize to
+other samples from the same population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_prices</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span>
@@ -1370,7 +1370,7 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 32744.548273945547
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 32597.2087377409
 </pre></div>
 </div>
 </div>
@@ -1391,7 +1391,7 @@ near that line, but there is some error in the predictions.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_32_0.png" src="../_images/Multiple_Regression_32_0.png" />
+<img alt="../_images/Multiple_Regression_35_0.png" src="../_images/Multiple_Regression_35_0.png" />
 </div>
 </div>
 <p>A residual plot for multiple regression typically compares the errors
@@ -1408,11 +1408,10 @@ of the graph.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_34_0.png" src="../_images/Multiple_Regression_34_0.png" />
+<img alt="../_images/Multiple_Regression_37_0.png" src="../_images/Multiple_Regression_37_0.png" />
 </div>
 </div>
 <p>As with simple linear regression, interpreting the result of a predictor is at least as important as making predictions. There are many lessons about interpreting multiple regression that are not included in this textbook. A natural next step after completing this text would be to study linear modeling and regression in further depth.</p>
-</div>
 </div>
 <div class="section" id="nearest-neighbors-for-regression">
 <h2>Nearest Neighbors for Regression<a class="headerlink" href="#nearest-neighbors-for-regression" title="Permalink to this headline">¶</a></h2>
@@ -1454,31 +1453,31 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>1141</th>
-      <td>193500</td>
-      <td>1679</td>
-      <td>0</td>
-      <td>1408.0</td>
-      <td>575.0</td>
-      <td>1994</td>
+      <th>1771</th>
+      <td>290000</td>
+      <td>1328</td>
+      <td>1203</td>
+      <td>1318.0</td>
+      <td>752.0</td>
+      <td>1995</td>
     </tr>
     <tr>
-      <th>860</th>
-      <td>133900</td>
-      <td>768</td>
+      <th>2138</th>
+      <td>130000</td>
+      <td>907</td>
       <td>0</td>
-      <td>768.0</td>
-      <td>396.0</td>
-      <td>1972</td>
+      <td>876.0</td>
+      <td>308.0</td>
+      <td>1977</td>
     </tr>
     <tr>
-      <th>2126</th>
-      <td>123600</td>
-      <td>990</td>
-      <td>0</td>
-      <td>990.0</td>
-      <td>0.0</td>
-      <td>1994</td>
+      <th>2844</th>
+      <td>121000</td>
+      <td>1055</td>
+      <td>218</td>
+      <td>616.0</td>
+      <td>275.0</td>
+      <td>1910</td>
     </tr>
   </tbody>
 </table>
@@ -1498,10 +1497,10 @@ of the graph.</p>
 <span class="k">def</span> <span class="nf">distances</span><span class="p">(</span><span class="n">training</span><span class="p">,</span> <span class="n">example</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Compute the distance from example for each row in training.&quot;&quot;&quot;</span>
     <span class="n">attributes</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
-    
+
     <span class="k">def</span> <span class="nf">distance_from_example</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">row_distance</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
-    
+
     <span class="n">out</span> <span class="o">=</span> <span class="n">training</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;Distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">distance_from_example</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span>
@@ -1546,26 +1545,6 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>1488</th>
-      <td>147500</td>
-      <td>1256</td>
-      <td>0</td>
-      <td>1256.0</td>
-      <td>276.0</td>
-      <td>1965</td>
-      <td>37.854986</td>
-    </tr>
-    <tr>
-      <th>2550</th>
-      <td>151500</td>
-      <td>1248</td>
-      <td>0</td>
-      <td>1248.0</td>
-      <td>286.0</td>
-      <td>1960</td>
-      <td>50.990195</td>
-    </tr>
-    <tr>
       <th>922</th>
       <td>155000</td>
       <td>1273</td>
@@ -1573,17 +1552,7 @@ of the graph.</p>
       <td>1273.0</td>
       <td>307.0</td>
       <td>1960</td>
-      <td>63.678882</td>
-    </tr>
-    <tr>
-      <th>1272</th>
-      <td>155000</td>
-      <td>1269</td>
-      <td>0</td>
-      <td>1269.0</td>
-      <td>308.0</td>
-      <td>1960</td>
-      <td>64.296190</td>
+      <td>5.744563</td>
     </tr>
     <tr>
       <th>1270</th>
@@ -1593,7 +1562,37 @@ of the graph.</p>
       <td>1256.0</td>
       <td>311.0</td>
       <td>1959</td>
-      <td>69.296465</td>
+      <td>18.654758</td>
+    </tr>
+    <tr>
+      <th>2550</th>
+      <td>151500</td>
+      <td>1248</td>
+      <td>0</td>
+      <td>1248.0</td>
+      <td>286.0</td>
+      <td>1960</td>
+      <td>36.959437</td>
+    </tr>
+    <tr>
+      <th>1922</th>
+      <td>150000</td>
+      <td>1244</td>
+      <td>0</td>
+      <td>1244.0</td>
+      <td>336.0</td>
+      <td>1957</td>
+      <td>45.199558</td>
+    </tr>
+    <tr>
+      <th>1892</th>
+      <td>158000</td>
+      <td>1302</td>
+      <td>0</td>
+      <td>1302.0</td>
+      <td>309.0</td>
+      <td>1964</td>
+      <td>46.850827</td>
     </tr>
   </tbody>
 </table>
@@ -1613,12 +1612,13 @@ of the graph.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>153600.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>154700.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, we can inspect whether our prediction is close to the true sale price for our one test example. Looks reasonable!</p>
+<p>Finally, we can inspect whether our prediction is close to the true sale price
+for our one test example. Looks reasonable!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual sale price:&#39;</span><span class="p">,</span> <span class="n">test_nn</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1627,15 +1627,18 @@ of the graph.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 132000
-Predicted sale price using nearest neighbors: 153600.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 155000
+Predicted sale price using nearest neighbors: 154700.0
 </pre></div>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="evaluation">
-<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
-<p>To evaluate the performance of this approach for the whole test set, we apply <code class="docutils literal notranslate"><span class="pre">predict_nn</span></code> to each test example, then compute the root mean squared error of the predictions. Computation of the predictions may take several minutes.</p>
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<p>To evaluate the performance of this approach for the whole test set, we apply
+<code class="docutils literal notranslate"><span class="pre">predict_nn</span></code> to each test example, then compute the root mean squared error of
+the predictions. Computation of the predictions may take several minutes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="n">test_nn</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">)</span>
@@ -1648,14 +1651,22 @@ Predicted sale price using nearest neighbors: 153600.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  32744.548273945547
-Test set RMSE for nearest neighbor regression: 34894.22815421486
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  32597.2087377409
+Test set RMSE for nearest neighbor regression: 35134.55888155874
 </pre></div>
 </div>
 </div>
 </div>
-<p>For these data, the errors of the two techniques are quite similar! For different data sets, one technique might outperform another. By computing the RMSE of both techniques on the same data, we can compare methods fairly. One note of caution: the difference in performance might not be due to the technique at all; it might be due to the random variation due to sampling the training and test sets in the first place.</p>
-<p>Finally, we can draw a residual plot for these predictions. We still underestimate the prices of the most expensive houses, but the bias does not appear to be as systematic. However, fewer residuals are very close to zero, indicating that fewer prices were predicted with very high accuracy.</p>
+<p>For these data, the errors of the two techniques are quite similar! For
+different data sets, one technique might outperform another. By computing the
+RMSE of both techniques on the same data, we can compare methods fairly. One
+note of caution: the difference in performance might not be due to the
+technique at all; it might be due to the random variation due to sampling the
+training and test sets in the first place.</p>
+<p>Finally, we can draw a residual plot for these predictions. We still
+underestimate the prices of the most expensive houses, but the bias does not
+appear to be as systematic. However, fewer residuals are very close to zero,
+indicating that fewer prices were predicted with very high accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_prices</span><span class="p">,</span> <span class="n">test_prices</span> <span class="o">-</span> <span class="n">nn_test_predictions</span><span class="p">)</span>
@@ -1665,7 +1676,7 @@ Test set RMSE for nearest neighbor regression: 34894.22815421486
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Multiple_Regression_47_0.png" src="../_images/Multiple_Regression_47_0.png" />
+<img alt="../_images/Multiple_Regression_50_0.png" src="../_images/Multiple_Regression_50_0.png" />
 </div>
 </div>
 <p><div class="admonition note">
@@ -1673,7 +1684,6 @@ Test set RMSE for nearest neighbor regression: 34894.22815421486
 <p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Multiple_Regression.ipynb">Multiple_Regression</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
 </div>
 </p>
-</div>
 </div>
 </div>
 
