@@ -728,17 +728,21 @@
                 
   <div class="section" id="inference-on-slopes">
 <h1>Inference on slopes<a class="headerlink" href="#inference-on-slopes" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="finding_lines.html"><span class="doc std std-doc">finding lines</span></a>, we found the line the did the best job of predicting one vector of values from another vector of values.</p>
+<p>In <a class="reference internal" href="finding_lines.html"><span class="doc std std-doc">finding lines</span></a>, we found the line the did the best job of
+predicting one vector of values from another vector of values.</p>
 <p>Our line was a slope and an intercept.  We used it to predict the Overall
 Quality scores (<code class="docutils literal notranslate"><span class="pre">quality</span></code>) for courses, from the Easiness scores (<code class="docutils literal notranslate"><span class="pre">easiness</span></code>).</p>
-<p>We chose the line to minimize the average prediction errors, and the sum of squared prediction errors.</p>
+<p>We chose the line to minimize the average prediction errors, and the sum of
+squared prediction errors.</p>
 <p>Now we may have another question.  Can we believe the slope?   Put more
 formally, is it possible that there is in fact no underlying positive or
 negative slope relating  Easiness and Quality, and the slope that we found
 arose because of <em>sampling error</em>.  That is, there was some random fluctuation
 in the data, from course to course, and just by chance, the random fluctuation
 resulted in the slope we observe.</p>
-<p>This is a very similar problem to the problem of comparing means between two groups.  Like that problem, we can get at our question using a permutation test.</p>
+<p>This is a very similar problem to the problem of comparing means between two
+groups.  Like that problem, we can get at our question using a permutation
+test.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -754,79 +758,15 @@ resulted in the slope we observe.</p>
 </div>
 </div>
 <p>If you are running on your laptop, you will need to download the
-<a class="reference download internal" download="" href="../_downloads/bd1ca798b7b6d67bc4fa7e606bdc95c5/disciplines_SI.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">disciplines_SI.xlsx</span></code></a> file to the
-same directory as this notebook.</p>
+<a class="reference download internal" download="" href="../_downloads/32cbd3fc41c1879a7cff9a0dc2104433/rate_my_course.csv"><code class="xref download docutils literal notranslate"><span class="pre">rate_my_course.csv</span> <span class="pre">file</span></code></a>.</p>
 <p>We read the data and get the columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the Excel format data file</span>
-<span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data file</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rate_my_course.csv&#39;</span><span class="p">)</span>
 <span class="c1"># Convert Easiness and Overall Quality measures to arrays.</span>
 <span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
 <span class="n">quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">XLRDError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">97</span><span class="n">d052346bfc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Read the Excel format data file</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;disciplines_SI.xlsx&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Convert Easiness and Overall Quality measures to arrays.</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">easiness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Easiness&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">quality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratings</span><span class="p">[</span><span class="s1">&#39;Overall Quality&#39;</span><span class="p">])</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">296</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span> 
-<span class="g g-Whitespace">    </span><span class="mi">298</span>         <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> 
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">304</span>         <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="k">elif</span> <span class="n">engine</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="n">io</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, path_or_buffer, engine)</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">path_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span> 
-<span class="ne">--&gt; </span><span class="mi">867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> 
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">err_msg</span> <span class="o">=</span> <span class="s2">&quot;Install xlrd &gt;= 1.0.0 for Excel support&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;xlrd&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">err_msg</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">22</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="nd">@property</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">353</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">))</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">load_workbook</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>             <span class="k">return</span> <span class="n">open_workbook</span><span class="p">(</span><span class="n">file_contents</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">37</span>             <span class="k">return</span> <span class="n">open_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> 
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="nd">@property</span>
-
-<span class="nn">~/Library/Python/3.8/lib/python/site-packages/xlrd/__init__.py</span> in <span class="ni">open_workbook</span><span class="nt">(filename, logfile, verbosity, use_mmap, file_contents, encoding_override, formatting_info, on_demand, ragged_rows, ignore_workbook_corruption)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span>     <span class="c1"># files that xlrd can parse don&#39;t start with the expected signature.</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>     <span class="k">if</span> <span class="n">file_format</span> <span class="ow">and</span> <span class="n">file_format</span> <span class="o">!=</span> <span class="s1">&#39;xls&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">170</span>         <span class="k">raise</span> <span class="n">XLRDError</span><span class="p">(</span><span class="n">FILE_FORMAT_DESCRIPTIONS</span><span class="p">[</span><span class="n">file_format</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;; not supported&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span> 
-<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="n">bk</span> <span class="o">=</span> <span class="n">open_workbook_xls</span><span class="p">(</span>
-
-<span class="ne">XLRDError</span>: Excel xlsx file; not supported
 </pre></div>
 </div>
 </div>
@@ -850,6 +790,11 @@ same directory as this notebook.</p>
 <span class="n">observed_result</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">ss_any_line</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.47</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">easiness</span><span class="p">,</span> <span class="n">quality</span><span class="p">))</span>
 <span class="n">observed_slope</span> <span class="o">=</span> <span class="n">observed_result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">observed_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5088633628386308
 </pre></div>
 </div>
 </div>
@@ -884,12 +829,22 @@ between the Easiness and Quality values.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.5387, 0.0619])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Get the slope, as our first estimate from the sampling distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_slope</span> <span class="o">=</span> <span class="n">fake_result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">fake_slope</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06191574041524209
 </pre></div>
 </div>
 </div>
@@ -913,9 +868,12 @@ between the Easiness and Quality values.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fake_slopes</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fake slope values&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution for slope&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sampling distribution for slope&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/inference_on_slopes_20_0.png" src="../_images/inference_on_slopes_20_0.png" />
 </div>
 </div>
 <p>We find the proportion of the sampling distribution that is greater than or
@@ -924,6 +882,11 @@ equal to the value we saw:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">fake_slopes</span> <span class="o">&gt;=</span> <span class="n">observed_slope</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_samples</span>
 <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 </pre></div>
 </div>
 </div>

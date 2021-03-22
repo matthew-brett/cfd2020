@@ -35,15 +35,16 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-We used the [students ratings dataset](../data/rate_my_professors) dataset.  Download the data file via
-{download}`disciplines_SI.xlsx <../data/disciplines_SI.xlsx>`.
+We used the [students ratings dataset](../data/rate_my_professors) dataset.
+Download the data file via
+{download}`rate_my_course.csv <../data/rate_my_course.csv>`.
 
 We were looking for the best slope to relate the Easiness ratings to the
 Overall Quality ratings.
 
 ```{python}
-# Read the Excel format data file, get columns as arrays.
-ratings = pd.read_excel('disciplines_SI.xlsx')
+# Read the data file, get columns as arrays.
+ratings = pd.read_csv('rate_my_course.csv')
 easiness = np.array(ratings['Easiness'])
 quality = np.array(ratings['Overall Quality'])
 plt.plot(easiness, quality, 'o')
