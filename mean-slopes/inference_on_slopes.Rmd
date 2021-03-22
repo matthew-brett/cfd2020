@@ -6,8 +6,8 @@ jupyter:
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.10.0
   kernelspec:
     display_name: Python 3
     language: python
@@ -16,12 +16,14 @@ jupyter:
 
 # Inference on slopes
 
-In [finding lines](finding_lines), we found the line the did the best job of predicting one vector of values from another vector of values.
+In [finding lines](finding_lines), we found the line the did the best job of
+predicting one vector of values from another vector of values.
 
 Our line was a slope and an intercept.  We used it to predict the Overall
 Quality scores (`quality`) for courses, from the Easiness scores (`easiness`).
 
-We chose the line to minimize the average prediction errors, and the sum of squared prediction errors.
+We chose the line to minimize the average prediction errors, and the sum of
+squared prediction errors.
 
 Now we may have another question.  Can we believe the slope?   Put more
 formally, is it possible that there is in fact no underlying positive or
@@ -30,7 +32,9 @@ arose because of *sampling error*.  That is, there was some random fluctuation
 in the data, from course to course, and just by chance, the random fluctuation
 resulted in the slope we observe.
 
-This is a very similar problem to the problem of comparing means between two groups.  Like that problem, we can get at our question using a permutation test.
+This is a very similar problem to the problem of comparing means between two
+groups.  Like that problem, we can get at our question using a permutation
+test.
 
 ```{python}
 import numpy as np
@@ -44,14 +48,13 @@ import pandas as pd
 ```
 
 If you are running on your laptop, you will need to download the
-{download}`disciplines_SI.xlsx <../data/disciplines_SI.xlsx>` file to the
-same directory as this notebook.
+{download}`rate_my_course.csv file <../data/rate_my_course.csv>`.
 
 We read the data and get the columns:
 
 ```{python}
-# Read the Excel format data file
-ratings = pd.read_excel('disciplines_SI.xlsx')
+# Read the data file
+ratings = pd.read_csv('rate_my_course.csv')
 # Convert Easiness and Overall Quality measures to arrays.
 easiness = np.array(ratings['Easiness'])
 quality = np.array(ratings['Overall Quality'])
@@ -137,7 +140,7 @@ As usual, we display the sampling distribution:
 ```{python}
 plt.hist(fake_slopes)
 plt.xlabel('Fake slope values')
-plt.title('Sampling distribution for slope')
+plt.title('Sampling distribution for slope');
 ```
 
 We find the proportion of the sampling distribution that is greater than or
