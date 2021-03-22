@@ -1139,19 +1139,19 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        819.0
-2nd Flr SF        784.0
-Total Bsmt SF     784.0
-Garage Area       599.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF       1268.0
+2nd Flr SF          0.0
+Total Bsmt SF    1268.0
+Garage Area       244.0
 Wood Deck SF        0.0
-Open Porch SF     217.0
-Lot Area         9650.0
-Year Built       1923.0
-Yr Sold          2008.0
-Name: 1530, dtype: float64
-Using slopes: [10.08267736  9.18922839  9.32634424 10.93991746 10.44666393 11.35823637
-  9.33107718 10.65500604 11.53989575]
-Result: 165498.25165596674
+Open Porch SF      98.0
+Lot Area         7800.0
+Year Built       1954.0
+Yr Sold          2010.0
+Name: 133, dtype: float64
+Using slopes: [ 7.65536744  7.90029756 10.02415159  9.74092437 10.63769876 11.67177179
+ 10.9662586   8.24366541 10.93948696]
+Result: 149571.55737623933
 </pre></div>
 </div>
 </div>
@@ -1165,8 +1165,8 @@ Result: 165498.25165596674
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 138000
-Predicted sale price using random slopes: 165498.25165596674
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 132000
+Predicted sale price using random slopes: 149571.55737623933
 </pre></div>
 </div>
 </div>
@@ -1179,12 +1179,12 @@ Predicted sale price using random slopes: 165498.25165596674
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_prices</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span>
 <span class="n">train_attributes</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">prices</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">y_values</span><span class="p">):</span>
     <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prices</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">)):</span>
         <span class="n">predicted</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-        <span class="n">actual</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">predicted</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">y_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">actual</span> <span class="o">-</span> <span class="n">predicted</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">rmse_train</span><span class="p">(</span><span class="n">slopes</span><span class="p">):</span>
@@ -1195,12 +1195,41 @@ Predicted sale price using random slopes: 165498.25165596674
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 70148.68590003051
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 99111.87980825795
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, we use the <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function to find the slopes with the lowest RMSE. Computation of the best slopes may take several minutes.</p>
+<p>Actually, the <code class="docutils literal notranslate"><span class="pre">rmse</span></code> routine above is correct, but it is slow, because we are
+looping through each rows in the data frame.  Here’s a version that does the
+same calculation, but more efficiently, without a loop, using Numpy arrays.
+Don’t worry about the details, unless you are interested.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rmse_fast</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">y_values</span><span class="p">):</span>
+    <span class="c1"># Make an n by s array of slopes by copying the s slopes array n times.</span>
+    <span class="n">slopes_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># Multiply the n by s array by the corresponding attributes.</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">slopes_array</span> <span class="o">*</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="n">y_values</span> <span class="o">-</span> <span class="n">predicted</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errors</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">rmse_train_fast</span><span class="p">(</span><span class="n">slopes</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rmse_fast</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="n">train_attributes</span><span class="p">,</span> <span class="n">train_prices</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fast RMSE of all training examples using random slopes:&#39;</span><span class="p">,</span>
+      <span class="n">rmse_train_fast</span><span class="p">(</span><span class="n">example_slopes</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 99111.87980825795
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we use the <code class="docutils literal notranslate"><span class="pre">minimize</span></code> function to find the slopes with the lowest
+RMSE. Computation of the best slopes may take several minutes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
@@ -1210,13 +1239,117 @@ Predicted sale price using random slopes: 165498.25165596674
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_slopes</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_train</span><span class="p">,</span> <span class="n">example_slopes</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use minimize to calculate smallest RMSE slopes.</span>
+<span class="n">multi_res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_train_fast</span><span class="p">,</span> <span class="n">example_slopes</span><span class="p">)</span>
+<span class="n">multi_res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 29598.91309674193
+ hess_inv: array([[  91.5970462 ,   11.82737672,   -9.91895967,   43.86551299,
+          39.97542774,   12.40222304,  -11.37729356, -240.30391389,
+         234.62542913],
+       [  11.82737672,    1.73452909,   -1.17374868,    5.61328636,
+           5.19175954,    1.37223051,   -1.47429285,  -31.48671423,
+          30.69842439],
+       [  -9.91895967,   -1.17374868,    1.51497727,   -4.80674123,
+          -4.4394703 ,   -1.47136934,    1.20283919,   24.55213613,
+         -24.03541914],
+       [  43.86551299,    5.61328636,   -4.80674123,   21.91521971,
+          18.47928606,    5.84884104,   -5.46486018, -116.65500264,
+         113.8481454 ],
+       [  39.97542774,    5.19175954,   -4.4394703 ,   18.47928606,
+          18.02513569,    5.67469615,   -4.94506419, -103.96719243,
+         101.56624622],
+       [  12.40222304,    1.37223051,   -1.47136934,    5.84884104,
+           5.67469615,    7.64812419,   -1.56490959,  -32.81670464,
+          32.15123752],
+       [ -11.37729356,   -1.47429285,    1.20283919,   -5.46486018,
+          -4.94506419,   -1.56490959,    1.41955872,   29.93040032,
+         -29.23825983],
+       [-240.30391389,  -31.48671423,   24.55213613, -116.65500264,
+        -103.96719243,  -32.81670464,   29.93040032,  674.30731715,
+        -657.77230954],
+       [ 234.62542913,   30.69842439,  -24.03541914,  113.8481454 ,
+         101.56624622,   32.15123752,  -29.23825983, -657.77230954,
+         641.77666917]])
+      jac: array([ 0.        ,  0.        , -0.00024414, -0.00024414, -0.00024414,
+        0.        , -0.0012207 , -0.00024414, -0.00024414])
+  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
+     nfev: 788
+      nit: 24
+     njev: 78
+   status: 2
+  success: False
+        x: array([  70.51929967,   70.54405112,   46.97010717,   52.87391257,
+         27.17260491,   13.22565725,    0.58941776,  579.95740775,
+       -573.34155948])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_slopes</span> <span class="o">=</span> <span class="n">multi_res</span><span class="o">.</span><span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The best slopes for the training set:&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE of all training examples using the best slopes:&#39;</span><span class="p">,</span> <span class="n">rmse_train</span><span class="p">(</span><span class="n">best_slopes</span><span class="p">))</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">best_slopes</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">train_attributes</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best slopes for the training set:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using the best slopes: 29598.91309674193
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1st Flr SF</th>
+      <th>2nd Flr SF</th>
+      <th>Total Bsmt SF</th>
+      <th>Garage Area</th>
+      <th>Wood Deck SF</th>
+      <th>Open Porch SF</th>
+      <th>Lot Area</th>
+      <th>Year Built</th>
+      <th>Yr Sold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70.5193</td>
+      <td>70.544051</td>
+      <td>46.970107</td>
+      <td>52.873913</td>
+      <td>27.172605</td>
+      <td>13.225657</td>
+      <td>0.589418</td>
+      <td>579.957408</td>
+      <td>-573.341559</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="interpreting-multiple-regression">
@@ -1236,8 +1369,15 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 32744.548273945547
+</pre></div>
 </div>
-<p>If the predictions were perfect, then a scatter plot of the predicted and actual values would be a straight line with slope 1. We see that most dots fall near that line, but there is some error in the predictions.</p>
+</div>
+</div>
+<p>If the predictions were perfect, then a scatter plot of the predicted and
+actual values would be a straight line with slope 1. We see that most dots fall
+near that line, but there is some error in the predictions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
@@ -1250,8 +1390,15 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/Multiple_Regression_32_0.png" src="../_images/Multiple_Regression_32_0.png" />
 </div>
-<p>A residual plot for multiple regression typically compares the errors (residuals) to the actual values of the predicted variable. We see in the residual plot below that we have systematically underestimated the value of expensive houses, shown by the many positive residual values on the right side of the graph.</p>
+</div>
+<p>A residual plot for multiple regression typically compares the errors
+(residuals) to the actual values of the predicted variable. We see in the
+residual plot below that we have systematically underestimated the value of
+expensive houses, shown by the many positive residual values on the right side
+of the graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_prices</span><span class="p">,</span> <span class="n">test_prices</span> <span class="o">-</span> <span class="n">fitted</span><span class="p">)</span>
@@ -1259,6 +1406,9 @@ Predicted sale price using random slopes: 165498.25165596674
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Multiple_Regression_34_0.png" src="../_images/Multiple_Regression_34_0.png" />
 </div>
 </div>
 <p>As with simple linear regression, interpreting the result of a predictor is at least as important as making predictions. There are many lessons about interpreting multiple regression that are not included in this textbook. A natural next step after completing this text would be to study linear modeling and regression in further depth.</p>
@@ -1275,6 +1425,64 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalePrice</th>
+      <th>1st Flr SF</th>
+      <th>2nd Flr SF</th>
+      <th>Total Bsmt SF</th>
+      <th>Garage Area</th>
+      <th>Year Built</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1141</th>
+      <td>193500</td>
+      <td>1679</td>
+      <td>0</td>
+      <td>1408.0</td>
+      <td>575.0</td>
+      <td>1994</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>133900</td>
+      <td>768</td>
+      <td>0</td>
+      <td>768.0</td>
+      <td>396.0</td>
+      <td>1972</td>
+    </tr>
+    <tr>
+      <th>2126</th>
+      <td>123600</td>
+      <td>990</td>
+      <td>0</td>
+      <td>990.0</td>
+      <td>0.0</td>
+      <td>1994</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The computation of closest neighbors is identical to a nearest-neighbor classifier. In this case, we will exclude the <code class="docutils literal notranslate"><span class="pre">'SalePrice'</span></code> rather than the <code class="docutils literal notranslate"><span class="pre">'Class'</span></code> column from the distance computation. The five nearest neighbors of the first test row are shown below.</p>
 <div class="cell docutils container">
@@ -1308,6 +1516,88 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SalePrice</th>
+      <th>1st Flr SF</th>
+      <th>2nd Flr SF</th>
+      <th>Total Bsmt SF</th>
+      <th>Garage Area</th>
+      <th>Year Built</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1488</th>
+      <td>147500</td>
+      <td>1256</td>
+      <td>0</td>
+      <td>1256.0</td>
+      <td>276.0</td>
+      <td>1965</td>
+      <td>37.854986</td>
+    </tr>
+    <tr>
+      <th>2550</th>
+      <td>151500</td>
+      <td>1248</td>
+      <td>0</td>
+      <td>1248.0</td>
+      <td>286.0</td>
+      <td>1960</td>
+      <td>50.990195</td>
+    </tr>
+    <tr>
+      <th>922</th>
+      <td>155000</td>
+      <td>1273</td>
+      <td>0</td>
+      <td>1273.0</td>
+      <td>307.0</td>
+      <td>1960</td>
+      <td>63.678882</td>
+    </tr>
+    <tr>
+      <th>1272</th>
+      <td>155000</td>
+      <td>1269</td>
+      <td>0</td>
+      <td>1269.0</td>
+      <td>308.0</td>
+      <td>1960</td>
+      <td>64.296190</td>
+    </tr>
+    <tr>
+      <th>1270</th>
+      <td>159000</td>
+      <td>1256</td>
+      <td>0</td>
+      <td>1256.0</td>
+      <td>311.0</td>
+      <td>1959</td>
+      <td>69.296465</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>One simple method for predicting the price is to average the prices of the nearest neighbors.</p>
 <div class="cell docutils container">
@@ -1322,12 +1612,23 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>153600.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>Finally, we can inspect whether our prediction is close to the true sale price for our one test example. Looks reasonable!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual sale price:&#39;</span><span class="p">,</span> <span class="n">test_nn</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted sale price using nearest neighbors:&#39;</span><span class="p">,</span> <span class="n">predict_nn</span><span class="p">(</span><span class="n">example_nn_row</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 132000
+Predicted sale price using nearest neighbors: 153600.0
 </pre></div>
 </div>
 </div>
@@ -1346,6 +1647,12 @@ Predicted sale price using random slopes: 165498.25165596674
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  32744.548273945547
+Test set RMSE for nearest neighbor regression: 34894.22815421486
+</pre></div>
+</div>
+</div>
 </div>
 <p>For these data, the errors of the two techniques are quite similar! For different data sets, one technique might outperform another. By computing the RMSE of both techniques on the same data, we can compare methods fairly. One note of caution: the difference in performance might not be due to the technique at all; it might be due to the random variation due to sampling the training and test sets in the first place.</p>
 <p>Finally, we can draw a residual plot for these predictions. We still underestimate the prices of the most expensive houses, but the bias does not appear to be as systematic. However, fewer residuals are very close to zero, indicating that fewer prices were predicted with very high accuracy.</p>
@@ -1356,6 +1663,9 @@ Predicted sale price using random slopes: 165498.25165596674
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Multiple_Regression_47_0.png" src="../_images/Multiple_Regression_47_0.png" />
 </div>
 </div>
 <p><div class="admonition note">

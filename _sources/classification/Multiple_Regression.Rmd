@@ -154,12 +154,12 @@ The next step in performing multiple regression is to define the least squares o
 train_prices = train['SalePrice']
 train_attributes = train.drop(columns='SalePrice')
 
-def rmse(slopes, attributes, prices):
+def rmse(slopes, attributes, y_values):
     errors = []
-    for i in np.arange(len(prices)):
+    for i in np.arange(len(y_values)):
         predicted = predict(slopes, attributes.iloc[i])
-        actual = prices.iloc[i]
-        errors.append((predicted - actual) ** 2)
+        actual = y_values.iloc[i]
+        errors.append((actual - predicted) ** 2)
     return np.sqrt(np.mean(errors))
 
 def rmse_train(slopes):
@@ -168,14 +168,42 @@ def rmse_train(slopes):
 print('RMSE of all training examples using random slopes:', rmse_train(example_slopes))
 ```
 
-Finally, we use the `minimize` function to find the slopes with the lowest RMSE. Computation of the best slopes may take several minutes.
+Actually, the `rmse` routine above is correct, but it is slow, because we are
+looping through each rows in the data frame.  Here's a version that does the
+same calculation, but more efficiently, without a loop, using Numpy arrays.
+Don't worry about the details, unless you are interested.
+
+```{python}
+def rmse_fast(slopes, attributes, y_values):
+    # Make an n by s array of slopes by copying the s slopes array n times.
+    slopes_array = np.tile(slopes, [len(y_values), 1])
+    # Multiply the n by s array by the corresponding attributes.
+    predicted = np.sum(slopes_array * attributes, axis=1)
+    errors = y_values - predicted
+    return np.sqrt(np.mean(errors ** 2))
+
+def rmse_train_fast(slopes):
+    return rmse_fast(slopes, train_attributes, train_prices)
+
+print('Fast RMSE of all training examples using random slopes:',
+      rmse_train_fast(example_slopes))
+```
+
+Finally, we use the `minimize` function to find the slopes with the lowest
+RMSE. Computation of the best slopes may take several minutes.
 
 ```{python}
 from scipy.optimize import minimize
 ```
 
 ```{python}
-best_slopes = minimize(rmse_train, example_slopes).x
+# Use minimize to calculate smallest RMSE slopes.
+multi_res = minimize(rmse_train_fast, example_slopes)
+multi_res
+```
+
+```{python}
+best_slopes = multi_res.x
 print('The best slopes for the training set:')
 print('RMSE of all training examples using the best slopes:', rmse_train(best_slopes))
 pd.DataFrame(data=[best_slopes], columns=train_attributes.columns)
@@ -198,7 +226,9 @@ rmse_linear = rmse_test(best_slopes)
 print('Test set RMSE for multiple linear regression:', rmse_linear)
 ```
 
-If the predictions were perfect, then a scatter plot of the predicted and actual values would be a straight line with slope 1. We see that most dots fall near that line, but there is some error in the predictions.
+If the predictions were perfect, then a scatter plot of the predicted and
+actual values would be a straight line with slope 1. We see that most dots fall
+near that line, but there is some error in the predictions.
 
 ```{python}
 def fit(row):
@@ -210,7 +240,11 @@ plt.scatter(fitted, test_prices)
 plt.plot([0, 5e5], [0, 5e5], color='red');
 ```
 
-A residual plot for multiple regression typically compares the errors (residuals) to the actual values of the predicted variable. We see in the residual plot below that we have systematically underestimated the value of expensive houses, shown by the many positive residual values on the right side of the graph.
+A residual plot for multiple regression typically compares the errors
+(residuals) to the actual values of the predicted variable. We see in the
+residual plot below that we have systematically underestimated the value of
+expensive houses, shown by the many positive residual values on the right side
+of the graph.
 
 ```{python}
 plt.scatter(test_prices, test_prices - fitted)

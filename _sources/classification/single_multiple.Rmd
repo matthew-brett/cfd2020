@@ -362,7 +362,7 @@ def rmse(intercept, slopes, attributes, y_values):
     for i in np.arange(len(y_values)):
         predicted = predict(intercept, slopes, attributes.iloc[i])
         actual = y_values.iloc[i]
-        errors.append((predicted - actual) ** 2)
+        errors.append((actual - predicted) ** 2)
     return np.sqrt(np.mean(errors))
 ```
 
@@ -397,7 +397,9 @@ min_css
 ```
 
 In fact, we can do this calculation more quickly, and without using a loop, by
-using array calculations.  Don't worry about the details of the function below; as you will soon see, it does the same calculation as the `rmse` function above.
+using array calculations.  Don't worry about the details of the function below;
+as you will soon see, it does the same calculation as the `rmse` function
+above.
 
 ```{python}
 def rmse_fast(intercept, slopes, attributes, y_values):
@@ -433,18 +435,21 @@ We apply the faster version of the function with minimize, to find the same
 intercept and two slopes.
 
 ```{python}
-min_res_fast = minimize(rmse_for_params_fast, [0, 0, 0])
+min_res_fast = minimize(rmse_for_params_fast, [1, 0, 0])
 min_res_fast
 ```
 
-Just as for the simple regression case, and `linregress`, we can get our parameters by calculation directly, in this case we were are using least-squares as our criterion.
+Just as for the simple regression case, and `linregress`, we can get our
+parameters by calculation directly, in this case we were are using
+least-squares as our criterion.
 
-Don't worry about the details of the function below - but this function will
-quickly give us the same answer as `minimize` above, as long as we are
-minimizing the root mean square error for one or more slopes and an intercept.
+Don't worry about the details of the function below.  It contains the matrix
+calculation to give us the same answer as `minimize` above, as long as we are
+minimizing the root mean square error (or sum of squared error) for one or more
+slopes and an intercept.
 
 ```{python}
-def multiple_regression_algebra(y_values, x_attributes):
+def multiple_regression_matrix(y_values, x_attributes):
     intercept_col = np.ones(len(y_values))
     X = np.column_stack([intercept_col, x_attributes])
     return np.linalg.pinv(X) @ y_values
@@ -453,8 +458,8 @@ def multiple_regression_algebra(y_values, x_attributes):
 We get the same result as we do for `minimize`.
 
 ```{python}
-params = multiple_regression_algebra(ckdp['Creatinine'],
-                                     ckdp.loc[:, 'Urea':])
+params = multiple_regression_matrix(ckdp['Creatinine'],
+                                    ckdp.loc[:, 'Urea':])
 params
 ```
 
@@ -493,7 +498,8 @@ as possible.  `minimize` will change the intercept and the two slopes to move
 this plane around until it has minimized the error.
 
 ```{python}
-import mpl_toolkits.mplot3d
+# Run this cell.
+import mpl_toolkits.mplot3d  # (for Matplotlib < 3.2)
 ax = plt.figure(figsize=(8,8)).add_subplot(111, projection='3d')
 ax.scatter(ckdp['Urea'],
            ckdp['Hemoglobin'],

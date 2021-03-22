@@ -1341,10 +1341,10 @@ predicting <code class="docutils literal notranslate"><span class="pre">Creatini
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   103.1</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 21 Mar 2021</td> <th>  Prob (F-statistic):</th> <td>9.33e-13</td>
+  <th>Date:</th>             <td>Mon, 22 Mar 2021</td> <th>  Prob (F-statistic):</th> <td>9.33e-13</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>02:30:57</td>     <th>  Log-Likelihood:    </th> <td> -95.343</td>
+  <th>Time:</th>                 <td>19:16:12</td>     <th>  Log-Likelihood:    </th> <td> -95.343</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   194.7</td>
@@ -1457,7 +1457,7 @@ line using <code class="docutils literal notranslate"><span class="pre">Hemoglob
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc10a3c62b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fa798bc32e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/single_multiple_41_1.png" src="../_images/single_multiple_41_1.png" />
@@ -1534,7 +1534,7 @@ regression page.</p>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">)):</span>
         <span class="n">predicted</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="n">actual</span> <span class="o">=</span> <span class="n">y_values</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">predicted</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">actual</span> <span class="o">-</span> <span class="n">predicted</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errors</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1599,7 +1599,9 @@ root mean square error (and the sum of squared error):</p>
 </div>
 </div>
 <p>In fact, we can do this calculation more quickly, and without using a loop, by
-using array calculations.  Don’t worry about the details of the function below; as you will soon see, it does the same calculation as the <code class="docutils literal notranslate"><span class="pre">rmse</span></code> function above.</p>
+using array calculations.  Don’t worry about the details of the function below;
+as you will soon see, it does the same calculation as the <code class="docutils literal notranslate"><span class="pre">rmse</span></code> function
+above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rmse_fast</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slopes</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">y_values</span><span class="p">):</span>
@@ -1646,35 +1648,38 @@ using array calculations.  Don’t worry about the details of the function below
 intercept and two slopes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res_fast</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_for_params_fast</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res_fast</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_for_params_fast</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">min_res_fast</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023695943
- hess_inv: array([[105.03032804,  -0.21512878,  -8.22254556],
-       [ -0.21512878,   0.00079935,   0.01341336],
-       [ -8.22254556,   0.01341336,   0.69895248]])
-      jac: array([ 0.        , -0.00000039, -0.00000003])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023700126
+ hess_inv: array([[104.12647406,  -0.2093455 ,  -8.18721274],
+       [ -0.2093455 ,   0.00077243,   0.01318249],
+       [ -8.18721274,   0.01318249,   0.69692729]])
+      jac: array([ 0.00000003, -0.00000069,  0.00000006])
   message: &#39;Optimization terminated successfully.&#39;
-     nfev: 80
-      nit: 14
-     njev: 20
+     nfev: 84
+      nit: 16
+     njev: 21
    status: 0
   success: True
-        x: array([ 1.02389338,  0.05345681, -0.09432169])
+        x: array([ 1.02389636,  0.0534568 , -0.09432192])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Just as for the simple regression case, and <code class="docutils literal notranslate"><span class="pre">linregress</span></code>, we can get our parameters by calculation directly, in this case we were are using least-squares as our criterion.</p>
-<p>Don’t worry about the details of the function below - but this function will
-quickly give us the same answer as <code class="docutils literal notranslate"><span class="pre">minimize</span></code> above, as long as we are
-minimizing the root mean square error for one or more slopes and an intercept.</p>
+<p>Just as for the simple regression case, and <code class="docutils literal notranslate"><span class="pre">linregress</span></code>, we can get our
+parameters by calculation directly, in this case we were are using
+least-squares as our criterion.</p>
+<p>Don’t worry about the details of the function below.  It contains the matrix
+calculation to give us the same answer as <code class="docutils literal notranslate"><span class="pre">minimize</span></code> above, as long as we are
+minimizing the root mean square error (or sum of squared error) for one or more
+slopes and an intercept.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiple_regression_algebra</span><span class="p">(</span><span class="n">y_values</span><span class="p">,</span> <span class="n">x_attributes</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiple_regression_matrix</span><span class="p">(</span><span class="n">y_values</span><span class="p">,</span> <span class="n">x_attributes</span><span class="p">):</span>
     <span class="n">intercept_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_values</span><span class="p">))</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">intercept_col</span><span class="p">,</span> <span class="n">x_attributes</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">@</span> <span class="n">y_values</span>
@@ -1685,8 +1690,8 @@ minimizing the root mean square error for one or more slopes and an intercept.</
 <p>We get the same result as we do for <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">multiple_regression_algebra</span><span class="p">(</span><span class="n">ckdp</span><span class="p">[</span><span class="s1">&#39;Creatinine&#39;</span><span class="p">],</span>
-                                     <span class="n">ckdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Urea&#39;</span><span class="p">:])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">multiple_regression_matrix</span><span class="p">(</span><span class="n">ckdp</span><span class="p">[</span><span class="s1">&#39;Creatinine&#39;</span><span class="p">],</span>
+                                    <span class="n">ckdp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Urea&#39;</span><span class="p">:])</span>
 <span class="n">params</span>
 </pre></div>
 </div>
@@ -1723,10 +1728,10 @@ and the <code class="docutils literal notranslate"><span class="pre">Hemoglobin<
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   50.70</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 21 Mar 2021</td> <th>  Prob (F-statistic):</th> <td>1.08e-11</td>
+  <th>Date:</th>             <td>Mon, 22 Mar 2021</td> <th>  Prob (F-statistic):</th> <td>1.08e-11</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>02:30:59</td>     <th>  Log-Likelihood:    </th> <td> -95.221</td>
+  <th>Time:</th>                 <td>19:16:14</td>     <th>  Log-Likelihood:    </th> <td> -95.221</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   196.4</td>
@@ -1791,7 +1796,8 @@ as possible.  <code class="docutils literal notranslate"><span class="pre">minim
 this plane around until it has minimized the error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mpl_toolkits.mplot3d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell.</span>
+<span class="kn">import</span> <span class="nn">mpl_toolkits.mplot3d</span>  <span class="c1"># (for Matplotlib &lt; 3.2)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ckdp</span><span class="p">[</span><span class="s1">&#39;Urea&#39;</span><span class="p">],</span>
            <span class="n">ckdp</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">],</span>
