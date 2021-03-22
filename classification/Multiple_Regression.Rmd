@@ -80,7 +80,8 @@ sales['SalePrice'].plot.hist(bins=32)
 plt.xticks(rotation=45);
 ```
 
-#### Correlation
+## Correlation
+
 
 No single attribute is sufficient to predict the sale price. For example, the area of first floor, measured in square feet, correlates with sale price but only explains some of its variability.
 
@@ -110,7 +111,9 @@ correlation(with_both, 'SalePrice', 'Both Floors')
 
 This high correlation indicates that we should try to use more than one attribute to predict the sale price. In a dataset with multiple observed attributes and a single numerical value to be predicted (the sale price in this case), multiple linear regression can be an effective technique.
 
-## Multiple Linear Regression 
+
+## Multiple Linear Regression
+
 
 In multiple linear regression, a numerical output is predicted from numerical input attributes by multiplying each attribute value by a different slope, then summing the results. In this example, the slope for the `1st Flr SF` would represent the dollars per square foot of area on the first floor of the house that should be used in our prediction. 
 
@@ -146,7 +149,8 @@ print('Actual sale price:', test['SalePrice'].iloc[0])
 print('Predicted sale price using random slopes:', predict(example_slopes, example_row))
 ```
 
-#### Least Squares Regression
+## Least Squares Regression
+
 
 The next step in performing multiple regression is to define the least squares objective. We perform the prediction for each row in the training set, and then compute the root mean squared error (RMSE) of the predictions from the actual prices.
 
@@ -209,11 +213,19 @@ print('RMSE of all training examples using the best slopes:', rmse_train(best_sl
 pd.DataFrame(data=[best_slopes], columns=train_attributes.columns)
 ```
 
-#### Interpreting Multiple Regression 
+## Interpreting Multiple Regression
 
-Let's interpret these results. The best slopes give us a method for estimating the price of a house from its attributes. A square foot of area on the first floor is worth about 80 USD (the first slope), while one on the second floor is worth about 75 USD (the second slope). The final negative value describes the market: prices in later years were lower on average.
+Let's interpret these results. The best slopes give us a method for estimating
+the price of a house from its attributes. A square foot of area on the first
+floor is worth about 80 USD (the first slope), while one on the second floor is
+worth about 75 USD (the second slope). The final negative value describes the
+market: prices in later years were lower on average.
 
-The RMSE of around 30,000 USD means that our best linear prediction of the sale price based on all of the attributes is off by around 30,000 USD on the training set, on average.  We find a similar error when predicting prices on the test set, which indicates that our prediction method will generalize to other samples from the same population.
+The RMSE of around 30,000 USD means that our best linear prediction of the sale
+price based on all of the attributes is off by around 30,000 USD on the
+training set, on average.  We find a similar error when predicting prices on
+the test set, which indicates that our prediction method will generalize to
+other samples from the same population.
 
 ```{python}
 test_prices = test['SalePrice']
@@ -279,10 +291,10 @@ def row_distance(row1, row2):
 def distances(training, example, output):
     """Compute the distance from example for each row in training."""
     attributes = training.drop(columns=output)
-    
+
     def distance_from_example(row):
         return row_distance(row, example)
-    
+
     out = training.copy()
     out['Distance'] = attributes.apply(distance_from_example, axis=1)
     return out
@@ -308,16 +320,19 @@ def predict_nn(example):
 predict_nn(example_nn_row)
 ```
 
-Finally, we can inspect whether our prediction is close to the true sale price for our one test example. Looks reasonable!
+Finally, we can inspect whether our prediction is close to the true sale price
+for our one test example. Looks reasonable!
 
 ```{python}
 print('Actual sale price:', test_nn['SalePrice'].iloc[0])
 print('Predicted sale price using nearest neighbors:', predict_nn(example_nn_row))
 ```
 
-#### Evaluation
+## Evaluation
 
-To evaluate the performance of this approach for the whole test set, we apply `predict_nn` to each test example, then compute the root mean squared error of the predictions. Computation of the predictions may take several minutes.
+To evaluate the performance of this approach for the whole test set, we apply
+`predict_nn` to each test example, then compute the root mean squared error of
+the predictions. Computation of the predictions may take several minutes.
 
 ```{python}
 attributes = test_nn.drop(columns='SalePrice')
@@ -328,9 +343,17 @@ print('Test set RMSE for multiple linear regression: ', rmse_linear)
 print('Test set RMSE for nearest neighbor regression:', rmse_nn)
 ```
 
-For these data, the errors of the two techniques are quite similar! For different data sets, one technique might outperform another. By computing the RMSE of both techniques on the same data, we can compare methods fairly. One note of caution: the difference in performance might not be due to the technique at all; it might be due to the random variation due to sampling the training and test sets in the first place.
+For these data, the errors of the two techniques are quite similar! For
+different data sets, one technique might outperform another. By computing the
+RMSE of both techniques on the same data, we can compare methods fairly. One
+note of caution: the difference in performance might not be due to the
+technique at all; it might be due to the random variation due to sampling the
+training and test sets in the first place.
 
-Finally, we can draw a residual plot for these predictions. We still underestimate the prices of the most expensive houses, but the bias does not appear to be as systematic. However, fewer residuals are very close to zero, indicating that fewer prices were predicted with very high accuracy. 
+Finally, we can draw a residual plot for these predictions. We still
+underestimate the prices of the most expensive houses, but the bias does not
+appear to be as systematic. However, fewer residuals are very close to zero,
+indicating that fewer prices were predicted with very high accuracy. 
 
 ```{python}
 plt.scatter(test_prices, test_prices - nn_test_predictions)
