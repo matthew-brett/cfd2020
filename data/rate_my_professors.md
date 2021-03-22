@@ -1,9 +1,3 @@
----
-layout: single
-title: Rate My Professors averages by course
-permalink: /data/rate_my_professors
----
-
 # Student ratings averages by course
 
 These data are directly from the [supplementary
