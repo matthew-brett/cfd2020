@@ -70,6 +70,9 @@ latex:
   latex_documents:
     targetname: cfd2020.tex
 
+bibtex_bibfiles:
+  - _references.bib
+
 # HTML redirection
 # Pages linked, but then renamed.
 redirection:
@@ -86,3 +89,4 @@ redirection:
     arrays-iteration/indentation: ../iteration/indentation
     arrays-iteration/iteration: ../iteration/iteration
     arrays-iteration/reply_supreme: ../iteration/reply_supreme
+
