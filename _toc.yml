@@ -158,6 +158,11 @@
 #       - file: /second_bayes
 #   * - [Equal initial P algebra](notebooks/10/equal_initial_p
 #   * - [9.3 Back to Havana](notebooks/10/bayes_confidence
+#
+- part: Useful pandas
+  chapters:
+  - file: useful-pandas/crosstab
+  - file: useful-pandas/groupby
 
 - part: The end of the beginning
   chapters:
