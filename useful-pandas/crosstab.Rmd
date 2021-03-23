@@ -160,8 +160,3 @@ pd.crosstab(df['survived'], categories, normalize='columns')
 
 You can specify more than two columns in the row or column arguments, or both.
 Try experimenting with different arguments.
-
-```{python}
-pd.crosstab(df['survived'], [df['class'], df['gender']],
-            normalize='columns')
-```
