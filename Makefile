@@ -1,11 +1,8 @@
 BUILD_DIR=_build/html
 
-rm-ipynb:
-	rm -rf */*.ipynb
-
 html: bibliography
 	# Check for ipynb files in source (should all be .Rmd).
-	[ -z `ls */*.ipynb 2> /dev/null` ] || ( echo "ipynb files" && exit 1 )
+	if compgen -G "*/*.ipynb" 2> /dev/null; then (echo "ipynb files" && exit 1); fi
 	jupyter-book build .
 	python _scripts/make_redirects.py
 
@@ -14,6 +11,9 @@ github: html
 
 clean:
 	rm -rf _build
+
+rm-ipynb:
+	rm -rf */*.ipynb
 
 BIBLIOGRAPHIES= bib/data-science-bib/data_science.bib \
 				bib/course_refs.bib
