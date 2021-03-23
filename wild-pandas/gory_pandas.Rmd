@@ -33,7 +33,7 @@ it's dark down there.
 import numpy as np
 import pandas as pd
 # Deliberately not using safe settings for Pandas.
-# We would normally use the line below (uncommented)
+# We would normally use the line below (uncommented):
 # pd.set_option('mode.chained_assignment', 'raise')
 ```
 
