@@ -34,6 +34,10 @@ Introduction to probability.
 
 Better introduction to functions, and docstrings.
 
+Extend discussion of lists and tuples.
+
+Consider introduction to dictionaries.
+
 ## Orphan pages
 
 ```
