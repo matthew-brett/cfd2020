@@ -38,6 +38,9 @@ Extend discussion of lists and tuples.
 
 Consider introduction to dictionaries.
 
+Use RMSE throughout.   Maybe a note on relationship of RMSE and SS, maybe
+something on the idea of being *monotonic*.
+
 ## Orphan pages
 
 ```
