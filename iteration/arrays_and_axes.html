@@ -613,6 +613,18 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  More on regression
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../more-regression/logistic_regression.html">
+   Logistic regression
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   The end of the beginning
  </span>
 </p>
@@ -791,7 +803,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26390635, 0.59642764, 0.46578368])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.78672578, 0.33810234, 0.57527577])
 </pre></div>
 </div>
 </div>
@@ -818,7 +830,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False])
 </pre></div>
 </div>
 </div>
@@ -831,7 +843,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -874,16 +886,16 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.9109549 , 0.67281243, 0.34548687],
-       [0.77598814, 0.28058424, 0.3062295 ],
-       [0.57939521, 0.56228852, 0.19765157],
-       [0.35646684, 0.94530384, 0.21476804],
-       [0.53465444, 0.46364995, 0.63146502],
-       [0.69934037, 0.91065209, 0.07664063],
-       [0.91306878, 0.85350836, 0.64248789],
-       [0.48082599, 0.79378116, 0.23212084],
-       [0.14802009, 0.73613077, 0.21172627],
-       [0.37367832, 0.10712782, 0.79066531]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.00188419, 0.42948185, 0.83101384],
+       [0.81281333, 0.88381914, 0.74864526],
+       [0.03108998, 0.46637135, 0.04287703],
+       [0.41870605, 0.05760906, 0.92796015],
+       [0.79823332, 0.43913918, 0.97395655],
+       [0.68134693, 0.54754619, 0.06016436],
+       [0.98691117, 0.03464513, 0.9008609 ],
+       [0.04725511, 0.18958589, 0.09073382],
+       [0.57224962, 0.96769926, 0.41786594],
+       [0.93783259, 0.20064035, 0.00190794]])
 </pre></div>
 </div>
 </div>
@@ -898,16 +910,16 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True],
-       [False,  True,  True],
-       [False, False,  True],
-       [ True, False,  True],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True, False],
+       [False, False, False],
+       [ True,  True,  True],
+       [ True,  True, False],
        [False,  True, False],
        [False, False,  True],
-       [False, False, False],
-       [ True, False,  True],
-       [ True, False,  True],
-       [ True,  True, False]])
+       [False,  True, False],
+       [ True,  True,  True],
+       [False, False,  True],
+       [False,  True,  True]])
 </pre></div>
 </div>
 </div>
@@ -921,7 +933,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -939,7 +951,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 7, 5])
 </pre></div>
 </div>
 </div>
@@ -972,7 +984,7 @@ row.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 3, 7])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 7, 5])
 </pre></div>
 </div>
 </div>
@@ -986,7 +998,7 @@ row.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 1, 2, 1, 1, 0, 2, 2, 2])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 0, 3, 2, 1, 1, 1, 3, 1, 2])
 </pre></div>
 </div>
 </div>
