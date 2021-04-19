@@ -164,6 +164,10 @@
   - file: useful-pandas/crosstab
   - file: useful-pandas/groupby
 
+- part: More on regression
+  chapters:
+  - file: more-regression/logistic_regression
+
 - part: The end of the beginning
   chapters:
   - file: end/end_of_beginning
