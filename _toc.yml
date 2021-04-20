@@ -163,6 +163,7 @@
   chapters:
   - file: useful-pandas/crosstab
   - file: useful-pandas/groupby
+  - file: useful-pandas/merge
 
 - part: More on regression
   chapters:
