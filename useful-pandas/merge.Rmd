@@ -123,25 +123,6 @@ expensive strawberry cone does well on this measure because it doesn't cost a
 lot per star.
 
 
-**Caution.** Order matters. Since we use the second table in a `merge` to
-augment the first table, it is important that each row in the first table has
-exactly one matching row in the second. If a row in the first table is missing
-a match in the second table, information can be lost. If a row in the first
-table has more than one match in the second table, `merge` will pick just one,
-which is also a kind of information loss.
-
-We can see this in the following example, which tries to merge the same two
-tables by the same two columns, but in the other order. This merge does not
-make sense: it is attempting to augment the rating of each flavor with its
-price, but according to the `cones` table, there is more than one cone (and
-price) for each flavor. The result is that two of the cones end up vanishing.
-The `merge` method just finds the first row corresponding to `chocolate` in
-`cones` and ignores the other one.
-
-```{python}
-ratings_renamed.merge(cones, left_on='Kind', right_on='Flavor')
-```
-
 Suppose there is a table of professional reviews of some ice cream cones, and
 we have found the average review for each flavor.
 
