@@ -240,6 +240,42 @@ default.  But we may want to do something different.  For example, we may want t
 cones.merge(average_review, on='Flavor', how='left')
 ```
 
+## Merging and column names
+
+Sometimes we find ourselves merging two data frames that have column names in common.
+
+For example, imagine we had some user reviews from China:
+
+```{python}
+chinese_reviews = pd.DataFrame()
+chinese_reviews['Flavor'] = ['vanilla', 'chocolate', 'chocolate']
+chinese_reviews['Stars'] = [4.5, 3.5, 4]
+chinese_reviews
+```
+
+Now imagine we want to merge this data frame into the `rated` data frame.  Here's the `rated` data frame:
+
+```{python}
+rated
+```
+
+Notice that `rated` has a `Stars` column, and `chinese_reviews` has a `Stars` column.  Let us see what `merge` does in this situation:
+
+```{python}
+china_rated = rated.merge(chinese_reviews, on='Flavor')
+china_rated
+```
+
+Pandas detected that both data frames had a column called `Stars` and has renamed them accordingly.  The column from the left data frame (`rated`) has an `_x` suffix, to give `Stars_x`.  The corresponding column from the right data frame has a `_y` suffix: `Stars_y`.
+
+You can change these suffixes with the `suffixes` keyword argument:
+
+```{python}
+rated.merge(chinese_reviews, on='Flavor', suffixes=['_left', '_right'])
+```
+
+## And more
+
 There is much more information about merging in the [Python Data Science
 Handbook merge section](https://jakevdp.github.io/PythonDataScienceHandbook/03.07-merge-and-join.html).
 

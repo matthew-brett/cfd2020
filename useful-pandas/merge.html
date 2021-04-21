@@ -765,6 +765,16 @@
    Merge strategies
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merging-and-column-names">
+   Merging and column names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#and-more">
+   And more
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -1688,6 +1698,296 @@ default.  But we may want to do something different.  For example, we may want t
 </table>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="merging-and-column-names">
+<h2>Merging and column names<a class="headerlink" href="#merging-and-column-names" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes we find ourselves merging two data frames that have column names in common.</p>
+<p>For example, imagine we had some user reviews from China:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chinese_reviews</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">chinese_reviews</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">]</span>
+<span class="n">chinese_reviews</span><span class="p">[</span><span class="s1">&#39;Stars&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">chinese_reviews</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flavor</th>
+      <th>Stars</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>vanilla</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chocolate</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chocolate</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now imagine we want to merge this data frame into the <code class="docutils literal notranslate"><span class="pre">rated</span></code> data frame.  Here’s the <code class="docutils literal notranslate"><span class="pre">rated</span></code> data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rated</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flavor</th>
+      <th>Price</th>
+      <th>Stars</th>
+      <th>$/Star</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>strawberry</td>
+      <td>3.55</td>
+      <td>2.5</td>
+      <td>1.420000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>strawberry</td>
+      <td>5.25</td>
+      <td>2.5</td>
+      <td>2.100000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>vanilla</td>
+      <td>4.75</td>
+      <td>4.0</td>
+      <td>1.187500</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chocolate</td>
+      <td>6.55</td>
+      <td>3.5</td>
+      <td>1.871429</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chocolate</td>
+      <td>5.75</td>
+      <td>3.5</td>
+      <td>1.642857</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">rated</span></code> has a <code class="docutils literal notranslate"><span class="pre">Stars</span></code> column, and <code class="docutils literal notranslate"><span class="pre">chinese_reviews</span></code> has a <code class="docutils literal notranslate"><span class="pre">Stars</span></code> column.  Let us see what <code class="docutils literal notranslate"><span class="pre">merge</span></code> does in this situation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">china_rated</span> <span class="o">=</span> <span class="n">rated</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">chinese_reviews</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
+<span class="n">china_rated</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flavor</th>
+      <th>Price</th>
+      <th>Stars_x</th>
+      <th>$/Star</th>
+      <th>Stars_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>vanilla</td>
+      <td>4.75</td>
+      <td>4.0</td>
+      <td>1.187500</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chocolate</td>
+      <td>6.55</td>
+      <td>3.5</td>
+      <td>1.871429</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chocolate</td>
+      <td>6.55</td>
+      <td>3.5</td>
+      <td>1.871429</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chocolate</td>
+      <td>5.75</td>
+      <td>3.5</td>
+      <td>1.642857</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chocolate</td>
+      <td>5.75</td>
+      <td>3.5</td>
+      <td>1.642857</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas detected that both data frames had a column called <code class="docutils literal notranslate"><span class="pre">Stars</span></code> and has renamed them accordingly.  The column from the left data frame (<code class="docutils literal notranslate"><span class="pre">rated</span></code>) has an <code class="docutils literal notranslate"><span class="pre">_x</span></code> suffix, to give <code class="docutils literal notranslate"><span class="pre">Stars_x</span></code>.  The corresponding column from the right data frame has a <code class="docutils literal notranslate"><span class="pre">_y</span></code> suffix: <code class="docutils literal notranslate"><span class="pre">Stars_y</span></code>.</p>
+<p>You can change these suffixes with the <code class="docutils literal notranslate"><span class="pre">suffixes</span></code> keyword argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rated</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">chinese_reviews</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_left&#39;</span><span class="p">,</span> <span class="s1">&#39;_right&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Flavor</th>
+      <th>Price</th>
+      <th>Stars_left</th>
+      <th>$/Star</th>
+      <th>Stars_right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>vanilla</td>
+      <td>4.75</td>
+      <td>4.0</td>
+      <td>1.187500</td>
+      <td>4.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chocolate</td>
+      <td>6.55</td>
+      <td>3.5</td>
+      <td>1.871429</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chocolate</td>
+      <td>6.55</td>
+      <td>3.5</td>
+      <td>1.871429</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chocolate</td>
+      <td>5.75</td>
+      <td>3.5</td>
+      <td>1.642857</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chocolate</td>
+      <td>5.75</td>
+      <td>3.5</td>
+      <td>1.642857</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="and-more">
+<h2>And more<a class="headerlink" href="#and-more" title="Permalink to this headline">¶</a></h2>
 <p>There is much more information about merging in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.07-merge-and-join.html">Python Data Science
 Handbook merge section</a>.</p>
 <p><div class="admonition note">
