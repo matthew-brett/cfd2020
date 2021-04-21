@@ -6,3 +6,4 @@ openpyxl
 scipy
 ipython
 jupytext[myst]
+sqlalchemy
