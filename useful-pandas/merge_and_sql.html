@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merging &#8212; Coding for Data - 2020 edition</title>
+    <title>Pandas merging and SQL &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -52,22 +52,20 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/useful-pandas/merge.html" />
+    <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/useful-pandas/merge_and_sql.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Logistic regression" href="../more-regression/logistic_regression.html" />
-    <link rel="prev" title="The power of groupby" href="groupby.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/useful-pandas/merge.html" />
+<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/useful-pandas/merge_and_sql.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Merging" />
-<meta property="og:description" content="Merging  # Don&#39;t change this cell; just run it. import numpy as np import pandas as pd # Safe settings for Pandas. pd.set_option(&#39;mode.chained_assignment&#39;, &#39;rai" />
+<meta property="og:title"       content="Pandas merging and SQL" />
+<meta property="og:description" content="Pandas merging and SQL  # Don&#39;t change this cell; just run it. import numpy as np import pandas as pd # Safe settings for Pandas. pd.set_option(&#39;mode.chained_as" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -601,7 +599,7 @@
   Useful pandas
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="crosstab.html">
    Cross-tabulation
@@ -612,8 +610,8 @@
    The power of groupby
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="merge.html">
    Merging
   </a>
  </li>
@@ -681,7 +679,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/useful-pandas/merge.Rmd"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/useful-pandas/merge_and_sql.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.Rmd</button></a>
         <!-- Download PDF via print -->
@@ -701,10 +699,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fuseful-pandas/merge.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/matthew-brett/cfd2020/issues/new?title=Issue%20on%20page%20%2Fuseful-pandas/merge_and_sql.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/useful-pandas/merge.Rmd"><button
+        <a class="edit-button" href="https://github.com/matthew-brett/cfd2020/edit/master/useful-pandas/merge_and_sql.Rmd"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -724,14 +722,14 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/useful-pandas/merge.Rmd"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matthew-brett/cfd2020/master?urlpath=tree/useful-pandas/merge_and_sql.Rmd"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/useful-pandas/merge.Rmd&branch=master"><button type="button"
+        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/useful-pandas/merge_and_sql.Rmd&branch=master"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
                 data-placement="left"><img class="jupyterhub-button-logo"
                     src="../_static/images/logo_jupyterhub.svg"
@@ -750,25 +748,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-remains">
-   What remains?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#merge-strategies">
-   Merge strategies
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -776,8 +755,8 @@
         
               <div>
                 
-  <div class="section" id="merging">
-<h1>Merging<a class="headerlink" href="#merging" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pandas-merging-and-sql">
+<h1>Pandas merging and SQL<a class="headerlink" href="#pandas-merging-and-sql" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change this cell; just run it.</span>
@@ -793,23 +772,8 @@
 </div>
 </div>
 </div>
-<p><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Joining_Tables_by_Columns.ipynb">Joining_Tables_by_Columns</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
-</div>
-</p>
-<p>Often, data about the same individuals is maintained in more than one table.
-For example, one university office might have data about each student’s time
-to completion of degree, while another has data about the student’s tuition
-and financial aid.</p>
-<p>To understand the students’ experience, it may be helpful to put the two
-datasets together. If the data are in two tables, each with one row per
-student, then we would want to put the columns together, making sure to match
-the rows so that each student’s information remains on a single row.</p>
-<p>Let us do this in the context of a simple example, and then use the method
-with a larger dataset.</p>
-<p>Suppose we have a data frame for different flavors of ice cream.  Each flavor
-of ice cream comes with a rating that is in a separate table.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/SQL">SQL</a> (pronounced “sequel”) is a standard language for working with data in tables.  Among its many features, SQL can merge tables using <em>queries</em>.  SQL calls these merges - <em>JOINS</em>.</p>
+<p>Pandas <code class="docutils literal notranslate"><span class="pre">merge</span></code> has the same behavior as SQL’s <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -925,18 +889,11 @@ of ice cream comes with a rating that is in a separate table.</p>
 </table>
 </div></div></div>
 </div>
-<p>Each of the tables has a column that contains ice cream flavors. In both
-cases, the column has the name <code class="docutils literal notranslate"><span class="pre">Flavor</span></code>. The entries in these columns can be
-used to link the two tables.</p>
-<p>The method <code class="docutils literal notranslate"><span class="pre">merge</span></code> creates a new table in which each cone in the <code class="docutils literal notranslate"><span class="pre">cones</span></code> table
-is augmented with the Stars information in the <code class="docutils literal notranslate"><span class="pre">ratings</span></code> table.  For each cone
-in <code class="docutils literal notranslate"><span class="pre">cones</span></code>, <code class="docutils literal notranslate"><span class="pre">merge</span></code> finds a row in <code class="docutils literal notranslate"><span class="pre">ratings</span></code> whose <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> matches the cone’s
-<code class="docutils literal notranslate"><span class="pre">Flavor</span></code>. We have to tell <code class="docutils literal notranslate"><span class="pre">merge</span></code> to use the <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> column for matching,
-using the <code class="docutils literal notranslate"><span class="pre">on</span></code> keyword argument.</p>
+<p>Pandas <code class="docutils literal notranslate"><span class="pre">merge</span></code> is symmetrical - you get the same result from <code class="docutils literal notranslate"><span class="pre">cones.merge(ratings</span> <span class="pre">...)</span></code> and <code class="docutils literal notranslate"><span class="pre">ratings.merge(cones</span> <span class="pre">...</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rated</span> <span class="o">=</span> <span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ratings</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
-<span class="n">rated</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do an Pandas merge into &quot;cones&quot; from &quot;ratings&quot;</span>
+<span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ratings</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -999,19 +956,10 @@ using the <code class="docutils literal notranslate"><span class="pre">on</span>
 </table>
 </div></div></div>
 </div>
-<p>Each cone now has not only its price but also the rating of its flavor.</p>
-<p>In general, a call to <code class="docutils literal notranslate"><span class="pre">merge</span></code> that augments a table (say <code class="docutils literal notranslate"><span class="pre">table1</span></code>) with information from another table (say <code class="docutils literal notranslate"><span class="pre">table2</span></code>) looks like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>table1.merge(table2, on=column_for_merging)
-</pre></div>
-</div>
-<p>In the case above, the matching columns have the name column name: <code class="docutils literal notranslate"><span class="pre">Flavor</span></code>.</p>
-<p>This need not be so.   For example, let us rename the <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> column in <code class="docutils literal notranslate"><span class="pre">ratings</span></code> to <code class="docutils literal notranslate"><span class="pre">Kind</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rename the &#39;Flavor&#39; column to &#39;Kind&#39;</span>
-<span class="n">ratings_renamed</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">ratings_renamed</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Kind&#39;</span><span class="p">,</span> <span class="s1">&#39;Stars&#39;</span><span class="p">]</span>
-<span class="n">ratings_renamed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do an Pandas merge into &quot;ratings&quot; from &quot;cones&quot;</span>
+<span class="n">ratings</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cones</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1034,309 +982,8 @@ using the <code class="docutils literal notranslate"><span class="pre">on</span>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Kind</th>
+      <th>Flavor</th>
       <th>Stars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>strawberry</td>
-      <td>2.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>chocolate</td>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>vanilla</td>
-      <td>4.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Now we have to tell <code class="docutils literal notranslate"><span class="pre">merge</span></code> the name of the column to merge on, for each data frame.  The first data frame (<code class="docutils literal notranslate"><span class="pre">cones</span></code> in our case) is called the <em>left</em> data frame.  The second (<code class="docutils literal notranslate"><span class="pre">ratings</span></code> in our case) is called the <em>right</em> data frame.  Now the columns have different names in the left and right data frame, we have to use the <code class="docutils literal notranslate"><span class="pre">left_on</span></code> and <code class="docutils literal notranslate"><span class="pre">right_on</span></code> keywords.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rated_again</span> <span class="o">=</span> <span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ratings_renamed</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Kind&#39;</span><span class="p">)</span>
-<span class="n">rated_again</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>Kind</th>
-      <th>Stars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>strawberry</td>
-      <td>3.55</td>
-      <td>strawberry</td>
-      <td>2.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>strawberry</td>
-      <td>5.25</td>
-      <td>strawberry</td>
-      <td>2.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>vanilla</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>chocolate</td>
-      <td>6.55</td>
-      <td>chocolate</td>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-      <td>chocolate</td>
-      <td>3.5</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Here is a more general skeleton of a <code class="docutils literal notranslate"><span class="pre">merge</span></code> between <code class="docutils literal notranslate"><span class="pre">table1</span></code> and <code class="docutils literal notranslate"><span class="pre">table2</span></code>, where the corresponding columns may have different names:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>table1.merge(table2, left_on=table1_column, right_on=table2_column)
-</pre></div>
-</div>
-<p>Now that we have done the merge, the new table <code class="docutils literal notranslate"><span class="pre">rated</span></code> (or <code class="docutils literal notranslate"><span class="pre">rated_again</span></code>)
-allows us to work out the price per star, which you can think of as an
-informal measure of value. Low values are good – they mean that you are paying
-less for each rating star.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rated</span><span class="p">[</span><span class="s1">&#39;$/Star&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rated</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">rated</span><span class="p">[</span><span class="s1">&#39;Stars&#39;</span><span class="p">]</span>
-<span class="n">rated</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;$/Star&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>Stars</th>
-      <th>$/Star</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>4.0</td>
-      <td>1.187500</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>strawberry</td>
-      <td>3.55</td>
-      <td>2.5</td>
-      <td>1.420000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-      <td>3.5</td>
-      <td>1.642857</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Though strawberry has the lowest rating among the three flavors, the less
-expensive strawberry cone does well on this measure because it doesn’t cost a
-lot per star.</p>
-<p>Suppose there is a table of professional reviews of some ice cream cones, and
-we have found the average review for each flavor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;vanilla&#39;</span><span class="p">,</span> <span class="s1">&#39;chocolate&#39;</span><span class="p">]</span>
-<span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;ProfStars&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">reviews</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>ProfStars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>vanilla</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>chocolate</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>vanilla</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>chocolate</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Remember <a class="reference internal" href="groupby.html"><span class="doc std std-doc">group by</span></a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_review</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">average_review</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ProfStars</th>
-    </tr>
-    <tr>
-      <th>Flavor</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>chocolate</th>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>vanilla</th>
-      <td>5.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Notice that the column that we grouped by — <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> — has become the Index (row labels).</p>
-<p>We can merge <code class="docutils literal notranslate"><span class="pre">cones</span></code> and <code class="docutils literal notranslate"><span class="pre">average_review</span></code> by providing the labels of the
-columns by which to merge.  As you will see, Pandas treats the data frame Index
-as being a column, for this purpose.</p>
-<p>First we remind ourselves of the contents of <code class="docutils literal notranslate"><span class="pre">cones</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cones</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
       <th>Price</th>
     </tr>
   </thead>
@@ -1344,357 +991,135 @@ as being a column, for this purpose.</p>
     <tr>
       <th>0</th>
       <td>strawberry</td>
+      <td>2.5</td>
       <td>3.55</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>chocolate</td>
-      <td>6.55</td>
-    </tr>
-    <tr>
-      <th>3</th>
       <td>strawberry</td>
+      <td>2.5</td>
       <td>5.25</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Here is the result of the merge:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">average_review</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>ProfStars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>chocolate</td>
-      <td>6.55</td>
-      <td>3.5</td>
-    </tr>
-    <tr>
       <th>2</th>
       <td>chocolate</td>
-      <td>5.75</td>
       <td>3.5</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Of course in this case the “columns” have the same name, and we can do the same
-thing with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">average_review</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>ProfStars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>chocolate</td>
       <td>6.55</td>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-      <td>3.5</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Notice that <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> is the Index (row labels) for <code class="docutils literal notranslate"><span class="pre">average_review</span></code>, but Pandas
-allows this, because it sees the Index name is <code class="docutils literal notranslate"><span class="pre">Flavor</span></code>, and treats it as a
-column.</p>
-<p>For this reason, merge can also merge with a Series, because the Series can
-have a name.  At the moment <code class="docutils literal notranslate"><span class="pre">average_review</span></code> is a Dataframe with one column:
-<code class="docutils literal notranslate"><span class="pre">ProfStars</span></code>.  We can pull out this column as a Series.  You may remember that
-the Series also gets the Index, and a name, from the column name:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_rev_as_series</span> <span class="o">=</span> <span class="n">average_review</span><span class="p">[</span><span class="s1">&#39;ProfStars&#39;</span><span class="p">]</span>
-<span class="n">avg_rev_as_series</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flavor
-chocolate    3.5
-vanilla      5.0
-Name: ProfStars, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Because this Series has a name: <code class="docutils literal notranslate"><span class="pre">Flavor</span></code>, and that is the name of its Index, we can do the same merge with this Series as we did with the Dataframe above:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">avg_rev_as_series</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>ProfStars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>chocolate</td>
-      <td>6.55</td>
-      <td>3.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-      <td>3.5</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="section" id="what-remains">
-<h2>What remains?<a class="headerlink" href="#what-remains" title="Permalink to this headline">¶</a></h2>
-<p>Notice that, after our merge, the strawberry cones have disappeared. Merge is
-pursuing a particular strategy here, and that is to look for labels that match
-in the matching columns. None of the reviews are for strawberry cones, so there
-is nothing to which the <code class="docutils literal notranslate"><span class="pre">strawberry</span></code> rows can be merged. This might be what you
-want, or it might not be — that depends on the analysis we are trying to
-perform with the merged table.  If it is not what you want, you may want to ask
-merge to use a different strategy.</p>
-</div>
-<div class="section" id="merge-strategies">
-<h2>Merge strategies<a class="headerlink" href="#merge-strategies" title="Permalink to this headline">¶</a></h2>
-<p>Let us reflect further on the choice that merge made above, when it dropped the
-row for strawberry cones.  As you saw above, by default, <code class="docutils literal notranslate"><span class="pre">merge</span></code> looks for
-labels that are present in <em>both</em> of the matching columns.  This is the default
-merge strategy, called an <em>inner</em> merge.  We could also call this an
-<em>intersection</em> merge strategy.</p>
-<p>For this default <em>inner</em> merge strategy, <code class="docutils literal notranslate"><span class="pre">merge</span></code> first found all the flavor
-labels in <code class="docutils literal notranslate"><span class="pre">cones['Flavor']</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different values in cones[&#39;Flavor&#39;]</span>
-<span class="n">cone_flavors</span> <span class="o">=</span> <span class="n">cones</span><span class="p">[</span><span class="s1">&#39;Flavor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">cone_flavors</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;strawberry&#39;, &#39;vanilla&#39;, &#39;chocolate&#39;], dtype=object)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Then it found all the flavors in <code class="docutils literal notranslate"><span class="pre">average_review</span></code> <code class="docutils literal notranslate"><span class="pre">'Flavor'</span></code> “column” (in this case it found the index):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different values in average_reviews &#39;Flavor&#39; - here, the Index</span>
-<span class="n">review_flavors</span> <span class="o">=</span> <span class="n">average_review</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">review_flavors</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;chocolate&#39;, &#39;vanilla&#39;], dtype=&#39;object&#39;, name=&#39;Flavor&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next <code class="docutils literal notranslate"><span class="pre">merge</span></code> found all the <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> values that are present in <em>both</em> data frames.  We can call this the <em>intersection</em> of the two sets of values.  Python has a <code class="docutils literal notranslate"><span class="pre">set</span></code> type to work out intersections and other set operations.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flavors_in_both</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">cone_flavors</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">review_flavors</span><span class="p">)</span>
-<span class="n">flavors_in_both</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;chocolate&#39;, &#39;vanilla&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>Merge then throws away any rows in either table that don’t have one of these
-intersection values in the matching columns.  This is how we lost the <code class="docutils literal notranslate"><span class="pre">strawberry</span></code> row from the <code class="docutils literal notranslate"><span class="pre">cones</span></code> table.</p>
-<p>This <em>inner</em> or <em>intersection</em> strategy is often useful — that is why it is the
-default.  But we may want to do something different.  For example, we may want to keep flavors that don’t have reviews in our merge result, but get a missing value for the review score.  One way of doing that is the <em>left</em> merge strategy.  Here merge keeps all rows from from the left data frame, but, for each row where there is no corresponding label in the right data frame, it fills the row values from the right data frame with missing values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A merge using the &quot;left&quot; strategy</span>
-<span class="n">cones</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">average_review</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Flavor&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Flavor</th>
-      <th>Price</th>
-      <th>ProfStars</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>strawberry</td>
-      <td>3.55</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>vanilla</td>
-      <td>4.75</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>chocolate</td>
-      <td>6.55</td>
-      <td>3.5</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>strawberry</td>
-      <td>5.25</td>
-      <td>NaN</td>
+      <td>chocolate</td>
+      <td>3.5</td>
+      <td>5.75</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>chocolate</td>
-      <td>5.75</td>
-      <td>3.5</td>
+      <td>vanilla</td>
+      <td>4.0</td>
+      <td>4.75</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>There is much more information about merging in the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/03.07-merge-and-join.html">Python Data Science
-Handbook merge section</a>.</p>
-<p><div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This page has content from the <a class="reference external" href="https://github.com/data-8/textbook/blob/64b20f0/notebooks/Joining_Tables_by_Columns.ipynb">Joining_Tables_by_Columns</a> notebook of an older version of the <a class="reference external" href="https://inferentialthinking.com">UC Berkeley data science course</a>. See the Berkeley course section of the <a class="reference external" href="https://matthew-brett.github.io/cfd2020/license">license file</a>.</p>
+<p>SQL <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code> has the same behavior.</p>
+<p>See:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_sql.html">Pandas to_sql documenation</a></p></li>
+<li><p><a class="reference external" href="https://www.sqlitetutorial.net/sqlite-inner-join">SQL INNER JOIN tutorial</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use a standard SQL library for Python</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="c1"># Make a database using the basic SQLlite database software</span>
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite://&#39;</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
 </div>
-</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the data frames as tables in the SQL database.</span>
+<span class="n">cones</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;cones&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<span class="n">ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;ratings&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show that we can recover the cones data from the database.</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM cones&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;strawberry&#39;, 3.55),
+ (1, &#39;vanilla&#39;, 4.75),
+ (2, &#39;chocolate&#39;, 6.55),
+ (3, &#39;strawberry&#39;, 5.25),
+ (4, &#39;chocolate&#39;, 5.75)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show that we can recover the ratings data from the database.</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM ratings&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;strawberry&#39;, 2.5), (1, &#39;chocolate&#39;, 3.5), (2, &#39;vanilla&#39;, 4.0)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do an inner join into &quot;cones&quot; from &quot;ratings&quot;</span>
+<span class="n">cones_ratings_query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT *</span>
+<span class="s2">FROM cones</span>
+<span class="s2">INNER JOIN ratings ON ratings.Flavor = cones.Flavor</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">cones_ratings_query</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;strawberry&#39;, 3.55, 0, &#39;strawberry&#39;, 2.5),
+ (1, &#39;vanilla&#39;, 4.75, 2, &#39;vanilla&#39;, 4.0),
+ (2, &#39;chocolate&#39;, 6.55, 1, &#39;chocolate&#39;, 3.5),
+ (3, &#39;strawberry&#39;, 5.25, 0, &#39;strawberry&#39;, 2.5),
+ (4, &#39;chocolate&#39;, 5.75, 1, &#39;chocolate&#39;, 3.5)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do an inner join into &quot;ratings&quot; from &quot;cones&quot;</span>
+<span class="n">ratings_cones_query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT *</span>
+<span class="s2">FROM ratings</span>
+<span class="s2">INNER JOIN cones ON cones.Flavor = ratings.Flavor</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">engine</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">ratings_cones_query</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;strawberry&#39;, 2.5, 0, &#39;strawberry&#39;, 3.55),
+ (0, &#39;strawberry&#39;, 2.5, 3, &#39;strawberry&#39;, 5.25),
+ (1, &#39;chocolate&#39;, 3.5, 2, &#39;chocolate&#39;, 6.55),
+ (1, &#39;chocolate&#39;, 3.5, 4, &#39;chocolate&#39;, 5.75),
+ (2, &#39;vanilla&#39;, 4.0, 1, &#39;vanilla&#39;, 4.75)]
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1726,8 +1151,6 @@ Handbook merge section</a>.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="groupby.html" title="previous page">The power of groupby</a>
-    <a class='right-next' id="next-link" href="../more-regression/logistic_regression.html" title="next page">Logistic regression</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

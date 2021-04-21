@@ -217,7 +217,7 @@ cone_flavors
 Then it found all the flavors in `average_review` `'Flavor'` "column" (in this case it found the index):
 
 ```{python}
-# Different values in average_reviews['Flavor']
+# Different values in average_reviews 'Flavor' - here, the Index
 review_flavors = average_review.index.unique()
 review_flavors
 ```
