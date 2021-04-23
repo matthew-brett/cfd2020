@@ -3,4 +3,5 @@ _build/
 __pycache__/
 _references.bib
 .ipynb_checkpoints/
+.ok_storage
 *.ipynb
