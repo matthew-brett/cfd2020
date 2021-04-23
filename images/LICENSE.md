@@ -64,6 +64,7 @@ Data-8 license applies (see `license.md`):
 * `array_subtraction.png`
 * `function_definition.jpg`
 * `function_execution.jpg`
+* `boostrap_pic.png`
 
 ## monty_hall_goat.png
 
