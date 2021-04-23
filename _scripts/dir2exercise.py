@@ -14,7 +14,8 @@ HERE = op.dirname(op.realpath(__file__))
 SITE_ROOT = op.realpath(op.join(HERE, '..'))
 sys.path.append(HERE)
 
-from cutils import (cd, proc_config, build_url, process_dir, write_dir)
+from cutils import (cd, proc_config, build_url, check_repo, process_dir,
+                    write_exercise_ipynb, grade_path, write_dir)
 
 
 def strip_repo_at(path):
@@ -77,8 +78,12 @@ def main():
                                       args.site_config,
                                       args.out_path)
     in_dir = op.abspath(args.dir)
-    process_dir(in_dir, not args.no_grade, site_dict,
-                write_ipynb=not args.rmd)
+    check_repo(in_dir)
+    process_dir(in_dir, site_dict=site_dict)
+    if not args.rmd:
+        write_exercise_ipynb(in_dir)
+    if not args.no_grade:
+        grade_path(in_dir)
     out_path = op.abspath(op.join(out_path, op.basename(in_dir)))
     write_dir(args.dir, out_path, clean=not args.no_clean,
               exclude_exts=() if args.rmd else ('.Rmd',))

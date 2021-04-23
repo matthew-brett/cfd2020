@@ -13,7 +13,8 @@ THREE_GIRLS = op.join(DATA_DIR, 'three_girls')
 
 from tempfile import TemporaryDirectory
 from cutils import find_site_config, get_site_dict
-from dir2exercise import (process_dir, write_dir)
+from dir2exercise import (process_dir, write_exercise_ipynb, grade_path,
+                          write_dir)
 
 import pytest
 
@@ -56,8 +57,11 @@ def test_smoke_and_fails():
         tmp_ex_out = op.join(tmp_3g, base_nb_root + '.ipynb')
         assert op.isfile(tmp_nb_in)
         assert not op.isfile(tmp_ex_out)
-        process_dir(tmp_3g, grade=True)
+        process_dir(tmp_3g)
+        assert not op.isfile(tmp_ex_out)
+        write_exercise_ipynb(tmp_3g)
         assert op.isfile(tmp_ex_out)
+        grade_path(tmp_3g)
         tmp_out = op.join(tmpdir, 'out_path')
         write_dir(tmp_3g, tmp_out)
         assert op.isdir(tmp_out)
@@ -99,5 +103,7 @@ test = {
     }
   ]
 }''')
+        process_dir(tmp_3g)
+        write_exercise_ipynb(tmp_3g)
         with pytest.raises(RuntimeError):
-            process_dir(tmp_3g, grade=True)
+            grade_path(tmp_3g)

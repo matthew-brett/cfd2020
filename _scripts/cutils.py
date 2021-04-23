@@ -9,6 +9,7 @@ import shutil
 import re
 import urllib.parse
 from contextlib import contextmanager
+from subprocess import check_output
 
 import yaml
 
@@ -135,7 +136,7 @@ def path_of(fname):
     return op.split(op.abspath(fname))[0]
 
 
-def clear_directory(fname):
+def clear_directory_for(fname):
     path = path_of(fname)
     for basename in ('.ok_storage',):
         pth = op.join(path, basename)
@@ -199,31 +200,61 @@ def process_nb(fname, execute=False):
     return clear_md_comments(nb)
 
 
-def process_dir(path, grade=False, site_dict=None, write_ipynb=True):
-    site_dict = {} if site_dict is None else site_dict
+def process_write_nb(fname, execute=False):
+    clear_directory_for(fname)
+    write_nb(process_nb(fname, execute), ipynb_fname(fname))
+
+
+def check_repo(path):
+    out = check_output(
+        ['git', 'status', '-uall', '--ignored=traditional',
+         '--porcelain', path], text=True).strip()
+    fnames = [fname[3:] for fname in out.splitlines()]
+    ex_fnames = get_exercise_fnames(path)
+    scary_fnames = [fname for fname in fnames if good_fname(fname)
+                    and fname != ex_fnames['exercise']]
+    if len(scary_fnames):
+        raise RuntimeError('Scary untracked / ignored files in repo\n'
+                           + '\n'.join(scary_fnames))
+
+
+def get_exercise_fnames(path):
     templates = [fn for fn in os.listdir(path) if TEMPLATE_RE.search(fn)]
     if len(templates) == 0:
         raise RuntimeError('No _template.Rmd in directory')
     if len(templates) > 1:
         raise RuntimeError('More than one _template.Rmd in directory')
-    template_fname = op.join(path, templates[0])
-    template = read_utf8(template_fname)
+    template_fname= op.join(path, templates[0])
+    return dict(
+        template=template_fname,
+        exercise=TEMPLATE_RE.sub('.Rmd', template_fname),
+        solution=TEMPLATE_RE.sub('_solution.Rmd', template_fname))
+
+
+def process_dir(path, site_dict=None):
+    site_dict = {} if site_dict is None else site_dict
+    fnames = get_exercise_fnames(path)
+    template = read_utf8(fnames['template'])
     if site_dict:
         template = Template(template).render(site=site_dict)
-    exercise_fname = TEMPLATE_RE.sub('.Rmd', template_fname)
-    write_utf8(exercise_fname, make_exercise(template))
-    solution_fname = TEMPLATE_RE.sub('_solution.Rmd', template_fname)
-    write_utf8(solution_fname, make_solution(template))
-    clear_directory(exercise_fname)
-    if write_ipynb:
-        write_nb(process_nb(exercise_fname, False),
-                 ipynb_fname(exercise_fname))
-    if grade:
-        grades, messages = gok.grade_nb_fname(solution_fname, path)
-        gok.print_grades(grades)
-        gok.print_messages(messages)
-        if not all(grades.values()):
-            raise RuntimeError('One or more grades 0')
+    write_utf8(fnames['exercise'], make_exercise(template))
+    write_utf8(fnames['solution'], make_solution(template))
+    clear_directory_for(fnames['exercise'])
+
+
+def write_exercise_ipynb(path, execute=False):
+    fnames = get_exercise_fnames(path)
+    write_nb(process_nb(fnames['exercise'], execute=execute),
+             ipynb_fname(fnames['exercise']))
+
+
+def grade_path(path):
+    fnames = get_exercise_fnames(path)
+    grades, messages = gok.grade_nb_fname(fnames['solution'], path)
+    gok.print_grades(grades)
+    gok.print_messages(messages)
+    if not all(grades.values()):
+        raise RuntimeError('One or more grades 0')
 
 
 def clean_path(path):
