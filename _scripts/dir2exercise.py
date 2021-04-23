@@ -61,7 +61,7 @@ def main():
                         help='If specified, do not grade solution notebook')
     parser.add_argument('--rmd', action='store_true',
                         help='If specified, use Rmd exercise file rather than '
-                        'ipynb')
+                        'ipynb (for now, implies --no-grade)')
     parser.add_argument('--push', action='store_true',
                         help='If specified, push exercise to remote')
     parser.add_argument('--strip', action='store_true',
@@ -74,11 +74,13 @@ def main():
                         '(default finds {course,_config}.yml, in dir, parents)'
                        )
     args = parser.parse_args()
+    if args.rmd:  # We can't grade rmds, thus far.
+        args.no_grade = True
     site_dict, out_path = proc_config(args.dir,
                                       args.site_config,
                                       args.out_path)
     in_dir = op.abspath(args.dir)
-    check_repo(in_dir)
+    check_repo(in_dir, not args.rmd)
     process_dir(in_dir, site_dict=site_dict)
     if not args.rmd:
         write_exercise_ipynb(in_dir)

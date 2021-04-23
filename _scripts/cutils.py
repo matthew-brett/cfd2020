@@ -149,10 +149,12 @@ def clear_directory_for(fname):
 
 def good_fname(fname, exclude_exts=()):
     fn = op.basename(fname)
+    if fn.endswith('~'):
+        return False
     froot, ext = op.splitext(fn)
     if froot.startswith('.'):
         return False
-    if ext in ('.pyc',) + exclude_exts:
+    if ext in ('.pyc', '.swp') + exclude_exts:
         return False
     if froot.startswith('test_'):
         return False
@@ -162,9 +164,15 @@ def good_fname(fname, exclude_exts=()):
         return False
     if froot.endswith('template'):
         return False
-    if fn in ('__pycache__',
-              'tests-extended',
-              'Makefile'):
+    if fname in ('Makefile',):
+        return False
+    return True
+
+
+def good_dirname(dname):
+    if dname in ('__pycache__',
+                 '.ipynb_checkpoints',
+                 'tests-extended'):
         return False
     return True
 
@@ -205,14 +213,25 @@ def process_write_nb(fname, execute=False):
     write_nb(process_nb(fname, execute), ipynb_fname(fname))
 
 
-def check_repo(path):
-    out = check_output(
-        ['git', 'status', '-uall', '--ignored=traditional',
-         '--porcelain', path], text=True).strip()
+def git_out(cmd):
+    return check_output(['git'] + list(cmd), text=True).strip()
+
+
+def check_repo(path, ipynb_exercise=True):
+    top_level = git_out(['rev-parse', '--show-toplevel'])
+    out = git_out(
+        ['status', '-uall', '--ignored=traditional',
+         '--porcelain', path])
     fnames = [fname[3:] for fname in out.splitlines()]
+    # Filter fnames in bad directories:
+    fnames = [fname for fname in fnames if
+              all([good_dirname(pc) for pc in op.split(op.dirname(fname))])]
     ex_fnames = get_exercise_fnames(path)
+    ok_untracked = [op.relpath(ex_fnames['exercise'], top_level)]
+    if ipynb_exercise:
+        ok_untracked.append(ipynb_fname(ok_untracked[0]))
     scary_fnames = [fname for fname in fnames if good_fname(fname)
-                    and fname != ex_fnames['exercise']]
+                    and not fname in ok_untracked]
     if len(scary_fnames):
         raise RuntimeError('Scary untracked / ignored files in repo\n'
                            + '\n'.join(scary_fnames))
@@ -282,7 +301,7 @@ def write_dir(path, out_path, clean=True, exclude_exts=('.Rmd',)):
         os.makedirs(out_path)
     for dirpath, dirnames, filenames in os.walk(path):
         sub_dir = op.relpath(dirpath, path)
-        dirnames[:] = [d for d in dirnames if good_fname(d)]
+        dirnames[:] = [d for d in dirnames if good_dirname(d)]
         filenames[:] = [f for f in filenames if good_fname(f, exclude_exts)]
         if len(filenames) == 0:
             continue
