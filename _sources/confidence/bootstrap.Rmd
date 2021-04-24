@@ -202,7 +202,7 @@ sample that resembles the population:
 
 - **Treat the original sample as if it were the population.**
 - **Draw from the sample**, at random **with** replacement, **the same number
-  of times as the original sample size**. 
+  of times as the original sample size**.
 
 It is important to resample the same number of times as the original sample
 size. The reason is that the variability of an estimate depends on the size of
@@ -251,12 +251,13 @@ resampled_median_1 = np.median(resample_1['Total Compensation'])
 resampled_median_1
 ```
 
-By resampling, we have another estimate of the population median. By resampling
-again and again, we will get many such estimates, and hence an empirical
-distribution of the estimates.  We can call this distribution a *sampling
-distribution* of the median - it is the distribution of the median values we
-get from taking many samples.  Our samples are *bootstrap* samples, so this is
-the *bootstrap sampling distribution of the median*.
+By resampling, we have something like another estimate of the population
+median. By resampling again and again, we will get many such estimates, and
+hence an empirical distribution of the estimates.  We can call this
+distribution a *sampling distribution* of the median - it is the distribution
+of the median values we get from taking many samples.  Our samples are
+*bootstrap* samples, so this is the *bootstrap sampling distribution of the
+median*.
 
 ```{python}
 resample_2 = our_sample.sample(500, replace=True)
@@ -270,7 +271,7 @@ resampled_median_2
 Let us define a function `bootstrap_median` that takes our original sample, the
 label of the column containing the variable, and the number of bootstrap
 samples we want to take, and returns an array of the corresponding resampled
-medians. 
+medians.
 
 Each time we resample and find the median, we *replicate* the bootstrap
 process. So the number of bootstrap samples will be called the number of
@@ -342,7 +343,7 @@ estimates to contain the parameter – it they don't, then they are off.
 How often does the empirical histogram of the resampled medians sit firmly over
 the red dot, and not just brush the dot with its tails? To answer this, we must
 define "sit firmly". Let's take that to mean "the middle 95% of the resampled
-medians contains the red dot". 
+medians contains the red dot".
 
 Here are the two ends of the "middle 95%" interval of resampled medians:
 
@@ -382,7 +383,7 @@ plt.xticks(rotation = 35);
 ```
 
 The "middle 95%" interval of estimates captured the parameter in our example.
-But was that a fluke? 
+But was that a fluke?
 
 To see how frequently the interval contains the parameter, we have to run the
 entire process over and over again. Specifically, we will repeat the following
@@ -401,7 +402,7 @@ one left and one right interval.  This is the code we have been using above.
 this_sample = sf2015.sample(500, replace=True)
 # Get the bootstrap sampling distribution of the median.
 these_medians = bootstrap_median(this_sample,
-                                'Total Compensation', 
+                                'Total Compensation',
                                 5000)
 # Calculate the left, right ends.
 left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
@@ -430,7 +431,7 @@ for i in np.arange(100):
     this_sample = sf2015.sample(500, replace=True)
     # Get the bootstrap sampling distribution of the median.
     these_medians = bootstrap_median(this_sample,
-                                    'Total Compensation', 
+                                    'Total Compensation',
                                     5000)
     # Calculate the left, right ends.
     left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
@@ -501,10 +502,11 @@ plt.ylabel('Replication')
 plt.title('Population Median and Intervals of Estimates');
 ```
 
-To summarize what the simulation shows, suppose you are estimating the population median by the following process: 
+To summarize what the simulation shows, suppose you are estimating the
+population median by the following process:
 
 * Draw a large random sample from the population.
-* Bootstrap your random sample and get an estimate from the new random sample. 
+* Bootstrap your random sample and get an estimate from the new random sample.
 * Repeat the above step thousands of times, and get thousands of estimates.
 * Pick off the "middle 95%" interval of all the estimates.
 
