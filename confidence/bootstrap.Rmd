@@ -1,6 +1,8 @@
 ---
 jupyter:
   jupytext:
+    notebook_metadata_filter: all,-language_info
+    split_at_heading: true
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
@@ -154,7 +156,7 @@ the median total compensation of the sampled employees serve as our estimate of
 the parameter.
 
 ```{python}
-our_sample = sf2015.sample(500, replace=False)
+our_sample = sf2015.sample(n_sample, replace=False)
 our_sample['Total Compensation'].plot.hist(bins=sf_bins)
 ```
 
@@ -228,7 +230,8 @@ this is the default as well! That's perfect for the bootstrap.  Here is one new
 sample drawn from the original sample, and the corresponding sample median.
 
 ```{python}
-resample_1 = our_sample.sample()
+resample_1 = our_sample.sample(500, replace=True)
+resample_1
 ```
 
 ```{python}
@@ -245,7 +248,7 @@ again and again, we will get many such estimates, and hence an empirical
 distribution of the estimates.
 
 ```{python}
-resample_2 = our_sample.sample()
+resample_2 = our_sample.sample(500, replace=True)
 resampled_median_2 = np.median(resample_2['Total Compensation'])
 resampled_median_2
 ```
@@ -281,12 +284,47 @@ def bootstrap_median(original_sample, label, replications):
         Array of bootstrapped sample medians.
     """
     just_one_column = original_sample[label]
+    n = len(just_one_column)
     medians = np.zeros(replications)
     for i in np.arange(replications):
-        bootstrap_sample = just_one_column.sample()
-        resampled_median = np.median(bootstrap_sample)
-        medians[i] = resampled_median
+        bootstrap_sample = just_one_column.sample(n, replace=True)
+        medians[i] = np.median(bootstrap_sample)
     return medians
+```
+
+```{python}
+def bs_median(col, replications):
+    """Return array of bootstrapped sample medians
+
+    Parameters
+    ----------
+    original_sample: data frame
+        Data frame containing the original sample
+    label: str
+        String giving label of column containing the variable.
+    replications: number
+        number of bootstrap samples
+
+    Returns
+    -------
+    samp_meds : array
+        Array of bootstrapped sample medians.
+    """
+    n = len(col)
+    medians = np.zeros(replications)
+    for i in np.arange(replications):
+        bootstrap_sample = col.sample(n, replace=True)
+        medians[i] = np.median(bootstrap_sample)
+    return medians
+```
+
+```{python}
+timeit bootstrap_median(our_sample, 'Total Compensation', 5000)
+```
+
+```{python}
+col = our_sample['Total Compensation']
+# %timeit bs_median(col, 5000)
 ```
 
 We now replicate the bootstrap process 5,000 times. The array `bstrap_medians`
@@ -346,8 +384,8 @@ and the population median are shown on the histogram below.
 ```{python}
 resampled_medians.hist()
 
-plt.plot([left, right], [0, 0], color='yellow', lw=3, zorder=1)
-plt.scatter(pop_median, 0, color='red', s=30, zorder=2);
+plt.plot([left, right], [0, 0], color='yellow', lw=8, zorder=1)
+plt.scatter(pop_median, 0, color='red', s=100, zorder=2);
 ```
 
 The "middle 95%" interval of estimates captured the parameter in our example.
@@ -371,21 +409,22 @@ off 95 than that.
 ```{python}
 # THE BIG SIMULATION: This one takes several minutes.
 
-# Generate 100 intervals, in the table intervals
+# Generate 100 intervals
 n_intervals = 100
 left_ends = np.zeros(n_intervals)
 right_ends = np.zeros(n_intervals)
 
-total_comps = sf2015['Total Compensation']
-
 for i in np.arange(100):
-    first_sample = total_comps.sample(500, replace=False)
-    medians = bootstrap_median(first_sample, 'Total Compensation', 5000)
+    first_sample = sf2015.sample(500, replace=True)
+    medians = bootstrap_median(first_sample,
+                               'Total Compensation', 
+                               5000)
     left_ends[i] = np.percentile(medians, 2.5)
     right_ends[i] = np.percentile(medians, 97.5)
 
+# Put interval ends into own data frame.
 intervals = pd.DataFrame()
-intervals['Left'] = left_ends,
+intervals['Left'] = left_ends
 intervals['Right'] = right_ends
 ```
 
@@ -434,17 +473,15 @@ methods based on random sampling is that we can quantify how often they are
 likely to be off.
 
 ```{python tags=c("hide-cell")}
-replication_number = np.ndarray.astype(np.arange(1, 101), str)
-intervals2 = Table(replication_number).with_rows(make_array(left_ends, right_ends))
-
-plots.figure(figsize=(8,8))
-for i in np.arange(n):
-    ends = intervals2.column(i)
-    plots.plot(ends, make_array(i+1, i+1), color='gold')
-plots.plot(make_array(pop_median, pop_median), make_array(0, 100), color='red', lw=2)
-plots.xlabel('Median (dollars)')
-plots.ylabel('Replication')
-plots.title('Population Median and Intervals of Estimates');
+plt.figure(figsize=(8,8))
+for i in np.arange(len(intervals)):
+    ends = intervals.iloc[i]
+    plt.plot(ends, [i, i], color='gold')
+plt.plot(make_array(pop_median, pop_median), [0, 100],
+         color='red', lw=2)
+plt.xlabel('Median (dollars)')
+plt.ylabel('Replication')
+plt.title('Population Median and Intervals of Estimates');
 ```
 
 To summarize what the simulation shows, suppose you are estimating the population median by the following process: 
