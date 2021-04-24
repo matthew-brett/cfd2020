@@ -7,7 +7,7 @@ jupyter:
       extension: .Rmd
       format_name: rmarkdown
       format_version: '1.2'
-      jupytext_version: 1.10.0
+      jupytext_version: 1.8.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -134,7 +134,8 @@ Since we have the luxury of having all of the data from the population, we can
 simply calculate the parameter:
 
 ```{python}
-pop_median = np.median(sf2015['Total Compensation'])
+compensation = sf2015['Total Compensation']
+pop_median = np.median(compensation)
 pop_median
 ```
 
@@ -157,14 +158,14 @@ the median total compensation of the sampled employees serve as our estimate of
 the parameter.
 
 ```{python}
-# Sample size 500, without replacement.
-our_sample = sf2015.sample(500, replace=False)
-our_sample['Total Compensation'].plot.hist(bins=sf_bins)
+# Sample size 500 from the compensation Series, without replacement.
+our_sample = compensation.sample(500, replace=False)
+our_sample.plot.hist(bins=sf_bins)
 plt.xticks(rotation = 35);
 ```
 
 ```{python}
-est_median = np.median(our_sample['Total Compensation'])
+est_median = np.median(our_sample)
 est_median
 ```
 
@@ -242,12 +243,12 @@ resample_1
 ```
 
 ```{python}
-resample_1['Total Compensation'].plot.hist(bins=sf_bins)
+resample_1.plot.hist(bins=sf_bins)
 plt.xticks(rotation = 35);
 ```
 
 ```{python}
-resampled_median_1 = np.median(resample_1['Total Compensation'])
+resampled_median_1 = np.median(resample_1)
 resampled_median_1
 ```
 
@@ -261,32 +262,29 @@ median*.
 
 ```{python}
 resample_2 = our_sample.sample(500, replace=True)
-resampled_median_2 = np.median(resample_2['Total Compensation'])
+resampled_median_2 = np.median(resample_2)
 resampled_median_2
 ```
 
 ## Bootstrap Empirical Distribution of the Sample Median
 
 
-Let us define a function `bootstrap_median` that takes our original sample, the
-label of the column containing the variable, and the number of bootstrap
-samples we want to take, and returns an array of the corresponding resampled
-medians.
+Let us define a function `bootstrap_median` that takes our original sample,
+and the number of bootstrap samples we want to take, and returns an array of
+the corresponding resampled medians.
 
 Each time we resample and find the median, we *replicate* the bootstrap
 process. So the number of bootstrap samples will be called the number of
 replications.
 
 ```{python}
-def bootstrap_median(original_sample, label, replications):
+def bootstrap_median(original_sample, replications):
     """Return array of bootstrapped sample medians
 
     Parameters
     ----------
-    original_sample: data frame
-        Data frame containing the original sample
-    label: str
-        String giving label of column containing the variable.
+    original_sample: Series
+        Series containing the original sample
     replications: number
         number of bootstrap samples
 
@@ -295,21 +293,20 @@ def bootstrap_median(original_sample, label, replications):
     samp_meds : array
         Array of bootstrapped sample medians.
     """
-    just_one_column = original_sample[label]
-    n = len(just_one_column)
+    n = len(original_sample)
     medians = np.zeros(replications)
     for i in np.arange(replications):
-        bootstrap_sample = just_one_column.sample(n, replace=True)
+        bootstrap_sample = original_sample.sample(n, replace=True)
         medians[i] = np.median(bootstrap_sample)
     return medians
 ```
 
 We now replicate the bootstrap process 5,000 times. The array `bstrap_medians`
-contains the medians of all 5,000 bootstrap samples. Notice that the code takes
-longer to run than our previous code. It has a lot of resampling to do!
+contains the medians of all 5,000 bootstrap samples. Notice that the code
+takes longer to run than our previous code. It has a lot of resampling to do!
 
 ```{python}
-bstrap_medians = bootstrap_median(our_sample, 'Total Compensation', 5000)
+bstrap_medians = bootstrap_median(our_sample, 5000)
 ```
 
 Here is the histogram of the 5000 medians. The red dot is the population
@@ -399,11 +396,9 @@ one left and one right interval.  This is the code we have been using above.
 ```{python}
 # One trial, generating a left and right interval.
 # Take a new sample.
-this_sample = sf2015.sample(500, replace=True)
+this_sample = compensation.sample(500, replace=True)
 # Get the bootstrap sampling distribution of the median.
-these_medians = bootstrap_median(this_sample,
-                                'Total Compensation',
-                                5000)
+these_medians = bootstrap_median(this_sample, 5000)
 # Calculate the left, right ends.
 left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
 print('Left', left_end)
@@ -428,11 +423,9 @@ right_ends = np.zeros(n_intervals)
 for i in np.arange(100):
     # One trial, generating a left and right interval.
     # Take a new sample.
-    this_sample = sf2015.sample(500, replace=True)
+    this_sample = compensation.sample(500, replace=True)
     # Get the bootstrap sampling distribution of the median.
-    these_medians = bootstrap_median(this_sample,
-                                    'Total Compensation',
-                                    5000)
+    these_medians = bootstrap_median(this_sample, 5000)
     # Calculate the left, right ends.
     left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
     # Store the results for this trial.
