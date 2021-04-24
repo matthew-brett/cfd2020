@@ -1442,14 +1442,12 @@ of the total compensations.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sf_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">700000</span><span class="p">,</span> <span class="mi">25000</span><span class="p">)</span>
 <span class="n">sf2015</span><span class="p">[</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">35</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/bootstrap_15_1.png" src="../_images/bootstrap_15_1.png" />
+<img alt="../_images/bootstrap_15_0.png" src="../_images/bootstrap_15_0.png" />
 </div>
 </div>
 <p>While most of the values are below $300,000, a few are quite a bit higher. For
@@ -1591,14 +1589,12 @@ the parameter.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample size 500, without replacement.</span>
 <span class="n">our_sample</span> <span class="o">=</span> <span class="n">sf2015</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">our_sample</span><span class="p">[</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">35</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/bootstrap_23_1.png" src="../_images/bootstrap_23_1.png" />
+<img alt="../_images/bootstrap_23_0.png" src="../_images/bootstrap_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1609,7 +1605,7 @@ the parameter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112198.465
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114137.03
 </pre></div>
 </div>
 </div>
@@ -1719,124 +1715,124 @@ the corresponding sample median.</p>
   </thead>
   <tbody>
     <tr>
-      <th>39854</th>
-      <td>Calendar</td>
-      <td>2015</td>
-      <td>2</td>
-      <td>Public Works, Transportation &amp; Commerce</td>
-      <td>MTA</td>
-      <td>Municipal Transportation Agency</td>
-      <td>253.0</td>
-      <td>Transport Workers - Transit Operators, Local 2...</td>
-      <td>9100</td>
-      <td>Street Transit</td>
-      <td>...</td>
-      <td>22523</td>
-      <td>39623.59</td>
-      <td>5028.64</td>
-      <td>1369.88</td>
-      <td>46022.11</td>
-      <td>10600.05</td>
-      <td>12384.31</td>
-      <td>3242.54</td>
-      <td>26226.90</td>
-      <td>72249.01</td>
-    </tr>
-    <tr>
-      <th>24347</th>
+      <th>36273</th>
       <td>Calendar</td>
       <td>2015</td>
       <td>1</td>
       <td>Public Protection</td>
-      <td>FIR</td>
-      <td>Fire Department</td>
-      <td>798.0</td>
-      <td>Firefighters - Miscellaneous, Local 798</td>
-      <td>H000</td>
-      <td>Fire Services</td>
+      <td>CRT</td>
+      <td>Superior Court</td>
+      <td>792.0</td>
+      <td>SEIU - Court Employees, Local 1021</td>
+      <td>SCRT</td>
+      <td>SF Superior Court</td>
       <td>...</td>
-      <td>20420</td>
-      <td>74602.23</td>
-      <td>13617.96</td>
-      <td>10268.71</td>
-      <td>98488.90</td>
-      <td>17073.38</td>
-      <td>14053.01</td>
-      <td>1643.00</td>
-      <td>32769.39</td>
-      <td>131258.29</td>
+      <td>41538</td>
+      <td>88296.01</td>
+      <td>0.00</td>
+      <td>6106.42</td>
+      <td>94402.43</td>
+      <td>18501.07</td>
+      <td>12424.50</td>
+      <td>7755.58</td>
+      <td>38681.15</td>
+      <td>133083.58</td>
     </tr>
     <tr>
-      <th>13646</th>
+      <th>25696</th>
       <td>Calendar</td>
       <td>2015</td>
       <td>4</td>
       <td>Community Health</td>
       <td>DPH</td>
       <td>Public Health</td>
-      <td>21.0</td>
-      <td>Prof &amp; Tech Engineers - Miscellaneous, Local 21</td>
-      <td>2500</td>
-      <td>Med Therapy &amp; Auxiliary</td>
+      <td>791.0</td>
+      <td>SEIU - Staff and Per Diem Nurses, Local 1021</td>
+      <td>2300</td>
+      <td>Nursing</td>
       <td>...</td>
-      <td>30022</td>
-      <td>39158.12</td>
+      <td>43444</td>
+      <td>48625.58</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>39158.12</td>
-      <td>7381.92</td>
-      <td>4761.87</td>
-      <td>3058.45</td>
-      <td>15202.24</td>
-      <td>54360.36</td>
+      <td>8617.26</td>
+      <td>57242.84</td>
+      <td>10601.30</td>
+      <td>3757.70</td>
+      <td>5669.78</td>
+      <td>20028.78</td>
+      <td>77271.62</td>
     </tr>
     <tr>
-      <th>19256</th>
+      <th>24096</th>
       <td>Calendar</td>
       <td>2015</td>
       <td>2</td>
       <td>Public Works, Transportation &amp; Commerce</td>
-      <td>MTA</td>
-      <td>Municipal Transportation Agency</td>
+      <td>DPW</td>
+      <td>General Services Agency - Public Works</td>
       <td>21.0</td>
       <td>Prof &amp; Tech Engineers - Miscellaneous, Local 21</td>
-      <td>5300</td>
-      <td>Sub-Professional Engineering</td>
+      <td>5200</td>
+      <td>Professional Engineering</td>
       <td>...</td>
-      <td>124</td>
-      <td>31552.00</td>
+      <td>45774</td>
+      <td>149312.02</td>
       <td>0.00</td>
       <td>0.00</td>
-      <td>31552.00</td>
-      <td>5871.80</td>
-      <td>5256.52</td>
-      <td>2590.49</td>
-      <td>13718.81</td>
-      <td>45270.81</td>
+      <td>149312.02</td>
+      <td>30049.20</td>
+      <td>12424.63</td>
+      <td>10331.14</td>
+      <td>52804.97</td>
+      <td>202116.99</td>
     </tr>
     <tr>
-      <th>17908</th>
+      <th>36758</th>
       <td>Calendar</td>
       <td>2015</td>
       <td>4</td>
       <td>Community Health</td>
       <td>DPH</td>
       <td>Public Health</td>
-      <td>22.0</td>
-      <td>Prof &amp; Tech Engineers - Personnel, Local 21</td>
-      <td>1200</td>
-      <td>Personnel</td>
+      <td>250.0</td>
+      <td>SEIU - Health Workers, Local 1021</td>
+      <td>2300</td>
+      <td>Nursing</td>
       <td>...</td>
-      <td>24310</td>
-      <td>63547.61</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>63547.61</td>
-      <td>13070.16</td>
+      <td>11483</td>
+      <td>47155.45</td>
+      <td>1198.72</td>
+      <td>3132.20</td>
+      <td>51486.37</td>
+      <td>11604.07</td>
+      <td>12339.39</td>
+      <td>4107.49</td>
+      <td>28050.95</td>
+      <td>79537.32</td>
+    </tr>
+    <tr>
+      <th>37790</th>
+      <td>Calendar</td>
+      <td>2015</td>
+      <td>4</td>
+      <td>Community Health</td>
+      <td>DPH</td>
+      <td>Public Health</td>
+      <td>790.0</td>
+      <td>SEIU - Miscellaneous, Local 1021</td>
+      <td>2100</td>
+      <td>Hospital Administration</td>
+      <td>...</td>
+      <td>21940</td>
+      <td>63887.00</td>
+      <td>9762.19</td>
+      <td>1539.67</td>
+      <td>75188.86</td>
+      <td>13303.42</td>
       <td>12424.50</td>
-      <td>5103.87</td>
-      <td>30598.53</td>
-      <td>94146.14</td>
+      <td>6140.73</td>
+      <td>31868.65</td>
+      <td>107057.51</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1863,55 +1859,79 @@ the corresponding sample median.</p>
       <td>...</td>
     </tr>
     <tr>
-      <th>16328</th>
+      <th>3300</th>
       <td>Calendar</td>
       <td>2015</td>
-      <td>1</td>
-      <td>Public Protection</td>
-      <td>FIR</td>
-      <td>Fire Department</td>
-      <td>798.0</td>
-      <td>Firefighters - Miscellaneous, Local 798</td>
-      <td>H000</td>
-      <td>Fire Services</td>
+      <td>4</td>
+      <td>Community Health</td>
+      <td>DPH</td>
+      <td>Public Health</td>
+      <td>164.0</td>
+      <td>Physicians and Dentists - Miscellaneous</td>
+      <td>2200</td>
+      <td>Medical &amp; Dental</td>
       <td>...</td>
-      <td>45300</td>
-      <td>37144.33</td>
-      <td>14536.01</td>
-      <td>2453.78</td>
-      <td>54134.12</td>
-      <td>7327.32</td>
-      <td>4730.87</td>
-      <td>909.28</td>
-      <td>12967.47</td>
-      <td>67101.59</td>
+      <td>24141</td>
+      <td>212753.00</td>
+      <td>306.15</td>
+      <td>45547.95</td>
+      <td>258607.10</td>
+      <td>49221.85</td>
+      <td>12424.50</td>
+      <td>12043.97</td>
+      <td>73690.32</td>
+      <td>332297.42</td>
     </tr>
     <tr>
-      <th>27510</th>
+      <th>19556</th>
       <td>Calendar</td>
       <td>2015</td>
-      <td>3</td>
-      <td>Human Welfare &amp; Neighborhood Development</td>
-      <td>DSS</td>
-      <td>Human Services</td>
+      <td>4</td>
+      <td>Community Health</td>
+      <td>DPH</td>
+      <td>Public Health</td>
       <td>790.0</td>
       <td>SEIU - Miscellaneous, Local 1021</td>
-      <td>1400</td>
-      <td>Clerical, Secretarial &amp; Steno</td>
+      <td>2500</td>
+      <td>Med Therapy &amp; Auxiliary</td>
       <td>...</td>
-      <td>24514</td>
-      <td>44587.28</td>
+      <td>38346</td>
+      <td>49770.98</td>
       <td>0.00</td>
-      <td>452.40</td>
-      <td>45039.68</td>
-      <td>9626.09</td>
-      <td>9007.77</td>
-      <td>3727.92</td>
-      <td>22361.78</td>
-      <td>67401.46</td>
+      <td>1561.70</td>
+      <td>51332.68</td>
+      <td>10566.97</td>
+      <td>9192.94</td>
+      <td>4012.29</td>
+      <td>23772.20</td>
+      <td>75104.88</td>
     </tr>
     <tr>
-      <th>39323</th>
+      <th>28301</th>
+      <td>Calendar</td>
+      <td>2015</td>
+      <td>5</td>
+      <td>Culture &amp; Recreation</td>
+      <td>REC</td>
+      <td>Recreation and Park Commission</td>
+      <td>790.0</td>
+      <td>SEIU - Miscellaneous, Local 1021</td>
+      <td>1200</td>
+      <td>Personnel</td>
+      <td>...</td>
+      <td>31059</td>
+      <td>56510.17</td>
+      <td>0.00</td>
+      <td>40.00</td>
+      <td>56550.17</td>
+      <td>11638.83</td>
+      <td>12093.76</td>
+      <td>4479.77</td>
+      <td>28212.36</td>
+      <td>84762.53</td>
+    </tr>
+    <tr>
+      <th>38665</th>
       <td>Calendar</td>
       <td>2015</td>
       <td>4</td>
@@ -1923,64 +1943,40 @@ the corresponding sample median.</p>
       <td>2300</td>
       <td>Nursing</td>
       <td>...</td>
-      <td>35423</td>
-      <td>136071.03</td>
+      <td>16501</td>
+      <td>40552.24</td>
       <td>0.00</td>
-      <td>250.00</td>
-      <td>136321.03</td>
-      <td>27384.43</td>
-      <td>12424.50</td>
-      <td>9965.08</td>
-      <td>49774.01</td>
-      <td>186095.04</td>
+      <td>3344.69</td>
+      <td>43896.93</td>
+      <td>3379.47</td>
+      <td>3061.39</td>
+      <td>2833.52</td>
+      <td>9274.38</td>
+      <td>53171.31</td>
     </tr>
     <tr>
-      <th>14164</th>
+      <th>33426</th>
       <td>Calendar</td>
       <td>2015</td>
-      <td>6</td>
-      <td>General Administration &amp; Finance</td>
-      <td>HSS</td>
-      <td>Health Service System</td>
-      <td>790.0</td>
-      <td>SEIU - Miscellaneous, Local 1021</td>
-      <td>1200</td>
-      <td>Personnel</td>
+      <td>1</td>
+      <td>Public Protection</td>
+      <td>FIR</td>
+      <td>Fire Department</td>
+      <td>798.0</td>
+      <td>Firefighters - Miscellaneous, Local 798</td>
+      <td>H000</td>
+      <td>Fire Services</td>
       <td>...</td>
-      <td>16536</td>
-      <td>63705.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>63705.00</td>
-      <td>13129.83</td>
-      <td>12424.50</td>
-      <td>5101.76</td>
-      <td>30656.09</td>
-      <td>94361.09</td>
-    </tr>
-    <tr>
-      <th>27237</th>
-      <td>Calendar</td>
-      <td>2015</td>
-      <td>2</td>
-      <td>Public Works, Transportation &amp; Commerce</td>
-      <td>AIR</td>
-      <td>Airport Commission</td>
-      <td>21.0</td>
-      <td>Prof &amp; Tech Engineers - Miscellaneous, Local 21</td>
-      <td>1000</td>
-      <td>Information Systems</td>
-      <td>...</td>
-      <td>48519</td>
-      <td>71973.01</td>
-      <td>0.00</td>
-      <td>1560.00</td>
-      <td>73533.01</td>
-      <td>15871.61</td>
-      <td>11468.76</td>
-      <td>5374.13</td>
-      <td>32714.50</td>
-      <td>106247.51</td>
+      <td>2821</td>
+      <td>113223.00</td>
+      <td>34577.87</td>
+      <td>17246.88</td>
+      <td>165047.75</td>
+      <td>24968.62</td>
+      <td>15196.12</td>
+      <td>2767.43</td>
+      <td>42932.17</td>
+      <td>207979.92</td>
     </tr>
   </tbody>
 </table>
@@ -1989,7 +1985,8 @@ the corresponding sample median.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_1</span><span class="p">[</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_1</span><span class="p">[</span><span class="s1">&#39;Total Compensation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">sf_bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">35</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2005,7 +2002,7 @@ the corresponding sample median.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112277.12
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117374.05
 </pre></div>
 </div>
 </div>
@@ -2025,7 +2022,7 @@ the <em>bootstrap sampling distribution of the median</em>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111243.13500000001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115381.63
 </pre></div>
 </div>
 </div>
@@ -2092,14 +2089,12 @@ but did not use in the bootstrap process.</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bootstrap sampling distribution of median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">35</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Bootstrap sampling distribution of median&#39;)
-</pre></div>
-</div>
-<img alt="../_images/bootstrap_41_1.png" src="../_images/bootstrap_41_1.png" />
+<img alt="../_images/bootstrap_41_0.png" src="../_images/bootstrap_41_0.png" />
 </div>
 </div>
 <p>It is important to remember that the red dot is fixed: it is $110,305.79, the
@@ -2125,7 +2120,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>106632.175
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>107712.23
 </pre></div>
 </div>
 </div>
@@ -2138,7 +2133,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>118100.23
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>121396.963375
 </pre></div>
 </div>
 </div>
@@ -2151,7 +2146,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([106632.175, 118100.23 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([107712.23    , 121396.963375])
 </pre></div>
 </div>
 </div>
@@ -2166,8 +2161,8 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 106632.175
-Left 118100.23
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 107712.23
+Left 121396.963375
 </pre></div>
 </div>
 </div>
@@ -2179,7 +2174,8 @@ Left 118100.23
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_medians</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pop_median</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span> <span class="o">=</span> <span class="mi">35</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2216,8 +2212,8 @@ one left and one right interval.  This is the code we have been using above.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 104348.38500000001
-Left 114237.26
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 109447.645875
+Left 119815.62799999995
 </pre></div>
 </div>
 </div>
@@ -2292,28 +2288,28 @@ estimates of the median.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>107263.325000</td>
-      <td>118864.580</td>
+      <td>104741.800000</td>
+      <td>117536.650000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>106376.760000</td>
-      <td>116516.680</td>
+      <td>107510.980000</td>
+      <td>117248.070000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>101016.950000</td>
-      <td>111193.260</td>
+      <td>109706.896875</td>
+      <td>120949.270000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>100456.535000</td>
-      <td>112157.055</td>
+      <td>105604.925000</td>
+      <td>117212.050000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>107998.410000</td>
-      <td>118901.765</td>
+      <td>103526.965000</td>
+      <td>116737.780000</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2322,28 +2318,28 @@ estimates of the median.</p>
     </tr>
     <tr>
       <th>95</th>
-      <td>103323.525000</td>
-      <td>114704.200</td>
+      <td>100261.680000</td>
+      <td>115336.942250</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>106001.424125</td>
-      <td>117186.240</td>
+      <td>104065.520000</td>
+      <td>115934.530000</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>100528.625000</td>
-      <td>111495.190</td>
+      <td>105259.025000</td>
+      <td>112827.603875</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>102765.365000</td>
-      <td>113292.680</td>
+      <td>101536.380000</td>
+      <td>112587.810000</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>108243.670000</td>
-      <td>120236.900</td>
+      <td>101598.685000</td>
+      <td>112824.160000</td>
     </tr>
   </tbody>
 </table>
@@ -2401,28 +2397,28 @@ end is above.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>107263.325000</td>
-      <td>118864.580</td>
+      <td>104741.800000</td>
+      <td>117536.650000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>106376.760000</td>
-      <td>116516.680</td>
+      <td>107510.980000</td>
+      <td>117248.070000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>101016.950000</td>
-      <td>111193.260</td>
+      <td>109706.896875</td>
+      <td>120949.270000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>100456.535000</td>
-      <td>112157.055</td>
+      <td>105604.925000</td>
+      <td>117212.050000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>107998.410000</td>
-      <td>118901.765</td>
+      <td>103526.965000</td>
+      <td>116737.780000</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2431,32 +2427,32 @@ end is above.</p>
     </tr>
     <tr>
       <th>95</th>
-      <td>103323.525000</td>
-      <td>114704.200</td>
+      <td>100261.680000</td>
+      <td>115336.942250</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>106001.424125</td>
-      <td>117186.240</td>
+      <td>104065.520000</td>
+      <td>115934.530000</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>100528.625000</td>
-      <td>111495.190</td>
+      <td>105259.025000</td>
+      <td>112827.603875</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>102765.365000</td>
-      <td>113292.680</td>
+      <td>101536.380000</td>
+      <td>112587.810000</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>108243.670000</td>
-      <td>120236.900</td>
+      <td>101598.685000</td>
+      <td>112824.160000</td>
     </tr>
   </tbody>
 </table>
-<p>92 rows × 2 columns</p>
+<p>96 rows × 2 columns</p>
 </div></div></div>
 </div>
 <p>It takes a few minutes to construct all the intervals, but try it again if you
