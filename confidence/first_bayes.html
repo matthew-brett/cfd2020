@@ -56,6 +56,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayes and bars" href="bayes_bars.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="random_choice.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -630,6 +632,38 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Confidence
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bootstrap.html">
+   The Bootstrap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="havana_math.html">
+   A problem for the education minister
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   First Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_bars.html">
+   Bayes and bars
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="second_bayes.html">
+   Back to Bayes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   The end of the beginning
  </span>
 </p>
@@ -912,22 +946,22 @@ problem? Simulation!</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>green</td>
+      <td>4</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
+      <td>4</td>
       <td>red</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2</td>
-      <td>red</td>
+      <td>green</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2</td>
+      <td>4</td>
       <td>green</td>
     </tr>
   </tbody>
@@ -946,7 +980,7 @@ box we got was BOX4.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46125317196954907
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.46946564885496184
 </pre></div>
 </div>
 </div>
@@ -974,8 +1008,8 @@ probabilities we calculated above, but not exactly the same.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.2914
-Box2 proportion 0.7086
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.3025
+Box2 proportion 0.6975
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1037,7 @@ that give red) = 0.24.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2363
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.246
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1054,7 @@ that give red) = 0.28.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.276
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.278
 </pre></div>
 </div>
 </div>
@@ -1037,7 +1071,7 @@ red trials.  This is 0.24 + 0.28 = 0.52.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.5123
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.524
 </pre></div>
 </div>
 </div>
@@ -1052,7 +1086,7 @@ red.  So the proportion of <em>all</em> red trials, that are BOX4 <em>and</em> r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.4612531719695491
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.4694656488549618
 </pre></div>
 </div>
 </div>
@@ -1098,6 +1132,8 @@ are red).</p></li>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="random_choice.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="bayes_bars.html" title="next page">Bayes and bars</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

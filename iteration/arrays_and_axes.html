@@ -630,6 +630,38 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Confidence
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bootstrap.html">
+   The Bootstrap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/havana_math.html">
+   A problem for the education minister
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/first_bayes.html">
+   First Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bayes_bars.html">
+   Bayes and bars
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/second_bayes.html">
+   Back to Bayes
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   The end of the beginning
  </span>
 </p>
@@ -808,7 +840,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.921102  , 0.03163516, 0.58340393])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.69088245, 0.1589625 , 0.86661845])
 </pre></div>
 </div>
 </div>
@@ -891,16 +923,16 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.02499205, 0.78127177, 0.71309863],
-       [0.47842812, 0.04953698, 0.9916695 ],
-       [0.36568426, 0.12396781, 0.69598914],
-       [0.51886613, 0.72533924, 0.61164878],
-       [0.90123948, 0.44935263, 0.69581667],
-       [0.8604897 , 0.43484319, 0.09146655],
-       [0.86702603, 0.97706574, 0.26583235],
-       [0.30303162, 0.2873795 , 0.67642445],
-       [0.40894833, 0.85148392, 0.63765206],
-       [0.62305669, 0.66264147, 0.4441437 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.52424515, 0.5551715 , 0.58649936],
+       [0.4901339 , 0.74888634, 0.02253916],
+       [0.82023065, 0.50950925, 0.22710993],
+       [0.9195023 , 0.3466535 , 0.22973402],
+       [0.14871994, 0.77192635, 0.2135733 ],
+       [0.18753965, 0.95983344, 0.10548514],
+       [0.28728167, 0.49193966, 0.33308842],
+       [0.91032786, 0.9214233 , 0.23794206],
+       [0.20086901, 0.55412322, 0.71979476],
+       [0.13156346, 0.12409122, 0.51518642]])
 </pre></div>
 </div>
 </div>
@@ -915,16 +947,16 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True, False, False],
-       [ True,  True, False],
-       [ True,  True, False],
-       [False, False, False],
-       [False,  True, False],
-       [False,  True,  True],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False],
+       [ True, False,  True],
        [False, False,  True],
-       [ True,  True, False],
+       [False,  True,  True],
+       [ True, False,  True],
+       [ True, False,  True],
+       [ True,  True,  True],
+       [False, False,  True],
        [ True, False, False],
-       [False, False,  True]])
+       [ True,  True, False]])
 </pre></div>
 </div>
 </div>
@@ -938,7 +970,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -956,7 +988,7 @@ columns are the two <em>axes</em> of the array.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 3, 7])
 </pre></div>
 </div>
 </div>
@@ -989,7 +1021,7 @@ row.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 3, 7])
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1035,7 @@ row.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 2, 0, 1, 2, 1, 2, 1, 1])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 2, 1, 2, 2, 2, 3, 1, 1, 2])
 </pre></div>
 </div>
 </div>
