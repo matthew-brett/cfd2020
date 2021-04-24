@@ -149,16 +149,6 @@
   - file: classification/Multiple_Regression
   - file: classification/single_multiple
 
-#     - file: /confidence
-#       - file: /havana_math
-#       - file: /random_choice
-#       - file: /first_bayes
-#   * - [Bayes theorom](notebooks/10/bayes_theorem
-#       - file: /bayes_bars
-#       - file: /second_bayes
-#   * - [Equal initial P algebra](notebooks/10/equal_initial_p
-#   * - [9.3 Back to Havana](notebooks/10/bayes_confidence
-#
 - part: Useful pandas
   chapters:
   - file: useful-pandas/crosstab
@@ -168,6 +158,16 @@
 - part: More on regression
   chapters:
   - file: more-regression/logistic_regression
+
+- part: Confidence
+  chapters:
+  - file: confidence/confidence
+  - file: confidence/bootstrap
+  - file: confidence/havana_math
+  - file: confidence/random_choice
+  - file: confidence/first_bayes
+  - file: confidence/bayes_bars
+  - file: confidence/second_bayes
 
 - part: The end of the beginning
   chapters:
