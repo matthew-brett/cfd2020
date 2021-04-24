@@ -117,6 +117,7 @@ of the total compensations.
 ```{python}
 sf_bins = np.arange(0, 700000, 25000)
 sf2015['Total Compensation'].plot.hist(bins=sf_bins)
+plt.xticks(rotation = 35);
 ```
 
 While most of the values are below \$300,000, a few are quite a bit higher. For
@@ -159,6 +160,7 @@ the parameter.
 # Sample size 500, without replacement.
 our_sample = sf2015.sample(500, replace=False)
 our_sample['Total Compensation'].plot.hist(bins=sf_bins)
+plt.xticks(rotation = 35);
 ```
 
 ```{python}
@@ -240,7 +242,8 @@ resample_1
 ```
 
 ```{python}
-resample_1['Total Compensation'].plot.hist(bins=sf_bins);
+resample_1['Total Compensation'].plot.hist(bins=sf_bins)
+plt.xticks(rotation = 35);
 ```
 
 ```{python}
@@ -320,6 +323,7 @@ resampled_medians.plot.hist()
 
 plt.scatter(pop_median, 0, color='red', s=30);
 plt.title('Bootstrap sampling distribution of median')
+plt.xticks(rotation = 35);
 ```
 
 It is important to remember that the red dot is fixed: it is \$110,305.79, the
@@ -373,7 +377,8 @@ The population median of \$110,305 is between these two numbers, `left` and
 resampled_medians.hist()
 
 plt.plot([left, right], [0, 0], color='yellow', lw=8, zorder=1)
-plt.scatter(pop_median, 0, color='red', s=100, zorder=2);
+plt.scatter(pop_median, 0, color='red', s=200, zorder=2)
+plt.xticks(rotation = 35);
 ```
 
 The "middle 95%" interval of estimates captured the parameter in our example.
