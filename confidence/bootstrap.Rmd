@@ -156,7 +156,8 @@ the median total compensation of the sampled employees serve as our estimate of
 the parameter.
 
 ```{python}
-our_sample = sf2015.sample(n_sample, replace=False)
+# Sample size 500, without replacement.
+our_sample = sf2015.sample(500, replace=False)
 our_sample['Total Compensation'].plot.hist(bins=sf_bins)
 ```
 
@@ -223,11 +224,15 @@ well.
 
 ## A Resampled Median
 
-Recall that when the `sample` method is used without specifying a sample size,
-by default the sample size equals the number of rows of the table from which
-the sample is drawn.  We could also specify `replace=False` to `sampple`, but
-this is the default as well! That's perfect for the bootstrap.  Here is one new
-sample drawn from the original sample, and the corresponding sample median.
+
+We will use the `sample` method of the Series to take the new sample with
+replacement.
+
+We want a sample the same size as the original sample (500), where we are
+sampling *with replacement*.
+
+Here is one new sample drawn from the original sample, with replacement, and
+the corresponding sample median.
 
 ```{python}
 resample_1 = our_sample.sample(500, replace=True)
@@ -235,7 +240,7 @@ resample_1
 ```
 
 ```{python}
-resample_1['Total Compensation'].plot.hist(bins=sf_bins)
+resample_1['Total Compensation'].plot.hist(bins=sf_bins);
 ```
 
 ```{python}
@@ -245,7 +250,10 @@ resampled_median_1
 
 By resampling, we have another estimate of the population median. By resampling
 again and again, we will get many such estimates, and hence an empirical
-distribution of the estimates.
+distribution of the estimates.  We can call this distribution a *sampling
+distribution* of the median - it is the distribution of the median values we
+get from taking many samples.  Our samples are *bootstrap* samples, so this is
+the *bootstrap sampling distribution of the median*.
 
 ```{python}
 resample_2 = our_sample.sample(500, replace=True)
@@ -292,41 +300,6 @@ def bootstrap_median(original_sample, label, replications):
     return medians
 ```
 
-```{python}
-def bs_median(col, replications):
-    """Return array of bootstrapped sample medians
-
-    Parameters
-    ----------
-    original_sample: data frame
-        Data frame containing the original sample
-    label: str
-        String giving label of column containing the variable.
-    replications: number
-        number of bootstrap samples
-
-    Returns
-    -------
-    samp_meds : array
-        Array of bootstrapped sample medians.
-    """
-    n = len(col)
-    medians = np.zeros(replications)
-    for i in np.arange(replications):
-        bootstrap_sample = col.sample(n, replace=True)
-        medians[i] = np.median(bootstrap_sample)
-    return medians
-```
-
-```{python}
-timeit bootstrap_median(our_sample, 'Total Compensation', 5000)
-```
-
-```{python}
-col = our_sample['Total Compensation']
-# %timeit bs_median(col, 5000)
-```
-
 We now replicate the bootstrap process 5,000 times. The array `bstrap_medians`
 contains the medians of all 5,000 bootstrap samples. Notice that the code takes
 longer to run than our previous code. It has a lot of resampling to do!
@@ -346,11 +319,12 @@ resampled_medians['Bootstrap Sample Median'] = bstrap_medians
 resampled_medians.plot.hist()
 
 plt.scatter(pop_median, 0, color='red', s=30);
+plt.title('Bootstrap sampling distribution of median')
 ```
 
 It is important to remember that the red dot is fixed: it is \$110,305.79, the
 population median. The empirical histogram is the result of random draws, and
-will be situated randomly relative to the red dot. 
+will be situated randomly relative to the red dot.
 
 Remember also that the point of all these computations is to estimate the
 population median, which is the red dot. Our estimates are all the randomly
@@ -378,8 +352,22 @@ right = np.percentile(bstrap_medians, 97.5)
 right
 ```
 
-The population median of \$110,305 is between these two numbers. The interval
-and the population median are shown on the histogram below.
+In fact we can get both left and right percentiles in one call, like this:
+
+```{python}
+np.percentile(bstrap_medians, [2.5, 97.5])
+```
+
+We can use unpacking in the usual way, to set our `left` and `right` variables:
+
+```{python}
+left, right = np.percentile(bstrap_medians, [2.5, 97.5])
+print('Left', left)
+print('Left', right)
+```
+
+The population median of \$110,305 is between these two numbers, `left` and
+`right`. We show the interval and the population median on the histogram below.
 
 ```{python}
 resampled_medians.hist()
@@ -399,28 +387,51 @@ process 100 times:
 * Carry out 5,000 replications of the bootstrap process and generate the
   "middle 95%" interval of resampled medians.
 
-We will end up with 100 intervals, and count how many of them contain the
-population median.
+As usual we start by doing one trial, where we take one sample, and generate
+one left and one right interval.  This is the code we have been using above.
+
+```{python}
+# One trial, generating a left and right interval.
+# Take a new sample.
+this_sample = sf2015.sample(500, replace=True)
+# Get the bootstrap sampling distribution of the median.
+these_medians = bootstrap_median(this_sample,
+                                'Total Compensation', 
+                                5000)
+# Calculate the left, right ends.
+left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
+print('Left', left_end)
+print('Left', right_end)
+```
+
+We will repeat this trial procedure 100 times, to give with 100 left and right
+intervals, and count how many of these intervals contain the population median.
 
 **Spoiler alert:** The statistical theory of the bootstrap says that the number
 should be around 95. It may be in the low 90s or high 90s, but not much farther
 off 95 than that.
 
 ```{python}
-# THE BIG SIMULATION: This one takes several minutes.
+# THE BIG SIMULATION: This one can take several minutes.
 
-# Generate 100 intervals
+# Set up to make 100 left and right intervals
 n_intervals = 100
 left_ends = np.zeros(n_intervals)
 right_ends = np.zeros(n_intervals)
 
 for i in np.arange(100):
-    first_sample = sf2015.sample(500, replace=True)
-    medians = bootstrap_median(first_sample,
-                               'Total Compensation', 
-                               5000)
-    left_ends[i] = np.percentile(medians, 2.5)
-    right_ends[i] = np.percentile(medians, 97.5)
+    # One trial, generating a left and right interval.
+    # Take a new sample.
+    this_sample = sf2015.sample(500, replace=True)
+    # Get the bootstrap sampling distribution of the median.
+    these_medians = bootstrap_median(this_sample,
+                                    'Total Compensation', 
+                                    5000)
+    # Calculate the left, right ends.
+    left_end, right_end = np.percentile(these_medians, [2.5, 97.5])
+    # Store the results for this trial.
+    left_ends[i] = left_end
+    right_ends[i] = right_end
 
 # Put interval ends into own data frame.
 intervals = pd.DataFrame()
@@ -428,7 +439,8 @@ intervals['Left'] = left_ends
 intervals['Right'] = right_ends
 ```
 
-For each of the 100 replications, we get one interval of estimates of the median.
+For each of the 100 replications, we get one (left, right) interval of
+estimates of the median.
 
 ```{python}
 intervals
@@ -462,11 +474,11 @@ vertically. The vertical axis is simply the number of the replication from
 which the interval was generated.
 
 The red line is where the parameter is. Good intervals cover the parameter;
-there are about 95 of these, typically. 
+there are about 95 of these, typically.
 
 If an interval doesn't cover the parameter, it's a dud. The duds are the ones
 where you can see "daylight" around the red line. There are very few of them –
-about 5, typically – but they do happen. 
+about 5, typically – but they do happen.
 
 Any method based on sampling has the possibility of being off. The beauty of
 methods based on random sampling is that we can quantify how often they are
@@ -477,7 +489,7 @@ plt.figure(figsize=(8,8))
 for i in np.arange(len(intervals)):
     ends = intervals.iloc[i]
     plt.plot(ends, [i, i], color='gold')
-plt.plot(make_array(pop_median, pop_median), [0, 100],
+plt.plot([pop_median, pop_median], [0, 100],
          color='red', lw=2)
 plt.xlabel('Median (dollars)')
 plt.ylabel('Replication')
