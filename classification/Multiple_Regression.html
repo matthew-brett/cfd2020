@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiple regression &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +44,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -658,21 +660,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -690,7 +692,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -711,13 +713,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -745,13 +747,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -794,6 +797,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -1067,7 +1071,7 @@ houses that sold for less than $35,000.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x121306c10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;1st Flr SF&#39;, ylabel=&#39;SalePrice&#39;&gt;
 </pre></div>
 </div>
 <img alt="../_images/Multiple_Regression_9_1.png" src="../_images/Multiple_Regression_9_1.png" />
@@ -1163,19 +1167,19 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        1707.0
-2nd Flr SF           0.0
-Total Bsmt SF     1686.0
-Garage Area        511.0
-Wood Deck SF       574.0
-Open Porch SF       64.0
-Lot Area         16669.0
-Year Built        1981.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        1074.0
+2nd Flr SF         990.0
+Total Bsmt SF     1074.0
+Garage Area        527.0
+Wood Deck SF         0.0
+Open Porch SF      119.0
+Lot Area         13128.0
+Year Built        2005.0
 Yr Sold           2006.0
-Name: 2894, dtype: float64
-Using slopes: [10.76189424 10.54826802  9.23588225  9.40309564 10.30623079  9.15678617
- 10.82847441 10.98964982  9.51748786]
-Result: 266611.46043442574
+Name: 2318, dtype: float64
+Using slopes: [11.20037681  9.15198819 10.3629847   8.85668305  9.28557618  7.91523027
+ 10.46090241 10.24048104  8.3942292 ]
+Result: 212530.61802063437
 </pre></div>
 </div>
 </div>
@@ -1189,8 +1193,8 @@ Result: 266611.46043442574
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 228000
-Predicted sale price using random slopes: 266611.46043442574
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 250000
+Predicted sale price using random slopes: 212530.61802063437
 </pre></div>
 </div>
 </div>
@@ -1220,10 +1224,7 @@ Predicted sale price using random slopes: 266611.46043442574
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 97665.37874744752
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 95026.8337139991
 </pre></div>
 </div>
 </div>
@@ -1251,7 +1252,7 @@ Don’t worry about the details, unless you are interested.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 97665.37874744752
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 95026.8337139991
 </pre></div>
 </div>
 </div>
@@ -1274,45 +1275,45 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 31368.364759785713
- hess_inv: array([[   0.8650328 ,   -0.73446426,   -0.29541986,    0.        ,
-           0.17013462,   -0.65420672,    0.00419215,   -5.13763059,
-           4.459057  ],
-       [  -0.73446426,    5.10207291,   -0.54805904,    0.        ,
-          -1.76215565,    2.42096174,   -0.04911585,   31.95997001,
-         -28.8172584 ],
-       [  -0.29541986,   -0.54805904,    0.63681739,    0.        ,
-           0.17730769,   -0.46113538,    0.00541076,   -4.74986328,
-           4.29546367],
-       [   0.        ,    0.        ,    0.        ,    0.        ,
-           0.        ,    0.        ,    0.        ,    0.        ,
-           0.        ],
-       [   0.17013462,   -1.76215565,    0.17730769,    0.        ,
-           1.99252274,   -2.12680387,    0.017409  ,  -11.6907199 ,
-          10.60629429],
-       [  -0.65420672,    2.42096174,   -0.46113538,    0.        ,
-          -2.12680387,    3.32647667,   -0.02162437,   19.66326083,
-         -17.60156558],
-       [   0.00419215,   -0.04911585,    0.00541076,    0.        ,
-           0.017409  ,   -0.02162437,    0.00101383,   -0.31908859,
-           0.28685367],
-       [  -5.13763059,   31.95997001,   -4.74986328,    0.        ,
-         -11.6907199 ,   19.66326083,   -0.31908859,  237.79260302,
-        -215.31902604],
-       [   4.459057  ,  -28.8172584 ,    4.29546367,    0.        ,
-          10.60629429,  -17.60156558,    0.28685367, -215.31902604,
-         195.15254199]])
-      jac: array([ 0.00024414,  0.00048828,  0.00024414,  0.00024414,  0.00024414,
-        0.00024414, -0.00048828,  0.00024414,  0.00024414])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 30784.77517572843
+ hess_inv: array([[  0.32144664,   0.0417041 ,  -0.11655803,   0.03815916,
+         -0.17457866,   0.13414852,  -0.00254428,  -0.34379304,
+          0.21040969],
+       [  0.0417041 ,   0.19745267,   0.01034906,  -0.01136484,
+          0.01380898,  -0.0112902 ,  -0.00147977,  -0.02813956,
+         -0.02556542],
+       [ -0.11655803,   0.01034906,   0.16965187,  -0.02068212,
+          0.13273214,  -0.1681123 ,  -0.00156076,  -0.37429515,
+          0.35624894],
+       [  0.03815916,  -0.01136484,  -0.02068212,   0.0367965 ,
+         -0.02827089,   0.02169714,  -0.00074252,   0.11736683,
+         -0.1260522 ],
+       [ -0.17457866,   0.01380898,   0.13273214,  -0.02827089,
+          0.16044522,  -0.14484462,   0.00153968,  -0.49346796,
+          0.50253514],
+       [  0.13414852,  -0.0112902 ,  -0.1681123 ,   0.02169714,
+         -0.14484462,   0.1865562 ,   0.00057526,   0.41989585,
+         -0.40542932],
+       [ -0.00254428,  -0.00147977,  -0.00156076,  -0.00074252,
+          0.00153968,   0.00057526,   0.00054454,   0.01250059,
+         -0.01254235],
+       [ -0.34379304,  -0.02813956,  -0.37429515,   0.11736683,
+         -0.49346796,   0.41989585,   0.01250059,  26.64799771,
+        -25.80842888],
+       [  0.21040969,  -0.02556542,   0.35624894,  -0.1260522 ,
+          0.50253514,  -0.40542932,  -0.01254235, -25.80842888,
+         25.09195932]])
+      jac: array([0.        , 0.        , 0.        , 0.        , 0.        ,
+       0.        , 0.00024414, 0.        , 0.        ])
   message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 480
-      nit: 27
-     njev: 48
+     nfev: 1089
+      nit: 33
+     njev: 108
    status: 2
   success: False
-        x: array([  75.55368693,   75.3121119 ,   47.57873854,   50.15594647,
-         37.69868892,   21.74668988,    0.62543149,  542.25148036,
-       -539.6944636 ])
+        x: array([  79.5547291 ,   76.4365947 ,   46.760215  ,   42.69923099,
+         40.14767421,   20.65094144,    0.51102275,  558.73401962,
+       -555.73439109])
 </pre></div>
 </div>
 </div>
@@ -1328,7 +1329,7 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best slopes for the training set:
-RMSE of all training examples using the best slopes: 31368.364759785716
+RMSE of all training examples using the best slopes: 30784.77517572843
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1363,15 +1364,15 @@ RMSE of all training examples using the best slopes: 31368.364759785716
   <tbody>
     <tr>
       <th>0</th>
-      <td>75.553687</td>
-      <td>75.312112</td>
-      <td>47.578739</td>
-      <td>50.155946</td>
-      <td>37.698689</td>
-      <td>21.74669</td>
-      <td>0.625431</td>
-      <td>542.25148</td>
-      <td>-539.694464</td>
+      <td>79.554729</td>
+      <td>76.436595</td>
+      <td>46.760215</td>
+      <td>42.699231</td>
+      <td>40.147674</td>
+      <td>20.650941</td>
+      <td>0.511023</td>
+      <td>558.73402</td>
+      <td>-555.734391</td>
     </tr>
   </tbody>
 </table>
@@ -1404,7 +1405,7 @@ other samples from the same population.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 30777.280583051088
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 31406.35211712535
 </pre></div>
 </div>
 </div>
@@ -1487,31 +1488,31 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2008</th>
-      <td>210000</td>
-      <td>915</td>
-      <td>720</td>
-      <td>1065.0</td>
-      <td>440.0</td>
-      <td>1923</td>
+      <th>68</th>
+      <td>215200</td>
+      <td>764</td>
+      <td>783</td>
+      <td>756.0</td>
+      <td>614.0</td>
+      <td>2009</td>
     </tr>
     <tr>
-      <th>900</th>
-      <td>103500</td>
-      <td>1560</td>
-      <td>0</td>
-      <td>1150.0</td>
-      <td>313.0</td>
-      <td>1956</td>
+      <th>1552</th>
+      <td>165500</td>
+      <td>1151</td>
+      <td>804</td>
+      <td>1151.0</td>
+      <td>356.0</td>
+      <td>1958</td>
     </tr>
     <tr>
-      <th>850</th>
-      <td>203000</td>
-      <td>1444</td>
+      <th>2615</th>
+      <td>183000</td>
+      <td>1773</td>
       <td>0</td>
-      <td>1431.0</td>
-      <td>577.0</td>
-      <td>2002</td>
+      <td>1313.0</td>
+      <td>418.0</td>
+      <td>1961</td>
     </tr>
   </tbody>
 </table>
@@ -1579,54 +1580,54 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>1017</th>
-      <td>226500</td>
-      <td>1688</td>
-      <td>0</td>
-      <td>1675.0</td>
-      <td>528.0</td>
-      <td>1988</td>
-      <td>28.635642</td>
-    </tr>
-    <tr>
-      <th>2807</th>
-      <td>200000</td>
-      <td>1700</td>
-      <td>0</td>
-      <td>1682.0</td>
-      <td>544.0</td>
+      <th>1851</th>
+      <td>301000</td>
+      <td>1072</td>
+      <td>976</td>
+      <td>1054.0</td>
+      <td>552.0</td>
       <td>2003</td>
-      <td>40.472213</td>
+      <td>35.057096</td>
     </tr>
     <tr>
-      <th>1000</th>
-      <td>247900</td>
-      <td>1682</td>
-      <td>0</td>
-      <td>1664.0</td>
-      <td>528.0</td>
-      <td>1997</td>
-      <td>40.669399</td>
+      <th>2800</th>
+      <td>274300</td>
+      <td>1108</td>
+      <td>989</td>
+      <td>1108.0</td>
+      <td>583.0</td>
+      <td>1998</td>
+      <td>74.148500</td>
     </tr>
     <tr>
-      <th>617</th>
-      <td>175000</td>
-      <td>1691</td>
-      <td>0</td>
-      <td>1680.0</td>
-      <td>550.0</td>
-      <td>1967</td>
-      <td>44.821870</td>
+      <th>1773</th>
+      <td>263000</td>
+      <td>1105</td>
+      <td>1097</td>
+      <td>1105.0</td>
+      <td>517.0</td>
+      <td>1992</td>
+      <td>116.790411</td>
     </tr>
     <tr>
-      <th>948</th>
-      <td>240000</td>
-      <td>1710</td>
-      <td>0</td>
-      <td>1710.0</td>
-      <td>550.0</td>
-      <td>2004</td>
-      <td>51.332251</td>
+      <th>502</th>
+      <td>260000</td>
+      <td>1094</td>
+      <td>967</td>
+      <td>1070.0</td>
+      <td>647.0</td>
+      <td>1995</td>
+      <td>124.277914</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>225000</td>
+      <td>1005</td>
+      <td>978</td>
+      <td>978.0</td>
+      <td>490.0</td>
+      <td>1999</td>
+      <td>124.603371</td>
     </tr>
   </tbody>
 </table>
@@ -1646,7 +1647,7 @@ of the graph.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>217880.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>264660.0
 </pre></div>
 </div>
 </div>
@@ -1661,8 +1662,8 @@ for our one test example. Looks reasonable!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 228000
-Predicted sale price using nearest neighbors: 217880.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 250000
+Predicted sale price using nearest neighbors: 264660.0
 </pre></div>
 </div>
 </div>
@@ -1685,8 +1686,8 @@ the predictions. Computation of the predictions may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  30777.280583051088
-Test set RMSE for nearest neighbor regression: 33081.32676923685
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  31406.35211712535
+Test set RMSE for nearest neighbor regression: 32226.889842901277
 </pre></div>
 </div>
 </div>
@@ -1743,15 +1744,15 @@ indicating that fewer prices were predicted with very high accuracy.</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Accuracy_of_the_Classifier.html" title="previous page">Accuracy of the classifier</a>
     <a class='right-next' id="next-link" href="single_multiple.html" title="next page">Simple and multiple regression</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1770,7 +1771,7 @@ indicating that fewer prices were predicted with very high accuracy.</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
