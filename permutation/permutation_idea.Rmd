@@ -299,7 +299,23 @@ plt.hist(fake_differences);
 
 We are interested to know just how unusual it is to get a difference as big as we actually see, in these many samples of differences we expect by chance, from random sampling.
 
-To do this we calculate how many of the fake differences we generated are equal to or greater than the difference we observe:
+The graph below shows the distribution of simulated differences. The actual difference obtained in the experiment is shown as a red dot:
+
+```{python}
+# plotting the fake differences, obtained in the simulation
+plt.figure(figsize = (8,4))
+plt.hist(fake_differences, label = 'differences obtained through simulation')
+plt.plot(observed_difference, 1, 'o', color = 'red', markersize = 10, label = 'actual difference')
+# adding some labels to the plot
+font_size = {'size':'12'}
+plt.xlabel('Difference between the mean number of activated mosquitoes for each group', **font_size)
+plt.ylabel('No. of times obtained in the simulation', **font_size)
+plt.legend(fontsize = 10, loc = 'upper right')
+# displaying the plot
+plt.show()
+```
+
+This certainly gives a picture of how unlikely the difference we observed is. Ideally, in addition to this picture, we also want a number that indicates how unlikely the observed difference is. To do this we calculate how many of the fake differences we generated are equal to or greater than the difference we observe:
 
 ```{python}
 n_ge_actual = np.count_nonzero(fake_differences >= observed_difference)
