@@ -27,6 +27,7 @@ plt.style.use('fivethirtyeight')
 ```
 
 ```{python tags=c("hide-cell")}
+colors = pd.read_csv('roulette_wheel.csv')['Color']
 pockets = ['0','00']
 for i in np.arange(1, 37):
     pockets.append(str(i))
@@ -81,7 +82,8 @@ Here is the result of a bet on red, for each possible pocket on the roulette whe
 
 ```{python}
 bets = pd.DataFrame()
-bets['Winnings: Red'] = wheel['Color'].apply(red_winnings
+bets['Color'] = wheel['Color'].copy()
+bets['Winnings: Red'] = wheel['Color'].apply(red_winnings)
 bets
 ```
 
@@ -104,27 +106,22 @@ for i in np.arange(n_simulations):
     spin = bets.sample(1)
     new_color = spin['Color']
     colors[i] = spin['Color'].iloc[0]
-    winnings_on_red = spin['Winnings: Red']
-```
-
-```{python}
-new_color
+    winnings_on_red[i] = spin['Winnings: Red']
 ```
 
 These are the colors we got:
 
 ```{python}
-colors.value_counts().plot.barh()
+pd.Series(colors).value_counts().plot.barh();
 ```
 
 Here are the corresponding winnings:
 
 ```{python}
-winnings_on_red['Winnings: Red'].plot.hist(bins=np.arange(-1.5, 1.6, 1))
+plt.hist(winnings_on_red, bins=np.arange(-1.5, 1.6, 1));
 ```
 
 Notice that this distribution is very far from being a bell shaped distribution curve.  Now let's think about *net* wins after a certain number of bets.
-
 
 ## Net gains at roulette
 
@@ -151,7 +148,7 @@ net_gain_red = np.zeros(n_simulations)
 
 for i in np.arange(n_simulations):
     spins = bets.sample(n_bets, replace=True)
-    net_gain_red = np.sum(spins['Winnings: Red'].sum())
+    net_gain_red[i] = np.sum(spins['Winnings: Red'].sum())
 
 results = pd.DataFrame()
 results['Net Gain on Red'] = net_gain_red
@@ -164,8 +161,8 @@ results.plot.hist(bins=np.arange(-80, 50, 6))
 That's a roughly bell shaped histogram, even though the distribution we are
 drawing from is nowhere near bell shaped.
 
-**Center.** The distribution is centered near -\$20, roughly. To see why, note
-that your winnings will be \$1 on about 18/38 of the bets, and -\$1 on the
+**Center.** The distribution is centered near 20. To see why, note
+that your winnings will be 1 on about 18/38 of the bets, and -1 on the
 remaining 20/38. So your average winnings per dollar bet will be roughly -5.26
 cents:
 
@@ -188,10 +185,10 @@ np.mean(results['Net Gain on Red'])
 
 **Spread.** Run your eye along the curve starting at the center and notice that
 the point of inflection is near 0. On a bell shaped curve, the SD is the
-distance from the center to a point of inflection. The center is roughly -\$20,
-which means that the SD of the distribution is around \$20.
+distance from the center to a point of inflection. The center is roughly -20,
+which means that the SD of the distribution is around 20.
 
-In the next section we will see where the \$20 comes from. For now, let's
+In the next section we will see where the 20 comes from. For now, let's
 confirm our observation by simply calculating the SD of the 10,000 simulated
 net gains:
 
@@ -216,7 +213,7 @@ delays = united['Delay']
 ```
 
 ```{python}
-delays.plot.hist(bins=np.arange(-20, 300, 10))
+delays.plot.hist(bins=np.arange(-20, 300, 10));
 ```
 
 The mean delay was about 16.6 minutes and the SD was about 39.5 minutes. Notice
@@ -241,7 +238,7 @@ Let's see what we get by sampling. We'll work with the table `delay` that only
 contains the column of delays.
 
 ```{python}
-np.mean(delays.sample(400))
+np.mean(delays.sample(400, replace=True))
 ```
 
 The sample average varies according to how the sample comes out, so we will
@@ -251,26 +248,20 @@ of the sample average.
 
 ```{python}
 sample_size = 400
-repetitions = 10000
+n_repetitions = 10000
 
-means = make_array()
+means = np.zeros(n_repetitions)
 
-for i in np.arange(repetitions):
-    sample = delay.sample(sample_size)
-    new_mean = np.mean(sample.column('Delay'))
-    means = np.append(means, new_mean)
-
-results = Table().with_column(
-    'Sample Mean', means
-)
+for i in np.arange(n_repetitions):
+    sample = delays.sample(sample_size)
+    means[i] = np.mean(sample)
 ```
 
 ```{python}
-results.hist(bins=np.arange(10, 25, 0.5))
+plt.hist(means, bins=np.arange(10, 25, 0.5));
 ```
 
 Once again, we see a rough bell shape, even though we are drawing from a very skewed distribution. The bell is centered somewhere between 16 ad 17, as we expect.
-
 
 ## Central Limit Theorem
 
@@ -322,14 +313,10 @@ for i in np.arange(n_repetitions):
     sample = model.sample(n_plants, replace=True)
     new_prop = np.count_nonzero(sample['Color'] == 'Purple') / n_plants
     props[i] = new_prop
-
-results = pd.DataFrame()
-results = results['Sample Proportion: 200'] = props)
-results.head()
 ```
 
 ```{python}
-results['Sample Proportion: 200'].hist(bins=np.arange(0.65, 0.85, 0.01))
+plt.hist(props, bins=np.arange(0.65, 0.85, 0.01));
 ```
 
 There's that normal curve again, as predicted by the Central Limit Theorem,
@@ -349,14 +336,10 @@ for i in np.arange(n_repetitions):
     sample = model.sample(n_plants, replace=True)
     new_prop = np.count_nonzero(sample['Color'] == 'Purple') / n_plants
     props2[i] = new_prop
-
-results = pd.DataFrame()
-results = results['Sample Proportion: 800'] = props)
-results.head()
 ```
 
 ```{python}
-results['Sample Proportion: 200'].hist(bins=np.arange(0.65, 0.85, 0.01))
+plt.hist(props2, bins=np.arange(0.65, 0.85, 0.01));
 ```
 
 Both distributions are approximately normal but one is narrower than the other.
