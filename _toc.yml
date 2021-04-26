@@ -164,6 +164,7 @@
   - file: confidence/confidence
   - file: confidence/bootstrap
   - file: confidence/havana_math
+  - file: confidence/Central_Limit_Theorem
   - file: confidence/random_choice
   - file: confidence/first_bayes
   - file: confidence/bayes_bars
