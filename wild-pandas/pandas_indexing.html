@@ -647,6 +647,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/Central_Limit_Theorem.html">
+   The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../confidence/first_bayes.html">
    First Bayes
   </a>
@@ -1591,13 +1596,13 @@ type of indexing.</p>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name            Australia
 country_code                  AUS
-fert_rate                1.861500
+fert_rate                  1.8615
 gdp_us_billion        1422.994116
 health_exp_per_cap    4256.058988
 health_exp_pub           6.292381
 prim_ed_girls           48.576707
-mat_mort_ratio           6.000000
-population              23.444560
+mat_mort_ratio                6.0
+population               23.44456
 Name: 10, dtype: object
 </pre></div>
 </div>
@@ -1613,12 +1618,12 @@ Name: 10, dtype: object
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name               Canada
 country_code                  CAN
-fert_rate                1.600300
+fert_rate                  1.6003
 gdp_us_billion        1708.473627
 health_exp_per_cap    4616.539134
 health_exp_pub           7.546247
 prim_ed_girls           48.808926
-mat_mort_ratio           7.250000
+mat_mort_ratio               7.25
 population              35.517119
 Name: 32, dtype: object
 </pre></div>
@@ -1685,14 +1690,14 @@ understand or use labels:</p>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">721</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">722</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">722</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">723</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_validate_key</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1373</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1374</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can only index by location with a [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1375</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1374</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can only index by location with a [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span> 
 
 <span class="ne">ValueError</span>: Can only index by location with a [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array]
 
@@ -1704,25 +1709,25 @@ understand or use labels:</p>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">886</span>                     <span class="c1"># AttributeError for IntervalTree get_value</span>
-<span class="g g-Whitespace">    </span><span class="mi">887</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">888</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">889</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">890</span>             <span class="c1"># we by definition only have the 0th axis</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>                     <span class="c1"># AttributeError for IntervalTree get_value</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">889</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>             <span class="c1"># we by definition only have the 0th axis</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_getitem_tuple</span><span class="nt">(self, tup)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1448</span> 
-<span class="ne">-&gt; </span><span class="mi">1449</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1450</span>         <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="n">IndexingError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1451</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1448</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1449</span> 
+<span class="ne">-&gt; </span><span class="mi">1450</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1451</span>         <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="n">IndexingError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">724</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span>                     <span class="s2">&quot;Location based indexing can only have &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">726</span>                     <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">] types&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">723</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">725</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>                     <span class="s2">&quot;Location based indexing can only have &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>                     <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">] types&quot;</span>
 
 <span class="ne">ValueError</span>: Location based indexing can only have [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array] types
 </pre></div>
@@ -1845,11 +1850,11 @@ the first element has row label 202, and we remember that this is the row label
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name          United States
 country_code                    USA
 fert_rate                  1.860875
-gdp_us_billion         17369.124600
+gdp_us_billion           17369.1246
 health_exp_per_cap      9060.068657
 health_exp_pub             8.121961
-prim_ed_girls             48.758830
-mat_mort_ratio            14.000000
+prim_ed_girls              48.75883
+mat_mort_ratio                 14.0
 population               318.558175
 Name: 202, dtype: object
 </pre></div>

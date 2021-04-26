@@ -101,10 +101,10 @@ Lastly, remember we are interested in the probability that we started with
 BOX4, given we have a red ball.
 
 To get this probability, we first take the probability of getting a red ball
-*and* BOX4.  This is the first bar on the graph above - 0.3 * 0.8 = 0.24.
+*and* BOX4.  This is the first bar on the graph above: 0.3 * 0.8 = 0.24.
 
 Next we divide by the overall probability of getting a red ball, which is the
-*sum of the heights of the two bars* above - 0.24 + 0.28 = 0.52.
+*sum of the heights of the two bars* above: 0.24 + 0.28 = 0.52.
 
 We can do this calculation by dividing the heights of the bars above by the sum
 of the heights, so the heights of the bars now sum to 1.

@@ -365,7 +365,7 @@ We can use unpacking in the usual way, to set our `left` and `right` variables:
 ```{python}
 left, right = np.percentile(bstrap_medians, [2.5, 97.5])
 print('Left', left)
-print('Left', right)
+print('Right', right)
 ```
 
 The population median of \$110,305 is between these two numbers, `left` and
