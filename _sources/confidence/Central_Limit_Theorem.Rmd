@@ -104,8 +104,7 @@ winnings_on_red = np.zeros(n_simulations)
 
 for i in np.arange(n_simulations):
     spin = bets.sample(1)
-    new_color = spin['Color']
-    colors[i] = spin['Color'].iloc[0]
+    colors[i] = spin['Color']
     winnings_on_red[i] = spin['Winnings: Red']
 ```
 
@@ -166,7 +165,7 @@ winnings will be 1 on about 18/38 of the bets, and -1 on the remaining 20/38.
 So your average winnings per dollar bet will be roughly -5.26 cents:
 
 ```{python}
-average_per_bet = 1*(18/38) + (-1)*(20/38)
+average_per_bet = 1 * (18 / 38) + (-1) * (20 / 38)
 average_per_bet
 ```
 
@@ -261,7 +260,9 @@ for i in np.arange(n_repetitions):
 plt.hist(means, bins=np.arange(10, 25, 0.5));
 ```
 
-Once again, we see a rough bell shape, even though we are drawing from a very skewed distribution. The bell is centered somewhere between 16 ad 17, as we expect.
+Once again, we see a rough bell shape, even though we are drawing from a very
+skewed distribution. The bell is centered somewhere between 16 and 17, as we
+expect.
 
 ## Central Limit Theorem
 
@@ -286,14 +287,27 @@ why it is central to the field of statistical inference.
 ## Proportion of Purple Flowers
 
 If you remember your biology, you may remember Mendel's probability model for
-the colors of the flowers of a species of pea plant. The model says that the
-flower colors of the plants are like draws made at random with replacement from
-{Purple, Purple, Purple, White}.
+the colors of the flowers of a species of pea plant.  We have mated two pea
+plants.  We know that each has both the purple gene (P), and the white gene
+(W).  Any plant that has one (or two) purple genes, is purple.
+
+Each pea plant will contribute one of its two genes, at random, either P (50%
+chance) or W (50% chance).  The potential outcomes from this mating are:
+
+| Gene from pea 1 | Gene from pea 2 | Offspring color |
+| - | - | ------ |
+| P | P | Purple |
+| P | W | Purple |
+| W | P | Purple |
+| W | W | White |
+
+So, the model says that the flower colors of the offspring plants are like
+draws made at random with replacement from {Purple, Purple, Purple, White}.
 
 In a large sample of plants, about what proportion will have purple flowers? We
-would expect the answer to be about 0.75, the proportion purple in the model.
-And, because proportions are means, the Central Limit Theorem says that the
-distribution of the sample proportion of purple plants is roughly normal.
+would expect the answer to be about 0.75, the proportion that are purple in the
+model. And, because proportions are means, the Central Limit Theorem says that
+the distribution of the sample proportion of purple plants is roughly normal.
 
 We can confirm this by simulation. Let's simulate the proportion of
 purple-flowered plants in a sample of 200 plants.
