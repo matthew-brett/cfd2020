@@ -128,7 +128,8 @@ p_box4 = np.count_nonzero(red_ball_trials['box no'] == 4) / len(red_ball_trials)
 p_box4
 ```
 
-Of the trials giving a red ball about 66% came from BOX4.   If we see a red ball, there is a 66% chance we have sampled from BOX4.
+Of the trials giving a red ball about 46% came from BOX4.   If we see a red
+ball, there is a 46% chance we have sampled from BOX4.
 
 You have just solved your first problem in reverse probability.  The problem
 will soon reveal a simple calculation in probability called [Bayes
