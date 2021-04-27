@@ -285,9 +285,10 @@ why it is central to the field of statistical inference.
 
 ## Proportion of Purple Flowers
 
-Recall Mendel's probability model for the colors of the flowers of a species of
-pea plant. The model says that the flower colors of the plants are like draws
-made at random with replacement from {Purple, Purple, Purple, White}.
+If you remember your biology, you may remember Mendel's probability model for
+the colors of the flowers of a species of pea plant. The model says that the
+flower colors of the plants are like draws made at random with replacement from
+{Purple, Purple, Purple, White}.
 
 In a large sample of plants, about what proportion will have purple flowers? We
 would expect the answer to be about 0.75, the proportion purple in the model.
