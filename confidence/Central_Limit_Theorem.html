@@ -1380,9 +1380,9 @@ colors it returns -1.</p>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>green</td>
-      <td>-1</td>
+      <th>8</th>
+      <td>red</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -1474,10 +1474,9 @@ spins of the roulette wheel.</p>
 </div>
 <p>That’s a roughly bell shaped histogram, even though the distribution we are
 drawing from is nowhere near bell shaped.</p>
-<p><strong>Center.</strong> The distribution is centered near 20. To see why, note
-that your winnings will be 1 on about 18/38 of the bets, and -1 on the
-remaining 20/38. So your average winnings per dollar bet will be roughly -5.26
-cents:</p>
+<p><strong>Center.</strong> The distribution is centered near -20. To see why, note that your
+winnings will be 1 on about 18/38 of the bets, and -1 on the remaining 20/38.
+So your average winnings per dollar bet will be roughly -5.26 cents:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_per_bet</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="mi">18</span><span class="o">/</span><span class="mi">38</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="mi">38</span><span class="p">)</span>
@@ -1512,15 +1511,16 @@ cents:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-21.5512
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-21.2124
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Spread.</strong> Run your eye along the curve starting at the center and notice that
-the point of inflection is near 0. On a bell shaped curve, the SD is the
-distance from the center to a point of inflection. The center is roughly -20,
-which means that the SD of the distribution is around 20.</p>
+the point of inflection is near 0. On a bell shaped curve, the standard
+deviation (SD) is the distance from the center to a point of inflection. The
+center is roughly -20, which means that the SD of the distribution is around
+20.</p>
 <p>In the next section we will see where the 20 comes from. For now, let’s
 confirm our observation by simply calculating the SD of the 10,000 simulated
 net gains:</p>
@@ -1531,7 +1531,7 @@ net gains:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.348527675485517
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.571890206109373
 </pre></div>
 </div>
 </div>
@@ -1596,7 +1596,7 @@ contains the column of delays.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.465
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.895
 </pre></div>
 </div>
 </div>
