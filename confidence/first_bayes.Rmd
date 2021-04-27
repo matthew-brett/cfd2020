@@ -18,21 +18,21 @@ jupyter:
 
 In the [problem for the education minister](havana_math) we had a sample of
 fast-track-marked exams from 2019, and we found that the mean mark was about
-65.25.  We wondered what we could say about the eventual  when we have the
+58.74.  We wondered what we could say about the eventual mean when we have the
 marks for all 8000 or so students.
 
 For example, we might wonder how likely it is that the eventual mean will be
 near 65.25, as it was in 2018.  Or we might wonder whether we could be say that
-the eventual mean for all the papers will around the sample mean --- 54.51 ---
-plus or minus a bit.   If so, what value should we give to "a bit"?
+the eventual mean for all the papers will around the sample mean — 58.74 — plus
+or minus a bit.   If so, what value should we give to "a bit"?
 
 This kind of problem can be called a problem of *reverse probability*.
 
 We start with simple probabilities, where we ask questions like this: what is
-the probability of seeing a mean around 54.51 if the population mean is
+the probability of seeing a mean around 58.74 if the population mean is
 actually 65.25?  Then we go in *reverse* to ask questions like: what is the
 probability that the population mean is around 65.25 given the sample mean of
-54.51?
+58.74?
 
 
 ## A reverse probability game
