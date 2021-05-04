@@ -59,7 +59,7 @@ The probability of getting a red ball, *given that* I am drawing from BOX4, is
 4/5 = 0.8.  Again, we could write that out longhand as "probability of red given BOX4, or:
 
 $$
-P(\mathrm{Red} \mathrm{given} \mathrm{BOX4})
+P(Red given BOX4)
 $$
 
 but I want to make this more compact.  First I will shorten $\mathrm{red}$ to $R$, and then I will write "given" with the bar: $\mid$.
@@ -92,7 +92,8 @@ getting *both* BOX4 *and* red.  This is the probability for any one trial that
 we will end up with a red from BOX4, as opposed to a red from BOX2 or a green
 from either box.
 
-We could write this as *and* $P(B4 \mathrm{and} P(R)$, but in fact, we usually shorten the *and* to this symbol: $\cap$:
+We could write this as *and* $P(B4 and R)$, but in fact, we usually shorten
+the *and* to this symbol: $\cap$:
 
 $$
 P(B4 \cap R)

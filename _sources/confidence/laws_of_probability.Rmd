@@ -191,7 +191,7 @@ p_box4 + p_box3
 To see why, we do a Sankey (flow) diagram.  Each box flows down one of three
 paths, the BOX4 path, the BOX3 path or the BOX2 path.  In the long run, 30% of the boxes end up at the end of the BOX4 arm, 20% at the end of the BOX3 arm, and 50% at the end of BOX2 arm:
 
-![](images/box4_3_2_sankey.jpg)
+![](../images/box4_3_2_sankey.jpg)
 
 The proportion of BOX4 *or* BOX3 is just the number that go down either the BOX4 or BOX3 arm, and therefore:
 
