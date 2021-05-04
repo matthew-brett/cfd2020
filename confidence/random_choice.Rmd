@@ -13,6 +13,8 @@ jupyter:
     name: python3
 ---
 
+# Random choice
+
 Sometimes it is useful to take a random choice between two or more options.
 
 Numpy has a function for that, called `random.choice`:

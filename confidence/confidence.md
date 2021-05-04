@@ -1,3 +1,5 @@
+# On confidence
+
 Thus far we have worried about two fundamental questions.  In each case we have a *sample* of data from some *universe* or *population*, and we want to draw conclusions about the universe (population) from the sample.
 
 Our questions are:

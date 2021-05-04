@@ -1,3 +1,5 @@
+# Bayes theorem
+
 The [reverse probability page](first_bayes) has a game, that we analyzed by
 simulation, and then by reflection.
 
