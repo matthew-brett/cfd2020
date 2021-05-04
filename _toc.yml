@@ -167,6 +167,7 @@
   - file: confidence/Central_Limit_Theorem
   - file: confidence/random_choice
   - file: confidence/first_bayes
+  - file: confidence/bayes_theorem
   - file: confidence/bayes_bars
   - file: confidence/second_bayes
 
