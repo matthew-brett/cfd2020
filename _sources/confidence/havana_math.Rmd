@@ -38,6 +38,8 @@ import numpy as np
 # Make printing of numbers a bit neater.
 np.set_printoptions(precision=4, suppress=True)
 import pandas as pd
+# Safe settings for Pandas.
+pd.set_option('mode.chained_assignment', 'raise')
 import matplotlib.pyplot as plt
 %matplotlib inline
 plt.style.use('fivethirtyeight')

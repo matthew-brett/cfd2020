@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Random choice &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="First Bayes" href="first_bayes.html" />
+    <link rel="next" title="The law of large numbers" href="large_numbers.html" />
     <link rel="prev" title="The Central Limit Theorem" href="Central_Limit_Theorem.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -66,8 +66,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/random_choice.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Random choice" />
+<meta property="og:description" content="Random choice  Sometimes it is useful to take a random choice between two or more options.  Numpy has a function for that, called random.choice:  import numpy a" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -635,7 +635,12 @@
   Confidence
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="confidence.html">
+   On confidence
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
    The Bootstrap
@@ -651,9 +656,29 @@
    The Central Limit Theorem
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Random choice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="large_numbers.html">
+   The law of large numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="laws_of_probability.html">
+   Laws of probability
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="first_bayes.html">
    First Bayes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_theorem.html">
+   Bayes theorem
   </a>
  </li>
  <li class="toctree-l1">
@@ -787,15 +812,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -803,7 +819,9 @@
         
               <div>
                 
-  <p>Sometimes it is useful to take a random choice between two or more options.</p>
+  <div class="section" id="random-choice">
+<h1>Random choice<a class="headerlink" href="#random-choice" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes it is useful to take a random choice between two or more options.</p>
 <p>Numpy has a function for that, called <code class="docutils literal notranslate"><span class="pre">random.choice</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -820,7 +838,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -836,7 +854,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5036
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4979
 </pre></div>
 </div>
 </div>
@@ -853,7 +871,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -867,7 +885,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 1, 0, 1, 0, 1, 1, 0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 0, 0, 0, 0, 1, 1])
 </pre></div>
 </div>
 </div>
@@ -884,7 +902,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.497
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5058
 </pre></div>
 </div>
 </div>
@@ -901,7 +919,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7418
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.739
 </pre></div>
 </div>
 </div>
@@ -917,7 +935,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  0, 30, 10,  0,  0, 10, 20, 30, 10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10,  0, 20, 20,  0, 30, 30, 10,  0, 10])
 </pre></div>
 </div>
 </div>
@@ -929,7 +947,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2461
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2495
 </pre></div>
 </div>
 </div>
@@ -942,8 +960,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;,
-       &#39;Tails&#39;, &#39;Heads&#39;, &#39;Heads&#39;], dtype=&#39;&lt;U5&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;, &#39;Tails&#39;, &#39;Heads&#39;, &#39;Tails&#39;,
+       &#39;Tails&#39;, &#39;Tails&#39;, &#39;Tails&#39;], dtype=&#39;&lt;U5&#39;)
 </pre></div>
 </div>
 </div>
@@ -956,8 +974,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20, 10, 30,  0])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([30, 10, 20,  0])
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -991,7 +1010,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Central_Limit_Theorem.html" title="previous page">The Central Limit Theorem</a>
-    <a class='right-next' id="next-link" href="first_bayes.html" title="next page">First Bayes</a>
+    <a class='right-next' id="next-link" href="large_numbers.html" title="next page">The law of large numbers</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

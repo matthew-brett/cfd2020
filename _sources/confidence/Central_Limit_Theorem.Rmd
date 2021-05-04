@@ -301,8 +301,10 @@ chance) or W (50% chance).  The potential outcomes from this mating are:
 | W | P | Purple |
 | W | W | White |
 
-So, the model says that the flower colors of the offspring plants are like
-draws made at random with replacement from {Purple, Purple, Purple, White}.
+Because the probabilities of P or A are equal from each plant, each of these
+four outcomes is equally likely. So, the model says that the flower colors of
+the offspring plants are like draws made at random with replacement from
+{Purple, Purple, Purple, White}.
 
 In a large sample of plants, about what proportion will have purple flowers? We
 would expect the answer to be about 0.75, the proportion that are purple in the

@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bayes and bars" href="bayes_bars.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="random_choice.html" />
+    <link rel="next" title="&lt;no title&gt;" href="bayes_theorem.html" />
+    <link rel="prev" title="Laws of probability" href="laws_of_probability.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -67,7 +67,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/first_bayes.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="First Bayes" />
-<meta property="og:description" content="First Bayes  In the problem for the education minister we had a sample of fast-track-marked exams from 2019, and we found that the mean mark was about 65.25.  W" />
+<meta property="og:description" content="First Bayes  In the problem for the education minister we had a sample of fast-track-marked exams from 2019, and we found that the mean mark was about 58.74.  W" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -651,6 +651,16 @@
    The Central Limit Theorem
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="large_numbers.html">
+   The law of large numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="laws_of_probability.html">
+   Laws of probability
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    First Bayes
@@ -812,18 +822,18 @@
 <h1>First Bayes<a class="headerlink" href="#first-bayes" title="Permalink to this headline">¶</a></h1>
 <p>In the <a class="reference internal" href="havana_math.html"><span class="doc std std-doc">problem for the education minister</span></a> we had a sample of
 fast-track-marked exams from 2019, and we found that the mean mark was about
-65.25.  We wondered what we could say about the eventual  when we have the
+58.74.  We wondered what we could say about the eventual mean when we have the
 marks for all 8000 or so students.</p>
 <p>For example, we might wonder how likely it is that the eventual mean will be
 near 65.25, as it was in 2018.  Or we might wonder whether we could be say that
-the eventual mean for all the papers will around the sample mean — 54.51 —
-plus or minus a bit.   If so, what value should we give to “a bit”?</p>
+the eventual mean for all the papers will around the sample mean — 58.74 — plus
+or minus a bit.   If so, what value should we give to “a bit”?</p>
 <p>This kind of problem can be called a problem of <em>reverse probability</em>.</p>
 <p>We start with simple probabilities, where we ask questions like this: what is
-the probability of seeing a mean around 54.51 if the population mean is
+the probability of seeing a mean around 58.74 if the population mean is
 actually 65.25?  Then we go in <em>reverse</em> to ask questions like: what is the
 probability that the population mean is around 65.25 given the sample mean of
-54.51?</p>
+58.74?</p>
 <div class="section" id="a-reverse-probability-game">
 <h2>A reverse probability game<a class="headerlink" href="#a-reverse-probability-game" title="Permalink to this headline">¶</a></h2>
 <p>Imagine I offer you one of two boxes.</p>
@@ -951,23 +961,23 @@ problem? Simulation!</p>
     </tr>
     <tr>
       <th>1</th>
-      <td>4</td>
-      <td>green</td>
+      <td>2</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4</td>
+      <td>2</td>
       <td>red</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>red</td>
+      <td>green</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2</td>
-      <td>red</td>
+      <td>4</td>
+      <td>green</td>
     </tr>
   </tbody>
 </table>
@@ -985,12 +995,13 @@ box we got was BOX4.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.44770992366412216
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4560928433268859
 </pre></div>
 </div>
 </div>
 </div>
-<p>Of the trials giving a red ball about 66% came from BOX4.   If we see a red ball, there is a 66% chance we have sampled from BOX4.</p>
+<p>Of the trials giving a red ball about 46% came from BOX4.   If we see a red
+ball, there is a 46% chance we have sampled from BOX4.</p>
 <p>You have just solved your first problem in reverse probability.  The problem
 will soon reveal a simple calculation in probability called <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes
 theorem</a>.</p>
@@ -1013,8 +1024,8 @@ probabilities we calculated above, but not exactly the same.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.2949
-Box2 proportion 0.7051
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 proportion 0.2974
+Box2 proportion 0.7026
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1053,7 @@ that give red) = 0.24.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2346
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box4 and red proportion 0.2358
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1070,7 @@ that give red) = 0.28.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2894
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Box2 and red proportion 0.2812
 </pre></div>
 </div>
 </div>
@@ -1076,7 +1087,7 @@ red trials.  This is 0.24 + 0.28 = 0.52.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.524
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall proportion of red 0.517
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1102,7 @@ red.  So the proportion of <em>all</em> red trials, that are BOX4 <em>and</em> r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.4477099236641221
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion of all red trials that are box4 0.4560928433268859
 </pre></div>
 </div>
 </div>
@@ -1137,8 +1148,8 @@ are red).</p></li>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="random_choice.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="bayes_bars.html" title="next page">Bayes and bars</a>
+    <a class='left-prev' id="prev-link" href="laws_of_probability.html" title="previous page">Laws of probability</a>
+    <a class='right-next' id="next-link" href="bayes_theorem.html" title="next page">&lt;no title&gt;</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

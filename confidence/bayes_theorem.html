@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Coding for Data - 2020 edition</title>
+    <title>Bayes theorem &#8212; Coding for Data - 2020 edition</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,6 +58,8 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayes and bars" href="bayes_bars.html" />
+    <link rel="prev" title="First Bayes" href="first_bayes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -66,8 +68,8 @@
 <!-- Opengraph tags -->
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/bayes_theorem.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="&lt;no title&gt;" />
-<meta property="og:description" content="" />
+<meta property="og:title"       content="Bayes theorem" />
+<meta property="og:description" content="Bayes theorem  The reverse probability page has a game, that we analyzed by simulation, and then by reflection.  The game is:  I have two boxes; BOX4 with 4 red" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -635,7 +637,7 @@
   Confidence
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
    The Bootstrap
@@ -652,8 +654,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="large_numbers.html">
+   The law of large numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="laws_of_probability.html">
+   Laws of probability
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="first_bayes.html">
    First Bayes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bayes theorem
   </a>
  </li>
  <li class="toctree-l1">
@@ -761,15 +778,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -777,7 +785,9 @@
         
               <div>
                 
-  <p>The <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a> has a game, that we analyzed by
+  <div class="section" id="bayes-theorem">
+<h1>Bayes theorem<a class="headerlink" href="#bayes-theorem" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a> has a game, that we analyzed by
 simulation, and then by reflection.</p>
 <p>The game is:</p>
 <ul class="simple">
@@ -796,66 +806,93 @@ and 70% chance I give you BOX2.</p></li>
 <li><p>Calculate the proportion of trials that are <em>both</em> BOX4 and red, and divide
 by the overall proportion of red trials.</p></li>
 </ul>
+<p>Here is a Sankey diagram of that calculation:</p>
+<p><img alt="" src="../_images/box4_2_sankey.jpg" /></p>
 <p>We found the proportion of red trials that are <em>both</em> BOX4 <em>and</em> red is (the
 proportion of BOX4 trials) multiplied by (the proportion of BOX4 trials that
 are red.</p>
+<p>In our case above, the value we need is the probability of red trials from BOX4 (red <em>AND</em> BOX4) divided by the probability of red from either box.  In our case this is 0.24 / (0.24 + 0.28) = 0.4615.</p>
 <p>The logic above is a fundamental rule in probability called <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes
 theorem</a>.</p>
 <p>In this page, we relate the logic above to the usual way of describing Bayes
 theorem.</p>
 <p>First we need some notation.</p>
 <p>The probability that I give you BOX4 on any one trial is 0.3.</p>
-<p>I write this as:</p>
+<p>I could write this out long-hand as “probability of BOX4”, but this will soon become inconvenient, so I will write the “probability of BOX4” in a much more compact form as <span class="math notranslate nohighlight">\(P(B4)\)</span>.   As you remember <span class="math notranslate nohighlight">\(P(B4)\)</span> is 0.3:</p>
 <div class="math notranslate nohighlight">
 \[
-P(BOX4) = 0.3
+P(B4) = 0.3
 \]</div>
 <p>Read this as “the probability of BOX4 is 0.3”.</p>
 <p>Similarly:</p>
 <div class="math notranslate nohighlight">
 \[
-P(BOX2) = 0.7
+P(B2) = 0.7
 \]</div>
-<p>The probability of getting a red ball, <em>given that</em> I am drawing from BOX4,
-is 4/5 = 0.8.  We write “given” here with the bar: <span class="math notranslate nohighlight">\(\mid\)</span>.</p>
+<p>The probability of getting a red ball, <em>given that</em> I am drawing from BOX4, is
+4/5 = 0.8.  Again, we could write that out longhand as “probability of red given BOX4, or:</p>
 <div class="math notranslate nohighlight">
 \[
-P(red \mid BOX4) = 0.8
+P(\mathrm{Red} \mathrm{given} \mathrm{BOX4})
+\]</div>
+<p>but I want to make this more compact.  First I will shorten <span class="math notranslate nohighlight">\(\mathrm{red}\)</span> to <span class="math notranslate nohighlight">\(R\)</span>, and then I will write “given” with the bar: <span class="math notranslate nohighlight">\(\mid\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+P(R \mid B4) = 0.8
 \]</div>
 <p>Read this as “the probability of drawing a red ball given I have BOX4 is 0.8”.</p>
 <p>Similarly:</p>
 <div class="math notranslate nohighlight">
 \[
-P(red \mid BOX2) = 0.4
+P(R \mid B2) = 0.4
 \]</div>
+<p>“The probability of red given BOX2 is 0.4”.</p>
 <p>We follow the logic above, with this notation.  Here is the logic again:</p>
 <ol class="simple">
 <li><p>We want the proportion of “red” trials that came from BOX4.</p></li>
 <li><p>Calculate the proportion of trials that are <em>both</em> BOX4 and red, and divide
 by the overall proportion of red trials.</p></li>
 </ol>
-<p>We can express the first statement by saying that we are trying to find
-<span class="math notranslate nohighlight">\(P(BOX4 \mid red)\)</span>.</p>
-<p>We have already found that that we get the probability of BOX4 <em>and</em> red by
-multiplying the probability of BOX4 (0.3) by the probability of getting a red
-ball, given BOX4 (0.8).  In our notation, this multiplication is <span class="math notranslate nohighlight">\(P(BOX4)
-P(red \mid BOX4)\)</span>.</p>
+<p>We can express the first statement by saying that we are trying to find <span class="math notranslate nohighlight">\(P(B4
+\mid R)\)</span> — “the probability of BOX4 given I have drawn a red ball”.</p>
+<p>Now we need some more notation.  We need the idea of the probability of
+getting <em>both</em> BOX4 <em>and</em> red.  This is the probability for any one trial that
+we will end up with a red from BOX4, as opposed to a red from BOX2 or a green
+from either box.</p>
+<p>We could write this as <em>and</em> <span class="math notranslate nohighlight">\(P(B4 \mathrm{and} P(R)\)</span>, but in fact, we usually shorten the <em>and</em> to this symbol: <span class="math notranslate nohighlight">\(\cap\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(B4 \cap R)
+\]</div>
+<p>Read this as the “probability we got BOX4 and then a red”.</p>
+<p>We have already found that that we get this probability of BOX4 <em>and</em> red by
+<em>multiplying</em> the probability of BOX4 (0.3) by the probability of — getting
+a red ball, <em>given</em> BOX4 (0.8).  In our notation, this multiplication is</p>
+<div class="math notranslate nohighlight">
+\[
+P(B4 \cap R) = P(B4) * P(R \mid B4)
+\]</div>
+<p>“The probability of BOX4 <em>and</em> red is the probability of BOX4 multiplied by
+the probability of — red <em>given</em> BOX4”.</p>
 <p>Remember too, from the <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a> that we found
-<span class="math notranslate nohighlight">\(P(red)\)</span> by adding the probabilities of the two different ways we can get
-a red ball: <span class="math notranslate nohighlight">\(P(red) = P(red | BOX4) + P(red | BOX2)\)</span>.</p>
+<span class="math notranslate nohighlight">\(P(R)\)</span> by adding the probabilities of the two different ways we can get a red
+ball: <span class="math notranslate nohighlight">\(P(R) = P(R \mid B4) + P(R \mid B2)\)</span>.</p>
+<p>Let’s put all that on the Sankey diagram:</p>
+<p><img alt="" src="../_images/box4_2_sankey_labeled.jpg" /></p>
 <p>Putting the first and second statements together into one, we get:</p>
 <div class="math notranslate nohighlight">
 \[
-P(BOX4 \mid red) = \frac{P(BOX4) P(red \mid BOX4)}{P(red)}
+P(B4 \mid R) = \frac{P(B4) P(R \mid B4)}{P(R)}
 \]</div>
 <p>This is Bayes theorem, although it is usually written with the multiplication
 in the other order:</p>
 <div class="math notranslate nohighlight">
 \[
-P(BOX4 \mid red) = \frac{P(red \mid BOX4) P(BOX4)}{P(red)}
+P(B4 \mid R) = \frac{P(R \mid B4) P(B4)}{P(R)}
 \]</div>
 <p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes theorem on Wikipedia</a>
 for more detail.</p>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -885,6 +922,8 @@ for more detail.</p>
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="first_bayes.html" title="previous page">First Bayes</a>
+    <a class='right-next' id="next-link" href="bayes_bars.html" title="next page">Bayes and bars</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
