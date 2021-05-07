@@ -43,17 +43,8 @@ The game is:
 We found by simulation, and later by [reflection and
 calculation](bayes_theorem), that the probability is around 0.462.
 
-The logic we discovered was:
-
-* We want the proportion of "red" trials that came from BOX4.
-* Calculate the proportion of trials that are *both* BOX4 and red, and divide
-  by the overall proportion of red trials.
-* The proportion of red trials that are *both* BOX4 *and* red is the
-  proportion of BOX4 trials multiplied by (the proportion of BOX4 trials that
-  are red).
-* We can only get red from BOX4 or from BOX2.  The proportion of trials that
-  are red is the proportion of BOX4 *and* red plus the proportion of BOX2
-  *and* red.
+The [Bayes theorem page](bayes_theorem) described the logic we discovered, but
+we can also write this on a Sankey diagram:
 
 ![](../images/box4_2_sankey_labeled.jpg)
 
@@ -116,7 +107,8 @@ p_red_3_box_game = p_box4_and_red + p_box3_and_red + p_box2_and_red
 p_red_3_box_game
 ```
 
-The probability I gave you BOX4, given you got a red ball, the probability of BOX4 *and* red, divided by the probability of red from any box (above):
+The probability I gave you BOX4, given you got a red ball, is the probability
+of BOX4 *and* red, divided by the probability of red from any box (above):
 
 ```{python}
 p_box4_given_red_3_box = p_box4_and_red / p_red_3_box_game
@@ -186,19 +178,20 @@ boxes_3
 
 ## Three boxes, in bars
 
-We can show this array version of the calculation graphically, by using the length of bars to express the probabilities.
+We can show this array version of the calculation graphically, by using the
+length of bars to express the probabilities.
 
 ```{python}
 boxes_3.plot.barh(subplots=True, legend=False);
 plt.subplots_adjust(hspace=0.8)  # Space out the plots a bit.
 ```
 
-Our inputs are the first two arrays (rows) - $P(B)$ and $P(R | B)$.
+Our inputs are the first two arrays (plots) - $P(B)$ and $P(R | B)$.
 
-The third row, $P(B \cap R)$ is the first row multiplied by the second.
+The third plot, $P(B \cap R)$, is the first plot multiplied by the second.
 
-The last row, $P(B | R)$ is the third row divided by the sum of the third row.
-This means that all the bars get scaled by the same amount; the fourth row is
+The last plot, $P(B | R)$ is the third plot divided by the sum of the third plot.
+This means that all the bars get scaled by the same amount; the fourth plot is
 just a rescaled version of the third.
 
 

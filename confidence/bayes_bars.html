@@ -890,18 +890,8 @@ getting BOX4 and a 70% chance of getting BOX2.</p></li>
 </ul>
 <p>We found by simulation, and later by <a class="reference internal" href="bayes_theorem.html"><span class="doc std std-doc">reflection and
 calculation</span></a>, that the probability is around 0.462.</p>
-<p>The logic we discovered was:</p>
-<ul class="simple">
-<li><p>We want the proportion of “red” trials that came from BOX4.</p></li>
-<li><p>Calculate the proportion of trials that are <em>both</em> BOX4 and red, and divide
-by the overall proportion of red trials.</p></li>
-<li><p>The proportion of red trials that are <em>both</em> BOX4 <em>and</em> red is the
-proportion of BOX4 trials multiplied by (the proportion of BOX4 trials that
-are red).</p></li>
-<li><p>We can only get red from BOX4 or from BOX2.  The proportion of trials that
-are red is the proportion of BOX4 <em>and</em> red plus the proportion of BOX2
-<em>and</em> red.</p></li>
-</ul>
+<p>The <a class="reference internal" href="bayes_theorem.html"><span class="doc std std-doc">Bayes theorem page</span></a> described the logic we discovered, but
+we can also write this on a Sankey diagram:</p>
 <p><img alt="" src="../_images/box4_2_sankey_labeled.jpg" /></p>
 <p>Here’s the calculation for the two boxes:</p>
 <div class="cell docutils container">
@@ -981,7 +971,8 @@ of <em>both</em> red and the given boxes is now:</p>
 </div>
 </div>
 </div>
-<p>The probability I gave you BOX4, given you got a red ball, the probability of BOX4 <em>and</em> red, divided by the probability of red from any box (above):</p>
+<p>The probability I gave you BOX4, given you got a red ball, is the probability
+of BOX4 <em>and</em> red, divided by the probability of red from any box (above):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4_given_red_3_box</span> <span class="o">=</span> <span class="n">p_box4_and_red</span> <span class="o">/</span> <span class="n">p_red_3_box_game</span>
@@ -1152,7 +1143,8 @@ Probability I gave you BOX4, given you drew a red ball:
 </div>
 <div class="section" id="three-boxes-in-bars">
 <h2>Three boxes, in bars<a class="headerlink" href="#three-boxes-in-bars" title="Permalink to this headline">¶</a></h2>
-<p>We can show this array version of the calculation graphically, by using the length of bars to express the probabilities.</p>
+<p>We can show this array version of the calculation graphically, by using the
+length of bars to express the probabilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxes_3</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
@@ -1164,10 +1156,10 @@ Probability I gave you BOX4, given you drew a red ball:
 <img alt="../_images/bayes_bars_27_0.png" src="../_images/bayes_bars_27_0.png" />
 </div>
 </div>
-<p>Our inputs are the first two arrays (rows) - <span class="math notranslate nohighlight">\(P(B)\)</span> and <span class="math notranslate nohighlight">\(P(R | B)\)</span>.</p>
-<p>The third row, <span class="math notranslate nohighlight">\(P(B \cap R)\)</span> is the first row multiplied by the second.</p>
-<p>The last row, <span class="math notranslate nohighlight">\(P(B | R)\)</span> is the third row divided by the sum of the third row.
-This means that all the bars get scaled by the same amount; the fourth row is
+<p>Our inputs are the first two arrays (plots) - <span class="math notranslate nohighlight">\(P(B)\)</span> and <span class="math notranslate nohighlight">\(P(R | B)\)</span>.</p>
+<p>The third plot, <span class="math notranslate nohighlight">\(P(B \cap R)\)</span>, is the first plot multiplied by the second.</p>
+<p>The last plot, <span class="math notranslate nohighlight">\(P(B | R)\)</span> is the third plot divided by the sum of the third plot.
+This means that all the bars get scaled by the same amount; the fourth plot is
 just a rescaled version of the third.</p>
 </div>
 <div class="section" id="all-six-boxes">

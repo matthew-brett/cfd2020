@@ -67,7 +67,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/bayes_confidence.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Bayes, confidence" />
-<meta property="og:description" content="Bayes, confidence  In the [problem for the education minister](/chapters/10/havana_math) we had a sample of fast-track-marked exams from 2019, and we found that" />
+<meta property="og:description" content="Bayes, confidence  In the problem for the education minister we had a sample of fast-track-marked exams from 2019, and we found that the mean mark was 58.74. We" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -850,13 +850,15 @@
                 
   <div class="section" id="bayes-confidence">
 <h1>Bayes, confidence<a class="headerlink" href="#bayes-confidence" title="Permalink to this headline">¶</a></h1>
-<p>In the [problem for the education minister](/chapters/10/havana_math) we had a sample of fast-track-marked exams from
-2019, and we found that the mean mark was 58.74.  We wondered what we could say
-about the eventual mean of the marks for all 8000 or so students.</p>
-<p>After a bit of development, we found, in the [reverse probability with bars](/chapters/10/bayes_bars) page, that we could use some
-probability calculations to draw conclusions about the state of the world, from
-some result.  In that page, we calculated the probability of the state of the
-world (a box we have been given) from a result (drawing a red ball).</p>
+<p>In the <a class="reference internal" href="havana_math.html"><span class="doc std std-doc">problem for the education minister</span></a> we had a sample of
+fast-track-marked exams from 2019, and we found that the mean mark was 58.74.
+We wondered what we could say about the eventual mean of the marks for all 8000
+or so students.</p>
+<p>After a bit of development, we found, in the <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">reverse probability with
+bars</span></a> page, that we could use some probability calculations to draw
+conclusions about the state of the world, from some result.  In that page, we
+calculated the probability of the state of the world (a box we have been given)
+from a result (drawing a red ball).</p>
 <p>Now we want to draw a conclusion about the state of the world (the eventual
 mean of all the 2019 exams) from a result (the mean of the fast-marked sample
 of 50 2019 exams).</p>
@@ -896,7 +898,8 @@ around 62.25.</p>
 </div>
 </div>
 </div>
-<p>You can download the 2018 marks from [havana_math_2018.csv](/data/havana_math_2018.csv).</p>
+<p>You can download the 2018 marks from
+<a class="reference download internal" download="" href="../_downloads/54f7c46f033a21f8a5104e2d33806db0/havana_math_2018.csv"><code class="xref download docutils literal notranslate"><span class="pre">havana_math_2018.csv</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2018</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;havana_math_2018.csv&#39;</span><span class="p">)</span>
@@ -915,7 +918,8 @@ around 62.25.</p>
 </div>
 <p>This was our sample of 50 marks from the 2019 examinations.  It has a mean of
 58.74.</p>
-<p>You can download the sample file from [havana_math_2019_sample.csv](/data/havana_math_2019_sample.csv).</p>
+<p>You can download the 2019 sample file from
+<a class="reference download internal" download="" href="../_downloads/655d9b9872a14922452f8dbe2bf071b2/havana_math_2019_sample.csv"><code class="xref download docutils literal notranslate"><span class="pre">havana_math_2019_sample.csv</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">havana_2019_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;havana_math_2019_sample.csv&#39;</span><span class="p">)</span>
@@ -947,7 +951,7 @@ by taking many thousands of samples.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([62.36, 72.3 , 59.26, 54.56, 58.32])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([58.12, 61.98, 63.62, 67.56, 62.16])
 </pre></div>
 </div>
 </div>
@@ -961,7 +965,7 @@ of the population:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.26276299999999
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65.2669074
 </pre></div>
 </div>
 </div>
@@ -1001,13 +1005,13 @@ the values that <code class="docutils literal notranslate"><span class="pre">plt
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    3.,    8.,   11.,   14.,   24.,   33.,   51.,   94.,
-        100.,  167.,  201.,  343.,  444.,  566.,  787.,  918., 1267.,
-       1460., 1790., 2149., 2455., 2926., 3390., 3788., 4169., 4513.,
-       4723., 5058., 5289., 5335., 5323., 5143., 4826., 4654., 4380.,
-       3843., 3570., 3020., 2705., 2286., 1907., 1460., 1236.,  984.,
-        695.,  605.,  403.,  292.,  199.,  136.,   94.,   55.,   44.,
-         25.,   17.,    4.,    6.,    0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    1.,    7.,   17.,   17.,   22.,   32.,   59.,   85.,
+        123.,  161.,  236.,  315.,  411.,  564.,  789.,  972., 1181.,
+       1463., 1824., 2176., 2432., 2972., 3352., 3725., 4110., 4403.,
+       4837., 5022., 5191., 5222., 5318., 5167., 5110., 4757., 4291.,
+       3918., 3565., 3090., 2696., 2291., 1858., 1559., 1186.,  956.,
+        729.,  549.,  395.,  244.,  217.,  130.,   91.,   60.,   44.,
+         14.,   18.,    7.,    7.,    1.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_14_1.png" src="../_images/bayes_confidence_14_1.png" />
@@ -1026,13 +1030,13 @@ neatly by <em>unpacking</em> the return values from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    3.,    8.,   11.,   14.,   24.,   33.,   51.,   94.,
-        100.,  167.,  201.,  343.,  444.,  566.,  787.,  918., 1267.,
-       1460., 1790., 2149., 2455., 2926., 3390., 3788., 4169., 4513.,
-       4723., 5058., 5289., 5335., 5323., 5143., 4826., 4654., 4380.,
-       3843., 3570., 3020., 2705., 2286., 1907., 1460., 1236.,  984.,
-        695.,  605.,  403.,  292.,  199.,  136.,   94.,   55.,   44.,
-         25.,   17.,    4.,    6.,    0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2.,    1.,    7.,   17.,   17.,   22.,   32.,   59.,   85.,
+        123.,  161.,  236.,  315.,  411.,  564.,  789.,  972., 1181.,
+       1463., 1824., 2176., 2432., 2972., 3352., 3725., 4110., 4403.,
+       4837., 5022., 5191., 5222., 5318., 5167., 5110., 4757., 4291.,
+       3918., 3565., 3090., 2696., 2291., 1858., 1559., 1186.,  956.,
+        729.,  549.,  395.,  244.,  217.,  130.,   91.,   60.,   44.,
+         14.,   18.,    7.,    7.,    1.])
 </pre></div>
 </div>
 <img alt="../_images/bayes_confidence_16_1.png" src="../_images/bayes_confidence_16_1.png" />
@@ -1110,7 +1114,7 @@ Upper edge (not included): 60.5
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2149.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2176.0
 </pre></div>
 </div>
 </div>
@@ -1127,14 +1131,14 @@ that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.    , 0.0001, 0.0001, 0.0001, 0.0002, 0.0003, 0.0005,
-       0.0009, 0.001 , 0.0017, 0.002 , 0.0034, 0.0044, 0.0057, 0.0079,
-       0.0092, 0.0127, 0.0146, 0.0179, 0.0215, 0.0245, 0.0293, 0.0339,
-       0.0379, 0.0417, 0.0451, 0.0472, 0.0506, 0.0529, 0.0534, 0.0532,
-       0.0514, 0.0483, 0.0465, 0.0438, 0.0384, 0.0357, 0.0302, 0.0271,
-       0.0229, 0.0191, 0.0146, 0.0124, 0.0098, 0.0069, 0.006 , 0.004 ,
-       0.0029, 0.002 , 0.0014, 0.0009, 0.0006, 0.0004, 0.0003, 0.0002,
-       0.    , 0.0001, 0.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.    , 0.0001, 0.0002, 0.0002, 0.0002, 0.0003, 0.0006,
+       0.0008, 0.0012, 0.0016, 0.0024, 0.0032, 0.0041, 0.0056, 0.0079,
+       0.0097, 0.0118, 0.0146, 0.0182, 0.0218, 0.0243, 0.0297, 0.0335,
+       0.0372, 0.0411, 0.044 , 0.0484, 0.0502, 0.0519, 0.0522, 0.0532,
+       0.0517, 0.0511, 0.0476, 0.0429, 0.0392, 0.0357, 0.0309, 0.027 ,
+       0.0229, 0.0186, 0.0156, 0.0119, 0.0096, 0.0073, 0.0055, 0.004 ,
+       0.0024, 0.0022, 0.0013, 0.0009, 0.0006, 0.0004, 0.0001, 0.0002,
+       0.0001, 0.0001, 0.    ])
 </pre></div>
 </div>
 </div>
@@ -1148,7 +1152,7 @@ that fall in this range:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02149
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02176
 </pre></div>
 </div>
 </div>
@@ -1163,7 +1167,7 @@ a mean of 62.25, the probability of any one sample mean being between 60 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02149
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02176
 </pre></div>
 </div>
 </div>
@@ -1206,8 +1210,8 @@ center 58.75, with edges 58.5 and 59.0.   It turns out this is the bin at index
 </div>
 </div>
 </div>
-<p>Look back at [where and argmin](/chapters/08/where_and_argmin) for the trick here of using <code class="docutils literal notranslate"><span class="pre">np.where</span></code> to find
-the index.</p>
+<p>Look back at <span class="xref myst">where and argmin</span> for the trick
+here of using <code class="docutils literal notranslate"><span class="pre">np.where</span></code> to find the index.</p>
 <p>We get the proportion at that index, to give the probability that we will see a
 sample mean between 58.5 and 59:</p>
 <div class="cell docutils container">
@@ -1218,7 +1222,7 @@ sample mean between 58.5 and 59:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0127])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0118])
 </pre></div>
 </div>
 </div>
@@ -1391,7 +1395,7 @@ bin for practice.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0179])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0182])
 </pre></div>
 </div>
 </div>
@@ -1471,13 +1475,13 @@ the bin between 58.5 and 59, centered on 58.75.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0002, 0.0003, 0.0004, 0.0006, 0.0009, 0.0014, 0.002 ,
-       0.0029, 0.004 , 0.006 , 0.0069, 0.0098, 0.0124, 0.0146, 0.0191,
-       0.0229, 0.0271, 0.0302, 0.0357, 0.0384, 0.0438, 0.0465, 0.0483,
-       0.0514, 0.0532, 0.0534, 0.0529, 0.0506, 0.0472, 0.0451, 0.0417,
-       0.0379, 0.0339, 0.0293, 0.0245, 0.0215, 0.0179, 0.0146, 0.0127,
-       0.0092, 0.0079, 0.0057, 0.0044, 0.0034, 0.002 , 0.0017, 0.001 ,
-       0.0009, 0.0005])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0002, 0.0001, 0.0004, 0.0006, 0.0009, 0.0013, 0.0022,
+       0.0024, 0.004 , 0.0055, 0.0073, 0.0096, 0.0119, 0.0156, 0.0186,
+       0.0229, 0.027 , 0.0309, 0.0357, 0.0392, 0.0429, 0.0476, 0.0511,
+       0.0517, 0.0532, 0.0522, 0.0519, 0.0502, 0.0484, 0.044 , 0.0411,
+       0.0372, 0.0335, 0.0297, 0.0243, 0.0218, 0.0182, 0.0146, 0.0118,
+       0.0097, 0.0079, 0.0056, 0.0041, 0.0032, 0.0024, 0.0016, 0.0012,
+       0.0008, 0.0006])
 </pre></div>
 </div>
 </div>
@@ -1526,7 +1530,8 @@ given a population mean of the corresponding x value.</p>
 <p>We want to reverse this probability.  We want the probability that the
 population mean is a certain value (on the x axis), given that we have sample
 mean of around 58.75.</p>
-<p>To do this, we follow the rules in [reverse probability](/chapters/10/first_bayes) and [Bayes bars](/chapters/10/bayes_bars).</p>
+<p>To do this, we follow the rules in <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability</span></a> and
+<a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes bars</span></a>.</p>
 <p>These are:</p>
 <ol class="simple">
 <li><p>Get the probabilities of the sample mean given each population mean; these
@@ -1569,13 +1574,13 @@ probabilities:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0002, 0.0003, 0.0004, 0.0006, 0.0009, 0.0014, 0.002 ,
-       0.0029, 0.004 , 0.0061, 0.007 , 0.0099, 0.0124, 0.0146, 0.0191,
-       0.0229, 0.0271, 0.0302, 0.0357, 0.0385, 0.0438, 0.0466, 0.0483,
-       0.0515, 0.0533, 0.0534, 0.0529, 0.0506, 0.0473, 0.0452, 0.0417,
-       0.0379, 0.0339, 0.0293, 0.0246, 0.0215, 0.0179, 0.0146, 0.0127,
-       0.0092, 0.0079, 0.0057, 0.0044, 0.0034, 0.002 , 0.0017, 0.001 ,
-       0.0009, 0.0005])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0002, 0.0001, 0.0004, 0.0006, 0.0009, 0.0013, 0.0022,
+       0.0024, 0.004 , 0.0055, 0.0073, 0.0096, 0.0119, 0.0156, 0.0186,
+       0.0229, 0.027 , 0.0309, 0.0357, 0.0392, 0.043 , 0.0476, 0.0512,
+       0.0517, 0.0532, 0.0523, 0.052 , 0.0503, 0.0484, 0.0441, 0.0411,
+       0.0373, 0.0336, 0.0298, 0.0243, 0.0218, 0.0183, 0.0146, 0.0118,
+       0.0097, 0.0079, 0.0056, 0.0041, 0.0032, 0.0024, 0.0016, 0.0012,
+       0.0009, 0.0006])
 </pre></div>
 </div>
 </div>
@@ -1597,14 +1602,16 @@ of around 58.75.</p>
 above) of the probabilities of the sample mean, given the population means.</p>
 <p>In fact is it is the same, and this is because:</p>
 <ul class="simple">
-<li><p>As you saw in [reverse probability](/chapters/10/first_bayes) and [Bayes bars](/chapters/10/bayes_bars), when all the prior (initial) probabilities are
-the same, we can skip the step of multiplying the forward (red) values by the
-prior (initial) probabilities.</p></li>
+<li><p>As you saw in <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability</span></a> and <a class="reference internal" href="bayes_bars.html"><span class="doc std std-doc">Bayes
+bars</span></a>, when all the prior (initial) probabilities are the same,
+we can skip the step of multiplying the forward (red) values by the prior
+(initial) probabilities.</p></li>
 <li><p>The forward (red) values were proportions, and so all the red values add up
 to 1, corresponding to all the sample means.  Therefore, step 3, dividing by
 the sum, is dividing by 1, and doesn’t change the values.</p></li>
 </ul>
-<p>The dark red distribution is very useful, because it can answer questions we are interested in.</p>
+<p>The dark red distribution is very useful, because it can answer questions we
+are interested in.</p>
 <p>Remember that each value in this plot is the probability of the corresponding
 population means (on the x axis), given the observed sample mean of around
 58.75 (in fact the sample mean was 58.74, but we will ignore that small
@@ -1623,10 +1630,10 @@ to <code class="docutils literal notranslate"><span class="pre">t</span></code>.
 confident that the eventual population mean will be less than or equal to this
 value.</p>
 <p>To get this value, we can use the <code class="docutils literal notranslate"><span class="pre">np.cumsum</span></code> function, first mentioned in the
-[arrays](/chapters/03/Arrays) page. It takes an input array
-say <code class="docutils literal notranslate"><span class="pre">a</span></code>, and returns another array, say <code class="docutils literal notranslate"><span class="pre">b</span></code> that is the same size as <code class="docutils literal notranslate"><span class="pre">a</span></code>, but
-which has, at each element, the result of summing up all the elements in <code class="docutils literal notranslate"><span class="pre">a</span></code> up
-to the corresponding position.  This might be clearer by example:</p>
+<a class="reference internal" href="../arrays/Arrays.html"><span class="doc std std-doc">arrays</span></a> page. It takes an input array say <code class="docutils literal notranslate"><span class="pre">a</span></code>, and returns
+another array, say <code class="docutils literal notranslate"><span class="pre">b</span></code> that is the same size as <code class="docutils literal notranslate"><span class="pre">a</span></code>, but which has, at each
+element, the result of summing up all the elements in <code class="docutils literal notranslate"><span class="pre">a</span></code> up to the
+corresponding position.  This might be clearer by example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.cumsum - for each element, add all elements so far.</span>
@@ -1650,13 +1657,13 @@ to the corresponding position.  This might be clearer by example:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.    , 0.0002, 0.0005, 0.0009, 0.0015, 0.0024, 0.0038, 0.0057,
-       0.0087, 0.0127, 0.0188, 0.0257, 0.0356, 0.0479, 0.0626, 0.0817,
-       0.1045, 0.1316, 0.1618, 0.1976, 0.2361, 0.2799, 0.3265, 0.3748,
-       0.4263, 0.4796, 0.533 , 0.586 , 0.6366, 0.6839, 0.729 , 0.7708,
-       0.8087, 0.8426, 0.8719, 0.8965, 0.918 , 0.9359, 0.9506, 0.9632,
-       0.9724, 0.9803, 0.986 , 0.9904, 0.9939, 0.9959, 0.9975, 0.9985,
-       0.9995, 1.    ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0001, 0.0003, 0.0004, 0.0008, 0.0014, 0.0023, 0.0036, 0.0058,
+       0.0083, 0.0122, 0.0177, 0.025 , 0.0346, 0.0465, 0.0621, 0.0807,
+       0.1036, 0.1306, 0.1615, 0.1972, 0.2364, 0.2794, 0.327 , 0.3782,
+       0.4299, 0.4832, 0.5354, 0.5874, 0.6377, 0.6861, 0.7302, 0.7713,
+       0.8086, 0.8422, 0.8719, 0.8963, 0.9181, 0.9363, 0.951 , 0.9628,
+       0.9725, 0.9804, 0.9861, 0.9902, 0.9934, 0.9957, 0.9973, 0.9986,
+       0.9994, 1.    ])
 </pre></div>
 </div>
 </div>
@@ -1799,7 +1806,7 @@ asking for the percentiles of the distribution.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62.010000000000005
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>61.990999999999765
 </pre></div>
 </div>
 </div>
