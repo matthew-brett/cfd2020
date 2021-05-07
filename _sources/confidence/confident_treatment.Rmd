@@ -169,6 +169,7 @@ worlds['P(C17 given T)'] = p_c17_given_worlds
 worlds['P(T and C17)'] = worlds['P(T)'] * worlds['P(C17 given T)']
 worlds['P(T given C17)'] = (worlds['P(T and C17)'] /
                             worlds['P(T and C17)'].sum())
+# Use the percent values for the world as the row labels.
 worlds.index = world_percents
 worlds.tail()
 ```

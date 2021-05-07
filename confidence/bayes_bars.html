@@ -840,8 +840,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#all-five-boxes">
-   All five boxes
+  <a class="reference internal nav-link" href="#all-six-boxes">
+   All six boxes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -955,7 +955,7 @@ chance we will draw a red ball from BOX3.</p>
 red?</p>
 <p>We could do that by simulation, but let’s leap straight to calculation, using the same logic as above.</p>
 <p>We really like our Sankey diagrams, so we start with that:</p>
-<p><img alt="" src="confidence/images/box4_3_2_rg_sankey.jpg" /></p>
+<p><img alt="" src="../_images/box4_3_2_rg_sankey.jpg" /></p>
 <p>We now have three ways of getting red — from BOX4, BOX3 or BOX2.  The chances
 of <em>both</em> red and the given boxes is now:</p>
 <div class="cell docutils container">
@@ -1170,14 +1170,16 @@ Probability I gave you BOX4, given you drew a red ball:
 This means that all the bars get scaled by the same amount; the fourth row is
 just a rescaled version of the third.</p>
 </div>
-<div class="section" id="all-five-boxes">
-<h2>All five boxes<a class="headerlink" href="#all-five-boxes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="all-six-boxes">
+<h2>All six boxes<a class="headerlink" href="#all-six-boxes" title="Permalink to this headline">¶</a></h2>
 <p>We upgrade the game one more time.</p>
-<p>Now say I can hand you any one of six possible boxes.  You can guess the
+<p>Now say I can hand you any one of <em>six</em> possible boxes.  You can guess the
 contents of the new boxes.  BOX5 has five red balls and no green balls.  BOX1
 has one red ball and four green balls.  BOX0 has five green balls.</p>
-<p>This time, there is an equal chance of P=1/6 that I will hand you each type of box.</p>
-<p>Again, you have drawn a red.  What are the chances that I have given you BOX4?  Or indeed, any of the other boxes?</p>
+<p>This time, there is an equal chance of P=1/6 that I will hand you each type of
+box.</p>
+<p>Again, you have drawn a red.  What are the chances that I have given you BOX4?
+Or indeed, any of the other boxes?</p>
 <p>The Sankey diagram gets a little spidery, but we can put all that into the
 data frame in the same form as for the three boxes.</p>
 <div class="cell docutils container">
