@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="A problem for the education minister" href="havana_math.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="confidence.html" />
+    <link rel="prev" title="On confidence" href="confidence.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -636,6 +636,11 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="confidence.html">
+   On confidence
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    The Bootstrap
@@ -649,6 +654,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Central_Limit_Theorem.html">
    The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_choice.html">
+   Random choice
   </a>
  </li>
  <li class="toctree-l1">
@@ -667,13 +677,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="bayes_theorem.html">
+   Bayes theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="bayes_bars.html">
    Bayes and bars
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="second_bayes.html">
-   Back to Bayes
+  <a class="reference internal" href="confident_treatment.html">
+   Confident treatment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_confidence.html">
+   Bayes, confidence
   </a>
  </li>
 </ul>
@@ -1651,7 +1671,7 @@ the parameter.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>106653.92
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103282.48
 </pre></div>
 </div>
 </div>
@@ -1718,17 +1738,17 @@ the corresponding sample median.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18866     99263.52
-35683     50305.84
-23555    135211.35
-3506      44794.07
-25003     45275.37
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7758      90077.32
+22981     90366.37
+27528     21956.22
+20815    144696.44
+10855     30337.16
            ...    
-32804    151303.25
-19030    166009.12
-1299     139026.38
-29084     25044.93
-21442     92246.63
+4944     203708.68
+30382     38921.33
+16495     36772.51
+35748     32885.90
+1940     152942.81
 Name: Total Compensation, Length: 500, dtype: float64
 </pre></div>
 </div>
@@ -1753,7 +1773,7 @@ Name: Total Compensation, Length: 500, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109716.65
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103999.885
 </pre></div>
 </div>
 </div>
@@ -1774,7 +1794,7 @@ median</em>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>107030.405
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103924.04
 </pre></div>
 </div>
 </div>
@@ -1868,7 +1888,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100347.81
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97369.405
 </pre></div>
 </div>
 </div>
@@ -1881,7 +1901,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112867.610375
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111967.45499999999
 </pre></div>
 </div>
 </div>
@@ -1894,7 +1914,7 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([100347.81    , 112867.610375])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 97369.405, 111967.455])
 </pre></div>
 </div>
 </div>
@@ -1909,8 +1929,8 @@ medians contains the red dot”.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 100347.81
-Right 112867.610375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 97369.405
+Right 111967.45499999999
 </pre></div>
 </div>
 </div>
@@ -1958,8 +1978,8 @@ one left and one right interval.  This is the code we have been using above.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 99200.23
-Left 111491.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left 105422.56
+Left 116129.405
 </pre></div>
 </div>
 </div>
@@ -2032,28 +2052,28 @@ estimates of the median.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>103354.540</td>
-      <td>116238.240000</td>
+      <td>109681.830000</td>
+      <td>119470.960000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>106691.140</td>
-      <td>118001.190000</td>
+      <td>103439.520000</td>
+      <td>114247.658125</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>104584.170</td>
-      <td>115196.380000</td>
+      <td>107322.327500</td>
+      <td>117739.890000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>103087.880</td>
-      <td>112801.865125</td>
+      <td>106134.517875</td>
+      <td>116494.135000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>104235.010</td>
-      <td>116836.780000</td>
+      <td>95890.230000</td>
+      <td>106913.630000</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2062,28 +2082,28 @@ estimates of the median.</p>
     </tr>
     <tr>
       <th>95</th>
-      <td>99704.570</td>
-      <td>113853.739750</td>
+      <td>103317.005000</td>
+      <td>113827.970000</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>111080.810</td>
-      <td>122685.605000</td>
+      <td>100289.035000</td>
+      <td>113934.560000</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>105414.105</td>
-      <td>116074.655000</td>
+      <td>108395.900000</td>
+      <td>119635.955000</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>101311.235</td>
-      <td>112929.377250</td>
+      <td>106467.564625</td>
+      <td>116041.075000</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>105465.625</td>
-      <td>118572.770000</td>
+      <td>106104.730000</td>
+      <td>118890.090000</td>
     </tr>
   </tbody>
 </table>
@@ -2141,28 +2161,28 @@ end is above.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>103354.540</td>
-      <td>116238.240000</td>
+      <td>109681.830000</td>
+      <td>119470.960000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>106691.140</td>
-      <td>118001.190000</td>
+      <td>103439.520000</td>
+      <td>114247.658125</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>104584.170</td>
-      <td>115196.380000</td>
+      <td>107322.327500</td>
+      <td>117739.890000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>103087.880</td>
-      <td>112801.865125</td>
+      <td>106134.517875</td>
+      <td>116494.135000</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>104235.010</td>
-      <td>116836.780000</td>
+      <th>5</th>
+      <td>107400.740000</td>
+      <td>119621.620000</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2170,33 +2190,33 @@ end is above.</p>
       <td>...</td>
     </tr>
     <tr>
-      <th>94</th>
-      <td>101595.130</td>
-      <td>113717.960000</td>
+      <th>95</th>
+      <td>103317.005000</td>
+      <td>113827.970000</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>99704.570</td>
-      <td>113853.739750</td>
+      <th>96</th>
+      <td>100289.035000</td>
+      <td>113934.560000</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>105414.105</td>
-      <td>116074.655000</td>
+      <td>108395.900000</td>
+      <td>119635.955000</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>101311.235</td>
-      <td>112929.377250</td>
+      <td>106467.564625</td>
+      <td>116041.075000</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>105465.625</td>
-      <td>118572.770000</td>
+      <td>106104.730000</td>
+      <td>118890.090000</td>
     </tr>
   </tbody>
 </table>
-<p>98 rows × 2 columns</p>
+<p>95 rows × 2 columns</p>
 </div></div></div>
 </div>
 <p>It takes a few minutes to construct all the intervals, but try it again if you
@@ -2287,7 +2307,7 @@ will contain the parameter.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="confidence.html" title="previous page">&lt;no title&gt;</a>
+    <a class='left-prev' id="prev-link" href="confidence.html" title="previous page">On confidence</a>
     <a class='right-next' id="next-link" href="havana_math.html" title="next page">A problem for the education minister</a>
 
     </div>

@@ -56,8 +56,6 @@
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The end of the beginning" href="../end/end_of_beginning.html" />
-    <link rel="prev" title="Bayes and bars" href="bayes_bars.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -635,7 +633,12 @@
   Confidence
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="confidence.html">
+   On confidence
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
    The Bootstrap
@@ -649,6 +652,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Central_Limit_Theorem.html">
    The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_choice.html">
+   Random choice
   </a>
  </li>
  <li class="toctree-l1">
@@ -667,13 +675,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="bayes_theorem.html">
+   Bayes theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="bayes_bars.html">
    Bayes and bars
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Back to Bayes
+ <li class="toctree-l1">
+  <a class="reference internal" href="confident_treatment.html">
+   Confident treatment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_confidence.html">
+   Bayes, confidence
   </a>
  </li>
 </ul>
@@ -903,28 +921,28 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
+      <td>3</td>
       <td>green</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>4</td>
-      <td>green</td>
+      <td>5</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
-      <td>green</td>
+      <td>5</td>
+      <td>red</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
-      <td>red</td>
+      <td>1</td>
+      <td>green</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5</td>
-      <td>red</td>
+      <td>3</td>
+      <td>green</td>
     </tr>
   </tbody>
 </table>
@@ -941,7 +959,7 @@ the calculation we illustrated with the bars from the Bayes bars page.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.27521710086840345
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25764336473310195
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1089,7 @@ of the fifth bar:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33433533734134935
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33911750123946455
 </pre></div>
 </div>
 </div>
@@ -1172,8 +1190,6 @@ mean for a whole population (the state of the world).</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="bayes_bars.html" title="previous page">Bayes and bars</a>
-    <a class='right-next' id="next-link" href="../end/end_of_beginning.html" title="next page">The end of the beginning</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

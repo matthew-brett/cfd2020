@@ -52,12 +52,14 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/confidence/bayes_bars.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Back to Bayes" href="second_bayes.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="bayes_theorem.html" />
+    <link rel="next" title="Confident treatment" href="confident_treatment.html" />
+    <link rel="prev" title="Bayes theorem" href="bayes_theorem.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -67,7 +69,7 @@
 <meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/confidence/bayes_bars.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Bayes and bars" />
-<meta property="og:description" content="Bayes and bars  The reverse probability page has a game, that we analyzed by simulation, and then by reflection.  The game is:  I have two boxes; BOX4 with 4 re" />
+<meta property="og:description" content="Bayes and bars  # Run this cell; do not change it. import numpy as np import pandas as pd pd.set_option(&#39;mode.chained_assignment&#39;, &#39;raise&#39;) # Make printing of n" />
 <meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -637,6 +639,11 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="confidence.html">
+   On confidence
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="bootstrap.html">
    The Bootstrap
   </a>
@@ -649,6 +656,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Central_Limit_Theorem.html">
    The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random_choice.html">
+   Random choice
   </a>
  </li>
  <li class="toctree-l1">
@@ -666,14 +678,24 @@
    First Bayes
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_theorem.html">
+   Bayes theorem
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Bayes and bars
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="second_bayes.html">
-   Back to Bayes
+  <a class="reference internal" href="confident_treatment.html">
+   Confident treatment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_confidence.html">
+   Bayes, confidence
   </a>
  </li>
 </ul>
@@ -803,13 +825,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bayes-calculation-in-bars">
-   Bayes calculation in bars
+  <a class="reference internal nav-link" href="#three-boxes">
+   Three boxes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equal-chances-in-bars">
-   Equal chances in bars
+  <a class="reference internal nav-link" href="#three-boxes-in-arrays">
+   Three boxes, in arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#three-boxes-in-bars">
+   Three boxes, in bars
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#all-five-boxes">
+   All five boxes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-and-boxes">
+   Confidence and boxes
   </a>
  </li>
 </ul>
@@ -825,6 +862,21 @@
                 
   <div class="section" id="bayes-and-bars">
 <h1>Bayes and bars<a class="headerlink" href="#bayes-and-bars" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell; do not change it.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+<span class="c1"># Make printing of numbers a bit neater.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># Make the plots look more fancy.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>The <a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a> has a game, that we analyzed by
 simulation, and then by reflection.</p>
 <p>The game is:</p>
@@ -836,8 +888,8 @@ getting BOX4 and a 70% chance of getting BOX2.</p></li>
 <li><p>You draw a ball at random from the box, and you get a red ball.</p></li>
 <li><p>What is the probability that I gave you BOX4?</p></li>
 </ul>
-<p>We found by simulation, and later by reflection, that the probability is around
-0.462.</p>
+<p>We found by simulation, and later by <a class="reference internal" href="bayes_theorem.html"><span class="doc std std-doc">reflection and
+calculation</span></a>, that the probability is around 0.462.</p>
 <p>The logic we discovered was:</p>
 <ul class="simple">
 <li><p>We want the proportion of “red” trials that came from BOX4.</p></li>
@@ -846,240 +898,441 @@ by the overall proportion of red trials.</p></li>
 <li><p>The proportion of red trials that are <em>both</em> BOX4 <em>and</em> red is the
 proportion of BOX4 trials multiplied by (the proportion of BOX4 trials that
 are red).</p></li>
+<li><p>We can only get red from BOX4 or from BOX2.  The proportion of trials that
+are red is the proportion of BOX4 <em>and</em> red plus the proportion of BOX2
+<em>and</em> red.</p></li>
 </ul>
-<div class="section" id="bayes-calculation-in-bars">
-<h2>Bayes calculation in bars<a class="headerlink" href="#bayes-calculation-in-bars" title="Permalink to this headline">¶</a></h2>
-<p>This is another way to express that logic, using the height of bars to express
-the probabilities.</p>
-<p>First we express the initial probabilities of getting BOX4 and BOX2:</p>
+<p><img alt="" src="../_images/box4_2_sankey_labeled.jpg" /></p>
+<p>Here’s the calculation for the two boxes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
-<span class="n">x_locations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">box_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BOX4&#39;</span><span class="p">,</span> <span class="s1">&#39;BOX2&#39;</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting box&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Initial probability of boxes; P(BOX4)=0.3)&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># P(B4)</span>
+<span class="n">p_box2</span> <span class="o">=</span> <span class="mf">0.7</span>  <span class="c1"># P(B2)</span>
+<span class="n">p_red_given_box4</span> <span class="o">=</span> <span class="mf">0.8</span>  <span class="c1"># 4/5; P(R | B4)</span>
+<span class="n">p_red_given_box2</span> <span class="o">=</span> <span class="mf">0.4</span>  <span class="c1"># 2/5; P(R | B2)</span>
+<span class="n">p_box4_and_red</span> <span class="o">=</span> <span class="n">p_box4</span> <span class="o">*</span> <span class="n">p_red_given_box4</span>  <span class="c1"># P(B4 and R)</span>
+<span class="n">p_box2_and_red</span> <span class="o">=</span> <span class="n">p_box2</span> <span class="o">*</span> <span class="n">p_red_given_box2</span>  <span class="c1"># P(B2 and R)</span>
+<span class="n">p_red</span> <span class="o">=</span> <span class="n">p_box4_and_red</span> <span class="o">+</span> <span class="n">p_box2_and_red</span>  <span class="c1"># P of any way of getting red.</span>
+<span class="n">p_box4_given_red</span> <span class="o">=</span> <span class="n">p_box4_and_red</span> <span class="o">/</span> <span class="n">p_red</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probability I gave you BOX4, given you drew a red ball:&#39;</span><span class="p">)</span>
+<span class="n">p_box4_given_red</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_3_0.png" src="../_images/bayes_bars_3_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability I gave you BOX4, given you drew a red ball:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4615384615384615
+</pre></div>
 </div>
 </div>
-<p>Next we express the initial probabilities of getting a red ball from BOX4 and
-from BOX2:</p>
+</div>
+<div class="section" id="three-boxes">
+<h2>Three boxes<a class="headerlink" href="#three-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Now make the game just slightly more complicated, by adding the option of
+another box, BOX3.  BOX3 has three red balls and two green balls, giving a 60%
+chance we will draw a red ball from BOX3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">red_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red for each box&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_red_given_box3</span> <span class="o">=</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s say that there’s a 20% chance of BOX2, and a 50% chance of BOX2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4</span> <span class="o">=</span> <span class="mf">0.3</span>  <span class="c1"># 30% chance of BOX4</span>
+<span class="n">p_box3</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># 20% chance of BOX3</span>
+<span class="n">p_box2</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># 50% chance of BOX2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, what is the chance that I gave you BOX4, if you know you have drawn a
+red?</p>
+<p>We could do that by simulation, but let’s leap straight to calculation, using the same logic as above.</p>
+<p>We really like our Sankey diagrams, so we start with that:</p>
+<p><img alt="" src="confidence/images/box4_3_2_rg_sankey.jpg" /></p>
+<p>We now have three ways of getting red — from BOX4, BOX3 or BOX2.  The chances
+of <em>both</em> red and the given boxes is now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4_and_red</span> <span class="o">=</span> <span class="n">p_box4</span> <span class="o">*</span> <span class="n">p_red_given_box4</span>  <span class="c1"># P(B4 and R)</span>
+<span class="n">p_box3_and_red</span> <span class="o">=</span> <span class="n">p_box3</span> <span class="o">*</span> <span class="n">p_red_given_box3</span>  <span class="c1"># P(B3 and R)</span>
+<span class="n">p_box2_and_red</span> <span class="o">=</span> <span class="n">p_box2</span> <span class="o">*</span> <span class="n">p_red_given_box2</span>  <span class="c1"># P(B2 and R)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The overall probability of red on any one trial is the sum of the probabilities of red with each of the three boxes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_red_3_box_game</span> <span class="o">=</span> <span class="n">p_box4_and_red</span> <span class="o">+</span> <span class="n">p_box3_and_red</span> <span class="o">+</span> <span class="n">p_box2_and_red</span>
+<span class="n">p_red_3_box_game</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_5_0.png" src="../_images/bayes_bars_5_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.56
+</pre></div>
 </div>
 </div>
-<p>Next we combine the two steps, of getting a box, and then drawing a ball.</p>
-<p>There is a 0.3 probability of BOX4 and a 0.7 probability of a red ball, given
-we have BOX4, so the probability of BOX4 <em>and</em> a red ball is 0.3 (for BOX4) *
-0.8 (for red given BOX4) = 0.24.</p>
-<p>Similarly, the probability of BOX2 <em>and</em> a red ball is 0.7 (for BOX2) * 0.4
-(for red given BOX2) = 0.28.</p>
-<p>We can think of this as multiplying the values expressed by heights in the
-first bar graph (0.3, and 0.7 in this case), by the values expressed by heights
-in the second bar graph (0.8 and 0.4 in this case).</p>
+</div>
+<p>The probability I gave you BOX4, given you got a red ball, the probability of BOX4 <em>and</em> red, divided by the probability of red from any box (above):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_and_red_probs</span> <span class="o">=</span> <span class="n">box_probabilities</span> <span class="o">*</span> <span class="n">red_probabilities</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;P of box and red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P for each box and red; P(BOX4)=0.3&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4_given_red_3_box</span> <span class="o">=</span> <span class="n">p_box4_and_red</span> <span class="o">/</span> <span class="n">p_red_3_box_game</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Three box version of game&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probability I gave you BOX4, given you drew a red ball:&#39;</span><span class="p">)</span>
+<span class="n">p_box4_given_red_3_box</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_7_0.png" src="../_images/bayes_bars_7_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Three box version of game
+Probability I gave you BOX4, given you drew a red ball:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4285714285714285
+</pre></div>
 </div>
 </div>
-<p>Lastly, remember we are interested in the probability that we started with
-BOX4, given we have a red ball.</p>
-<p>To get this probability, we first take the probability of getting a red ball
-<em>and</em> BOX4.  This is the first bar on the graph above: 0.3 * 0.8 = 0.24.</p>
-<p>Next we divide by the overall probability of getting a red ball, which is the
-<em>sum of the heights of the two bars</em> above: 0.24 + 0.28 = 0.52.</p>
-<p>We can do this calculation by dividing the heights of the bars above by the sum
-of the heights, so the heights of the bars now sum to 1.</p>
+</div>
+</div>
+<div class="section" id="three-boxes-in-arrays">
+<h2>Three boxes, in arrays<a class="headerlink" href="#three-boxes-in-arrays" title="Permalink to this headline">¶</a></h2>
+<p>The three box version of the game might have prompted you to think that we are doing similar calculation on several values.  You might have thought of putting the various probabilities into arrays, to do the calculation.</p>
+<p>Let us do that, for the three box version of the game.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">box_and_red_probs</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_given_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P of box given red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P of box given red; P(BOX4)=0.3&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array version of the 3 box calculation</span>
+<span class="c1"># Probabilities of boxes 4, 3, and 2.</span>
+<span class="n">p_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="c1"># Probabilities of red given boxes 4, 3, 2</span>
+<span class="n">p_red_given_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we use our arrays to calculate the probabilities of the various boxes
+<em>and</em> red:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_boxes_and_red</span> <span class="o">=</span> <span class="n">p_boxes</span> <span class="o">*</span> <span class="n">p_red_given_boxes</span>
+<span class="n">p_boxes_and_red</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_9_0.png" src="../_images/bayes_bars_9_0.png" />
-</div>
-</div>
-<p>The left bar is our familiar (0.24 * 0.8) / 0.52 = 0.462 value, from the
-<a class="reference internal" href="first_bayes.html"><span class="doc std std-doc">reverse probability page</span></a>.  It is the probability that we were
-given BOX4, given that we have drawn a red ball.  The second bar is the
-probability that we were given BOX2, given we have drawn a red ball.  Note that
-the height of the bars sums to 1.</p>
-</div>
-<div class="section" id="equal-chances-in-bars">
-<h2>Equal chances in bars<a class="headerlink" href="#equal-chances-in-bars" title="Permalink to this headline">¶</a></h2>
-<p>Now imagine a slight change to the game; say there is an equal (50%) chance of
-getting BOX4 or BOX2:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.24, 0.12, 0.2 ])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Show the new probabilities:</p>
+<p>The probability of red from any box:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P of getting box&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Initial P of boxes; P(BOX4)=0.5&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_boxes_and_red</span><span class="p">)</span>
+<span class="n">p_red</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_14_0.png" src="../_images/bayes_bars_14_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.56
+</pre></div>
 </div>
 </div>
-<p>The probabilities of getting red from each box have not changed:</p>
+</div>
+<p>Finally:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">red_probabilities</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability of getting red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of getting red for each box&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_box4_given_red_3_box</span> <span class="o">=</span> <span class="n">p_boxes_and_red</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">p_red</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Three box version of game, array calculation&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probability I gave you BOX4, given you drew a red ball:&#39;</span><span class="p">)</span>
+<span class="n">p_box4_given_red_3_box</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_16_0.png" src="../_images/bayes_bars_16_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Three box version of game, array calculation
+Probability I gave you BOX4, given you drew a red ball:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4285714285714285
+</pre></div>
 </div>
 </div>
-<p>We scale the red-ball bars by the probabilities of the boxes:</p>
+</div>
+<p>In fact, the array version makes it more obvious that we can quickly calculate the probability of any box, given we have drawn a red:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_and_red_probs</span> <span class="o">=</span> <span class="n">box_probabilities</span> <span class="o">*</span> <span class="n">red_probabilities</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;P of box and red ball&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P for each box and red (box p equal)&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probabilities I gave you box4, 3, 2, given red&#39;</span><span class="p">)</span>
+<span class="n">p_boxes_and_red</span> <span class="o">/</span> <span class="n">p_red</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_18_0.png" src="../_images/bayes_bars_18_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probabilities I gave you box4, 3, 2, given red
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.4286, 0.2143, 0.3571])
+</pre></div>
 </div>
 </div>
-<p>Last we divide by the sum of the heights of the bars:</p>
+</div>
+<p>Just for fun, let’s do all that in a data frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">box_and_red_probs</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_given_red_probs</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_locations</span><span class="p">,</span> <span class="n">box_labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P of box given red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;P of box given red; P(BOX4)=0.5&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxes_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_boxes</span>
+<span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_red_given_boxes</span>
+<span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B)&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span>
+<span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B given R)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">boxes_3</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">boxes_3</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]</span>
+<span class="n">boxes_3</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bayes_bars_20_0.png" src="../_images/bayes_bars_20_0.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>P(B)</th>
+      <th>P(R given B)</th>
+      <th>P(B and R)</th>
+      <th>P(B given R)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B4</th>
+      <td>0.3</td>
+      <td>0.8</td>
+      <td>0.24</td>
+      <td>0.428571</td>
+    </tr>
+    <tr>
+      <th>B3</th>
+      <td>0.2</td>
+      <td>0.6</td>
+      <td>0.12</td>
+      <td>0.214286</td>
+    </tr>
+    <tr>
+      <th>B2</th>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>0.20</td>
+      <td>0.357143</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
-<p>Because the probability that we got BOX4 increased, the probability that we got
-BOX4, given we drew a red ball, has also increased.  That probability is now:</p>
+<div class="section" id="three-boxes-in-bars">
+<h2>Three boxes, in bars<a class="headerlink" href="#three-boxes-in-bars" title="Permalink to this headline">¶</a></h2>
+<p>We can show this array version of the calculation graphically, by using the length of bars to express the probabilities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P(BOX4 | red)&#39;</span><span class="p">,</span> <span class="n">box_given_red_probs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxes_3</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>  <span class="c1"># Space out the plots a bit.</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(BOX4 | red) 0.6666666666666666
-</pre></div>
+<img alt="../_images/bayes_bars_27_0.png" src="../_images/bayes_bars_27_0.png" />
 </div>
 </div>
+<p>Our inputs are the first two arrays (rows) - <span class="math notranslate nohighlight">\(P(B)\)</span> and <span class="math notranslate nohighlight">\(P(R | B)\)</span>.</p>
+<p>The third row, <span class="math notranslate nohighlight">\(P(B \cap R)\)</span> is the first row multiplied by the second.</p>
+<p>The last row, <span class="math notranslate nohighlight">\(P(B | R)\)</span> is the third row divided by the sum of the third row.
+This means that all the bars get scaled by the same amount; the fourth row is
+just a rescaled version of the third.</p>
 </div>
-<p>Remember our steps:</p>
-<ol class="simple">
-<li><p>Get the probability of red given each box — here: (0.8, 0.4);</p></li>
-<li><p>Scale these by the probability of each box — here: (0.5, 0.5);</p></li>
-<li><p>Divide the results by the sum of the heights to get the reverse
-probabilities — here (0.67, 0.34).</p></li>
-</ol>
+<div class="section" id="all-five-boxes">
+<h2>All five boxes<a class="headerlink" href="#all-five-boxes" title="Permalink to this headline">¶</a></h2>
+<p>We upgrade the game one more time.</p>
+<p>Now say I can hand you any one of six possible boxes.  You can guess the
+contents of the new boxes.  BOX5 has five red balls and no green balls.  BOX1
+has one red ball and four green balls.  BOX0 has five green balls.</p>
+<p>This time, there is an equal chance of P=1/6 that I will hand you each type of box.</p>
+<p>Again, you have drawn a red.  What are the chances that I have given you BOX4?  Or indeed, any of the other boxes?</p>
+<p>The Sankey diagram gets a little spidery, but we can put all that into the
+data frame in the same form as for the three boxes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1 - P of reds.</span>
-<span class="n">red_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
-<span class="c1"># Step 2 - scale by P of the boxes</span>
-<span class="n">box_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">box_and_red_probs</span> <span class="o">=</span> <span class="n">box_probabilities</span> <span class="o">*</span> <span class="n">red_probabilities</span>
-<span class="c1"># Step 3 - divide each bar by sum of bar heights.</span>
-<span class="n">box_given_red_probs</span> <span class="o">=</span> <span class="n">box_and_red_probs</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">box_and_red_probs</span><span class="p">)</span>
-<span class="c1"># Show result</span>
-<span class="n">box_given_red_probs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxes_6</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>  <span class="c1"># Same probability for each box.</span>
+<span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B)&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span>
+<span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B given R)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(B and R)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">boxes_6</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B0&#39;</span><span class="p">]</span>
+<span class="n">boxes_6</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.66666667, 0.33333333])
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>P(B)</th>
+      <th>P(R given B)</th>
+      <th>P(B and R)</th>
+      <th>P(B given R)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>B5</th>
+      <td>0.166667</td>
+      <td>1.0</td>
+      <td>0.166667</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>B4</th>
+      <td>0.166667</td>
+      <td>0.8</td>
+      <td>0.133333</td>
+      <td>0.266667</td>
+    </tr>
+    <tr>
+      <th>B3</th>
+      <td>0.166667</td>
+      <td>0.6</td>
+      <td>0.100000</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>B2</th>
+      <td>0.166667</td>
+      <td>0.4</td>
+      <td>0.066667</td>
+      <td>0.133333</td>
+    </tr>
+    <tr>
+      <th>B1</th>
+      <td>0.166667</td>
+      <td>0.2</td>
+      <td>0.033333</td>
+      <td>0.066667</td>
+    </tr>
+    <tr>
+      <th>B0</th>
+      <td>0.166667</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Notice also, in this case, where the probability of each box is the same, we
-can miss out step 2.  This is because, when the probability of each box is the
-same, scaling the probability does not change the heights of the bars relative
-to each other, so, when we divide each bar by the sum of the bar heights, the
-result is the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># When box probabilities are equal, we can miss out step 2.</span>
-<span class="c1"># Step 1 - P of reds.</span>
-<span class="n">red_probabilities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
-<span class="c1"># Step 3 - divide each bar by sum of bar heights.</span>
-<span class="n">shortcut_box_given_red_probs</span> <span class="o">=</span> <span class="n">red_probabilities</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">red_probabilities</span><span class="p">)</span>
-<span class="c1"># Show result is the same as with step 2.</span>
-<span class="n">shortcut_box_given_red_probs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxes_6</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>  <span class="c1"># Space out the plots.</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.66666667, 0.33333333])
+<img alt="../_images/bayes_bars_31_0.png" src="../_images/bayes_bars_31_0.png" />
+</div>
+</div>
+<p>Notice that, in this case, where the probability of each box is the same, we
+do not really need to calculate the third row, we can just divide the second
+row by the sum of the second row.  This is because, when the probability of
+each box is the same, scaling the probability does not change the lengths of
+the bars relative to each other, so, when we divide each bar by the sum of the
+bar lengths, the result is the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Same result skipping the multiplication by initial box probabilities.</span>
+<span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">boxes_6</span><span class="p">[</span><span class="s1">&#39;P(R given B)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B5    0.333333
+B4    0.266667
+B3    0.200000
+B2    0.133333
+B1    0.066667
+B0    0.000000
+Name: P(R given B), dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 <p>If you do not mind a little basic algebra, see why this must be true in the
 <a class="reference internal" href="equal_initial_p.html"><span class="doc std std-doc">equal initial p</span></a> page.</p>
+</div>
+<div class="section" id="confidence-and-boxes">
+<h2>Confidence and boxes<a class="headerlink" href="#confidence-and-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Consider the 6 box probabilities above.</p>
+<p>Now consider the following question: You have drawn a red.  What is the
+probability that the box contained at least 3 red balls?</p>
+<p>From the <a class="reference internal" href="laws_of_probability.html"><span class="doc std std-doc">addition rule</span></a>, this is the sum of the <span class="math notranslate nohighlight">\(P(B |
+R)\)</span> probabilities for boxes 3, 4, and 5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_at_least_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">boxes_6</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;P(B given R)&#39;</span><span class="p">]</span> <span class="o">+</span>
+                <span class="n">boxes_6</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;P(B given R)&#39;</span><span class="p">]</span> <span class="o">+</span>
+                <span class="n">boxes_6</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;P(B given R)&#39;</span><span class="p">])</span>
+<span class="n">p_at_least_3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8
+</pre></div>
+</div>
+</div>
+</div>
+<p>You have <code class="docutils literal notranslate"><span class="pre">p_at_least_3</span></code> <em>confidence</em> that the box I gave you had at least
+three red balls.</p>
+<p>This is the logic for <em>Bayesian confidence intervals</em>.  These are sometimes
+called <a class="reference external" href="https://en.wikipedia.org/wiki/Credible_interval">credible intervals</a>.
+We can reason about plausible states of the world that led to our results.  In
+our case we can reason about which box we have drawn from (state of the
+world), given we have seen a red ball (the result).</p>
+<p>Now we are ready to seek confidence for something other than a game.</p>
 </div>
 </div>
 
@@ -1111,8 +1364,8 @@ result is the same.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="bayes_theorem.html" title="previous page">&lt;no title&gt;</a>
-    <a class='right-next' id="next-link" href="second_bayes.html" title="next page">Back to Bayes</a>
+    <a class='left-prev' id="prev-link" href="bayes_theorem.html" title="previous page">Bayes theorem</a>
+    <a class='right-next' id="next-link" href="confident_treatment.html" title="next page">Confident treatment</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -637,6 +637,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/confidence.html">
+   On confidence
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../confidence/bootstrap.html">
    The Bootstrap
   </a>
@@ -649,6 +654,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../confidence/Central_Limit_Theorem.html">
    The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/random_choice.html">
+   Random choice
   </a>
  </li>
  <li class="toctree-l1">
@@ -667,13 +677,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bayes_theorem.html">
+   Bayes theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../confidence/bayes_bars.html">
    Bayes and bars
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../confidence/second_bayes.html">
-   Back to Bayes
+  <a class="reference internal" href="../confidence/confident_treatment.html">
+   Confident treatment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bayes_confidence.html">
+   Bayes, confidence
   </a>
  </li>
 </ul>
@@ -983,7 +1003,7 @@ surprising at the 5% level — about 5% of the time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.33387074, 0.3665069 , 0.58256942, 0.77284191, 0.00652778])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.8699347 , 0.61382552, 0.26132546, 0.78683524, 0.28440196])
 </pre></div>
 </div>
 </div>
@@ -998,7 +1018,7 @@ or smaller about 5% of the time.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0513
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0504
 </pre></div>
 </div>
 </div>
@@ -1025,7 +1045,7 @@ group of 3 and another of 37:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00856773, 0.69507075, 0.67170779, 0.60394571, 0.84482471])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91775448, 0.30132596, 0.94328554, 0.98072342, 0.28914807])
 </pre></div>
 </div>
 </div>
@@ -1040,7 +1060,7 @@ group of 3 and another of 37:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0494
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0455
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1100,7 @@ distribution looks like this, with a <span class="math notranslate nohighlight">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.82481112, 0.04490397, 0.54000403, 0.83517741, 0.76958432])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.18048345, 0.91837402, 0.89212643, 0.52221823, 0.64915351])
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1116,7 @@ random differences as being surprising at the 5% level:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0722
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0701
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1147,7 @@ random differences as being surprising at the 5% level:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0615
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0592
 </pre></div>
 </div>
 </div>
@@ -1171,7 +1191,7 @@ loop.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.059, 0.559, 0.591, 0.997, 0.417])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.379, 0.975, 0.451, 0.953, 0.156])
 </pre></div>
 </div>
 </div>
@@ -1186,7 +1206,7 @@ loop.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.047
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06
 </pre></div>
 </div>
 </div>

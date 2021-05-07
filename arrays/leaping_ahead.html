@@ -637,6 +637,11 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/confidence.html">
+   On confidence
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../confidence/bootstrap.html">
    The Bootstrap
   </a>
@@ -649,6 +654,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../confidence/Central_Limit_Theorem.html">
    The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/random_choice.html">
+   Random choice
   </a>
  </li>
  <li class="toctree-l1">
@@ -667,13 +677,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bayes_theorem.html">
+   Bayes theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../confidence/bayes_bars.html">
    Bayes and bars
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../confidence/second_bayes.html">
-   Back to Bayes
+  <a class="reference internal" href="../confidence/confident_treatment.html">
+   Confident treatment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../confidence/bayes_confidence.html">
+   Bayes, confidence
   </a>
  </li>
 </ul>
@@ -869,7 +889,7 @@ simulates a family of four children, and count the number of girls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -885,7 +905,7 @@ simulates a family of four children, and count the number of girls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -901,7 +921,7 @@ simulates a family of four children, and count the number of girls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -918,7 +938,7 @@ simulates a family of four children, and count the number of girls.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3., 2., 0., 0., 0., 0., 0., 0., 0., 0.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2., 3., 0., 0., 0., 0., 0., 0., 0., 0.])
 </pre></div>
 </div>
 </div>
@@ -946,7 +966,7 @@ soon</span></a>.  You will recognize nearly all the code below, from the single 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4., 3., 1., 2., 3., 1., 1., 3., 1., 2.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 3., 1., 2., 2., 3., 4., 0., 2., 1.])
 </pre></div>
 </div>
 </div>
@@ -983,7 +1003,7 @@ soon</span></a>.  You will recognize nearly all the code below, from the single 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2512
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2457
 </pre></div>
 </div>
 </div>
@@ -998,7 +1018,7 @@ the number of trials:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2512
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2457
 </pre></div>
 </div>
 </div>
@@ -1032,7 +1052,7 @@ the number of trials:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2557
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2458
 </pre></div>
 </div>
 </div>
