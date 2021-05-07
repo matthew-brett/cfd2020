@@ -110,7 +110,8 @@ exact_for_95 = binom.pmf(n_successes, n_obs, 0.95)
 exact_for_95
 ```
 
-In fact we can calculate both probabilities at the same time by passing an array to the probability argument:
+In fact we can use `binom` to calculate both probabilities at the same time by
+passing an array to the probability argument:
 
 ```{python}
 # Exact calculation for two worlds
@@ -134,7 +135,7 @@ We've also got the equivalent value for a $T_{95}$ world:
 p_c17_given_t95 = exact_for_95
 ```
 
-Let's calculate the probability value for all integer percentages, except 0.
+Let's calculate the probability value for all positive integer percentages:
 
 ```{python}
 world_percents = np.arange(1, 101)

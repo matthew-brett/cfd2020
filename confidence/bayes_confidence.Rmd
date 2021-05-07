@@ -16,16 +16,16 @@ jupyter:
 
 # Bayes, confidence
 
-In the [problem for the education minister]({{ site.baseurl
-}}/chapters/10/havana_math) we had a sample of fast-track-marked exams from
-2019, and we found that the mean mark was 58.74.  We wondered what we could say
-about the eventual mean of the marks for all 8000 or so students.
+In the [problem for the education minister](havana_math) we had a sample of
+fast-track-marked exams from 2019, and we found that the mean mark was 58.74.
+We wondered what we could say about the eventual mean of the marks for all 8000
+or so students.
 
-After a bit of development, we found, in the [reverse probability with bars]({{
-site.baseurl }}/chapters/10/bayes_bars) page, that we could use some
-probability calculations to draw conclusions about the state of the world, from
-some result.  In that page, we calculated the probability of the state of the
-world (a box we have been given) from a result (drawing a red ball).
+After a bit of development, we found, in the [reverse probability with
+bars](bayes_bars) page, that we could use some probability calculations to draw
+conclusions about the state of the world, from some result.  In that page, we
+calculated the probability of the state of the world (a box we have been given)
+from a result (drawing a red ball).
 
 Now we want to draw a conclusion about the state of the world (the eventual
 mean of all the 2019 exams) from a result (the mean of the fast-marked sample
@@ -72,8 +72,8 @@ import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 ```
 
-You can download the 2018 marks from [havana_math_2018.csv]({{ site.baseurl
-}}/data/havana_math_2018.csv).
+You can download the 2018 marks from
+{download}`havana_math_2018.csv <../data/havana_math_2018.csv>`.
 
 ```{python}
 havana_2018 = pd.read_csv('havana_math_2018.csv')
@@ -86,8 +86,8 @@ mean_2018
 This was our sample of 50 marks from the 2019 examinations.  It has a mean of
 58.74.
 
-You can download the sample file from [havana_math_2019_sample.csv]({{
-site.baseurl }}/data/havana_math_2019_sample.csv).
+You can download the 2019 sample file from
+{download}`havana_math_2019_sample.csv <../data/havana_math_2019_sample.csv>`.
 
 ```{python}
 havana_2019_sample = pd.read_csv('havana_math_2019_sample.csv')
@@ -249,9 +249,8 @@ bin_58p75 = np.where(bin_centers == 58.75)
 bin_58p75
 ```
 
-Look back at [where and argmin]({{ site.baseurl
-}}/chapters/08/where_and_argmin) for the trick here of using `np.where` to find
-the index.
+Look back at [where and argmin](mean-slopes/where_and_argmin) for the trick
+here of using `np.where` to find the index.
 
 We get the proportion at that index, to give the probability that we will see a
 sample mean between 58.5 and 59:
@@ -461,9 +460,8 @@ We want to reverse this probability.  We want the probability that the
 population mean is a certain value (on the x axis), given that we have sample
 mean of around 58.75.
 
-To do this, we follow the rules in [reverse probability]({{ site.baseurl
-}}/chapters/10/first_bayes) and [Bayes bars]({{ site.baseurl
-}}/chapters/10/bayes_bars).
+To do this, we follow the rules in [reverse probability](first_bayes) and
+[Bayes bars](bayes_bars).
 
 These are:
 
@@ -508,16 +506,16 @@ above) of the probabilities of the sample mean, given the population means.
 
 In fact is it is the same, and this is because:
 
-* As you saw in [reverse probability]({{ site.baseurl
-  }}/chapters/10/first_bayes) and [Bayes bars]({{ site.baseurl
-  }}/chapters/10/bayes_bars), when all the prior (initial) probabilities are
-  the same, we can skip the step of multiplying the forward (red) values by the
-  prior (initial) probabilities.
+* As you saw in [reverse probability](first_bayes) and [Bayes
+  bars](bayes_bars), when all the prior (initial) probabilities are the same,
+  we can skip the step of multiplying the forward (red) values by the prior
+  (initial) probabilities.
 * The forward (red) values were proportions, and so all the red values add up
   to 1, corresponding to all the sample means.  Therefore, step 3, dividing by
   the sum, is dividing by 1, and doesn't change the values.
 
-The dark red distribution is very useful, because it can answer questions we are interested in.
+The dark red distribution is very useful, because it can answer questions we
+are interested in.
 
 Remember that each value in this plot is the probability of the corresponding
 population means (on the x axis), given the observed sample mean of around
@@ -541,10 +539,10 @@ confident that the eventual population mean will be less than or equal to this
 value.
 
 To get this value, we can use the `np.cumsum` function, first mentioned in the
-[arrays]({{ site.baseurl }}/chapters/03/Arrays) page. It takes an input array
-say `a`, and returns another array, say `b` that is the same size as `a`, but
-which has, at each element, the result of summing up all the elements in `a` up
-to the corresponding position.  This might be clearer by example:
+[arrays](../arrays/Arrays) page. It takes an input array say `a`, and returns
+another array, say `b` that is the same size as `a`, but which has, at each
+element, the result of summing up all the elements in `a` up to the
+corresponding position.  This might be clearer by example:
 
 ```{python}
 # np.cumsum - for each element, add all elements so far.
