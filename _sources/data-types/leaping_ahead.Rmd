@@ -1,0 +1,206 @@
+---
+jupyter:
+  jupytext:
+    split_at_heading: true
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.1'
+      jupytext_version: 1.2.4
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+# Leaping ahead
+
+We are still building up to a solution for the [three girls
+problem](../code-basics/three_girls).
+
+We have more of the building blocks we need.
+
+First we load the Numpy library.
+
+```{python}
+# Load the Numpy package, and rename to "np"
+import numpy as np
+```
+
+We are going to simulate 10000 families, each with four children.
+
+Here we put together some things you've seen before.  We are creating a Numpy array from an empty list.  We get an empty array.
+
+```{python}
+# Make an empty array to store counts of girls in each family
+counts = np.array([])
+counts
+```
+
+`counts` will eventually have 10000 elements where each will be the number of girls in one simulated family.
+
+Remembering [function arguments](function_arguments), here is how we make
+an array that simulates a family of four children:
+
+```{python}
+# Get an array of 4 integers from 0 up to, but not including 2.
+# (Therefore, 4 integers that can be either 0 or 1).
+family = np.random.randint(0, 2, size=4)
+family
+```
+
+We represented girls with a value of one. We can count the number of girls by using the `np.sum` function on the `family` array:
+
+```{python}
+count = np.sum(family)
+count
+```
+
+We want to build up a lot of counts, in the `counts` array, so we start by appending the `count` value:
+
+```{python}
+# Store the count in the counts array.
+counts = np.append(counts, count)
+counts
+```
+
+We can do this again in a single cell, like this:
+
+```{python}
+# A second family
+family = np.random.randint(0, 2, size=4)
+count = np.sum(family)
+
+# Store the count in the counts array.
+counts = np.append(counts, count)
+counts
+```
+
+To add another family, we just repeat the same:
+
+```{python}
+# A third family
+family = np.random.randint(0, 2, size=4)
+count = np.sum(family)
+
+# Store the count in the counts array.
+counts = np.append(counts, count)
+counts
+```
+
+Obviously this is getting a bit boring and repetitive. Surely we can do better.
+
+Yes indeed, we can use a *for loop*.  We will see much more of for loops [very
+soon](../arrays-iteration/iteration).  Here's a preview:
+
+```{python}
+# Reset the counts array to empty.
+counts = np.array([])
+
+# Repeat the indented stuff 10000 times.
+for i in np.arange(10000):
+    # The procedure for one family.
+    family = np.random.randint(0, 2, size=4)
+    count = np.sum(family)
+    # Store the count in the counts array.
+    counts = np.append(counts, count)
+counts
+```
+
+Now we have a count of the number of girls, from 10000 simulated families:
+
+```{python}
+len(counts)
+```
+
+Our next problem is to find how many of these `counts` are equal to 3.
+
+Remember [comparison](Comparison)?
+
+Imagine I have some value `count`, like this:
+
+```{python}
+count = 3
+count
+```
+
+I can use the `==` comparison to test if `count` is equal to 3:
+
+```{python}
+# A comparison expression, asking whether "count" is equal to 3.
+count == 3
+```
+
+What do you think we will get if do the same test on all 10000 values in `counts`?
+
+```{python}
+counts == 3
+```
+
+This is a new 10000 element array of True and False values.  It is called a *Boolean array*.  We will see many more of these.
+
+Next we will use a Numpy function called `count_nonzero`.   It counts the number of values in an array that are not equivalent to 0.   It turns out that `False` is equivalent to 0, but `True` is not:
+
+```{python}
+np.count_nonzero(False)
+```
+
+```{python}
+np.count_nonzero(True)
+```
+
+```{python}
+my_booleans = np.array([True, False, True])
+np.count_nonzero(my_booleans)
+```
+
+This means that `count_nonzero` returns the number of True values in a Boolean array.  Now we can count how many of the `counts` array were equal to 3.
+
+```{python}
+# The Boolean array, with True where counts equal to 3, False otherwise.
+has_3_girls = counts == 3
+
+# Number of counts values equal to 3.
+n_3_girls = np.count_nonzero(has_3_girls)
+n_3_girls
+```
+
+Finally we estimate the probability by dividing the number of times we saw 3 by the number of trials:
+
+```{python}
+# Estimate probability of 3 girls.
+n_3_girls / 10000
+```
+
+## The whole thing
+
+Here then is the whole solution to three girl problem.
+
+It is make from the combination of the code in the cells above.
+
+```{python}
+# Reset the counts array to empty.
+counts = np.array([])
+
+# Repeat the indented stuff 10000 times.
+for i in np.arange(10000):
+    # The procedure for one family.
+    family = np.random.randint(0, 2, size=4)
+    count = np.sum(family)
+    # Store the count in the counts array.
+    counts = np.append(counts, count)
+
+# True where counts has the value 3, False otherwise.
+has_3_girls = counts == 3
+
+# Number of counts values equal to 3.
+n_3_girls = np.count_nonzero(has_3_girls)
+
+# Estimate and show probability of 3 girls.
+n_3_girls / 10000
+```
+
+## For loops.
+
+The new part of this story is the *for loop*.  On to [iteration with for
+loops](../arrays-iteration/iteration).

@@ -126,7 +126,7 @@ Now we have the dummy (1 or 0) variable, let us use a scatter plot to look at
 the relationship between hemoglobin concentration and whether a patient has a
 good appetite.
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 # We will use this plotting code several times, so put into a function for
 # later use.
 
@@ -268,7 +268,7 @@ predicted_lin_reg
 Let's plot our predictions, alongside the actual data.  We plot the predictions
 from linear regression in orange.
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 # Do the base plot of the hemoglobin and appetite_d.
 plot_hgb_app()
 
@@ -342,7 +342,7 @@ nice_intercept, nice_slope = -7, 0.8
 predictions_new = params2pps(nice_intercept, nice_slope, hemoglobin)
 ```
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 # Do the base plot of the hemoglobin and appetite_d.
 plot_hgb_app()
 
@@ -402,7 +402,7 @@ We will explain more about the two stages of the transform below, but for now, h
 This is the original sigmoid curve above, with the predictions, in its own
 plot.
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 plt.scatter(hemoglobin, predictions_new, color='gold')
 plt.plot(fine_x, fine_y_sigmoid, linewidth=1, linestyle=':')
 plt.title('Sigmoid probability prediction')
@@ -412,7 +412,7 @@ plt.ylabel('Probability prediction');
 
 Next we apply the conversion from probability to odds-ratio:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 predictions_or = predictions_new / (1 - predictions_new)
 plt.scatter(hemoglobin, predictions_or, color='gold')
 fine_y_or = fine_y_sigmoid / (1 - fine_y_sigmoid)
@@ -535,7 +535,7 @@ p = odds_ratio / (odds_ratio + 1)
 
 As you've seen, when we apply the conversion above, to convert the probability values to odds ratios for our appetite predications, we get the following:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 predictions_or = predictions_new / (1 - predictions_new)
 plt.scatter(hemoglobin, predictions_or,
             color='gold')
@@ -562,7 +562,7 @@ transformations that convert an exponential curve into a straight line.
 
 Here's an example:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 x = np.linspace(0, 10, 1000)
 y = 3 ** x
 fig, axes = plt.subplots(1, 2)
@@ -575,7 +575,7 @@ ax1.set_title(r'Log of $3^x$');
 
 You have already see logs in action transforming the odds-ratio predictions.
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 fig, axes = plt.subplots(1, 2)
 ax0, ax1 = axes
 ax0.scatter(hemoglobin, predictions_or, color='gold')
@@ -610,7 +610,7 @@ def logit(p):
 
 Here are the original sigmoid predictions and the predictions with the `logit` transform applied:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 fig, axes = plt.subplots(1, 2)
 ax0, ax1 = axes
 ax0.scatter(hemoglobin, predictions_new, color='gold')
@@ -669,7 +669,7 @@ predictions with the logit transformation applied.
 Next you see the logit-transformed results on the left.  The right shows the
 results of applying `inv_logit` to recover the original p values.
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 fig, axes = plt.subplots(1, 2)
 ax0, ax1 = axes
 ax0.scatter(hemoglobin, predictions_or_log, color='gold')
@@ -825,7 +825,7 @@ logit_ss_pps = inv_logit(predicted_log_odds)
 
 Then plot:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 plot_hgb_app()
 # A new plot on top of the old.
 plt.scatter(hemoglobin, logit_ss_pps,
@@ -1046,7 +1046,7 @@ inter_ML, slope_ML = mr_ML.x
 predicted_ML = inv_logit(inter_ML + slope_ML * hemoglobin)
 ```
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 plot_hgb_app()
 plt.scatter(hemoglobin, predicted_ML, c='gold', label='ML prediction')
 plt.legend();
@@ -1204,7 +1204,7 @@ inter_MLL, slope_MLL = mr_MLL.x
 predicted_MLL = inv_logit(inter_MLL + slope_MLL * hemoglobin)
 ```
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 plot_hgb_app()
 plt.scatter(hemoglobin, predicted_ML, c='gold', label='MLL prediction')
 plt.title('Maximum log likelihood cost function')
@@ -1257,7 +1257,7 @@ sm_predictions.head()
 Let us plot the predicted probabilities of having "good" appetite, from
 Statsmodels:
 
-```{python tags=c("hide-cell")}
+```{python tags=c("remove-input")}
 plot_hgb_app()
 plt.scatter(hemoglobin, sm_predictions,
             label = 'Statsmodels p', color = 'cyan')

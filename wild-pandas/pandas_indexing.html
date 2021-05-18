@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Indexing in Pandas &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,7 +44,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -725,21 +727,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -757,7 +759,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -778,13 +780,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -812,13 +814,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -856,6 +859,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -900,7 +904,7 @@ series.</p>
 <h2>The index<a class="headerlink" href="#the-index" title="Permalink to this headline">¶</a></h2>
 <p>We return to our first data frame, containing statistics on development and
 gender from the World Bank.</p>
-<p>This is the <a class="reference download internal" download="" href="../_downloads/edbbd6b35f646f310e25cc7605001544/gender_stats.csv"><code class="xref download docutils literal notranslate"><span class="pre">gender_stats.csv</span></code></a> file.
+<p>This is the <a class="reference download internal" download="" href="../_downloads/8d627f66f6e3d1df9b748f1c1bcb81e1/gender_stats.csv"><code class="xref download docutils literal notranslate"><span class="pre">gender_stats.csv</span></code></a> file.
 See <a class="reference external" href="https://github.com/matthew-brett/datasets/tree/master/gender_stats">the gender stats data
 page</a> for
 some more detail.</p>
@@ -1624,15 +1628,15 @@ type of indexing.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name            Australia
-country_code                  AUS
-fert_rate                  1.8615
-gdp_us_billion        1422.994116
-health_exp_per_cap    4256.058988
-health_exp_pub           6.292381
-prim_ed_girls           48.576707
-mat_mort_ratio                6.0
-population               23.44456
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name          Australia
+country_code                AUS
+fert_rate                1.8615
+gdp_us_billion          1422.99
+health_exp_per_cap      4256.06
+health_exp_pub          6.29238
+prim_ed_girls           48.5767
+mat_mort_ratio                6
+population              23.4446
 Name: 10, dtype: object
 </pre></div>
 </div>
@@ -1646,15 +1650,15 @@ Name: 10, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name               Canada
-country_code                  CAN
-fert_rate                  1.6003
-gdp_us_billion        1708.473627
-health_exp_per_cap    4616.539134
-health_exp_pub           7.546247
-prim_ed_girls           48.808926
-mat_mort_ratio               7.25
-population              35.517119
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name           Canada
+country_code              CAN
+fert_rate              1.6003
+gdp_us_billion        1708.47
+health_exp_per_cap    4616.54
+health_exp_pub        7.54625
+prim_ed_girls         48.8089
+mat_mort_ratio           7.25
+population            35.5171
 Name: 32, dtype: object
 </pre></div>
 </div>
@@ -1720,14 +1724,14 @@ understand or use labels:</p>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">722</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">723</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">702</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_validate_key</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1374</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1375</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can only index by location with a [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1376</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1368</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1369</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Can only index by location with a [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
 
 <span class="ne">ValueError</span>: Can only index by location with a [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array]
 
@@ -1739,25 +1743,25 @@ understand or use labels:</p>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">richest_15</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;gdp_us_billion&#39;</span><span class="p">]</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">887</span>                     <span class="c1"># AttributeError for IntervalTree get_value</span>
-<span class="g g-Whitespace">    </span><span class="mi">888</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">889</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">890</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">891</span>             <span class="c1"># we by definition only have the 0th axis</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>                     <span class="c1"># AttributeError for IntervalTree get_value</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>                     <span class="k">pass</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="c1"># we by definition only have the 0th axis</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_getitem_tuple</span><span class="nt">(self, tup)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1448</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1449</span> 
-<span class="ne">-&gt; </span><span class="mi">1450</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1451</span>         <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="n">IndexingError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1452</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span>     <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span> 
+<span class="ne">-&gt; </span><span class="mi">1443</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1444</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1445</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
 
 <span class="nn">~/Library/Python/3.8/lib/python/site-packages/pandas/core/indexing.py</span> in <span class="ni">_has_valid_tuple</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">    </span><span class="mi">723</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">725</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">726</span>                     <span class="s2">&quot;Location based indexing can only have &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">727</span>                     <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">] types&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">704</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                     <span class="s2">&quot;Location based indexing can only have &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                     <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">] types&quot;</span>
 
 <span class="ne">ValueError</span>: Location based indexing can only have [integer, integer slice (START point is INCLUDED, END point is EXCLUDED), listlike of integers, boolean array] types
 </pre></div>
@@ -1879,13 +1883,13 @@ the first element has row label 202, and we remember that this is the row label
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>country_name          United States
 country_code                    USA
-fert_rate                  1.860875
-gdp_us_billion           17369.1246
-health_exp_per_cap      9060.068657
-health_exp_pub             8.121961
-prim_ed_girls              48.75883
-mat_mort_ratio                 14.0
-population               318.558175
+fert_rate                   1.86088
+gdp_us_billion              17369.1
+health_exp_per_cap          9060.07
+health_exp_pub              8.12196
+prim_ed_girls               48.7588
+mat_mort_ratio                   14
+population                  318.558
 Name: 202, dtype: object
 </pre></div>
 </div>
@@ -2419,15 +2423,15 @@ Name: country_name, dtype: object
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="../functions-conditionals/functions_as_values.html" title="previous page">Functions as values</a>
     <a class='right-next' id="next-link" href="noble_politics.html" title="next page">Noble politics and comparing counts</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -2446,7 +2450,7 @@ Name: country_name, dtype: object
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
