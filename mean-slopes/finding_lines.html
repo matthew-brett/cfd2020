@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finding lines &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,9 +44,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -54,6 +52,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://matthew-brett.github.io/cfd2020/mean-slopes/finding_lines.html" />
     <link rel="shortcut icon" href="../_static/dsfe_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -727,21 +727,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -759,7 +759,7 @@
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -780,13 +780,13 @@
 </div>
 
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -814,12 +814,11 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -864,7 +863,7 @@ zero) intercept, as well as a slope?</p>
 ratings from &lt;<a class="reference external" href="http://RateMyProfessors.com">RateMyProfessors.com</a>&gt; across a single subject.  Thus, the first
 row refers to the average of all professors teaching English, the second row
 refers to all professors teaching Mathematics, and so on.</p>
-<p>Download the data file via this link <a class="reference download internal" download="" href="../_downloads/32cbd3fc41c1879a7cff9a0dc2104433/rate_my_course.csv"><code class="xref download docutils literal notranslate"><span class="pre">rate_my_course.csv</span></code></a>.</p>
+<p>Download the data file via this link <a class="reference download internal" download="" href="../_downloads/64be76235ae1c9640da1da75c88edaf9/rate_my_course.csv"><code class="xref download docutils literal notranslate"><span class="pre">rate_my_course.csv</span></code></a>.</p>
 <p>Next we load the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1069,7 +1068,7 @@ predicted <span class="math notranslate nohighlight">\(y\)</span> values.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1123,7 +1122,7 @@ predicted <span class="math notranslate nohighlight">\(y\)</span> values.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 <img alt="../_images/finding_lines_25_1.png" src="../_images/finding_lines_25_1.png" />
@@ -1138,7 +1137,7 @@ error.  Let’s try an intercept of 2.1:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5161885683864607
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.51618856838646
 </pre></div>
 </div>
 <img alt="../_images/finding_lines_27_1.png" src="../_images/finding_lines_27_1.png" />
@@ -1152,7 +1151,7 @@ error.  Let’s try an intercept of 2.1:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.925931925719182
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.925931925719183
 </pre></div>
 </div>
 <img alt="../_images/finding_lines_29_1.png" src="../_images/finding_lines_29_1.png" />
@@ -1184,7 +1183,7 @@ error for any given intercept (<code class="docutils literal notranslate"><span 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1196,7 @@ error for any given intercept (<code class="docutils literal notranslate"><span 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1362,10 +1361,10 @@ we’d run the routine above for each intercept, to find the best slope for each
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best slope, error for 2.0 is  [0.545  1.0742]
+Best slope, error for 2.1 is  [0.513  1.0677]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best slope, error for 2.1 is  [0.513  1.0677]
-Best slope, error for 2.2 is  [0.482  1.0712]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best slope, error for 2.2 is  [0.482  1.0712]
 </pre></div>
 </div>
 </div>
@@ -1458,7 +1457,7 @@ Lowest errors for first 10 intercepts:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0675058315272419
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.067505831527242
 </pre></div>
 </div>
 </div>
@@ -1472,7 +1471,7 @@ Lowest errors for first 10 intercepts:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1530,7 +1529,7 @@ squared error:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0675058315272419
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.067505831527242
 </pre></div>
 </div>
 <img alt="../_images/finding_lines_68_1.png" src="../_images/finding_lines_68_1.png" />
@@ -1565,7 +1564,7 @@ minimize</span></a> for more detail.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1579,7 +1578,7 @@ minimize</span></a> for more detail.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001693
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0849912187001691
 </pre></div>
 </div>
 </div>
@@ -1595,10 +1594,10 @@ reasonable guess will do.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041999
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
  hess_inv: array([[ 0.9878, -0.308 ],
        [-0.308 ,  0.0967]])
-      jac: array([0., 0.])
+      jac: array([-0., -0.])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 15
       nit: 3
@@ -1626,7 +1625,7 @@ example, in the Scipy <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.5088641203940009, intercept=2.1147985716433135, rvalue=0.7459725836595876, pvalue=1.5998303978985715e-14, stderr=0.053171209477256884)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.5088641203940006, intercept=2.114798571643314, rvalue=0.7459725836595872, pvalue=1.5998303978986516e-14, stderr=0.053171209477256925)
 </pre></div>
 </div>
 </div>
@@ -1656,15 +1655,15 @@ example, in the Scipy <code class="docutils literal notranslate"><span class="pr
 
               </div>
               
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
         
-        <div class='prev-next-bottom'>
-            
     <a class='left-prev' id="prev-link" href="where_2d.html" title="previous page">Where in 2D</a>
     <a class='right-next' id="next-link" href="using_minimize.html" title="next page">Using minimize</a>
 
-        </div>
-        
-        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1683,7 +1682,7 @@ example, in the Scipy <code class="docutils literal notranslate"><span class="pr
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

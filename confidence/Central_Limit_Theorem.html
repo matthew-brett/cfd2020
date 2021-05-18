@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Central Limit Theorem &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,9 +44,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -727,21 +725,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -759,7 +757,7 @@
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -780,13 +778,13 @@
 </div>
 
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -814,14 +812,13 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -854,7 +851,6 @@
 
         </nav>
         
-        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -864,12 +860,12 @@
                 
   <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change this cell; just run it.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t change this cell; just run it.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="c1"># Safe settings for Pandas.</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="c1"># Make the plots look more fancy.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
@@ -879,7 +875,7 @@
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;roulette_wheel.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;roulette_wheel.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span>
 <span class="n">pockets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">37</span><span class="p">):</span>
     <span class="n">pockets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
@@ -916,7 +912,7 @@ bell shape appears in such histograms.</p>
 <p>The table <code class="docutils literal notranslate"><span class="pre">wheel</span></code> represents the pockets of a Nevada roulette wheel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wheel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wheel</span>
 </pre></div>
 </div>
 </div>
@@ -1144,7 +1140,7 @@ takes a color as its argument and returns 1 if the color is red. For all other
 colors it returns -1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">red_winnings</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">red_winnings</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;red&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1156,7 +1152,7 @@ colors it returns -1.</p>
 <p>Here is the result of a bet on red, for each possible pocket on the roulette wheel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">bets</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">bets</span><span class="p">[</span><span class="s1">&#39;Winnings: Red&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wheel</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">red_winnings</span><span class="p">)</span>
 <span class="n">bets</span>
@@ -1384,7 +1380,7 @@ colors it returns -1.</p>
 <p>Suppose you decide to bet $1 on red. Here is a simulation of 1 spin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_spin</span> <span class="o">=</span> <span class="n">bets</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">one_spin</span> <span class="o">=</span> <span class="n">bets</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">one_spin</span>
 </pre></div>
 </div>
@@ -1414,7 +1410,7 @@ colors it returns -1.</p>
   </thead>
   <tbody>
     <tr>
-      <th>24</th>
+      <th>15</th>
       <td>red</td>
       <td>1</td>
     </tr>
@@ -1425,7 +1421,7 @@ colors it returns -1.</p>
 <p>Here we simulate our winnings for 10000 bets on red:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_simulations</span> <span class="o">=</span> <span class="mi">5000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_simulations</span> <span class="o">=</span> <span class="mi">5000</span>
 
 <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_simulations</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>  <span class="c1"># Strings</span>
 <span class="n">winnings_on_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_simulations</span><span class="p">)</span>
@@ -1441,7 +1437,7 @@ colors it returns -1.</p>
 <p>These are the colors we got:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -1449,7 +1445,7 @@ colors it returns -1.</p>
 <p>Here are the corresponding winnings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">winnings_on_red</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">winnings_on_red</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1471,7 +1467,7 @@ course.</p>
 spins of the roulette wheel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_bets</span> <span class="o">=</span> <span class="mi">400</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_bets</span> <span class="o">=</span> <span class="mi">400</span>
 
 <span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_simulations</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>  <span class="c1"># Strings</span>
 <span class="n">net_gain_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_simulations</span><span class="p">)</span>
@@ -1488,7 +1484,7 @@ spins of the roulette wheel.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1500,7 +1496,7 @@ winnings will be 1 on about 18/38 of the bets, and -1 on the remaining 20/38.
 So your average winnings per dollar bet will be roughly -5.26 cents:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_per_bet</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">18</span> <span class="o">/</span> <span class="mi">38</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">20</span> <span class="o">/</span> <span class="mi">38</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">average_per_bet</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">18</span> <span class="o">/</span> <span class="mi">38</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">20</span> <span class="o">/</span> <span class="mi">38</span><span class="p">)</span>
 <span class="n">average_per_bet</span>
 </pre></div>
 </div>
@@ -1509,7 +1505,7 @@ So your average winnings per dollar bet will be roughly -5.26 cents:</p>
 <p>So in 400 bets you expect that your net gain will be about -$21:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">400</span> <span class="o">*</span> <span class="n">average_per_bet</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">400</span> <span class="o">*</span> <span class="n">average_per_bet</span>
 </pre></div>
 </div>
 </div>
@@ -1517,7 +1513,7 @@ So your average winnings per dollar bet will be roughly -5.26 cents:</p>
 <p>For confirmation, we can compute the mean of the 10,000 simulated net gains:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Net Gain on Red&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Net Gain on Red&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1532,7 +1528,7 @@ confirm our observation by simply calculating the SD of the 10,000 simulated
 net gains:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Net Gain on Red&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Net Gain on Red&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1548,7 +1544,7 @@ domestic flights out of San Francisco airport in the summer of 2015. As we have
 seen before, the distribution of delays has a long right-hand tail.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">united</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;united_summer2015.csv&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">united</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;united_summer2015.csv&#39;</span><span class="p">)</span>
 <span class="n">delays</span> <span class="o">=</span> <span class="n">united</span><span class="p">[</span><span class="s1">&#39;Delay&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1556,7 +1552,7 @@ seen before, the distribution of delays has a long right-hand tail.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delays</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delays</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1566,7 +1562,7 @@ how large the SD is, compared to the mean. Those large deviations on the right
 have an effect, even though they are a very small proportion of the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">delays</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mean_delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">delays</span><span class="p">)</span>
 <span class="n">sd_delay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">delays</span><span class="p">)</span>
 
 <span class="n">mean_delay</span><span class="p">,</span> <span class="n">sd_delay</span>
@@ -1584,7 +1580,7 @@ Let’s see what we get by sampling. We’ll work with the table <code class="do
 contains the column of delays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">delays</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">delays</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1595,7 +1591,7 @@ the sample average. That will be an approximation to the probability histogram
 of the sample average.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">400</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_size</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">n_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
 
 <span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_repetitions</span><span class="p">)</span>
@@ -1609,7 +1605,7 @@ of the sample average.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1679,7 +1675,7 @@ the distribution of the sample proportion of purple plants is roughly normal.</p
 purple-flowered plants in a sample of 200 plants.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">model</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;Purple&#39;</span><span class="p">,</span> <span class="s1">&#39;White&#39;</span><span class="p">])</span>
 
 <span class="n">model</span>
@@ -1689,7 +1685,7 @@ purple-flowered plants in a sample of 200 plants.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_plants</span> <span class="o">=</span> <span class="mi">200</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_plants</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">n_repetitions</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">props</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_repetitions</span><span class="p">)</span>
 
@@ -1703,7 +1699,7 @@ purple-flowered plants in a sample of 200 plants.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">props</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">props</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1717,7 +1713,7 @@ sample size of 200. We will keep the number of <code class="docutils literal not
 so that the two columns have the same length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_plants</span> <span class="o">=</span> <span class="mi">800</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_plants</span> <span class="o">=</span> <span class="mi">800</span>
 <span class="n">props2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_repetitions</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_repetitions</span><span class="p">):</span>
@@ -1730,7 +1726,7 @@ so that the two columns have the same length.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">props2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">props2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
@@ -1767,15 +1763,15 @@ proportion? That is the question we will examine soon.</p>
 
               </div>
               
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
         
-        <div class='prev-next-bottom'>
-            
     <a class='left-prev' id="prev-link" href="havana_math.html" title="previous page">A problem for the education minister</a>
     <a class='right-next' id="next-link" href="random_choice.html" title="next page">Random choice</a>
 
-        </div>
-        
-        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1794,7 +1790,7 @@ proportion? That is the question we will examine soon.</p>
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     
