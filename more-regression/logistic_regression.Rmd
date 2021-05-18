@@ -533,7 +533,8 @@ Convert odds ratios to probabilities with:
 p = odds_ratio / (odds_ratio + 1)
 ```
 
-As you've seen, when we apply the conversion above, to convert the probability values to odds ratios for our appetite predications, we get the following:
+As you've seen, when we apply the conversion above, to convert the probability
+values to odds ratios for our appetite predictions, we get the following:
 
 ```{python tags=c("remove-input")}
 predictions_or = predictions_new / (1 - predictions_new)
@@ -934,8 +935,8 @@ hgb_predicted
 There's a fancy short-cut to the several lines above, that relies on the fact
 that multiplying by 0 gives 0.  We can form the `pp_of_label` column by first
 multiplying the 0 / 1 label column values by the values in `pp_of_1`.  This
-correctly sets the `pp_of_label` values for labels of 1, and sets the
-remainder to 0. Then we reverse the 0 / 1 labels by subtracting from 1, and
+correctly sets the `pp_of_label` values for labels of 1, and leaves the
+remainder as 0. Then we reverse the 0 / 1 labels by subtracting from 1, and
 multiply by `pp_of_0` to set the 0 values to their correct values.  Adding
 these two results gives us the correct set of values for both 1 and 0 labels.
 
@@ -960,7 +961,9 @@ hgb_predicted['pp_again'] = final_again
 hgb_predicted
 ```
 
-When the `pp_of_label` values are near 1, this means the result was close to the prediction.  When they are near 0, it means the result was unlike the prediction.
+When the `pp_of_label` values are near 1, this means the result was close to
+the prediction.  When they are near 0, it means the result was unlike the
+prediction.
 
 Now we know the probabilities of each actual 0 and 1 label, we can get a
 measure of how *likely* the *combination* of all these labels are, given these
@@ -994,12 +997,12 @@ larger values for the likelihood?
 We can put this *likelihood* scoring into our cost function, instead of using
 scoring with the sum of squares.
 
-One wrinkle is that we want our cost function value to be *lower* when the line
-is a good predictor, but the likelihood is *higher* when the line is a good
-predictor. We solve this simply by sticking a minus on the likelihood before we
-return from the cost function. This makes `minimize` find the parameters giving
-the *minimum* of the *negative likelihood*, and therefore, the *maximum
-likelihood* (ML).
+One wrinkle is that we want our cost function value to be *lower* when the
+line is a good predictor, but the likelihood is *higher* when the line is a
+good predictor. We solve this simply by sticking a minus on the likelihood
+before we return from the cost function. This makes `minimize` find the
+parameters giving the *minimum* of the *negative likelihood*, and therefore,
+the *maximum likelihood* (ML).
 
 ```{python}
 def simple_ml_logit_cost(intercept_and_slope, x, y):
