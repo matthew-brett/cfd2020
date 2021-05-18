@@ -1886,15 +1886,12 @@ slope 0.8.</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hemoglobin</span><span class="p">,</span> <span class="n">sl_predictions</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Straight-line (log-odds) predictions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Straight-line (log-odds) predictions&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Straight-line (log-odds) predictions&#39;)
-</pre></div>
-</div>
-<img alt="../_images/logistic_regression_76_1.png" src="../_images/logistic_regression_76_1.png" />
+<img alt="../_images/logistic_regression_76_0.png" src="../_images/logistic_regression_76_0.png" />
 </div>
 </div>
 <p>These are predictions on the straight line, but we now need to transform them
@@ -1905,15 +1902,12 @@ to p value (0 to 1) predictions on the sigmoid.  We use <code class="docutils li
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hemoglobin</span><span class="p">,</span> <span class="n">sigmoid_predictions</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sigmoid (p-value) predictions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sigmoid (p-value) predictions&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Sigmoid (p-value) predictions&#39;)
-</pre></div>
-</div>
-<img alt="../_images/logistic_regression_78_1.png" src="../_images/logistic_regression_78_1.png" />
+<img alt="../_images/logistic_regression_78_0.png" src="../_images/logistic_regression_78_0.png" />
 </div>
 </div>
 <p>Finally, we want to compare the predictions to the actual data to get a score.
@@ -2848,7 +2842,7 @@ Take logs, add logs, unlog 165.00000000000009
 <ul class="simple">
 <li><p>Multiply two numbers OR</p></li>
 <li><p>If we take the logs of the two numbers, <em>add them</em>, then reverse the log
-operation, in the this case with <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>.</p></li>
+operation, in this case with <code class="docutils literal notranslate"><span class="pre">np.exp</span></code>.</p></li>
 </ul>
 <p>We get <em>almost</em> the same number because of the limitations of the precision of
 the calculations.  For our cases, we do not need to worry about these tiny
@@ -3070,7 +3064,7 @@ Statsmodels.</p>
   <th>Date:</th>            <td>Tue, 18 May 2021</td> <th>  Pseudo R-squ.:     </th>  <td>0.4976</td>  
 </tr>
 <tr>
-  <th>Time:</th>                <td>09:34:54</td>     <th>  Log-Likelihood:    </th> <td> -29.168</td> 
+  <th>Time:</th>                <td>09:51:05</td>     <th>  Log-Likelihood:    </th> <td> -29.168</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -58.054</td> 
