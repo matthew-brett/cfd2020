@@ -750,7 +750,7 @@ sl_predictions = intercept + slope * hemoglobin
 
 plt.scatter(hemoglobin, sl_predictions)
 plt.xlabel('Hemoglobin')
-plt.ylabel('Straight-line (log-odds) predictions')
+plt.ylabel('Straight-line (log-odds) predictions');
 ```
 
 These are predictions on the straight line, but we now need to transform them
@@ -761,7 +761,7 @@ sigmoid_predictions = inv_logit(sl_predictions)
 
 plt.scatter(hemoglobin, sigmoid_predictions)
 plt.xlabel('Hemoglobin')
-plt.ylabel('Sigmoid (p-value) predictions')
+plt.ylabel('Sigmoid (p-value) predictions');
 ```
 
 Finally, we want to compare the predictions to the actual data to get a score.
@@ -1081,7 +1081,7 @@ What you see here is that we get (almost) the same answer if we:
 
 * Multiply two numbers OR
 * If we take the logs of the two numbers, *add them*, then reverse the log
-  operation, in the this case with `np.exp`.
+  operation, in this case with `np.exp`.
 
 We get *almost* the same number because of the limitations of the precision of
 the calculations.  For our cases, we do not need to worry about these tiny
