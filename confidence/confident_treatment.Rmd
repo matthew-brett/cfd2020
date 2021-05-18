@@ -197,4 +197,4 @@ worlds.loc[worlds.index < 90, 'P(T given C17)'].sum()
 
 You might well be thinking to yourself — what about a treatment world with
 99.5% response rate?   We can solve this too, by using finer percent intervals
-in our `P(T)` column.  Try it!
+than we used in `world_percents` above.  Try it!
