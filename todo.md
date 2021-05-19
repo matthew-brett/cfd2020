@@ -41,6 +41,14 @@ Consider introduction to dictionaries.
 Use RMSE throughout.   Maybe a note on relationship of RMSE and SS, maybe
 something on the idea of being *monotonic*.
 
+Use student ratings dataset to demonstrate regression, residuals "controlling for".
+
+Break logistic regression page into least-squares, and logit pages.
+
+Least square page moves from straight line prediction, to straight line
+clipped at 0 and 1.  Show that adding values at left and right causes changes
+in unclipped portion of line.
+
 ## Orphan pages
 
 ```
