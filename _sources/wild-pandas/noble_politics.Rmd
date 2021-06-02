@@ -1,12 +1,13 @@
 ---
 jupyter:
   jupytext:
+    notebook_metadata_filter: all,-language_info
     split_at_heading: true
     text_representation:
       extension: .Rmd
       format_name: rmarkdown
-      format_version: '1.1'
-      jupytext_version: 1.2.4
+      format_version: '1.2'
+      jupytext_version: 1.8.2
   kernelspec:
     display_name: Python 3
     language: python
@@ -206,59 +207,113 @@ this value is larger than we would expect by chance.
 
 The table gives the counts of people in each of the four categories.
 
-We need to reconstruct the 280 people from these counts, so we can do our shuffling of 'Yes', 'No' labels, in order to make random assignments.
+We need to reconstruct a new `people` table that has one row for each person
+represented in the counts table above.  There are 280 people represented in the
+counts table above, of which:
 
-First we create a list of 280 *respondent* labels, of which the first 209 are
-'rescuer' and the final 71 are 'bystander'.  These identify the type of respondent.
+* 64 are "No" for party membership and "bystander" for respondent type.
+* 7 are "Yes" for party and "bystander" for respondent.
+* 165 are "No" for party and "rescuer" for respondent.
+* 44 are "Yes" for party and "rescuer" for respondent.
 
-To do this, we use `np.repeat`.  Check the function signature with `np.repeat?` and Enter in a new cell.
+We can create this new table in bits, first the "No" / "bystander" rows, then
+the "Yes" / "bystander" rows, and so on.
 
+The first bit should have 64 rows, with label "No" in the `party_yn` column,
+and "bystander" in the respondent column.
 
-```{python}
-# Make the 280 respondent labels.
-respondent = np.repeat(['rescuer', 'bystander'], [209, 71])
-# Show the first 10.
-print('First 10:', respondent[:10])
-# Show the last 10.
-print('Last 10:', respondent[-10:])
-```
-
-Here we typed ("hard-coded") the numbers 209, 71.  We could also get these
-numbers using the sum of the values in the columns of our table.  See the [data
-frame sums](df_sums) page to see how that works.
-
-
-Now to create the 'Yes', 'No' labels.   Again, we could do this:
-
-```{python}
-# Make the 280 Yes No labels.
-party_yn = np.repeat(['Yes', 'No'], [51, 229])
-# Show the first 10.
-print('First 10:', party_yn[:10])
-# Show the last 10.
-print('Last 10:', party_yn[-10:])
-```
-
-We could also have used a sum to get the row totals `[51, 229]` more
-automatically with [data frame sums](df_sums).
-
-Next we shuffle the Yes, No labels randomly:
+To make 64 "No"s, we use `np.repeat`.  Check the function signature with
+`np.repeat?` and Enter in a new cell.
 
 
 ```{python}
-rand_party_yn = np.random.permutation(party_yn)
-rand_party_yn[:10]
+# Make the rows for "No" and "bystander".
+bystanders_no = pd.DataFrame()
+bystanders_no['party_yn'] = np.repeat(['No'], 64)
+bystanders_no['respondent'] = 'bystander'
+bystanders_no.head()
 ```
 
-We can look at the new random pairing by putting the rows into a table, with
-280 rows, one for each person:
+Next we make the rows for "Yes" and "bystander":
 
 ```{python}
-fake_data = pd.DataFrame()
-fake_data['party_yn'] = rand_party_yn
-fake_data['respondent'] = respondent
-fake_data.head()
+bystanders_yes = pd.DataFrame()
+bystanders_yes['party_yn'] = np.repeat(['Yes'], 7)
+bystanders_yes['respondent'] = 'bystander'
+bystanders_yes
 ```
+
+We make the rows for "No" / "rescuer" and "Yes" / "rescuer":
+
+```{python}
+rescuers_no = pd.DataFrame()
+rescuers_no['party_yn'] = np.repeat(['No'], 165)
+rescuers_no['respondent'] = 'rescuer'
+rescuers_yes = pd.DataFrame()
+rescuers_yes['party_yn'] = np.repeat(['Yes'], 44)
+rescuers_yes['respondent'] = 'rescuer'
+rescuers_yes.head()
+```
+
+Finally use the `pd.concat` function to stick all these rows together into one big data frame with 64 + 7 + 165 + 44 = 280 rows.
+
+```{python}
+people = pd.concat([bystanders_no, bystanders_yes,
+                    rescuers_no, rescuers_yes])
+people
+```
+
+In fact we could have done this more efficiently by making better use of
+`np.repeat`, like this:
+
+```{python}
+people2 = pd.DataFrame()
+people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'], [64, 7, 165, 44])
+people2['respondent'] = np.repeat(['bystander', 'rescuer'], [71, 209])
+# This is the same as the data frame we made above.
+people2.equals(people)
+```
+
+We can check the counts in the `people` data frame by doing some row selection.
+For example, to check we really do have 64 rows with the label "No" in
+`party_yn` and "bystander" in `respondent`, we could do this:
+
+```{python}
+no_rows = people[people['party_yn'] == 'No']
+no_bystander_rows = no_rows[no_rows['respondent'] == 'bystander']
+len(no_bystander_rows)
+```
+
+Luckily, Pandas has a `crosstab` function that does this work for us, for all
+four combinations of "Yes", "No" and "bystander", "rescuer".
+
+```{python}
+people_tab = pd.crosstab(people['party_yn'], people['respondent'])
+people_tab
+```
+
+As we hoped, the `pd.crosstab` on the `people` data frame regenerates the counts table we started with.
+
+## The null world
+
+The null or ideal world for our question is a world where the pairing of the
+`party_yn` "Yes" / "No" labels and the `respondent` "bystander" / "rescuer"
+labels are random.
+
+We can make a data frame from that world doing a random shuffle of the
+`party_yn` labels, so the pairing of the `party_yn` and `respondent` labels is
+random.
+
+```{python}
+fake_data = people.copy()
+shuffled_party = np.random.permutation(people['party_yn'])
+fake_data['party_yn'] = shuffled_party
+fake_data.head(10)
+```
+
+By the way — we only care about the random pairing between `party_yn` and
+`respondent`.  We shuffled `party_yn` above, but we could instead have shuffled
+`respondent`, or both; any of these would generate a random pairing.
 
 We now need the counts of people in each category.  That is we need counts for:
 
@@ -270,27 +325,16 @@ We now need the counts of people in each category.  That is we need counts for:
 For example, remember we are particularly interested in the combination of
 "rescuer" and "Yes".
 
-We could do this this the long way round, with cells like:
+`pd.crosstab` will do that for us.
 
 ```{python}
-# Just the rescuers
-just_rescuers = fake_data[fake_data['respondent'] == 'rescuer']
-# Just the fake Yeses from the rescuers.
-fake_yes_rescuers = just_rescuers[just_rescuers['party_yn'] == 'Yes']
-# How many rows (how many fake rescuer / Yes pairs)?
-len(fake_yes_rescuers)
-```
-
-Luckily, Pandas has a `crosstab` function that does this work for us:
-
-```{python}
-fake_tab = pd.crosstab(rand_party_yn, respondent)
+fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
 fake_tab
 ```
 
-We saw in the original data that the Rescuers seemed to have a greater
-tendency to belong to a political party.  Let us restrict our attention to the
-count of "Yes" and "rescuer" for now.
+We saw in the original data that the Rescuers seemed to have a greater tendency
+to belong to a political party.  Let us restrict our attention to the count of
+"Yes" and "rescuer" for now.
 
 That count, in our original data, was:
 
@@ -306,7 +350,7 @@ fake_y_resc = fake_tab.loc['Yes', 'rescuer']
 fake_y_resc
 ```
 
-We need more random samples to see if the fake value is often as small as the
+We need more random samples to see if the fake value is often as large as the
 real value.  If so, then the ideal world, where the association between rescuer
 / bystander and Yes / No is random, is a reasonable explanation of what we see,
 and we might not want to investigate these data much further.
@@ -317,8 +361,10 @@ number of iterations to 1000 to keep the run-time down.
 ```{python}
 counts = np.zeros(1000)
 for i in np.arange(1000):
-    rand_party_yn = np.random.permutation(party_yn)
-    fake_tab = pd.crosstab(rand_party_yn, respondent)
+    fake_data = people.copy()
+    shuffled_party = np.random.permutation(people['party_yn'])
+    fake_data['party_yn'] = shuffled_party
+    fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
     counts[i] = fake_tab.loc['Yes', 'rescuer']
 counts[:10]
 ```
@@ -351,8 +397,10 @@ counts_y_resc = np.zeros(1000)
 # No, rescuer
 counts_n_by = np.zeros(1000)
 for i in np.arange(1000):
-    rand_party_yn = np.random.permutation(party_yn)
-    fake_tab = pd.crosstab(rand_party_yn, respondent)
+    fake_data = people.copy()
+    shuffled_party = np.random.permutation(people['party_yn'])
+    fake_data['party_yn'] = shuffled_party
+    fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
     counts_y_resc[i] = fake_tab.loc['Yes', 'rescuer']
     counts_n_by[i] = fake_tab.loc['No', 'bystander']
 ```
