@@ -401,8 +401,8 @@ p_lte
 
 ## A question for reflection
 
-Now look at this.  Here I do the same test, but I am looking at the both of
-these counts:
+Now look at this.  Here I do the same test, but I am looking at both of these
+counts, for each trial:
 
 * "Yes", "rescuer".
 * "No", "bystander".
@@ -441,8 +441,8 @@ counts_n_by[:10]
 
 You may notice that they go up and down in exactly the same way.  When the
 "Yes" / "rescuer" count goes up or down by 1, so does the "No" / "bystander"
-count - and the same is true for any change in the values; 1, 2, 3 ..., -1, -2,
--3 ...
+count - and the same is true for any change in the values; +1, +2, +3 ..., -1,
+-2, -3 ...
 
 Therefore, the *difference* between the counts on each trial is always the
 same.  In our case, the difference is -20:
