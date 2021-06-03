@@ -1465,10 +1465,11 @@ and “bystander” in the <code class="docutils literal notranslate"><span clas
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stack the parts into one long data frame.</span>
+<span class="c1"># ignore_index=True throws away the row labels (index) from the component</span>
+<span class="c1"># parts, and resets the index to the default sequential numbers from 0 through # 279.</span>
 <span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bystanders_no</span><span class="p">,</span> <span class="n">bystanders_yes</span><span class="p">,</span>
-                    <span class="n">rescuers_no</span><span class="p">,</span> <span class="n">rescuers_yes</span><span class="p">])</span>
-<span class="c1"># Renumber the row labels; not necessary, but to avoid confusion.</span>
-<span class="n">people</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+                    <span class="n">rescuers_no</span><span class="p">,</span> <span class="n">rescuers_yes</span><span class="p">],</span>
+                    <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">people</span>
 </pre></div>
 </div>
@@ -1492,7 +1493,6 @@ and “bystander” in the <code class="docutils literal notranslate"><span clas
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>party_yn</th>
       <th>respondent</th>
     </tr>
@@ -1500,31 +1500,26 @@ and “bystander” in the <code class="docutils literal notranslate"><span clas
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
@@ -1532,41 +1527,35 @@ and “bystander” in the <code class="docutils literal notranslate"><span clas
       <th>...</th>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th>275</th>
-      <td>39</td>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
       <th>276</th>
-      <td>40</td>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
       <th>277</th>
-      <td>41</td>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
       <th>278</th>
-      <td>42</td>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
       <th>279</th>
-      <td>43</td>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
   </tbody>
 </table>
-<p>280 rows × 3 columns</p>
+<p>280 rows × 2 columns</p>
 </div></div></div>
 </div>
 <p>In fact we could have done this more efficiently by making better use of
@@ -1580,11 +1569,15 @@ and “bystander” in the <code class="docutils literal notranslate"><span clas
 <span class="n">people2</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;bystander&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">],</span>
                                   <span class="p">[</span><span class="mi">71</span><span class="p">,</span> <span class="mi">209</span><span class="p">])</span>
 <span class="c1"># The values are the same as the data frame we made above.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;people and people2 the same?&#39;</span><span class="p">,</span> <span class="n">people</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">people2</span><span class="p">))</span>
 <span class="n">people2</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>people and people2 the same? True
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1749,10 +1742,19 @@ labels are random.</p>
 <p>We can make a data frame from that world doing a random shuffle of the
 <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> labels in our Entries Table, so the pairing of the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> and
 <code class="docutils literal notranslate"><span class="pre">respondent</span></code> labels is random.</p>
+<p>First pull out the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> values for later use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">party_yn</span> <span class="o">=</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, shuffle the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> values, and put them back into a fake version of the Entries Table data frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
+<span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shuffled_party</span>
 <span class="n">fake_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1777,7 +1779,6 @@ labels are random.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>party_yn</th>
       <th>respondent</th>
     </tr>
@@ -1785,61 +1786,51 @@ labels are random.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>5</td>
-      <td>Yes</td>
+      <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>6</td>
-      <td>No</td>
-      <td>bystander</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>7</td>
       <td>Yes</td>
       <td>bystander</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>8</td>
+      <th>7</th>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
+      <th>8</th>
+      <td>Yes</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
       <th>9</th>
-      <td>9</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
@@ -1897,13 +1888,13 @@ labels are random.</p>
   <tbody>
     <tr>
       <th>No</th>
-      <td>56</td>
-      <td>173</td>
+      <td>60</td>
+      <td>169</td>
     </tr>
     <tr>
       <th>Yes</th>
-      <td>15</td>
-      <td>36</td>
+      <td>11</td>
+      <td>40</td>
     </tr>
   </tbody>
 </table>
@@ -1935,7 +1926,7 @@ to belong to a political party.  Let us restrict our attention to the count of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40
 </pre></div>
 </div>
 </div>
@@ -1952,8 +1943,8 @@ number of iterations to 1000 to keep the run-time down.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="c1"># Make a fake Entries Table by shuffling one set of labels.</span>
+    <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
     <span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">])</span>
     <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shuffled_party</span>
     <span class="c1"># Get the Counts Table from the fake Entries Table.</span>
     <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
@@ -1965,7 +1956,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([43., 40., 42., 41., 36., 35., 37., 39., 33., 31.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([36., 40., 43., 33., 38., 43., 37., 34., 35., 38.])
 </pre></div>
 </div>
 </div>
@@ -1978,7 +1969,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/noble_politics_52_0.png" src="../_images/noble_politics_52_0.png" />
+<img alt="../_images/noble_politics_54_0.png" src="../_images/noble_politics_54_0.png" />
 </div>
 </div>
 <p>How unusual is the actual value, in this ideal world?</p>
@@ -1991,7 +1982,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
 </pre></div>
 </div>
 </div>
@@ -2013,8 +2004,8 @@ counts, for each trial:</p>
 <span class="n">counts_n_by</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="c1"># Make a fake Entries Table by shuffling one set of labels.</span>
+    <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">party_yn</span><span class="p">)</span>
     <span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">])</span>
     <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shuffled_party</span>
     <span class="c1"># Get the Counts Table from the fake Entries Table.</span>
     <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
@@ -2035,7 +2026,7 @@ counts, for each trial:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 40., 35., 37., 43., 43., 37., 34., 39., 35.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 38., 35., 37., 36., 35., 34., 36., 33., 42.])
 </pre></div>
 </div>
 </div>
@@ -2049,7 +2040,7 @@ counts, for each trial:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 60., 55., 57., 63., 63., 57., 54., 59., 55.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 58., 55., 57., 56., 55., 54., 56., 53., 62.])
 </pre></div>
 </div>
 </div>
@@ -2093,7 +2084,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.015
 </pre></div>
 </div>
 </div>
@@ -2109,7 +2100,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.015
 </pre></div>
 </div>
 </div>

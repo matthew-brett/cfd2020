@@ -263,10 +263,11 @@ Finally use the `pd.concat` function to stick all these rows together into one b
 
 ```{python}
 # Stack the parts into one long data frame.
+# ignore_index=True throws away the row labels (index) from the component
+# parts, and resets the index to the default sequential numbers from 0 through # 279.
 people = pd.concat([bystanders_no, bystanders_yes,
-                    rescuers_no, rescuers_yes])
-# Renumber the row labels; not necessary, but to avoid confusion.
-people = people.reset_index()
+                    rescuers_no, rescuers_yes],
+                    ignore_index=True)
 people
 ```
 
@@ -281,6 +282,7 @@ people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'],
 people2['respondent'] = np.repeat(['bystander', 'rescuer'],
                                   [71, 209])
 # The values are the same as the data frame we made above.
+print('people and people2 the same?', people.equals(people2))
 people2
 ```
 
@@ -317,9 +319,17 @@ We can make a data frame from that world doing a random shuffle of the
 `party_yn` labels in our Entries Table, so the pairing of the `party_yn` and
 `respondent` labels is random.
 
+First pull out the `party_yn` values for later use.
+
 ```{python}
+party_yn = people['party_yn']
+```
+
+Next, shuffle the `party_yn` values, and put them back into a fake version of the Entries Table data frame:
+
+```{python}
+shuffled_party = np.random.permutation(party_yn)
 fake_data = people.copy()
-shuffled_party = np.random.permutation(people['party_yn'])
 fake_data['party_yn'] = shuffled_party
 fake_data.head(10)
 ```
@@ -374,8 +384,8 @@ number of iterations to 1000 to keep the run-time down.
 counts = np.zeros(1000)
 for i in np.arange(1000):
     # Make a fake Entries Table by shuffling one set of labels.
+    shuffled_party = np.random.permutation(party_yn)
     fake_data = people.copy()
-    shuffled_party = np.random.permutation(people['party_yn'])
     fake_data['party_yn'] = shuffled_party
     # Get the Counts Table from the fake Entries Table.
     fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
@@ -414,8 +424,8 @@ counts_y_resc = np.zeros(1000)
 counts_n_by = np.zeros(1000)
 for i in np.arange(1000):
     # Make a fake Entries Table by shuffling one set of labels.
+    shuffled_party = np.random.permutation(party_yn)
     fake_data = people.copy()
-    shuffled_party = np.random.permutation(people['party_yn'])
     fake_data['party_yn'] = shuffled_party
     # Get the Counts Table from the fake Entries Table.
     fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
