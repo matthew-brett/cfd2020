@@ -1243,7 +1243,7 @@ this value is larger than we would expect by chance.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">bystander_tab</span></code> table above gives the counts of people in each of the four
 categories.  We will call this the Counts Table.</p>
 <p>To do the shuffling we need, we reconstruct a new <code class="docutils literal notranslate"><span class="pre">people</span></code> table that has one
-row for each person represented in the counts table.  We could also call this
+row for each person represented in the Counts Table.  We could also call this
 the Entries Table.  Instead of having the counts, it reconstructs the
 individual entries that correspond to the counts.</p>
 <p>There are 280 people represented in the Counts Table, of which:</p>
@@ -1253,7 +1253,7 @@ individual entries that correspond to the counts.</p>
 <li><p>165 are “No” for party and “rescuer” for respondent.</p></li>
 <li><p>44 are “Yes” for party and “rescuer” for respondent.</p></li>
 </ul>
-<p>We can create the Entry Table in bits, first the “No” / “bystander” rows, then
+<p>We can create the Entries Table in bits, first the “No” / “bystander” rows, then
 the “Yes” / “bystander” rows, and so on.</p>
 <p>The first bit should have 64 rows, with label “No” in the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> column,
 and “bystander” in the <code class="docutils literal notranslate"><span class="pre">respondent</span></code> column.</p>
@@ -1737,7 +1737,7 @@ for all four combinations of “Yes”, “No” and “bystander”, “rescuer
 </table>
 </div></div></div>
 </div>
-<p>As we hoped, the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> on the <code class="docutils literal notranslate"><span class="pre">people</span></code> data frame regenerates the counts table we started with.</p>
+<p>As we hoped, the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> on the <code class="docutils literal notranslate"><span class="pre">people</span></code> data frame regenerates the Counts Table we started with.</p>
 <p>We have used <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> to reconstruct the Counts Table from our Entries
 Table.</p>
 </div>
@@ -1747,7 +1747,7 @@ Table.</p>
 <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> “Yes” / “No” labels and the <code class="docutils literal notranslate"><span class="pre">respondent</span></code> “bystander” / “rescuer”
 labels are random.</p>
 <p>We can make a data frame from that world doing a random shuffle of the
-<code class="docutils literal notranslate"><span class="pre">party_yn</span></code> labels in our Entry Table, so the pairing of the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> and
+<code class="docutils literal notranslate"><span class="pre">party_yn</span></code> labels in our Entries Table, so the pairing of the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> and
 <code class="docutils literal notranslate"><span class="pre">respondent</span></code> labels is random.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1804,7 +1804,7 @@ labels are random.</p>
     <tr>
       <th>3</th>
       <td>3</td>
-      <td>Yes</td>
+      <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
@@ -1822,7 +1822,7 @@ labels are random.</p>
     <tr>
       <th>6</th>
       <td>6</td>
-      <td>Yes</td>
+      <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
@@ -1840,7 +1840,7 @@ labels are random.</p>
     <tr>
       <th>9</th>
       <td>9</td>
-      <td>No</td>
+      <td>Yes</td>
       <td>bystander</td>
     </tr>
   </tbody>
@@ -1897,13 +1897,13 @@ labels are random.</p>
   <tbody>
     <tr>
       <th>No</th>
-      <td>59</td>
-      <td>170</td>
+      <td>56</td>
+      <td>173</td>
     </tr>
     <tr>
       <th>Yes</th>
-      <td>12</td>
-      <td>39</td>
+      <td>15</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
@@ -1935,7 +1935,7 @@ to belong to a political party.  Let us restrict our attention to the count of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
 </pre></div>
 </div>
 </div>
@@ -1965,7 +1965,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([36., 41., 37., 36., 36., 34., 37., 39., 38., 42.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([35., 45., 38., 39., 36., 35., 34., 38., 39., 41.])
 </pre></div>
 </div>
 </div>
@@ -1991,7 +1991,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027
 </pre></div>
 </div>
 </div>
@@ -2035,7 +2035,7 @@ these counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 32., 41., 39., 38., 43., 37., 38., 41., 37.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 38., 38., 36., 42., 38., 41., 39., 37., 37.])
 </pre></div>
 </div>
 </div>
@@ -2049,7 +2049,7 @@ these counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 52., 61., 59., 58., 63., 57., 58., 61., 57.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 58., 58., 56., 62., 58., 61., 59., 57., 57.])
 </pre></div>
 </div>
 </div>
@@ -2093,7 +2093,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.019
 </pre></div>
 </div>
 </div>
@@ -2109,7 +2109,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.023
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.019
 </pre></div>
 </div>
 </div>

@@ -209,7 +209,7 @@ The `bystander_tab` table above gives the counts of people in each of the four
 categories.  We will call this the Counts Table.
 
 To do the shuffling we need, we reconstruct a new `people` table that has one
-row for each person represented in the counts table.  We could also call this
+row for each person represented in the Counts Table.  We could also call this
 the Entries Table.  Instead of having the counts, it reconstructs the
 individual entries that correspond to the counts.
 
@@ -220,7 +220,7 @@ There are 280 people represented in the Counts Table, of which:
 * 165 are "No" for party and "rescuer" for respondent.
 * 44 are "Yes" for party and "rescuer" for respondent.
 
-We can create the Entry Table in bits, first the "No" / "bystander" rows, then
+We can create the Entries Table in bits, first the "No" / "bystander" rows, then
 the "Yes" / "bystander" rows, and so on.
 
 The first bit should have 64 rows, with label "No" in the `party_yn` column,
@@ -302,7 +302,7 @@ people_tab = pd.crosstab(people['party_yn'], people['respondent'])
 people_tab
 ```
 
-As we hoped, the `pd.crosstab` on the `people` data frame regenerates the counts table we started with.
+As we hoped, the `pd.crosstab` on the `people` data frame regenerates the Counts Table we started with.
 
 We have used `pd.crosstab` to reconstruct the Counts Table from our Entries
 Table.
@@ -314,7 +314,7 @@ The null or ideal world for our question is a world where the pairing of the
 labels are random.
 
 We can make a data frame from that world doing a random shuffle of the
-`party_yn` labels in our Entry Table, so the pairing of the `party_yn` and
+`party_yn` labels in our Entries Table, so the pairing of the `party_yn` and
 `respondent` labels is random.
 
 ```{python}
