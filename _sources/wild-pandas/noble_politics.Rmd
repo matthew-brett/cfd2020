@@ -205,22 +205,26 @@ this value is larger than we would expect by chance.
 
 ## Recreating the original data
 
-The table gives the counts of people in each of the four categories.
+The `bystander_tab` table above gives the counts of people in each of the four
+categories.  We will call this the Counts Table.
 
-We need to reconstruct a new `people` table that has one row for each person
-represented in the counts table above.  There are 280 people represented in the
-counts table above, of which:
+To do the shuffling we need, we reconstruct a new `people` table that has one
+row for each person represented in the counts table.  We could also call this
+the Entries Table.  Instead of having the counts, it reconstructs the
+individual entries that correspond to the counts.
+
+There are 280 people represented in the Counts Table, of which:
 
 * 64 are "No" for party membership and "bystander" for respondent type.
 * 7 are "Yes" for party and "bystander" for respondent.
 * 165 are "No" for party and "rescuer" for respondent.
 * 44 are "Yes" for party and "rescuer" for respondent.
 
-We can create this new table in bits, first the "No" / "bystander" rows, then
+We can create the Entry Table in bits, first the "No" / "bystander" rows, then
 the "Yes" / "bystander" rows, and so on.
 
 The first bit should have 64 rows, with label "No" in the `party_yn` column,
-and "bystander" in the respondent column.
+and "bystander" in the `respondent` column.
 
 To make 64 "No"s, we use `np.repeat`.  Check the function signature with
 `np.repeat?` and Enter in a new cell.
@@ -258,8 +262,11 @@ rescuers_yes.head()
 Finally use the `pd.concat` function to stick all these rows together into one big data frame with 64 + 7 + 165 + 44 = 280 rows.
 
 ```{python}
+# Stack the parts into one long data frame.
 people = pd.concat([bystanders_no, bystanders_yes,
                     rescuers_no, rescuers_yes])
+# Renumber the row labels; not necessary, but to avoid confusion.
+people = people.reset_index()
 people
 ```
 
@@ -267,11 +274,14 @@ In fact we could have done this more efficiently by making better use of
 `np.repeat`, like this:
 
 ```{python}
+# More efficient way to use np.repeat to make the same data frame.
 people2 = pd.DataFrame()
-people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'], [64, 7, 165, 44])
-people2['respondent'] = np.repeat(['bystander', 'rescuer'], [71, 209])
-# This is the same as the data frame we made above.
-people2.equals(people)
+people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'],
+                                [64, 7, 165, 44])
+people2['respondent'] = np.repeat(['bystander', 'rescuer'],
+                                  [71, 209])
+# The values are the same as the data frame we made above.
+people2
 ```
 
 We can check the counts in the `people` data frame by doing some row selection.
@@ -284,8 +294,8 @@ no_bystander_rows = no_rows[no_rows['respondent'] == 'bystander']
 len(no_bystander_rows)
 ```
 
-Luckily, Pandas has a `crosstab` function that does this work for us, for all
-four combinations of "Yes", "No" and "bystander", "rescuer".
+Luckily, Pandas has a `crosstab` function that does this counting work for us,
+for all four combinations of "Yes", "No" and "bystander", "rescuer".
 
 ```{python}
 people_tab = pd.crosstab(people['party_yn'], people['respondent'])
@@ -294,6 +304,9 @@ people_tab
 
 As we hoped, the `pd.crosstab` on the `people` data frame regenerates the counts table we started with.
 
+We have used `pd.crosstab` to reconstruct the Counts Table from our Entries
+Table.
+
 ## The null world
 
 The null or ideal world for our question is a world where the pairing of the
@@ -301,8 +314,8 @@ The null or ideal world for our question is a world where the pairing of the
 labels are random.
 
 We can make a data frame from that world doing a random shuffle of the
-`party_yn` labels, so the pairing of the `party_yn` and `respondent` labels is
-random.
+`party_yn` labels in our Entry Table, so the pairing of the `party_yn` and
+`respondent` labels is random.
 
 ```{python}
 fake_data = people.copy()
@@ -323,27 +336,25 @@ We now need the counts of people in each category.  That is we need counts for:
 * 'Yes' paired with 'rescuer'
 
 For example, remember we are particularly interested in the combination of
-"rescuer" and "Yes".
-
-`pd.crosstab` will do that for us.
+"Yes" and "rescuer".
 
 ```{python}
 fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
 fake_tab
 ```
 
-We saw in the original data that the Rescuers seemed to have a greater tendency
+We saw in the original data that the rescuers seemed to have a greater tendency
 to belong to a political party.  Let us restrict our attention to the count of
-"Yes" and "rescuer" for now.
+"Yes" and "rescuer".
 
-That count, in our original data, was:
+That count, in our original Counts Table, was:
 
 ```{python}
 actual_y_resc = bystander_tab.loc['Yes', 'rescuer']
 actual_y_resc
 ```
 
-The equivalent count in our new fake table is:
+The equivalent count in our new fake Counts Table is:
 
 ```{python}
 fake_y_resc = fake_tab.loc['Yes', 'rescuer']
@@ -351,9 +362,10 @@ fake_y_resc
 ```
 
 We need more random samples to see if the fake value is often as large as the
-real value.  If so, then the ideal world, where the association between rescuer
-/ bystander and Yes / No is random, is a reasonable explanation of what we see,
-and we might not want to investigate these data much further.
+real value.  If so, then the ideal world, where the association between "Yes" /
+"No, and "bystander" / "rescuer" is random, is a reasonable explanation of what
+we see in the real world, and we might not want to investigate these data much
+further.
 
 Unfortunately, `pd.crosstab` is horribly slow, so we need to drop our usual
 number of iterations to 1000 to keep the run-time down.
@@ -361,11 +373,15 @@ number of iterations to 1000 to keep the run-time down.
 ```{python}
 counts = np.zeros(1000)
 for i in np.arange(1000):
+    # Make a fake Entries Table by shuffling one set of labels.
     fake_data = people.copy()
     shuffled_party = np.random.permutation(people['party_yn'])
     fake_data['party_yn'] = shuffled_party
+    # Get the Counts Table from the fake Entries Table.
     fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
+    # Store the count of interest.
     counts[i] = fake_tab.loc['Yes', 'rescuer']
+# Show the first 10 counts.
 counts[:10]
 ```
 
@@ -397,16 +413,53 @@ counts_y_resc = np.zeros(1000)
 # No, rescuer
 counts_n_by = np.zeros(1000)
 for i in np.arange(1000):
+    # Make a fake Entries Table by shuffling one set of labels.
     fake_data = people.copy()
     shuffled_party = np.random.permutation(people['party_yn'])
     fake_data['party_yn'] = shuffled_party
+    # Get the Counts Table from the fake Entries Table.
     fake_tab = pd.crosstab(fake_data['party_yn'], fake_data['respondent'])
+    # Store the "Yes" / "rescuer" count.
     counts_y_resc[i] = fake_tab.loc['Yes', 'rescuer']
+    # Also store the "No" / "bystander" count.
     counts_n_by[i] = fake_tab.loc['No', 'bystander']
 ```
 
-The test for "Yes", "rescuer" follows.  Of course, this will be very similar to
-the value we got on the last run.
+Here are the values of the "Yes" / "rescuer" counts for the first 10 trials.
+
+```{python}
+# First ten Yes rescuer counts
+counts_y_resc[:10]
+```
+
+These are the corresponding "No" / "bystander" counts:
+
+```{python}
+# First ten No bystander counts
+counts_n_by[:10]
+```
+
+You may notice that they go up and down in exactly the same way.  When the
+"Yes" / "rescuer" count goes up or down by 1, so does the "No" / "bystander"
+count - and the same is true for any change in the values; 1, 2, 3 ..., -1, -2,
+-3 ...
+
+Therefore, the *difference* between the counts on each trial is always the
+same.  In our case, the difference is -20:
+
+```{python}
+# The difference between the counts for each trial is always the same.
+count_diff = counts_y_resc - counts_n_by
+print('First 10 differences', count_diff[:10])
+print("Differences all the same?")
+np.all(count_diff == count_diff[0])
+```
+
+If we know the "Yes" / "rescuer" value, we can get the corresponding "No" /
+"bystander" value by subtracting -20 (in our particular case).
+
+This means that if we calculate the corresponding p values for the "Yes" /
+"rescuer" or "No" / "bystander" counts, they are exactly the same.
 
 ```{python}
 # Proportion of times we see ideal world sample >= actual value.
@@ -423,7 +476,8 @@ p_lte_n_by = np.count_nonzero(counts_n_by >= actual_n_by) / len(counts)
 p_lte_n_by
 ```
 
-See if you can work out why these two answers are *exactly* the same.
+See if you can work out why these counts go up and down in exactly the same
+way, on each trial.  Why does this mean that the p values must be the same?
 
 After a little reflection, have a look at the [2 by 2
 tables](two_by_two_tables) page.

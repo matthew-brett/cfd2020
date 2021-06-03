@@ -1240,20 +1240,23 @@ this value is larger than we would expect by chance.</p>
 </div>
 <div class="section" id="recreating-the-original-data">
 <h2>Recreating the original data<a class="headerlink" href="#recreating-the-original-data" title="Permalink to this headline">¶</a></h2>
-<p>The table gives the counts of people in each of the four categories.</p>
-<p>We need to reconstruct a new <code class="docutils literal notranslate"><span class="pre">people</span></code> table that has one row for each person
-represented in the counts table above.  There are 280 people represented in the
-counts table above, of which:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bystander_tab</span></code> table above gives the counts of people in each of the four
+categories.  We will call this the Counts Table.</p>
+<p>To do the shuffling we need, we reconstruct a new <code class="docutils literal notranslate"><span class="pre">people</span></code> table that has one
+row for each person represented in the counts table.  We could also call this
+the Entries Table.  Instead of having the counts, it reconstructs the
+individual entries that correspond to the counts.</p>
+<p>There are 280 people represented in the Counts Table, of which:</p>
 <ul class="simple">
 <li><p>64 are “No” for party membership and “bystander” for respondent type.</p></li>
 <li><p>7 are “Yes” for party and “bystander” for respondent.</p></li>
 <li><p>165 are “No” for party and “rescuer” for respondent.</p></li>
 <li><p>44 are “Yes” for party and “rescuer” for respondent.</p></li>
 </ul>
-<p>We can create this new table in bits, first the “No” / “bystander” rows, then
+<p>We can create the Entry Table in bits, first the “No” / “bystander” rows, then
 the “Yes” / “bystander” rows, and so on.</p>
 <p>The first bit should have 64 rows, with label “No” in the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> column,
-and “bystander” in the respondent column.</p>
+and “bystander” in the <code class="docutils literal notranslate"><span class="pre">respondent</span></code> column.</p>
 <p>To make 64 “No”s, we use <code class="docutils literal notranslate"><span class="pre">np.repeat</span></code>.  Check the function signature with
 <code class="docutils literal notranslate"><span class="pre">np.repeat?</span></code> and Enter in a new cell.</p>
 <div class="cell docutils container">
@@ -1461,9 +1464,123 @@ and “bystander” in the respondent column.</p>
 <p>Finally use the <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> function to stick all these rows together into one big data frame with 64 + 7 + 165 + 44 = 280 rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bystanders_no</span><span class="p">,</span> <span class="n">bystanders_yes</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stack the parts into one long data frame.</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bystanders_no</span><span class="p">,</span> <span class="n">bystanders_yes</span><span class="p">,</span>
                     <span class="n">rescuers_no</span><span class="p">,</span> <span class="n">rescuers_yes</span><span class="p">])</span>
+<span class="c1"># Renumber the row labels; not necessary, but to avoid confusion.</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">people</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>party_yn</th>
+      <th>respondent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>39</td>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>40</td>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>41</td>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>42</td>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+    <tr>
+      <th>279</th>
+      <td>43</td>
+      <td>Yes</td>
+      <td>rescuer</td>
+    </tr>
+  </tbody>
+</table>
+<p>280 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>In fact we could have done this more efficiently by making better use of
+<code class="docutils literal notranslate"><span class="pre">np.repeat</span></code>, like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># More efficient way to use np.repeat to make the same data frame.</span>
+<span class="n">people2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">people2</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">],</span>
+                                <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">44</span><span class="p">])</span>
+<span class="n">people2</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;bystander&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">71</span><span class="p">,</span> <span class="mi">209</span><span class="p">])</span>
+<span class="c1"># The values are the same as the data frame we made above.</span>
+<span class="n">people2</span>
 </pre></div>
 </div>
 </div>
@@ -1522,27 +1639,27 @@ and “bystander” in the respondent column.</p>
       <td>...</td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>275</th>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
-      <th>40</th>
+      <th>276</th>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
-      <th>41</th>
+      <th>277</th>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>278</th>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>279</th>
       <td>Yes</td>
       <td>rescuer</td>
     </tr>
@@ -1550,24 +1667,6 @@ and “bystander” in the respondent column.</p>
 </table>
 <p>280 rows × 2 columns</p>
 </div></div></div>
-</div>
-<p>In fact we could have done this more efficiently by making better use of
-<code class="docutils literal notranslate"><span class="pre">np.repeat</span></code>, like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">people2</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">44</span><span class="p">])</span>
-<span class="n">people2</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s1">&#39;bystander&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">71</span><span class="p">,</span> <span class="mi">209</span><span class="p">])</span>
-<span class="c1"># This is the same as the data frame we made above.</span>
-<span class="n">people2</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can check the counts in the <code class="docutils literal notranslate"><span class="pre">people</span></code> data frame by doing some row selection.
 For example, to check we really do have 64 rows with the label “No” in
@@ -1586,8 +1685,8 @@ For example, to check we really do have 64 rows with the label “No” in
 </div>
 </div>
 </div>
-<p>Luckily, Pandas has a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> function that does this work for us, for all
-four combinations of “Yes”, “No” and “bystander”, “rescuer”.</p>
+<p>Luckily, Pandas has a <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> function that does this counting work for us,
+for all four combinations of “Yes”, “No” and “bystander”, “rescuer”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">people</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
@@ -1639,6 +1738,8 @@ four combinations of “Yes”, “No” and “bystander”, “rescuer”.</p>
 </div></div></div>
 </div>
 <p>As we hoped, the <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> on the <code class="docutils literal notranslate"><span class="pre">people</span></code> data frame regenerates the counts table we started with.</p>
+<p>We have used <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> to reconstruct the Counts Table from our Entries
+Table.</p>
 </div>
 <div class="section" id="the-null-world">
 <h2>The null world<a class="headerlink" href="#the-null-world" title="Permalink to this headline">¶</a></h2>
@@ -1646,8 +1747,8 @@ four combinations of “Yes”, “No” and “bystander”, “rescuer”.</p>
 <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> “Yes” / “No” labels and the <code class="docutils literal notranslate"><span class="pre">respondent</span></code> “bystander” / “rescuer”
 labels are random.</p>
 <p>We can make a data frame from that world doing a random shuffle of the
-<code class="docutils literal notranslate"><span class="pre">party_yn</span></code> labels, so the pairing of the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> and <code class="docutils literal notranslate"><span class="pre">respondent</span></code> labels is
-random.</p>
+<code class="docutils literal notranslate"><span class="pre">party_yn</span></code> labels in our Entry Table, so the pairing of the <code class="docutils literal notranslate"><span class="pre">party_yn</span></code> and
+<code class="docutils literal notranslate"><span class="pre">respondent</span></code> labels is random.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1676,6 +1777,7 @@ random.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>index</th>
       <th>party_yn</th>
       <th>respondent</th>
     </tr>
@@ -1683,51 +1785,61 @@ random.</p>
   <tbody>
     <tr>
       <th>0</th>
+      <td>0</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>1</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Yes</td>
+      <td>2</td>
+      <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>3</td>
       <td>Yes</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>4</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>5</th>
+      <td>5</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>No</td>
-      <td>bystander</td>
-    </tr>
-    <tr>
-      <th>7</th>
+      <td>6</td>
       <td>Yes</td>
       <td>bystander</td>
     </tr>
     <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>No</td>
+      <td>bystander</td>
+    </tr>
+    <tr>
       <th>8</th>
+      <td>8</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
       <th>9</th>
+      <td>9</td>
       <td>No</td>
       <td>bystander</td>
     </tr>
@@ -1746,8 +1858,7 @@ random.</p>
 <li><p>‘Yes’ paired with ‘rescuer’</p></li>
 </ul>
 <p>For example, remember we are particularly interested in the combination of
-“rescuer” and “Yes”.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> will do that for us.</p>
+“Yes” and “rescuer”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
@@ -1786,22 +1897,22 @@ random.</p>
   <tbody>
     <tr>
       <th>No</th>
-      <td>54</td>
-      <td>175</td>
+      <td>59</td>
+      <td>170</td>
     </tr>
     <tr>
       <th>Yes</th>
-      <td>17</td>
-      <td>34</td>
+      <td>12</td>
+      <td>39</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>We saw in the original data that the Rescuers seemed to have a greater tendency
+<p>We saw in the original data that the rescuers seemed to have a greater tendency
 to belong to a political party.  Let us restrict our attention to the count of
-“Yes” and “rescuer” for now.</p>
-<p>That count, in our original data, was:</p>
+“Yes” and “rescuer”.</p>
+<p>That count, in our original Counts Table, was:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">actual_y_resc</span> <span class="o">=</span> <span class="n">bystander_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
@@ -1815,7 +1926,7 @@ to belong to a political party.  Let us restrict our attention to the count of
 </div>
 </div>
 </div>
-<p>The equivalent count in our new fake table is:</p>
+<p>The equivalent count in our new fake Counts Table is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fake_y_resc</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
@@ -1824,32 +1935,37 @@ to belong to a political party.  Let us restrict our attention to the count of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
 </pre></div>
 </div>
 </div>
 </div>
 <p>We need more random samples to see if the fake value is often as large as the
-real value.  If so, then the ideal world, where the association between rescuer
-/ bystander and Yes / No is random, is a reasonable explanation of what we see,
-and we might not want to investigate these data much further.</p>
+real value.  If so, then the ideal world, where the association between “Yes” /
+“No, and “bystander” / “rescuer” is random, is a reasonable explanation of what
+we see in the real world, and we might not want to investigate these data much
+further.</p>
 <p>Unfortunately, <code class="docutils literal notranslate"><span class="pre">pd.crosstab</span></code> is horribly slow, so we need to drop our usual
 number of iterations to 1000 to keep the run-time down.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># Make a fake Entries Table by shuffling one set of labels.</span>
     <span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">])</span>
     <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shuffled_party</span>
+    <span class="c1"># Get the Counts Table from the fake Entries Table.</span>
     <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
+    <span class="c1"># Store the count of interest.</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
+<span class="c1"># Show the first 10 counts.</span>
 <span class="n">counts</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 37., 43., 39., 38., 39., 41., 36., 41., 39.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([36., 41., 37., 36., 36., 34., 37., 39., 38., 42.])
 </pre></div>
 </div>
 </div>
@@ -1875,7 +1991,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
 </pre></div>
 </div>
 </div>
@@ -1896,18 +2012,78 @@ these counts:</p>
 <span class="c1"># No, rescuer</span>
 <span class="n">counts_n_by</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># Make a fake Entries Table by shuffling one set of labels.</span>
     <span class="n">fake_data</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">shuffled_party</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">])</span>
     <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shuffled_party</span>
+    <span class="c1"># Get the Counts Table from the fake Entries Table.</span>
     <span class="n">fake_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;party_yn&#39;</span><span class="p">],</span> <span class="n">fake_data</span><span class="p">[</span><span class="s1">&#39;respondent&#39;</span><span class="p">])</span>
+    <span class="c1"># Store the &quot;Yes&quot; / &quot;rescuer&quot; count.</span>
     <span class="n">counts_y_resc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span> <span class="s1">&#39;rescuer&#39;</span><span class="p">]</span>
+    <span class="c1"># Also store the &quot;No&quot; / &quot;bystander&quot; count.</span>
     <span class="n">counts_n_by</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fake_tab</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;bystander&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The test for “Yes”, “rescuer” follows.  Of course, this will be very similar to
-the value we got on the last run.</p>
+<p>Here are the values of the “Yes” / “rescuer” counts for the first 10 trials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First ten Yes rescuer counts</span>
+<span class="n">counts_y_resc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 32., 41., 39., 38., 43., 37., 38., 41., 37.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are the corresponding “No” / “bystander” counts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First ten No bystander counts</span>
+<span class="n">counts_n_by</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 52., 61., 59., 58., 63., 57., 58., 61., 57.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may notice that they go up and down in exactly the same way.  When the
+“Yes” / “rescuer” count goes up or down by 1, so does the “No” / “bystander”
+count - and the same is true for any change in the values; 1, 2, 3 …, -1, -2,
+-3 …</p>
+<p>Therefore, the <em>difference</em> between the counts on each trial is always the
+same.  In our case, the difference is -20:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The difference between the counts for each trial is always the same.</span>
+<span class="n">count_diff</span> <span class="o">=</span> <span class="n">counts_y_resc</span> <span class="o">-</span> <span class="n">counts_n_by</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First 10 differences&#39;</span><span class="p">,</span> <span class="n">count_diff</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Differences all the same?&quot;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">count_diff</span> <span class="o">==</span> <span class="n">count_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 10 differences [-20. -20. -20. -20. -20. -20. -20. -20. -20. -20.]
+Differences all the same?
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we know the “Yes” / “rescuer” value, we can get the corresponding “No” /
+“bystander” value by subtracting -20 (in our particular case).</p>
+<p>This means that if we calculate the corresponding p values for the “Yes” /
+“rescuer” or “No” / “bystander” counts, they are exactly the same.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Proportion of times we see ideal world sample &gt;= actual value.</span>
@@ -1938,7 +2114,8 @@ the value we got on the last run.</p>
 </div>
 </div>
 </div>
-<p>See if you can work out why these two answers are <em>exactly</em> the same.</p>
+<p>See if you can work out why these counts go up and down in exactly the same
+way, on each trial.  Why does this mean that the p values must be the same?</p>
 <p>After a little reflection, have a look at the <a class="reference internal" href="two_by_two_tables.html"><span class="doc std std-doc">2 by 2
 tables</span></a> page.</p>
 </div>
