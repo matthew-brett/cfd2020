@@ -220,7 +220,7 @@ We can create this new table in bits, first the "No" / "bystander" rows, then
 the "Yes" / "bystander" rows, and so on.
 
 The first bit should have 64 rows, with label "No" in the `party_yn` column,
-and "bystander" in the respondent column.
+and "bystander" in the `respondent` column.
 
 To make 64 "No"s, we use `np.repeat`.  Check the function signature with
 `np.repeat?` and Enter in a new cell.
@@ -258,8 +258,11 @@ rescuers_yes.head()
 Finally use the `pd.concat` function to stick all these rows together into one big data frame with 64 + 7 + 165 + 44 = 280 rows.
 
 ```{python}
+# Stack the parts into one long data frame.
 people = pd.concat([bystanders_no, bystanders_yes,
                     rescuers_no, rescuers_yes])
+# Renumber the row labels; not necessary, but to avoid confusion.
+people = people.reset_index()
 people
 ```
 
@@ -267,11 +270,14 @@ In fact we could have done this more efficiently by making better use of
 `np.repeat`, like this:
 
 ```{python}
+# More efficient way to use np.repeat to make the same data frame.
 people2 = pd.DataFrame()
-people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'], [64, 7, 165, 44])
-people2['respondent'] = np.repeat(['bystander', 'rescuer'], [71, 209])
-# This is the same as the data frame we made above.
-people2.equals(people)
+people2['party_yn'] = np.repeat(['No', 'Yes', 'No', 'Yes'],
+                                [64, 7, 165, 44])
+people2['respondent'] = np.repeat(['bystander', 'rescuer'],
+                                  [71, 209])
+# The values are the same as the data frame we made above.
+people2
 ```
 
 We can check the counts in the `people` data frame by doing some row selection.
@@ -284,8 +290,8 @@ no_bystander_rows = no_rows[no_rows['respondent'] == 'bystander']
 len(no_bystander_rows)
 ```
 
-Luckily, Pandas has a `crosstab` function that does this work for us, for all
-four combinations of "Yes", "No" and "bystander", "rescuer".
+Luckily, Pandas has a `crosstab` function that does this counting work for us,
+for all four combinations of "Yes", "No" and "bystander", "rescuer".
 
 ```{python}
 people_tab = pd.crosstab(people['party_yn'], people['respondent'])
@@ -405,8 +411,41 @@ for i in np.arange(1000):
     counts_n_by[i] = fake_tab.loc['No', 'bystander']
 ```
 
-The test for "Yes", "rescuer" follows.  Of course, this will be very similar to
-the value we got on the last run.
+Here are the values of the "Yes" / "rescuer" counts for the first 10 trials.
+
+```{python}
+# First ten Yes rescuer counts
+counts_y_resc[:10]
+```
+
+These are the corresponding "No" / "bystander" counts:
+
+```{python}
+# First ten No bystander counts
+counts_n_by[:10]
+```
+
+If you stare at these for a while, you may notice that they go up and down in
+exactly the same way.  When the "Yes" / "rescuer" count goes up or down by 1,
+so does the "No" / "bystander" count - and the same is true for any change in
+the values; 1, 2, 3 ..., -1, -2, -3 ...
+
+Therefore, the *difference* between the counts on each trial is always the
+same.  In our case, the difference is -20:
+
+```{python}
+# The difference between the counts for each trial is always the same.
+count_diff = counts_y_resc - counts_n_by
+print('First 10 differences', count_diff[:10])
+print("Differences all the same?")
+np.all(count_diff == count_diff[0])
+```
+
+If we know the "Yes" / "rescuer" value, we can get the corresponding "No" /
+"bystander" value by subtracting -20 (in our particular case).
+
+This means that if we calculate the corresponding p values for the "Yes" /
+"rescuer" or "No" / "bystander" counts, they are exactly the same.
 
 ```{python}
 # Proportion of times we see ideal world sample >= actual value.
@@ -423,7 +462,8 @@ p_lte_n_by = np.count_nonzero(counts_n_by >= actual_n_by) / len(counts)
 p_lte_n_by
 ```
 
-See if you can work out why these two answers are *exactly* the same.
+See if you can work out why these counts go up and down in exactly the same
+way, on each trial.  Why does this mean that the p values must be the same?
 
 After a little reflection, have a look at the [2 by 2
 tables](two_by_two_tables) page.
