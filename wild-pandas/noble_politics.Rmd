@@ -24,7 +24,7 @@ This page has two aims:
 We also ask the question - is politics noble?
 
 
-```{python}
+```{python tags=c("hide-cell")}
 # Our usual imports
 import numpy as np
 import pandas as pd
