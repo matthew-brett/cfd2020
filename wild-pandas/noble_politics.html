@@ -893,20 +893,20 @@
 </div>
 <p>Our data is from this book:</p>
 <blockquote>
-<div><p>Samuel P. Oliner and Pearl M. Oliner (1992) “The Altruistic Personality:
-Rescuers of Jews in Nazi Europe”. Free Press, New York. ISBN 0-02923829-3.</p>
+<div><p>Samuel P. Oliner and Pearl M. Oliner (1988) “The Altruistic Personality:
+Rescuers of Jews in Nazi Europe”. Free Press, New York.</p>
 </div></blockquote>
-<p>See <a class="reference external" href="https://github.com/matthew-brett/datasets/oliner1988">the dataset page</a>
+<p>See <a class="reference external" href="https://github.com/odsti/datasets/tree/master/oliner1988">the dataset page</a>
 for some more details.</p>
-<p>Oliner and Oliner were interested to see if they could identify distinctive
-traits of people who rescued Jews in Nazi Europe.  In order to do that, they
-collected structured interviews with 231 people for whom there was strong
-documentary evidence that they had sheltered Jews, despite considerable risk to
-themselves. These are the “rescuer” group in the table below.  They also found
-126 controls with roughly similar background, nationality, age and education.
-Of these, 53 claimed to have either sheltered Jews, or to have been active in
-the resistance.  These are the “actives” group in the table.  This leaves 73
-controls who were not active, and the authors termed these “bystanders”.</p>
+<p>The Oliners wanted to identify distinctive traits of people who rescued Jews in
+Nazi Europe.  In order to do that, they collected structured interviews with
+231 people for whom there was strong documentary evidence that they had
+sheltered Jews, despite considerable risk to themselves. These are the
+“rescuer” group in the table below.  They also found 126 controls with roughly
+similar background, nationality, age and education. Of these, 53 claimed to
+have either sheltered Jews, or to have been active in the resistance.  These
+are the “actives” group in the table.  This leaves 73 controls who were not
+active, and the authors termed these “bystanders”.</p>
 <p>The table below has data from table 6.8 of their book, where they break down the groups according to the answer they gave to the question “Did you belong to a political party before the war?”.</p>
 <p>As usual, if you are running on your own computers, download the file
 <a class="reference download internal" download="" href="../_downloads/c9bb319f3dfef38d07415bda013a7ca7/oliner_tab6_8a_1.csv"><code class="xref download docutils literal notranslate"><span class="pre">oliner_tab6_8a_1.csv</span></code></a> to the same directory as this notebook.</p>
@@ -1798,7 +1798,7 @@ labels are random.</p>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>Yes</td>
+      <td>No</td>
       <td>bystander</td>
     </tr>
     <tr>
@@ -1897,13 +1897,13 @@ labels are random.</p>
   <tbody>
     <tr>
       <th>No</th>
-      <td>61</td>
-      <td>168</td>
+      <td>56</td>
+      <td>173</td>
     </tr>
     <tr>
       <th>Yes</th>
-      <td>10</td>
-      <td>41</td>
+      <td>15</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
@@ -1935,7 +1935,7 @@ to belong to a political party.  Let us restrict our attention to the count of
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>41
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
 </pre></div>
 </div>
 </div>
@@ -1965,7 +1965,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([32., 34., 45., 39., 37., 38., 34., 37., 37., 36.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([43., 40., 42., 41., 36., 35., 37., 39., 33., 31.])
 </pre></div>
 </div>
 </div>
@@ -1991,7 +1991,7 @@ number of iterations to 1000 to keep the run-time down.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.022
 </pre></div>
 </div>
 </div>
@@ -2035,7 +2035,7 @@ counts, for each trial:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([40., 41., 38., 39., 40., 39., 42., 42., 41., 37.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([37., 40., 35., 37., 43., 43., 37., 34., 39., 35.])
 </pre></div>
 </div>
 </div>
@@ -2049,7 +2049,7 @@ counts, for each trial:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([60., 61., 58., 59., 60., 59., 62., 62., 61., 57.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([57., 60., 55., 57., 63., 63., 57., 54., 59., 55.])
 </pre></div>
 </div>
 </div>
@@ -2093,7 +2093,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
 </pre></div>
 </div>
 </div>
@@ -2109,7 +2109,7 @@ Differences all the same?
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.018
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.021
 </pre></div>
 </div>
 </div>
