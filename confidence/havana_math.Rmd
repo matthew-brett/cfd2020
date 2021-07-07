@@ -60,7 +60,7 @@ havana_2018 = havana_2018.dropna()
 havana_2018.head()
 ```
 
-There are about 7300 marks in this table:
+There are about 7306 marks in this table:
 
 ```{python}
 len(havana_2018)
