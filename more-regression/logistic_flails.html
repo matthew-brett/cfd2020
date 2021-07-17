@@ -796,12 +796,6 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/more-regression/logistic_flails.Rmd&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -1050,17 +1044,21 @@ log-odds intercept and slope:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 4.903124915254889
- hess_inv: array([[19.62332134, -0.92499574],
-       [-0.92499574,  0.0447687 ]])
-      jac: array([-5.96046448e-08, -9.53674316e-07])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mb312/Library/Python/3.8/lib/python/site-packages/pandas/core/arraylike.py:358: RuntimeWarning: overflow encountered in exp
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 4.903124915254673
+ hess_inv: array([[19.20408964, -0.90547701],
+       [-0.90547701,  0.04384903]])
+      jac: array([-1.78813934e-07, -2.50339508e-06])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 120
       nit: 10
      njev: 40
    status: 0
   success: True
-        x: array([-6.16442208,  0.28186367])
+        x: array([-6.16442306,  0.28186371])
 </pre></div>
 </div>
 </div>
@@ -1099,7 +1097,7 @@ log-odds intercept and slope:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 12.99999999997786
  hess_inv: array([[1, 0],
        [0, 1]])
-      jac: array([ 0., -0.])
+      jac: array([0., 0.])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 24
       nit: 1
@@ -1156,17 +1154,17 @@ log-odds intercept and slope:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 14.83758382412069
- hess_inv: array([[ 5.55735781, -0.2668813 ],
-       [-0.2668813 ,  0.01334137]])
-      jac: array([-2.38418579e-07, -4.64916229e-06])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 14.837583824120092
+ hess_inv: array([[ 5.53690929, -0.26589687],
+       [-0.26589687,  0.01329405]])
+      jac: array([-2.38418579e-07, -4.05311584e-06])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 57
       nit: 13
      njev: 19
    status: 0
   success: True
-        x: array([-6.60352182,  0.30702795])
+        x: array([-6.60352255,  0.30702798])
 </pre></div>
 </div>
 </div>
@@ -1227,10 +1225,10 @@ Statmodels and other packages use.</p>
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     1</td>  
 </tr>
 <tr>
-  <th>Date:</th>            <td>Fri, 07 May 2021</td> <th>  Pseudo R-squ.:     </th>  <td>0.3135</td>  
+  <th>Date:</th>            <td>Sat, 17 Jul 2021</td> <th>  Pseudo R-squ.:     </th>  <td>0.3135</td>  
 </tr>
 <tr>
-  <th>Time:</th>                <td>12:40:23</td>     <th>  Log-Likelihood:    </th> <td> -14.838</td> 
+  <th>Time:</th>                <td>13:17:01</td>     <th>  Log-Likelihood:    </th> <td> -14.838</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -21.615</td> 

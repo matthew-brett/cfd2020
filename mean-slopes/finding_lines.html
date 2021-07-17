@@ -800,12 +800,6 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/mean-slopes/finding_lines.Rmd&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -1594,10 +1588,10 @@ reasonable guess will do.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058041965
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.0674471058042072
  hess_inv: array([[ 0.9878, -0.308 ],
        [-0.308 ,  0.0967]])
-      jac: array([-0., -0.])
+      jac: array([-0.,  0.])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 15
       nit: 3
@@ -1625,7 +1619,7 @@ example, in the Scipy <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.5088641203940006, intercept=2.114798571643314, rvalue=0.7459725836595872, pvalue=1.5998303978986516e-14, stderr=0.053171209477256925)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.5088641203940006, intercept=2.114798571643314, rvalue=0.7459725836595872, pvalue=1.5998303978986516e-14, stderr=0.053171209477256925, intercept_stderr=0.1699631063847937)
 </pre></div>
 </div>
 </div>

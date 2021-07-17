@@ -798,12 +798,6 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/classification/single_multiple.Rmd&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -1247,17 +1241,17 @@ error between the straight line prediction of the <code class="docutils literal 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 212.27540814738174
- hess_inv: array([[ 0.04309388, -0.00029988],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 212.2754081473813
+ hess_inv: array([[ 0.04309389, -0.00029988],
        [-0.00029988,  0.00000286]])
-      jac: array([0.00000572, 0.00211525])
+      jac: array([0.00000572, 0.00211716])
   message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 77
+     nfev: 117
       nit: 2
-     njev: 22
+     njev: 35
    status: 2
   success: False
-        x: array([-0.08490862,  0.05524182])
+        x: array([-0.08490863,  0.05524182])
 </pre></div>
 </div>
 </div>
@@ -1270,7 +1264,7 @@ error between the straight line prediction of the <code class="docutils literal 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.08490862,  0.05524182])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.08490863,  0.05524182])
 </pre></div>
 </div>
 </div>
@@ -1314,17 +1308,17 @@ error must be the same as the <code class="docutils literal notranslate"><span c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 212.27540814738174
- hess_inv: array([[ 0.04309388, -0.00029988],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 212.2754081473813
+ hess_inv: array([[ 0.04309389, -0.00029988],
        [-0.00029988,  0.00000286]])
-      jac: array([0.00000572, 0.00211525])
+      jac: array([0.00000572, 0.00211716])
   message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 77
+     nfev: 117
       nit: 2
-     njev: 22
+     njev: 35
    status: 2
   success: False
-        x: array([-0.08490862,  0.05524182])
+        x: array([-0.08490863,  0.05524182])
 </pre></div>
 </div>
 </div>
@@ -1340,17 +1334,17 @@ error must be the same as the <code class="docutils literal notranslate"><span c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2218544954108235
- hess_inv: array([[ 8.23446616, -0.05728597],
-       [-0.05728597,  0.00054516]])
-      jac: array([-0.00000003, -0.00000006])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2218544954108195
+ hess_inv: array([[ 8.23440421, -0.05728554],
+       [-0.05728554,  0.00054516]])
+      jac: array([ 0.        , -0.00000006])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 33
       nit: 7
      njev: 11
    status: 0
   success: True
-        x: array([-0.08490819,  0.05524181])
+        x: array([-0.0849082 ,  0.05524181])
 </pre></div>
 </div>
 </div>
@@ -1371,7 +1365,7 @@ used <code class="docutils literal notranslate"><span class="pre">linregress</sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.05524183911456146, intercept=-0.08491111825351982, rvalue=0.845883415401762, pvalue=9.327350567383254e-13, stderr=0.005439919989116022)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinregressResult(slope=0.05524183911456146, intercept=-0.08491111825351982, rvalue=0.845883415401762, pvalue=9.327350567383254e-13, stderr=0.005439919989116022, intercept_stderr=0.6680061444061487)
 </pre></div>
 </div>
 </div>
@@ -1439,10 +1433,10 @@ predicting <code class="docutils literal notranslate"><span class="pre">Creatini
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   103.1</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 07 May 2021</td> <th>  Prob (F-statistic):</th> <td>9.33e-13</td>
+  <th>Date:</th>             <td>Sat, 17 Jul 2021</td> <th>  Prob (F-statistic):</th> <td>9.33e-13</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:32:14</td>     <th>  Log-Likelihood:    </th> <td> -95.343</td>
+  <th>Time:</th>                 <td>13:09:00</td>     <th>  Log-Likelihood:    </th> <td> -95.343</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   194.7</td>
@@ -1539,7 +1533,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2218544954108235
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2218544954108195
 </pre></div>
 </div>
 </div>
@@ -1555,7 +1549,7 @@ line using <code class="docutils literal notranslate"><span class="pre">Hemoglob
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x12b9abb80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x13f601b50&gt;
 </pre></div>
 </div>
 <img alt="../_images/single_multiple_41_1.png" src="../_images/single_multiple_41_1.png" />
@@ -1572,17 +1566,17 @@ line using <code class="docutils literal notranslate"><span class="pre">Hemoglob
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.217536740847826
- hess_inv: array([[48.15292237, -4.70241879],
-       [-4.70241879,  0.48138103]])
-      jac: array([-0.00000003,  0.00000006])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2175367410277436
+ hess_inv: array([[48.15029196, -4.70191806],
+       [-4.70191806,  0.48130848]])
+      jac: array([0., 0.])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 30
       nit: 7
      njev: 10
    status: 0
   success: True
-        x: array([ 0.63009962, -0.06449485])
+        x: array([ 0.63010369, -0.06449526])
 </pre></div>
 </div>
 </div>
@@ -1680,18 +1674,18 @@ root mean square error (and the sum of squared error):</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.215537202369042
- hess_inv: array([[105.8652464 ,  -0.21691458,  -8.28890153],
-       [ -0.21691458,   0.0008021 ,   0.01356446],
-       [ -8.28890153,   0.01356446,   0.70414781]])
-      jac: array([-0.00000003, -0.00000039,  0.00000006])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023695943
+ hess_inv: array([[105.03032804,  -0.21512878,  -8.22254556],
+       [ -0.21512878,   0.00079935,   0.01341336],
+       [ -8.22254556,   0.01341336,   0.69895248]])
+      jac: array([ 0.        , -0.00000039, -0.00000003])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 80
       nit: 14
      njev: 20
    status: 0
   success: True
-        x: array([ 1.02388513,  0.05345682, -0.094321  ])
+        x: array([ 1.02389338,  0.05345681, -0.09432169])
 </pre></div>
 </div>
 </div>
@@ -1752,18 +1746,18 @@ intercept and two slopes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.215537202369401
- hess_inv: array([[103.93373633,  -0.20896951,  -8.17187426],
-       [ -0.20896951,   0.00077137,   0.01315652],
-       [ -8.17187426,   0.01315652,   0.69565852]])
-      jac: array([ 0.00000003, -0.00000075, -0.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023700126
+ hess_inv: array([[104.12647406,  -0.2093455 ,  -8.18721274],
+       [ -0.2093455 ,   0.00077243,   0.01318249],
+       [ -8.18721274,   0.01318249,   0.69692729]])
+      jac: array([ 0.00000003, -0.00000069,  0.00000006])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 84
       nit: 16
      njev: 21
    status: 0
   success: True
-        x: array([ 1.02389039,  0.05345681, -0.09432142])
+        x: array([ 1.02389636,  0.0534568 , -0.09432192])
 </pre></div>
 </div>
 </div>
@@ -1826,10 +1820,10 @@ and the <code class="docutils literal notranslate"><span class="pre">Hemoglobin<
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   50.70</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 07 May 2021</td> <th>  Prob (F-statistic):</th> <td>1.08e-11</td>
+  <th>Date:</th>             <td>Sat, 17 Jul 2021</td> <th>  Prob (F-statistic):</th> <td>1.08e-11</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>12:32:15</td>     <th>  Log-Likelihood:    </th> <td> -95.221</td>
+  <th>Time:</th>                 <td>13:09:01</td>     <th>  Log-Likelihood:    </th> <td> -95.221</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   196.4</td>

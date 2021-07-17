@@ -800,12 +800,6 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://uobhub.org/hub/user-redirect/git-pull?repo=https://github.com/matthew-brett/cfd2020&urlpath=tree/cfd2020/more-regression/logistic_regression.Rmd&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
         
         <button type="button" class="btn btn-secondary topbarbtn"
             onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
@@ -1388,17 +1382,17 @@ squared prediction errors.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 10.315509522411862
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 10.315509522392956
  hess_inv: array([[ 0.07498683, -0.00524735],
        [-0.00524735,  0.00038337]])
-      jac: array([-7.39097595e-06,  5.13792038e-05])
+      jac: array([-1.87158585e-05,  5.72204590e-05])
   message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 104
+     nfev: 138
       nit: 2
-     njev: 31
+     njev: 42
    status: 2
   success: False
-        x: array([-0.07904187,  0.0700493 ])
+        x: array([-0.0790431 ,  0.07004938])
 </pre></div>
 </div>
 </div>
@@ -1415,8 +1409,8 @@ squared prediction errors.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best linear regression intercept -0.07904187280281949
-Best linear regression slope 0.07004929869481377
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best linear regression intercept -0.07904310269972381
+Best linear regression slope 0.07004938485490964
 </pre></div>
 </div>
 </div>
@@ -1436,9 +1430,9 @@ Best linear regression slope 0.07004929869481377
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.705510
 1      0.586426
-2      0.677491
-3      0.313234
-4      0.460338
+2      0.677490
+3      0.313233
+4      0.460337
          ...   
 153    1.020732
 154    1.076772
@@ -1972,17 +1966,17 @@ labels.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 9.621504133676222
- hess_inv: array([[ 6.0509272 , -0.57246015],
-       [-0.57246015,  0.05674741]])
-      jac: array([-1.19209290e-07,  2.38418579e-07])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 9.621504133676334
+ hess_inv: array([[ 6.28125352, -0.59480177],
+       [-0.59480177,  0.05889232]])
+      jac: array([1.19209290e-07, 2.38418579e-07])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 42
       nit: 12
      njev: 14
    status: 0
   success: True
-        x: array([-5.28090451,  0.58493981])
+        x: array([-5.28090393,  0.58493976])
 </pre></div>
 </div>
 </div>
@@ -2778,17 +2772,17 @@ differences by passing a very small value to the <code class="docutils literal n
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: -2.150310634791204e-13
- hess_inv: array([[ 1.28014172e+13, -1.19764030e+12],
-       [-1.19764030e+12,  1.16560857e+11]])
-      jac: array([7.22180291e-18, 7.67259384e-17])
-  message: &#39;Optimization terminated successfully.&#39;
-     nfev: 222
-      nit: 53
-     njev: 74
-   status: 0
-  success: True
-        x: array([-7.29187252,  0.79915478])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: -2.1171640882196986e-13
+ hess_inv: array([[4.57223749e+07, 4.62358140e+08],
+       [4.62358140e+08, 4.67550198e+09]])
+      jac: array([ 2.27949458e-14, -2.25416304e-15])
+  message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
+     nfev: 145
+      nit: 6
+     njev: 45
+   status: 2
+  success: False
+        x: array([-7.00275132,  0.77217755])
 </pre></div>
 </div>
 </div>
@@ -2986,17 +2980,17 @@ of precision in the calculation.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 29.167993895856846
- hess_inv: array([[ 2.75031047, -0.2573524 ],
-       [-0.2573524 ,  0.02512231]])
-      jac: array([2.38418579e-07, 0.00000000e+00])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 29.167993895857247
+ hess_inv: array([[ 2.74626368, -0.25696584],
+       [-0.25696584,  0.02508566]])
+      jac: array([4.76837158e-07, 4.76837158e-07])
   message: &#39;Optimization terminated successfully.&#39;
      nfev: 27
       nit: 7
      njev: 9
    status: 0
   success: True
-        x: array([-7.29187319,  0.79915447])
+        x: array([-7.29187264,  0.79915442])
 </pre></div>
 </div>
 </div>
@@ -3062,10 +3056,10 @@ Statsmodels.</p>
   <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>  <td>     1</td>  
 </tr>
 <tr>
-  <th>Date:</th>            <td>Tue, 18 May 2021</td> <th>  Pseudo R-squ.:     </th>  <td>0.4976</td>  
+  <th>Date:</th>            <td>Sat, 17 Jul 2021</td> <th>  Pseudo R-squ.:     </th>  <td>0.4976</td>  
 </tr>
 <tr>
-  <th>Time:</th>                <td>16:37:36</td>     <th>  Log-Likelihood:    </th> <td> -29.168</td> 
+  <th>Time:</th>                <td>13:17:09</td>     <th>  Log-Likelihood:    </th> <td> -29.168</td> 
 </tr>
 <tr>
   <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th> <td> -58.054</td> 
@@ -3099,8 +3093,8 @@ maximum log likelihood (MLL) cost function.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept from minimize = -7.291873189544533
-Slope from minimize = 0.7991544697361764
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept from minimize = -7.2918726387296235
+Slope from minimize = 0.7991544178732585
 </pre></div>
 </div>
 </div>
@@ -3143,7 +3137,7 @@ the two methods is:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.954712916147244e-08
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0738044586844353e-07
 </pre></div>
 </div>
 </div>
