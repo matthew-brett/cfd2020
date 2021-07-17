@@ -45,7 +45,10 @@ def push_dir(path, site_dict, strip=False):
             print('No changes to commit')
             return
         check_call(['git', 'commit', '-m', 'Update from template'])
-        check_call(['git', 'push', 'origin', 'master'] +
+        # Check default branch.
+        res = check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+                           text=True).strip()
+        check_call(['git', 'push', 'origin', res] +
                    (['--force'] if strip else []))
 
 
