@@ -33,8 +33,6 @@ launch_buttons:
   notebook_interface: "classic"
   # The URL of the BinderHub (e.g., https://mybinder.org)
   binderhub_url: "https://mybinder.org"
-  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  jupyterhub_url: "https://uobhub.org"
   # The URL of Google Colab (e.g., https://colab.research.google.com)
   colab_url: "https://colab.research.google.com"
   thebe: true
