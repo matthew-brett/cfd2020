@@ -7,7 +7,7 @@ jupyter:
       extension: .Rmd
       format_name: rmarkdown
       format_version: '1.2'
-      jupytext_version: 1.8.2
+      jupytext_version: 1.10.1
   kernelspec:
     display_name: Python 3
     language: python
@@ -37,6 +37,9 @@ way, the y value when the x value is 0.
 
 What if we are in a situation where we want to find a line that had a (not
 zero) intercept, as well as a slope?
+
+*Note: please see [this page](Lines_Slopes_and_Intercepts_-_Refresher) if you would like
+a refresher on intercepts, slopes and linear graphs*
 
 ```{python}
 import numpy as np
