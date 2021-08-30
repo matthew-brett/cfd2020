@@ -119,6 +119,7 @@ $$
 y = c + x * s
 $$
 
+[LINK TO THIS FILE HERE: https://github.com/pxr687/temporary/blob/main/Lines_Slopes_and_Intercepts_-_Refresher.Rmd]
 
 Let's start with a guess for the line, just from eyeballing the plot. We guess
 that:
