@@ -136,7 +136,7 @@ n_3_girls / 10000
 
 Here then is the whole solution to three girl problem.
 
-It is make from the combination of the code in the cells above.
+It is made from the combination of the code in the cells above.
 
 ```{python}
 # Reset the counts array to 10000 zeros.
