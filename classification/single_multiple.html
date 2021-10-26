@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple and multiple regression &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -58,23 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Cross-tabulation" href="../useful-pandas/crosstab.html" />
     <link rel="prev" title="Multiple regression" href="Multiple_Regression.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/classification/single_multiple.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Simple and multiple regression" />
-<meta property="og:description" content="Simple and multiple regression  import numpy as np import pandas as pd # Safe settings for Pandas. pd.set_option(&#39;mode.chained_assignment&#39;, &#39;raise&#39;)  %matplotli" />
-<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -83,25 +71,29 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
  <span class="caption-text">
   Coding for data
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/what-is-data-science.html">
    What is data science?
@@ -112,11 +104,16 @@
    Why Data Science?
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../intro/tools_techniques.html">
    Tools and techniques
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../intro/computational-tools.html">
      Computational Tools
@@ -128,14 +125,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../intro/text-is-data.html">
    Text is data
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../intro/Plotting_the_Classics.html">
      Plotting the classics
@@ -152,8 +152,6 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/surviving_computers.html">
@@ -176,12 +174,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   On code
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/to_code.html">
    Ode to code
@@ -228,12 +226,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data types
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/data_types.html">
    Types of things
@@ -270,12 +268,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Arrays
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays/Arrays.html">
    Arrays
@@ -317,12 +315,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Iteration
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../iteration/iteration.html">
    Iteration
@@ -344,12 +342,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data frames
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/boolean_indexing.html">
    Indexing with Boolean arrays
@@ -381,12 +379,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Population and permutation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/permutation.html">
    Populations and permutations
@@ -413,12 +411,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   More building blocks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
    More building blocks
@@ -450,12 +448,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Pandas, indices and labels
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../wild-pandas/pandas_indexing.html">
    Indexing in Pandas
@@ -482,12 +480,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   The mean and straight lines
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../mean-slopes/mean.html">
    The mean
@@ -549,12 +547,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Classification
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="classification.html">
    Classification
@@ -596,12 +594,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Useful pandas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../useful-pandas/crosstab.html">
    Cross-tabulation
@@ -618,24 +616,24 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   More on regression
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../more-regression/logistic_regression.html">
    Logistic regression
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Confidence
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../confidence/confidence.html">
    On confidence
@@ -697,12 +695,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   The end of the beginning
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../end/end_of_beginning.html">
    The end of the beginning
@@ -710,6 +708,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -725,21 +724,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -757,7 +756,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -777,14 +776,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -806,16 +805,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#back-to-simple-regression">
    Back to simple regression
@@ -848,8 +847,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -857,7 +856,7 @@
         
               <div>
                 
-  <div class="section" id="simple-and-multiple-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="simple-and-multiple-regression">
 <h1>Simple and multiple regression<a class="headerlink" href="#simple-and-multiple-regression" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -1401,6 +1400,17 @@ models as “ordinary least squares” (OLS).</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">m6</span><span class="o">/</span><span class="mi">6</span><span class="n">wv1nw2s1gj5f3b5zj8pmgmr0000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_63930</span><span class="o">/</span><span class="mf">1916776351.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get the Pandas interface to the StatsModels routines.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;statsmodels&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next we specify our model using a <em>formula</em>.  Read the <code class="docutils literal notranslate"><span class="pre">~</span></code> in the formula below
 as “as a function of”.  So the formula specifies a linear (straight-line) model
@@ -1420,62 +1430,6 @@ predicting <code class="docutils literal notranslate"><span class="pre">Creatini
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table class="simpletable">
-<caption>OLS Regression Results</caption>
-<tr>
-  <th>Dep. Variable:</th>       <td>Creatinine</td>    <th>  R-squared:         </th> <td>   0.716</td>
-</tr>
-<tr>
-  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.709</td>
-</tr>
-<tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   103.1</td>
-</tr>
-<tr>
-  <th>Date:</th>             <td>Sat, 17 Jul 2021</td> <th>  Prob (F-statistic):</th> <td>9.33e-13</td>
-</tr>
-<tr>
-  <th>Time:</th>                 <td>13:09:00</td>     <th>  Log-Likelihood:    </th> <td> -95.343</td>
-</tr>
-<tr>
-  <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   194.7</td>
-</tr>
-<tr>
-  <th>Df Residuals:</th>          <td>    41</td>      <th>  BIC:               </th> <td>   198.2</td>
-</tr>
-<tr>
-  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
-</tr>
-<tr>
-  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
-</tr>
-<tr>
-  <th>Intercept</th> <td>   -0.0849</td> <td>    0.668</td> <td>   -0.127</td> <td> 0.899</td> <td>   -1.434</td> <td>    1.264</td>
-</tr>
-<tr>
-  <th>Urea</th>      <td>    0.0552</td> <td>    0.005</td> <td>   10.155</td> <td> 0.000</td> <td>    0.044</td> <td>    0.066</td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-  <th>Omnibus:</th>       <td> 2.409</td> <th>  Durbin-Watson:     </th> <td>   1.303</td>
-</tr>
-<tr>
-  <th>Prob(Omnibus):</th> <td> 0.300</td> <th>  Jarque-Bera (JB):  </th> <td>   1.814</td>
-</tr>
-<tr>
-  <th>Skew:</th>          <td> 0.503</td> <th>  Prob(JB):          </th> <td>   0.404</td>
-</tr>
-<tr>
-  <th>Kurtosis:</th>      <td> 3.043</td> <th>  Cond. No.          </th> <td>    236.</td>
-</tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">coeff</span></code> column towards the bottom of this output.  Sure enough,
 StatsModels is doing the same calculation as <code class="docutils literal notranslate"><span class="pre">linregress</span></code>, and getting the same
@@ -1503,16 +1457,6 @@ have found for <code class="docutils literal notranslate"><span class="pre">Urea
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.791367
-1    1.374034
-2   -0.529600
-3   -0.786855
-4   -4.190880
-dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can also call these errors <em>residuals</em> in the sense they are the error
 <em>remaining</em> after removing the (straight-line) effect of <code class="docutils literal notranslate"><span class="pre">Urea</span></code>.</p>
@@ -1532,11 +1476,6 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.2218544954108195
-</pre></div>
-</div>
-</div>
 </div>
 <p>Now we want to see if we can predict these residuals with the <code class="docutils literal notranslate"><span class="pre">Hemoglobin</span></code>
 values.  Let’s use these residuals as our new y values, and fit a predicting
@@ -1548,12 +1487,6 @@ line using <code class="docutils literal notranslate"><span class="pre">Hemoglob
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x13f601b50&gt;
-</pre></div>
-</div>
-<img alt="../_images/single_multiple_41_1.png" src="../_images/single_multiple_41_1.png" />
-</div>
 </div>
 <p>Then fit a line:</p>
 <div class="cell docutils container">
@@ -1562,21 +1495,6 @@ line using <code class="docutils literal notranslate"><span class="pre">Hemoglob
                         <span class="n">initial_guess</span><span class="p">,</span>
                         <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">ckdp</span><span class="p">[</span><span class="s1">&#39;Hemoglobin&#39;</span><span class="p">],</span> <span class="n">residuals</span><span class="p">))</span>
 <span class="n">min_rmse_hgb</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2175367410277436
- hess_inv: array([[48.15029196, -4.70191806],
-       [-4.70191806,  0.48130848]])
-      jac: array([0., 0.])
-  message: &#39;Optimization terminated successfully.&#39;
-     nfev: 30
-      nit: 7
-     njev: 10
-   status: 0
-  success: True
-        x: array([ 0.63010369, -0.06449526])
 </pre></div>
 </div>
 </div>
@@ -1640,11 +1558,6 @@ for <code class="docutils literal notranslate"><span class="pre">Urea</span></co
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.28908245609285
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1670,22 +1583,6 @@ root mean square error (and the sum of squared error):</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_css</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_for_params</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">min_css</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023695943
- hess_inv: array([[105.03032804,  -0.21512878,  -8.22254556],
-       [ -0.21512878,   0.00079935,   0.01341336],
-       [ -8.22254556,   0.01341336,   0.69895248]])
-      jac: array([ 0.        , -0.00000039, -0.00000003])
-  message: &#39;Optimization terminated successfully.&#39;
-     nfev: 80
-      nit: 14
-     njev: 20
-   status: 0
-  success: True
-        x: array([ 1.02389338,  0.05345681, -0.09432169])
 </pre></div>
 </div>
 </div>
@@ -1715,11 +1612,6 @@ above.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.28908245609285
-</pre></div>
-</div>
-</div>
 </div>
 <p>Here we use the <code class="docutils literal notranslate"><span class="pre">rmse_fast</span></code> function with our specific data.</p>
 <div class="cell docutils container">
@@ -1742,22 +1634,6 @@ intercept and two slopes.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_res_fast</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">rmse_for_params_fast</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">min_res_fast</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 2.2155372023700126
- hess_inv: array([[104.12647406,  -0.2093455 ,  -8.18721274],
-       [ -0.2093455 ,   0.00077243,   0.01318249],
-       [ -8.18721274,   0.01318249,   0.69692729]])
-      jac: array([ 0.00000003, -0.00000069,  0.00000006])
-  message: &#39;Optimization terminated successfully.&#39;
-     nfev: 84
-      nit: 16
-     njev: 21
-   status: 0
-  success: True
-        x: array([ 1.02389636,  0.0534568 , -0.09432192])
 </pre></div>
 </div>
 </div>
@@ -1788,11 +1664,6 @@ slopes and an intercept.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.02388056,  0.05345685, -0.09432084])
-</pre></div>
-</div>
-</div>
 </div>
 <p>Finally, let’s see StatsModels in action, to do the same calculation.</p>
 <p>Here we specify that we want to fit a linear model to <code class="docutils literal notranslate"><span class="pre">Creatinine</span></code> <em>as a
@@ -1807,65 +1678,6 @@ and the <code class="docutils literal notranslate"><span class="pre">Hemoglobin<
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table class="simpletable">
-<caption>OLS Regression Results</caption>
-<tr>
-  <th>Dep. Variable:</th>       <td>Creatinine</td>    <th>  R-squared:         </th> <td>   0.717</td>
-</tr>
-<tr>
-  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.703</td>
-</tr>
-<tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   50.70</td>
-</tr>
-<tr>
-  <th>Date:</th>             <td>Sat, 17 Jul 2021</td> <th>  Prob (F-statistic):</th> <td>1.08e-11</td>
-</tr>
-<tr>
-  <th>Time:</th>                 <td>13:09:01</td>     <th>  Log-Likelihood:    </th> <td> -95.221</td>
-</tr>
-<tr>
-  <th>No. Observations:</th>      <td>    43</td>      <th>  AIC:               </th> <td>   196.4</td>
-</tr>
-<tr>
-  <th>Df Residuals:</th>          <td>    40</td>      <th>  BIC:               </th> <td>   201.7</td>
-</tr>
-<tr>
-  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td>   
-</tr>
-<tr>
-  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-       <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
-</tr>
-<tr>
-  <th>Intercept</th>  <td>    1.0239</td> <td>    2.416</td> <td>    0.424</td> <td> 0.674</td> <td>   -3.859</td> <td>    5.907</td>
-</tr>
-<tr>
-  <th>Urea</th>       <td>    0.0535</td> <td>    0.007</td> <td>    8.049</td> <td> 0.000</td> <td>    0.040</td> <td>    0.067</td>
-</tr>
-<tr>
-  <th>Hemoglobin</th> <td>   -0.0943</td> <td>    0.197</td> <td>   -0.478</td> <td> 0.635</td> <td>   -0.493</td> <td>    0.305</td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-  <th>Omnibus:</th>       <td> 1.746</td> <th>  Durbin-Watson:     </th> <td>   1.246</td>
-</tr>
-<tr>
-  <th>Prob(Omnibus):</th> <td> 0.418</td> <th>  Jarque-Bera (JB):  </th> <td>   1.326</td>
-</tr>
-<tr>
-  <th>Skew:</th>          <td> 0.430</td> <th>  Prob(JB):          </th> <td>   0.515</td>
-</tr>
-<tr>
-  <th>Kurtosis:</th>      <td> 2.960</td> <th>  Cond. No.          </th> <td>    851.</td>
-</tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 <p>Notice again that StatsModels is doing the same calculation as above, and
 finding the same result as <code class="docutils literal notranslate"><span class="pre">minimize</span></code>.</p>
@@ -1930,9 +1742,6 @@ this plane around until it has minimized the error.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/single_multiple_69_0.png" src="../_images/single_multiple_69_0.png" />
-</div>
 </div>
 </div>
 </div>
@@ -1959,23 +1768,43 @@ this plane around until it has minimized the error.</p>
 
               </div>
               
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Multiple_Regression.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Multiple regression</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../useful-pandas/crosstab.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Cross-tabulation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="Multiple_Regression.html" title="previous page">Multiple regression</a>
-    <a class='right-next' id="next-link" href="../useful-pandas/crosstab.html" title="next page">Cross-tabulation</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1984,11 +1813,9 @@ this plane around until it has minimized the error.</p>
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>

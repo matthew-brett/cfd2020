@@ -13,7 +13,7 @@ In our problem, we have $n$ $x$ values ${x_1, x_2, ..., x_n}$, that we want to
 use to predict $n$ corresponding $y$ values ${y_1, y_2, ..., y_n}$.  For
 example, in terms of the mean and slopes page, we have 158 hemoglobin
 concentration values, so $n = 158$ and we can write our hemoglobin values as
-${y_1, y_2, ..., y_{158}}$.  We have 158 packed cell volume values, and we can
+${x_1, x_2, ..., x_{158}}$.  We have 158 packed cell volume values, and we can
 write these as ${y_1, y_2, ..., y_{158}}$.
 
 We decide we will use a straight line going through the origin to predict

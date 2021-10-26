@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiple regression &#8212; Coding for Data - 2020 edition</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe,.cell"
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
@@ -58,23 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simple and multiple regression" href="single_multiple.html" />
     <link rel="prev" title="Accuracy of the classifier" href="Accuracy_of_the_Classifier.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://matthew-brett.github.io/cfd2020/classification/Multiple_Regression.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Multiple regression" />
-<meta property="og:description" content="Multiple regression  Note  This page has content from the Multiple_Regression notebook of an older version of the UC Berkeley data science course. See the Berke" />
-<meta property="og:image"       content="https://matthew-brett.github.io/cfd2020/_static/dsfe_logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -83,25 +71,29 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/dsfe_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Coding for Data - 2020 edition</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
  <span class="caption-text">
   Coding for data
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/what-is-data-science.html">
    What is data science?
@@ -112,11 +104,16 @@
    Why Data Science?
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../intro/tools_techniques.html">
    Tools and techniques
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../intro/computational-tools.html">
      Computational Tools
@@ -128,14 +125,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../intro/text-is-data.html">
    Text is data
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../intro/Plotting_the_Classics.html">
      Plotting the classics
@@ -152,8 +152,6 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../intro/surviving_computers.html">
@@ -176,12 +174,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   On code
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../code-basics/to_code.html">
    Ode to code
@@ -228,12 +226,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data types
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../data-types/data_types.html">
    Types of things
@@ -270,12 +268,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Arrays
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../arrays/Arrays.html">
    Arrays
@@ -317,12 +315,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Iteration
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../iteration/iteration.html">
    Iteration
@@ -344,12 +342,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Data frames
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../data-frames/boolean_indexing.html">
    Indexing with Boolean arrays
@@ -381,12 +379,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Population and permutation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../permutation/permutation.html">
    Populations and permutations
@@ -413,12 +411,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   More building blocks
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../functions-conditionals/more_building_blocks.html">
    More building blocks
@@ -450,12 +448,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Pandas, indices and labels
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../wild-pandas/pandas_indexing.html">
    Indexing in Pandas
@@ -482,12 +480,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   The mean and straight lines
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../mean-slopes/mean.html">
    The mean
@@ -549,12 +547,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Classification
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="classification.html">
    Classification
@@ -596,12 +594,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Useful pandas
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../useful-pandas/crosstab.html">
    Cross-tabulation
@@ -618,24 +616,24 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   More on regression
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../more-regression/logistic_regression.html">
    Logistic regression
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   Confidence
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../confidence/confidence.html">
    On confidence
@@ -697,12 +695,12 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption" role="heading">
  <span class="caption-text">
   The end of the beginning
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../end/end_of_beginning.html">
    The end of the beginning
@@ -710,6 +708,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -725,21 +724,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -757,7 +756,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -777,14 +776,14 @@
     </div>
 </div>
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -806,16 +805,16 @@
     </div>
 </div>
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#home-prices">
    Home Prices
@@ -853,8 +852,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -862,7 +861,7 @@
         
               <div>
                 
-  <div class="section" id="multiple-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="multiple-regression">
 <h1>Multiple regression<a class="headerlink" href="#multiple-regression" title="Permalink to this headline">¶</a></h1>
 <p><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1224,19 +1223,19 @@ Correlation of Yr Sold and SalePrice:	0.026
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF        952.0
-2nd Flr SF          0.0
-Total Bsmt SF     952.0
-Garage Area       192.0
-Wood Deck SF        0.0
-Open Porch SF      98.0
-Lot Area         8854.0
-Year Built       1916.0
-Yr Sold          2009.0
-Name: 732, dtype: float64
-Using slopes: [10.74160579  9.63526408  9.5978328   9.53104667  9.08141801 10.55969
-  8.31586012 11.16498855  9.8014078 ]
-Result: 136939.72797825426
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting sale price for: 1st Flr SF         796.0
+2nd Flr SF         566.0
+Total Bsmt SF      796.0
+Garage Area        480.0
+Wood Deck SF        40.0
+Open Porch SF       30.0
+Lot Area         14115.0
+Year Built        1993.0
+Yr Sold           2009.0
+Name: 985, dtype: float64
+Using slopes: [ 9.43128276  9.51800586 10.5278718  10.73335177 11.35814118 10.49046032
+ 10.97132829 11.74711533  9.46146923]
+Result: 224476.1180156091
 </pre></div>
 </div>
 </div>
@@ -1250,8 +1249,8 @@ Result: 136939.72797825426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 121000
-Predicted sale price using random slopes: 136939.72797825426
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 143000
+Predicted sale price using random slopes: 224476.1180156091
 </pre></div>
 </div>
 </div>
@@ -1281,10 +1280,7 @@ Predicted sale price using random slopes: 136939.72797825426
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 73071.9762728512
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using random slopes: 110132.23350347752
 </pre></div>
 </div>
 </div>
@@ -1312,7 +1308,7 @@ Don’t worry about the details, unless you are interested.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 73071.9762728512
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fast RMSE of all training examples using random slopes: 110132.23350347752
 </pre></div>
 </div>
 </div>
@@ -1335,45 +1331,45 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 30982.939609292087
- hess_inv: array([[  0.54121305,   0.02976163,  -0.37115184,  -0.13446361,
-          0.56580085,  -0.13316867,  -0.00504632,   0.10668124,
-         -0.19159765],
-       [  0.02976163,   0.25125896,   0.09192597,  -0.06424333,
-         -0.20682506,  -0.49474468,  -0.00120514,  -0.2397763 ,
-          0.16885419],
-       [ -0.37115184,   0.09192597,   0.62332507,  -0.00442508,
-         -0.59925278,  -0.38108976,   0.00011757,  -1.14118598,
-          1.02948821],
-       [ -0.13446361,  -0.06424333,  -0.00442508,   1.52479185,
-         -1.18512425,  -0.17959888,   0.00082924,  -3.18358563,
-          2.91174816],
-       [  0.56580085,  -0.20682506,  -0.59925278,  -1.18512425,
-          1.76002886,   0.93973068,   0.00060801,   2.41630094,
-         -2.18559984],
-       [ -0.13316867,  -0.49474468,  -0.38108976,  -0.17959888,
-          0.93973068,   9.59043197,  -0.00083808,  -1.40451096,
-          1.5210901 ],
-       [ -0.00504632,  -0.00120514,   0.00011757,   0.00082924,
-          0.00060801,  -0.00083808,   0.00075971,  -0.00076667,
-         -0.00034294],
-       [  0.10668124,  -0.2397763 ,  -1.14118598,  -3.18358563,
-          2.41630094,  -1.40451096,  -0.00076667,  45.41551527,
-        -43.26651041],
-       [ -0.19159765,   0.16885419,   1.02948821,   2.91174816,
-         -2.18559984,   1.5210901 ,  -0.00034294, -43.26651041,
-         41.34238168]])
-      jac: array([ 0.        , -0.00024414, -0.00024414, -0.00024414,  0.        ,
-        0.        ,  0.        ,  0.        ,  0.        ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 33070.9448513162
+ hess_inv: array([[  0.56923042,   0.05426081,  -0.31145685,   0.15297827,
+          0.03708342,  -0.43079214,  -0.00035672,  -0.42307545,
+          0.22011205],
+       [  0.05426081,   0.32024159,   0.13994603,  -1.02072808,
+          0.66073982,   0.06899259,  -0.00930569,   1.23690621,
+         -1.12092852],
+       [ -0.31145685,   0.13994603,   0.57438932,  -1.25303093,
+          0.44482153,   0.48453451,  -0.01068535,   1.35060212,
+         -1.15915723],
+       [  0.15297827,  -1.02072808,  -1.25303093,  10.78728277,
+         -7.70479444,  -5.18053895,   0.09582183, -11.96359016,
+          9.97856264],
+       [  0.03708342,   0.66073982,   0.44482153,  -7.70479444,
+          6.72367899,   4.1849127 ,  -0.07723128,   9.39814314,
+         -7.82924404],
+       [ -0.43079214,   0.06899259,   0.48453451,  -5.18053895,
+          4.1849127 ,  11.25856479,  -0.04800941,   5.8182655 ,
+         -4.73844411],
+       [ -0.00035672,  -0.00930569,  -0.01068535,   0.09582183,
+         -0.07723128,  -0.04800941,   0.00133806,  -0.11640824,
+          0.09722241],
+       [ -0.42307545,   1.23690621,   1.35060212, -11.96359016,
+          9.39814314,   5.8182655 ,  -0.11640824,  14.36948983,
+        -11.98566336],
+       [  0.22011205,  -1.12092852,  -1.15915723,   9.97856264,
+         -7.82924404,  -4.73844411,   0.09722241, -11.98566336,
+         10.10933981]])
+      jac: array([ 0.        ,  0.        ,  0.00048828,  0.        ,  0.00048828,
+        0.        , -0.00048828,  0.        ,  0.        ])
   message: &#39;Desired error not necessarily achieved due to precision loss.&#39;
-     nfev: 330
-      nit: 24
-     njev: 33
+     nfev: 350
+      nit: 25
+     njev: 35
    status: 2
   success: False
-        x: array([  78.43797544,   77.87115104,   43.68543379,   53.89780708,
-         43.43006585,   39.75252468,    0.55304075,  493.95822028,
-       -493.65746422])
+        x: array([  83.37429378,   81.19134044,   50.66399518,   40.9731304 ,
+         50.20777083,   20.5178237 ,    0.55970976,  492.73988689,
+       -496.67875404])
 </pre></div>
 </div>
 </div>
@@ -1389,7 +1385,9 @@ RMSE. Computation of the best slopes may take several minutes.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The best slopes for the training set:
-RMSE of all training examples using the best slopes: 30982.939609292087
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of all training examples using the best slopes: 33070.9448513162
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1424,15 +1422,15 @@ RMSE of all training examples using the best slopes: 30982.939609292087
   <tbody>
     <tr>
       <th>0</th>
-      <td>78.437975</td>
-      <td>77.871151</td>
-      <td>43.685434</td>
-      <td>53.897807</td>
-      <td>43.430066</td>
-      <td>39.752525</td>
-      <td>0.553041</td>
-      <td>493.95822</td>
-      <td>-493.657464</td>
+      <td>83.374294</td>
+      <td>81.19134</td>
+      <td>50.663995</td>
+      <td>40.97313</td>
+      <td>50.207771</td>
+      <td>20.517824</td>
+      <td>0.55971</td>
+      <td>492.739887</td>
+      <td>-496.678754</td>
     </tr>
   </tbody>
 </table>
@@ -1465,7 +1463,7 @@ other samples from the same population.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 31365.76328738116
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression: 29462.623427731818
 </pre></div>
 </div>
 </div>
@@ -1548,31 +1546,31 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>719</th>
-      <td>168000</td>
-      <td>916</td>
-      <td>826</td>
-      <td>916.0</td>
-      <td>424.0</td>
-      <td>1882</td>
-    </tr>
-    <tr>
-      <th>2801</th>
-      <td>216837</td>
-      <td>1836</td>
+      <th>1212</th>
+      <td>179900</td>
+      <td>1265</td>
       <td>0</td>
-      <td>1860.0</td>
-      <td>484.0</td>
-      <td>2004</td>
+      <td>1219.0</td>
+      <td>502.0</td>
+      <td>1965</td>
     </tr>
     <tr>
-      <th>2014</th>
-      <td>132000</td>
-      <td>899</td>
-      <td>423</td>
-      <td>672.0</td>
-      <td>280.0</td>
-      <td>1939</td>
+      <th>1557</th>
+      <td>81000</td>
+      <td>894</td>
+      <td>0</td>
+      <td>894.0</td>
+      <td>1248.0</td>
+      <td>1935</td>
+    </tr>
+    <tr>
+      <th>2489</th>
+      <td>151000</td>
+      <td>1212</td>
+      <td>0</td>
+      <td>506.0</td>
+      <td>492.0</td>
+      <td>1977</td>
     </tr>
   </tbody>
 </table>
@@ -1640,54 +1638,54 @@ of the graph.</p>
   </thead>
   <tbody>
     <tr>
-      <th>2020</th>
-      <td>102000</td>
-      <td>986</td>
-      <td>0</td>
-      <td>960.0</td>
-      <td>180.0</td>
-      <td>1926</td>
-      <td>38.262253</td>
+      <th>2034</th>
+      <td>141000</td>
+      <td>780</td>
+      <td>595</td>
+      <td>780.0</td>
+      <td>544.0</td>
+      <td>1937</td>
+      <td>92.655275</td>
     </tr>
     <tr>
-      <th>1935</th>
-      <td>127000</td>
-      <td>925</td>
-      <td>0</td>
-      <td>925.0</td>
-      <td>252.0</td>
-      <td>1956</td>
-      <td>81.596569</td>
+      <th>2013</th>
+      <td>126000</td>
+      <td>861</td>
+      <td>548</td>
+      <td>861.0</td>
+      <td>528.0</td>
+      <td>1938</td>
+      <td>118.756052</td>
     </tr>
     <tr>
-      <th>738</th>
-      <td>119000</td>
-      <td>904</td>
-      <td>0</td>
-      <td>884.0</td>
-      <td>180.0</td>
-      <td>1926</td>
-      <td>84.687661</td>
+      <th>685</th>
+      <td>133500</td>
+      <td>832</td>
+      <td>629</td>
+      <td>832.0</td>
+      <td>384.0</td>
+      <td>1949</td>
+      <td>133.090195</td>
     </tr>
     <tr>
-      <th>1206</th>
-      <td>135750</td>
-      <td>952</td>
-      <td>0</td>
-      <td>952.0</td>
-      <td>283.0</td>
-      <td>1956</td>
-      <td>99.403219</td>
+      <th>584</th>
+      <td>162000</td>
+      <td>735</td>
+      <td>660</td>
+      <td>723.0</td>
+      <td>497.0</td>
+      <td>1972</td>
+      <td>136.440463</td>
     </tr>
     <tr>
-      <th>1976</th>
-      <td>89500</td>
-      <td>1022</td>
-      <td>0</td>
-      <td>1022.0</td>
-      <td>184.0</td>
-      <td>1922</td>
-      <td>99.498744</td>
+      <th>2179</th>
+      <td>171500</td>
+      <td>734</td>
+      <td>674</td>
+      <td>734.0</td>
+      <td>489.0</td>
+      <td>2005</td>
+      <td>139.917833</td>
     </tr>
   </tbody>
 </table>
@@ -1707,7 +1705,7 @@ of the graph.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114650.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>146800.0
 </pre></div>
 </div>
 </div>
@@ -1722,8 +1720,8 @@ for our one test example. Looks reasonable!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 121000
-Predicted sale price using nearest neighbors: 114650.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Actual sale price: 143000
+Predicted sale price using nearest neighbors: 146800.0
 </pre></div>
 </div>
 </div>
@@ -1746,8 +1744,8 @@ the predictions. Computation of the predictions may take several minutes.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  31365.76328738116
-Test set RMSE for nearest neighbor regression: 33591.1387536147
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test set RMSE for multiple linear regression:  29462.623427731818
+Test set RMSE for nearest neighbor regression: 29171.770661822604
 </pre></div>
 </div>
 </div>
@@ -1804,23 +1802,43 @@ indicating that fewer prices were predicted with very high accuracy.</p>
 
               </div>
               
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Accuracy_of_the_Classifier.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Accuracy of the classifier</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="single_multiple.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Simple and multiple regression</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='left-prev' id="prev-link" href="Accuracy_of_the_Classifier.html" title="previous page">Accuracy of the classifier</a>
-    <a class='right-next' id="next-link" href="single_multiple.html" title="next page">Simple and multiple regression</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Matthew Brett, Ani Adhikari, John Denero, David Wagner<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -1829,11 +1847,9 @@ indicating that fewer prices were predicted with very high accuracy.</p>
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
+  
   </body>
 </html>
