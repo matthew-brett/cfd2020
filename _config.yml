@@ -39,7 +39,7 @@ launch_buttons:
 
 sphinx:
   config:
-    mathjax_config:
+    mathjax3_config:
       TeX:
         Macros:
           "N": "\\mathbb{N}"
