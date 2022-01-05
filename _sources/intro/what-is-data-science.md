@@ -57,7 +57,7 @@ of the National Academies of Science Engineering and Medicine recommended that:
 ## The origins of data science
 
 The phrase "data science" has been around for a long time
-{cite} `press2013history`
+{cite}`press2013history`
 but we argue that the term in its current use is very
 recent.  As it is currently used, the phrase "data science" comes from the job
 title "data scientist", and the job title came from the tech industry.  D.J.
